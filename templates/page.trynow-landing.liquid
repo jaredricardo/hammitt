@@ -1,0 +1,212 @@
+{% assign help_center = linklists.help-center.links | map: 'object' | map: 'handle' | join: ' ' %}
+{% if page.handle == 'stockistsz' or page.id == 22549626989z %}
+	{% section 'page-stockists' %}
+{% elsif page.handle == 'rewards' or page.id == 26641465426 %}
+	{% section 'page-rewards' %}
+{% elsif page.handle == 'signup' or page.id == 43171381366 %}
+	{% section 'page-signup' %}
+{% elsif page.handle == 'why-hammitt' %}
+	{% section 'page-why-hammitt' %}
+{% elsif page.handle == 'giving-back' %}
+	{% section 'page-giving-back' %}
+{% elsif page.handle == 'size-guide-vip' %}
+    {% section 'size-guide-vip' %}
+{% elsif page.handle == 'size-guide-tony' %}
+    {% section 'size-guide-tony' %}
+{% elsif page.handle == 'size-guide-nash' %}
+    {% section 'size-guide-nash' %}
+{% elsif page.handle == 'size-guide-montana' %}
+    {% section 'size-guide-montana' %}
+{% elsif page.handle == 'south-coast-plaza' or page.id == 43233116278 %}
+    {% section 'south-coast-plaza' %}
+{% elsif page.handle == 'splendid-and-hammitt-email-sweeps' %}
+    {% section 'page-splendid-sweeps' %}
+{% else %}
+{% assign thin_pages = 'wholesale' %}
+<div>
+  <!--   {% section 'hero' %} -->
+  <div class="lp-background">
+    <div class="lp-fix-text">
+      <h1>TRY OUR <br>BEST SELLERS</h1>
+      <h2>From the comfort of home</h2>
+      <a href="/collections/try-now">
+        <span>TRY FOR FREE - $0</span>
+      </a> 
+    </div>
+    <svg class="svg-angle lp-background-triangle " width="100%" height="50" viewBox="0 0 1439.89 48.85" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path fill="#f4ded6" d="M0,0V48.85H1439.89Z" fill-rule="evenodd"></path></svg>
+  </div>
+  
+  
+  <div class="lp-how-it-works-section">
+    <div class="lp-hiw-title">
+      HOW IT WORKS
+    </div>
+    
+    <div class="lp-hiw-steps lp-hiw-steps-slider">
+      <div class="lp-hiw-step">
+        <span class="lp-hiw-image">
+        	<img class="lp-tn-image" src="{{'try-at-home.svg' | asset_url | split: '?' | first }}">
+        </span>
+        <span class="lp-hiw-step-title">Check out</span>
+        <span class="lp-hiw-text">You will not be charged. We'll simply authorize your card.</span>
+      </div>
+      <div class="lp-hiw-step">
+        <span class="lp-hiw-image">
+        	<img class="lp-tn-image" src="{{'pay-for-what-you-keep.svg' | asset_url | split: '?' | first }}">
+        </span>
+        <span class="lp-hiw-step-title">Try at home</span>
+        <span class="lp-hiw-text">Take 7 days after delivery to decide what you'd like to keep.</span>
+      </div>
+      <div class="lp-hiw-step">
+        <span class="lp-hiw-image">
+        	<img class="lp-tn-image" src="{{'easy-returns.svg' | asset_url | split: '?' | first }}">
+        </span>
+        <span class="lp-hiw-step-title">Pay later</span>
+        <span class="lp-hiw-text">Keep what you love. Send what you don’t want back with easy returns.</span>
+      </div>
+    </div>
+    
+    <div class="lp-hiw-steps lp-hiw-steps-non-slider">
+      <div class="lp-hiw-step">
+        <span class="lp-hiw-image">
+        	<img class="lp-tn-image" src="{{'try-at-home.svg' | asset_url | split: '?' | first }}">
+        </span>
+        <span class="lp-hiw-step-title">Check out</span>
+        <span class="lp-hiw-text">You will not be charged. We'll simply authorize your card.</span>
+      </div>
+      <div class="lp-hiw-step">
+        <span class="lp-hiw-image">
+        	<img class="lp-tn-image" src="{{'pay-for-what-you-keep.svg' | asset_url | split: '?' | first }}">
+        </span>
+        <span class="lp-hiw-step-title">Try at home</span>
+        <span class="lp-hiw-text">Take 7 days after delivery to decide what you'd like to keep.</span>
+      </div>
+      <div class="lp-hiw-step">
+        <span class="lp-hiw-image">
+        	<img class="lp-tn-image" src="{{'easy-returns.svg' | asset_url | split: '?' | first }}">
+        </span>
+        <span class="lp-hiw-step-title">Pay later</span>
+        <span class="lp-hiw-text">Keep what you love. Send what you don’t want back with easy returns.</span>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  
+  <style>
+      #try-now-page--best-sellers {
+          background-color: #FFFFFF;
+          color: #000000;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          
+          padding-left: 10%;
+      	  padding-right: 10%;
+      }
+      #try-now-page--best-sellers > h1 {
+          text-align: center;
+          text-transform: uppercase;
+      }
+      .try-now-slider {
+          width: 100%;
+          margin-top: 30px;
+          margin-bottom: 30px;
+      }
+      .slick-slide {
+          margin: 0 5px;
+      }
+      .try-now-slide-image {
+          margin: 0 auto;
+          width: 100%;
+      }
+      .try-now-page--carousel {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+      }
+      .arrow-wrapper {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: absolute;
+      }
+      .arrow-wrapper--arrow {
+          cursor: pointer;
+          z-index: 2;
+          padding: 40px 5px;
+      }
+      .try-now-page--button{
+    	  background-color: #000;
+          color: white;
+          padding: 12px 60px;
+          text-decoration: none;
+      }
+      .try-now-page--button:hover{
+          background-color: #404040;
+          color: white !important;
+      }
+      .try-now-page--title{
+          font-style: normal;
+          font-weight: bold;
+          font-size: 2.13333em;
+          font-family: "sof",sans-serif;
+          text-align: center;
+      }
+  </style>
+
+  {% assign bestSellers = collections["try-now"].products %}
+  {% assign trynowCollectionUrl = "/collections/try-now/" %}
+  {% assign counter = 0 %}
+  <div class="try-now-page--title">TRY HAMMITT AT HOME</div>
+  <div id="try-now-page--best-sellers" class="trynow-page">
+      <div class="try-now-page--carousel">
+          <div class="try-now-slider">
+              {% for product in bestSellers %}
+                <a href="{{ trynowCollectionUrl | append: product.url }}"><img class="try-now-slide-image" src="{{ product.featured_image | img_url: '333x' }}" alt="{{ product.title }}"></a>
+              {% endfor %}
+          </div>
+      </div>
+      <a class="try-now-page--button" href="{{ trynowCollectionUrl }}">TRY FOR FREE - $0</a>
+  </div>
+
+  <br>
+  <br>
+  
+  <div class="lp-faqs-section">
+    <div class="lp-faqs-title">
+      FAQ
+    </div>
+    <div class="lp-faqs">
+      <button class="lp-accordion">How does the Try For Free Program work?<span class="faq-icon">+</span></button>
+      <div class="lp-panel">
+        <p class="lp-faq-content">Your 7-day trial begins when your items are delivered. We’ll authorize your card at checkout - which does set aside funds for the full amount of the order - but you won’t be charged until after the end of your trial. </p>
+        <p class="lp-faq-content">Don’t love it? Send any items you don’t want back. From there, the authorization on your account will be released within a few business days (bank processing time), and you’ll only be charged for what you keep.</p>
+      </div>
+      <button class="lp-accordion">When does my trial begin?<span class="faq-icon">+</span></button>
+      <div class="lp-panel">
+        <p class="lp-faq-content">We track when the package was delivered to your house, which starts the trial period. You have until the end of your trial period to postmark returns.</p>
+      </div>
+      <button class="lp-accordion">How do I return my items?<span class="faq-icon">+</span></button>
+      <div class="lp-panel">
+        <p class="lp-faq-content">We provide an ample amount of time for any returns to arrive at our warehouse before charging your card. Once the items are returned, we inspect and update your order status so you will not be charged.</p>
+        <p class="lp-faq-content">Be sure to review the <a class="lp-return-policy-link" href="https://www.hammitt.com/pages/returns-exchanges">return policy</a> for item condition requirements. If we determine items are not in resellable condition, you will be charged. </p>
+      </div>
+      <button class="lp-accordion">The Hammitt Promise<span class="faq-icon">+</span></button>
+      <div class="lp-panel">
+        <p class="lp-faq-content">Our lifetime promise covers Hammitt’s signature red suede lining, plus hardware like zippers, rivets, D-Rings and strap clasps. We make our bags to last, but if anything needs TLC, our care team will help - free of charge.</p>
+      </div>
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  
+  {% section 'foursixty' %}
+
+</div>
+{% endif %}

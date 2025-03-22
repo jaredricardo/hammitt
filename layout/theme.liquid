@@ -40,7 +40,7 @@
 {%- endif -%}
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>
+  <head>{% render 'spdn' %}
 <!-- Start of Shoplift scripts -->
 {% render 'shoplift' %}
 <!-- End of Shoplift scripts -->
@@ -52,6 +52,11 @@
 
     {% comment %}  {% endcomment %}
     
+    <script>
+      console.log('/////////')
+      console.log({{ cart | json }})
+      console.log({{ cart.attributes['Gift Note'] | json }})
+    </script>
     <!-- Global site tag (gtag.js) - Google Ads: AW-965460943 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-965460943" defer></script>
     <script>
@@ -61,9 +66,6 @@
 
       gtag('config', 'AW-965460943', {'allow_enhanced_conversions': true});
     </script>
-
-    {% render 'swym-custom-javascript' %}
-
     <link rel="preload" href="{{ 'SofiaProLight.woff2' | asset_url   }}" as="font" type="font/woff2" crossorigin="anonymous" >
     <link rel="preload" href="{{ 'SofiaProLight.woff' | asset_url   }}" as="font" type="font/woff" crossorigin="anonymous" >
     <link rel="preload" href="{{ 'SofiaProMedium.woff2' | asset_url   }}" as="font" type="font/woff2" crossorigin="anonymous">
@@ -318,10 +320,6 @@
     {% endstyle %}
 
 <style>  
-    /* temporaily hiding hearts on product rec cards until the product recomendation bug for swym wishlist is fixed. For some reason they dont trigger swym's functions on click */
-    body main product-recommendations button.swym-add-to-wishlist-view-product.hammitt-custom {
-      display: none !important;
-    }
   .rich-text--full-width .rich-text__blocks {
     width: calc(100% - 8rem / var(--font-body-scale));
   }
@@ -794,14 +792,6 @@ template-{{ template.name -}}
     };
     </script>
     <img width="1" height="1" src="//action.dstillery.com/orbserv/nspix?adv=cl171899756252500&ns=8682&nc=Hammitt-Site-Visitor&ncv=68" />
-    {% render 'swym-custom' %}
-    <script>
-      window.ALBSS = {
-        event_key: 'a61558c9-6f06-4a2f-9229-e9724f3935b7'
-      };
-    </script>
-    <script src="https://res4.applovin.com/p/l/loader.iife.js" async></script>
-  </body>
+  {% comment %}  {% endcomment %}
+{% render 'spdn4' %}</body>
 </html>
-
-{% if content_for_header contains "kimonix_void_script" %}<script async id="kimonix_elements_script" src="https://api.kimonix.com/kimonix_elements.js?shop=hammitt.myshopify.com"></script>{% endif %}

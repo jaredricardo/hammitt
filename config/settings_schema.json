@@ -1255,8 +1255,65 @@
       ]
     },
     {
-      "name": "Cart shipping message",
+      "name": "TryNow - Cart Widget",
       "settings": [
+        {
+          "id": "tn_cart_widget_link",
+          "type": "url",
+          "label": "Keep shopping URL",
+          "default": "\/collections\/all"
+        },
+        {
+          "id": "tn_cart_widget_bg_color",
+          "type": "color",
+          "label": "Background color",
+          "default": "#FFFFFF"
+        },
+        {
+          "id": "tn_cart_widget_font_color",
+          "type": "color",
+          "label": "Font color",
+          "default": "#000"
+        },
+        {
+          "id": "tn_cart_widget_link_color",
+          "type": "color",
+          "label": "Link color",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "name": "Cart shipping messages",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Native Hammit Gift Messaging",
+          "info": "Below is Hammitt's native built gift messaging settings."
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_hammitt_gift_messaging",
+          "label": "Enable Hammitt Gift Messaging",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "hammitt_gift_message", 
+          "label": "Gift checkbox label",
+          "default": "Sending this as a Gift? Add a gift note here."
+        },
+        {
+          "type": "header",
+          "content": "Zest Gift Messaging",
+          "info": "Below is Zest gift messaging settings."
+        },
+        {
+          "type": "checkbox",
+          "id": "giftBox_enabled",
+          "default": false,
+          "label": "Giftbox enabled"
+        },
         {
           "id": "cart_shipping_msg",
           "type": "richtext",
@@ -1282,12 +1339,6 @@
           "type": "color",
           "label": "Text color",
           "default": "#000000"
-        },
-        {
-          "type": "checkbox",
-          "id": "giftBox_enabled",
-          "default": false,
-          "label": "Giftbox enabled"
         }
       ]
     },

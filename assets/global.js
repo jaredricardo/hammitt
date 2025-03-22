@@ -1179,10 +1179,6 @@ const productSwatchReload = () => {
         
         history.pushState(null, "", `${productURL}`);
       }).finally(() => {
-          if(document.querySelector('.swym-button.hammitt-custom')) {
-            document.dispatchEvent(new CustomEvent("swym:collections-loaded"))
-          }
-          
           const myInterval = setInterval(myTimer, 1000);
           function myTimer() {
             if(document.querySelector('.rr_img_overall_container img') != null) {
@@ -1444,16 +1440,17 @@ function updateCart(params) {
 }
 
 checkGWPs();
-document.addEventListener('change', function(evt) {
-  if(document.querySelector('.cart-drawer-btn') != null) {
-    document.querySelector('.cart-drawer-btn').disabled = true;  
-  }
+
+// temp disable
+// document.addEventListener('change', function(evt) {
+//   if(document.querySelector('.cart-drawer-btn') != null) {
+//     document.querySelector('.cart-drawer-btn').disabled = true;  
+//   }
   
-  if(document.querySelector('.cart__checkout-button') != null) {
-    document.querySelector('.cart__checkout-button').disabled = true;  
-  }
-  
-});
+//   if(document.querySelector('.cart__checkout-button') != null) {
+//     document.querySelector('.cart__checkout-button').disabled = true;  
+//   }
+// });
 
 const cartUpdate = (json = false) => {
   const cartUpdates = [

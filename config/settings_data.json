@@ -55,6 +55,7 @@
     "enable_quick_add": true,
     "enable_total_colors": false,
     "enable_card_swatches": false,
+    "tn_cart_widget_link": "",
     "cart_shipping_msg": "",
     "freeShippingThreshold": "200",
     "cart_drawer_msg": "<p>Free shipping. Taxes calculated at checkout.</p>",
@@ -65,7 +66,6 @@
     "country_code": "+1",
     "content": "",
     "Klaviyo_confirmation_text": "<p>Thanks for joining the wishlist! We’ll send you an email when this item comes back in stock.</p>",
-    "tn_cart_widget_link": "",
     "checkout_logo_image": "shopify://shop_images/hammitt.png",
     "checkout_accent_color": "#000000",
     "checkout_button_color": "#000000",
@@ -106,7 +106,6 @@
           "logo_position": "middle-center",
           "menu": "new-menu-23",
           "menu_mobile": "mobile-menu",
-          "wishlist_page": "shopify://pages/my-wishlist",
           "show_line_separator": false,
           "transparent_homepage": false,
           "invert_colors": true,
@@ -505,6 +504,11 @@
         "disabled": false,
         "settings": {}
       },
+      "15804298063636319733": {
+        "type": "shopify://apps/try-before-you-buy-by-trynow/blocks/gated-flow/4c8ee11a-0e2d-4d12-800e-b312601aebc7",
+        "disabled": false,
+        "settings": {}
+      },
       "2153490007123654574": {
         "type": "shopify://apps/consentmo-gdpr/blocks/gdpr_cookie_consent/4fbe573f-a377-4fea-9801-3ee0858cae41",
         "disabled": false,
@@ -547,52 +551,6 @@
         "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
         "disabled": false,
         "settings": {}
-      },
-      "10274264662263595587": {
-        "type": "shopify://apps/wishlist-plus/blocks/wishlist-collections-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-        "disabled": true,
-        "settings": {
-          "swym_collections_icon_type": "heart",
-          "swym_collections_position": "top-right",
-          "swym_collections_vertical_offset": 0,
-          "swym_collections_horizontal_offset": 0,
-          "swym_collections_button_size": 25,
-          "swym_collections_icon_color": "#000000",
-          "swym_collections_product_link_selector": "",
-          "swym_collections_product_tile_selector": "li.grid__item",
-          "enable_variant_selector": false,
-          "swym_add_to_wishlist_title_color": "#333333",
-          "swym_variant_selector_font_size_1": 14,
-          "swym_variant_selector_popup_bg_color": "#ffffff",
-          "swym_variant_selector_section_heading_color": "#000000",
-          "swym_variant_selector_section_heading_font_size_2": 12,
-          "swym_variant_selector_choose_create_text": "Choose or Create new Wishlist",
-          "swym_variant_selector_wishlist_btn_bg_color": "#292929",
-          "swym_variant_selector_wishlist_btn_color": "#ffffff",
-          "swym_variant_selector_product_detail_font_color": "#ffffff",
-          "swym_variant_selector_create_list_placeholder_text": "Enter wishlist name",
-          "swym_variant_selector_create_list_title": "Name Your Wishlist"
-        }
-      },
-      "5946647744298494267": {
-        "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-        "disabled": false,
-        "settings": {
-          "storefront_layout_enabled": true,
-          "storefront_layout_type": "as-section",
-          "storefront_layout_collection_enabled": false,
-          "storefront_layout_primary_bg_color": "#000000",
-          "storefront_layout_primary_text_color": "#ffffff",
-          "storefront_layout_secondary_bg_color": "#f4f8fe",
-          "storefront_layout_secondary_text_color": "#333333",
-          "storefront_layout_ui_border_radius": 6,
-          "storefront_layout_notification_enabled_as_default": true,
-          "storefront_layout_notification_position": "left",
-          "storefront_layout_action_popup_position": "left",
-          "storefront_layout_drawer_position": "left",
-          "storefront_layout_drawer_width": 400,
-          "storefront_layout_as_section_page": "my-wishlist"
-        }
       }
     }
   },
