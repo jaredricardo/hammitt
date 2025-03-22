@@ -1,0 +1,151 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "12883bb8-7eb3-45f6-ba6a-11b936112101": {
+      "type": "image-banner",
+      "settings": {
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify:\/\/shop_images\/SumacHPBanner_Desktop_1_cda75802-b592-417a-adc4-b0ae65613f6c.jpg",
+        "image_2": "shopify:\/\/shop_images\/SumacHPBanner_Mobile_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "34d755a1-706f-405f-a512-6c4181dc41b3": {
+          "type": "marketing_tile",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Shop_Banner-New_Arrivals.jpg",
+            "link": "shopify:\/\/collections\/clear-bags",
+            "position": 5,
+            "width": "2x",
+            "title": "Discover the Clear Collection",
+            "paragraph": "",
+            "button_text": "Shop Now"
+          }
+        },
+        "85229bcf-4cde-4412-bfe7-13f29f14a127": {
+          "type": "marketing_tile",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Perfect_Additions.jpg",
+            "link": "shopify:\/\/collections\/bottoms-skimpy",
+            "position": 12,
+            "width": "1x",
+            "title": "Perfect Additions",
+            "paragraph": "",
+            "button_text": "Shop Now"
+          }
+        }
+      },
+      "block_order": [
+        "34d755a1-706f-405f-a512-6c4181dc41b3",
+        "85229bcf-4cde-4412-bfe7-13f29f14a127"
+      ],
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "collapse_on_larger_devices": false,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "165247887588923b1b": {
+      "type": "multicolumn",
+      "blocks": {
+        "16524788759772bfca-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ShopBags_Onthego_3.jpg",
+            "title": "",
+            "text": "<h2>On The Go<\/h2>",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/on-the-go"
+          }
+        },
+        "16524788759772bfca-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ShopBags_TheEssentials_4.jpg",
+            "title": "",
+            "text": "<h2>The Essentials<\/h2>",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/core"
+          }
+        }
+      },
+      "block_order": [
+        "16524788759772bfca-0",
+        "16524788759772bfca-1"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "square",
+        "image_padding": true,
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_title": false,
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    }
+  },
+  "order": [
+    "12883bb8-7eb3-45f6-ba6a-11b936112101",
+    "product-grid",
+    "165247887588923b1b",
+    "banner"
+  ]
+}

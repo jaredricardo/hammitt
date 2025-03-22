@@ -1,0 +1,104 @@
+{% style %}
+  .slocation-section .store-locations-wrapper{
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .slocation-section .location-heading{
+      font-size: {{ section.settings.heading_font_size }}px;
+      color: {{ section.settings.heading_color }};
+  }
+
+  @media screen and (max-width: 767px){
+      .slocation-section .location-heading{
+          font-size: {{ section.settings.heading_font_size_mobile }}px;
+      }
+  }
+{% endstyle %}
+
+<div class="store-locations-wrapper">
+  {% if section.settings.heading %}
+    <h2 class="location-heading main-page-title page-title h0">{{ section.settings.heading }}</h2>
+  {% endif %}
+  <div class="page-width">
+    <iframe
+      style="border: none;"
+      height="600"
+      width="100%"
+      src="https://www.closeby.co/embed/59a616708c0811d6615aac01ac4b3b0f"
+    ></iframe>
+  </div>
+</div>
+
+{% schema %}
+{
+    "name": "Store Locations",
+    "class": "slocation-section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Heading Settings"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "default": "Our Boutique Partners",
+            "label": "Heading"
+        },
+        {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Color",
+            "default": "#000"
+        },
+        {
+            "type": "range",
+            "id": "heading_font_size",
+            "min": 12,
+            "max": 50,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size (Desktop)",
+            "default": 37
+        },
+        {
+            "type": "range",
+            "id": "heading_font_size_mobile",
+            "min": 12,
+            "max": 50,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size (Mobile)",
+            "default": 30
+        },
+        {
+            "type": "header",
+            "content": "Section Spacing"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "label": "Padding Top",
+            "default": 30
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "label": "Padding Bottom",
+            "default": 30
+        }
+    ],
+    "presets": [
+        {
+            "name": "Store Locations"
+        }
+    ]
+}
+{% endschema %}

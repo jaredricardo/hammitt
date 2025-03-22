@@ -1,0 +1,30 @@
+<script type="speculationrules">
+      {
+        "prerender": [
+          {
+            "where": {
+              "and": [
+                { "href_matches": "/" }
+              ]
+            },
+            "eagerness": "moderate"
+          },
+          {
+            "where": {
+              "and": [
+                { "href_matches": "/collections/*" }
+              ]
+            },
+            "eagerness": "moderate"
+          },
+          {
+            "where": {
+              "and": [
+                { "href_matches": "/products/*" }
+              ]
+            },
+            "eagerness": "moderate"
+          }
+        ]
+      }
+    </script>

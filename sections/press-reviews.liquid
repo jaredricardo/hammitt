@@ -1,0 +1,158 @@
+{{ 'press-review-boxes.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- assign press_slides = section.blocks | where: 'type', 'press' -%}
+{%- assign review_slides = section.blocks | where: 'type', 'review' -%}
+
+{%- capture json -%}
+{
+  "loop": true,
+  "navigation": {
+    "nextEl": ".swiper-button-next",
+	"prevEl": ".swiper-button-prev"
+  }
+}
+{%- endcapture -%}
+
+<div class="section-{{ section.id }}-padding isolate ">
+  <div class="grid grid--1-col-tablet-down">
+    {% if press_slides.size >= 1 %}
+    <div class="press-slides grid__item">
+      <div class="color-background-2 press-review__box">
+        <h2>In The Press</h2>
+        <div class="swiper press-slider" data-json='{{ json }}'>
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            {% for press_slide in press_slides %}
+            <div class="swiper-slide press-slide rte">
+              {{ press_slide.settings.title }}
+              <div class="press-slide__logo">
+                {{ press_slide.settings.svg_logo }}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="press-review__buttons">
+            <div class="swiper-button-prev">&nbsp;</div>
+            <div class="swiper-button-next">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if review_slides.size >= 1 %}
+    <div class="review-slides grid__item">
+      <div class="color-background-2 press-review__box">
+        <h2>
+          {% render 'icon-stars' %}
+          <span class="visually-hidden">Customer Reviews</span> 
+        </h2>
+        <div class="swiper review-slider" data-json='{{ json }}'>
+          <div class="swiper-wrapper">
+            {% for review_slide in review_slides %}
+            <div class="swiper-slide review-slide rte">
+              {{ review_slide.settings.title }}
+              <p class="review-slide__name">{{ review_slide.settings.name | prepend: '- ' }}</p>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="press-review__buttons">
+            <div class="swiper-button-prev">&nbsp;</div>
+            <div class="swiper-button-next">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Press / Reviews sliders",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+	],
+	"blocks": [
+	  {
+		"type":"press",
+		"name":"Press Slide",
+		"settings": [
+		  {
+			"type":"richtext",
+			"id":"title",
+			"label":"Quote"
+		  },
+		  {
+			"type":"textarea",
+			"id":"svg_logo",
+			"label":"Logo"
+		  }
+		]
+	  },
+	  {
+		"type":"review",
+		"name":"Review Slide",
+		"settings": [
+		  {
+			"type":"richtext",
+			"id":"title",
+			"label":"Quote"
+		  },
+		  {
+			"type":"text",
+			"id":"name",
+			"label":"Name"
+		  }
+		]
+	  }
+	],
+	"presets": [
+	  {
+		"name": "Press / Reviews sliders"
+	  }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+

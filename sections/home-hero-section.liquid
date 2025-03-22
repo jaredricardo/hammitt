@@ -1,0 +1,256 @@
+{{ 'home-hero-section.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.image  != blank or section.settings.video  != blank  -%}
+<div class="section-wrap">
+  {%- if section.settings.media_type == 'image' -%}
+  <div class="section-image flexbox" style="--desktop-image-height:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;--mobile-image-height:{{ 1 | divided_by: section.settings.mobile_image.aspect_ratio | times: 100}}%;">
+    <img src="{{ section.settings.image | img_url: '1920x' }}" alt="{{ section.settings.image.alt }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"{% if section.settings.mobile_image != blank %} class="small-hide"{% endif %} loading="eager">
+    {%- if section.settings.mobile_image != blank -%}
+      <img src="{{ section.settings.mobile_image | img_url: '1920x' }}" alt="{{ section.settings.mobile_image.alt }}" width="{{ section.settings.mobile_image.width }}" height="{{ section.settings.mobile_image.height }}" class="medium-hide large-up-hide"  loading="eager">
+    {%- endif -%}
+  </div>
+  {%- elsif section.settings.media_type == 'video' -%}
+    <div class="section-image flexbox" style="--desktop-image-height:{{ 1 | divided_by: section.settings.video.preview_image.aspect_ratio | times: 100}}%;--mobile-image-height:{{ 1 | divided_by: section.settings.mobile_video.preview_image.aspect_ratio | times: 100}}%;">
+      <video loop muted playsinline autoplay{% if section.settings.mobile_video != blank %} class="small-hide"{% endif %} >
+        <source src="{{ section.settings.video.sources[1].url }}" type="video/mp4">
+      </video>
+      {%- if section.settings.mobile_video != blank -%}
+        <video loop muted playsinline autoplay class="medium-hide large-up-hide">
+          <source src="{{ section.settings.mobile_video.sources[1].url }}" type="video/mp4">
+        </video>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+  <div class="section-content flexbox text-{{ section.settings.text_align }} text-vertical-{{ section.settings.text_vertical_align }} text-horizontal-{{ section.settings.text_horizontal_align }} mobile-text-{{ section.settings.text_align_mobile }} mobile-text-vertical-{{ section.settings.text_vertical_align_mobile }} mobile-text-horizontal-{{ section.settings.text_horizontal_align_mobile }}">
+    {%- if section.settings.button != blank and section.settings.link != blank -%}
+      <a href="{{ section.settings.link }}" class="banner-link"></a>  
+    {% endif %}
+    <div class="content-wrap">
+      {%- if section.settings.title != blank -%}
+        <h2>{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p>{{ section.settings.description }}</p>
+      {%- endif -%}
+      {%- if section.settings.button != blank and section.settings.link != blank -%}
+      <div class="section-button">
+        <a href="{{ section.settings.link }}" class="button button--primary">{{ section.settings.button }}</a>
+      </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}
+
+{%- style -%}
+  #shopify-section-{{section.id}} .section-content h2{color:{{section.settings.title_color}};}
+  #shopify-section-{{section.id}} .section-content p{color:{{section.settings.description_color}};}
+  :root #shopify-section-{{section.id}} .section-content .section-button{
+    --color-button-text: {{section.settings.button_text_color.red}}, {{section.settings.button_text_color.green}}, {{section.settings.button_text_color.blue}};
+    --color-button: {{section.settings.button_bg_color.red}}, {{section.settings.button_bg_color.green}}, {{section.settings.button_bg_color.blue}};
+  }
+{%- endstyle -%}
+{% schema %}
+  {
+    "name": "Hero section",
+    "tag": "section",
+    "class": "home-hero-section",
+    "settings": [
+      {
+        "type": "select",
+        "id": "media_type",
+        "default": "image",
+        "label": "Media type",
+        "options": [
+          {
+            "value": "image",
+            "label": "Image"
+          },
+          {
+            "value": "video",
+            "label": "Video"
+          }
+        ]
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Desktop image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile image"
+      },
+      {
+        "type": "video",
+        "id": "video",
+        "label": "Desktop video"
+      },
+      {
+        "type": "video",
+        "id": "mobile_video",
+        "label": "Mobile video"
+      },
+      {
+        "type": "select",
+        "id": "text_align",
+        "default": "left",
+        "label": "Text align desktop",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_vertical_align",
+        "default": "top",
+        "label": "Text vertical align desktop",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_horizontal_align",
+        "default": "left",
+        "label": "Text horizontal align desktop",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_align_mobile",
+        "default": "left",
+        "label": "Text align mobile",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_vertical_align_mobile",
+        "default": "top",
+        "label": "Text vertical align mobile",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_horizontal_align_mobile",
+        "default": "left",
+        "label": "Text horizontal align mobile",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title color"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "color",
+        "id": "description_color",
+        "label": "Description color"
+      },
+      {
+        "type": "text",
+        "id": "button",
+        "label": "Button"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button text color"
+      },
+      {
+        "type": "color",
+        "id": "button_bg_color",
+        "label": "Button background color"
+      }
+    ]
+  }
+{% endschema %}

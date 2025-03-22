@@ -1,0 +1,110 @@
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    async function swymCallbackFn(swat){
+
+      // initialize count
+      const navHeartCount = document.querySelector('.nav-wishlist-button .heart-count')
+      const data = await getListsData()
+      const wishlistItems = data[0].listcontents
+
+      let count = data[0].listcontents.length
+
+      // console.log(wishlistItems)
+
+      initCount(count)
+
+      {% if page.handle == "my-wishlist" %}
+
+        initWishlist(wishlistItems)
+
+      {% endif %}
+
+      // listners 
+      document.addEventListener("swym:collections-loaded", function(){
+        swat.initializeActionButtons("main")
+      })
+
+      swat.evtLayer.addEventListener(swat.JSEvents.addedToWishlist, () => {
+        count++
+        navHeartCount.style.display = "flex"
+        navHeartCount.innerHTML = count
+
+      })
+      swat.evtLayer.addEventListener(swat.JSEvents.removedFromWishlist, () => {
+        count--
+        navHeartCount.innerHTML = count
+        if(!count) {
+          navHeartCount.style.display = "none"
+        }
+      })
+
+      // functions 
+      async function getListsData(){
+        return new Promise(async (resolve, reject) => {
+          swat.fetchLists({
+            callbackFn: data => resolve(data), 
+            onError: error => reject(error)
+          })
+        })
+      }
+
+      function initCount(count) {
+        if(count){
+          navHeartCount.innerHTML = count
+          navHeartCount.style.display = "flex"
+        } else {
+          navHeartCount.style.display = "none"
+        }
+      }
+
+      async function initWishlist(wishlistItems) {
+
+        const wishlistContainer = document.querySelector('.wishlist-container')
+        wishlistContainer.classList.add('loaded')
+
+        await new Promise((resolve) => {
+
+            wishlistItems.forEach(item => {
+              wishlistContainer.insertAdjacentHTML('beforeend', wishlistCardTemplate(item))
+            })
+            wishlistContainer.classList.add('loaded')
+            resolve()
+        })
+        document.dispatchEvent(new CustomEvent("swym:collections-loaded"))
+      }
+
+    }
+    if(!window.SwymCallbacks){
+      window.SwymCallbacks = [];
+    }
+    window.SwymCallbacks.push(swymCallbackFn)
+  })
+
+  const wishlistCardTemplate = (item) => {
+    return `
+      <a href="${item.du}" class="wishlist-card">
+          <img src="${item.iu}" alt="${item.dt}">
+          <h3>
+            <span class="wl-title">${item.dt}</span>
+            <span class="wl-price">$${item.pr}</span>
+          </h3>
+          <button
+              style="display: none;" 
+              class="swym-button swym-add-to-wishlist hammitt-custom"
+              data-with-epi="true"
+              data-swaction="addToWishlist"
+              data-product-id="${item.empi}"
+              data-variant-id="${item.epi}"
+              data-product-url="${item.du}"
+              >
+              <svg class="heart-empty" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.6877 2.15459C14.134 0.619996 11.6112 0.619996 10.0576 2.15459L9 3.19345L7.94243 2.15095C6.38493 0.616351 3.866 0.616351 2.31234 2.15095C0.562553 3.87509 0.562553 6.67454 2.31234 8.39868L9 15L15.6877 8.40233C17.4374 6.67819 17.4374 3.87873 15.6877 2.15459Z" stroke="black" stroke-linejoin="round"/>
+              </svg>
+              <svg class="heart-full" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.6877 2.15459C14.134 0.619996 11.6112 0.619996 10.0576 2.15459L9 3.19345L7.94243 2.15095C6.38493 0.616351 3.866 0.616351 2.31234 2.15095C0.562553 3.87509 0.562553 6.67454 2.31234 8.39868L9 15L15.6877 8.40233C17.4374 6.67819 17.4374 3.87873 15.6877 2.15459Z" fill="black" stroke="black" stroke-linejoin="round"/>
+              </svg>
+          </button>
+      </a>
+    `
+  }
+</script>

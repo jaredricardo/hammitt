@@ -1,0 +1,17 @@
+.pdp-insta .foursixty-title{font-family:var(--semi-bold-family);font-weight:var(--semi-bold-weight);font-size:32px;line-height:1.15;padding:0 !important;margin-bottom:10px;}
+.pdp-insta .foursixty-paragraph p{line-height:1.2;}
+body.template-product .pdp-insta .page-width{padding-left:10px;padding-right:10px;}
+.foursixty-feed{margin-top:15px;}
+
+
+
+@media only screen and (max-width:989px){
+  .pdp-insta .foursixty-title{font-size:28px;}
+}
+
+
+@media only screen and (max-width:749px){
+  .pdp-insta .foursixty-title{font-size:23px;}
+  body.template-product .pdp-insta .page-width{padding-left:5px;padding-right:5px;}
+  .foursixty-feed{margin-top:10px;}
+}

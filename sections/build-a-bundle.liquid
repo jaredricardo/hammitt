@@ -1,0 +1,101 @@
+{{ 'build-a-bundle.css' | asset_url | stylesheet_tag }}
+<div class="page-width page-width--narrow center">
+  <h1>{{ section.settings.title }}</h1>
+  <p class="body-large">{{ section.settings.paragraph }}</p>
+</div>
+<div class="page-width center">
+  <build-a-bundle class="grid grid--2-col">
+    {% for block in section.blocks %}
+    <bundle-item class="grid__item" data-index="{{ forloop.index }}" {{ shopify_block_attributes }}>
+      <h2 class="h3">Step {{ forloop.index }}</h2>
+      <h3 class="h2">{{ block.settings.title }}</h3>
+      {% if block.settings.collection != blank %}
+      <div class="grid grid--2-col">
+        {% for product in block.settings.collection.products limit: 4 %}
+        <button class="grid__item bundle-item__product-selector" data-product-handle="{{ product.handle }}" data-product-title="{{ product.title }}" data-json='{{ product.variants | json }}'>
+          {% render 'image-element', image: product.featured_image, image_ratio: 'square' %}
+        </button>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="bundle-item__content" style="display: none;">
+        <div class="bundle-item__price-wrapper">
+          <s class="bundle-item__price-original">$0.00</s>
+          <span class="bundle-item__price-sale">$0.00</span>
+        </div>
+        <div class="bundle-item__color bundle-item__option">
+          <div class="label">Color: <span class="selected_option"></span></div>
+          <div class="bundle-item__colors"></div>
+        </div>
+
+        <div class="bundle-item__size bundle-item__option">
+          <div class="label">Size: <span class="selected_option"></span></div>
+          <div class="bundle-item__sizes"></div>
+          <button class="size-guide-link button--inline">Size guide</button>
+        </div>
+      </div>
+    </bundle-item>
+    {% endfor %}
+    <div class="center add-set--wrapper">
+      <div class="bundle-price" style="display: none;">
+        <s class="bundle__original-price">$0</s><span class="bundle__sale-price">$0</span>
+      </div>
+      <button id="add-set-to-bag" type="button" class="button button--primary" disabled>Add set to bag</button>
+    </div>
+  </build-a-bundle>
+</div>
+
+<script src="{{ 'build-a-bundle.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+  {
+    "name": "Build a Bundle",
+    "settings": [
+	{
+		"type":"text",
+		"id":"title",
+		"label":"Title",
+		"default":"Build a Set for 20% off"
+	},
+	{
+		"type":"richtext",
+		"id":"paragraph",
+		"label":"Paragraph",
+	    "default":"<p>Nothing is as easy to throw on as a set. Choose your selection of a top, sweatshirt, and bottom, and you will see a 20% savings in your cart. Efforless, stylish, chic, and discounted – what more could you want?</p>"
+	}
+	],
+	"blocks": [
+	  {
+		"type":"step",
+		"name":"Step",
+		"settings": [
+		{
+		  "type":"text",
+		  "id":"title",
+		  "label":"Title"
+		},
+		{
+		  "type":"image_picker",
+		  "id":"image_default",
+		  "label":"Image Default"
+		},
+		{
+		  "type":"text",
+		  "id":"product_tag",
+		  "label":"Product Tag"
+		},
+		{
+		  "type":"collection",
+		  "id":"collection",
+		  "label":"Collection"
+		}
+		]
+	  }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+

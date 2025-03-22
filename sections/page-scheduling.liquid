@@ -1,0 +1,267 @@
+{{ 'page-scheduling.css' | asset_url | stylesheet_tag }}
+
+<div class="schedule schedule-section">
+  <div class="page-width">
+    <div class="form-section half-grid">
+      {% for content in section.blocks %}
+        {% case content.type %}
+          {% when 'acuity-form' %}
+            {% if content.settings.formtext %}
+              <div class="form grid-item">{{ content.settings.formtext }}</div>
+            {% endif %}
+          {% when 'icon-section' %}
+            <div class="icon-section grid-item">
+              {% if content.settings.icon_1 %}
+                <div class="icon-wrapper">
+                  <img
+                    class="lazyfade lazyload ic"
+                    src="{{ content.settings.icon_1 | img_url: '70X70' }}"
+                    data-src="{{ content.settings.icon_1 | img_url: '70X70' }}"
+                    data-widths="[80]"
+                    data-sizes="80px"
+                    alt="{{ content.settings.icon_1.alt | escape }}"
+                  >
+                  <div class="icon-text">
+                    <h3>{{ content.settings.icon_1_title | escape }}</h3>
+                    <p>{{ content.settings.icon_1_text | escape }}</p>
+                  </div>
+                </div>
+              {% endif %}
+              {% if content.settings.icon_2 %}
+                <div class="icon-wrapper">
+                  <img
+                    class="lazyfade lazyload ic"
+                    src="{{ content.settings.icon_2 | img_url: '70X70' }}"
+                    data-src="{{ content.settings.icon_2 | img_url: '70X70' }}"
+                    data-widths="[80]"
+                    data-sizes="80px"
+                    alt="{{ content.settings.icon_2.alt | escape }}"
+                  >
+                  <div class="icon-text">
+                    <h3>{{ content.settings.icon_2_title | escape }}</h3>
+                    <p>{{ content.settings.icon_2_text | escape }}</p>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          {% when 'category-section' %}
+            {% if content.settings.category_title %}
+              <div class="category-section">
+                <h2>{{ content.settings.category_title }}</h2>
+                <div class="category-wrapper">
+                  <div class="category-item">
+                    <a href="{{ shop.url }}{{ collections[content.settings.cat_1_collection].url }}"
+                      ><img
+                        class="lazyfade lazyload ic"
+                        src="{{ content.settings.cat_1_image | img_url: '366x366' }}"
+                        data-src="{{ content.settings.cat_1_image | img_url: '366x366' }}"
+                        data-widths="[366]"
+                        data-sizes="366px"
+                        alt="{{ content.settings.cat_1_image.alt | escape }}"
+                      >
+                      <h3>{{ content.settings.cat_1_title | escape }}</h3>
+                    </a>
+                  </div>
+                  <div class="category-item">
+                    <a href="{{ shop.url }}{{ collections[content.settings.cat_2_collection].url }}">
+                      <img
+                        class="lazyfade lazyload ic"
+                        src="{{ content.settings.cat_2_image | img_url: '366x366' }}"
+                        data-src="{{ content.settings.cat_2_image | img_url: '366x366' }}"
+                        data-widths="[366]"
+                        data-sizes="366px"
+                        alt="{{ content.settings.cat_2_image.alt | escape }}"
+                      >
+                      <h3>{{ content.settings.cat_2_title | escape }}</h3>
+                    </a>
+                  </div>
+                  <div class="category-item">
+                    <a href="{{ shop.url }}{{ collections[content.settings.cat_3_collection].url }}">
+                      <img
+                        class="lazyfade lazyload ic"
+                        src="{{ content.settings.cat_3_image | img_url: '366x366' }}"
+                        data-src="{{ content.settings.cat_3_image | img_url: '366x366' }}"
+                        data-widths="[366]"
+                        data-sizes="366px"
+                        alt="{{ content.settings.cat_3_image.alt | escape }}"
+                      >
+                      <h3>{{ content.settings.cat_3_title | escape }}</h3>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% comment %}START TRYNOW CODE{% endcomment %}
+{% comment %}Load slick script for slider on home page{% endcomment %}
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript">
+  tryNowSlick($('.category-wrapper'));
+  function tryNowSlick(slider) {
+    $(window).on('load resize', function () {
+      if ($(window).width() > 767) {
+        if (slider.hasClass('slick-initialized')) {
+          slider.slick('unslick');
+          slider.addClass('display-table');
+        }
+        return;
+      }
+      if (!slider.hasClass('slick-initialized')) {
+        slider.removeClass('display-table');
+        return slider.slick({
+          dots: false,
+          arrows: false,
+          centerMode: true,
+          centerPadding: '60px',
+          slidesToShow: 1,
+        });
+      }
+    });
+  }
+</script>
+{% comment %}END TRYNOW CODE{% endcomment %}
+{% schema %}
+{
+  "name": "Scheduling",
+  "blocks": [
+    {
+      "name": "Hero Image Setting",
+      "type": "hero-image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Hero Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Hero Image (mobile)"
+        },
+        {
+          "type": "text",
+          "id": "banner_title",
+          "label": "Banner Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Banner Text"
+        }
+      ]
+    },
+    {
+      "name": "Acuity Form Setting",
+      "type": "acuity-form",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "formtext",
+          "label": "Form Code"
+        }
+      ]
+    },
+    {
+      "name": "Icon Setting",
+      "type": "icon-section",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "Icon 1 Image"
+        },
+        {
+          "type": "text",
+          "id": "icon_1_title",
+          "label": "Icon 1 Title"
+        },
+        {
+          "type": "textarea",
+          "id": "icon_1_text",
+          "label": "Icon 1 Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "Icon 2 Image"
+        },
+        {
+          "type": "text",
+          "id": "icon_2_title",
+          "label": "Icon 2 Title"
+        },
+        {
+          "type": "textarea",
+          "id": "icon_2_text",
+          "label": "Icon 2 Text"
+        }
+      ]
+    },
+    {
+      "name": "Category Setting",
+      "type": "category-section",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "category_title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "cat_1_image",
+          "label": "Category 1 Image"
+        },
+        {
+          "type": "collection",
+          "id": "cat_1_collection",
+          "label": "Select Category 1"
+        },
+        {
+          "type": "text",
+          "id": "cat_1_title",
+          "label": "Category 1 Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "cat_2_image",
+          "label": "Category 2 Image"
+        },
+        {
+          "type": "collection",
+          "id": "cat_2_collection",
+          "label": "Select Category 2"
+        },
+        {
+          "type": "text",
+          "id": "cat_2_title",
+          "label": "Category 2 Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "cat_3_image",
+          "label": "Category 3 Image"
+        },
+        {
+          "type": "collection",
+          "id": "cat_3_collection",
+          "label": "Select Category 3"
+        },
+        {
+          "type": "text",
+          "id": "cat_3_title",
+          "label": "Category 3 Title"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

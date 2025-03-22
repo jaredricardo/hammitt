@@ -1,0 +1,41 @@
+{% liquid
+  layout none
+  assign cart_ids = cart.items | map: 'product_id' | uniq | join: ','
+  assign found = 0
+  assign max = 5
+%}
+
+{% liquid
+  assign isShareholder = false
+  for tag in customer.tags
+    if tag == 'shareholder'
+      assign isShareholder = true
+    endif
+  endfor
+%}
+
+<div class="collection-upsells">
+{% liquid 
+for product in collection.products limit: 20
+  comment
+    Only show exclusive product if customer has shareholder tag and seo hidden is 1
+  endcomment
+  if isShareholder == false and product.metafields.seo.hidden == 1
+    continue
+  endif
+
+  if product.metafields.custom.hide_product_all_customers == 1
+    continue
+  endif
+
+  if cart_ids contains product.id 
+  	continue
+  endif
+  if product.available != true
+  	continue
+  endif 
+  include 'upsell-item', product: product
+  assign found = found | plus: 1
+endfor
+%}
+</div>

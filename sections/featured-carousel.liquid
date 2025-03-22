@@ -1,0 +1,337 @@
+{{ 'featured-carousel.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.collection != blank %}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    {% if section.settings.border_top %}
+	border-top: 0.1rem solid #000;
+    {% endif %}
+	{% if section.settings.border_bottom %}
+	border-bottom: 0.1rem solid #000;
+    {% endif %}
+  }
+
+  .section-{{ section.id }}-padding .featured-carousel__heading-wrapper {
+	padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .section-{{ section.id }}-padding .featured-carousel__item {
+	width: {{ section.settings.card_width_mobile }}%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+	.section-{{ section.id }}-padding .featured-carousel__heading-wrapper {
+	  padding-bottom: {{ section.settings.padding_bottom }}px;
+	}
+	.section-{{ section.id }}-padding .featured-carousel__item {
+      width: {{ section.settings.card_width_desktop }}%;
+    }
+  }
+
+  {% for block in section.blocks %}
+	#block-{{ block.id }} .featured-carousel-card {
+	  background-color: {{ block.settings.color_background }};
+	}
+  {% endfor %}
+
+{%- endstyle -%}
+
+<div class="color-background-1 section-{{ section.id }}-padding">
+  <div class="page-width featured-carousel__heading-wrapper">
+    {% if section.settings.paragraph != blank %}
+    <div class="medium-up-flex">
+      <div class="featured-carousel__heading">
+        <h2 clas="h1">{{ section.settings.title }}</h2>
+      </div>
+      <div class="rte featured-carousel__paragraph">
+        {{ section.settings.paragraph }}
+      </div>
+    </div>
+    {% else %}
+    <h2 class="h1 no-margin">{{ section.settings.title }}</h2>
+    {% endif %}
+  </div>
+  
+  <div class="relative {% unless section.settings.full_width %}featured-carousel__page-width{% endunless %} ">
+    {%- render 'featured-carousel', section: section -%}
+    
+  </div>
+</div>
+
+<script src="{{ 'featured-carousel.js' | asset_url }}" defer="defer"></script>
+
+
+{%- if request.design_mode -%}
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Featured carousel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+	{
+      "type": "text",
+      "id": "title",
+ 	  "label":"Heading",
+      "default": "Heading"
+    },
+	{
+      "type": "richtext",
+      "id": "paragraph",
+ 	  "label":"Paragraph",
+	  "default":"<p>Meh enamel pin officia copper mug, chicharrones shabby chic XOXO quis ullamco organic. Bespoke scenester church-key squid. Jianbing cronut id, shoreditch meditation consectetur commodo polaroid PBR&B ugh.</p>"
+    },
+	{
+      "type": "checkbox",
+      "id": "full_width",
+ 	  "label":"Make section full width",
+      "default": false
+    },
+	{
+	  "type":"collection",
+	  "id":"collection",
+	  "label":"Use a collection?",
+	  "info":"If this is used it will override blocks"
+	},
+	{
+      "type": "range",
+      "id": "max_products",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "label": "Max products",
+      "default": 5
+    },
+	{
+      "type": "range",
+      "id": "spacing",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Spacing",
+      "default": 20
+    },
+	{
+      "type": "range",
+      "id": "card_width_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Card width desktop",
+      "default": 22
+    },
+	{
+      "type": "range",
+      "id": "card_width_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Card width mobile",
+      "default": 85
+    },
+	{
+      "type": "checkbox",
+      "id": "scrollbar",
+ 	  "label":"Show scrollbar",
+      "default": true,
+	  "info":"Will hide if unnecessary"
+    },
+	{
+      "type": "select",
+      "id": "content_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:sections.image-with-text.settings.desktop_content_position.options__1.label"
+        },
+        {
+          "value": "middle",
+          "label": "t:sections.image-with-text.settings.desktop_content_position.options__2.label"
+        },
+        {
+          "value": "bottom",
+          "label": "t:sections.image-with-text.settings.desktop_content_position.options__3.label"
+        }
+      ],
+      "default": "top",
+      "label": "t:sections.image-with-text.settings.desktop_content_position.label"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.image-with-text.settings.desktop_content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-with-text.settings.desktop_content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.image-with-text.settings.desktop_content_alignment.options__3.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.image-with-text.settings.desktop_content_alignment.label"
+    },
+	{
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.multicolumn.settings.image_ratio.label"
+    },
+	{
+      "type": "checkbox",
+      "id": "border_top",
+ 	  "label":"Border top",
+      "default": true
+    },
+	{
+      "type": "checkbox",
+      "id": "border_bottom",
+ 	  "label":"Border bottom",
+      "default": true
+    },
+	{
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type":"slide",
+      "name":"Slide",
+      "settings": [
+        {
+          "type":"image_picker",
+          "id":"image",
+          "label":"Image"
+        },
+		{
+          "type":"color",
+          "id":"color_background",
+          "label":"Background",
+		  "info":"Color if no image set above"
+        },
+		{
+          "type":"textarea",
+          "id":"icon_svg",
+          "label":"Icon SVG code",
+          "info":"Inline is always the best option"
+        },
+        {
+          "type":"url",
+          "id":"icon_url",
+          "label":"Icon (from url)",
+          "info":"Good for SVG files"
+        },
+        {
+          "type":"image_picker",
+          "id":"icon",
+          "label":".png icon if you must "
+        },
+		{
+          "type":"text",
+          "id":"title",
+          "label":"Heading",
+		  "default":"Heading"
+        },
+		{
+          "type":"richtext",
+          "id":"paragraph",
+          "label":"Paragraph"
+        },
+		{
+          "type":"text",
+          "id":"button_text",
+          "label":"Button text"
+        },
+		{
+          "type":"url",
+          "id":"button_link",
+          "label":"Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured carousel",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,127 @@
+{{ 'recently-viewed.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding{
+    padding-top: {{section.settings.mobile_padding_top}}px;
+    padding-bottom: {{section.settings.mobile_padding_bottom}}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding{
+      padding-top: {{section.settings.padding_top}}px;
+      padding-bottom: {{section.settings.padding_bottom}}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- capture rc_slider -%}
+  {
+    "slidesPerView":1,
+    "spaceBetween": 20,
+    "freeMode": true,
+    "mousewheel": false,
+    "loop": false,
+    "scrollbar":{
+        "el":"#shopify-section-{{ section.id }} .swiper-scrollbar",
+        "draggable": true
+    },
+    "effect":"slide",
+    "navigation": {
+      "nextEl": ".swiper-button-next",
+      "prevEl": ".swiper-button-prev"
+    },
+    "breakpoints": {
+      "0": {
+        "slidesPerView": "1.4",
+        "spaceBetween": 10
+      },
+      "750": {
+        "slidesPerView": "2",
+        "spaceBetween": 10
+      },
+      "990": {
+        "slidesPerView": "3.8",
+        "spaceBetween": 35
+      }
+    }
+  }
+{%- endcapture -%}
+<div id="rvp " class="section-{{ section.id }}-padding recently-product-grid">
+<div class="page-width">
+  {% if section.settings.title != blank %}
+  <h2 class="h1 center section-title recently-title">{{ section.settings.title }}</h2>
+  {% endif %}
+  <recently-viewed class="grid overflow-scroll-x swiper" data-json='{{ rc_slider }}'>
+    <div class="swiper-wrapper">
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </recently-viewed>
+  <div class="swiper-scrollbar"></div>
+</div>
+
+<script src="{{ 'recently-viewed.js' | asset_url }}" type="text/javascript" defer="defer"></script>
+</div>
+{% schema %}
+  {
+    "name": "Recently Viewed",
+    "tag": "section",
+    "class": "pdp-rv-section",
+    "settings": [
+	  {
+		"type":"text",
+		"id":"title",
+		"label":"Title"
+	  },
+      {
+        "type": "header",
+        "content": "Section padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "mobile_padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Mobile top padding",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "mobile_padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Mobile bottom padding",
+        "default": 36
+      }
+	],
+	"templates": ["product"],
+	"presets": [{ "name": "Recently Viewed" }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+

@@ -1,0 +1,338 @@
+{{ 'section-tab-switcher.css' | asset_url | stylesheet_tag }}
+{% style %}
+  .tab-section .tab-item .tab-link{
+      font-size: {{ section.settings.heading_size_desktop }}px;
+  }
+  .tab-section .product-content .product-title{
+    font-size: {{ section.settings.product_size_desktop }}px;
+  }
+  .tab-section .product-content .product-price{
+    font-size: {{ section.settings.price_size_desktop }}px;
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+
+  @media screen and (max-width: 750px){
+    .tab-section .tab-item .tab-link{
+      font-size: {{ section.settings.heading_size_mobile }}px;
+    }
+    .tab-section .product-content .product-title{
+      font-size: {{ section.settings.product_size_mobile }}px;
+    }
+    .tab-section .product-content .product-price{
+      font-size: {{ section.settings.price_size_mobile }}px;
+    }
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+  @media screen and (min-width: 750px) and (max-width: 1200px){
+    .tab-section .tab-item .tab-link{
+      font-size: {{ section.settings.heading_size_tablet }}px;
+    }
+    .tab-section .product-content .product-title{
+      font-size: {{ section.settings.product_size_tablet }}px;
+    }
+    .tab-section .product-content .product-price{
+      font-size: {{ section.settings.price_size_tablet }}px;
+    }
+  }
+{% endstyle %}
+{%- capture json -%}
+  {
+    "slidesPerView": 1,
+    "spaceBetween": 20,
+    "freeMode": true,
+    "mousewheel": false,
+    "loop": false,
+    "effect": "slide",
+    "navigation": {
+      "nextEl": ".swiper-button-next",
+      "prevEl": ".swiper-button-prev"
+    },
+    "breakpoints": {
+      "320": {
+        "slidesPerView": "2.3",
+        "spaceBetween": 10
+      },
+      "750": {
+        "slidesPerView": "3.2",
+        "spaceBetween": 15
+      },
+      "1200": {
+        "slidesPerView": "4.2",
+        "spaceBetween": 20
+      },
+      "1440": {
+        "slidesPerView": "4.8",
+        "spaceBetween": 24
+      }
+    }
+  }
+{%- endcapture -%}
+
+<!-- Tab Switching Section -->
+<div class="tab-section section-{{ section.id }}-padding" section-id="{{ section.id }}">
+  <ul class="tabs" role="tablist">
+    {% for block in section.blocks %}
+      <li class="tab-item" role="presentation">
+        <a href="#tab-{{ block.id }}" id="tab-link-{{ block.id }}" class="tab-link" role="tab" aria-controls="tabpanel-{{ block.id }}">{{ block.settings.tab_name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div class="tab-content">
+    {% for block in section.blocks %}
+      <div id="tab-{{ block.id }}" class="tab-panel swiper" role="tabpanel" aria-labelledby="tab-link-{{ block.id }}" data-json='{{ json }}'>
+        <div class="product-slider swiper-wrapper">
+          {% assign col = block.settings.collection %}
+          {% assign products = col.products %}
+          {% if col == blank %}
+            {% assign products = block.settings.products %}
+          {% endif %}
+          {% for product in products limit: 15 %}
+            {% assign widthCalculate = 4.8 %}
+
+            <div class="product-card swiper-slide" style="width: calc(100% / {{ widthCalculate }});">
+              <div class="product-image">
+                <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+              </div>
+              <div class="product-content">
+                <p class="product-title">{{ product.title }}</p>
+                <p class="product-price">{{ product.price | money }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Tab Switching Section",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Mobile Settings"
+    },
+    {
+        "type": "range",
+        "id": "heading_size_mobile",
+        "label": "Tab Title Font Size",
+        "min": 10,
+        "max": 110,
+        "default": 14,
+        "unit": "px",
+        "step": 1
+    },
+    {
+        "type": "range",
+        "id": "product_size_mobile",
+        "label": "Product Title Font Size",
+        "min": 10,
+        "max": 110,
+        "default": 12,
+        "unit": "px",
+        "step": 1
+    },
+    {
+        "type": "range",
+        "id": "price_size_mobile",
+        "label": "Price Title Font Size",
+        "min": 10,
+        "max": 110,
+        "default": 14,
+        "unit": "px",
+        "step": 1
+    },
+    {
+        "type": "header",
+        "content": "Tablet Settings"
+    },
+    {
+        "type": "range",
+        "id": "heading_size_tablet",
+        "label": "Tab Title Font Size",
+        "min": 10,
+        "max": 110,
+        "default": 14,
+        "unit": "px",
+        "step": 1
+    },
+    {
+        "type": "range",
+        "id": "product_size_tablet",
+        "label": "Product Title Font Size",
+        "min": 10,
+        "max": 110,
+        "default": 14,
+        "unit": "px",
+        "step": 1
+    },
+    {
+        "type": "range",
+        "id": "price_size_tablet",
+        "label": "Price Title Font Size",
+        "min": 10,
+        "max": 110,
+        "default": 14,
+        "unit": "px",
+        "step": 1
+    },
+    {
+        "type": "header",
+        "content": "Desktop Settings"
+    },
+    {
+        "type": "range",
+        "id": "heading_size_desktop",
+        "label": "Tab Title Font Size",
+        "min": 10,
+        "max": 110,
+        "default": 14,
+        "unit": "px",
+        "step": 1
+    },
+    {
+        "type": "range",
+        "id": "product_size_desktop",
+        "label": "Product Title Font Size",
+        "min": 10,
+        "max": 110,
+        "default": 15,
+        "unit": "px",
+        "step": 1
+    },
+    {
+        "type": "range",
+        "id": "price_size_desktop",
+        "label": "Price Title Font Size",
+        "min": 10,
+        "max": 110,
+        "default": 14,
+        "unit": "px",
+        "step": 1
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+	{
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_name",
+          "label": "Tab Name"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "product_list",
+          "id": "products",
+          "label": "Products"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tab Switching Section",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "tab"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const screenWidth = window.innerWidth;
+  
+
+  const tabLinks = document.querySelectorAll(".tab-link");
+  const tabPanels = document.querySelectorAll(".tab-panel");
+  tabPanels.forEach((panel) => {
+    panel.querySelectorAll('.product-card').forEach((card) => {
+      card.style.width = `calc(100% / ${screenWidth > 1440 ? 4.8 : screenWidth > 1200 ? 4.2 : screenWidth > 750 ? 3.2 : 2.3})`;
+    });
+  });
+  tabLinks.forEach((link) => {
+    link.addEventListener("click", function(event) {
+      event.preventDefault();
+
+      // Remove active class from all links
+      tabLinks.forEach((item) => item.classList.remove("active"));
+      tabPanels.forEach((panel) => panel.classList.remove("show"));
+
+      // Add active class to clicked link and show corresponding tab panel
+      this.classList.add("active");
+      const tabPanel = document.querySelector(this.getAttribute("href"));
+      tabPanel.classList.add("show");
+    });
+  });
+
+  // Activate the first tab by default
+  if (tabLinks.length > 0) {
+    tabLinks[0].classList.add("active");
+    tabPanels[0].classList.add("show");
+  }
+});
+</script>

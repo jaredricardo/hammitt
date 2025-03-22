@@ -1,0 +1,73 @@
+{{ 'faq.css' | asset_url | stylesheet_tag }}
+
+<div data-section-id="{{ section.id }}" data-section-type="page-faq">
+  {% if section.settings.image != blank %}
+  <div class="faq--banner relative" style="padding-top: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%">
+    <div
+         class="image lazyload lazyfade bg-fill img-abs-pos"
+         data-bgset="{% include 'bgset', image: section.settings.image %}"
+         data-sizes="auto"
+         data-parent-fit="cover"
+         >
+    </div>
+    <h1 style="color: {{section.settings.title_color }};">{{ section.settings.title }}</h1>
+  </div>
+  
+  {% else %}
+    {% if section.settings.title %}
+      <h1>{{ section.settings.title }}</h1>
+    {% endif %}
+  {% endif %}
+  
+  {% comment %} Gather All the Categories {% endcomment %}
+  {% liquid
+  assign categories = false
+  for block in section.blocks
+   	assign category = block.settings.category
+    unless category == blank or categories contains category
+		if categories 
+  			assign categories = categories | append: ',' | append: category
+  		else 
+  			assign categories = category
+  		endif 
+ 	endunless  		
+  endfor
+  assign categories = categories | split: ','
+  %}
+  <div {% unless fullwidth %}class="page-width"{%  endunless %}>
+    <div class="flex small-flex-column">
+      <div class="faq-sidebar">
+        <div class="medium-up-hide"><p class="faq-accordion--contact flex flex--align-center">{% include 'icon-envelope' %} <span>Need something? <a href="/pages/contact" class="link"><u>Contact us</u></a>.</span></p></div>
+        <ul class="list-unstyled">
+        {% for category in categories %}
+          <li><a data-href="#{{ category  | handle }}" id="faq-sidebar-link--{{ category | handle }}" role="button" href="#{{ category | handle }}" class="faq-sidebar--link {% if forloop.first %}first{% endif %}" >{{ category }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
+      <div class="faq-main">
+        <div class="small-hide"><p class="faq-accordion--contact flex flex--align-center">{% render 'icon-envelope' %}&nbsp;&nbsp;&nbsp; <span>Need something? <a href="/pages/contact" class="link"><u>Contact us</u></a>.</span></p></div>
+        {% for category in categories %}
+        <div id="{{ category | handle }}">
+          <h2>{{ category }}</h2>
+        {% for block in section.blocks %}
+        {% if block.settings.category == category %}
+        <div class="faq">
+          <h4 class="faq__question" id="faq-question--{{ block.id }}" aria-expanded="false" aria-controls="faq--{{ block.id }}" role="button">{{ block.settings.title }} <span class="icon"></span></h4>
+          <div role="region" id="faq--{{block.id}}" class="faq__answer" aria-labeldby="faq-question--{{ block.id }}">
+            {{ block.settings.answer }}
+            {% if block.settings.image != blank %}
+            <img class="lazyload lazyfade"  src="{{ block.settings.image | img_url: '1x' }}" data-src="{{ block.settings.image | img_url: 'master' }}" title="{{ block.settings.image.alt }}" width="100%" alt="{{ block.settings.image.alt }}" />
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+        <hr class="hr--invisible">
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{{ 'faq.js' | asset_url }}" defer="defer"></script>

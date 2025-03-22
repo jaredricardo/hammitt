@@ -1,0 +1,88 @@
+{{ 'help-center.css' | asset_url | stylesheet_tag }}
+
+{% assign ajax_links = 'contact,faqs,repair-policy,returns-exchanges' %}
+
+<div class="page-width help-center flex">
+  <div class="help__sidebar small-hide">
+    {% if section.settings.sidebar_menu != blank %}
+    <ul class="list-unstyled">
+      {% for link in linklists[section.settings.sidebar_menu].links %}
+      <li>
+        <a class="help__sidebar-link link {% if link.active %}active{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  <div class="help__main">
+    <div class="help__main-inner" {% if page.handle == 'faqs' %}style="max-width: none;"{% endif %}>
+    {%  unless page.handle == 'faqs' %}
+      {{ page.content }}
+    {% endunless %}
+    {% if page.handle == 'contact' %}
+      {% include 'contact-form' %}
+    {% endif %}
+    {% if page.handle == 'faqs' %}
+      {% include 'faq', fullwidth: true %}
+    {% endif %}
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'help-center.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+  {
+    "name": "Help Center",
+    "blocks": [
+      {
+        "type": "faq",
+        "name": "FAQ",
+        "settings": [
+			{
+				"id":"title",
+				"type":"text",
+				"label":"Question"
+			},
+            {
+                "id": "answer",
+                "type": "richtext",
+                "label": "Answer"
+            },
+			{
+				"id":"category",
+				"type":"text",
+				"label":"Category"
+			},
+			{
+				"id":"image",
+				"type":"image_picker",
+				"label":"Image"
+			},
+			{
+				"id":"image_location",
+				"type":"select",
+				"label":"Image Location",
+				"default":"below_answer",
+				"options": [
+					{ "value":"below_answer", "label":"Below Answer" },
+					{ "value":"above_answer", "label":"Above Answer" }
+				]
+			}
+        ]
+      }
+    ],
+    "settings": [
+	  {
+		"type":"link_list",
+		"id":"sidebar_menu",
+	    "label":"Sidebar Menu"
+	  }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+

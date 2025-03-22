@@ -1,0 +1,328 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign isShareholder = false
+  for tag in customer.tags
+    if tag == 'shareholder'
+      assign isShareholder = true
+    endif
+  endfor
+%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div
+    {% unless section.settings.full_width %}
+      class="page-width"
+    {% endunless %}
+  >
+    <div class="content-container {{ section.settings.heading_align }}">
+      {% if section.settings.show_heading %}
+        <h2 class="h1">
+          {% if section.settings.title != blank %}
+            {{ section.settings.title }}
+          {% else %}
+            {{ section.settings.collection.title }}
+          {% endif %}
+        </h2>
+      {% endif %}
+      {% if section.settings.show_description %}
+        <div>
+          {% if section.settings.paragraph != blank %}
+            {{ section.settings.paragraph }}
+          {% else %}
+            {{ section.settings.collection.description }}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    <ul
+      id="product-grid"
+      data-id="{{ section.id }}"
+      class="
+        grid product-grid
+        grid--{{ section.settings.columns_mobile }}-col-tablet-down
+        {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
+          grid--{{ section.settings.columns_desktop }}-col-desktop
+        {% endif %}
+      "
+    >
+      {%- for product in section.settings.collection.products limit: section.settings.products_per_page -%}
+        {% comment %} Only show exclusive collection products if customer has shareholder tag and seo hidden is 1 {% endcomment %}
+        {% if isShareholder == false and product.metafields.seo.hidden == 1 %}
+          {% continue %}
+        {% endif %}
+
+        {% if product.metafields.custom.hide_product_all_customers == 1 %}
+          {% continue %}
+        {% endif %}
+
+        {% assign lazy_load = false %}
+        {%- if forloop.index > 2 -%}
+          {%- assign lazy_load = true -%}
+        {%- endif -%}
+
+        {%- if product.tags contains 'hidden' or product.type == 'hidden' or product.title contains 'Gift wrapping' -%}
+          {%- continue -%}
+        {%- endif -%}
+
+        <li class="grid__item">
+          {% render 'card-product',
+            card_product: product,
+            media_aspect_ratio: section.settings.image_ratio,
+            show_secondary_image: section.settings.show_secondary_image,
+            show_vendor: section.settings.show_vendor,
+            show_rating: section.settings.show_rating,
+            hide_price: section.settings.hide_price,
+            hide_quick_add: section.settings.hide_quick_add,
+            lazy_load: lazy_load,
+            index: forloop.index
+          %}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Grid Featured Collection",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show Heading",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "info": "Custom Title(If any)?"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show Description",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "info": "Custom Description(If any)?"
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Header alignment"
+    },
+    {
+      "type": "header",
+      "content": "Collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.multicolumn.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
+      "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_quick_add",
+      "label": "Hide quick add",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_price",
+      "label": "Hide price",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 4,
+      "max": 50,
+      "step": 2,
+      "default": 16,
+      "label": "Number of Products"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.main-collection-product-grid.settings.columns_desktop.label"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.main-collection-product-grid.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.newsletter.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.newsletter.settings.color_scheme.options__3.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.newsletter.settings.color_scheme.options__4.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.newsletter.settings.color_scheme.label"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top(Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom(Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top(Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom(Mobile)",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid Featured Collection"
+    }
+  ]
+}
+{% endschema %}

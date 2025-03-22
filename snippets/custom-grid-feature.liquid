@@ -1,0 +1,128 @@
+{% style %}
+    .custom-grid-feature{}
+    .custom-grid-feature .card--content{
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+    }
+    .custom-grid-feature .card--content--top-left {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .custom-grid-feature .card--content--top-center {
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .custom-grid-feature .card--content--top-right {
+        align-items: flex-start;
+        justify-content: flex-end;
+    }
+
+    .custom-grid-feature .card--content--middle-left {
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .custom-grid-feature .card--content--middle-center {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .custom-grid-feature .card--content--middle-right {
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .custom-grid-feature .card--content--bottom-left {
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
+
+    .custom-grid-feature .card--content--bottom-center {
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .custom-grid-feature .card--content--bottom-right {
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+    .custom-grid-feature .card--content__inner{
+        max-width: 40rem;
+        padding: 2rem;
+    }
+    .custom-grid-feature .card--content__inner .button--secondary {
+        background: {{ section.settings.cta_button_bg_color }};; 
+        color: {{ section.settings.cta_button_color }};; 
+        border: 1px solid {{ section.settings.cta_button_border_color }};;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: {{ section.settings.cta_button_size }}px;
+        float: {{ section.settings.content_block_alignment }};
+    }
+    .custom-grid-feature .card--content__inner h2 {
+        font-weight: 600;
+        font-size: {{ section.settings.content_heading_size }}px;
+        text-transform: uppercase;
+        text-align: {{ section.settings.content_block_alignment }};
+        color: {{ section.settings.content_heading_color }};
+    }
+{% endstyle %}
+
+{% assign assign ratio = 1 %}
+<div class="card-wrapper">
+    <div class="
+        card
+        {% if view_style %} card--{{ view_style }}{% else %} card--{{ settings.card_style }}{% endif %}
+        product-card
+        card--media"
+        >
+        <div class="card__inner">
+            <!-- Assign the metafield image to a variable -->
+            {% assign banner = collection.metafields.custom.content_block_image %}
+
+            {% if banner %}
+                <!-- Display the metafield image with responsive srcset if it exists -->
+                <div class="card__media">
+                    <div class="media media--transparent media--hover-effect">
+                    <img
+                        srcset="{%- if banner.width >= 165 -%}{{ banner | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if banner.width >= 360 -%}{{ banner | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if banner.width >= 533 -%}{{ banner | image_url: width: 533 }} 533w,{%- endif -%}
+                        {%- if banner.width >= 720 -%}{{ banner | image_url: width: 720 }} 720w,{%- endif -%}
+                        {%- if banner.width >= 940 -%}{{ banner | image_url: width: 940 }} 940w,{%- endif -%}
+                        {%- if banner.width >= 1066 -%}{{ banner | image_url: width: 1066 }} 1066w,{%- endif -%}
+                        {{ banner | image_url }} {{ banner.width }}w"
+                        data-src="{{ banner | image_url: width: 533 }}"
+                        src="{{ banner | image_url: width: 533 }}"
+                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                        alt="{{ banner.alt | escape }}"
+                        class="motion-reduce"
+                        {% if index < 4 %}
+                        loading="eager"
+                        fetchpriority="high"
+                        {% else %}
+                        {% unless lazy_load == false %}loading="lazy"{% endunless %}
+                        {% endif %}
+                        width="{{ banner.width }}"
+                        height="{{ banner.height }}"
+                    >
+                    </div>
+                </div>
+            {% comment %} {% else %}
+                <!-- Fallback text if no metafield image is available -->
+                Metafield Image not available {% endcomment %}
+            {% endif %}
+        </div>
+
+        <div class="card__content card--content card--content--{{ section.settings.content_block_position }}">
+            <div class="card--content__inner">
+                <h2 class="">{{ collection.metafields.custom.content_block_heading }}</h2>
+                <a href="{{ collection.metafields.custom.cta_button_url }}" class="button button--secondary">{{ collection.metafields.custom.cta_button_text }}</a>
+            </div>
+        </div>
+    </div>
+</div>

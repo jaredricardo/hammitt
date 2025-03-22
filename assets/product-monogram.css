@@ -1,0 +1,122 @@
+.product-popup-monogram__opener {
+    width: 100%;
+}
+#ProductPopup-monogram {
+    padding: 0 3rem;
+    background: white;
+    border: 1px solid black;
+    width: 100%;
+    text-decoration: none;
+    font: inherit;
+    line-height: 1.8rem;
+    height: 4.2rem;
+    margin-bottom: 1rem;
+}
+#PopupModal-monogram .product-popup-modal__content {
+    max-width: 450px;
+}
+#PopupModal-monogram .accordion__content {
+    padding: 0;
+    overflow-x: visible;
+}
+
+.monogram-color__radio {
+    display: none;
+}
+
+.monogram-color {
+    overflow: visible;
+}
+
+.monogram-colors {
+    display: flex;
+    overflow: visible;
+    padding-top: 5px;
+}
+
+.monogram-color + .monogram-color {
+    margin-left: 2rem;
+}
+
+.monogram-color__label {
+    display: inline-block;
+    width: 3.4rem;
+    height: 3.4rem;
+    border: 1px solid #999;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.monogram-color__radio:checked + label {
+    box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 4px #000;
+
+}
+
+.monogram-color__name {
+    display: block;
+    text-align: center;
+    font-size: 8px;
+}
+
+#monogram-color--gold-foil + label {
+    background-color: #C6A21A;
+}
+
+#monogram-color--silver-foil + label {
+    background-color: #B6BABB;
+}
+
+#monogram-color--blind-deboss + label {
+    background-color: #fff;
+}
+
+.monogram-initials {
+    display: flex;
+    
+}
+
+.monogram-initial__input {
+    width: 40px;
+    font-size: 1.8rem;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.monogram-initial__input + .monogram-initial__input {
+    margin-left: 1rem;
+}
+
+.monogram-placements {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.monogram__info {
+    margin-top: 1.5rem;
+    padding: 1.5rem 0;
+    color: #DC2727;
+    font-size: 12px;
+}
+
+#monogram-submit {
+    max-width: 250px;
+}
+#monogram-submit:hover {
+    background-color: #414143;
+}
+
+monogram-form {
+    display: block;
+}
+
+.monogram-submit__spinner {
+    width: 20px;
+    height: 20px;
+}
+
+.monogram-submit__spinner .path {
+    stroke: #fff;
+}

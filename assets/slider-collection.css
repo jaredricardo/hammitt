@@ -1,0 +1,66 @@
+.slider-collection .section-header{margin-bottom:20px;}
+.slider-collection .section-header h2.section-title{margin: 0;font-size: 32px;line-height: 1.25;}
+/* .slider-collection .section-header h2.section-title{margin: 0;font-size: 32px;font-family:var(--semi-bold-family);font-weight:var(--semi-bold-weight);line-height: 1.25;} */
+.slider-collection .swiper-scrollbar{width:100%;max-width:calc(100% - 48px);height:3px;display:block;background-color: #e4e4e4;margin:10px auto 0px;cursor:pointer}
+.slider-collection .swiper-scrollbar .swiper-scrollbar-drag{position:relative;height:100%;display:block;background-color:#000;}
+.slider-collection .section-productgrid-wrap .swiper{padding-left:24px;}
+.slider-collection .card__heading{font-size:15px;font-weight:500;}
+
+
+
+
+@media only screen and (max-width:989px){
+  .slider-collection .section-header h2.section-title{font-size:28px;}  
+}
+
+@media only screen and (max-width:749px){
+  .slider-collection .section-productgrid-wrap .swiper{padding-left:10px;}
+  .slider-collection .section-header{margin-bottom:12px;}
+  .slider-collection .section-header h2.section-title{font-size:23px;}
+  .slider-collection .swiper-scrollbar{max-width:calc(100% - 24px);}
+
+}
+
+.section-productgrid.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+  box-sizing: content-box;
+}
+
+@media only screen and (min-width:990px){
+  .section-productgrid .swiper-slide {
+    min-width: 25%;
+    margin-right: 35px;
+  }
+
+  .swiper-initialized .section-productgrid .swiper-slide {
+    min-width: unset;
+  }
+}
+
+@media only screen and (max-width:767px){
+  .section-productgrid .swiper-slide {
+    min-width: 75%;
+    margin-right: 10px;
+  }
+
+  .swiper-initialized .section-productgrid .swiper-slide {
+    min-width: unset;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+  .section-productgrid .swiper-slide {
+    min-width: 50%;
+    margin-right: 10px;
+  }
+
+  .swiper-initialized .section-productgrid .swiper-slide {
+    min-width: unset;
+  }
+}

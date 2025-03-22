@@ -1,0 +1,34 @@
+{% comment %}{% if iStock-notify-me == 'iStockfooter' %}
+<script type="text/javascript">
+var iStockShop = "{{ shop.permanent_domain }}";
+var iStockIsProductpage = {% if template contains 'product' %}true{% else %}false{% endif %};
+
+// define mesage
+var iStockSuccessMsg = 'Thanks! We will notify you when this product becomes available!';
+var iStockErrorMsg = 'Please enter a valid email address.';
+
+// define Quick view classes
+//var iStockQvButton = '.sca-qv-button';
+//var iStockQvWrapper = '.sca-fancybox-inner';
+
+var iStockAllowPreorder = false;
+</script>
+<script src="//cdn.myshopapps.com/istock/iStock-notify.js"></script>
+{% else %}
+<div class="bis-container" style="display:none;">
+  <div class="iStock-wrapper"  handle="{{ product.handle }}">
+    <h2>Out Of Stock!</h2>
+    <p class="iStock-notifyTxt">We will notify you when this product becomes available.</p>
+    <div class="iStock-availability" style="display:none;">
+      <label>Available on: </label>
+      <span></span>
+    </div>
+    <div class="iStock-fields">
+      <input type="email" class="iStock-email-id" name="iStock-email-id" placeholder="Email Address" value="{% if customer %}{{ customer.email }}{% endif %}" />
+      <input type="button" class="iStock-notify-btn button" value="Notify Me" />
+    </div>
+    <div class="iStock-msg"></div>
+  </div>
+</div>
+{% endif %}
+{% endcomment %}

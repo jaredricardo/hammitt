@@ -1,0 +1,45 @@
+{%- liquid
+assign assign new_deets_img = false
+assign assign mobile_deets_img = false
+for image in product.images
+  assign alt_handle = image.alt | handle
+  if image.alt contains 'In The Details' or image.alt_handle == 'in-the-details'
+    assign new_deets_img = image
+  endif 
+  if image.alt contains 'mobile details' or image.alt_handle == 'mobile-details'
+    assign mobile_deets_img = image
+  endif 
+endfor 
+-%}
+
+{% if new_deets_img %}
+
+<div class="page-width small-hide">
+  <hr class="hr--invisible">
+  <h2 class="h1 center">In the Details</h2>
+  {{ new_deets_image }}
+  {% render 'image-element', image: new_deets_img %}
+</div>
+{% endif %}
+
+{% if mobile_deets_img %}
+
+<div class="medium-up-hide">
+  <hr class="hr--invisible">
+  <h4 class="h2 center">In the Details</h4>
+  {% render 'image-element', image: mobile_deets_img %}
+</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Product Details Images",
+    "settings": [],
+	"presets": [{ "name":"Product Details Images" }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+

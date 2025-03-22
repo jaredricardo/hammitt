@@ -1,0 +1,113 @@
+.newsletter__wrapper {
+  padding-right: calc(4rem / var(--font-body-scale));
+  padding-left: calc(4rem / var(--font-body-scale));
+}
+
+@media screen and (min-width: 750px) {
+  .newsletter__wrapper {
+    padding-right: 9rem;
+    padding-left: 9rem;
+  }
+}
+
+.newsletter__wrapper > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.newsletter__wrapper > * + * {
+  margin-top: 2rem;
+}
+
+.newsletter__wrapper > * + .newsletter-form {
+  margin-top: 3rem;
+}
+
+.newsletter__subheading {
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newsletter__wrapper .newsletter-form__field-wrapper {
+  margin: 0px auto;
+}
+
+.newsletter-form__field-wrapper .newsletter-form__message {
+  margin-top: 1.5rem;
+}
+
+.newsletter__button {
+  margin-top: 3rem;
+  width: fit-content;
+}
+
+@media screen and (min-width: 750px) {
+  .newsletter__button {
+    flex-shrink: 0;
+    margin: 0 0 0 1rem;
+  }
+}
+
+.newsletter--has-sms .one-half {
+  padding: 0px 10%;
+  max-width: 50%;
+}
+
+.newsletter--has-sms .newsletter-form__field-wrapper {
+  margin-left: 0;
+  margin-top: 1rem !important;
+}
+
+.newsletter--has-sms .newsletter-form__field-wrapper .field__input {
+  padding-left: 0;
+}
+
+.newsletter--has-sms .newsletter-form__field-wrapper .field__label {
+  left: 0;
+}
+
+.newsletter--has-sms .link--no-underline {
+  text-decoration: none;
+  margin-top: 2rem
+}
+.newsletter--has-sms .link--no-underline svg {
+  display: inline-block;
+  margin-left: 2rem;
+}
+
+
+.newsletter--has-sms .field:before, 
+.newsletter--has-sms .field:after {
+  box-shadow: none;
+}
+
+.newsletter--has-sms .field {
+  border-bottom: 1px solid rgb(var(--color-foreground));
+}
+
+
+@media screen and (min-width: 750px) {
+  .newsletter--has-sms .one-half {
+    position: relative;
+  }
+  .newsletter--has-sms .one-half:nth-child(1):after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-right: 1px solid rgb(var(--color-foreground));
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .newsletter--has-sms .one-half {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  .newsletter--has-sms .one-half + .one-half {
+    margin-top: 4rem;
+  }
+}

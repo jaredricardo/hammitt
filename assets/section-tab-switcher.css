@@ -1,0 +1,79 @@
+.tab-section {
+    width: 100%;
+}
+  
+.tabs {
+    display: flex;
+    gap: 90px;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 50px;
+    list-style-type: none;
+    justify-content: center;
+}
+  
+.tab-section .tab-panel{
+    display: none;
+}
+
+.tab-panel.show{
+    display: block;
+}
+
+.tab-content.show {
+    display: block;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.tab-section .tab-item .tab-link{
+    font-family: Sofia Pro;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.tab-section .tab-item .tab-link:hover,
+.tab-section .tab-item .tab-link.active{
+    text-decoration: underline;
+}
+.tab-section .tab-content {
+    padding-left: 60px;
+}
+.tab-section .product-content .product-title{
+    font-family: Sofia Pro;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: left;
+    margin: 0;
+    padding: 10px 0 1px 0;
+}
+.tab-section .product-content .product-price{
+    font-family: Sofia Pro;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    margin: 0;
+}
+.tab-section .product-card.swiper-slide {
+    padding: 0;
+}
+@media screen and (min-width: 750px) and (max-width: 1200px){
+    .tabs {
+        padding: 0 0 20px;
+    }
+}
+@media screen and (max-width: 750px){
+    .tabs {
+        gap: 40px;
+        padding: 0 0 20px;
+    }
+    .tab-section .tab-content {
+        padding-left: 20px;
+    }
+}

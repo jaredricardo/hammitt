@@ -1,0 +1,33 @@
+#homepage-foursixty{padding-top:20px;}
+#homepage-foursixty .section-header{padding-bottom:10px;}
+/* #homepage-foursixty .section-header h3{margin:0px;font-size:28px;line-height:1.25;color:#000;font-family:var(--semi-bold-family);font-weight:var(--semi-bold-weight);}*/
+#homepage-foursixty .section-header h3{margin:0px;font-size:28px;line-height:1.25;color:#000;}
+#homepage-foursixty .section-header .rte,
+#homepage-foursixty .section-header .rte *{font-size:16px;font-weight:400;color:#000;line-height:1.2;}
+#homepage-foursixty .section-btn-wrap{padding-top:10px;}
+#homepage-foursixty .section-btn-wrap a {text-decoration: none;font-size: 15px;color: #fff;background-color: #111111;display: inline-block;line-height: 1;padding: 15px 15px 12px 15px;text-transform: uppercase;width: 100%;max-width: 250px;}
+/* #homepage-foursixty .section-btn-wrap a:hover{opacity:0.6} */
+#homepage-foursixty .section-btn-wrap a:hover{background: transparent;color: #fff; color: #111;border: solid 2px #111;align-items: center; gap: 8px;padding: 11px 15px;}
+.homepage-foursixty-ab .section-header {
+  margin-bottom: 44px;
+}
+#homepage-foursixty.homepage-foursixty-ab {
+  padding-top: 80px;
+}
+@media only screen and (max-width:749px){
+  #homepage-foursixty .section-header h3{font-size:20px;}
+  #homepage-foursixty .section-header .rte, #homepage-foursixty .section-header .rte *{font-size:13px;}
+  #homepage-foursixty .section-header{padding-bottom:5px;}
+  #homepage-foursixty.homepage-foursixty-ab {
+    padding-top: 40px;
+  }
+  .homepage-foursixty-ab .section-header {
+    margin-bottom: 24px;
+  }
+}
+
+
+
+
+
+

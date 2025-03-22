@@ -1,0 +1,663 @@
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign appear_delay = 1
+  assign has_gift_note = false
+
+  # EE GWP
+  assign EEGWPAddOnId = settings.ee_gwp_product.selected_or_first_available_variant.id
+  # Monogram Addon
+  assign MonogramAddOnId = 48220694577336
+-%}
+
+<div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
+  
+  <div class="drawer__content">
+    <div class="drawer__header appear-animation appear-delay-{{ appear_delay }}">
+    {% assign appear_delay = appear_delay | plus: 1 %}
+    {% liquid
+      assign required_amount = settings.freeShippingThreshold | times: 100
+      assign amount_needed = required_amount | minus: cart.total_price
+      assign percentage = required_amount | minus: cart.total_price | times: 100.0 | divided_by: required_amount | minus: 100 | abs | round | at_most: 100
+    %}
+
+      
+    <strong data-empty-div class="drawer__title h2 display-block  {% if cart.item_count == 0 %}  drawer_heading {% else %} hidden {% endif %}">Your cart is currently empty</strong>
+    <free-shipping-goal data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h2 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
+      <span class="free-shipping-goal__label free-shipping-goal__label--success">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
+      <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!</span>
+      <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
+    </free-shipping-goal>
+    {% comment %} <strong class="drawer__title h2 display-block {% if cart.item_count == 0 %} drawer_heading {% endif %}">
+      {% if cart.item_count == 0 %}
+        Your cart is currently empty
+      {% else %}
+        {% comment %} {{ 'sections.cart.title' | t }} {% endcomment %}
+        {%- liquid
+          if shipping_threshold > cart.total_price
+            assign amount_remaining =  shipping_threshold | minus: cart.total_price | money
+            echo 'sections.cart.free_shipping_message_not_met' | t: amount:amount_remaining | replace: '.00', ''
+          else
+            echo 'sections.cart.free_shipping_message_met' | t
+          endif 
+        -%}
+        <div class="freeShippingMsgContainer appear-animation appear-delay-{{ appear_delay }}">
+          <span class="{% if percentage < 100 %} freeShippingMsg {% else %} freeRemainShippingMsg{% endif %} " style="width: {{ percentage }}%"></span>
+        </div>
+      {% endif %}
+    </strong> {% endcomment %}
+    <button class="drawer__close" data-drawer-close="" aria-label="Close Drawer"></button>
+  </div>
+    {% assign shipping_threshold = 'sections.cart.free_shipping_threshold' | t | plus: 0 | times: 100 %}
+    {% comment %}
+    <div class="cart-announcement-bar background-secondary" >
+      {%- liquid
+          if shipping_threshold > cart.total_price
+            assign amount_remaining =  shipping_threshold | minus: cart.total_price | money
+            echo 'sections.cart.free_shipping_message_not_met' | t: amount:amount_remaining | replace: '.00', ''
+          else
+            echo 'sections.cart.free_shipping_message_met' | t
+          endif 
+        -%}
+    </div>
+    {% endcomment %}
+     {% assign cartSubTotal = cart.items_subtotal_price %}
+    <script>
+    window.freeGWPProduct = false;
+   </script>
+     {% for item in cart.items %}
+       {% if item.properties['_free_gift'] != blank %}
+        {% if item.product.handle == settings.gwp_product.handle %}
+          {% assign cartSubTotal = cartSubTotal | minus: item.final_line_price  %}
+        {% elsif item.product.handle == settings.gwp_product2.handle %}
+          {% assign cartSubTotal = cartSubTotal | minus: item.final_line_price  %}
+        {% endif %}
+         <script>
+          window.freeGWPProduct = true;
+         </script>
+       {% endif %}
+     {% endfor %}
+    <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart.total_price }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
+      {% if cart.item_count == 0 %}
+      <div class="drawer_empty center">
+        <div class="appear-animation appear-delay-{{ appear_delay }}">
+          <div class="flex-wrapper">
+            <div class="buttons_wrapper">
+              {% for btn in shop.metaobjects.empty_cart_buttons.values %}
+                {% assign i = forloop.index %}
+                {% if btn.button_label != blank %}
+                  <style>
+                    .btn--Solid.button_item_{{ i }} {
+                      background-color: {{ btn.background_color }};
+                      color: {{ btn.text_color }};
+                      border: 1px solid {{ btn.background_color }};
+                    }
+                    .btn--Solid.button_item_{{ i }}:hover {
+                      background-color: {{ btn.text_color }};
+                      color: {{ btn.background_color }};
+                      border: 1px solid {{ btn.background_color }};
+                    }
+                    .btn--Outline.button_item_{{ i }} {
+                      background-color: transparent !important;
+                      border: 1px solid {{ btn.background_color }};
+                      color: {{ btn.text_color }};
+                    }
+                    </style>
+
+                  <a href="{{ btn.button_link }}" class="button btn--{{ btn.button_style }} button_item_{{ i }}">{{ btn.button_label }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="multicolumns">
+              {% for column in shop.metaobjects.empty_multi_column.values %}
+                {% if column.image %}
+                  {% assign index = forloop.index %}
+                  <div class="multicolumns-item">
+                    <style>
+                      .multicolumnsLink--{{ index }} .multicolumns-content .overlayMulticolumns{
+                        background-color: {{ column.overlay_color }};
+                        opacity: {{ column.content_overlay }};
+                      }
+                    </style>
+                    <a href="{{ column.link }}" class="multicolumns-link multicolumnsLink--{{ index }}">
+                      {% assign image_height = column.image.width | divided_by: column.image.aspect_ratio %}
+                      {%- liquid
+                        assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'                      
+                        assign stacked_sizes = '(min-width: 750px) 50vw, 100vw'
+
+                        assign fetch_priority = 'auto'
+                        if section.index == 1
+                          assign fetch_priority = 'high'
+                        endif
+                      -%}
+                      {% if column.image != blank %}
+                        <div class="multicolumns-image">
+                          {{
+                            column.image
+                            | image_url: width: 3840
+                            | image_tag:
+                              width: column.image.width,
+                              height: image_height,
+                              class: image_class,
+                              sizes: sizes,
+                              widths: widths,
+                              fetchpriority: fetch_priority
+                          }}
+                        </div>
+                      {% endif %}
+                      <div class="multicolumns-content">
+                        <div class="overlayMulticolumns"></div>
+                        <div class="multicolumns-text">
+                          <h3 class="multicolumns-title {% if column.subheading != blank %} pb-0 {% endif %}" style="font-size: {{ column.text_size }}px;color: {{ column.text_color }};">{{ column.heading }}</h3>
+                          {% if column.subheading != blank %}
+                            <p class="multicolumns--subheading" style="font-size: {{ column.subheading_text_size }}px;color: {{ column.subheading_text_color }};">{{ column.subheading }}</p>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% assign qty = 0 %}
+      {%- for item in cart.items -%}
+        {% assign qty = qty | plus:item.quantity %}
+      {%- endfor -%}
+      <div class="drawer__items-inner">
+        <cart-items>
+          <div class="loading-overlay hidden">
+            <div class="loading-overlay__spinner">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+              </svg>
+            </div>
+          </div>
+          {% assign current_bundle_items = '' %}
+          <ul class="drawer__content-items" style="pointer-events: initial;">
+            {% for item in cart.items %}
+
+            {%- liquid
+            assign is_bundle_item = false
+            if item.properties['_bundle'] == 'true'
+              assign is_bundle_item = true
+            endif
+
+            if current_bundle_items contains item.properties['bundle_id']
+              continue
+            endif
+
+            assign has_monogram = false
+            if item.properties['Monogram Initials'] != blank
+              assign has_monogram = true
+            endif
+
+            assign is_gift_note = false
+            if item.title == "Hammitt Gift Receipt"
+               assign is_gift_note = true
+               assign has_gift_note = true
+            endif
+
+            assign is_gwp = false
+
+            if item.id == settings.gwp_product.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+               assign is_gwp = true
+            endif 
+
+            if item.id == settings.gwp_product2.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+               assign is_gwp = true
+            endif
+
+             if item.id == settings.gwp_product3.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+               assign is_gwp = true
+            endif
+
+            if item.title == 'Hammitt GWP' and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+              assign is_gwp = true
+            endif
+
+            -%}
+
+            {% if forloop.first %}
+            {% assign first_cart_item = item %}
+            {% endif %}
+
+            {% if is_bundle_item %}
+            {% assign my_bundle_items = 'updates[' | append: item.id | append: ']=0' %}
+            <div class="relative ajaxcart__row--bundle" data-properties='{{ item.properties | json }}' data-bundle-id="{{ item.properties['bundle_id'] }}">
+              <div class="ajaxcart--bundle__images flex">
+                {% assign cart_items_reverse = cart.items | reverse %}
+                {% for bundle_item in cart_items_reverse %}
+                {% if bundle_item.properties['_bundle'] != 'true' %}{% continue %}{% endif %}
+                {% if bundle_item.properties['bundle_id'] != item.properties['bundle_id'] %}{% continue %}{% endif %}
+                {% if current_bundle_items contains item.id %}{% continue %}{% endif %}
+                <div class="ajaxcart--bundle__image" data-id="">
+                  {{ bundle_item | img_url: '250x' | img_tag }}
+                </div>
+                {% capture update %}updates[{{ bundle_item.id }}]=0{% endcapture %}
+                {% assign my_bundle_items = my_bundle_items | append: '&' | append: update %}
+                {% endfor %}
+                <button type="button" class="bundle--cart-remove" data-bundle-items="{{ my_bundle_items | split: '&' | uniq | join: '&' }}" data-edit-item="{{ item.properties['bundle_id'] }}">{%- render 'icon-close' -%}</button>
+              </div>
+              <div class="bundle--cart-title">
+                <span>Bundle</span>
+                <span>{{ item.properties['_bundle_total'] | money }}</span>
+              </div>
+            </div>
+
+            {% assign current_bundle_items = current_bundle_items | append: ',' | append: item.properties['bundle_id'] %}
+
+            {% else %}
+
+            <li class="drawer__content-item cart-item CartItem-{{ item.index | plus: 1 }} appear-animation appear-delay-{{ appear_delay }} {%  if is_gift_note %}cart-item__drawer-note{% endif %} {%  if is_gwp %}cart-item__gwp{%  endif %}" 
+                data-line="{{ forloop.index }}" 
+                data-json='{{ item | json | escape }}' 
+                data-variant-id="{{ item.variant.id }}"
+                data-qty="{{ item.quantity }}"
+                data-in-stock-handle="{{ in_stock_handle }}" 
+                data-special-order-handle="{{ special_order_handle }}"
+                data-key="{{ item.key }}"
+                id="CartDrawerItem-{{ item.index | plus: 1 }}"
+                data-custom-index="{{ item.index | plus: 1 }}"
+                {% if item.variant_id == MonogramAddOnId %}
+                  style="display: none !important; height: 0 !important; width: 0 !important; visibility: hidden !important;"
+                {% endif %}
+              > 
+              {% assign appear_delay = appear_delay | plus: 1 %}
+              <div class="drawer__content-item-image"> 
+                <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.image.alt }}"> 
+              </div> 
+              <div class="drawer__content-item-info"> 
+                {%  if is_gwp %}
+                  <div class="cart-item__name break">You've qualified for a free gift!</div>
+                  <small>promo excludes tax + shipping</small>
+                {% endif %}
+                <div> 
+                  <div class="drawer__content-item-tprice">
+                    {% assign item_title = item.product.title | split: ' | ' %}
+                    {%  unless is_gwp %}
+                      {% if item.variant_id contains isHiddenItem %} wow {% endif %}
+                    <a {% unless item.variant_id contains isHiddenItem %}href="{{ item.url }}"{% endunless %} class="cart-item__name break">
+                      <span class="cart-item__title">{{ item_title[0] }}</span>
+                    </a> 
+                    {% endunless %}
+                    <div class="drawer__content-item-price"> 
+                      <div class="cart-item__price-wrapper">
+                        <span class="price price--end"> {{ item.price | money_without_trailing_zeros | replace: '$0','Free!' }} </span>
+                      </div> 
+                    </div> 
+                  </div> 
+                  <div class="drawer_product-info"> 
+                    <span class="product-option"><strong class="pink">{{ item_title[1] }}</strong></span>
+                    {% if has_monogram %}
+                      <div class="monogram product-option">
+                        <div class="drawer__content-item-info"> 
+                          + {{ all_products['monogram'].price | money_without_trailing_zeros }} - {{ all_products['monogram'].title }}
+                        </div>
+                      </div>
+                    {% endif %}
+                    {% unless item.product.has_only_default_variant %}
+                    {% for option in item.options_with_values %}
+                    <div class="product-option">                      
+                      <dt>{{ option.name }}:</dt>
+                      <dd>{{ option.value }}</dd>
+                    </div> 
+                    {% endfor %}
+                    {% endunless %}
+                    {% if item.selling_plan_allocation.selling_plan.name %}
+                    <div class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</div>
+                    {% endif %}
+                    {% for property in item.properties %}
+                        {% comment %} "_id" MONOGRAM ADDON PROPERTY  {% endcomment %}
+                        {%- assign property_first_three_char = property.first | slice: 0, 3 -%}
+                        {% if property_first_three_char == "_id" %}
+                            <div class="product-option product_id-option" style="display: none;">
+                              <dd {% if item.variant_id == MonogramAddOnId %}class="product_id-monogram"{% endif %}>{{ property.last }}</dd>
+                            </div>
+                        {% endif %}
+
+                        {% comment %} EE GWP PROPERTY {% endcomment %}
+                        {%- assign property_addon_promotion = property.first | slice: 0, 13 -%}
+                        {% if property_addon_promotion == "_IDPromotion" %}
+                          <div style="display: none;" class="{% if property.last == "IDPromotion" %} id-promotion_property{% else %}id-addon_property{% endif %}">
+                            {{ property.last }}
+                          </div>
+                        {% endif %}
+                        {% assign isBadgeProductProperties = false %}
+                        {% for tag in item.product.tags %}
+                          {% if tag == 'tag: Final Sale' or tag == 'tag: final sale' or tag == 'tag: final sale' %}
+                            {% if item.product.metafields.custom.badge_properties %}
+                              {% assign isBadgeProductProperties = true %}
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                      {% if property.first.first == "_" %}{% continue %}{% endif %}
+                      {% unless property.first == "tn_enabled" %}
+                        <div class="product-option product-option--{{ property.first | handle }} {% if isBadgeProductProperties %} product-properties__option {% endif %}">                      
+                          <dt>{{ property.first }}:</dt>
+                          <dd>{{ property.last }}</dd>
+                        </div> 
+                      {% endunless %}
+
+                      
+                    {% endfor %}
+                  </div> 
+                  <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                    {%- for discount in item.discounts -%}
+                      <li class="discounts__discount">
+                        {%- render 'icon-discount' -%}
+                        {{ discount.title }}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div> 
+                <div class="flex align-center space-between drawer__content-item-actions">
+                  {% unless has_monogram %}
+                  <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}" {% if item.id == EEGWPAddOnId %} disabled style="pointer-events: none; visibility: hidden; opacity: 0;"{% endif %}>
+                    <button class="quantity__button no-js-hidden" name="minus" type="button">
+                      <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
+                      {% render 'icon-minus' %}
+                    </button>
+                    <input class="quantity__input"
+                           type="number"
+                           name="updates[]"
+                           value="{{ item.quantity }}"
+                           min="0"
+                           {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}
+                           max="{{ item.variant.inventory_quantity }}"
+                           {% endunless %}
+                           aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                           id="CartDrawer__Quantity-{{ item.index | plus: 1 }}"
+                           data-index="{{ item.index | plus: 1 }}"
+                          >
+                    <button
+                      class="quantity__button no-js-hidden" 
+                      name="plus" 
+                      type="button"
+                    >
+                      <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
+                      {% render 'icon-plus' %}
+                    </button>
+                  </quantity-input>
+                  {% else %}
+                  <div><span class='visually-hidden'>Monogram</span></div>
+                  {% endunless %}
+
+                  <div class="loading-overlay hidden">
+                    <div class="loading-overlay__spinner loading-overlay__spin">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  {% render 'swym-hammitt-custom-favorite-button', product:item.product %}
+                  <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
+                    <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                      {% render 'icon-remove' %}
+                    </a>
+                  </cart-remove-button>
+                </div>
+                {% if is_gift_note %}
+                <label for="gift-note" class="visually-hidden">Add gift note?</label>
+                <textarea placeholder="Add gift note?" name="note" id="gift-note">{{ cart.attributes['Gift Note'] }}</textarea>
+                {% endif %}
+              </div> 
+            </li>
+            {% endif %}
+            {% endfor %}
+
+          </ul>
+          <div class="cart-errors"></div>
+          <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
+          <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
+        </cart-items>
+        {% if cart.item_count > 0  %}
+        <gift-box-section>
+          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
+            <h3>{{ content.heading }}</h3>
+          {% endfor %}
+          {%- capture json -%}
+            {
+              "slidesPerView": 1.7,
+              "spaceBetween": 9,
+              "freeMode": true,
+              "mousewheel": false,
+              "loop": false,
+              "effect": "slide",
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              },
+              "breakpoints": {
+                "750": {
+                  "slidesPerView": "1.7",
+                  "spaceBetween": 20
+                },
+                "990": {
+                  "slidesPerView": "1.7",
+                  "spaceBetween": 9
+                }
+              }
+            }
+          {%- endcapture -%}
+          <div class="swiper gift-box--swiper" data-json='{{ json }}'>
+            <button class="btn-expanded" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path stroke="currentColor" d="m16 4-5 5M4 16l5-5M11 4v5h5M9 16v-5H4"></path></svg>
+            </button>
+            <div class="swiper-wrapper">
+              {% for giftBoxFiles in shop.metaobjects.complimentary_gift_box.values %}
+                {% assign fileFormate = giftBoxFiles.files.value %}
+                {% if fileFormate.media_type contains 'video' %}
+                  <div class="swiper-slide">
+                    <div class="gift-box-video">
+                      <video class="video__element" playsinline="" loop="" muted="" preload="auto" autoplay poster="{{ fileFormate.src }}" src="{{ fileFormate.sources[1].url }}" data-video="{{ fileFormate.sources[1].url }}">
+                        <source src="{{ fileFormate.sources[1].url }}" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="swiper-slide">
+                    <div class="gift-box-image">
+                      <img src="{{ fileFormate | img_url: 'master' }}" alt="{{ fileFormate.alt | default: 'Complimentary gift image' }}">
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
+            <div class="gift-box-content">{{ content.description }}</div>
+            {% if settings.giftBox_enabled %}
+            <div class="cart__gift--notes">
+              <input id="cart__gift--check" class="cart__gift__input" type="checkbox">
+              <label for="cart__gift--check">{{ content.checkbox_content }}</label>
+              <zest-button 
+                shop-id="{{ shop.permanent_domain }}"
+                variant="outline"
+                border-width="1px" 
+                border-color="black">
+              </zest-button>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </gift-box-section>
+      {% endif %}
+      <cart-upsells class="cart-drawer-upsells" data-upsell-title="{{ first_cart_item.product.title }}" >
+        {% if cart.item_count > 0 %}
+          <div class="tab-item__upsell">
+            <ul>
+              {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
+                  {% assign cartCollection = collections[cartUpsell.collection] %}
+                <li class="tab-item {% if forloop.first %} active {% endif %}"><a href="#" data-href="{{ cartCollection.handle }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
+              {% endfor %}
+            </ul>
+          </div>
+          {%- capture swiperJson -%}
+            {
+              "slidesPerView": 2.5,
+              "spaceBetween": 9,
+              "freeMode": false,
+              "mousewheel": false,
+              "loop": false,
+              "effect": "slide",
+              "breakpoints": {
+                "750": {
+                  "slidesPerView": "2.5",
+                  "spaceBetween": 20
+                },
+                "990": {
+                  "slidesPerView": "2.8",
+                  "spaceBetween": 9
+                }
+              }
+            }
+          {%- endcapture -%}
+
+          <div class="tab-content">
+              {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
+                {% assign cartCollection = collections[cartUpsell.collection] %}
+                <div class="swiper {% if forloop.first %} shown {% else %} hidden {% endif %}" data-json='{{- swiperJson -}}' data-target={{ cartCollection.handle }} >
+                  <div class="horizontal-scroller__upsell swiper-wrapper">
+                    {% liquid
+                        assign cart_ids = cart.items | map: 'product_id' | uniq | join: ','
+                        assign found = 0
+                        assign max = 5
+                      %}
+                      
+                      {% liquid
+                        assign isShareholder = false
+                        for tag in customer.tags
+                          if tag == 'shareholder'
+                            assign isShareholder = true
+                          endif
+                        endfor
+                      %}
+                      
+                      {% liquid 
+                        for product in cartCollection.products limit: 20
+                          if isShareholder == false and product.metafields.seo.hidden == 1
+                            continue
+                          endif
+                        
+                          if product.metafields.custom.hide_product_all_customers == 1
+                            continue
+                          endif
+                        
+                          if cart_ids contains product.id 
+                            continue
+                          endif
+                          if product.available != true
+                            continue
+                          endif 
+                          assign found = found | plus: 1
+                          render 'upsell-item', product: product
+                      endfor
+                    %}
+                    {% if found == 0 %}
+                      <p>No Products found</p>
+                    {% endif %}
+                  </div>
+                </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+        </cart-upsells>
+
+      </div>
+    </div>
+    
+    {% if settings.cart_shipping_msg != blank %}
+      <div class="cart_shipping_notes text-center" {% if cart.item_count == 0 %} style="display: none;" {% endif %}>
+        {{ settings.cart_shipping_msg }}
+      </div>
+    {% endif %}
+    <div class="drawer__final appear-animation appear-delay-{{ appear_delay }} {% if cart.item_count == 0 %} drawerEmptyState {% endif %}">
+      {%- liquid
+         assign has_gift_note = false
+         for item in cart.items
+           if item.id == 32065742504054
+             assign has_gift_note = true
+             break
+           endif
+         endfor
+      -%}
+      {% if cart.item_count > 0 %}
+<!--       <div class="cart__gift-receipt">
+        <gift-note class="checkbox" data-has-gift-note="{{  has_gift_note }}">
+          <input id="add-gift-receipt" class="gift-receipt__input" type="checkbox" name="gift-receipt" {% if has_gift_note %}checked="checked"{%  endif  %}>
+          <label for="add-gift-receipt">Gift Receipt + Note</label>
+        </gift-note>
+      </div> -->
+      <div class="drawer__subtotal">
+        {% assign adjusted_total_price = cart.total_price %}
+
+        {% for item in cart.items %}
+          {% if item.selling_plan_allocation and item.selling_plan_allocation.selling_plan.name contains 'Try Before You Buy'%}
+            {% assign product_price = item.final_line_price %}
+            {% assign adjusted_total_price = adjusted_total_price | minus: product_price %}
+          {% endif %}
+        {% endfor %}
+        <span class="totals__subtotal">{% if adjusted_total_price != cart.total_price %}Amount due today{% else %}{{ 'sections.cart.subtotal' | t }}{% endif %}	:</span>
+        <span class="totals__subtotal-value">
+          {{ adjusted_total_price | money_with_currency }}
+        </span>
+      </div>
+      
+      <div class="drawer__buttons">
+        <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
+          <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
+        </form>
+        {% comment %}          
+          <a href="/checkout" class="button button--full-width">Checkout</a>
+        {% endcomment %}
+        {%- if additional_checkout_buttons -%}
+          <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+            {{ content_for_additional_checkout_buttons }}
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="drawer__notification">
+        <small class="rte">
+          {% if settings.cart_drawer_msg != blank %}
+            {% style %}
+            .drawer__notification{
+              --cartDrawerMsg: {{ settings.cart_drawer_msg_color | default: '#000' }};
+            }
+            {% endstyle %}
+            {{ settings.cart_drawer_msg }}
+          {% else %}
+            {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+            {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+            {%- elsif cart.taxes_included -%}
+            {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+            {%- elsif shop.shipping_policy.body != blank -%}
+            {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+            {%- else -%}
+            {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+            {%- endif -%}
+          {% endif %}
+        </small>
+      </div>
+      {% endif %}
+    </div>
+    
+  </div>
+  
+</div>
+<style>
+  .cart_shipping_notes {
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.2;
+    max-width: 290px;
+    margin: auto;
+    padding: 10px 10px 0;
+  }
+</style>
+

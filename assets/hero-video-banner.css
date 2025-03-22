@@ -1,0 +1,129 @@
+.hero-video-section .video-section__media {
+    --ratio-percent: 56.25%;
+    position: relative;
+    padding-bottom: calc(var(--ratio-percent) - var(--media-border-width));
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.vs-section {
+    text-decoration: none;
+}
+
+.hero-video-section .video-section__media video {
+    object-fit: cover;
+    min-height: 100%;
+    width: 100%;
+}
+
+.hero-video-section .deferred-media {
+    display: none;
+}
+
+.hero-video-section .video-section .title-wrapper {
+    position: absolute;
+    z-index: 99;
+    color: #fff;
+    padding: 0px 50px;
+    max-width: 1200px;
+    bottom: 100px;
+    margin: 0;
+}
+
+.hero-video-section .video-section .title-wrapper h2.title {
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.hero-video-section .video-section .title-wrapper p.subtitle {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.hero-video-section .video-section {
+    position: relative;
+}
+
+/* Needed for gradient continuity with or without animation so that transparent PNG images come up as we would expect */
+.hero-video-section .scroll-trigger:where(.gradient.video-section__media) {
+    background: transparent;
+}
+
+.hero-video-section .video-section__media.global-media-settings--full-width {
+    padding-bottom: var(--ratio-percent);
+}
+
+.hero-video-section .video-section__media.deferred-media:after {
+    content: none;
+}
+
+.hero-video-section .video-section__poster.deferred-media__poster:focus {
+    outline-offset: 0.3rem;
+}
+
+.hero-video-section .deferred-media__poster {
+    font-size: 40px;
+    z-index: 3;
+    color: #fff;
+}
+
+.hero-video-section .hero-video-cta>* {
+    margin: 0;
+    padding: 0;
+}
+
+.hero-video-section .video-section__media iframe {
+    background-color: rgba(var(--color-foreground), 0.03);
+    border: 0;
+}
+
+.hero-video-section .video-section__poster,
+.hero-video-section .video-section__media iframe,
+.hero-video-section .video-section__media video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-video-section .video-section__media video {
+    background: #000000;
+}
+
+.hero-video-section .video-section__media.media-fit-cover video {
+    object-fit: cover;
+}
+
+.hero-video-section .o-desktop-link {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .hero-video-section .vs-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-video-section .video-section .title-wrapper {
+        position: static;
+        order: 1;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .hero-video-section .o-desktop-link {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+    }
+
+    .hero-video-section .vs-section {
+        height: 100%;
+    }
+}

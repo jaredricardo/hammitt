@@ -1,0 +1,109 @@
+{{ 'homepage-instagram.css' | asset_url | stylesheet_tag }}
+<div id="homepage-foursixty" class="{% if section.settings.enabled_slider %}homepage-foursixty-ab{% endif %}" style="text-align: {{section.settings.text_align}};">
+  <div class="{% unless template contains 'sl-6D5566D8' %} page-width{% endunless %}">
+    {%- if section.settings.heading != blank -%}
+    <div class="section-header">
+      <h3>{{section.settings.heading}}</h3>
+      {% if section.settings.paragraph != blank %}
+        <div class="rte">{{section.settings.paragraph}}</div>
+      {% endif %}
+    </div>
+    {%- endif -%}
+    {% if section.settings.enabled_slider %}
+        <script src="//foursixty.com/media/scripts/fs.slider.v2.5.js" data-feed-id="{{section.settings.feed_id}}" data-theme="slider_v2_5" data-open-links-in-same-page="true" data-connector-filter="37257,57227" data-cell-size="20%"></script><style>.fs-has-links::after { padding:5px 7.5px;background-color:#ffffff;color:rgba(0, 0, 0, 0.8);content:"SHOP IT"; } .fs-wrapper { height:auto; } .fs-slider_v2_5  .fs-entry-container { height:0 !important;width:13.80%!important;padding-top:13.80%!important; } .fs-wrapper div.fs-text-container .fs-entry-title, div.fs-detail-title { font-family:Times New Roman, serif;font-style:normal;font-weight:normal;font-size:14px; } div.fs-text-container .fs-entry-date, div.fs-detail-container .fs-post-info, div.fs-wrapper div.fs-has-links::after, .fs-text-product, .fs-overlink-text { font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:14px; } .fs-wrapper div.fs-text-container * { color:#ffffff; } .fs-wrapper div.fs-text-container { background-color:rgba(0, 0, 0, 0.8);margin:0px; } div.fs-entry-date { display:none; } div.fs-entry-title { display:none; } .fs-slider_v2_5 .fs-wrapper div.fs-timeline-entry { margin:1px; } </style>
+    {% else %}
+  	    <script src="//foursixty.com/media/scripts/fs.embed.v2.5.js" data-feed-id="{{section.settings.feed_id}}" data-theme="showcase_v2_5" data-page-size="8" data-for-url="false"></script><style>.fs-has-links::after {  padding: 5px 7.5px; background-color: #fff; color: rgba(0,0,0,0.8); content: "SHOP IT";  }.fs-desktop .fs-entry-container { width: 25% !important; padding-top: 25% !important; }.fs-mobile .fs-entry-container { width: 50% !important; padding-top: 50% !important; }.fs-wrapper div.fs-text-container .fs-entry-title, div.fs-detail-title{font-family:Times New Roman, serif;font-style:italic;font-weight:normal;}div.fs-text-container .fs-entry-date, div.fs-detail-container .fs-post-info, div.fs-wrapper div.fs-has-links::after, .fs-text-product, .fs-overlink-text{font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-style:normal;font-weight:bold;}.fs-slider-next-button, .fs-slider-prev-button { opacity: 1; }.fs-wrapper div.fs-text-container * {color:#fff}.fs-wrapper div.fs-text-container {background-color:rgba(0,0,0,0.8); margin: 0px}div.fs-entry-date{display:none}div.fs-entry-title{display:none}.fs-wrapper div.fs-timeline-entry{ margin: 5px }</style>
+    {% endif %}
+
+  {% if section.settings.show_link_to_page %}
+  <div class="text-center section-btn-wrap">
+    <a href="{{section.settings.link_to_page}}" class="btn button--primary" aria-label="View all shoppable Instagram">{{section.settings.link_to_page_text}}</a>
+  </div>
+  {% endif%}
+  </div>
+</div>
+
+<style>
+  @media only screen and (max-width: 768px) {
+    .homepage-foursixty-ab .fs-wrapper .fs-entry-container{
+      width: 48% !important;
+      padding-top: 48% !important;
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Index Foursixty",
+    "class": "index-foursixty index-section index-section--flush",
+    "settings": [
+
+    {
+        "type": "checkbox",
+        "id": "enabled_slider",
+        "label": "Enabled Slider?"
+    },
+    {
+        "type": "text",
+        "id": "feed_id",
+        "label": "Feed ID",
+        "default":"frankiesbikinis"
+    },
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+		    "default":"Join Us"
+    },
+    {
+        "type": "text",
+        "id": "page_size",
+        "label": "# of Images",
+		"default":"4"
+    },
+    {
+        "type": "text",
+        "id": "image_margin",
+        "label": "Image Margin",
+		"default":"5"
+    },
+    {
+        "type": "textarea",
+        "id": "paragraph",
+        "label": "Paragraph Text"
+    },
+    {
+        "type": "select",
+        "id": "text_align",
+        "label": "Text Align",
+		"options": [
+			{"value":"left","label":"Left"},
+			{"value":"center","label":"Center"},
+			{"value":"right","label":"Right"}
+		],
+		"default":"center"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_link_to_page",
+        "label": "Show link to page?"
+    },
+    {
+        "type": "url",
+        "id": "link_to_page",
+        "label": "Page to link to"
+    },
+    {
+        "type": "text",
+        "id": "link_to_page_text",
+        "label": "Button text"
+    }
+	],
+    "presets": [
+      {
+        "name": "Index Foursixty",
+        "category": "Gallery"
+      }
+    ]
+  }
+{% endschema %}

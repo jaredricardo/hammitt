@@ -1,0 +1,51 @@
+.value-props {
+  justify-content: center;
+}
+.value-prop {
+  display: flex !important;
+  flex-direction: column;
+  padding: 0 5%;
+  text-align: center;
+}
+.value-prop__text {
+  font-size: 1.6rem;
+  display: block;
+  margin: 1rem 0;
+}
+
+/* .value-prop svg{width: 18px;height: 18px;} */
+
+.value-prop__description {
+  display: block;
+  max-width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 749px) {
+  .value-prop + .value-prop { 
+    margin-top: 3rem;
+    
+  }
+}
+
+
+.props-value-section .value-prop__icon svg,
+.props-value-section .value-prop__icon img{height:55px;width:auto;}
+.props-value-section .value-prop{position:relative;overflow:hidden;}
+.props-value-section .value-prop__icon{display:flex;flex-wrap:wrap;}
+.props-value-section .icontitle{margin:15px 0px 0px;font-size:15px;text-transform:uppercase;font-weight:500;}
+.props-value-section .icontitle a{color:currentcolor;text-decoration:none;}
+.props-value-section .icontitle a:hover{text-decoration: underline;text-underline-offset: 2px;}
+.props-value-section .icontitle a:after{content: "";width: 100%;height: 100%;position: absolute;top: 0;left: 0;}
+.homeiconlist-section .colgrid-wrap{max-width: 1400px;margin: 0 auto;}
+
+
+@media screen and (min-width: 750px){
+  .props-value-section .value-prop{padding:0px;flex:1;}
+}
+@media screen and (max-width: 749px){
+  .props-value-section .flex{flex-wrap:wrap;}
+  .props-value-section .value-prop{width:100%;}
+  .value-prop+.value-prop{margin-top:4rem;}
+}

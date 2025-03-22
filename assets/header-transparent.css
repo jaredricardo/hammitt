@@ -1,0 +1,49 @@
+#shopify-section-header,
+#shopify-section-header .header--transparent {
+  background: transparent !important;
+  transition: all .3s ease;
+  border-bottom: 0 !important;
+}
+#MainContent {
+  margin-top: -97px;
+}
+
+#shopify-section-header:not(:hover) .header--invert-colors .header__desktop-search,
+#shopify-section-header:not(:hover) .header--invert-colors .cart-count-bubble {
+  color: white;
+  transition: all .3s ease;
+}
+
+#shopify-section-header:not(:hover) .header--invert-colors #Search-In-Header {
+  border-color: white;
+  color: white;
+  transition: all .3s ease;
+}
+
+  #shopify-section-header:hover {
+    transition: all .3s ease;
+    background: var(--color-bg) !important;
+  }
+
+
+#shopify-section-header:not(:hover) .header--invert-colors .header__link--rewards,
+#shopify-section-header:not(:hover) .header--invert-colors .header__menu-item {
+  color: white !important;
+  transition: all .3s ease;
+}
+
+#shopify-section-header:not(:hover) .header--invert-colors .icon-logo g,
+#shopify-section-header:not(:hover) .header--invert-colors .header__icon svg,
+#shopify-section-header:not(:hover) .header--invert-colors .icon-search-path,
+#shopify-section-header:not(:hover) .header--invert-colors .icon-search {
+  fill: #ffffff !important;
+  transition: all .3s ease;
+}
+
+#shopify-section-header:not(:hover) .header--invert-colors .icon-hamburger path {
+  stroke: #ffffff !important;
+}
+
+@media screen and (max-width: 749px) {
+  
+}

@@ -1,0 +1,264 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+<div id="Banner-{{ section.id }}" class="relative banner  banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}">
+  {%- if section.settings.image_desktop != blank -%}
+  <div class="small-hide banner__media media{% if section.settings.image == blank %} placeholder{% endif %}">
+    {% render 'image-element',image: section.settings.image_desktop %}
+  </div>
+  {%- endif -%}
+  {%- if section.settings.image_mobile != blank -%}
+  <div class="medium-up-hide banner__media media">
+    {% render 'image-element', image: section.settings.image_mobile %}
+  </div>
+  {%- endif -%}
+  <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
+    <div class="banner__box content-container content-container--full-width-mobile">
+      {%- for block in section.blocks -%}
+      {%- case block.type -%}
+      {%- when 'heading' -%}
+      <h2 class="banner__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+        {% if block.settings.heading != blank %}
+        <span>{{ block.settings.heading | escape }}</span>
+		{% else %}
+        <span>{{ page.title }}</span>
+        {% endif %}
+      </h2>
+      {%- when 'text' -%}
+      <div class="banner__text rte {{ block.settings.paragraph_size }}" {{ block.shopify_attributes }}>
+        {% if block.settings.paragraph != blank %}
+        {{ block.settings.paragraph }}
+        {% else %}
+        {{ page.content }}
+        {% endif %}
+      </div>
+      {%- when 'form' -%}
+      <form id="splendid-sweeps--signup" action="//manage.kmail-lists.com/subscriptions/subscribe"  method="POST" target="_blank">
+        <input type="hidden" name="g" value="{{ section.settings.klaviyo_list }}">
+        <div class="field">
+          <input 
+                 type="text"
+                 class="field__input newsletter__input"
+                 value="{% if customer %}{{ customer.first_name }}{% endif %}" 
+                 name="$first_name" 
+                 placeholder="first name">
+          <label for="">First Name</label>
+        </div>
+        <div class="field">
+          <input 
+                 type="text"
+                 class="field__input"
+                 value="{% if customer %}{{ customer.last_name }}{% endif %}" 
+                 name="$last_name" 
+                 placeholder="last name">1
+          <label for="">Last Name</label>
+        </div>
+        <div class="field">
+          <input 
+                 type="email"
+                 class="input__field"
+                 value="{% if customer %}{{ customer.email }}{% endif %}" 
+                 name="email" 
+                 placeholder="email address">
+          <label for="">Email address</label>
+        </div>
+        <div class="field">
+          <button type="submit" class="button button--primary newsletter__submit" name="commit">
+            <span class="newsletter__submit-text--large">{{ section.settings.submit_btn_text }}</span>
+          </button>
+        </div>
+        <div class="klaviyo_messages">
+          <div class="success_message" style="display:none;"></div>
+          <div class="error_message" style="display:none;"></div>
+        </div>
+      </form>
+      
+      {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Sweeps",
+    "settings": [
+	  {
+		"type":"color",
+		"label":"Background color",
+		"id":"color_background"
+	  },
+	  {
+		"type":"image_picker",
+		"label":"Image (desktop)",
+		"id":"image_desktop"
+	  },
+	  {
+		"type":"image_picker",
+		"label":"Image (mobile)",
+		"id":"image_mobile"
+	  },
+	  {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__1.label"
+        },
+        {
+          "value": "top-center",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__2.label"
+        },
+        {
+          "value": "top-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__3.label"
+        },
+        {
+          "value": "middle-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__4.label"
+        },
+        {
+          "value": "middle-center",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__5.label"
+        },
+        {
+          "value": "middle-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__6.label"
+        },
+        {
+          "value": "bottom-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__7.label"
+        },
+        {
+          "value": "bottom-center",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__8.label"
+        },
+        {
+          "value": "bottom-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__9.label"
+        }
+      ],
+      "default": "middle-center",
+      "label": "t:sections.image-banner.settings.desktop_content_position.label"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.image-banner.settings.desktop_content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-banner.settings.desktop_content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.image-banner.settings.desktop_content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.image-banner.settings.desktop_content_alignment.label"
+    },
+	{
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.image-banner.settings.mobile_content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-banner.settings.mobile_content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.image-banner.settings.mobile_content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.image-banner.settings.mobile_content_alignment.label"
+    }
+	],
+	"blocks":[
+	{
+	  "type":"heading",
+	  "name":"Heading",
+	  "settings":[
+		{
+		  "type":"text",
+		  "id":"title",
+		  "label":"Heading",
+		  "info":"If blank, the page title will show"
+		},
+		{
+		  "type":"select",
+		  "id":"heading_size",
+		  "label":"Heading size",
+		  "default":"h1",
+		  "options":[
+			{
+			  "label":"Small",
+			  "value":"h2"
+			},
+			{
+			  "label":"Normal",
+			  "value":"h1"
+			},
+			{
+			  "label":"Large",
+			  "value":"h0"
+			}
+		  ]
+		}
+	  ]
+	},
+	{
+	  "type":"text",
+	  "name":"Text",
+	  "settings":[
+		{
+		  "type":"richtext",
+		  "id":"paragraph",
+		  "label":"Paragraph",
+		  "info":"If blank, the page content will show"
+		},
+		{
+		  "type":"select",
+		  "id":"paragraph_size",
+		  "label":"Text size",
+		  "default":"text-normal",
+		  "options":[
+			{
+			  "label":"Small",
+			  "value":"text-small"
+			},
+			{
+			  "label":"Normal",
+			  "value":"text-normal"
+			},
+			{
+			  "label":"Large",
+			  "value":"text-large"
+			}
+		  ]
+		}
+	  ]
+	},
+	{
+	  "type":"form",
+	  "name":"Signup form",
+	  "settings":[
+	  ]
+	}
+	],
+	"presets": [{"name":"Sweeps"}]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+

@@ -1,0 +1,32 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+.ee-multicolumn ul.multicolumn-list::-webkit-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.ee-multicolumn ul.multicolumn-list::-webkit-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@media screen and (min-width: 748.98px) and (max-width: 989.98px) {
+    .ee-multicolumn .overflow-x-scroll .grid__item, 
+    .ee-multicolumn .small--overflow-x-scroll .slider__slide {
+        width: 70%;
+    }
+    
+    .ee-multicolumn .multicolumn-list:not(.slider) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .ee-multicolumn .small--overflow-x-scroll{
+        display: flex;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .ee-multicolumn.multicolumn .page-width{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

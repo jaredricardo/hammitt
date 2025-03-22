@@ -1,0 +1,49 @@
+{% render 'faq' %}
+
+{% schema %}
+  {
+    "name": "FAQ",
+    "blocks": [
+      {
+        "type": "faq",
+        "name": "FAQ",
+        "settings": [
+			{
+				"id":"title",
+				"type":"text",
+				"label":"Question"
+			},
+            {
+                "id": "answer",
+                "type": "richtext",
+                "label": "Answer"
+            },
+			{
+				"id":"category",
+				"type":"text",
+				"label":"Category"
+			},
+			{
+				"id":"image",
+				"type":"image_picker",
+				"label":"Image"
+			},
+			{
+				"id":"image_location",
+				"type":"select",
+				"label":"Image Location",
+				"default":"below_answer",
+				"options": [
+					{ "value":"below_answer", "label":"Below Answer" },
+					{ "value":"above_answer", "label":"Above Answer" }
+				]
+			}
+        ]
+      }
+    ],
+	"presets": [
+	  { "name":"FAQ" }
+	]
+  }
+{% endschema %}
+

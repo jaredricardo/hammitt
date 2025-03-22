@@ -1,0 +1,469 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "hide_title": true,
+        "width": "page-width--narrow",
+        "padding_top": 44,
+        "padding_bottom": 24,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "5e444b3d-f694-41a2-ac0e-d948e78ad46e": {
+      "type": "image-banner",
+      "blocks": {
+        "81eb63f8-3d67-4887-a2e8-e28ae11bd4ea": {
+          "type": "heading",
+          "settings": {
+            "heading": "CURATED SPRING STACKS"
+          }
+        }
+      },
+      "block_order": [
+        "81eb63f8-3d67-4887-a2e8-e28ae11bd4ea"
+      ],
+      "settings": {
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify:\/\/shop_images\/BundlesDesktopBanners.jpg",
+        "image_2": "shopify:\/\/shop_images\/BundlesMobileBanners.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": false,
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 8,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "c45c48f9-2620-4957-9321-5b990ead48e0": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify:\/\/collections\/spring-bundles",
+            "button_style_secondary": false
+          }
+        },
+        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bundles To Celebrate Superwomen",
+            "heading_size": "h1"
+          }
+        },
+        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We took your favorite Spring leathers and built highly functional bundles, so it's easier than ever to treat the women you love. (Including yourself.)<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-2",
+        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-0",
+        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-1"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 52,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "2a7a8f42-06dd-409f-9a47-f909bf57b026": {
+      "type": "featured-product",
+      "blocks": {
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-4": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-5": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-6": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-7": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-0",
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-1",
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-2",
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-3",
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-4",
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-5",
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-6",
+        "template--15969756512440__2a7a8f42-06dd-409f-9a47-f909bf57b026-1683737575e7b6962a-7"
+      ],
+      "settings": {
+        "product": "the-sunshine-bundle",
+        "color_scheme": "background-2",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "eb657ecb-f137-4e39-8096-b611f0722976": {
+      "type": "featured-product",
+      "blocks": {
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-4": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-5": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-6": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-7": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-0",
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-1",
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-2",
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-3",
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-4",
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-5",
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-6",
+        "template--15969756512440__eb657ecb-f137-4e39-8096-b611f0722976-1683737575e7b6962a-7"
+      ],
+      "settings": {
+        "product": "the-baby-blue-bundle",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "181db760-a4af-4c7c-a1f5-d96b9dd96fb8": {
+      "type": "featured-product",
+      "blocks": {
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-4": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-5": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-6": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-7": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-0",
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-1",
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-2",
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-3",
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-4",
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-5",
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-6",
+        "template--15969756512440__181db760-a4af-4c7c-a1f5-d96b9dd96fb8-1683737575e7b6962a-7"
+      ],
+      "settings": {
+        "product": "italian-spring-bundle",
+        "color_scheme": "background-2",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "c5313bbd-faa5-4715-94d9-3b24e1598f95": {
+      "type": "featured-product",
+      "blocks": {
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-4": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-5": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-6": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-7": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-0",
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-1",
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-2",
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-3",
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-4",
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-5",
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-6",
+        "template--15969756512440__c5313bbd-faa5-4715-94d9-3b24e1598f95-1683737575e7b6962a-7"
+      ],
+      "settings": {
+        "product": "the-garden-party-bundle",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "bdabbf3d-bd7c-4399-b829-ef4a45b53f19": {
+      "type": "featured-product",
+      "blocks": {
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-0": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-4": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-5": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-6": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-7": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-0",
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-1",
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-2",
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-3",
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-4",
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-5",
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-6",
+        "template--15969756512440__bdabbf3d-bd7c-4399-b829-ef4a45b53f19-1683737575e7b6962a-7"
+      ],
+      "settings": {
+        "product": "the-morning-coffee-bundle",
+        "color_scheme": "background-2",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "5e444b3d-f694-41a2-ac0e-d948e78ad46e",
+    "c45c48f9-2620-4957-9321-5b990ead48e0",
+    "2a7a8f42-06dd-409f-9a47-f909bf57b026",
+    "eb657ecb-f137-4e39-8096-b611f0722976",
+    "181db760-a4af-4c7c-a1f5-d96b9dd96fb8",
+    "c5313bbd-faa5-4715-94d9-3b24e1598f95",
+    "bdabbf3d-bd7c-4399-b829-ef4a45b53f19"
+  ]
+}

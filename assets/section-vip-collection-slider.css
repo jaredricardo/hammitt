@@ -1,0 +1,23 @@
+.vip-collection-slider_wrapper .card__information .card__heading{
+    font-family: Sofia Pro;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: left;
+    color: #000;
+    justify-content: flex-start;
+    text-transform: capitalize;
+}
+
+@media screen and (min-width: 750px) {
+    .vip-collection-slider_wrapper .card__information {
+        padding-top: 12px;
+    }
+    .vip-collection-slider_wrapper {
+        padding-left: 60px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .vip-collection-slider_wrapper {
+        padding-left: 20px;
+    }
+}

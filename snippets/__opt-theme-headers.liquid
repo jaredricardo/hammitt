@@ -1,0 +1,38 @@
+{%- if speedupkernel -%}  
+    {%- unless is_admin_interface -%}  
+    {%- capture __content_for_header -%}  
+      {% # theme-check-disable ContentForHeaderModification %}
+        {{ content_for_header }}  
+      {% # theme-check-enable ContentForHeaderModification %}  
+    {%- endcapture -%}  
+    {%- assign __content_for_header = __content_for_header  
+      | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('wnw_load_custom', asyncLoad, false);"  
+      | replace: 'class="analytics"', 'class="analytics" type="noscript-s"'  
+      | replace: 'defer="defer" src="', 'type="noscript-s" data-src="'  
+      | replace: "debugger; previewBarInjector.init();", "previewBarInjector.init(); "  
+      | replace: 'DOMContentLoaded', 'allLoad'  
+      | replace: 'https:\/\/cdn-loyalty.yotpo.com\/loader\/99agSqcD2Bh1EPly9czXTA.js?shop=hammitt.myshopify.com', ''
+    -%}  
+    {%- assign content_for_header = __content_for_header -%}  
+  {%- endunless -%}  
+{%- endif -%}  
+
+<script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/99agSqcD2Bh1EPly9czXTA" async></script>
+<script>  
+  window.addEventListener('wnw_load', function (e) {  
+    setTimeout(() => {  
+      var evt = document.createEvent('Event');  
+      evt.initEvent('wnw_load_custom', false, false);  
+      window.dispatchEvent(evt);  
+    }, 2000);  
+    setTimeout(() => {  
+      window.emitEvent = function (e, n, t) { if (e) { n = n || window, t = t || {}; var a = new CustomEvent(e, { bubbles: !0, cancelable: !0, detail: t }); n.dispatchEvent(a) } };  
+      setTimeout(() => { emitEvent("allLoad", window, {}); }, 10);  
+      setTimeout(() => { emitEvent("allLoad", document, {}); }, 10);  
+    }, 100);  
+    window.jsWNWLoad = true;
+  });  
+</script>
+<script type="noscript-s">
+  document.body.classList.add('jsLoaded');
+</script>

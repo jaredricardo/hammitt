@@ -1,0 +1,129 @@
+{{ 'reviews-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- capture json -%}
+{
+  "loop": true,
+  "autoHeight": true,
+  "navigation": {
+    "nextEl": ".swiper-button-next",
+	"prevEl": ".swiper-button-prev"
+  }
+}
+{%- endcapture -%}
+
+<div class="color-background-2">
+  <div class="page-width section-{{ section.id }}-padding">
+    <!-- Slider main container -->
+    <div class="swiper reviews-slider" data-json='{{ json }}'>
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <div class="reviews-slide">
+          <p class="caption-with-letter-spacing--medium">
+            {{ block.settings.subheading }}
+          </p>
+          <h2 class="image-with-text__heading h2">
+            {{ block.settings.heading }}
+          </h2>
+          {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | img_url: '150x' }}" alt="{{ block.settings.image.alt }}" class="reviews-slider__logo" />
+          {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev">&nbsp;</div>
+      <div class="swiper-button-next">&nbsp;</div>
+
+    </div>
+  </div>
+</div>
+
+
+{%- if request.design_mode -%}
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Reviews Slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+	{
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type":"slide",
+      "name":"Slide",
+      "settings": [
+        {
+          "type":"image_picker",
+          "id":"image",
+          "label":"Logo Image"
+        },
+		{
+          "type":"richtext",
+          "id":"heading",
+          "label":"Review Text"
+        },
+		{
+          "type":"text",
+          "id":"subheading",
+          "label":"Subheading",
+		  "default":"From the press"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Slider",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

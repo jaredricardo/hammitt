@@ -1,0 +1,496 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "76f9ca36-c8a2-46b1-9801-c56c5c2b8756": {
+      "type": "image-banner",
+      "blocks": {
+        "fcceb656-e5ce-4514-b6c6-2cd89b299795": {
+          "type": "heading",
+          "settings": {
+            "heading": "CELESTIAL DAWN"
+          }
+        },
+        "560a04be-8bcc-4fba-b78c-8871e83e11b3": {
+          "type": "text",
+          "settings": {
+            "text": "BEA BONAFINI X HAMMITT",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "fcceb656-e5ce-4514-b6c6-2cd89b299795",
+        "560a04be-8bcc-4fba-b78c-8871e83e11b3"
+      ],
+      "settings": {
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify:\/\/shop_images\/CelestialDawn-HPBanner_Desktop_1.jpg",
+        "image_2": "shopify:\/\/shop_images\/CelestialDawn-HPBanner_Mobile_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 4
+      }
+    },
+    "487160d1-8fc8-4f63-9b34-d29f516819c0": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16072781824184__487160d1-8fc8-4f63-9b34-d29f516819c0-heading-1": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "OOPS, WE DID IT AGAIN",
+            "heading_size": "h1"
+          }
+        },
+        "template--16072781824184__487160d1-8fc8-4f63-9b34-d29f516819c0-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>An Accessories Council Design Excellence Award finalist, our collaboration with Bea Bonafini is here for the holidays, in all of its glory. Order each piece à la carte, or choose from a bag, wallet and hangtag to create your own custom set. Wearable art has never looked better.<\/p>"
+          }
+        },
+        "template--16072781824184__487160d1-8fc8-4f63-9b34-d29f516819c0-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP THE COLLECTION",
+            "button_link": "shopify:\/\/collections\/celestial-dawn",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "template--16072781824184__487160d1-8fc8-4f63-9b34-d29f516819c0-heading-1",
+        "template--16072781824184__487160d1-8fc8-4f63-9b34-d29f516819c0-text-1",
+        "template--16072781824184__487160d1-8fc8-4f63-9b34-d29f516819c0-button-1"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "hide_title": true,
+        "width": "page-width--narrow",
+        "padding_top": 44,
+        "padding_bottom": 24,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "47568f6d-8e35-4118-b0bc-f4e0309fb717": {
+      "type": "featured-product",
+      "blocks": {
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-title-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-text-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-price-1": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-variant_picker-1": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-quantity_selector-1": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-buy_buttons-1": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-share-1": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-text-1",
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-title-1",
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-text-2",
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-price-1",
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-variant_picker-1",
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-quantity_selector-1",
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-buy_buttons-1",
+        "template--16072781824184__47568f6d-8e35-4118-b0bc-f4e0309fb717-share-1"
+      ],
+      "settings": {
+        "product": "110-north-wallet-celestial-dawn-brushed-gold",
+        "color_scheme": "background-2",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "744c3056-8528-439c-9303-3864ec086ffc": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16072781824184__744c3056-8528-439c-9303-3864ec086ffc-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "CURATOR FOR THE DAY",
+            "heading_size": "h1"
+          }
+        },
+        "template--16072781824184__744c3056-8528-439c-9303-3864ec086ffc-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unleash your inner art aficionado by curating your own collection. Wear the Mr. G on its own, or tuck the 110 North inside. Top things off with Bea's Hangtag - or use this luxe piece to accent another bag you love.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16072781824184__744c3056-8528-439c-9303-3864ec086ffc-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP THE SET",
+            "button_link": "shopify:\/\/collections\/celestial-dawn",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "template--16072781824184__744c3056-8528-439c-9303-3864ec086ffc-heading-1",
+        "template--16072781824184__744c3056-8528-439c-9303-3864ec086ffc-text-1",
+        "template--16072781824184__744c3056-8528-439c-9303-3864ec086ffc-button-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/media_87918615-8703-4e04-ac40-82215b5ff610.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "overlap",
+        "color_scheme": "background-2",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "7554e55a-e2f4-4c83-98b4-72c628b2eae3": {
+      "type": "featured-product",
+      "blocks": {
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-title-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-text-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-price-1": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-variant_picker-1": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-quantity_selector-1": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-buy_buttons-1": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-share-1": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-text-1",
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-title-1",
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-text-2",
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-price-1",
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-variant_picker-1",
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-quantity_selector-1",
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-buy_buttons-1",
+        "template--16072781824184__7554e55a-e2f4-4c83-98b4-72c628b2eae3-share-1"
+      ],
+      "settings": {
+        "product": "beas-hangtag-key-chain-celestial-dawn-brushed-gold",
+        "color_scheme": "background-2",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "f0d6ff5a-dd50-4a46-a7cf-74d7861639f5": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16072781824184__f0d6ff5a-dd50-4a46-a7cf-74d7861639f5-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "AVAILABLE FOR THE FIRST TIME",
+            "heading_size": "h1"
+          }
+        },
+        "template--16072781824184__f0d6ff5a-dd50-4a46-a7cf-74d7861639f5-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Bea's Hangtag is here. Drape one from your bag, or stuff a stocking for someone you love.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16072781824184__f0d6ff5a-dd50-4a46-a7cf-74d7861639f5-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP BEA'S HANGTAG",
+            "button_link": "shopify:\/\/products\/beas-hangtag-key-chain-celestial-dawn-brushed-gold",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "template--16072781824184__f0d6ff5a-dd50-4a46-a7cf-74d7861639f5-heading-1",
+        "template--16072781824184__f0d6ff5a-dd50-4a46-a7cf-74d7861639f5-text-1",
+        "template--16072781824184__f0d6ff5a-dd50-4a46-a7cf-74d7861639f5-button-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Hammitt_Hangtag-Celestial-Dawn_4B.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "overlap",
+        "color_scheme": "background-2",
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "ef901ee0-79bd-4383-8f34-855fdd2f51b4": {
+      "type": "featured-product",
+      "blocks": {
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-title-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-text-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-price-1": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-variant_picker-1": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-quantity_selector-1": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-buy_buttons-1": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-share-1": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-text-1",
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-title-1",
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-text-2",
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-price-1",
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-variant_picker-1",
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-quantity_selector-1",
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-buy_buttons-1",
+        "template--16072781824184__ef901ee0-79bd-4383-8f34-855fdd2f51b4-share-1"
+      ],
+      "settings": {
+        "product": "mr-g-satchel-celestial-dawn-brushed-gold",
+        "color_scheme": "background-2",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "6c60f826-8e06-444d-8c37-c90570e85a39": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16072781824184__6c60f826-8e06-444d-8c37-c90570e85a39-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/media_daa030f8-9497-4a68-bb26-1d22b827fab5.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16072781824184__6c60f826-8e06-444d-8c37-c90570e85a39-column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/media_5fc7993d-1fa2-4439-8958-2eff262bd779.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16072781824184__6c60f826-8e06-444d-8c37-c90570e85a39-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/media_0c815e2d-797b-4b17-a7cb-cc32c49ee988.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16072781824184__6c60f826-8e06-444d-8c37-c90570e85a39-column-1",
+        "template--16072781824184__6c60f826-8e06-444d-8c37-c90570e85a39-column-3",
+        "template--16072781824184__6c60f826-8e06-444d-8c37-c90570e85a39-column-2"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": false,
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "SHOP THE SET",
+        "button_link": "shopify:\/\/collections\/celestial-dawn",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    }
+  },
+  "order": [
+    "76f9ca36-c8a2-46b1-9801-c56c5c2b8756",
+    "487160d1-8fc8-4f63-9b34-d29f516819c0",
+    "main",
+    "47568f6d-8e35-4118-b0bc-f4e0309fb717",
+    "744c3056-8528-439c-9303-3864ec086ffc",
+    "7554e55a-e2f4-4c83-98b4-72c628b2eae3",
+    "f0d6ff5a-dd50-4a46-a7cf-74d7861639f5",
+    "ef901ee0-79bd-4383-8f34-855fdd2f51b4",
+    "6c60f826-8e06-444d-8c37-c90570e85a39"
+  ]
+}

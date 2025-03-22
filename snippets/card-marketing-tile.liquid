@@ -1,0 +1,35 @@
+{%- if block.settings.image or block.settings.title != blank or block.settings.button_text != blank -%}
+  <li 
+    class="grid__item marketing-tile marketing-title--{{ block.settings.width }} relative {% if block.settings.content_block_full_width %} content-full-width {% endif %}"
+    id="MarketingTile-{{ block.id }}"
+  >
+    <div class="marketing-tile__inner relative">
+      {% assign marketing_size = media_size %}
+      {% if block.settings.width contains '2x' %}
+        {% assign marketing_size = 49 %}
+      {% endif %}
+      
+      {%- render 'image-element', image: block.settings.image, image_ratio: marketing_size, class: 'marketing-tile__media' -%}
+      <div class="marketing-tile__content {{ block.settings.text_alignment }} content-{{ block.settings.content_position }}">
+        <div class="marketing-tile__content-container">
+          {% if block.settings.title != blank %}
+            <h2>{{ block.settings.title }}</h2>
+          {% endif %}
+          {% comment %}
+          {% if block.settings.paragraph != blank %}
+            <div class="rte">{{ block.settings.paragraph }}</div>
+          {% endif %}
+          {% endcomment %}
+          {% if block.settings.button_text != blank %}
+            <button type="button" class="button button--secondary">{{ block.settings.button_text }}</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <a href="{{ block.settings.link }}" class="link--fill-parent">
+      <span class="visually-hidden">
+        Link to {{ block.settings.link }}
+      </span>
+    </a>
+  </li>
+{%- endif -%}

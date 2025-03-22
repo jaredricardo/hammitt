@@ -1,0 +1,419 @@
+{{ 'sitemap.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .section-sitemap .sitemap-wrapper{
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .section-sitemap .smap-heading{
+    text-align: {{ section.settings.heading_alignment }};
+    font-size: {{ section.settings.heading_font }}px;
+    color: {{ section.settings.heading_color }};
+    font-weight: {{ section.settings.heading_weight }};
+  }
+  .section-sitemap .smap-cta{
+    font-size: {{ section.settings.title_font }}px;
+    color: {{ section.settings.title_color }};
+  }
+  @media screen and (max-width: 767px){
+    .section-sitemap .smap-heading{
+        font-size: {{ section.settings.heading_font_mobile }}px;
+    }
+    .section-sitemap .smap-cta{
+    font-size: {{ section.settings.title_font_mobile }}px;
+  }
+{% endstyle %}
+
+<div class="sitemap-wrapper">
+  <div class="container">
+    <div class="sitemap-container">
+      {% if section.settings.show_collection %}
+        <div class="sitemap-col">
+          {% if section.settings.collection_heading %}
+            <h2 class="smap-heading">{{ section.settings.collection_heading }}</h2>
+          {% endif %}
+          <ul class="sitemap-list">
+            {% for collection in collections %}
+              <li class="smap-list">
+                <a class="smap-cta" href="{{ collection.url }}">{{ collection.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      {% if section.settings.show_pages %}
+        <div class="sitemap-col">
+          {% if section.settings.page_heading %}
+            <h2 class="smap-heading">{{ section.settings.page_heading }}</h2>
+          {% endif %}
+          <ul class="sitemap-list">
+            {% for page in pages %}
+              <li class="smap-list">
+                <a class="smap-cta" href="{{ page.url }}">{{ page.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_blogs %}
+        <div class="sitemap-col blogs-wrapper">
+          {% if section.settings.blog_heading %}
+            <h2 class="smap-heading">{{ section.settings.blog_heading }}</h2>
+          {% endif %}
+          <ul class="sitemap-list">
+            {% for link in section.settings.blogs_nav.links %}
+              {% assign blog = link.object %}
+              {% for article in blog.articles %}
+                <li class="smap-list">
+                  <a class="smap-cta" href="{{ article.url }}">{{ article.title }}</a>
+                </li>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_header %}
+        <div class="sitemap-col header-menu">
+          {% if section.settings.header_heading %}
+            <h2 class="smap-heading">{{ section.settings.header_heading }}</h2>
+          {% endif %}
+          <ul class="sitemap-list first-layer-wrapper">
+            {% for link in section.settings.header_mob_menu.links %}
+              <li class="smap-list first-layer">
+                <a class="smap-cta" href="{{ link.url }}">{{ link.title }}</a>
+                {% if link.links %}
+                  <ul class="second-layer-wrapper">
+                    {% for child_link in link.links %}
+                      <li class="sub-menu-item second-layer">
+                        <a class="smap-cta" href="{{ child_link.url }}">{{ child_link.title }}</a>
+                        {% if child_link.links %}
+                          <ul class="third-layer-wrapper">
+                            {% for sub_child_link in child_link.links %}
+                              <li class="smap-list third-layer">
+                                <a class="smap-cta" href="{{ sub_child_link.url }}">{{ sub_child_link.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_footer %}
+        <div class="sitemap-col">
+          {% if section.settings.footer_heading %}
+            <h2 class="smap-heading">{{ section.settings.footer_heading }}</h2>
+          {% endif %}
+          <ul class="sitemap-list">
+            {% for link in section.settings.footer_menu_1.links %}
+              <li class="smap-list">
+                <a class="smap-cta" href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+            {% for link in section.settings.footer_menu_2.links %}
+              <li class="smap-list">
+                <a class="smap-cta" href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_stores %}
+        <div class="sitemap-col">
+          {% if section.settings.store_heading %}
+            <h2 class="smap-heading">{{ section.settings.store_heading }}</h2>
+          {% endif %}
+          <ul class="sitemap-list store-locations">
+            {% for link in section.settings.store_location.links %}
+              <li class="smap-list sl-first-layer">
+                <a class="smap-cta" href="{{ link.url }}">{{ link.title }}</a>
+                {% if link.links %}
+                  <ul class="sl-wrapper">
+                    {% for child_link in link.links %}
+                      <li class="sub-menu-item sl-sl{% if child_link.levels > 0 %} sl-header{% endif %}">
+                        <a class="smap-cta" href="{{ child_link.url }}">{{ child_link.title }}</a>
+                        {% if child_link.levels > 0 %}
+                          <ul class="tl-wrapper">
+                            {% for sub_child_link in child_link.links %}
+                              <li class="smap-list sl-tl">
+                                <a class="smap-cta" href="{{ sub_child_link.url }}">{{ sub_child_link.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sitemap",
+  "class": "section-sitemap",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color",
+      "default": "#000"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Font Weight",
+      "options": [
+        {
+          "label": "Normal",
+          "value": "400"
+        },
+        {
+          "label": "Bold",
+          "value": "bold"
+        }
+      ],
+      "default": "bold"
+    },
+    {
+      "type": "range",
+      "id": "heading_font",
+      "label": "Font Size (Desktop)",
+      "default": 36,
+      "max": 100,
+      "min": 10,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_mobile",
+      "label": "Font Size (Mobile)",
+      "default": 24,
+      "max": 100,
+      "min": 10,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Title Settings"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Color",
+      "default": "#000"
+    },
+    {
+      "type": "range",
+      "id": "title_font",
+      "label": "Font Size (Desktop)",
+      "default": 14,
+      "max": 40,
+      "min": 10,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "title_font_mobile",
+      "label": "Font Size (Mobile)",
+      "default": 14,
+      "max": 40,
+      "min": 10,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Collection Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection",
+      "label": "Show Collections",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "collection_heading",
+      "label": "Collection",
+      "default": "<p>Collection's</p>"
+    },
+    {
+      "type": "header",
+      "content": "Page Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pages",
+      "label": "Show Pages",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "page_heading",
+      "label": "Pages",
+      "default": "<p>Page's</p>"
+    },
+    {
+      "type": "header",
+      "content": "Blog Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_blogs",
+      "label": "Show Blogs",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "blogs_nav",
+      "label": "Select Blog Menu"
+    },
+    {
+      "type": "richtext",
+      "id": "blog_heading",
+      "label": "Blogs",
+      "default": "<p>Blog's</p>"
+    },
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show Header",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "header_mob_menu",
+      "label": "Select Header Menu"
+    },
+    {
+      "type": "richtext",
+      "id": "header_heading",
+      "label": "Header",
+      "default": "<p>Header</p>"
+    },
+    {
+      "type": "header",
+      "content": "Footer Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_footer",
+      "label": "Show Footer",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_1",
+      "label": "Select Footer Menu 1"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_2",
+      "label": "Select Footer Menu 2"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_heading",
+      "label": "Footer",
+      "default": "<p>Footer</p>"
+    },
+    {
+      "type": "header",
+      "content": "Store Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stores",
+      "label": "Show Stores",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "store_location",
+      "label": "Select Store Menu"
+    },
+    {
+      "type": "richtext",
+      "id": "store_heading",
+      "label": "Stores",
+      "default": "<p>Hammitt Stores</p>"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 30,
+      "max": 100,
+      "min": 10,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 30,
+      "max": 100,
+      "min": 10,
+      "step": 5,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sitemap"
+    }
+  ]
+}
+{% endschema %}

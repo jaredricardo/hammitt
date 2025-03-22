@@ -1,0 +1,342 @@
+{{ 'featured-carousel.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    {% if section.settings.border_top %}
+	border-top: 0.1rem solid #000;
+    {% endif %}
+	{% if section.settings.border_bottom %}
+	border-bottom: 0.1rem solid #000;
+    {% endif %}
+  }
+
+  .section-{{ section.id }}-padding .featured-carousel__heading-wrapper {
+	padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .section-{{ section.id }}-padding .featured-carousel__item {
+	width: {{ section.settings.card_width_mobile }}%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+	.section-{{ section.id }}-padding .featured-carousel__heading-wrapper {
+	  padding-bottom: {{ section.settings.padding_bottom }}px;
+	}
+	.section-{{ section.id }}-padding .featured-carousel__item {
+      width: {{ section.settings.card_width_desktop }}%;
+    }
+  }
+
+  {% for block in section.blocks %}
+	#block-{{ block.id }} .featured-carousel-card {
+	  background-color: {{ block.settings.color_background }};
+	}
+  {% endfor %}
+
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding relative">
+  <div class="page-width {% if section.blocks.size > 1 %}featured-carousel__heading-wrapper {% endif %}">
+    <h2 class="h1 section-title {{ section.settings.heading_align }}">{{ section.settings.title }}</h2>
+    {% if section.blocks.size > 1 %}
+    {% for block in section.blocks %}
+    <button type="button" data-carousel="featured-carousel--{{ block.id }}" id="featured-collection-button--{{ block.id }}"  class="button--inline featured-collection-selector {% if forloop.first %}active{% endif %}">{{ block.settings.title }}</button>
+    {% endfor %}
+    {% endif %}
+  </div>
+  
+  {% for block in section.blocks %}
+  <div class="featured-carousel__multi {% unless section.settings.full_width %}featured-carousel__page-width{% endunless %}" {% unless forloop.first %}style="display:none;"{% endunless %}>
+    <featured-carousel id="featured-carousel--{{ block.id }}" data-spacing="{{ section.settings.spacing }}">
+      <div class="featured-carousel {% if section.settings.stagger %}featured-carousel__stagger{% endif %} featured-carousel-{{ section.id }} featured-carousel__{{ section.settings.image_ratio }} featured-carousel__content--{{ section.settings.content_position }} featured-carousel__content--{{ section.settings.content_alignment }}" style="padding-right: {{ section.settings.spacing }}px;">
+        {% for product in block.settings.collection.products limit: section.settings.max_products %}
+          {% liquid
+            # PreOrder
+            assign isPreOrderProduct = false 
+            for tag in product.tags
+              if tag == "ee-pre-order"
+                assign isPreOrderProduct = true
+              endif
+            endfor
+          %}
+
+        <div id="block-{{ product.id }}" class="featured-carousel__item">
+          {%- render 'card-product', 
+             card_product: product, 
+             media_aspect_ratio: section.settings.image_ratio, 
+             hide_price: section.settings.hide_price, 
+             hide_tag: section.settings.hide_tag, 
+             hide_subtitle: section.settings.hide_subtitle, 
+             hide_quick_add: section.settings.hide_quick_add, 
+             isPreOrderProduct: isPreOrderProduct -%}
+        </div>
+        {% endfor %}
+      </div>
+      <button  type="button" class="featured-carousel__button featured-carousel__prev" disabled {% unless section.settings.arrows %}style="display: none;"{% endunless %}>
+        {%- render 'icon-arrow' -%}
+      </button>
+      <button type="button" class="featured-carousel__button featured-carousel__next" {% unless section.settings.arrows %}style="display: none;"{% endunless %}>
+        {%- render 'icon-arrow' -%}
+      </button>
+      <div class="featured-carousel__scroll-wrapper" {% unless section.settings.scrollbar %}style="display: none;"{% endunless %}>
+        <input type="range" min="0" max="100" value="0" class="range-slider" />
+        <div class="featured-carousel__scroll">&nbsp;</div>
+      </div>
+    </featured-carousel>
+  </div>
+  {% endfor %}
+</div>
+
+<script src="{{ 'featured-carousel.js' | asset_url }}" defer="defer"></script>
+
+
+{%- if request.design_mode -%}
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "tag": "section",
+  "class": "section featured-collection-section",
+  "settings": [
+	{
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.newsletter.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.newsletter.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.newsletter.settings.color_scheme.options__3.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.newsletter.settings.color_scheme.options__4.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.newsletter.settings.color_scheme.options__5.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.newsletter.settings.color_scheme.label"
+    },
+	{
+      "type": "text",
+      "id": "title",
+ 	  "label":"Heading",
+      "default": "Heading"
+    },
+	{
+      "type": "select",
+      "id": "heading_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Header alignment"
+    },
+	{
+      "type": "richtext",
+      "id": "paragraph",
+ 	  "label":"Paragraph",
+	  "default":"<p>Meh enamel pin officia copper mug, chicharrones shabby chic XOXO quis ullamco organic. Bespoke scenester church-key squid. Jianbing cronut id, shoreditch meditation consectetur commodo polaroid PBR&B ugh.</p>"
+    },
+	{
+      "type": "checkbox",
+      "id": "full_width",
+ 	  "label":"Make section full width",
+      "default": false
+    },
+	{
+      "type": "checkbox",
+      "id": "stagger",
+ 	  "label":"Stagger",
+      "default": false
+    },
+	{
+	  "type":"collection",
+	  "id":"collection",
+	  "label":"Use a collection?",
+	  "info":"If this is used it will override blocks"
+	},
+	{
+      "type": "range",
+      "id": "max_products",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "label": "Max products",
+      "default": 5
+    },
+	{
+      "type": "range",
+      "id": "spacing",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Spacing",
+      "default": 20
+    },
+	{
+      "type": "range",
+      "id": "card_width_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Card width desktop",
+      "default": 22
+    },
+	{
+      "type": "range",
+      "id": "card_width_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Card width mobile",
+      "default": 85
+    },
+	{
+      "type": "checkbox",
+      "id": "scrollbar",
+ 	  "label":"Show scrollbar",
+      "default": true,
+	  "info":"Will hide if unnecessary"
+    },
+	{
+      "type": "checkbox",
+      "id": "arrows",
+ 	  "label":"Show arrows",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_quick_add",
+ 	  "label":"Hide quick add",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_price",
+ 	  "label":"Hide price",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_tag",
+ 	  "label":"Hide product tag",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_subtitle",
+ 	  "label":"Hide subtitle",
+      "default": false
+    },
+	{
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.multicolumn.settings.image_ratio.label"
+    },
+	{
+      "type": "checkbox",
+      "id": "border_top",
+ 	  "label":"Border top",
+      "default": true
+    },
+	{
+      "type": "checkbox",
+      "id": "border_bottom",
+ 	  "label":"Border bottom",
+      "default": true
+    },
+	{
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type":"collection",
+      "name":"Collection",
+      "settings": [
+		{
+          "type":"text",
+          "id":"title",
+          "label":"Heading"
+        },
+        {
+          "type":"collection",
+          "id":"collection",
+          "label":"Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
+{% endschema %}

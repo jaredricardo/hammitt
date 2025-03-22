@@ -1,0 +1,14 @@
+{% if section.settings.show_collection %}
+  <div class="sitemap-col">
+    {% if section.settings.collection_heading %}
+      <h2 class="smap-heading">{{ section.settings.collection_heading }}</h2>
+    {% endif %}
+    <ul class="sitemap-list">
+      {% for item in items %}
+        <li class="smap-list">
+          <a class="smap-cta" href="{{ item.url }}">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

@@ -1,0 +1,459 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "166059050529e29f53": {
+      "type": "image-banner",
+      "blocks": {
+        "16605905056148fb18-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "CABERNET COLLECTION"
+          }
+        }
+      },
+      "block_order": [
+        "16605905056148fb18-0"
+      ],
+      "settings": {
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify:\/\/shop_images\/CabernetDesktopBanners_0006_2.jpg",
+        "image_2": "shopify:\/\/shop_images\/CabernetMobile_Banners_0003_2.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 8
+      }
+    },
+    "16605915187e66968e": {
+      "type": "rich-text",
+      "blocks": {
+        "1660591518b1f5dcae-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "OUR SEPTEMBER ISSUE IS HERE",
+            "heading_size": "h1"
+          }
+        },
+        "1660591518b1f5dcae-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify:\/\/collections\/cabernet-collection",
+            "button_style_secondary": false
+          }
+        },
+        "1660591518b1f5dcae-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It sells out every year. Considering this edition features magenta suede lining and softer-than-soft Italian leather, this collection is sure to be an instant favorite. Oh, and did we mention it's inspired by Cabernet wine?<\/p><p>Cheers to that.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1660591518b1f5dcae-0",
+        "1660591518b1f5dcae-2",
+        "1660591518b1f5dcae-1"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "62df69dc-71ef-4faf-b072-1ac7c88444a4": {
+      "type": "featured-collection",
+      "blocks": {
+        "191e7518-8ff3-4980-af9a-7e21f6cd9c1d": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "cabernet-collection"
+          }
+        }
+      },
+      "block_order": [
+        "191e7518-8ff3-4980-af9a-7e21f6cd9c1d"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "title": "",
+        "heading_align": "center",
+        "paragraph": "",
+        "full_width": false,
+        "stagger": false,
+        "collection": "",
+        "max_products": 5,
+        "spacing": 20,
+        "card_width_desktop": 23,
+        "card_width_mobile": 85,
+        "scrollbar": true,
+        "arrows": false,
+        "hide_quick_add": false,
+        "hide_price": false,
+        "image_ratio": "adapt",
+        "border_top": false,
+        "border_bottom": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "740bb3ae-964d-458c-8fac-c52fb085a783": {
+      "type": "featured-product",
+      "blocks": {
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-title-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-text-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-price-1": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-variant_picker-1": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-quantity_selector-1": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-buy_buttons-1": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-share-1": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-text-1",
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-title-1",
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-text-2",
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-price-1",
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-variant_picker-1",
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-quantity_selector-1",
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-buy_buttons-1",
+        "template--16019203457208__740bb3ae-964d-458c-8fac-c52fb085a783-share-1"
+      ],
+      "settings": {
+        "product": "allen-med-shoulder-bag-cabernet-brushed-gold",
+        "color_scheme": "background-2",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1660591371bc992471": {
+      "type": "image-with-text",
+      "blocks": {
+        "166059137120ea80d1-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "INSPO",
+            "heading_size": "h1"
+          }
+        },
+        "166059137120ea80d1-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Napa vineyards. Weekend escapes. Rich, fragrant glasses of wine.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "166059137120ea80d1-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "EXPLORE THE COLLECTION",
+            "button_link": "shopify:\/\/collections\/cabernet-collection",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "166059137120ea80d1-0",
+        "166059137120ea80d1-1",
+        "166059137120ea80d1-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/2023-06-16_HAMMITT_CAMPAIGN_943_1.gif",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 4,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "16626087569e665ab0": {
+      "type": "product-in-the-details",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "hide_title": true,
+        "width": "page-width--narrow",
+        "padding_top": 44,
+        "padding_bottom": 24,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "96c40439-e792-4dde-b040-b17b0f960a51": {
+      "type": "featured-product",
+      "blocks": {
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-title-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-text-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-price-1": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-variant_picker-1": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-quantity_selector-1": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-buy_buttons-1": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-share-1": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-text-1",
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-title-1",
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-text-2",
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-price-1",
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-variant_picker-1",
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-quantity_selector-1",
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-buy_buttons-1",
+        "template--16019203457208__96c40439-e792-4dde-b040-b17b0f960a51-share-1"
+      ],
+      "settings": {
+        "product": "allen-lrg-shoulder-bag-cabernet-brushed-gold",
+        "color_scheme": "background-2",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "dc79ddd0-8dac-4f15-8b9c-9b2f1318fad0": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16019203457208__dc79ddd0-8dac-4f15-8b9c-9b2f1318fad0-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "VINO, VIDI, VICI",
+            "heading_size": "h1"
+          }
+        },
+        "template--16019203457208__dc79ddd0-8dac-4f15-8b9c-9b2f1318fad0-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This limited edition Allen pocket includes four leather wine markers. Wrap them around your glass's stem to keep track of your cab, all evening long. <\/p>",
+            "text_style": "body"
+          }
+        },
+        "e1683804-692b-4397-bb23-c08c001d4201": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP THE ALLEN POCKET SET",
+            "button_link": "shopify:\/\/products\/allen-pocket-pouch-cabernet-brushed-gold",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "template--16019203457208__dc79ddd0-8dac-4f15-8b9c-9b2f1318fad0-heading-1",
+        "template--16019203457208__dc79ddd0-8dac-4f15-8b9c-9b2f1318fad0-text-1",
+        "e1683804-692b-4397-bb23-c08c001d4201"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/media_487cbd3c-0d76-4989-be10-20385710e207_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 8
+      }
+    },
+    "0eec0dd6-29b7-45d2-a69e-ac36daec5284": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16019203457208__0eec0dd6-29b7-45d2-a69e-ac36daec5284-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/CabernetWidget_0013_2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16019203457208__0eec0dd6-29b7-45d2-a69e-ac36daec5284-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/CabernetWidget_0011_4.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16019203457208__0eec0dd6-29b7-45d2-a69e-ac36daec5284-column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/CabernetWidget_0014_1.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16019203457208__0eec0dd6-29b7-45d2-a69e-ac36daec5284-column-1",
+        "template--16019203457208__0eec0dd6-29b7-45d2-a69e-ac36daec5284-column-2",
+        "template--16019203457208__0eec0dd6-29b7-45d2-a69e-ac36daec5284-column-3"
+      ],
+      "settings": {
+        "title": "THE DETAILS",
+        "heading_size": "h1",
+        "paragraph": "<p>Savor soft pebbled leather with a hint of shine, in a rich burgundy hue. The strong red and brown undertones soften the purple and make the color sophisticated and easily wearable. The best part? Gold embossed detailing and one-time-only magenta suede lining.<\/p>",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": false,
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "SHOP THE COLLECTION",
+        "button_link": "shopify:\/\/collections\/cabernet-collection",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 36
+      }
+    }
+  },
+  "order": [
+    "166059050529e29f53",
+    "16605915187e66968e",
+    "62df69dc-71ef-4faf-b072-1ac7c88444a4",
+    "740bb3ae-964d-458c-8fac-c52fb085a783",
+    "1660591371bc992471",
+    "16626087569e665ab0",
+    "main",
+    "96c40439-e792-4dde-b040-b17b0f960a51",
+    "dc79ddd0-8dac-4f15-8b9c-9b2f1318fad0",
+    "0eec0dd6-29b7-45d2-a69e-ac36daec5284"
+  ]
+}

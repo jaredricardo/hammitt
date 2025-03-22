@@ -1,0 +1,51 @@
+<div class="quick-add__wrapper">
+  <quick-add>
+    <form class="quick-add__form">
+      {% if isPreOrderProduct %}
+        <input class="preorder__field" type="hidden" name="{{ product.metafields.custom.preorder_key }}" value="{{ product.metafields.custom.preorder_message }}">
+      {% endif %}
+      {% if isBadgeProduct and product.metafields.custom.badge_properties != blank %}
+        {% assign badgeProperties = product.metafields.custom.badge_properties | split: ':' %}
+        <input class="badgeProperties__field" type="hidden" name="{{ badgeProperties[0] }}" value="{{ badgeProperties[1] }}">
+      {% endif %}
+      {% if product.title == "Gift Card" and request.path contains '/search' %}
+        <a class="gift-card-atc-container" href="{{ product.url }}">
+          <small class="label gift-card-atc">{{ 'products.product.add_to_cart' | t }}</small>
+        </a>
+       {% else %}
+        <small class="label">{{ 'products.product.add_to_cart' | t }}</small>
+      {% endif %}
+      {% if product.has_only_default_variant %}
+        {%- if product.available -%}
+        <button data-id="{{ product.selected_or_first_available_variant.id }}" class="quick-add-btn{% if isIDayPromotionProduct == true %} iday-promotion__product{% endif %}">
+          {% if isPreOrderProduct %}
+            {% if product.metafields.custom.preorder_cta_text %} {{ product.metafields.custom.preorder_cta_text }} {% else %} Pre Order {% endif %}
+          {% else %}
+            {{ 'products.product.add_to_cart' | t }}
+          {% endif %}
+        </button>
+        {%- else -%}
+        {{ 'products.product.sold_out' | t }}
+        {%- endif -%}
+      {% else %}
+      {% for product_option in product.options_with_values %}
+      <div data-option-index="{{ product_option.position | minus: 1 }}" class="quick-add__option--{{ product_option.name }} {% if product.title == "Gift Card" and request.path contains '/search' %} hide-price-options {% endif %}" {% if product_option.values.size == 1 %}style="display:none;"{% endif %}>
+        {% for value in product_option.values %}
+        {% assign option_index = forloop.index0 %}
+        {%- liquid 
+        for variant in product.variants 
+          if variant.options[option_index] == value 
+            assign available = variant.available
+          endif
+        endfor
+        -%}
+        <input type="radio" class="quick-add__radio" value="{{ value }}" name="{{ product_option.name }}" id="quick-add__{{ product.id }}-{{ value }}" {% if product_option.values.size == 1 and option.name != 'Size' %}checked{% endif %} {% unless available %}disabled{% endunless %}>
+        <label for="quick-add__{{ product.id }}-{{ value }}">{{ value }}</label>
+        {% endfor %}
+      </div>
+      {% else %}
+      {% endfor %}
+      {% endif %}
+    </form>
+  </quick-add>
+</div>

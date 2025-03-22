@@ -1,0 +1,699 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@100..900&display=swap" rel="stylesheet">
+
+{%- liquid 
+  assign heading_block = section.blocks | where: 'type', 'heading' | first
+  assign ratings_block = section.blocks | where: 'type', 'ratings' | first
+  assign content_block = section.blocks | where: 'type', 'content' | first
+  assign logo_block = section.blocks | where: 'type', 'logo' | first
+  assign button_block = section.blocks | where: 'type', 'button' | first
+-%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    --font-body-family: "Jost", sans-serif;
+    --font-heading-family: "Jost", sans-serif;
+
+    --heading-font-size: {{ heading_block.settings.font_size_mobile }}px;
+    --text-font-size: {{ content_block.settings.font_size_mobile }}px;
+    --logo-font-size: {{ logo_block.settings.font_size_mobile }}px;
+    --button-font-size: {{ button_block.settings.font_size_mobile }}px;
+    
+    --color-heading: {{ heading_block.settings.heading_color_mobile }};
+    --color-ratings: {{ ratings_block.settings.star_color_mobile }}; 
+    --color-text: {{ content_block.settings.text_color_mobile }};
+    --color-logo: {{ logo_block.settings.text_color_mobile }};
+    --color-button: {{ button_block.settings.color_background_mobile }};
+    --color-button-text: {{ button_block.settings.color_text_mobile }};
+    --color-button-border: {{ button_block.settings.color_border_mobile }};
+
+    font-family: var(--font-body-family);
+  }
+
+  .section-padding--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} {
+      --heading-font-size: {{ heading_block.settings.font_size_desktop }}px;
+      --text-font-size: {{ content_block.settings.font_size_desktop }}px;
+      --logo-font-size: {{ logo_block.settings.font_size_desktop }}px;
+      --button-font-size: {{ button_block.settings.font_size_desktop }}px;
+      
+      --color-heading: {{ heading_block.settings.heading_color_desktop }};
+      --color-ratings: {{ ratings_block.settings.star_color_desktop }}; 
+      --color-text: {{ content_block.settings.text_color_desktop }};
+      --color-logo: {{ logo_block.settings.text_color_desktop }};
+      --color-button: {{ button_block.settings.color_background_desktop }};
+      --color-button-text: {{ button_block.settings.color_text_desktop }};
+      --color-button-border: {{ button_block.settings.color_border_desktop }};
+    }
+
+    .section-padding--{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{% endstyle %}
+
+{{ 'section-press-image-width-text.css' | asset_url | stylesheet_tag }}
+
+<div class="press-image-text__wrapper section-padding--{{ section.id }}">
+  <div class="page-width">
+    <div class="press-image-text press-image-text__image-{{ section.settings.image_position }}">
+      <div class="press-image-text__image small-hide">
+        {%- if section.settings.image_desktop != blank -%}
+          <img
+            srcset="
+              {%- if section.settings.image_desktop.width >= 550 -%}{{ section.settings.image_desktop | image_url: width: 550 }} 550w,{%- endif -%}
+              {%- if section.settings.image_desktop.width >= 720 -%}{{ section.settings.image_desktop | image_url: width: 720 }} 720w,{%- endif -%}
+              {%- if section.settings.image_desktop.width >= 990 -%}{{ section.settings.image_desktop | image_url: width: 990 }} 990w,{%- endif -%}
+              {%- if section.settings.image_desktop.width >= 1100 -%}{{ section.settings.image_desktop | image_url: width: 1100 }} 1100w,{%- endif -%}
+              {%- if section.settings.image_desktop.width >= 1500 -%}{{ section.settings.image_desktop | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {%- if section.settings.image_desktop.width >= 2200 -%}{{ section.settings.image_desktop | image_url: width: 2200 }} 2200w,{%- endif -%}
+              {%- if section.settings.image_desktop.width >= 3000 -%}{{ section.settings.image_desktop | image_url: width: 3000 }} 3000w,{%- endif -%}
+              {{ section.settings.image_desktop | image_url }} {{ section.settings.image_desktop.width }}w
+            "
+            src="{{ section.settings.image_desktop | image_url: width: section.settings.image_desktop.width }}"
+            alt="{{ section.settings.image_desktop.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image_desktop_width }}"
+            height="auto"
+          >
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder' }}
+        {%- endif -%}
+      </div>
+      <div class="press-image-text__image medium-up-hide">
+        {%- if section.settings.image_mobile != blank -%}
+          <img
+            srcset="
+              {%- if section.settings.image_mobile.width >= 550 -%}{{ section.settings.image_mobile | image_url: width: 550 }} 550w,{%- endif -%}
+              {%- if section.settings.image_mobile.width >= 720 -%}{{ section.settings.image_mobile | image_url: width: 720 }} 720w,{%- endif -%}
+              {%- if section.settings.image_mobile.width >= 990 -%}{{ section.settings.image_mobile | image_url: width: 990 }} 990w,{%- endif -%}
+              {%- if section.settings.image_mobile.width >= 1100 -%}{{ section.settings.image_mobile | image_url: width: 1100 }} 1100w,{%- endif -%}
+              {%- if section.settings.image_mobile.width >= 1500 -%}{{ section.settings.image_mobile | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {%- if section.settings.image_mobile.width >= 2200 -%}{{ section.settings.image_mobile | image_url: width: 2200 }} 2200w,{%- endif -%}
+              {%- if section.settings.image_mobile.width >= 3000 -%}{{ section.settings.image_mobile | image_url: width: 3000 }} 3000w,{%- endif -%}
+              {{ section.settings.image_mobile | image_url }} {{ section.settings.image_mobile.width }}w
+            "
+            src="{{ section.settings.image_mobile | image_url: width: section.settings.image_mobile.width }}"
+            alt="{{ section.settings.image_mobile.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image_mobile_width }}"
+            height="auto"
+          >
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder' }}
+        {%- endif -%}
+      </div>
+      <div class="press-image-text__text text-{{ section.settings.text_alignment_desktop }}-desktop text-{{ section.settings.text_alignment_mobile }}-mobile content-{{ 
+      section.settings.vertical_alignment }}">
+        <div class="press-image-text__text-container">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'heading' -%}
+                <h2 class="press-image-text__heading{% if block.settings.heading_mobile == blank %} small-hide{% endif %}{% if block.settings.heading_desktop == blank %} medium-up-hide{% endif %}">
+                  <span class="small-hide">
+                    {{ block.settings.heading_desktop }}
+                  </span>
+                  <span class="medium-up-hide">
+                    {{ block.settings.heading_mobile }}
+                  </span>
+                </h2>
+              {%- when 'ratings' -%}
+                <div class="press-image-text__ratings small-hide">
+                  {% for i in (1..block.settings.ratings_desktop) %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="27" viewBox="0 0 28 27" fill="none">
+                      <path d="M8.74069 21.2883L10.1357 15.3112L5.49731 11.2927L11.6072 10.764L14.0001 5.12659L16.3929 10.7628L22.5017 11.2916L17.8633 15.3101L19.2594 21.2872L14.0001 18.1147L8.74069 21.2883Z" fill="currentColor"/>
+                    </svg>
+                  {% endfor %}
+                </div>
+                <div class="press-image-text__ratings medium-up-hide">
+                  {% for i in (1..block.settings.ratings_mobile) %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="27" viewBox="0 0 28 27" fill="none">
+                      <path d="M8.74069 21.2883L10.1357 15.3112L5.49731 11.2927L11.6072 10.764L14.0001 5.12659L16.3929 10.7628L22.5017 11.2916L17.8633 15.3101L19.2594 21.2872L14.0001 18.1147L8.74069 21.2883Z" fill="currentColor"/>
+                    </svg>
+                  {% endfor %}
+                </div>
+              {%- when 'content' -%}
+                <div class="press-image-text__rte rte {{ block.settings.text_alignment_desktop }} small-hide{% if block.settings.text_desktop == blank %} medium-up-hide{% endif %}">
+                  {{ block.settings.text_desktop }}
+                </div>
+                {%- if block.settings.text_mobile != blank -%}
+                  <div class="press-image-text__rte rte {{ block.settings.text_alignment_mobile }} medium-up-hide">
+                    {{ block.settings.text_mobile }}
+                  </div>
+                {%- endif -%}
+              {%- when 'logo' -%}
+                {%- liquid 
+                  assign logo_large_desktop = block.settings.image_width_desktop | times: 2
+                  assign logo_large_mobile = block.settings.image_width_mobile | times: 2
+                -%}
+                <div class="press-image-text__logo small-hide{% if block.settings.logo_desktop == blank and block.settings.logo_text_desktop == blank %} medium-up-hide{% endif %}">
+                  {%- if block.settings.logo_desktop != blank -%}
+                    <img
+                      src="{{ block.settings.logo_desktop | image_url: width: logo_large_desktop }}"
+                      alt="{{ block.settings.logo_text_desktop | escape }}"
+                      loading="lazy"
+                      width="{{ block.settings.image_width_desktop }}"
+                      height="auto"
+                    >
+                  {%- endif -%}
+                  {%- if block.settings.logo_text_desktop != blank -%}
+                    <span class="press-image-text__logo-text">{{ block.settings.logo_text_desktop }}</span>
+                  {%- endif -%}
+                </div>
+                {%- if block.settings.logo_mobile != blank or block.settings.logo_text_mobile != blank -%}
+                  <div class="press-image-text__logo medium-up-hide">
+                    {%- if block.settings.logo_desktop != blank -%}
+                      <img
+                        src="{{ block.settings.logo_mobile | image_url: width: logo_large_mobile }}"
+                        alt="{{ block.settings.logo_text_mobile | escape }}"
+                        loading="lazy"
+                        width="{{ block.settings.image_width_mobile }}"
+                        height="auto"
+                      >
+                    {%- endif -%}
+                    {%- if block.settings.logo_text_mobile != blank -%}
+                      <span class="press-image-text__logo-text">{{ block.settings.logo_text_mobile }}</span>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              {%- when 'button' -%}
+                <div class="press-image-text__buttons{% if block.settings.button_text_mobile == blank %} small-hide{% endif %}{% if block.settings.button_text_desktop == blank %} medium-up-hide{% endif %}">
+                  <a href="{{ block.settings.button_link_desktop }}" class="button small-hide">
+                    {{ block.settings.button_text_desktop }}
+                  </a>
+                  {%- if block.settings.button_text_mobile != blank -%}
+                    <a href="{{ block.settings.button_link_mobile }}" class="button medium-up-hide">
+                      {{ block.settings.button_text_mobile }}
+                    </a>
+                  {%- endif -%}
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Press / Image with text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Desktop settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Image",
+      "info": "Recommended size for image is 1440x1286"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment_desktop",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Content position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image",
+      "info": "Recommended size for image is 750x670"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment_mobile",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Desktop padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Mobile padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Desktop settings"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading_desktop",
+          "label": "Heading",
+          "default": "We’re in the press"
+        },
+        {
+          "type": "range",
+          "id": "font_size_desktop",
+          "label": "Font size",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 33
+        },
+        {
+          "type": "color",
+          "id": "heading_color_desktop",
+          "label": "Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Mobile settings"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading_mobile",
+          "label": "Heading",
+          "default": "We’re in the press"
+        },
+        {
+          "type": "range",
+          "id": "font_size_mobile",
+          "label": "Font size",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 27
+        },
+        {
+          "type": "color",
+          "id": "heading_color_mobile",
+          "label": "Color",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "type": "ratings",
+      "name": "Ratings",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Desktop settings"
+        },
+        {
+          "type": "range",
+          "id": "ratings_desktop",
+          "label": "Ratings",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "color",
+          "id": "star_color_desktop",
+          "label": "Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Mobile settings"
+        },
+        {
+          "type": "range",
+          "id": "ratings_mobile",
+          "label": "Ratings",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "color",
+          "id": "star_color_mobile",
+          "label": "Color",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "Content",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Desktop settings"
+        },
+        {
+          "type": "richtext",
+          "id": "text_desktop",
+          "label": "Text",
+          "default": "<p>“Hammitt is a California brand that I vibe with. I also love their sense of community and their commitment to giving back.”</p>"
+        },
+        {
+          "type": "range",
+          "id": "font_size_desktop",
+          "label": "Font size",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 28
+        },
+        {
+          "type": "color",
+          "id": "text_color_desktop",
+          "label": "Color",
+          "default": "#000000"
+        },
+        {
+          "type": "text_alignment",
+          "id": "text_alignment_desktop",
+          "label": "Text alignment",
+          "default": "left"
+        },
+        {
+          "type": "header",
+          "content": "Mobile settings"
+        },
+        {
+          "type": "richtext",
+          "id": "text_mobile",
+          "label": "Text",
+          "default": "<p>“Hammitt is a California brand that I vibe with. I also love their sense of community and their commitment to giving back.”</p>"
+        },
+        {
+          "type": "range",
+          "id": "font_size_mobile",
+          "label": "Font size",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 24
+        },
+        {
+          "type": "color",
+          "id": "text_color_mobile",
+          "label": "Color",
+          "default": "#000000"
+        },
+        {
+          "type": "text_alignment",
+          "id": "text_alignment_mobile",
+          "label": "Text alignment",
+          "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "logo",
+      "name": "Logo",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Desktop settings"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_desktop",
+          "label": "Image"
+        },
+        {
+          "type": "number",
+          "id": "image_width_desktop",
+          "label": "Image width (in px)",
+          "default": 184
+        },
+        {
+          "type": "inline_richtext",
+          "id": "logo_text_desktop",
+          "label": "Text",
+          "default": "Women’s wear daily"
+        },
+        {
+          "type": "range",
+          "id": "font_size_desktop",
+          "label": "Font size",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 24
+        },
+        {
+          "type": "color",
+          "id": "text_color_desktop",
+          "label": "Color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Mobile settings"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_mobile",
+          "label": "Image"
+        },
+        {
+          "type": "number",
+          "id": "image_width_mobile",
+          "label": "Image width (in px)",
+          "default": 148
+        },
+        {
+          "type": "inline_richtext",
+          "id": "logo_text_mobile",
+          "label": "Text",
+          "default": "Women’s wear daily"
+        },
+        {
+          "type": "range",
+          "id": "font_size_mobile",
+          "label": "Font size",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 22
+        },
+        {
+          "type": "color",
+          "id": "text_color_mobile",
+          "label": "Color",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Desktop settings"
+        },
+        {
+          "type": "text",
+          "id": "button_text_desktop",
+          "label": "Button text",
+          "default": "SHOP CHARLES"
+        },
+        {
+          "type": "url",
+          "id": "button_link_desktop",
+          "label": "Button link"
+        },
+        {
+          "type": "range",
+          "id": "font_size_desktop",
+          "label": "Font size",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 16
+        },
+        {
+          "type": "color",
+          "id": "color_background_desktop",
+          "label": "Background",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "color_text_desktop",
+          "label": "Text",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "color_border_desktop",
+          "label": "Border",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Mobile settings"
+        },
+        {
+          "type": "text",
+          "id": "button_text_mobile",
+          "label": "Button text",
+          "default": "SHOP CHARLES"
+        },
+        {
+          "type": "url",
+          "id": "button_link_mobile",
+          "label": "Button link"
+        },
+        {
+          "type": "range",
+          "id": "font_size_mobile",
+          "label": "Font size",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 16
+        },
+        {
+          "type": "color",
+          "id": "color_background_mobile",
+          "label": "Background",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "color_text_mobile",
+          "label": "Text",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "color_border_mobile",
+          "label": "Border",
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press / Image with text",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "ratings"
+        },
+        {
+          "type": "content"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

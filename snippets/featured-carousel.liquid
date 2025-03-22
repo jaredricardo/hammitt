@@ -1,0 +1,19 @@
+<featured-carousel data-spacing="{{ section.settings.spacing }}">
+  <div class="featured-carousel featured-carousel-{{ section.id }} featured-carousel__{{ section.settings.image_ratio }} featured-carousel__content--{{ section.settings.content_position }} featured-carousel__content--{{ section.settings.content_alignment }}" style="padding-right: {{ section.settings.spacing }}px;">
+    {% for product in section.settings.collection.products limit: section.settings.max_products %}
+    <div id="block-{{ product.id }}" class="featured-carousel__item">
+      {%- render 'card-product', card_product: product, media_aspect_ratio: section.settings.image_ratio -%}
+    </div>
+    {% endfor %}
+  </div>
+  <button type="button" class="featured-carousel__button featured-carousel__prev" disabled>
+    {%- render 'icon-arrow' -%}
+  </button>
+  <button type="button" class="featured-carousel__button featured-carousel__next">
+    {%- render 'icon-arrow' -%}
+  </button>
+  <div class="featured-carousel__scroll-wrapper" {% unless section.settings.scrollbar %}style="display: none;"{% endunless %}>
+    <input type="range" min="0" max="100" value="0" class="range-slider" />
+    <div class="featured-carousel__scroll">&nbsp;</div>
+  </div>
+</featured-carousel>

@@ -1,0 +1,570 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "hide_title": true,
+        "width": "page-width--narrow",
+        "padding_top": 44,
+        "padding_bottom": 24,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "baef3986-fe0b-436c-aa06-6488cf7fc4db": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_GDPdEq": {
+          "type": "heading",
+          "settings": {
+            "heading": "HAMMITT x ALEX ALPERT",
+            "heading_size_mobile": 24,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 32
+          }
+        }
+      },
+      "block_order": [
+        "heading_GDPdEq"
+      ],
+      "settings": {
+        "heading_html_tag": "h1",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify:\/\/shop_images\/homepage_banner_14.jpg",
+        "image_2": "shopify:\/\/shop_images\/mobile_banner_14.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "right",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "rich_text_xjqmJ7": {
+      "type": "rich-text",
+      "blocks": {
+        "text_GABLLX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our last collection with artist Alex Alpert sold out completely. Many good things must come to an end - but this creative collaboration still had <strong>so<\/strong> much more in store.<\/p><p>That's where Alex's new Beach Mural print comes in. It's got little nuggets of seaside inspiration, from palm trees to volleyballs. Talk about a major serve.<\/p>"
+          }
+        },
+        "button_CyPhfw": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP THE COLLECTION",
+            "button_link": "shopify:\/\/collections\/beach-mural",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "text_GABLLX",
+        "button_CyPhfw"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 28
+      }
+    },
+    "featured_product_LhFrFt": {
+      "type": "featured-product",
+      "blocks": {
+        "text_QbMiUG": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_9HTrhF": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "text_7fAGEL": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price_K4ALhV": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker_angDRJ": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector_6RwU8b": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons_pNxTna": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "share_DMggk6": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_QbMiUG",
+        "title_9HTrhF",
+        "text_7fAGEL",
+        "price_K4ALhV",
+        "variant_picker_angDRJ",
+        "quantity_selector_6RwU8b",
+        "buy_buttons_pNxTna",
+        "share_DMggk6"
+      ],
+      "settings": {
+        "product": "charles-crossbody-med-crossbody-beach-mural-gunmetal-melting-rivet",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_c8EPxn": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_pMcRNQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "WEARABLE ART",
+            "heading_size": "h1"
+          }
+        },
+        "text_DdcJMj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Made for collectors, our new collaboration with Alex features an exclusive print atop two best-loved silhouettes.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_pqkUan": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP CHARLES",
+            "button_link": "shopify:\/\/products\/charles-crossbody-med-crossbody-beach-mural-gunmetal-melting-rivet",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_pMcRNQ",
+        "text_DdcJMj",
+        "button_pqkUan"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/alex-6.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "featured_product_DhqVWT": {
+      "type": "featured-product",
+      "blocks": {
+        "text_xLNxin": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_kR3D6g": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "text_e6jK8p": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price_jrnjQ3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker_dqa7V6": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector_yyQHUn": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons_DPHMEE": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "share_7rmxTz": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_xLNxin",
+        "title_kR3D6g",
+        "text_e6jK8p",
+        "price_jrnjQ3",
+        "variant_picker_dqa7V6",
+        "quantity_selector_yyQHUn",
+        "buy_buttons_DPHMEE",
+        "share_7rmxTz"
+      ],
+      "settings": {
+        "product": "vip-lrg-crossbody-beach-mural-gunmetal-melting-rivet",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_WFQjFd": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_GawGjL": {
+          "type": "heading",
+          "settings": {
+            "heading": "INSPIRED BY THE BEACH",
+            "heading_size": "h1"
+          }
+        },
+        "text_XYMAjh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Alex translated iconic seaside scenes into an easy-to-style black and white aesthetic. Carry from day to night - or from routine to getaway.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_zeqttU": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP VIP",
+            "button_link": "shopify:\/\/products\/vip-lrg-crossbody-beach-mural-gunmetal-melting-rivet",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_GawGjL",
+        "text_XYMAjh",
+        "button_zeqttU"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/alex-5.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "color_background": "rgba(0,0,0,0)",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "featured_product_caLAhJ": {
+      "type": "featured-product",
+      "blocks": {
+        "text_fCVqfY": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_PzK3kJ": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "text_QkN9pV": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price_cKd94t": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker_AKxrjQ": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector_cUJtaR": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons_qj3fjd": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "share_AGcgMt": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_fCVqfY",
+        "title_PzK3kJ",
+        "text_QkN9pV",
+        "price_cKd94t",
+        "variant_picker_AKxrjQ",
+        "quantity_selector_cUJtaR",
+        "buy_buttons_qj3fjd",
+        "share_AGcgMt"
+      ],
+      "settings": {
+        "product": "pch-card-holder-beach-mural-gunmetal-melting-rivet",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "2b55480e-4442-4b41-96dd-3655810c4b40": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--15887559426232__2b55480e-4442-4b41-96dd-3655810c4b40-1669847169db84cddc-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "A Celebration of Artistry",
+            "heading_size": "h1"
+          }
+        },
+        "template--15887559426232__2b55480e-4442-4b41-96dd-3655810c4b40-1669847169db84cddc-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Alex Alpert is a free-form expressive artist. His unique, real-time depictions evoke thought and display emotion through vivid contrast and story-like theme.<\/p><p><br\/>In 2021, a yearning for modern art brought Hammitt's Founder and Chief Cheerleader, Tony Drockton, to Art Basel Miami to meet Alex, and to bring his long-term vision to life: a limited-edition handbag that celebrates fine craft, creativity, and connection.<br\/><\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--15887559426232__2b55480e-4442-4b41-96dd-3655810c4b40-1669847169db84cddc-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify:\/\/collections\/beach-mural",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "template--15887559426232__2b55480e-4442-4b41-96dd-3655810c4b40-1669847169db84cddc-0",
+        "template--15887559426232__2b55480e-4442-4b41-96dd-3655810c4b40-1669847169db84cddc-1",
+        "template--15887559426232__2b55480e-4442-4b41-96dd-3655810c4b40-1669847169db84cddc-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/alex-4.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": true,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "multicolumn_EEkefN": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Vtze6c": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/alex-3.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "cta_color": "#ffffff",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_8tE7RG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/alex-1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "cta_color": "#ffffff",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_jQJQgj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/alex-2.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "cta_color": "#ffffff",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_Vtze6c",
+        "column_8tE7RG",
+        "column_jQJQgj"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": true,
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "SHOP COLLECTION",
+        "button_link": "shopify:\/\/collections\/beach-mural",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "baef3986-fe0b-436c-aa06-6488cf7fc4db",
+    "rich_text_xjqmJ7",
+    "featured_product_LhFrFt",
+    "image_with_text_c8EPxn",
+    "featured_product_DhqVWT",
+    "image_with_text_WFQjFd",
+    "featured_product_caLAhJ",
+    "2b55480e-4442-4b41-96dd-3655810c4b40",
+    "multicolumn_EEkefN"
+  ]
+}

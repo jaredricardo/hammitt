@@ -1,0 +1,44 @@
+<div class="product__payment-installments align-center center">
+  <!-- <span>Pay over time with interest free installments with</span> -->
+  <span>PAY 4 INTEREST-FREE INSTALLMENTS OF {{ product.price | divided_by: 4 | money_without_trailing_zeros }} WITH</span>
+    <a class="affirm-site-modal" data-page-type="banner" style="cursor: pointer!important;">{%- render 'icon-affirm' -%}</a>
+    <span>or </span>
+    <a class="afterpay-site-modal">{%- render 'icon-afterpay' -%}</a>
+  <div id="afpay">
+    <square-placement 
+      data-mpid="9a19aa45-325f-4acc-b4f1-afacd753480d"
+      data-placement-id="e261a468-0b6c-4259-8b9c-952970755d54"
+      data-page-type="product"
+      data-amount="{{ product.price | money }}"
+      data-currency="USD"
+      data-consumer-locale="{Replace with consumer locale variable}"
+      data-item-skus="{{ product.sku }}"
+      data-item-categories="{Replace with category variable}"
+      data-is-eligible="true"
+      style="display: inline-block!important;">
+    </square-placement>
+  </div>
+</div>
+
+<style>
+  a.affirm-site-modal, a.afterpay-site-modal {cursor: pointer!important;}
+  #afpay {display: none!important;}
+</style>
+
+<script>
+// Get the clickable element
+const afterpayLink = document.querySelector('.afterpay-site-modal');
+
+// Add a click event listener to the element
+afterpayLink.addEventListener('click', function(event) {
+    // Prevent the default action of the link
+    event.preventDefault();
+
+    // Get the afterpay-modal element
+    const afterpayModal = document.querySelector('afterpay-modal');
+
+    // Set the visible attribute to make it visible
+    afterpayModal.setAttribute('visible', 'visible');
+});
+
+</script>

@@ -1,0 +1,35 @@
+.press-review__box {
+  padding: 2rem;
+  position: relative;
+}
+@media screen and (min-width: 750px) {
+  .press-review__box {
+    padding: 5rem;
+    height: 100%;
+  }
+}
+
+.press-review__box h2 {
+  margin-top: 0;
+}
+.press-slide__logo svg {
+  height: 20px;
+  width: auto;
+}
+
+/*
+.press-slide__logo {
+  position: absolute;
+  bottom: 5rem;
+  left: 5rem;
+  width: 100%;
+  height: 20px;
+}
+*/
+
+.press-review__buttons {
+  position: absolute;
+  bottom: 1rem;
+  right: 0rem;
+  width: 75px;
+}

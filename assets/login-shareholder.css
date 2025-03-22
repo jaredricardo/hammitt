@@ -1,0 +1,16 @@
+.customer-shareholder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.customer-shareholder .customer:not(.account):not(.order){
+    width: 100%;
+    margin: 0 auto 0;
+}
+.login-shareholder-section{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

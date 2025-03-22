@@ -1,0 +1,13 @@
+{% comment %} kept display none until base.css loads {% endcomment %}
+<button
+    style="display: none;" 
+    class="swym-button hammitt-custom swym-add-to-wishlist-view-product product_{{product.id}}"
+    data-with-epi="true"
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}"
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+    >
+    {% render 'heart-empty' %}
+    {% render 'heart-full' %}
+</button>

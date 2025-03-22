@@ -1,0 +1,673 @@
+{% comment %} {{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }} {% endcomment %}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+
+<link data-href="{{ 'template-collection.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
+<link data-href="{{ 'component-loading-overlay.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
+{% comment %} <link data-href="{{ 'component-card.css' | asset_url }}" rel="stylesheet" type="text/css" media="all"> {% endcomment %}
+<link data-href="{{ 'component-price.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
+
+<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+
+{% style %}
+  .section-{{ section.id }}-padding.custom-grid .card-wrapper .card--card, 
+  .section-{{ section.id }}-padding.custom-grid .card-wrapper .card--standard{
+    --color-background: {{ section.settings.card_background.red }}, {{ section.settings.card_background.green }}, {{ section.settings.card_background.blue }};
+    background-color: rgb(var(--color-background));
+  } 
+    
+  .grid--4-col-desktop .grid__item.custom-grid-feature{
+      max-width: calc(100% - var(--grid-desktop-horizontal-spacing) / 2);
+      width: calc(100% - var(--grid-desktop-horizontal-spacing)* 2 / 4);
+    } 
+  @media screen and (min-width: 990px) {
+    .grid--4-col-desktop .grid__item.custom-grid-feature{
+      max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+      width: calc(50% - var(--grid-desktop-horizontal-spacing)* 2 / 4);
+    } 
+  }
+
+  .section-{{ section.id }}-padding.custom-grid {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding.custom-grid {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    
+    .grid__item.marketing-tile.content-full-width{
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  #ProductGridContainer .pagination-wrapper{
+    visibility:hidden;
+    margin: 0;
+  }
+
+  #ProductGridContainer #loader{
+  margin-top: 6rem;
+  }
+  
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'marketing_tile' -%}
+        #MarketingTile-{{ block.id }} {
+          --heading-font-size: {{ block.settings.heading_font_size_mobile }}px;
+          --text-font-size: {{ block.settings.paragraph_font_size }}px;
+          --button-font-size: {{ block.settings.button_font_size_mobile }}px;
+
+          --color-heading: {{ block.settings.color_heading }};
+          --color-text: {{ block.settings.color_paragraph }};
+        }
+
+        #MarketingTile-{{ block.id }} .button {
+          --color-button: {{ block.settings.color_button }};
+          --color-button-text: {{ block.settings.color_button_text }};
+          --color-button-border: {{ block.settings.color_button_border }};
+        }
+
+        @media screen and (min-width: 990px) {
+          #MarketingTile-{{ block.id }} {
+            --heading-font-size: {{ block.settings.heading_font_size | times: 0.8 | round }}px;
+            --button-font-size: {{ block.settings.button_font_size }}px;
+          }
+        }
+
+        @media screen and (min-width: 1200px) {
+          #MarketingTile-{{ block.id }} {
+            --heading-font-size: {{ block.settings.heading_font_size }}px;
+          }
+        }
+    {%- endcase -%}
+  {%- endfor -%}
+{%- endstyle -%}
+
+{% liquid
+  assign isShareholder = false
+  for tag in customer.tags
+    if tag == 'shareholder'
+      assign isShareholder = true
+    endif
+  endfor
+
+  assign isContentBlockValueExists = false
+  if collection.metafields.custom.content_block_heading and collection.metafields.custom.content_block_image and collection.metafields.custom.cta_button_text and collection.metafields.custom.cta_button_url
+    assign isContentBlockValueExists = true
+  endif
+%}
+
+<div class="section-{{ section.id }}-padding col-wrap new-class-its custom-grid">
+  {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+    <link data-href="{{ 'component-facets.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
+    {% comment %} {{ 'component-facets.css' | asset_url | stylesheet_tag }} {% endcomment %}
+    <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+  
+    <div class="page-width small-full-width" id="main-collection-filters" data-id="{{ section.id }}">
+      {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+    </div>
+  {%- endif -%}
+  
+  <div id="ProductGridContainer">
+    {%- paginate collection.products by section.settings.products_per_page -%}
+      {%- if collection.products.size == 0 -%}
+        <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+          <div class="loading-overlay gradient"></div>
+          <div class="title-wrapper center">
+            <h2 class="title title--primary">
+              {{ 'sections.collection_template.empty' | t }}<br>
+              {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
+            </h2>
+          </div>
+        </div>
+      {%- else -%}
+        <div class="collection page-width small-full-width">
+          <div class="loading-overlay gradient"></div>
+  		  {% assign myIndex = 1 %}
+          <ul id="product-grid" data-id="{{ section.id }}" class="
+            grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
+            {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
+              grid--{{ section.settings.columns_desktop }}-col-desktop
+            {% endif %}">
+            
+            {%- for product in collection.products -%}
+              {% comment %} Only show exclusive collection products if customer has shareholder tag and seo hidden is 1 {% endcomment %}
+              {% if isShareholder == false and product.metafields.seo.hidden == 1  %} 
+                {% continue %}
+              {% endif %}
+
+              {% if product.metafields.custom.hide_product_all_customers == 1 %}
+                {% continue %}
+              {% endif %}
+
+              {% comment %} FOR EE GWP  {% endcomment %}
+              {% liquid
+                assign IDayPromotionProduct = false
+
+                # PreOrder
+                assign isPreOrderProduct = false 
+                
+                for tag in product.tags
+                  if tag == "EEIDPromotion"
+                    assign IDayPromotionProduct = true
+                  endif
+
+                  # PreOrder
+                  if tag == "ee-pre-order"
+                    assign isPreOrderProduct = true
+                  endif
+                endfor
+              %}
+
+              {% assign lazy_load = false %}
+              {%- if forloop.index > 2 -%}
+                {%- assign lazy_load = true -%}
+              {%- endif -%}
+              {%- if product.tags contains 'hidden' or product.type == 'hidden' or product.title contains 'Gift wrapping' -%}{%- continue -%}{%- endif -%}
+
+		          {% assign myIndex = myIndex | plus: 1 %}
+              {% assign current_product_index = paginate.current_page | minus: 1 | times: section.settings.products_per_page | plus: myIndex %}
+
+              <li class="grid__item index-{{current_product_index}}">
+                  {% render 'custom-card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  lazy_load: lazy_load,
+                  index: forloop.index,
+                  isIDayPromotionProduct: IDayPromotionProduct,
+                  isPreOrderProduct: isPreOrderProduct,
+                  view_style: section.settings.view_style
+                  %}
+              </li>
+
+              {%- liquid 
+                for block in section.blocks 
+                  assign block_position = block.settings.position | plus: 0
+                  if block_position == current_product_index
+                    include 'card-marketing-tile', block: block, media_size: section.settings.image_ratio
+                    assign myIndex = myIndex | plus: 1
+                    if block.settings.width == '2x' 
+                    assign myIndex = myIndex | plus: 1
+                    endif
+                  endif
+                endfor 
+              -%}
+
+              {% comment %} FEATURES {% endcomment %}
+              {% comment %}
+              {% if paginate.current_page == 1 and forloop.index == 6 %}
+                {% if section.settings.show_features and isContentBlockValueExists == true %}
+                  <li class="grid__item custom-grid-feature">
+                    {% 
+                      render "custom-grid-feature",
+                      view_style: section.settings.view_style
+                  %}</li>
+                {% endif %}
+              {% endif %}
+              {% endcomment %}
+              {% comment %} FEATURES {% endcomment %}
+
+            {%- endfor -%}
+          </ul>
+          
+          <div id="loader" style="text-align: center;">            
+          <img src="{{ 'Spinner-2.gif' | asset_url }}" style="width:48px;height:48px;" alt="Loading...">
+        </div>
+  
+          {%- if paginate.pages > 1 -%}
+            {% render 'pagination', paginate: paginate, anchor: '' %}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Grid Collections (EC)",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16,
+      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.main-collection-product-grid.settings.columns_desktop.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
+      "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_features",
+      "default": true,
+      "label": "Enable Features"
+    },
+    {
+        "type": "select",
+        "id": "view_style",
+        "label": "Style",
+        "default": "card",
+        "options": [
+          { "label": "Standard", "value": "standard" },
+          { "label": "Card", "value": "card" }
+        ]
+    },
+    {
+        "type": "color",
+        "id": "card_background",
+        "label": "Card Background",
+        "default": "#EBEBEB"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "collapse_on_larger_devices",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.collapse_on_larger_devices.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.main-collection-product-grid.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Content Block",
+      "info": "Settings of Heading, CTA Button and Block Position."
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "content_heading_size",
+      "label": "Heading Font Size",
+      "default": 20,
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "content_heading_color",
+      "label": "Heading Color",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
+    },
+    {
+      "type": "range",
+      "id": "cta_button_size",
+      "label": "CTA Button Font Size",
+      "default": 16,
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "cta_button_color",
+      "label": "CTA Button Text Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "cta_button_bg_color",
+      "label": "CTA Button Background Color",
+      "default": "#EBEBEB"
+    },
+    {
+      "type": "color",
+      "id": "cta_button_border_color",
+      "label": "CTA Button Border Color",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "Content Block position"
+    },
+    {
+		  "type":"select",
+		  "id":"content_block_alignment",
+		  "label":"Content Block Alignment",
+		  "default":"center",
+      "info": "CTA Button and Header alignment.",
+		  "options":[
+        {
+          "label":"Left",
+          "value":"left"
+        },
+        {
+          "label":"Center",
+          "value":"center"
+        },
+        {
+          "label":"Right",
+          "value":"right"
+        }
+		  ]
+		},
+    {
+		  "type":"select",
+		  "id":"content_block_position",
+		  "label":"Content Block position",
+		  "default":"middle-left",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top Center"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "middle-left",
+          "label": "Middle Left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle Center"
+        },
+        {
+          "value": "middle-right",
+          "label": "Middle Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom Center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ]
+		}
+  ],
+  "blocks": [
+    {
+      "type":"marketing_tile",
+      "name":"Marketing Tile",
+      "settings": [
+        {
+          "type":"image_picker",
+          "id":"image",
+          "label":"Image",
+          "info": "(For 1x width: 820 x 1024 px), (For 2x width: 1024 x 680 px), (For full width: 1024 x 600 px)"
+        },
+        {
+          "type":"url",
+          "id":"link",
+          "label":"Link"
+        },
+        {
+          "type": "range",
+          "id": "position",
+          "min": 0,
+          "max": 48,
+          "step": 1,
+          "label": "Position",
+          "default": 3,
+          "info": "Adjust the position of Marketing tile as per grid size"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default":"1x",
+          "options": [
+            { "value":"1x","label":"1x" },
+            { "value":"2x","label":"2x" }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "content_block_full_width",
+          "default": false,
+          "label": "Enable full width for Marketing tile"
+        },
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Heading"
+        },
+        {
+          "type": "range",
+          "id": "heading_font_size",
+          "label": "Heading font size (Desktop)",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "heading_font_size_mobile",
+          "label": "Heading font size (Mobile)",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 20
+        },
+        {
+          "type": "color",
+          "id": "color_heading",
+          "label": "Heading color",
+          "default": "#000000"
+        },
+        {
+          "type":"text",
+          "id":"button_text",
+          "label":"Button text"
+        },
+        {
+          "type": "range",
+          "id": "button_font_size",
+          "label": "Button font size (Desktop)",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "button_font_size_mobile",
+          "label": "Button font size (Mobile)",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 16
+        },
+        {
+          "type": "color",
+          "id": "color_button",
+          "label": "Button background",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "color_button_text",
+          "label": "Button text",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "color_button_border",
+          "label": "Button border",
+          "default": "#000000"
+        },
+        {
+          "type": "text_alignment",
+          "id": "text_alignment",
+          "label": "Text alignment",
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content position",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            }
+          ],
+          "default": "left"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+        "name": "Grid Collections (EC)"
+    }
+  ]
+}
+{% endschema %}

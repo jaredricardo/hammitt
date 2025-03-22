@@ -1,0 +1,485 @@
+{{ 'popup-shareholder.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign content_align = section.settings.popupcontent_alignment
+%}
+{% style %}
+  .popup-shareholder-section .popup-customer-name{
+      color: {{ section.settings.heading_color }};
+      font-size: {{ section.settings.heading_font_size }}px;
+      line-height: 1.1;
+      font-weight: {{ section.settings.heading_font_weight }};
+  }
+  .popup-shareholder-section .popup-sub{
+      color: {{ section.settings.subtext_color }};
+      font-size: {{ section.settings.subtext_font_size }}px;
+      line-height: 1.1;
+      font-weight: {{ section.settings.sub_font_weight }};
+  }
+  .popup-shareholder-section .popup-content{
+      max-width: {{ section.settings.content_width }}px;
+      text-align: {{ section.settings.text_alignment }};
+      {% if content_align == "middle" %}
+        justify-content: center;
+      {% endif %}
+      {% if content_align == "bottom" %}
+        justify-content: flex-end;
+      {% endif %}
+  }
+  {% if section.settings.popup_btn_align == "end" %}
+    .popup-shareholder-section .popup-cta{
+      position: absolute;
+      bottom: 30px;
+      z-index: 999999;
+  }
+  {% endif %}
+  .popup-shareholder-section .popup-cta{
+      color: {{ section.settings.btn_color }};
+      background-color: {{ section.settings.btn_bg_color }};
+      font-size: {{ section.settings.cta_font_size }}px;
+  }
+  .popup-shareholder-section .popup-subheading{
+      color: {{ section.settings.subheading_color }};
+      font-size: {{ section.settings.subheading_font_size }}px;
+      font-weight: {{ section.settings.subheading_font_weight }};
+  }
+  .popup-shareholder-section .popup-customer-name{
+      text-transform: {{ section.settings.heading_text_transform }};
+  }
+
+  @media screen and (max-width: 768px){
+      .popup-shareholder-section .popup-heading{
+          font-size: {{ section.settings.heading_font_size_mobile }}px;
+          line-height: {{ section.settings.heading_font_size_mobile }}px;
+      }
+      .popup-shareholder-section .popup-sub{
+          font-size: {{ section.settings.subtext_font_size_mobile }}px;
+          line-height: {{ section.settings.subtext_font_size_mobile }}px;
+      }
+      .popup-shareholder-section .popup-subheading{
+        font-size: {{ section.settings.subheading_font_size_mobile }}px;
+      }
+  }
+{% endstyle %}
+
+{% if customer %}
+  {% for tag in customer.tags %}
+    {% if tag == 'shareholder' and template.name == 'account' %}
+      <div class="popup-wrapper" style="display: none;">
+        <div class="popup-container">
+          <div class="image-wrapper">
+            {% if section.settings.main_image == blank %}
+              <img src="/cdn/shop/products/media_f151d403-b1db-4d62-abfe-701e21638a20.jpg" width="100%" height="100%">
+            {% else %}
+              <img
+                src="{{ section.settings.main_image | image_url }}"
+                alt="{{ section.settings.main_image.alt }}"
+                width="100%"
+                height="100%"
+              >
+            {% endif %}
+            <div class="popup-content">
+              <div class="popup-content-header">
+                {% if section.settings.subheading %}
+                  <h2 class="popup-heading">
+                    <span class="popup-subheading">
+                    {{ section.settings.subheading }}
+                    </span>
+                    <span class="popup-customer-name">
+                      {{ customer.first_name }}
+                      {{ customer.last_name }}!
+                    </span>
+                  </h2>
+                {% endif %}
+                {% if section.settings.subtext %}
+                  <p class="popup-sub">{{ section.settings.subtext }}</p>
+                {% endif %}
+              </div>
+              {% if section.settings.btnText %}
+                <a class="popup-cta" href="{{ section.settings.btnUrl }}">{{ section.settings.btnText }}</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% comment %} Showing Shareholder Popup for Admins to view/edit in Real Time  {% endcomment %}
+{% if section.settings.show_shareholder_popup %}
+  <div class="popup-wrapper">
+    <div class="popup-container">
+      <div class="image-wrapper">
+        {% if section.settings.main_image == blank %}
+          <img src="/cdn/shop/products/media_f151d403-b1db-4d62-abfe-701e21638a20.jpg" width="100%" height="100%">
+        {% else %}
+          <img
+            src="{{ section.settings.main_image | image_url }}"
+            alt="{{ section.settings.main_image.alt }}"
+            width="100%"
+            height="100%"
+          >
+        {% endif %}
+        <div class="popup-content">
+          <div class="popup-content-header">
+            {% if section.settings.subheading %}
+              <h2 class="popup-heading">
+                <span class="popup-subheading">
+                {{ section.settings.subheading }}
+                </span>
+                <span class="popup-customer-name">
+                  {{ customer.first_name }}
+                  {{ customer.last_name }}!
+                </span>
+              </h2>
+            {% endif %}
+            {% if section.settings.subtext %}
+              <p class="popup-sub">{{ section.settings.subtext }}</p>
+            {% endif %}
+          </div>
+          {% if section.settings.btnText %}
+            <a class="popup-cta" href="{{ section.settings.btnUrl }}">{{ section.settings.btnText }}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}  
+
+{% comment %} Script to show the popup for once when shareholder customers login  {% endcomment %}
+<script>
+  {% if customer %}
+      {% for tag in customer.tags %}
+          {% if tag == 'shareholder' and template.name == 'account' %}
+
+                  let popupContainer = document.querySelector('.popup-wrapper');
+                  let popupSubContainer = document.querySelector('.popup-container');
+
+                  // Check if the popup has been displayed before
+                  let popupShown = localStorage.getItem('shareholder_popupShown');
+                  if (!popupShown) {
+                      setTimeout(showPopup, 3000);
+                  }
+
+                  function showPopup() {
+                      popupContainer.style.display = 'flex';
+                      document.cookie = 'shareholder_login=true';
+                      {% comment %} disabling the local storage for QI {% endcomment %}
+                      {% comment %} localStorage.setItem('shareholder_popupShown', 'true'); {% endcomment %}
+                  }
+
+                  function hidePopup() {
+                      popupContainer.style.display = 'none';
+                  }
+
+                  document.addEventListener('click', function(event) {
+                      if (!popupSubContainer.contains(event.target)) {
+                          popupContainer.style.display = 'none';
+                      }
+                  });
+
+          {% endif %}
+      {% endfor %}
+  {% endif %}
+</script>
+
+{% schema %}
+{
+  "name": "Popup Shareholder",
+  "class": "popup-shareholder-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_shareholder_popup",
+      "label": "Show Popup for Admin/Editing",
+      "default": false,
+      "info": "Ensure to uncheck this box once you have completed the edits"
+    },
+    {
+      "type": "header",
+      "content": "Popup Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Select Image"
+    },
+    {
+      "type": "header",
+      "content": "Popup Content Settings"
+    },
+    {
+      "type": "number",
+      "id": "content_width",
+      "label": "Content Width",
+      "default": 300
+    },
+    {
+      "type": "select",
+      "id": "popupcontent_alignment",
+      "label": "Content Position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Center Top"
+        },
+        {
+          "value": "middle",
+          "label": "Center Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Center Bottom"
+        }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "select",
+      "id": "popup_btn_align",
+      "label": "CTA Position",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "end",
+          "label": "Space Between"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Sub Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub Heading",
+      "default": "Welcome",
+      "info": "Shareholder name will come dynamically"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Sub Heading Color",
+      "default": "#000"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "min": 12,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Sub Heading Font size (Desktop)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size_mobile",
+      "min": 12,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Sub Heading Font size (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "subheading_font_weight",
+      "label": "Sub Heading Font Weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "select",
+      "id": "heading_text_transform",
+      "label": "Heading Text Transform",
+      "options": [
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "min": 12,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Font size (Desktop)",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "min": 12,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Font size (Mobile)",
+      "default": 25
+    },
+    {
+      "type": "select",
+      "id": "heading_font_weight",
+      "label": "Heading Font Weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content": "Sub Text Settings"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "Click below for access to shop our exclusive investor Collection."
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Sub Text Color",
+      "default": "#000"
+    },
+    {
+      "type": "range",
+      "id": "subtext_font_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Sub Text Font size (Desktop)",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "subtext_font_size_mobile",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Sub Text Font size (Mobile)",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "id": "sub_font_weight",
+      "label": "Sub Text Font Weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "header",
+      "content": "CTA Settings"
+    },
+    {
+      "type": "text",
+      "id": "btnText",
+      "label": "CTA Text",
+      "default": "SHOW NOW"
+    },
+    {
+      "type": "url",
+      "id": "btnUrl",
+      "label": "CTA URL"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "CTA Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "CTA Background Color",
+      "default": "#000"
+    },
+    {
+      "type": "range",
+      "id": "cta_font_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "CTA Font Size",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Popup Shareholder"
+    }
+  ]
+}
+{% endschema %}

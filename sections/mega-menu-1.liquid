@@ -1,0 +1,142 @@
+{%- render 'mega-menu', section: section -%}
+
+{% schema %}
+{
+  "name": "Mega Menu 1",
+  "class": "mega-menu-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "parent",
+      "label": "Link title",
+      "info": "The mega menu will appear below this parent link (case sensitive)"
+    },
+	{
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top",
+	  "info":"(pixel value)",
+      "default": 15
+    },
+	{
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom",
+	  "info":"(pixel value)",
+      "default": 15
+    },
+	{
+	  "type":"number",
+	  "id":"max_width",
+	  "label":"Max Width",
+	  "info":"(pixel value)",
+	  "default":1280
+	}
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+		{
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+		{
+          "type": "select",
+          "id": "image_ratio",
+          "options": [
+            { "value": "default", "label": "Adjust to image" },
+            { "value": "square", "label": "Square" },
+            { "value": "portrait", "label": "Portrait" },
+            { "value": "landscape", "label": "Landscape" }
+          ],
+          "label": "Image Ratio"
+        },
+        {
+          "type": "text",
+          "id": "image_caption",
+          "label": "Image caption"
+        },
+        {
+          "type": "url",
+          "id": "image_link",
+          "label": "Image link"
+        },
+		{
+          "type": "header",
+          "content": "Submenu"
+        },
+		{
+          "type": "radio",
+          "id": "submenu_reference",
+          "options": [
+            { "value": "default", "label": "Use main navigation" },
+            { "value": "menu", "label": "Use a different menu" }
+          ],
+          "label": "Submenu data"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+		  "info":"If the above is set to menu, this will be used"
+        },
+		{
+		  "type":"checkbox",
+	      "id":"show_heading",
+		  "label":"Show Menu Name as heading?"
+		}
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+	  "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+		{
+          "type": "select",
+          "id": "image_ratio",
+          "options": [
+            { "value": "default", "label": "Adjust to image" },
+            { "value": "square", "label": "Square" },
+	        { "value": "portrait", "label": "Portrait" }
+          ],
+          "label": "Image Ratio"
+        },
+        {
+          "type": "text",
+          "id": "image_caption",
+          "label": "Image caption"
+        },
+        {
+          "type": "url",
+          "id": "image_link",
+          "label": "Image link"
+        }
+	  ]
+    }
+  ]
+}
+
+{% endschema %}
+

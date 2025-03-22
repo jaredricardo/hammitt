@@ -1,0 +1,29 @@
+.image-banner-2x {
+  position: relative;
+}
+.image-banner-2x__content {
+  position: absolute; 
+  z-index: 1;
+}
+.image__banner-2x .title{
+  margin: 0;
+}
+.mobile-only{
+  display: block;
+}
+.desktop-only{
+  display: none;
+}
+
+.image__banner-2x > .grid > .grid__item{
+  max-width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .mobile-only{
+    display: none;
+  }
+  .desktop-only{
+    display: block;
+  }
+}

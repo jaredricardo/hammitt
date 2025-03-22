@@ -1,0 +1,150 @@
+{%- liquid
+for link in linklists.new-menu-22.links
+  if link.title == section.settings.parent
+  	assign main_link = link
+    assign main_index = forloop.index
+  endif 
+endfor 
+-%}
+<div id="mega-menu-replacement-{{ section.id }}" style="display: none;">
+  <details-disclosure>
+    <details id="Details-HeaderMenu-{{ main_index }}">
+      <summary class="main-nav-item header__menu-item list-menu__item link focus-inset" data-url="{{ main_link.url }}">
+        <span {% if main_link.child_active %}class="header__active-menu-item"{% endif %}>{{ section.settings.parent | escape }}</span>
+        {% render 'icon-caret' %}
+      </summary>
+      <div id="SiteNavLabel-{{ section.settings.parent | handleize }}" 
+           data-menu="shopify-section-{{ section.id }}" 
+           class="dropdown_container mega-menu site-nav__dropdown site-nav__dropdown--centered critical-hidden" 
+           data-dropdown="{{ section.settings.parent | handleize }}" 
+           data-parent="{{ section.settings.parent | escape }}" 
+           style="background-color: {{ section.settings.background_color }};">
+        <div class="dropdown menu text-left page-width mega-menu-{{ section.id }}">
+          <div class="dropdown_content {% if section.blocks < 4 %}dropdown_narrow{% endif %} flex justify-center {{ section.id | handle }}">
+            {% for block in section.blocks %}
+            
+            {% assign block_index = forloop.index0 %}
+            {% assign last_block  = forloop.last %}
+            
+            <div class="mega-menu__column {%  if block.type == 'image' %}menu-column--image{% endif %} appear-animation appear-delay-{{ forloop.index }}" {{ block.shopify_attributes }}>
+
+              {% comment %}Image with caption and link{% endcomment %}
+              {% if block.type == 'image' %}
+                {% if block.settings.image != nil or block.settings.image_caption != blank %}
+                <div class="mega-menu__image-caption-link relative">
+                  <a href="/collections/travel" data-acsb-clickable="true" data-acsb-navigable="true" data-acsbnow-navigable="true"><span class="visually-hidden acsb-sr-only" aria-hidden="false" dataacsb-hidden="false" data-acsb-sr-only="true" data-acsb-force-visible="true">Vacation
+Bound</span></a>
+                  <a href="/collections/core" data-acsb-clickable="true" data-acsb-navigable="true" data-acsbnow-navigable="true"><span class="visually-hidden acsb-sr-only" aria-hidden="false" dataacsb-hidden="false" data-acsb-sr-only="true" data-acsb-force-visible="true">Buy Now, Pay
+Later with Affirm</span></a>
+                  <a {% if block.settings.image_link != blank %}href="{{ block.settings.image_link }}"{% endif %} >
+                    <span class="visually-hidden">{{ block.settings.image_caption }}</span>
+                    {% if block.settings.image != nil %}
+                      {% render 'image-element', image: block.settings.image, image_ratio: block.settings.image_ratio, image_class: 'fade' %}
+                    {% endif %}
+                    {% if block.settings.image_caption != blank %}
+                    <p class="mega-menu__image-caption link">{{ block.settings.image_caption }}</p>
+                    {% endif %}
+                  </a>
+                </div>
+                {% endif %}
+              {% endif %}
+
+              {% comment %}Menu 1{% endcomment %}
+              {% if block.type == "column" %}
+                {% if block.settings.image != blank %}
+              	  <div class="relative">
+                  {% render 'image-element', image: block.settings.image, image_ratio: 46 %}
+                    {% if block.settings.image_link != blank %}
+                    <a href="{{ block.settings.image_link }}" class="link--fill-parent">
+                      <span class="visually-hidden">Link to {{ block.settings.image_link }}</span>
+                    </a>
+                    {% endif %}
+              	  </div>
+                {% endif %}
+                
+                <div class="mega-menu--column__menu dropdown_column__menu--block-{{ block.id }}">
+                  {% if block.settings.show_heading %}
+                  <strong class="display-block h5 menu__margin-custom">{{ linklists[block.settings.menu].title | upcase }}</strong>
+                  {% endif %}
+                  {% if linklists[block.settings.menu] != empty and block.settings.submenu_reference == 'menu' %}
+                  <ul class="list-unstyled">
+                    {% for sublink in linklists[block.settings.menu].links %}
+                    <li>
+                      <a class="list-menu__item link link--text" href="{{ sublink.url }}">{{ sublink.title }}</a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                  
+                  
+                  {% if block.settings.submenu_reference == 'default' %}
+                  	{% assign links_column = '' %}
+                    {%- for link in linklists.arbor-menu.links -%}
+                      {% if link.title == section.settings.parent and link.links != blank %}
+                  		{%- for childlink in link.links -%}
+                  		  {% if childlink.links == blank %}
+                  		  {% capture links_column %}{{ links_column }}
+                  		  <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
+                            {{ childlink.title | escape }}
+                          </a>
+                  		  {% endcapture %}
+                  		  {% endif %}
+                  		  {% assign childlink_index = forloop.index0 %}
+                  		  {% if childlink_index == block_index %}
+                            {%- if childlink.links != blank -%}
+                  			  <h5>{{ childlink.title | link_to: childlink.url }}</h5>
+                              <ul id="HeaderMenu-SubMenuList-{{ forloop.index }}" class="list-unstyled">
+                                {%- for grandchildlink in childlink.links -%}
+                                <li>
+                                  <a href="{{ grandchildlink.url }}" class="header__submenu-link link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
+                                    {{ grandchildlink.title | escape }}
+                                  </a>
+                                </li>
+                                {%- endfor -%}
+                              </ul>
+                            {%- endif -%}
+                  		  {% endif %}
+                  		{%- endfor -%}
+                        {% break %}
+                      {% endif %}
+                    {%- endfor -%} 
+                  {% endif %}
+                </div>
+              
+              {% if links_column != '' and last_block %}
+                {{ links_column }}
+              {% endif %}
+                
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </details>
+  </details-disclosure>
+</div>
+
+<style type="text/css">
+  .mega-menu-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}% {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}%;
+    max-width: {{ section.settings.max_width }}px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .main-menu__li[data-title="{{ section.settings.parent }}"] details {
+    position: static;
+  }
+</style>
+
+<script type="text/javascript">
+  (function() {
+    const myMenuLi = document.querySelector('.main-menu__li[data-title="{{ section.settings.parent }}"]');
+    if(!myMenuLi) return;
+    
+    const myMegaMenu = document.getElementById('mega-menu-{{ section.id }}');      
+    const menuReplacement = document.getElementById('mega-menu-replacement-{{ section.id }}').innerHTML;
+    
+    myMenuLi.innerHTML = menuReplacement;
+  })();
+</script>

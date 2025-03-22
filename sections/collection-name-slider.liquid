@@ -1,0 +1,365 @@
+{{ 'section-collection-name-slider.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+  
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+{%- endstyle -%}
+<style>
+  @media screen and (min-width: 750px){
+      .section-{{ section.id }}-padding .medium-up--color-dark *{color: #000;}
+  }
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }}-padding .small--color-dark *{color: #000;}
+  }
+    {%- for block in section.blocks -%}
+            .collection-name-slider-section .collection-link-if-{{ block.id }} .collection-link{
+                font-size: {{ block.settings.heading_size_desktop }}px;
+            }
+            @media screen and (max-width: 750px){
+                .collection-name-slider-section .collection-link-if-{{ block.id }} .collection-link{
+                    font-size: {{ block.settings.heading_size_mobile }}px;
+                }
+            }
+            @media screen and (min-width: 750px) and (max-width: 1200px){
+                .collection-name-slider-section .collection-link-if-{{ block.id }} .collection-link{
+                    font-size: {{ block.settings.heading_size_tablet }}px;
+                }
+            }
+    {%- endfor -%}
+</style>
+{%- capture json -%}
+    {
+      "slidesPerView": 1,
+      "spaceBetween": 20,
+      "freeMode": true,
+      "mousewheel": false,
+      "loop": false,
+      "effect": "slide",
+      "navigation": {
+        "nextEl": ".swiper-button-next",
+        "prevEl": ".swiper-button-prev"
+      },
+      "breakpoints": {
+        "750": {
+          "slidesPerView": "2",
+          "spaceBetween": 20
+        },
+        "990": {
+          "slidesPerView": "2.6",
+          "spaceBetween": 20
+        }
+      }
+    }
+{%- endcapture -%}
+<div section-id="{{ section.id }}" class="collection-name-slider-section color-{{ section.settings.color_scheme }}  isolate section-{{ section.id }}-padding">
+    <div class="section-collectiongrid-wrap">
+        <div class="desktop-slider_view">
+            <div class="swiper" data-json='{{ json }}'>
+            <div class="section-collectiongrid swiper-wrapper {% if section.settings.text_position == 'overlay_type' %} overlay-type-text{% endif %}">
+                {%- for block in section.blocks -%}
+                    <div class="swiper-slide">
+                      <div class="collection-image-wrapper">
+                              {%- if block.settings.image != blank -%}
+                                  <img alt="Collection Image" class="collection-image" src="{{ block.settings.image | img_url: 'master' }}" width="710px" height="710px" />
+                              {%- endif -%}
+                      </div>
+                      <div class="collection-link-wrapper collection-link-if-{{ block.id }} {% if section.settings.column_alignment == 'center' %} center{% endif %} small--color-{{ section.settings.color_scheme_mobile }} medium-up--color-{{ section.settings.text_color_scheme }}">
+                          {%- if block.settings.button_link != blank -%}
+                              <a href="{{ block.settings.button_link }}" class="collection-link">
+                              <span>{{ block.settings.title | escape }}</span>
+                              </a>
+                          {%- endif -%}
+                      </div>
+                    </div>
+                {% endfor %}
+            </div>    
+            {% comment %} <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>{% endcomment %}
+            </div>
+        </div>
+        <div class="mobile-grid-view {% if section.settings.text_position == 'overlay_type' %} overlay-type-text{% endif %}">
+            {%- for block in section.blocks -%}
+                <div class="grid_width relative">
+                   <div class="collection-image-wrapper">
+                        {%- if block.settings.image != blank -%}
+                            <img alt="Collection Image" class="collection-image" src="{{ block.settings.image | img_url: 'master' }}" />
+                        {%- endif -%}
+                   </div>
+                   <div class="collection-link-wrapper {% if section.settings.mobile_column_alignment == 'center' %} center{% endif %} small--color-{{ section.settings.color_scheme_mobile }} medium-up--color-{{ section.settings.text_color_scheme }}">
+                    {%- if block.settings.button_link != blank -%}
+                        <a href="{{ block.settings.button_link }}" class="collection-link">
+                          <span>{{ block.settings.title | escape }}</span>
+                        </a>
+                    {%- endif -%}
+                   </div>
+                </div>
+            {% endfor %}
+        </div> 
+    </div>
+</div>
+<Script>
+document.addEventListener('DOMContentLoaded', () => {
+    const sliders = document.querySelectorAll('.swiper');
+
+    sliders.forEach((slider) => {
+        const jsonData = JSON.parse(slider.getAttribute('data-json'));
+        
+        if (!slider.swiper) {
+            new Swiper(slider, jsonData);
+        }
+    });
+
+    // Shopify theme editor event to reinitialize the slider
+    document.addEventListener('shopify:section:load', (event) => {
+        const sectionId = event.detail.sectionId;
+        const section = document.querySelector(`[section-id="${sectionId}"] .swiper`);
+
+        if (section) {
+            const jsonData = JSON.parse(section.getAttribute('data-json'));
+            if (!section.swiper) {
+                new Swiper(section, jsonData);
+            }
+        }
+    });
+
+    document.addEventListener('shopify:section:unload', (event) => {
+        const sectionId = event.detail.sectionId;
+        const section = document.querySelector(`[section-id="${sectionId}"] .swiper`);
+        if (section && section.swiper) {
+            section.swiper.destroy(true, true);
+        }
+    });
+});
+
+</Script>
+{% schema %}
+    {
+      "name": "Collection Name Slider",
+      "tag": "section",
+      "class": "section",
+      "max_blocks": 15,
+      "settings": [
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "options": [
+            {
+              "value": "accent-1",
+              "label": "t:sections.all.colors.accent_1.label"
+            },
+            {
+              "value": "accent-2",
+              "label": "t:sections.all.colors.accent_2.label"
+            },
+            {
+              "value": "background-1",
+              "label": "t:sections.all.colors.background_1.label"
+            },
+            {
+              "value": "background-2",
+              "label": "t:sections.all.colors.background_2.label"
+            },
+            {
+              "value": "inverse",
+              "label": "t:sections.all.colors.inverse.label"
+            }
+          ],
+          "default": "background-1",
+          "label": "t:sections.all.colors.label",
+          "info": "t:sections.all.colors.has_cards_info"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.all.padding.section_padding_heading"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
+        },
+        {
+          "type": "select",
+          "id": "column_alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.multicolumn.settings.column_alignment.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.multicolumn.settings.column_alignment.options__2.label"
+            }
+          ],
+          "default": "left",
+          "label": "t:sections.multicolumn.settings.column_alignment.label"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text Position",
+          "default": "bottom",
+          "options": [
+            {
+              "value": "overlay_type",
+              "label": "Overlay Type"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]          
+        },
+        {
+          "type": "select",
+          "id": "text_color_scheme",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "dark",
+              "label": "Dark"
+            }
+          ],
+          "default": "light",
+          "label": "Text color",
+          "info": "t:sections.image-banner.settings.color_scheme.info"
+        },
+        {
+          "type": "select",
+          "id": "mobile_column_alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.multicolumn.settings.column_alignment.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.multicolumn.settings.column_alignment.options__2.label"
+            }
+          ],
+          "default": "left",
+          "label": "Mobile Column Alignment"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme_mobile",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "dark",
+              "label": "Dark"
+            }
+          ],
+          "default": "light",
+          "label": "Mobile text color",
+          "info": "t:sections.image-banner.settings.color_scheme.info"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "collection",
+          "name": "Collection",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Collection image"
+            },
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Collection title"
+            },
+            {
+                "type": "url",
+                "id": "button_link",
+                "label": "Collection Link"
+            },
+            {
+                "type": "header",
+                "content": "Mobile Settings"
+            },
+            {
+                "type": "range",
+                "id": "heading_size_mobile",
+                "label": "Font Size",
+                "min": 10,
+                "max": 110,
+                "default": 14,
+                "unit": "px",
+                "step": 1
+            },
+            {
+                "type": "header",
+                "content": "Tablet Settings"
+            },
+            {
+                "type": "range",
+                "id": "heading_size_tablet",
+                "label": "Font Size",
+                "min": 10,
+                "max": 110,
+                "default": 14,
+                "unit": "px",
+                "step": 1
+            },
+            {
+                "type": "header",
+                "content": "Desktop Settings"
+            },
+            {
+                "type": "range",
+                "id": "heading_size_desktop",
+                "label": "Font Size",
+                "min": 10,
+                "max": 110,
+                "default": 14,
+                "unit": "px",
+                "step": 1
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Collection Name Slider",
+          "blocks": [
+            {
+              "type": "collection"
+            },
+            {
+              "type": "collection"
+            }
+          ]
+        }
+      ]
+    }
+{% endschema %}

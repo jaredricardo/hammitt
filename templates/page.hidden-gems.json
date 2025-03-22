@@ -1,0 +1,311 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "hide_title": true,
+        "width": "page-width--narrow",
+        "padding_top": 44,
+        "padding_bottom": 24,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "5e444b3d-f694-41a2-ac0e-d948e78ad46e": {
+      "type": "image-banner",
+      "blocks": {
+        "6811ba16-213a-451b-a34e-aa0e5785ba3c": {
+          "type": "heading",
+          "settings": {
+            "heading": "13 HIDDEN GEMS"
+          }
+        },
+        "a139a04a-22cb-4f11-becc-de36fc7dcb61": {
+          "type": "text",
+          "settings": {
+            "text": "Available for 48 hours, or 'til sold out. Happy Friday the 13th.",
+            "text_style": "body"
+          }
+        },
+        "6905cda7-5ab3-4bc2-acbb-611311dc15a5": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP ALL",
+            "button_link_1": "shopify:\/\/collections\/13-hidden-gems",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "6811ba16-213a-451b-a34e-aa0e5785ba3c",
+        "a139a04a-22cb-4f11-becc-de36fc7dcb61",
+        "6905cda7-5ab3-4bc2-acbb-611311dc15a5"
+      ],
+      "settings": {
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify:\/\/shop_images\/Untitled_design_1_eefc9bf2-347a-48cc-b09f-04bac2b70470.jpg",
+        "image_2": "shopify:\/\/shop_images\/Hidden_Gems_13_mobile.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "e819dbfb-80c4-481d-8095-199262838588": {
+      "type": "rich-text",
+      "blocks": {
+        "54e8b42f-33a2-4a15-980b-d8d01cecb1d3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you're reading this, you're a treasured member of our Rivett Club.  (Or, you have a *really* good friend.)<\/p><p>In honor of Friday the 13th, we've gathered 13 of our best hidden gems. They're in stock until midnight PST on Sunday - or until they're gone. Scariest story ever? Sold. Out.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "54e8b42f-33a2-4a15-980b-d8d01cecb1d3"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 28,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "b8fb90bc-0047-4869-a7b6-cba9d71f3aa9": {
+      "type": "featured-collection",
+      "blocks": {
+        "b5e04db4-776b-4d10-ab29-2fce1985415b": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "13-hidden-gems"
+          }
+        }
+      },
+      "block_order": [
+        "b5e04db4-776b-4d10-ab29-2fce1985415b"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "title": "",
+        "heading_align": "center",
+        "paragraph": "",
+        "full_width": true,
+        "stagger": false,
+        "collection": "13-hidden-gems",
+        "max_products": 20,
+        "spacing": 20,
+        "card_width_desktop": 22,
+        "card_width_mobile": 85,
+        "scrollbar": true,
+        "arrows": false,
+        "hide_quick_add": false,
+        "hide_price": false,
+        "image_ratio": "adapt",
+        "border_top": false,
+        "border_bottom": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "71e828c6-9bb4-473b-bf6d-b4e633785a5e": {
+      "type": "featured-product",
+      "blocks": {
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-0": {
+          "type": "text",
+          "settings": {
+            "text": "HIDDEN GEM",
+            "text_style": "uppercase"
+          }
+        },
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-2": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-4": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-5": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-6": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-7": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-0",
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-1",
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-2",
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-3",
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-4",
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-5",
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-6",
+        "template--15917368508600__71e828c6-9bb4-473b-bf6d-b4e633785a5e-1674974436a4177c06-7"
+      ],
+      "settings": {
+        "product": "addie-med-tote-bag-nectar-tan-brushed-gold",
+        "color_scheme": "background-2",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "c45c48f9-2620-4957-9321-5b990ead48e0": {
+      "type": "rich-text",
+      "blocks": {
+        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>Heads up: These styles will require a few extra days for processing, so we recommend choosing standard shipping. <\/em><em><strong>All hidden gems are final sale.<\/strong><\/em><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-1"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 36,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "2c4e9a28-1a1d-4208-b139-449e111d8401": {
+      "type": "featured-product",
+      "blocks": {
+        "b4208261-eb7d-4e18-8921-77abf36d9b42": {
+          "type": "text",
+          "settings": {
+            "text": "HIDDEN GEM",
+            "text_style": "uppercase"
+          }
+        },
+        "f5548fb1-2e73-4e7a-8860-215f2231a6f0": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "9bf99d63-6e70-4837-b5ab-7738f4e1d4ca": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "d8955eb0-bdd6-4d67-b31f-fb5b4870aec4": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "dec243ed-ea83-4993-a83b-25f2f14b5ef7": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "bb8b9c2f-acc6-4519-9b31-8e490aa94dde": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "9b247122-0621-46e1-8818-cce73d5b62ed": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "4139ac66-d219-4d81-beb2-5a6ab2c14340": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "b4208261-eb7d-4e18-8921-77abf36d9b42",
+        "f5548fb1-2e73-4e7a-8860-215f2231a6f0",
+        "9bf99d63-6e70-4837-b5ab-7738f4e1d4ca",
+        "d8955eb0-bdd6-4d67-b31f-fb5b4870aec4",
+        "dec243ed-ea83-4993-a83b-25f2f14b5ef7",
+        "bb8b9c2f-acc6-4519-9b31-8e490aa94dde",
+        "9b247122-0621-46e1-8818-cce73d5b62ed",
+        "4139ac66-d219-4d81-beb2-5a6ab2c14340"
+      ],
+      "settings": {
+        "product": "andersen-tote-tote-bag-periwinkle-haze-brushed-silver",
+        "color_scheme": "background-2",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "5e444b3d-f694-41a2-ac0e-d948e78ad46e",
+    "e819dbfb-80c4-481d-8095-199262838588",
+    "b8fb90bc-0047-4869-a7b6-cba9d71f3aa9",
+    "71e828c6-9bb4-473b-bf6d-b4e633785a5e",
+    "c45c48f9-2620-4957-9321-5b990ead48e0",
+    "2c4e9a28-1a1d-4208-b139-449e111d8401"
+  ]
+}

@@ -1,0 +1,53 @@
+<style type="text/css">
+  {% for block in section.blocks %}
+  .badge--{{ block.settings.tag | handle }} {
+    background-color: {{ block.settings.color_background }};
+    border-color: {{ block.settings.color_border }};
+    color: {{ block.settings.color_text }};
+  }
+  {% endfor %}
+</style>
+{% schema %}
+  {
+    "name": "Product badges",
+    "settings": [
+	],
+	"blocks": [
+	  {
+	    "type":"badge",
+		"name":"Badge",
+		"settings": [
+		  {
+			"type":"text",
+			"id":"title",
+		    "label":"Badge text",
+			"default":"Skadoosh"
+		  },
+		  {
+			"type":"text",
+		    "id":"tag",
+		    "label":"Product tag"
+		  },
+		  {
+			"type":"color",
+		    "id":"color_background",
+		    "label":"Background color",
+	        "default":"#ffffff"
+		  },
+		  {
+			"type":"color",
+		    "id":"color_border",
+		    "label":"Border color",
+		    "default":"#222222"
+		  },
+		  {
+			"type":"color",
+		    "id":"color_text",
+		    "label":"Text color",
+		    "default":"#222222"
+		  }
+		]
+	  }
+	]
+  }
+{% endschema %}
