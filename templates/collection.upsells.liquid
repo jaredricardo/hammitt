@@ -2,7 +2,7 @@
   layout none
   assign cart_ids = cart.items | map: 'product_id' | uniq | join: ','
   assign found = 0
-  assign max = 5
+  assign max = 3
 %}
 
 {% liquid

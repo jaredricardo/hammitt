@@ -54,7 +54,7 @@
 {% assign style_count = 0 %}
 {% assign size_count = 0 %}
 
-{% paginate collections.view-all.products by 5000 %}
+{% paginate collections.all.products by 5000 %}
   <div class="product-colors color_group color_group_block custom-variant-options">
 
     {% if product_size contains 'Sml' %}
@@ -69,7 +69,7 @@
 
     {%- assign more_colors_list = 0 -%}
     {%- capture more_colors -%}
-      {%- for product in collections.view-all.products -%}
+      {%- for product in collections.all.products -%}
         {% comment %} Only show exclusive product if customer has shareholder tag and seo hidden is 1 {% endcomment %}
         {% if isShareholder == false and product.metafields.seo.hidden == 1 %}
           {% continue %}
@@ -90,7 +90,7 @@
           {% endif %}
 
           {% assign style_count = style_count | plus: 1 %}
-          <li class="swiper-slide tttttt1" data-tooltip="{{ reltitle[1] }}">
+          <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
             {%- assign more_colors_list = more_colors_list | plus: 1 -%}
             <div class="image customSwatch">
               <a 
@@ -219,7 +219,7 @@
     {%- endcapture -%}
     {%- assign smalls_colors_list = 0 -%}
     {% capture smalls %}
-      {%- for product in collections.view-all.products -%}
+      {%- for product in collections.all.products -%}
         {% comment %} Only show exclusive product if customer has shareholder tag and seo hidden is 1 {% endcomment %}
         {% if isShareholder == false and product.metafields.seo.hidden == 1  %}
           {% continue %}
@@ -237,7 +237,7 @@
           {% unless this_size contains current_size %}
             {% if this_size contains 'Sml' %}
               {% assign sml = true %}{% assign smalls_colors_list = smalls_colors_list | plus: 1 %}
-              <li class="swiper-slide ttttt2" data-too   ltip="{{ reltitle[1] }}">
+              <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
                 <div class="image customSwatch">
                   <a href="{{ product.url }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
                     {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
@@ -270,7 +270,7 @@
 
     {%- assign meds_colors_list = 0 -%}
     {% capture meds %}
-      {%- for product in collections.view-all.products -%}
+      {%- for product in collections.all.products -%}
         {% comment %} Only show exclusive product if customer has shareholder tag and seo hidden is 1 {% endcomment %}
         {% if isShareholder == false and product.metafields.seo.hidden == 1  %}
           {% continue %}
@@ -288,7 +288,7 @@
           {% unless this_size contains current_size %}
             {% if this_size contains 'Med' %}
               {% assign med = true %}{% assign meds_colors_list = meds_colors_list | plus: 1 %}
-              <li class="swiper-slide ttttt3" data-tooltip="{{ reltitle[1] }}">
+              <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
                 <div class="image customSwatch">
                   <a href="{{ product.url }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
                     {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
@@ -321,7 +321,7 @@
 
     {%- assign lrgs_colors_list = 0 -%}
     {% capture lrgs %}
-      {%- for product in collections.view-all.products -%}
+      {%- for product in collections.all.products -%}
         {% comment %} Only show exclusive product if customer has shareholder tag and seo hidden is 1 {% endcomment %}
         {% if isShareholder == false and product.metafields.seo.hidden == 1  %}
           {% continue %}
@@ -343,7 +343,7 @@
           {% unless this_size contains current_size %}
             {% if this_size contains 'Lrg' %}
               {% assign lrg = true %}{% assign lrgs_colors_list = lrgs_colors_list | plus: 1 %}
-              <li class="swiper-slide ttttt4" data-tooltip="{{ reltitle[1] }}">
+              <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
                 <div class="image customSwatch">
                   <a href="{{ product.url }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
                     {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}

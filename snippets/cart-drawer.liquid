@@ -10,42 +10,12 @@
   assign MonogramAddOnId = 48220694577336
 -%}
 
-<div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
+<div class="drawer__wrapper">
   
   <div class="drawer__content">
     <div class="drawer__header appear-animation appear-delay-{{ appear_delay }}">
     {% assign appear_delay = appear_delay | plus: 1 %}
-    {% liquid
-      assign required_amount = settings.freeShippingThreshold | times: 100
-      assign amount_needed = required_amount | minus: cart.total_price
-      assign percentage = required_amount | minus: cart.total_price | times: 100.0 | divided_by: required_amount | minus: 100 | abs | round | at_most: 100
-    %}
-
-      
-    <strong data-empty-div class="drawer__title h2 display-block  {% if cart.item_count == 0 %}  drawer_heading {% else %} hidden {% endif %}">Your cart is currently empty</strong>
-    <free-shipping-goal data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h2 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
-      <span class="free-shipping-goal__label free-shipping-goal__label--success">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
-      <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!</span>
-      <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
-    </free-shipping-goal>
-    {% comment %} <strong class="drawer__title h2 display-block {% if cart.item_count == 0 %} drawer_heading {% endif %}">
-      {% if cart.item_count == 0 %}
-        Your cart is currently empty
-      {% else %}
-        {% comment %} {{ 'sections.cart.title' | t }} {% endcomment %}
-        {%- liquid
-          if shipping_threshold > cart.total_price
-            assign amount_remaining =  shipping_threshold | minus: cart.total_price | money
-            echo 'sections.cart.free_shipping_message_not_met' | t: amount:amount_remaining | replace: '.00', ''
-          else
-            echo 'sections.cart.free_shipping_message_met' | t
-          endif 
-        -%}
-        <div class="freeShippingMsgContainer appear-animation appear-delay-{{ appear_delay }}">
-          <span class="{% if percentage < 100 %} freeShippingMsg {% else %} freeRemainShippingMsg{% endif %} " style="width: {{ percentage }}%"></span>
-        </div>
-      {% endif %}
-    </strong> {% endcomment %}
+    <strong class="drawer__title h2 display-block">{{ 'sections.cart.title' | t }}</strong>
     <button class="drawer__close" data-drawer-close="" aria-label="Close Drawer"></button>
   </div>
     {% assign shipping_threshold = 'sections.cart.free_shipping_threshold' | t | plus: 0 | times: 100 %}
@@ -81,85 +51,8 @@
       {% if cart.item_count == 0 %}
       <div class="drawer_empty center">
         <div class="appear-animation appear-delay-{{ appear_delay }}">
-          <div class="flex-wrapper">
-            <div class="buttons_wrapper">
-              {% for btn in shop.metaobjects.empty_cart_buttons.values %}
-                {% assign i = forloop.index %}
-                {% if btn.button_label != blank %}
-                  <style>
-                    .btn--Solid.button_item_{{ i }} {
-                      background-color: {{ btn.background_color }};
-                      color: {{ btn.text_color }};
-                      border: 1px solid {{ btn.background_color }};
-                    }
-                    .btn--Solid.button_item_{{ i }}:hover {
-                      background-color: {{ btn.text_color }};
-                      color: {{ btn.background_color }};
-                      border: 1px solid {{ btn.background_color }};
-                    }
-                    .btn--Outline.button_item_{{ i }} {
-                      background-color: transparent !important;
-                      border: 1px solid {{ btn.background_color }};
-                      color: {{ btn.text_color }};
-                    }
-                    </style>
+          <p>Your cart is empty</p>
 
-                  <a href="{{ btn.button_link }}" class="button btn--{{ btn.button_style }} button_item_{{ i }}">{{ btn.button_label }}</a>
-                {% endif %}
-              {% endfor %}
-            </div>
-            <div class="multicolumns">
-              {% for column in shop.metaobjects.empty_multi_column.values %}
-                {% if column.image %}
-                  {% assign index = forloop.index %}
-                  <div class="multicolumns-item">
-                    <style>
-                      .multicolumnsLink--{{ index }} .multicolumns-content .overlayMulticolumns{
-                        background-color: {{ column.overlay_color }};
-                        opacity: {{ column.content_overlay }};
-                      }
-                    </style>
-                    <a href="{{ column.link }}" class="multicolumns-link multicolumnsLink--{{ index }}">
-                      {% assign image_height = column.image.width | divided_by: column.image.aspect_ratio %}
-                      {%- liquid
-                        assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'                      
-                        assign stacked_sizes = '(min-width: 750px) 50vw, 100vw'
-
-                        assign fetch_priority = 'auto'
-                        if section.index == 1
-                          assign fetch_priority = 'high'
-                        endif
-                      -%}
-                      {% if column.image != blank %}
-                        <div class="multicolumns-image">
-                          {{
-                            column.image
-                            | image_url: width: 3840
-                            | image_tag:
-                              width: column.image.width,
-                              height: image_height,
-                              class: image_class,
-                              sizes: sizes,
-                              widths: widths,
-                              fetchpriority: fetch_priority
-                          }}
-                        </div>
-                      {% endif %}
-                      <div class="multicolumns-content">
-                        <div class="overlayMulticolumns"></div>
-                        <div class="multicolumns-text">
-                          <h3 class="multicolumns-title {% if column.subheading != blank %} pb-0 {% endif %}" style="font-size: {{ column.text_size }}px;color: {{ column.text_color }};">{{ column.heading }}</h3>
-                          {% if column.subheading != blank %}
-                            <p class="multicolumns--subheading" style="font-size: {{ column.subheading_text_size }}px;color: {{ column.subheading_text_color }};">{{ column.subheading }}</p>
-                          {% endif %}
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-          </div>
         </div>
       </div>
       {% endif %}
@@ -361,7 +254,7 @@
                       <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                       {% render 'icon-minus' %}
                     </button>
-                    <input class="quantity__input"
+                    <input class="quantity__input {% if item.selling_plan_allocation and item.selling_plan_allocation.selling_plan.name contains 'Try Before You Buy' %}TryNow-Item{% endif %}"
                            type="number"
                            name="updates[]"
                            value="{{ item.quantity }}"
@@ -374,7 +267,7 @@
                            data-index="{{ item.index | plus: 1 }}"
                           >
                     <button
-                      class="quantity__button no-js-hidden" 
+                      class="quantity__button no-js-hidden {% if item.selling_plan_allocation and item.selling_plan_allocation.selling_plan.name contains 'Try Before You Buy' %}TryNow-Item{% endif %}" 
                       name="plus" 
                       type="button"
                     >
@@ -393,7 +286,6 @@
                       </svg>
                     </div>
                   </div>
-                  {% render 'swym-hammitt-custom-favorite-button', product:item.product %}
                   <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
                     <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
                       {% render 'icon-remove' %}
@@ -414,161 +306,12 @@
           <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
           <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
         </cart-items>
-        {% if cart.item_count > 0  %}
-        <gift-box-section>
-          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
-            <h3>{{ content.heading }}</h3>
-          {% endfor %}
-          {%- capture json -%}
-            {
-              "slidesPerView": 1.7,
-              "spaceBetween": 9,
-              "freeMode": true,
-              "mousewheel": false,
-              "loop": false,
-              "effect": "slide",
-              "navigation": {
-                "nextEl": ".swiper-button-next",
-                "prevEl": ".swiper-button-prev"
-              },
-              "breakpoints": {
-                "750": {
-                  "slidesPerView": "1.7",
-                  "spaceBetween": 20
-                },
-                "990": {
-                  "slidesPerView": "1.7",
-                  "spaceBetween": 9
-                }
-              }
-            }
-          {%- endcapture -%}
-          <div class="swiper gift-box--swiper" data-json='{{ json }}'>
-            <button class="btn-expanded" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path stroke="currentColor" d="m16 4-5 5M4 16l5-5M11 4v5h5M9 16v-5H4"></path></svg>
-            </button>
-            <div class="swiper-wrapper">
-              {% for giftBoxFiles in shop.metaobjects.complimentary_gift_box.values %}
-                {% assign fileFormate = giftBoxFiles.files.value %}
-                {% if fileFormate.media_type contains 'video' %}
-                  <div class="swiper-slide">
-                    <div class="gift-box-video">
-                      <video class="video__element" playsinline="" loop="" muted="" preload="auto" autoplay poster="{{ fileFormate.src }}" src="{{ fileFormate.sources[1].url }}" data-video="{{ fileFormate.sources[1].url }}">
-                        <source src="{{ fileFormate.sources[1].url }}" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                {% else %}
-                  <div class="swiper-slide">
-                    <div class="gift-box-image">
-                      <img src="{{ fileFormate | img_url: 'master' }}" alt="{{ fileFormate.alt | default: 'Complimentary gift image' }}">
-                    </div>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-
-          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
-            <div class="gift-box-content">{{ content.description }}</div>
-            {% if settings.giftBox_enabled %}
-            <div class="cart__gift--notes">
-              <input id="cart__gift--check" class="cart__gift__input" type="checkbox">
-              <label for="cart__gift--check">{{ content.checkbox_content }}</label>
-              <zest-button 
-                shop-id="{{ shop.permanent_domain }}"
-                variant="outline"
-                border-width="1px" 
-                border-color="black">
-              </zest-button>
-            </div>
-            {% endif %}
-          {% endfor %}
-        </gift-box-section>
-      {% endif %}
-      <cart-upsells class="cart-drawer-upsells" data-upsell-title="{{ first_cart_item.product.title }}" >
-        {% if cart.item_count > 0 %}
-          <div class="tab-item__upsell">
-            <ul>
-              {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
-                  {% assign cartCollection = collections[cartUpsell.collection] %}
-                <li class="tab-item {% if forloop.first %} active {% endif %}"><a href="#" data-href="{{ cartCollection.handle }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
-              {% endfor %}
-            </ul>
-          </div>
-          {%- capture swiperJson -%}
-            {
-              "slidesPerView": 2.5,
-              "spaceBetween": 9,
-              "freeMode": false,
-              "mousewheel": false,
-              "loop": false,
-              "effect": "slide",
-              "breakpoints": {
-                "750": {
-                  "slidesPerView": "2.5",
-                  "spaceBetween": 20
-                },
-                "990": {
-                  "slidesPerView": "2.8",
-                  "spaceBetween": 9
-                }
-              }
-            }
-          {%- endcapture -%}
-
-          <div class="tab-content">
-              {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
-                {% assign cartCollection = collections[cartUpsell.collection] %}
-                <div class="swiper {% if forloop.first %} shown {% else %} hidden {% endif %}" data-json='{{- swiperJson -}}' data-target={{ cartCollection.handle }} >
-                  <div class="horizontal-scroller__upsell swiper-wrapper">
-                    {% liquid
-                        assign cart_ids = cart.items | map: 'product_id' | uniq | join: ','
-                        assign found = 0
-                        assign max = 5
-                      %}
-                      
-                      {% liquid
-                        assign isShareholder = false
-                        for tag in customer.tags
-                          if tag == 'shareholder'
-                            assign isShareholder = true
-                          endif
-                        endfor
-                      %}
-                      
-                      {% liquid 
-                        for product in cartCollection.products limit: 20
-                          if isShareholder == false and product.metafields.seo.hidden == 1
-                            continue
-                          endif
-                        
-                          if product.metafields.custom.hide_product_all_customers == 1
-                            continue
-                          endif
-                        
-                          if cart_ids contains product.id 
-                            continue
-                          endif
-                          if product.available != true
-                            continue
-                          endif 
-                          assign found = found | plus: 1
-                          render 'upsell-item', product: product
-                      endfor
-                    %}
-                    {% if found == 0 %}
-                      <p>No Products found</p>
-                    {% endif %}
-                  </div>
-                </div>
-            {% endfor %}
-          </div>
-        {% endif %}
+        <cart-upsells class="cart-drawer-upsells" data-upsell-title="{{ first_cart_item.product.title }}" >
+          {% if cart.item_count > 0 %}
+          <h4 class="">You May Also Like</h4>
+          <div class="horizontal-scroller horizontal-scroller__upsell"></div>
+          {% endif %}
         </cart-upsells>
-
       </div>
     </div>
     
@@ -577,7 +320,7 @@
         {{ settings.cart_shipping_msg }}
       </div>
     {% endif %}
-    <div class="drawer__final appear-animation appear-delay-{{ appear_delay }} {% if cart.item_count == 0 %} drawerEmptyState {% endif %}">
+    <div class="drawer__final appear-animation appear-delay-{{ appear_delay }}">
       {%- liquid
          assign has_gift_note = false
          for item in cart.items
@@ -608,20 +351,6 @@
           {{ adjusted_total_price | money_with_currency }}
         </span>
       </div>
-      
-      <div class="drawer__buttons">
-        <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
-          <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
-        </form>
-        {% comment %}          
-          <a href="/checkout" class="button button--full-width">Checkout</a>
-        {% endcomment %}
-        {%- if additional_checkout_buttons -%}
-          <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
-            {{ content_for_additional_checkout_buttons }}
-          </div>
-        {%- endif -%}
-      </div>
       <div class="drawer__notification">
         <small class="rte">
           {% if settings.cart_drawer_msg != blank %}
@@ -644,6 +373,23 @@
           {% endif %}
         </small>
       </div>
+      <div class="drawer__buttons">
+        <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
+          <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
+        </form>
+        {% comment %}          
+          <a href="/checkout" class="button button--full-width">Checkout</a>
+        {% endcomment %}
+        <div style="margin-top: 8px;">
+          <zest-button 
+            shop-id="{{ shop.permanent_domain }}"
+            variant="outline"
+            border-width="1px" 
+            border-color="black">
+          </zest-button>
+        </div>
+      </div>
+
       {% endif %}
     </div>
     
@@ -660,4 +406,39 @@
     padding: 10px 10px 0;
   }
 </style>
+<!-- TRYNOW QUANTITY -->
+  <script type="text/javascript">
+    window.addEventListener("load", async function() {
+      const isCartLimitMet = await window.trynow.cart.isTryNowCartLimitMet();
+      if (!isCartLimitMet) return;
+      const quantityButtons = document.querySelectorAll('.TryNow-Item');
+      if (!quantityButtons) {
+        console.info('Element with ID TryNow-Item not found.');
+        return;
+      }
+      quantityButtons.forEach(button => {
+        button.disabled = true;
+        button.style.cursor = 'auto'
+      })
+    });
 
+    const observer = new MutationObserver((mutationsList) => {
+      mutationsList.forEach(async (record) => {
+        if (!window.trynow) return;
+        const upperLimitIsMet = await window.trynow.cart.isTryNowCartLimitMet();
+        if (record.target && upperLimitIsMet) {
+          const quantityButtonNodes = document.querySelectorAll(".TryNow-Item");
+          quantityButtonNodes.forEach((btn) => {
+            btn.disabled = true;
+            btn.style.cursor = 'auto';
+          })
+        }
+      })
+    })
+    
+    observer.observe(document.body, {
+      subtree: true,
+      childList: true,
+    })
+  </script>
+<!-- END TRYNOW QUANTITY -->

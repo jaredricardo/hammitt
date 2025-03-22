@@ -22,15 +22,45 @@
         "padding_bottom_mobile": 36
       }
     },
-    "swym_hammitt_custom_wishlist_section_qtAXVr": {
-      "type": "swym-hammitt-custom-wishlist-section",
+    "rich_text_YY3YnW": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_gzhKzy": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h1",
+            "heading": "WISHLIST",
+            "heading_size": "h0"
+          }
+        },
+        "text_VxamL6": {
+          "type": "text",
+          "settings": {
+            "text": "<p><a href=\"\/account\" title=\"\/account\">Sign in or create an account<\/a> to save your items permanently, access your saved list from any device, save your addresses for faster checkout and update on items you love.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_gzhKzy",
+        "text_VxamL6"
+      ],
+      "custom_css": [
+        "h1 {font-weight: 700; font-size: 27px; line-height: 34px; letter-spacing: 0%; text-align: center;}",
+        "p {font-family: Sofia Pro; font-weight: 500; font-size: 15px; line-height: 22px; letter-spacing: 0%; text-align: center; max-width: 600px; margin: 0 auto;}",
+        "@media screen and (max-width: 768px) {h1 {font-size: 16px; line-height: 34px; } p {font-size: 12px; line-height: 18px; } .rich-text__text {margin-top: 0; }}"
+      ],
       "settings": {
-        "content": "<p><a href=\"\/account\" title=\"\/account\">Sign in or create an account<\/a> to save your items permanently, access your saved list from any device, save your addresses for faster checkout and update on items you love.<\/p>"
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
-    }
+    },
   },
   "order": [
     "main",
-    "swym_hammitt_custom_wishlist_section_qtAXVr"
+    "rich_text_YY3YnW"
   ]
 }

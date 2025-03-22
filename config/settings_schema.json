@@ -1255,6 +1255,35 @@
       ]
     },
     {
+      "name": "TryNow - Cart Widget",
+      "settings": [
+        {
+          "id": "tn_cart_widget_link",
+          "type": "url",
+          "label": "Keep shopping URL",
+          "default": "\/collections\/all"
+        },
+        {
+          "id": "tn_cart_widget_bg_color",
+          "type": "color",
+          "label": "Background color",
+          "default": "#FFFFFF"
+        },
+        {
+          "id": "tn_cart_widget_font_color",
+          "type": "color",
+          "label": "Font color",
+          "default": "#000"
+        },
+        {
+          "id": "tn_cart_widget_link_color",
+          "type": "color",
+          "label": "Link color",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
       "name": "Cart shipping message",
       "settings": [
         {
@@ -1262,12 +1291,6 @@
           "type": "richtext",
           "label": "Text"
         },
-
-        {
-          "type": "textarea",
-          "id": "freeShippingThreshold",
-          "label": "Free Shipping Threshold"
-        },  
         {
           "type": "header",
           "content": "Free shipping message"
@@ -1282,70 +1305,6 @@
           "type": "color",
           "label": "Text color",
           "default": "#000000"
-        },
-        {
-          "type": "checkbox",
-          "id": "giftBox_enabled",
-          "default": false,
-          "label": "Giftbox enabled"
-        }
-      ]
-    },
-    {
-      "name": "Klaviyo",
-      "settings": [
-        {
-          "type": "text",
-          "label": "Email text",
-          "id": "email_text",
-          "default": "Enter your email"
-        },
-        {
-          "type": "richtext",
-          "label": "Subscribe to email text",
-          "id": "subscribe_to_email_text",
-          "default": "<p>Add me to your email list.<\/p>"
-        },
-        {
-          "type": "richtext",
-          "label": "Subscribe to SMS text",
-          "id": "subscribe_to_sms_text",
-          "default": "<p>Text me with news and offers.<\/p>"
-        },
-        {
-          "type": "checkbox",
-          "label": "Enable SMS subscribe",
-          "id": "enable_sms_subscribe",
-          "default": false
-        },
-        {
-          "type": "text",
-          "label": "Phone number text",
-          "id": "phone_text",
-          "default": "Enter your mobile number."
-        },
-        {
-          "type": "text",
-          "label": "Country code",
-          "id": "country_code",
-          "default": "+1"
-        },
-        {
-          "type": "text",
-          "label": "Button text",
-          "id": "button_text",
-          "default": "Notify me when available"
-        },
-        {
-          "type": "richtext",
-          "label": "Text",
-          "id": "content"
-        },
-        {
-          "type": "richtext",
-          "label": "Confirmation text",
-          "id": "Klaviyo_confirmation_text",
-          "default": "<p>Thanks for joining the waitlist! We’ll send you an email when this item comes back in stock.<\/p>"
         }
       ]
     }

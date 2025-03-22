@@ -447,7 +447,6 @@
       <style>
         .header__logo {
           width: {{ section.settings.logo_width }}px;
-          height: auto;
         }
         
         @media screen and (max-width: 749px) {
@@ -609,11 +608,7 @@
             {% endif %}
           </a>
         {%- endif -%}
-        {% comment %} remember to change this to a shopify inserted link and not a hardcoded link, else it will cause problems in the futre {% endcomment %}
-        <a href="{{ section.settings.wishlist_page }}" class="nav-wishlist-button">
-          {% render 'heart-empty-thick'  %}
-          <span style="display:none;" class="heart-count"></span>
-        </a>
+  
         <cart-drawer data-breakpoint="all"{% if template.name == "cart" %} style="pointer-events: none;"{% endif %}>
           <details id="Details-cart-drawer-container" class="cart-drawer-container">
             <summary  class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
@@ -629,7 +624,7 @@
               </div>
             </summary>
             <div id="cart-drawer" class="cart-drawer motion-reduce" tabindex="-1">
-              {%- render 'cart-drawer', cart: cart, section: section -%}
+              {%- render 'cart-drawer', cart: cart -%}
             </div>
           </details>
         </cart-drawer>
@@ -912,23 +907,18 @@
         "label": "Mobile Menu"
       },
       {
-        "type": "url",
-        "id": "wishlist_page",
-        "label": "Wishlist Link Page"
-      },
-      {
         "type": "checkbox",
         "id": "show_line_separator",
         "default": true,
         "label": "t:sections.header.settings.show_line_separator.label"
       },
-      {
+    {
         "type": "checkbox",
         "id": "transparent_homepage",
         "default": true,
         "label": "Transparent on homepage?"
       },
-      {
+    {
         "type": "checkbox",
         "id": "invert_colors",
         "default": true,

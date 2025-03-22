@@ -1,0 +1,196 @@
+<style>
+    /* 
+    
+        Jared new filters added for Mint's design 
+    
+        Tried to place this CSS in other files but the load delay was causing layout shift. This should ideally
+        be adde to a global CSS file that loads before the page content.
+    
+    */
+
+    minty-fresh-filters {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0;
+    }
+
+    minty-fresh-filters ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    minty-fresh-filters ul li {
+        list-style: none;
+    }
+
+    minty-fresh-filters button {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+
+    minty-fresh-filters .filter-actions-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    minty-fresh-filters #toggle-grid {
+        display: flex;
+        gap: 8px;
+    }
+
+    minty-fresh-filters #toggle-grid .grid-view-svg {
+        height: 14px;
+        width: 14px;
+    }
+
+    minty-fresh-filters #toggle-grid .collection-view {
+        display: block;
+        height: 14px;
+        width: 14px;
+    }
+
+    minty-fresh-filters #toggle-grid.collection-view .grid-view-svg rect {
+        fill: #D8D8D8;
+    }
+
+    minty-fresh-filters #toggle-grid.grid-view .grid-view-svg rect {
+        fill: black;
+    }
+
+    minty-fresh-filters #toggle-grid.collection-view .collection-view {
+        background-color: black;
+    }
+
+    minty-fresh-filters #toggle-grid.grid-view .collection-view{
+        background-color: #D8D8D8;
+    }
+
+    minty-fresh-filters li a {
+        text-decoration: none;
+        color: #626262;
+        text-transform: uppercase;
+    }
+    minty-fresh-filters li a.on-collection {
+        text-decoration: underline;
+        color: black;
+    }
+
+    /* Collection product card state when grid view is toggle on */
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer {
+        /* for testing */
+        /* background-color: rgb(249, 192, 192); */
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__badge,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .quick-add__wrapper{
+        display: none;
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__information {
+
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__heading,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .price,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__seo-text {
+        color: transparent;
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card--standard > .card__content {
+        position: absolute;
+        top: 0;
+        color: transparent;
+        height: 100%;
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .product-card {
+        padding-bottom: 0;
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
+        display: grid;
+        column-gap: 4px; 
+        row-gap: 4px;
+        grid-template-columns: repeat(6, 1fr);
+        min-height: auto;
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .grid__item {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+    }
+
+    @media screen and (max-width: 1007px) {
+        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 2px; 
+            row-gap: 2px;
+        }
+    }
+
+</style>
+
+{% liquid 
+
+    assign has_collection_links = false
+    
+    assign filter_blocks = blocks | where: "type", "collection-filter-link"
+
+    if filter_blocks
+        assign has_collection_links = true
+    endif
+
+-%}
+
+<minty-fresh-filters>
+    {% if has_collection_links %}
+        <ul>
+            {% for block in filter_blocks %}
+
+                {% assign on_collection = false %}
+                {% assign index_collection_handle = block.settings.collection | handle %}
+
+                {% if collection.handle == index_collection_handle %}
+                    {% assign on_collection = true %}
+                {% endif %}
+
+                <li>
+                    <a href="{{ block.settings.collection.url }}" {% if on_collection %} class="on-collection" {% endif %}>
+                        {% if block.settings.title != blank %}
+                            {{ block.settings.title | strip }}
+                        {% else %}
+                            {{ block.settings.collection.title | strip }}
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="filter-actions-container" style="margin-left: auto;">
+        <button id="toggle-grid" class="collection-view">
+            {% render 'grid-view-svg' %}
+            <span class="collection-view"></span>   
+        </button>
+        <button id="toggle-filter-drawer">
+            Filter
+        </button>
+        <button id="toggle-sort-drawer">
+            Sort
+        </button>
+    </div>
+</minty-fresh-filters>

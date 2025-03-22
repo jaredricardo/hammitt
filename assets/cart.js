@@ -287,19 +287,7 @@ class CartItems extends HTMLElement {
           document.querySelector('.cart__checkout-button').disabled = false;  
         }
       }, 1000)
-      var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
-      .then(response => response.json())
-      .then(data => 
-        {
-          document.dispatchEvent(
-            new CustomEvent('cart:updated', {
-              detail: {
-                cart: data,
-              },
-            })
-          );
-        }
-      );
+
     }).catch((e) => {
       this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
       this.querySelector('.cart-errors').textContent = window.cartStrings.error;
@@ -462,52 +450,22 @@ class CartUpsells extends HTMLElement {
     this.max = 5;
     this.found = 0;
     this.productTitle= this.getAttribute('data-upsell-title') || false;
-
-    
-    this.tabItems = this.querySelectorAll('.tab-item');
-    this.tabItems.forEach(tab => {
-      var hasref = tab.querySelector('a');
-
-      // document.querySelectorAll(`[data-target]`).forEach(tab => {
-      //   const targetEle = tab.getAttribute('data-target');
-      //   document.querySelector(`[data-target="${targetEle}"]`).classList.add('hidden')
-      //   tab.style.display = 'none';
-      // });
-      
-      hasref.addEventListener('click', (event) => {
-        event.preventDefault();
-        this.activetabCollection = event.currentTarget.getAttribute('data-href');
-
-        this.tabItems.forEach(tab => {
-          tab.classList.remove('active');
-        });
-        this.querySelectorAll(`[data-target]`).forEach(tab => {
-          tab.classList.add('hidden')
-        });
-        event.currentTarget.closest('li').classList.add('active');
-        this.querySelector(`[data-target="${this.activetabCollection}"]`).classList.remove('hidden')
-        this.found = 0;
-        // this.getUpsells(this.activetabCollection);
-        cartUpsellSwiper();
-      });
-
-    });
+    this.getUpsells();
     this.productPageScroller = document.querySelector('.product__upsells-scroller');
-
+    
   }
-  getUpsells(handle) {
+  getUpsells() {
     if(!this.productTitle) return;
-    const url = `/collections/${handle}?view=upsells`;
+    const url = `/collections/you-may-also-like?view=upsells`;
     fetch(url)
     .then(response => response.text())
     .then(data => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(data, "text/html");
       const upsells = doc.querySelectorAll('.upsell');
-      this.scroller.innerHTML = '';
-      upsells.forEach(upsell => {        
+      upsells.forEach(upsell => {
         if(upsell.getAttribute('data-title') === this.productTitle) return true;
-        // if(this.found >= this.max) return false;
+        if(this.found >= this.max) return false;
         this.scroller.appendChild(upsell);
         if(this.productPageScroller && window.productJSON) {
           if(upsell.getAttribute('data-title') === window.productJSON.title) return true;
@@ -516,12 +474,11 @@ class CartUpsells extends HTMLElement {
 //           this.productPageScroller.appendChild(clone);
         }
         this.found = this.found + 1;
-        cartUpsellSwiper();
         
       });
       
       if(this.scroller.innerHTML.trim().length === 0) {
-        this.scroller.innerHTML = '<p style="font-size: 13px;">No products found</p>';
+        this.scroller.parentNode.style.display = 'none';
       }
     })
     .catch(error => console.log(error));
@@ -633,67 +590,3 @@ class GiftNoteToggle extends HTMLElement {
 }
 
 customElements.define('gift-note', GiftNoteToggle);
-
-
-
-class FreeShippingGoal extends HTMLElement {
-  constructor() {
-    super();
-    this.selectors = {
-      leftToSpend: '[data-left-to-spend]',
-    };
-    this.goal = Number(this.dataset.minimumAmount) * Number(window.Shopify.currency.rate || 1) || 0;
-    this.progress = this.querySelector('progress-bar');
-    this.money_format = window.Shopify.money_format;
-  }
-
-  connectedCallback() {
-    this.updateShippingGloal(Number(this.dataset.cartTotal));
-    document.addEventListener('cart:updated', (event) => {
-      this.updateShippingGloal(event.detail.cart.items_subtotal_price);
-    });
-  }
-
-  updateShippingGloal(amount) {
-    // console.log('amount=======>', amount);
-    
-
-    this.cartTotal = amount / 100;
-    this.goalLeft = this.goal - this.cartTotal;
-    this.goalDone = this.goalLeft <= 0;
-
-    this.percent = (this.cartTotal * 100) / this.goal;
-
-    if (this.percent >= 100) this.percent = 100;
-
-    if (this.cartTotal >= this.goal) {
-      document.querySelector(`[data-empty-div]`).classList.add('hidden');
-      this.classList.remove('hidden');     
-      this.progress.style.setProperty('--percent', `${this.percent}%`);
-      this.classList.add('free-shipping-goal--done');
-      this.progress.dataset.value = this.cartTotal;
-      this.progress.dataset.max = this.goal;
-    } else {
-      let spend = (this.goal - this.cartTotal) * 100;
-      this.querySelector(this.selectors.leftToSpend).innerHTML = Shopify.formatMoney(
-        spend,
-        this.money_format
-      );
-      this.classList.remove('free-shipping-goal--done');
-      this.progress.style.setProperty('--percent', `${this.percent}%`);
-      this.progress.dataset.value = this.cartTotal;
-      this.progress.dataset.max = this.goal;
-      
-    }
-    if (amount > 0) {
-      this.classList.remove('hidden');
-      document.querySelector(`[data-empty-div]`).classList.add('hidden');
-    } else {
-      this.classList.add('hidden');
-      document.querySelector(`[data-empty-div]`).classList.remove('hidden');
-    }
-
-    giftBoxSlider();
-  }
-}
-customElements.define('free-shipping-goal', FreeShippingGoal);

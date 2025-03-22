@@ -1,8 +1,7 @@
-<upsell-item class="upsell relative swiper-slide" data-title="{{ product.title }}">
+<upsell-item class="grid__item upsell relative" data-title="{{ product.title }}">
   <a data-id="{{ product.selected_or_first_available_variant.id }}" href="/products/{{ product.handle }}" class="link--fill-parent quick-add-btn">
     <span class="visually-hidden">Link to {{ product.title }}</span>
   </a>
-  <div class="upsell__image"><img src="{{ product.images[0] | img_url: '200x' }}" width="100%" alt="{{ product.title }}"></div>
-  <div class="upsell__title">{{ product.title }}</div>
-  <div class="upsell__price">{{ product.price | money }}</div>
+  <div class="upsell__image"><img src="{{ product.images[0] | img_url: '200x' }}" width="100%" /></div>
+  <div class="upsell__title">{{ product.title | split: settings.split_value | first }}</div>
 </upsell-item>

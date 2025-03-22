@@ -407,7 +407,7 @@ class MenuDrawer extends HTMLElement {
   }
 
   closeMenuDrawer(event, elementToFocus = false) {
-    // console.log('closeMenuDrawer', event);
+    console.log('closeMenuDrawer', event);
     if (event === undefined) {
       return;
     }
@@ -850,6 +850,7 @@ class QuickAdd extends HTMLElement {
     const quickAddElement = target.closest("quick-add");
     const isPreOrderInput = quickAddElement ? quickAddElement.querySelector(".preorder__field") : null;
     const isBadgeInput = quickAddElement ? quickAddElement.querySelector(".badgeProperties__field") : null;
+
     if (target.classList.contains("iday-promotion__product") && EE_GWP.available) {
       const addOnId = EE_GWP.item;
       try {
@@ -1179,10 +1180,6 @@ const productSwatchReload = () => {
         
         history.pushState(null, "", `${productURL}`);
       }).finally(() => {
-          if(document.querySelector('.swym-button.hammitt-custom')) {
-            document.dispatchEvent(new CustomEvent("swym:collections-loaded"))
-          }
-          
           const myInterval = setInterval(myTimer, 1000);
           function myTimer() {
             if(document.querySelector('.rr_img_overall_container img') != null) {
@@ -1199,7 +1196,7 @@ const productSwatchReload = () => {
   });
 };
 
-productSwatchReload();
+// productSwatchReload();
 
 const addToCart = (itemsObj) => {
   if(!itemsObj.hasOwnProperty('sections')) {
@@ -1459,7 +1456,7 @@ const cartUpdate = (json = false) => {
   const cartUpdates = [
     {
       section: "cart-drawer",
-      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes"]
+      elements: [".cart-announcement-bar",".drawer__items",".drawer__final", ".cart_shipping_notes"]
     },
     {
       section: "cart-icon-bubble",
@@ -1500,24 +1497,6 @@ const cartUpdate = (json = false) => {
         elOld.outerHTML = elNew.outerHTML;
       }
     });
-    cartUpsellSwiper();
-    var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
-    .then(response => response.json())
-    .then(data => 
-      {
-        if(parseFloat((document.querySelector(`free-shipping-goal`).dataset.minimumAmount) * 100) < data.items_subtotal_price) {
-          document.querySelector(`free-shipping-goal`).classList.add('free-shipping-goal--done');
-        }
-        document.dispatchEvent(
-          new CustomEvent('cart:updated', {
-            detail: {
-              cart: data,
-            },
-          })
-        );
-      }
-    );
-
   });
 
   // Get the currUpdatedItemID from window and add scrollIntoView()
@@ -1529,13 +1508,6 @@ const cartUpdate = (json = false) => {
     }, 100);
   }
 
-  if(document.querySelector(`[data-empty-div]`) != null) {
-    document.querySelector(`[data-empty-div]`).classList.add('hidden');
-  }
-  if(document.querySelector(`free-shipping-goal`)) {
-    document.querySelector(`free-shipping-goal`).classList.remove('hidden');
-  }
-  
   document.querySelectorAll('.loading-overlay').forEach(loader => {
     loader.classList.add('hidden');
   });
@@ -1742,43 +1714,3 @@ const addToCartPromo = async (productId, addOnId = null) => {
 
 jsLoad = true;
 
-
-// function getOS() {
-//   let userAgent = navigator.userAgent.toLowerCase();
-
-//   if (userAgent.includes("win")) {
-//     document.body.classList.add('os-windows');
-//   } else if (userAgent.includes("mac")) {
-//     document.body.classList.add('os-macOs');
-//   } else if (userAgent.includes("linux")) {
-//     document.body.classList.add('os-linux');
-//   } else if (userAgent.includes("android")) {
-//     document.body.classList.add('os-android');
-//   } else if (userAgent.includes("iphone") || userAgent.includes("ipad")) {
-//     document.body.classList.add('os-iphone');
-//   }
-  
-//   if (userAgent.includes("safari") && !userAgent.includes("chrome")) {
-//     document.body.classList.add('browser-safari');
-//   }
-
-// }
-
-// getOS();
-
-const findElement = setInterval(expressCheckout, 1000);
-
-function expressCheckout() {
-  if(document.querySelector('shopify-paypal-button')) {
-    document.querySelector('shopify-paypal-button').remove();
-    document.querySelector('shopify-google-pay-button').remove();
-    if(document.querySelector('shopify-apple-pay-button')) {
-      document.querySelector('shopify-apple-pay-button').remove();
-    }
-    stopFindElement();
-  }
-}
-
-function stopFindElement() {
-  clearInterval(findElement);
-}

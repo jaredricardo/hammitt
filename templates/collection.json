@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "banner": {
@@ -44,8 +35,8 @@
           "type": "marketing_tile",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Shop_Banner-New_Arrivals.jpg",
-            "link": "shopify://collections/clear-bags",
+            "image": "shopify:\/\/shop_images\/Shop_Banner-New_Arrivals.jpg",
+            "link": "shopify:\/\/collections\/clear-bags",
             "position": 5,
             "width": "2x",
             "title": "Discover the Clear Collection",
@@ -57,21 +48,86 @@
           "type": "marketing_tile",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Perfect_Additions.jpg",
-            "link": "shopify://collections/bottoms-skimpy",
+            "image": "shopify:\/\/shop_images\/Perfect_Additions.jpg",
+            "link": "shopify:\/\/collections\/bottoms-skimpy",
             "position": 12,
             "width": "1x",
             "title": "Perfect Additions",
             "paragraph": "",
             "button_text": "Shop Now"
           }
+        },
+        "collection_filter_link_b3BGUP": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "new-arrivals",
+            "title": ""
+          }
+        },
+        "collection_filter_link_bdAeGQ": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "best-selling-bags",
+            "title": ""
+          }
+        },
+        "collection_filter_link_ejHMxc": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "satchel",
+            "title": "Shoulder Bag"
+          }
+        },
+        "collection_filter_link_iWJtKb": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "cross-body",
+            "title": "Crossbody"
+          }
+        },
+        "collection_filter_link_FEdhBQ": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "clutch",
+            "title": "Clutch"
+          }
+        },
+        "collection_filter_link_9friDF": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "wallets",
+            "title": "Wallet"
+          }
+        },
+        "collection_filter_link_fqhYBq": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "satchel",
+            "title": "Satchel"
+          }
+        },
+        "collection_filter_link_PgmFBb": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "tote",
+            "title": "Tote"
+          }
         }
       },
       "block_order": [
         "34d755a1-706f-405f-a512-6c4181dc41b3",
-        "85229bcf-4cde-4412-bfe7-13f29f14a127"
+        "85229bcf-4cde-4412-bfe7-13f29f14a127",
+        "collection_filter_link_b3BGUP",
+        "collection_filter_link_bdAeGQ",
+        "collection_filter_link_ejHMxc",
+        "collection_filter_link_iWJtKb",
+        "collection_filter_link_FEdhBQ",
+        "collection_filter_link_9friDF",
+        "collection_filter_link_fqhYBq",
+        "collection_filter_link_PgmFBb"
       ],
       "settings": {
+        "use_new_filters": true,
         "products_per_page": 24,
         "columns_desktop": 4,
         "image_ratio": "square",
@@ -92,15 +148,16 @@
         "16524788759772bfca-0": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/collection_footer-2.jpg",
+            "image": "shopify:\/\/shop_images\/collection_footer-2.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
-            "text": "<h2>On The Go</h2>",
+            "text": "<h2>On The Go<\/h2>",
             "link_label": "",
-            "link": "shopify://collections/on-the-go",
+            "link": "shopify:\/\/collections\/on-the-go",
             "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
             "cta_font_size": 18,
             "cta_font_size_mobile": 14,
@@ -114,15 +171,16 @@
         "16524788759772bfca-1": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/img_4627_1.jpg",
+            "image": "shopify:\/\/shop_images\/img_4627_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
-            "text": "<h2>The Essentials</h2>",
+            "text": "<h2>The Essentials<\/h2>",
             "link_label": "",
-            "link": "shopify://collections/core",
+            "link": "shopify:\/\/collections\/core",
             "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
             "cta_font_size": 18,
             "cta_font_size_mobile": 14,

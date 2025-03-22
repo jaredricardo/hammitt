@@ -7,9 +7,7 @@ if (!customElements.get('product-form')) {
       this.currentVariant = window.initialVariant;
       if(this.currentVariant.available) {
         this.submitButton = this.querySelector('[type="submit"]');
-        if(this.submitButton) {
-          this.submitButton.disabled = false
-        }
+        this.submitButton.disabled = false
       }
       this.form.querySelector('[name=id]').disabled = false;
       this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
@@ -47,22 +45,9 @@ if (!customElements.get('product-form')) {
             this.handleErrorMessage(response.description);
             return;
           }
-          // var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
-          // .then(response => response.json())
-          // .then(data => 
-          //   {
-          //     document.dispatchEvent(
-          //       new CustomEvent('cart:updated', {
-          //         detail: {
-          //           cart: data,
-          //         },
-          //       })
-          //     );
-          //   }
-          // );
-          // this.cartDrawer.renderContents(response);
-          cartUpdate(response);
-          // checkGWPs(response);
+
+          this.cartDrawer.renderContents(response);
+           checkGWPs(response);
         })
         .catch((e) => {
           console.error(e);
