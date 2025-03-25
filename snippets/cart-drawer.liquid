@@ -487,7 +487,7 @@
                 <div class="hammitt-gift-note-area">
                   <label for="gift-note" class="visually-hidden">Add gift note?</label>
                   <div class="note-area-container">
-                    <textarea maxlength="500" placeholder="grab from storage" name="note" id="gift-note-text-area"></textarea>
+                    <textarea maxlength="500" placeholder="Enter your gift note here" name="note" id="gift-note-text-area"></textarea>
                     <span id="gift-note-char-limit">0/500</span>
                   </div>  
                   <button id="gift-note-save-button">save</button>
@@ -691,22 +691,34 @@
 
   window.addEventListener('DOMContentLoaded', () => {
 
+    if({{ cart.item_count }} === 0) return
+
     const giftNoteValue = document.querySelector('input#hammitt-gift-message-form-input')
     const giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
     const saveButton = document.querySelector('button#gift-note-save-button')
     const giftNoteCharLimit = document.querySelector('span#gift-note-char-limit')
+    const giftNoteCheckbox = document.querySelector('input#hammitt-gift-message-checkbox')
     let textAreaPlaceholder = giftNoteTextArea.placeholder
     let currentNote = ''
 
+    initGiftNote()
+
     saveButton.addEventListener('click', (e) => {
-      console.log('saved into local storage')
       saveButton.classList.add('saved')
       saveButton.innerText = 'Saved'
       giftNoteValue.value = currentNote
       textAreaPlaceholder = currentNote
       localStorage.setItem('giftNote', currentNote)
+    })
 
-      console.log(localStorage.getItem('giftNote'))
+    giftNoteCheckbox.addEventListener('change', (e) => {
+      if(e.target.checked) return
+      localStorage.removeItem('giftNote')
+      giftNoteValue.value = ''
+      giftNoteTextArea.value = ''
+      giftNoteCharLimit.innerText = `0/500`
+      saveButton.classList.remove('saved')
+      saveButton.innerText = 'Save'
     })
     
     giftNoteTextArea.addEventListener('input', (e) => {
@@ -722,31 +734,27 @@
         currentNote = e.target.value
         giftNoteCharLimit.innerText = `${e.target.value.length}/500`
       }
-
     })
 
     function initGiftNote(){
 
+      console.log('init gift note!!')
+
+      //unsure if we need this from the server tbh
       const giftNoteInitData = document.querySelector('div.cart-drawer-gift-note')
 
-      if(giftNoteInitData.dataset.serverHasNote === 'true'){
-        // 
+      if(localStorage.getItem('giftNote')){
+        giftNoteValue.value = localStorage.getItem('giftNote')
+        giftNoteTextArea.value = localStorage.getItem('giftNote')
+        giftNoteCheckbox.checked = true
+        giftNoteCharLimit.innerText = `${localStorage.getItem('giftNote').length}/500`
+        saveButton.classList.add('saved')
+        saveButton.innerText = 'Saved'
       } 
 
-      if(giftNoteInitData.dataset.serverHasNote === 'false'){
-        // clear local storage
-        // set gift note checkbox to off
-      }
-
-
-      if(localStorage.getItem('giftNote')){
-
-        const storedNote = localStorage.getItem('giftNote')
-
-        giftNoteValue.value = storedNote
-        textAreaPlaceholder = storedNote
-        giftNoteTextArea.value = storedNote
-        currentNote = storedNote
+      if(giftNoteInitData.dataset.serverHasNote === 'false' && !localStorage.getItem('giftNote')){
+        localStorage.removeItem('giftNote')
+        giftNoteCheckbox.checked = false
       }
     }
 
