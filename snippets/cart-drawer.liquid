@@ -471,21 +471,6 @@
             <div class="swiper-button-prev"></div>
           </div>
 
-          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
-            <div class="gift-box-content">{{ content.description }}</div>
-            {% if settings.giftBox_enabled %}
-            <div class="cart__gift--notes">
-              <input id="cart__gift--check" class="cart__gift__input" type="checkbox">
-              <label for="cart__gift--check">{{ content.checkbox_content }}</label>
-              <zest-button 
-                shop-id="{{ shop.permanent_domain }}"
-                variant="outline"
-                border-width="1px" 
-                border-color="black">
-              </zest-button>
-            </div>
-            {% endif %}
-          {% endfor %}
         </gift-box-section>
       {% endif %}
       <cart-upsells class="cart-drawer-upsells" data-upsell-title="{{ first_cart_item.product.title }}" >
