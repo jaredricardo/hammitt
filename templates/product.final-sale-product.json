@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -19,7 +10,7 @@
         "914d6dc5-2cf9-4b3a-a53c-e3358e65fb55": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div id=\"RR_PR_Widget_Wrapper\"> </div>"
+            "custom_liquid": "<div id=\"RR_PR_Widget_Wrapper\"> <\/div>"
           }
         },
         "price": {
@@ -64,7 +55,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Shipping & Returns",
-            "content": "<p><strong>PLEASE NOTE: RETIRING STYLES WITH SPECIAL PRICING ARE FINAL SALE. </strong>On all full price items, we cover shipping on all orders within the United States. Need it more quickly? No prob. For info on expedited shipping and free 30-day returns, visit our <a href=\"https://www.hammitt.com/pages/faq\">FAQ page</a>.</p>",
+            "content": "<p><strong>PLEASE NOTE: RETIRING STYLES WITH SPECIAL PRICING ARE FINAL SALE. <\/strong>On all full price items, we cover shipping on all orders within the United States. Need it more quickly? No prob. For info on expedited shipping and free 30-day returns, visit our <a href=\"https:\/\/www.hammitt.com\/pages\/faq\">FAQ page<\/a>.<\/p>",
             "page": "",
             "split_content": false,
             "split_value": "",
@@ -75,7 +66,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "The Hammitt Promise",
-            "content": "<p>Our lifetime promise covers Hammitt rivets, D-Rings and strap clasps. We make our bags to last, but if anything needs TLC, our care team will help - free of charge. Need a fix? Visit our repairs page to get the party started.</p>",
+            "content": "<p>Our lifetime promise covers Hammitt rivets, D-Rings and strap clasps. We make our bags to last, but if anything needs TLC, our care team will help - free of charge. Need a fix? Visit our repairs page to get the party started.<\/p>",
             "page": "",
             "split_content": false,
             "split_value": "<!--split-->",
@@ -207,7 +198,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify://collections/all",
+            "link": "shopify:\/\/collections\/all",
             "cta_color": "#fff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000",
@@ -229,7 +220,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify://collections/all",
+            "link": "shopify:\/\/collections\/all",
             "cta_color": "#fff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000",
@@ -251,7 +242,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify://collections/all",
+            "link": "shopify:\/\/collections\/all",
             "cta_color": "#fff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000",
@@ -305,7 +296,7 @@
     "16588605168effe9cc": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<script async src=\"https://cdn.tangiblee.com/integration/3.1/managed/www.hammitt.com/revision_1/variation_original/tangiblee-bundle.min.js\"></script>",
+        "custom_liquid": "<script async src=\"https:\/\/cdn.tangiblee.com\/integration\/3.1\/managed\/www.hammitt.com\/revision_1\/variation_original\/tangiblee-bundle.min.js\"><\/script>",
         "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 0,
@@ -317,7 +308,7 @@
     "1663620115294d4fc1": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<script type=\"text/javascript\">\nvar _learnq = _learnq || [];\nfunction addedToCart() {\n  fetch(`${window.location.origin}/cart.js`)\n  .then(res => res.clone().json().then(data => {\n    var cart = {\n      total_price: data.total_price/100,\n      $value: data.total_price/100,\n      total_discount: data.total_discount,\n      original_total_price: data.original_total_price/100,\n      items: data.items\n    }\n    if (item !== 'undefined') {\n      cart = Object.assign(cart, item)\n    }\n    _learnq.push(['track', 'Added to Cart', cart])\n  }))\n} \n(function (ns, fetch) {\n  ns.fetch = function() {\n    const response = fetch.apply(this, arguments);\n    response.then(res => {\n      if (`${window.location.origin}/cart/add.js`\n      \t.includes(res.url)) {\n        \taddedToCart()\n      }\n    });\n    return response\n  }\n}(window, window.fetch))\n$(document).ajaxComplete(function(event, request, settings){\n  if(settings.url == \"/cart/add.js\"){\n      addedToCart()\n  }\n})</script>",
+        "custom_liquid": "<script type=\"text\/javascript\">\nvar _learnq = _learnq || [];\nfunction addedToCart() {\n  fetch(`${window.location.origin}\/cart.js`)\n  .then(res => res.clone().json().then(data => {\n    var cart = {\n      total_price: data.total_price\/100,\n      $value: data.total_price\/100,\n      total_discount: data.total_discount,\n      original_total_price: data.original_total_price\/100,\n      items: data.items\n    }\n    if (item !== 'undefined') {\n      cart = Object.assign(cart, item)\n    }\n    _learnq.push(['track', 'Added to Cart', cart])\n  }))\n} \n(function (ns, fetch) {\n  ns.fetch = function() {\n    const response = fetch.apply(this, arguments);\n    response.then(res => {\n      if (`${window.location.origin}\/cart\/add.js`\n      \t.includes(res.url)) {\n        \taddedToCart()\n      }\n    });\n    return response\n  }\n}(window, window.fetch))\n$(document).ajaxComplete(function(event, request, settings){\n  if(settings.url == \"\/cart\/add.js\"){\n      addedToCart()\n  }\n})<\/script>",
         "color_scheme": "background-1",
         "padding_top": 40,
         "padding_bottom": 52,
@@ -329,7 +320,7 @@
     "39447007-c15e-4f52-8f7b-f66a411ad0d1": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<div id=\"RR_PR_Frame_Wrapper\"style = “width: auto;”></div>",
+        "custom_liquid": "<div id=\"RR_PR_Frame_Wrapper\"style = “width: auto;”><\/div>",
         "color_scheme": "background-1",
         "padding_top": 40,
         "padding_bottom": 52,
@@ -342,7 +333,7 @@
       "type": "custom-liquid",
       "disabled": true,
       "settings": {
-        "custom_liquid": "<div id=\"rr_soqa_widget\"></div>",
+        "custom_liquid": "<div id=\"rr_soqa_widget\"><\/div>",
         "color_scheme": "background-1",
         "padding_top": 40,
         "padding_bottom": 52,
@@ -354,7 +345,7 @@
     "258b19c0-600c-433e-a929-fc429936c77a": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<div id=\"rr_dam_widget\"> </div>",
+        "custom_liquid": "<div id=\"rr_dam_widget\"> <\/div>",
         "color_scheme": "background-1",
         "padding_top": 40,
         "padding_bottom": 52,

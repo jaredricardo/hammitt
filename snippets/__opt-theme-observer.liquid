@@ -125,7 +125,6 @@
     {% unless template contains 'product' %}
         window.YETT_BLACKLIST.push(/jquery\.min\.js/);
         window.YETT_BLACKLIST.push(/try-before-you-buy\.min\.js/);
-        window.YETT_BLACKLIST.push(/app\.zest\.co/);
     {% endunless %}
     {% if template contains 'product' %}
       // window.YETT_BLACKLIST.push(/tangiblee-bundle\.min\.js/);  
@@ -143,7 +142,6 @@
     window.YETT_BLACKLIST.push(/trekkie\.storefront/);
     {% if template contains 'product' %}
       window.YETT_BLACKLIST.push(/try-before-you-buy\.min\.js/);
-      window.YETT_BLACKLIST.push(/app\.zest\.co/);
       window.YETT_BLACKLIST.push(/cart\.js/);
       window.YETT_BLACKLIST.push(/swiper\.js/);
       window.YETT_BLACKLIST.push(/tangiblee-bundle\.min\.js/); 
@@ -178,7 +176,6 @@
     optThemeConfig.blockRemoteScripts.push('details-modal.js');
     optThemeConfig.blockRemoteScripts.push('fs.embed.v2.5.js');
     optThemeConfig.blockRemoteScripts.push('swiper.js');
-    optThemeConfig.blockRemoteScripts.push('zest');
     optThemeConfig.blockRemoteScripts.push('immerss-widget.js');
     optThemeConfig.blockRemoteScripts.push('up_loader.1.1.0.js');
     optThemeConfig.blockRemoteScripts.push('media-gallery.js');

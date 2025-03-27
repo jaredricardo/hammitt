@@ -987,15 +987,6 @@
                       <button class="GiftWizard-gift-button product-form__submit button button--full-width button--primary gwbutton">Send as a Gift</button>
                     {% endif %}
 
-                  {% if product.available %}
-                    <zest-button 
-                      shop-id="{{ shop.permanent_domain }}" 
-                      product-id="{{ product.id }}" 
-                      variant="outline"
-                      border-width="1px" 
-                      border-color="black">
-                    </zest-button>
-                    {% endif %}
                   </div>
                    
                 {%- endform -%}
