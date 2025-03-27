@@ -129,6 +129,95 @@
         max-width: none;
     }
 
+    minty-fresh-filters minty-fresh-filter-drawer,
+    minty-fresh-filters minty-fresh-sort-drawer {
+        background: white;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        overflow-y: auto;
+        width: 390px;
+        box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+        transition: 0.3s ease-in-out;
+    }
+
+    minty-fresh-filters.filter-drawer-open minty-fresh-filter-drawer,
+    minty-fresh-filters.sort-drawer-open minty-fresh-sort-drawer {
+        right: 0;
+    }
+
+    minty-fresh-filters minty-fresh-filter-drawer .top-area,
+    minty-fresh-filters minty-fresh-filter-drawer .filter-area,
+    minty-fresh-filters minty-fresh-filter-drawer .apply-area {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: Sofia Pro;
+    }
+
+    minty-fresh-filters minty-fresh-filter-drawer .apply-area {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+    }
+
+    minty-fresh-filters minty-fresh-filter-drawer .top-area,
+    minty-fresh-filters minty-fresh-filter-drawer .apply-area {
+        padding: 1.5rem;
+    }
+
+    minty-fresh-filters minty-fresh-filter-drawer .filter-area {
+        padding: 1.5rem 0 0 1.5rem;
+    }
+
+    minty-fresh-filters minty-fresh-filter-drawer .top-area {
+        border-bottom: 1.5px solid black;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    minty-fresh-filters minty-fresh-filter-drawer .top-area svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    minty-fresh-filters minty-fresh-filter-drawer .top-area button {
+        padding: 5px;
+    }
+
+    minty-fresh-filters minty-fresh-filter-drawer .filter-area {
+        display: flex;
+        flex-direction: column;
+    }
+
+    minty-fresh-filters minty-fresh-filter-drawer .filter-area .label {
+        margin-bottom: 0.5rem;
+    }
+    minty-fresh-filter-input {
+        display: flex;  
+        align-items: center;
+        margin-bottom: 0.5rem;  
+        gap: 1rem;
+    }
+
+    minty-fresh-filter-input input {
+        width: 15px !important;
+        height: 15px;
+        margin: 0 !important;
+        accent-color: black;
+    }
+
+    minty-fresh-filter-input .color-box {
+        background-color: lightskyblue;
+        width: 15px;
+        height: 15px;
+        border-radius: 50px;
+    }
+
     @media screen and (max-width: 1007px) {
         main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
             grid-template-columns: repeat(5, 1fr);
@@ -148,6 +237,7 @@
 {% liquid 
 
     assign has_collection_links = false
+    assign results = collection
     
     assign filter_blocks = blocks | where: "type", "collection-filter-link"
 
@@ -158,10 +248,48 @@
 -%}
 
 <minty-fresh-filters>
+
+    <minty-fresh-filter-drawer>
+       <div class="top-area">
+        Filter <span id="active-filters"></span>
+        <button id="close-filter-drawer">
+            {% render 'icon-close' %}
+        </button>
+       </div>
+        <div class="filters-area">
+            {% for filter in results.filters %}
+                {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+                    <div class="filter-area">
+                        <span class="label">{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
+                        {% case filter.type %}
+                            {% when 'list' %}
+                                {% for value in filter.values %}
+                                    <minty-fresh-filter-input>
+                                        <input type="checkbox" {% if value.active %} checked {% endif %}>
+                                        <span class="color-box" data-value="{{ value.value }}"></span>
+                                        <div>
+                                            <span class="color-swatch">{{ value.value }}</span>
+                                            <span class="available-options">({{ value.count }})</span>
+                                        </div>
+                                    </minty-fresh-filter-input>
+                                {% endfor %}
+                            {% when 'price_range'%}
+                        {% endcase %}
+                    </div>
+            {% endfor %}
+        </div>
+        <div class="apply-area">
+            <button id="apply">Apply</button>
+            <button id="apply">Reset</button>
+        </div>
+    </minty-fresh-filter-drawer>
+
+    <minty-fresh-sort-drawer>
+        sort drawer
+    </minty-fresh-sort-drawer>
     {% if has_collection_links %}
         <ul>
             {% for block in filter_blocks %}
-
                 {% assign on_collection = false %}
                 {% assign index_collection_handle = block.settings.collection | handle %}
 
