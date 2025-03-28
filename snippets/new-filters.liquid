@@ -129,8 +129,8 @@
         max-width: none;
     }
 
-    minty-fresh-filters minty-fresh-filter-drawer,
-    minty-fresh-filters minty-fresh-sort-drawer {
+    minty-fresh-filter-drawer,
+    minty-fresh-sort-drawer {
         background: white;
         height: 100vh;
         position: fixed;
@@ -142,59 +142,64 @@
         transition: 0.3s ease-in-out;
     }
 
-    minty-fresh-filters.filter-drawer-open minty-fresh-filter-drawer,
-    minty-fresh-filters.sort-drawer-open minty-fresh-sort-drawer {
+    minty-fresh-filter-drawer.filter-drawer-open,
+    minty-fresh-sort-drawer.sort-drawer-open {
         right: 0;
+        z-index: 5;
     }
 
-    minty-fresh-filters minty-fresh-filter-drawer .top-area,
-    minty-fresh-filters minty-fresh-filter-drawer .filter-area,
-    minty-fresh-filters minty-fresh-filter-drawer .apply-area {
+    minty-fresh-filter-drawer .top-area,
+    minty-fresh-filter-drawer .filter-area,
+    minty-fresh-filter-drawer .apply-area {
         font-size: 16px;
         font-weight: 400;
         font-family: Sofia Pro;
     }
 
-    minty-fresh-filters minty-fresh-filter-drawer .apply-area {
+    minty-fresh-filter-drawer .apply-area {
         position: fixed;
         bottom: 0;
-        width: 100%;
+        width: -webkit-fill-available;
         z-index: 10;
         background-color: white;
         display: flex;
         flex-direction: column;
     }
 
-    minty-fresh-filters minty-fresh-filter-drawer .top-area,
-    minty-fresh-filters minty-fresh-filter-drawer .apply-area {
+    minty-fresh-filter-drawer .inner {
+        position: relative;
+    }
+
+    minty-fresh-filter-drawer .top-area,
+    minty-fresh-filter-drawer .apply-area {
         padding: 1.5rem;
     }
 
-    minty-fresh-filters minty-fresh-filter-drawer .filter-area {
-        padding: 1.5rem 0 0 1.5rem;
+    minty-fresh-filter-drawer .filter-area {
+        padding: 1.5rem 1.5rem 0 1.5rem;
     }
 
-    minty-fresh-filters minty-fresh-filter-drawer .top-area {
+    minty-fresh-filter-drawer .top-area {
         border-bottom: 1.5px solid black;
         display: flex;
         justify-content: space-between;
     }
 
-    minty-fresh-filters minty-fresh-filter-drawer .top-area svg {
+    minty-fresh-filter-drawer .top-area svg {
         width: 14px;
         height: 14px;
     }
 
-    minty-fresh-filters minty-fresh-filter-drawer .top-area button {
+    minty-fresh-filter-drawer .top-area button {
         padding: 5px;
     }
 
-    minty-fresh-filters minty-fresh-filter-drawer .filter-area {
+    minty-fresh-filter-drawer .filter-area {
         display: flex;
         flex-direction: column;
     }
 
-    minty-fresh-filters minty-fresh-filter-drawer .filter-area .label {
+    minty-fresh-filter-drawer .filter-area .label {
         margin-bottom: 0.5rem;
     }
     minty-fresh-filter-input {
@@ -202,6 +207,12 @@
         align-items: center;
         margin-bottom: 0.5rem;  
         gap: 1rem;
+    }
+
+    minty-fresh-filter-drawer button {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
     }
 
     minty-fresh-filter-input input {
@@ -216,6 +227,107 @@
         width: 15px;
         height: 15px;
         border-radius: 50px;
+    }
+
+    minty-fresh-filter-drawer #apply,
+    minty-fresh-filter-drawer #reset {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        font-size: 16px;
+        font-family: Sofia Pro;
+        text-transform: uppercase;
+    }
+
+    minty-fresh-filter-drawer #apply  {
+        border: 1.5px solid black;
+    }
+    minty-fresh-filter-drawer .filters-area {
+        padding-bottom: 140px;
+    }
+
+    minty-fresh-filter-drawer #filter-range {
+        width: 100%;
+        height: 3px;
+        accent-color: black;
+        border: none;
+    }
+
+    minty-fresh-filter-drawer .number-display-box {
+    
+    }
+
+    /* testing */
+    .range-slider {
+        position: relative;
+        width: 100%;
+        height: 5px;
+        margin: 30px 0;
+        background-color: #8a8a8a;
+    }
+
+    .slider-track {
+        height: 100%;
+        position: absolute;
+        background-color: #fe696a;
+    }
+
+    .range-slider input {
+        position: absolute;
+        width: 100%;
+        background: none;
+        pointer-events: none;
+        top: 50%;
+        transform: translateY(-50%);
+        appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        border: 3px solid #FFF;
+        background: #FFF;
+        pointer-events: auto;
+        appearance: none;
+        cursor: pointer;
+        box-shadow: 0 .125rem .5625rem -0.125rem rgba(0, 0, 0, .25);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        border: 3px solid #FFF;
+        background: #FFF;
+        pointer-events: auto;
+        -moz-appearance: none;
+        cursor: pointer;
+        box-shadow: 0 .125rem .5625rem -0.125rem rgba(0, 0, 0, .25);
+    }
+
+
+    .input-box {
+        display: flex;
+    }
+
+    .min-box,
+    .max-box {
+        width: 50%;
+    }
+
+    .min-box {
+        padding-right: .5rem;
+        margin-right: .5rem;
+    }
+
+    .input-wrap {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 100%;
     }
 
     @media screen and (max-width: 1007px) {
@@ -248,45 +360,94 @@
 -%}
 
 <minty-fresh-filters>
-
     <minty-fresh-filter-drawer>
-       <div class="top-area">
-        Filter <span id="active-filters"></span>
-        <button id="close-filter-drawer">
-            {% render 'icon-close' %}
-        </button>
-       </div>
-        <div class="filters-area">
-            {% for filter in results.filters %}
-                {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-                    <div class="filter-area">
-                        <span class="label">{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
-                        {% case filter.type %}
-                            {% when 'list' %}
-                                {% for value in filter.values %}
-                                    <minty-fresh-filter-input>
-                                        <input type="checkbox" {% if value.active %} checked {% endif %}>
-                                        <span class="color-box" data-value="{{ value.value }}"></span>
-                                        <div>
-                                            <span class="color-swatch">{{ value.value }}</span>
-                                            <span class="available-options">({{ value.count }})</span>
+        <div class="inner">
+            <div class="top-area">
+                Filter <span id="active-filters"></span>
+                <button id="close-filter-drawer">
+                    {% render 'icon-close' %}
+                </button>
+            </div>
+            <div class="filters-area">
+                {% for filter in results.filters %}
+                    {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+                        <div class="filter-area">
+                            <span class="label">{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
+                            {% case filter.type %}
+                                {% when 'list' %}
+                                    {% for value in filter.values %}
+                                        <minty-fresh-filter-input>
+                                            <input type="checkbox" {% if value.active %} checked {% endif %}>
+                                            <span class="color-box" data-value="{{ value.value }}"></span>
+                                            <div>
+                                                <span class="color-swatch">{{ value.value }}</span>
+                                                <span class="available-options">({{ value.count }})</span>
+                                            </div>
+                                        </minty-fresh-filter-input>
+                                    {% endfor %}
+                                {% when 'price_range'%}
+                                    {% liquid
+
+                                        assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+                                        assign uses_comma_decimals = false
+                                        assign range_min = filter.min_value.value | default: 0
+                                        assign range_max = filter.max_value.value | default: filter.range_max 
+
+                                        if currencies_using_comma_decimals contains cart.currency.iso_code
+                                            assign uses_comma_decimals = true
+                                        endif
+                                     
+                                    %}
+                                    <minty-fresh-price-range>
+
+                                        <div class="double-slider-box">
+                        
+                                            <div class="range-slider">
+                                                <span class="slider-track"></span>
+                                                <input type="range" name="min_val" class="min-val" min="{{ range_min }}" max="{{ range_max }}" value="{{ range_min }}" />
+                                                <input type="range" name="max_val" class="max-val" min="{{ range_min }}" max="{{ range_max }}" value="{{ range_max }}" />
+                                                <div class="tooltip min-tooltip"></div>
+                                                <div class="tooltip max -tooltip"></div>
+                                            </div>
+                                            <div class="input-box">
+                                                <div class="min-box">
+                                                    <div class="input-wrap">
+                                                        <span class="input-addon">?</span>
+                                                        <input type="text" name="min_input" class="input-field min-input">
+                                                    </div>
+                                                    
+                                                    <div class="max-box">
+                                                        <div class="input-wrap">
+                                                            <span class="input-addon">??</span>
+                                                            <input type="text" name="max_input" class="input-field max-input">
+                                                        </div>
+                                                    </div>
+                                                     
+                                                </div>
+                                            </div>
                                         </div>
-                                    </minty-fresh-filter-input>
-                                {% endfor %}
-                            {% when 'price_range'%}
-                        {% endcase %}
-                    </div>
-            {% endfor %}
-        </div>
-        <div class="apply-area">
-            <button id="apply">Apply</button>
-            <button id="apply">Reset</button>
+                                        {% comment %} <input type="range" id="fromSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" />
+                                        <input type="range" id="toSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" /> {% endcomment %}
+                                        <div class="number-display-box">
+                                            <span id="current-low">{{ range_min | money_without_trailing_zeros }}</span>
+                                            -
+                                            <span id="current-high">{{ range_max | money_without_trailing_zeros }}</span>
+                                        </div>
+                                    </minty-fresh-price-range>
+                            {% endcase %}
+                        </div>
+                {% endfor %}
+            </div>
+            <div class="apply-area">
+                <button id="apply">Apply</button>
+                <button id="reset">Reset</button>
+            </div>
         </div>
     </minty-fresh-filter-drawer>
-
     <minty-fresh-sort-drawer>
         sort drawer
     </minty-fresh-sort-drawer>
+
     {% if has_collection_links %}
         <ul>
             {% for block in filter_blocks %}
