@@ -21,7 +21,8 @@
         margin: 0;
         display: flex;
         flex-direction: row;
-        gap: 40px;
+        column-gap: 40px;
+        flex-wrap: wrap;
     }
 
     minty-fresh-filters ul li {
@@ -138,6 +139,7 @@
         right: -100%;
         overflow-y: auto;
         width: 390px;
+        max-width: 100%;
         box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
         transition: 0.3s ease-in-out;
     }
@@ -172,11 +174,11 @@
 
     minty-fresh-filter-drawer .top-area,
     minty-fresh-filter-drawer .apply-area {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
 
     minty-fresh-filter-drawer .filter-area {
-        padding: 1.5rem 1.5rem 0 1.5rem;
+        padding: 1.25rem 1.25rem 0 1.25rem;
     }
 
     minty-fresh-filter-drawer .top-area {
@@ -194,9 +196,9 @@
         padding: 5px;
     }
 
-    minty-fresh-filter-drawer .filter-area {
-        display: flex;
-        flex-direction: column;
+    minty-fresh-filter-drawer .filter-area-wrap:has(minty-fresh-filter-input) {
+        border-bottom: 1px solid #d1d1d1;
+        padding-bottom: 0.5rem;
     }
 
     minty-fresh-filter-drawer .filter-area .label {
@@ -258,19 +260,28 @@
     
     }
 
-    /* testing */
+    /* range css */
+
+    .double-slider-box {
+        border-radius: 10px;
+    }
+
+    h3.range-title {
+        margin-bottom: 4rem;
+    }
+
     .range-slider {
         position: relative;
         width: 100%;
-        height: 5px;
-        margin: 30px 0;
-        background-color: #8a8a8a;
+        height: 2px;
+        margin: 20px 0;
+        background-color: #D3D3D3;
     }
 
     .slider-track {
         height: 100%;
         position: absolute;
-        background-color: #fe696a;
+        background-color: black;
     }
 
     .range-slider input {
@@ -281,35 +292,62 @@
         top: 50%;
         transform: translateY(-50%);
         appearance: none;
+        margin: 0;
     }
 
     input[type="range"]::-webkit-slider-thumb {
-        height: 25px;
-        width: 25px;
+        height: 12px;
+        width: 12px;
         border-radius: 50%;
-        border: 3px solid #FFF;
-        background: #FFF;
+        border: 3px solid back;
+        background: black;
         pointer-events: auto;
         appearance: none;
         cursor: pointer;
-        box-shadow: 0 .125rem .5625rem -0.125rem rgba(0, 0, 0, .25);
+        /* box-shadow: 0 .125rem .5625rem -0.125rem rgba(0,0,0,.25);  */
     }
-
-    input[type="range"]::-moz-range-thumb {
-        height: 25px;
-        width: 25px;
+    
+    input[type="range"]::-moz-range-thumb  {
+        height: 12px;
+        width: 12px;
         border-radius: 50%;
-        border: 3px solid #FFF;
-        background: #FFF;
+        border: 3px solid back;
+        background: black;
         pointer-events: auto;
-        -moz-appearance: none;
+        -mox-appearance: none; 
         cursor: pointer;
-        box-shadow: 0 .125rem .5625rem -0.125rem rgba(0, 0, 0, .25);
+        /* box-shadow: 0 .125rem .5625rem -0.125rem rgba(0,0,0,.25); */
     }
 
+    .double-slider-box .tooltip {
+        padding: .25rem .5rem;
+        border: 0;
+        background-color: #373f50;
+        color: white;
+        font-size: 0.75rem;
+        line-height: 1.2;
+        border-radius: 0.25rem;
+        bottom: 120%;
+        display: none;
+        position: absolute;
+        text-align: center;
+        white-space: nowrap;
+
+    }
+
+    .min-tooltip {
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%);
+        z-index: 5;
+    }
+
+    .max-tooltip {
+        right: 50%;
+        transform: translateX(50%) translateY(-100%);
+    }
 
     .input-box {
-        display: flex;
+        display: display;
     }
 
     .min-box,
@@ -318,8 +356,8 @@
     }
 
     .min-box {
-        padding-right: .5rem;
-        margin-right: .5rem;
+        padding-right: 0.5rem;
+        margin-right: 0.5rem;
     }
 
     .input-wrap {
@@ -329,6 +367,48 @@
         align-items: stretch;
         width: 100%;
     }
+
+    .input-addon {
+        display: flex;
+        align-items: center;
+        padding: 0.625rem 1rem;
+        font-size: 0.9375rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #4b566b;
+        text-align: center;
+        white-space: nowrap;
+        background: white;
+        border: 1px solid #d4d7e5;
+        border-radius: 0.25rem;
+        border-top-right-raduis: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .input-field {
+        margin-left: 1px;
+        padding: .425rem .75rem;
+        font-size: 0.8125rem;
+        border-radius: 0.25rem;
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        color:#4b566b;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #d4d7e5;
+        border-top-left-raduis: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .input-field:focus {
+        outline: none;
+    }
+
+
+    /* end range css */
+
 
     @media screen and (max-width: 1007px) {
         main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
@@ -372,69 +452,72 @@
                 {% for filter in results.filters %}
                     {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                         <div class="filter-area">
-                            <span class="label">{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
-                            {% case filter.type %}
-                                {% when 'list' %}
-                                    {% for value in filter.values %}
-                                        <minty-fresh-filter-input>
-                                            <input type="checkbox" {% if value.active %} checked {% endif %}>
-                                            <span class="color-box" data-value="{{ value.value }}"></span>
-                                            <div>
-                                                <span class="color-swatch">{{ value.value }}</span>
-                                                <span class="available-options">({{ value.count }})</span>
-                                            </div>
-                                        </minty-fresh-filter-input>
-                                    {% endfor %}
-                                {% when 'price_range'%}
-                                    {% liquid
-
-                                        assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
-                                        assign uses_comma_decimals = false
-                                        assign range_min = filter.min_value.value | default: 0
-                                        assign range_max = filter.max_value.value | default: filter.range_max 
-
-                                        if currencies_using_comma_decimals contains cart.currency.iso_code
-                                            assign uses_comma_decimals = true
-                                        endif
-                                     
-                                    %}
-                                    <minty-fresh-price-range>
-
-                                        <div class="double-slider-box">
-                        
-                                            <div class="range-slider">
-                                                <span class="slider-track"></span>
-                                                <input type="range" name="min_val" class="min-val" min="{{ range_min }}" max="{{ range_max }}" value="{{ range_min }}" />
-                                                <input type="range" name="max_val" class="max-val" min="{{ range_min }}" max="{{ range_max }}" value="{{ range_max }}" />
-                                                <div class="tooltip min-tooltip"></div>
-                                                <div class="tooltip max -tooltip"></div>
-                                            </div>
-                                            <div class="input-box">
-                                                <div class="min-box">
-                                                    <div class="input-wrap">
-                                                        <span class="input-addon">?</span>
-                                                        <input type="text" name="min_input" class="input-field min-input">
-                                                    </div>
-                                                    
-                                                    <div class="max-box">
+                            <div class="filter-area-wrap">
+                                <span class="label">{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
+                                {% case filter.type %}
+                                    {% when 'list' %}
+                                        {% for value in filter.values %}
+                                            <minty-fresh-filter-input>
+                                                <input type="checkbox" {% if value.active %} checked {% endif %}>
+                                                <span class="color-box" data-value="{{ value.value }}"></span>
+                                                <div>
+                                                    <span class="color-swatch">{{ value.value }}</span>
+                                                    <span class="available-options">({{ value.count }})</span>
+                                                </div>
+                                            </minty-fresh-filter-input>
+                                        {% endfor %}
+                                    {% when 'price_range'%}
+                                        {% liquid
+    
+                                            assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+                                            assign uses_comma_decimals = false
+                                            assign range_min = filter.min_value.value | default: 0
+                                            assign range_max = filter.max_value.value | default: filter.range_max 
+    
+                                            if currencies_using_comma_decimals contains cart.currency.iso_code
+                                                assign uses_comma_decimals = true
+                                            endif
+                                         
+                                        %}
+                                        <minty-fresh-price-range>
+    
+                                            <div class="double-slider-box">
+                            
+                                                <div class="range-slider">
+                                                    <span class="slider-track"></span>
+                                                    <input type="range" name="min_val" class="min-val" min="{{ range_min }}" max="{{ range_max }}" value="{{ range_min }}" oninput="slideMin()"/>
+                                                    <input type="range" name="max_val" class="max-val" min="{{ range_min }}" max="{{ range_max }}" value="{{ range_max }}" oninput="slideMax()"/>
+                                                    <div class="tooltip min-tooltip"></div>
+                                                    <div class="tooltip max-tooltip"></div>
+                                                </div>
+                                                <div class="input-box">
+                                                    <div class="min-box">
                                                         <div class="input-wrap">
-                                                            <span class="input-addon">??</span>
-                                                            <input type="text" name="max_input" class="input-field max-input">
+                                                            <span class="input-addon"></span>
+                                                            <input type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
                                                         </div>
+                                                        
+                                                        <div class="max-box">
+                                                            <div class="input-wrap">
+                                                                <span class="input-addon"></span>
+                                                                <input type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                                                            </div>
+                                                        </div>
+                                                         
                                                     </div>
-                                                     
                                                 </div>
                                             </div>
-                                        </div>
-                                        {% comment %} <input type="range" id="fromSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" />
-                                        <input type="range" id="toSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" /> {% endcomment %}
-                                        <div class="number-display-box">
-                                            <span id="current-low">{{ range_min | money_without_trailing_zeros }}</span>
-                                            -
-                                            <span id="current-high">{{ range_max | money_without_trailing_zeros }}</span>
-                                        </div>
-                                    </minty-fresh-price-range>
-                            {% endcase %}
+                                            {% comment %} <input type="range" id="fromSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" />
+                                            <input type="range" id="toSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" /> {% endcomment %}
+                                            <div class="number-display-box">
+                                                <span id="current-low">{{ range_min | money_without_trailing_zeros }}</span>
+                                                -
+                                                <span id="current-high">{{ range_max | money_without_trailing_zeros }}</span>
+                                            </div>
+                                        </minty-fresh-price-range>
+                                {% endcase %}
+                            </div>
+             
                         </div>
                 {% endfor %}
             </div>
