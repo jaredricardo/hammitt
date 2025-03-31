@@ -3,12 +3,9 @@
   top: 45px;
   left: 0;
   background: white;
-  /* z-index: 2; */
+  z-index: 4;
 }
 
-/* #main-collection-filters:has(minty-fresh-filters){
-  z-index: 5;
-} */
 
 body.overflow-hidden-all #main-collection-filters {
   z-index: 1;
