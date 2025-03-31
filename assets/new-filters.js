@@ -6,21 +6,39 @@ window.addEventListener('DOMContentLoaded', () => {
   const sortDrawer = document.querySelector('minty-fresh-sort-drawer')
   const targetInsert = document.querySelector('header.header')
 
+  const applyFilters = document.querySelector('.apply-area #apply')
+  const resetFilters = document.querySelector('.apply-area #reset')
+
   targetInsert.insertAdjacentElement('afterend', filterDrawer)
   targetInsert.insertAdjacentElement('afterend', sortDrawer)
+
+
+  applyFilters.addEventListener('click', () => {
+    console.log('//applying filters')
+  })
+
+  resetFilters.addEventListener('click', () => {
+    console.log('reset filters')
+    window.location.url = resetFilters.dataset.originalUrl
+  })
+
+
   
 })
 
 window.onload = function () {
-  console.log('loaded new filter !!!! init range')
   slideMin()
   slideMax()
 }
 
 const minVal = document.querySelector(".min-val")
 const maxVal = document.querySelector(".max-val")
-const priceInputMin = document.querySelector(".min-input")
-const priceInputMax = document.querySelector(".max-input")
+
+// const priceInputMin = document.querySelector(".min-input")
+// const priceInputMax = document.querySelector(".max-input")
+const priceDisplayMin = document.querySelector("#current-low")
+const priceDisplayMax = document.querySelector("#current-high")
+
 const minTooltip = document.querySelector(".min-tooltip")
 const maxTooltip = document.querySelector(".max-tooltip")
 const minGap = 0
@@ -34,7 +52,8 @@ function slideMin() {
     minVal.value = parseInt(maxVal.value) - minGap
   }
   minTooltip.innerHTML = "$" + minVal.value
-  priceInputMin.value = minVal.value
+  // priceInputMin.value = minVal.value
+  priceDisplayMin.innerHTML = minVal.value
   setArea()
 }
 
@@ -44,7 +63,8 @@ function slideMax() {
     maxVal.value = parseInt(minVal.value) + minGap
   }
   maxTooltip.innerHTML = "$" + maxVal.value
-  priceInputMax.value = maxVal.value
+  // priceInputMax.value = maxVal.value
+  priceDisplayMax.innerHTML = maxVal.value
   setArea()
 }
 
@@ -108,11 +128,22 @@ class MintyFreshFilters extends HTMLElement {
 class MintyFreshFilterDrawer extends HTMLElement {
   constructor() {
     super()
-      this.querySelector('#close-filter-drawer').addEventListener('click', this.closeFilterDrawer)
+    this.querySelector('#close-filter-drawer').addEventListener('click', this.closeFilterDrawer)
   }
 
   closeFilterDrawer() {
     this.closest('minty-fresh-filter-drawer').classList.remove('filter-drawer-open')
+  }
+}
+
+class MintyFreshFilterInput extends HTMLElement {
+  constructor() {
+    super()
+    this.addEventListener('click', this.toggleFilter)
+    this.addEventListener('change', this.toggleFilter)
+  }
+  toggleFilter() {
+    this.querySelector('input').checked = !this.querySelector('input').checked
   }
 }
 
@@ -124,13 +155,6 @@ class MintyFreshSortDrawer extends HTMLElement {
 
 }
 
-class MintyFreshFilterInput extends HTMLElement {
-  constructor() {
-    super()
-
-  }
-
-}
 
 customElements.define('minty-fresh-filters', MintyFreshFilters)
 customElements.define('minty-fresh-filter-drawer', MintyFreshFilterDrawer)

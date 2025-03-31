@@ -216,6 +216,7 @@
         align-items: center;
         margin-bottom: 0.5rem;  
         gap: 1rem;
+        cursor: pointer;
     }
 
     minty-fresh-filter-drawer button {
@@ -229,6 +230,7 @@
         height: 15px;
         margin: 0 !important;
         accent-color: black;
+        pointer-events: none;
     }
 
     minty-fresh-filter-input .color-box {
@@ -247,6 +249,8 @@
         font-size: 16px;
         font-family: Sofia Pro;
         text-transform: uppercase;
+        color: black;
+        text-decoration: none;
     }
 
     minty-fresh-filter-drawer #apply  {
@@ -508,7 +512,7 @@
                                 {% case filter.type %}
                                     {% when 'list' %}
                                         {% for value in filter.values %}
-                                            <minty-fresh-filter-input>
+                                            <minty-fresh-filter-input data-filter-param-name="{{ filter.param_name }}">
                                                 <input type="checkbox" {% if value.active %} checked {% endif %}>
                                                 <span class="color-box" data-value="{{ value.value }}"></span>
                                                 <div>
@@ -541,6 +545,9 @@
                                                     <div class="tooltip min-tooltip"></div>
                                                     <div class="tooltip max-tooltip"></div>
                                                 </div>
+                                                {% comment %}
+                                                not using currently 
+
                                                 <div class="input-box">
                                                     <div class="min-box">
                                                         <div class="input-wrap">
@@ -557,6 +564,7 @@
                                                          
                                                     </div>
                                                 </div>
+                                                {% endcomment  %}
                                             </div>
                                             {% comment %} <input type="range" id="fromSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" />
                                             <input type="range" id="toSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" /> {% endcomment %}
@@ -574,7 +582,7 @@
             </div>
             <div class="apply-area">
                 <button id="apply">Apply</button>
-                <button id="reset">Reset</button>
+                <a id="reset" href="{{ collection.url }}">Reset</a>
             </div>
         </div>
     </minty-fresh-filter-drawer>
