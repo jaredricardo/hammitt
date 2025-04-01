@@ -495,97 +495,103 @@
 -%}
 
 <minty-fresh-filters>
-    <minty-fresh-filter-drawer>
-        <div class="inner">
-            <div class="top-area">
-                Filter <span id="active-filters"></span>
-                <button id="close-filter-drawer">
-                    {% render 'icon-close' %}
-                </button>
-            </div>
-            <div class="filters-area">
-                {% for filter in results.filters %}
-                    {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-                        <div class="filter-area">
-                            <div class="filter-area-wrap">
-                                <span class="label">{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
-                                {% case filter.type %}
-                                    {% when 'list' %}
-                                        {% for value in filter.values %}
-                                            <minty-fresh-filter-input data-filter-param-name="{{ filter.param_name }}">
-                                                <input type="checkbox" {% if value.active %} checked {% endif %}>
-                                                <span class="color-box" data-value="{{ value.value }}"></span>
-                                                <div>
-                                                    <span class="color-swatch">{{ value.value }}</span>
-                                                    <span class="available-options">({{ value.count }})</span>
-                                                </div>
-                                            </minty-fresh-filter-input>
-                                        {% endfor %}
-                                    {% when 'price_range'%}
-                                        {% liquid
-    
-                                            assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
-                                            assign uses_comma_decimals = false
-                                            assign range_min = filter.min_value.value | default: 0
-                                            assign range_max = filter.max_value.value | default: filter.range_max 
-    
-                                            if currencies_using_comma_decimals contains cart.currency.iso_code
-                                                assign uses_comma_decimals = true
-                                            endif
-                                         
-                                        %}
-                                        <minty-fresh-price-range>
-    
-                                            <div class="double-slider-box">
-                            
-                                                <div class="range-slider">
-                                                    <span class="slider-track"></span>
-                                                    <input type="range" name="min_val" class="min-val" min="{{ range_min }}" max="{{ range_max }}" value="{{ range_min }}" oninput="slideMin()"/>
-                                                    <input type="range" name="max_val" class="max-val" min="{{ range_min }}" max="{{ range_max }}" value="{{ range_max }}" oninput="slideMax()"/>
-                                                    <div class="tooltip min-tooltip"></div>
-                                                    <div class="tooltip max-tooltip"></div>
-                                                </div>
-                                                {% comment %}
-                                                not using currently 
 
-                                                <div class="input-box">
-                                                    <div class="min-box">
-                                                        <div class="input-wrap">
-                                                            <span class="input-addon"></span>
-                                                            <input type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
-                                                        </div>
-                                                        
-                                                        <div class="max-box">
+    <minty-fresh-filter-drawer>
+        <form>
+            <div class="inner">
+                <div class="top-area">
+                    Filter <span id="active-filters"></span>
+                    <button id="close-filter-drawer">
+                        {% render 'icon-close' %}
+                    </button>
+                </div>
+                <div class="filters-area">
+                    {% for filter in results.filters %}
+                        {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+                            <div class="filter-area">
+                                <div class="filter-area-wrap">
+                                    <span class="label">{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
+                                    {% case filter.type %}
+                                        {% when 'list' %}
+                                            {% for value in filter.values %}
+                                                <minty-fresh-filter-input>
+                                                    <input name="{{ value.param_name }}" value="{{ value.value }}" type="checkbox" {% if value.active %} checked {% endif %}>
+                                                    <span class="color-box" data-value="{{ value.value }}"></span>
+                                                    <div>
+                                                        <span class="color-swatch">{{ value.value }}</span>
+                                                        <span class="available-options">({{ value.count }})</span>
+                                                    </div>
+                                                </minty-fresh-filter-input>
+                                            {% endfor %}
+                                        {% when 'price_range'%}
+                                            {% liquid
+        
+                                                assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+                                                assign uses_comma_decimals = false
+                                                assign range_min = filter.min_value.value | default: 0
+                                                assign range_max = filter.max_value.value | default: filter.range_max 
+        
+                                                if currencies_using_comma_decimals contains cart.currency.iso_code
+                                                    assign uses_comma_decimals = true
+                                                endif
+                                             
+                                            %}
+                                            <minty-fresh-price-range>
+        
+                                                <div class="double-slider-box">
+                                
+                                                    <div class="range-slider">
+                                                        <span class="slider-track"></span>
+                                                        <input type="range" name="{{ filter.min_value.param_name }}" class="min-val" min="0" max="{{ filter.range_max | divided_by: 100 }}" value="{{ range_min |  divided_by: 100 }}" oninput="slideMin()"/>
+                                                        <input type="range" name="{{ filter.max_value.param_name }}" class="max-val" min="0" max="{{ filter.range_max | divided_by: 100 }}" value="{{ range_max |  divided_by: 100 }}" oninput="slideMax()"/>
+                                                        <div class="tooltip min-tooltip"></div>
+                                                        <div class="tooltip max-tooltip"></div>
+                                                    </div>
+                                                    {% comment %}
+                                                    not using currently 
+    
+                                                    <div class="input-box">
+                                                        <div class="min-box">
                                                             <div class="input-wrap">
                                                                 <span class="input-addon"></span>
-                                                                <input type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                                                                <input type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
                                                             </div>
+                                                            
+                                                            <div class="max-box">
+                                                                <div class="input-wrap">
+                                                                    <span class="input-addon"></span>
+                                                                    <input type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                                                                </div>
+                                                            </div>
+                                                             
                                                         </div>
-                                                         
                                                     </div>
+                                                    {% endcomment  %}
                                                 </div>
-                                                {% endcomment  %}
-                                            </div>
-                                            {% comment %} <input type="range" id="fromSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" />
-                                            <input type="range" id="toSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" /> {% endcomment %}
-                                            <div class="number-display-box">
-                                                <span id="current-low">{{ range_min | money_without_trailing_zeros }}</span>
-                                                -
-                                                <span id="current-high">{{ range_max | money_without_trailing_zeros }}</span>
-                                            </div>
-                                        </minty-fresh-price-range>
-                                {% endcase %}
+                                                {% comment %} 
+                                                <input type="range" id="fromSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" />
+                                                <input type="range" id="toSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" /> 
+                                                {% endcomment %}
+                                                <div class="number-display-box">
+                                                    <span id="current-low">${{ range_min | divided_by: 100 }}</span>
+                                                    -
+                                                    <span id="current-high">${{ range_max | divided_by: 100 }}</span>
+                                                </div>
+                                            </minty-fresh-price-range>
+                                    {% endcase %}
+                                </div>
+                 
                             </div>
-             
-                        </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
+                <div class="apply-area">
+                    <button id="apply">Apply</button>
+                    <a id="reset" href="{{ collection.url }}">Reset</a>
+                </div>
             </div>
-            <div class="apply-area">
-                <button id="apply">Apply</button>
-                <a id="reset" href="{{ collection.url }}">Reset</a>
-            </div>
-        </div>
+        </form>
     </minty-fresh-filter-drawer>
+
     <minty-fresh-sort-drawer>
         sort drawer
     </minty-fresh-sort-drawer>

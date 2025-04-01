@@ -12,18 +12,16 @@ window.addEventListener('DOMContentLoaded', () => {
   targetInsert.insertAdjacentElement('afterend', filterDrawer)
   targetInsert.insertAdjacentElement('afterend', sortDrawer)
 
-
   applyFilters.addEventListener('click', () => {
-    console.log('//applying filters')
+
+    const filterForm = document.querySelector('minty-fresh-filter-drawer form')
+    const formData = new FormData(filterForm);
+    const searchParams = new URLSearchParams(formData).toString();
+
+    window.location.href =  `${window.location.pathname}${searchParams && '?'.concat(searchParams)}`
+    
   })
 
-  resetFilters.addEventListener('click', () => {
-    console.log('reset filters')
-    window.location.url = resetFilters.dataset.originalUrl
-  })
-
-
-  
 })
 
 window.onload = function () {
@@ -51,9 +49,9 @@ function slideMin() {
   if(gap <= minGap) {
     minVal.value = parseInt(maxVal.value) - minGap
   }
-  minTooltip.innerHTML = "$" + minVal.value
+  minTooltip.innerHTML = `$${minVal.value}`
   // priceInputMin.value = minVal.value
-  priceDisplayMin.innerHTML = minVal.value
+  priceDisplayMin.innerHTML = `$${minVal.value}`
   setArea()
 }
 
@@ -64,7 +62,7 @@ function slideMax() {
   }
   maxTooltip.innerHTML = "$" + maxVal.value
   // priceInputMax.value = maxVal.value
-  priceDisplayMax.innerHTML = maxVal.value
+  priceDisplayMax.innerHTML = "$" + maxVal.value
   setArea()
 }
 
@@ -72,8 +70,8 @@ function setArea() {
   range.style.left = `${((minVal.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100}%`
   range.style.left = (minVal.value / sliderMaxValue) * 100 + "%"
   minTooltip.style.left = (minVal.value / sliderMaxValue) * 100 + "%"
-  range.style.right = `${100 -((maxVal.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100}%`
   maxTooltip.style.right = 100 - (maxVal.value / sliderMaxValue) * 100 + "%"
+  range.style.right = `${100 -((maxVal.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100}%`
 }
 
 function setMinInput() {
