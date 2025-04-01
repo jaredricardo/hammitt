@@ -97,7 +97,7 @@ class MintyFreshFilters extends HTMLElement {
     super()
     this.querySelector('#toggle-grid').addEventListener('click', this.toggleGridView)
     this.querySelector('#toggle-filter-drawer').addEventListener('click', this.openFilterDrawer)
-    this.querySelector('#toggle-sort-drawer').addEventListener('click', this.openSortDrawer)
+    this.querySelector('#toggle-sort-drawer').addEventListener('click', this.toggleSortDrawer)
     this.querySelector('#close-filter-drawer').addEventListener('click', this.closeFilterDrawer)
   }
 
@@ -111,12 +111,10 @@ class MintyFreshFilters extends HTMLElement {
     document.querySelector('minty-fresh-filter-drawer').classList.remove('sort-drawer-open')
   }
 
-  openSortDrawer() {
-    document.querySelector('minty-fresh-sort-drawer').classList.add('sort-drawer-open')
+  toggleSortDrawer() {
+    document.querySelector('minty-fresh-sort-drawer').classList.toggle('sort-drawer-open')
     document.querySelector('minty-fresh-filter-drawer').classList.remove('filter-drawer-open')
   }
-
-
 
   static updateURLHash(searchParams) {
     history.pushState({ searchParams }, '', `${window.location.pathname}${searchParams && '?'.concat(searchParams)}`)
@@ -148,11 +146,31 @@ class MintyFreshFilterInput extends HTMLElement {
 class MintyFreshSortDrawer extends HTMLElement {
   constructor() {
     super()
-
+      this.querySelectorAll('ul li').forEach((li) => {
+        li.addEventListener('click', this.connectSortToHidenFormInput)
+      })
+      this.addEventListener('mouseleave', () => {
+        this.classList.remove('sort-drawer-open')
+      })
   }
+  connectSortToHidenFormInput() {
 
+    document.querySelectorAll('minty-fresh-sort-drawer li').forEach((li) => {
+      li.classList.remove('active')
+    })
+
+    const sortSelect = document.querySelector('minty-fresh-filter-drawer .hidden-sort-select select')
+
+    document.querySelectorAll('minty-fresh-filter-drawer .hidden-sort-select option').forEach((option) => {
+      if(option.value == this.dataset.value) {
+        sortSelect.value = option.value
+      }
+    
+    })
+
+    this.classList.add('active')
+  }
 }
-
 
 customElements.define('minty-fresh-filters', MintyFreshFilters)
 customElements.define('minty-fresh-filter-drawer', MintyFreshFilterDrawer)

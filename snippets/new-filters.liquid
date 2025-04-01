@@ -184,12 +184,6 @@
         display: flex;
     }
 
-
-
-    minty-fresh-sort-drawer.active {
-        display: flex;
-    }
-
     minty-fresh-filter-drawer.filter-drawer-open,
     minty-fresh-sort-drawer.sort-drawer-open {
         right: 0;
@@ -511,7 +505,6 @@
             overflow:auto;
             max-width: 100vw;
         }
-    
         minty-fresh-filters .filter-actions-container {
             margin-left: unset;
             justify-content: space-between;
@@ -521,7 +514,6 @@
         minty-fresh-filters ul {
             padding: 1rem;
         }
-
         minty-fresh-filters li a {
             padding: 1rem 0.5rem;
         }
@@ -529,8 +521,6 @@
             font-size: 12px;
         }
     }
-    
-
 </style>
 
 {% liquid 
@@ -538,7 +528,8 @@
     assign has_collection_links = false
     assign results = collection
     assign active_filter_count = 0
-    
+    assign sort_by = results.sort_by | default: results.default_sort_by
+
     assign filter_blocks = blocks | where: "type", "collection-filter-link"
 
     if filter_blocks
@@ -563,6 +554,13 @@
                     </button>
                 </div>
                 <div class="filters-area">
+                    <div class="hidden hidden-sort-select">
+                        <select name="sort_by">
+                            {%- for option in results.sort_options -%}
+                              <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+                            {%- endfor -%}
+                          </select>
+                    </div>
                     {% for filter in results.filters %}
                         {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                             <div class="filter-area">
@@ -596,9 +594,7 @@
                                              
                                             %}
                                             <minty-fresh-price-range>
-        
                                                 <div class="double-slider-box">
-                                
                                                     <div class="range-slider">
                                                         <span class="slider-track"></span>
                                                         <input type="range" name="{{ filter.min_value.param_name }}" class="min-val" min="0" max="{{ filter.range_max | divided_by: 100 }}" value="{{ range_min |  divided_by: 100 }}" oninput="slideMin()"/>
@@ -639,7 +635,6 @@
                                             </minty-fresh-price-range>
                                     {% endcase %}
                                 </div>
-                 
                             </div>
                     {% endfor %}
                 </div>
@@ -689,7 +684,6 @@
                 </button>
                 <minty-fresh-sort-drawer>
                     <ul>
-                        {% assign sort_by = results.sort_by | default: results.default_sort_by %}
                         {% for option in results.sort_options %}
                             <li data-value="{{ option.value | escape }}"{% if option.value == sort_by %} class="active" {% endif %}>
                                 {{ option.name | escape }}
