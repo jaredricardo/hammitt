@@ -5,12 +5,12 @@ window.addEventListener('DOMContentLoaded', () => {
   const filterDrawer = document.querySelector('minty-fresh-filter-drawer')
   const sortDrawer = document.querySelector('minty-fresh-sort-drawer')
   const targetInsert = document.querySelector('header.header')
-
+  const activeFilterCount = document.querySelectorAll('.minty-fresh-active-filter-count')
   const applyFilters = document.querySelector('.apply-area #apply')
   const resetFilters = document.querySelector('.apply-area #reset')
 
   targetInsert.insertAdjacentElement('afterend', filterDrawer)
-  targetInsert.insertAdjacentElement('afterend', sortDrawer)
+  // targetInsert.insertAdjacentElement('afterend', sortDrawer)
 
   applyFilters.addEventListener('click', () => {
 

@@ -25,6 +25,23 @@
         flex-wrap: wrap;
     }
 
+    minty-fresh-filters minty-fresh-sort-drawer ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    minty-fresh-filters minty-fresh-sort-drawer ul li {
+        padding: 1rem 1.5rem;
+        line-height: 1.2;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    minty-fresh-filters minty-fresh-sort-drawer ul li:hover,
+    minty-fresh-filters minty-fresh-sort-drawer ul li.active {
+        background-color: #eae9e9;
+    }
+
     minty-fresh-filters ul li {
         list-style: none;
         width: max-content;
@@ -36,6 +53,7 @@
         background-color: transparent;
         border: 0;
         cursor: pointer;
+        align-items: center;
     }
 
     minty-fresh-filters .filter-actions-container {
@@ -137,8 +155,7 @@
         max-width: none;
     }
 
-    minty-fresh-filter-drawer,
-    minty-fresh-sort-drawer {
+    minty-fresh-filter-drawer {
         background: white;
         height: 100vh;
         position: fixed;
@@ -151,6 +168,28 @@
         transition: 0.3s ease-in-out;
     }
 
+    minty-fresh-sort-drawer {
+        display: none;
+        background: white;
+        box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        z-index: 5;
+        top: %;
+        left: -300%;
+        width: max-content;
+        cursor: pointer;
+    }
+
+    minty-fresh-sort-drawer.sort-drawer-open {
+        display: flex;
+    }
+
+
+
+    minty-fresh-sort-drawer.active {
+        display: flex;
+    }
+
     minty-fresh-filter-drawer.filter-drawer-open,
     minty-fresh-sort-drawer.sort-drawer-open {
         right: 0;
@@ -159,10 +198,15 @@
 
     minty-fresh-filter-drawer .top-area,
     minty-fresh-filter-drawer .filter-area,
-    minty-fresh-filter-drawer .apply-area {
+    minty-fresh-filter-drawer .apply-area,
+    minty-fresh-filter-drawer span,
+    minty-fresh-filter-drawer .minty-fresh-active-filter-count {
         font-size: 16px;
-        font-weight: 400;
-        font-family: Sofia Pro;
+        font-family: var(--font-body-family);
+    }
+
+    minty-fresh-filter-drawer span {
+        font-weight: 600;
     }
 
     minty-fresh-filter-drawer .apply-area {
@@ -175,7 +219,8 @@
         flex-direction: column;
     }
 
-    minty-fresh-filter-drawer .inner {
+    minty-fresh-filter-drawer .inner,
+    minty-fresh-filters .sort-drawer-area  {
         position: relative;
     }
 
@@ -247,7 +292,7 @@
         align-items: center;
         height: 50px;
         font-size: 16px;
-        font-family: Sofia Pro;
+        font-family: var(--font-body-family);
         text-transform: uppercase;
         color: black;
         text-decoration: none;
@@ -422,13 +467,20 @@
     minty-fresh-filters .filter-sort-button-container {
         display: flex;
         gap: 10px;
+        z-index: 5;
     }
 
     minty-fresh-filters #toggle-filter-drawer,
     minty-fresh-filters #toggle-sort-drawer {
         font-size: 14px;
+        font-weight: 600;
+        font-family: var(--font-body-family);
     }
 
+    minty-fresh-filters #toggle-filter-drawer {
+        display: flex;
+        gap: 4px;
+    }
 
     @media screen and (max-width: 1007px) {
         main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
@@ -485,12 +537,17 @@
 
     assign has_collection_links = false
     assign results = collection
+    assign active_filter_count = 0
     
     assign filter_blocks = blocks | where: "type", "collection-filter-link"
 
     if filter_blocks
         assign has_collection_links = true
     endif
+
+    for filter in results.filters
+        assign active_filter_count = active_filter_count | plus: filter.active_values.size
+    endfor
 
 -%}
 
@@ -500,8 +557,8 @@
         <form>
             <div class="inner">
                 <div class="top-area">
-                    Filter <span id="active-filters"></span>
-                    <button id="close-filter-drawer">
+                    <span>Filter <span class="minty-fresh-active-filter-count">({{ active_filter_count }})</span></span>
+                    <button id="close-filter-drawer" type="button">
                         {% render 'icon-close' %}
                     </button>
                 </div>
@@ -516,7 +573,9 @@
                                             {% for value in filter.values %}
                                                 <minty-fresh-filter-input>
                                                     <input name="{{ value.param_name }}" value="{{ value.value }}" type="checkbox" {% if value.active %} checked {% endif %}>
-                                                    <span class="color-box" data-value="{{ value.value }}"></span>
+                                                    {% if filter.label == "Color" %}
+                                                        <span class="color-box" data-value="{{ value.value }}"></span>
+                                                    {% endif %}
                                                     <div>
                                                         <span class="color-swatch">{{ value.value }}</span>
                                                         <span class="available-options">({{ value.count }})</span>
@@ -592,10 +651,6 @@
         </form>
     </minty-fresh-filter-drawer>
 
-    <minty-fresh-sort-drawer>
-        sort drawer
-    </minty-fresh-sort-drawer>
-
     {% if has_collection_links %}
         <ul>
             {% for block in filter_blocks %}
@@ -626,10 +681,23 @@
         <div class="filter-sort-button-container">
             <button id="toggle-filter-drawer">
                 Filter
+                <span class="minty-fresh-active-filter-count">({{ active_filter_count }})</span>
             </button>
-            <button id="toggle-sort-drawer">
-                Sort
-            </button>
+            <div class="sort-drawer-area">
+                <button id="toggle-sort-drawer">
+                    Sort
+                </button>
+                <minty-fresh-sort-drawer>
+                    <ul>
+                        {% assign sort_by = results.sort_by | default: results.default_sort_by %}
+                        {% for option in results.sort_options %}
+                            <li data-value="{{ option.value | escape }}"{% if option.value == sort_by %} class="active" {% endif %}>
+                                {{ option.name | escape }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </minty-fresh-sort-drawer>
+            </div>
         </div>
     </div>
 </minty-fresh-filters>
