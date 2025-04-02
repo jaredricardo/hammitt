@@ -174,8 +174,7 @@
         box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
         position: absolute;
         z-index: 5;
-        top: %;
-        left: -300%;
+        left: auto;
         width: max-content;
         cursor: pointer;
     }
@@ -469,11 +468,13 @@
         font-size: 14px;
         font-weight: 600;
         font-family: var(--font-body-family);
+        color: black !important;
     }
 
     minty-fresh-filters #toggle-filter-drawer {
         display: flex;
         gap: 4px;
+
     }
 
     @media screen and (max-width: 1007px) {
@@ -519,6 +520,9 @@
         }
         minty-fresh-filters ul li {
             font-size: 12px;
+        }
+        minty-fresh-filter-drawer .filters-area {
+            padding-bottom: 240px;
         }
     }
 </style>
