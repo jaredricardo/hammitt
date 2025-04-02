@@ -385,6 +385,7 @@
     },
     "image_banner_7KcrDG": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -455,6 +456,7 @@
         "text_W44NQa",
         "button_U9akBr"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "background-1",
         "full_width": true,
@@ -462,6 +464,56 @@
         "padding_bottom": 20,
         "padding_top_mobile": 32,
         "padding_bottom_mobile": 20
+      }
+    },
+    "image_with_text_3LYwUa": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_zgnUkp": {
+          "type": "heading",
+          "settings": {
+            "heading": "REVISIT THE ANDERSEN",
+            "heading_size": "h1"
+          }
+        },
+        "text_enRVyF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Meet a new twist on our iconic carryall, available in two new treatments.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_XF9rKT": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/andersen-tote",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_zgnUkp",
+        "text_enRVyF",
+        "button_XF9rKT"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Frame_549_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
     },
     "hero_video_banner_ewbVHJ": {
@@ -534,6 +586,7 @@
     },
     "image_banner_mtUte6": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -573,6 +626,56 @@
         "custom_class": ""
       }
     },
+    "image_with_text_fJxWJL": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6fEY6n": {
+          "type": "heading",
+          "settings": {
+            "heading": "MOSAIC DENIM",
+            "heading_size": "h1"
+          }
+        },
+        "text_RWm49c": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your favorite pair of jean's new best friend</p>",
+            "text_style": "body"
+          }
+        },
+        "button_R4Wjtg": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/mosaic-denim",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6fEY6n",
+        "text_RWm49c",
+        "button_R4Wjtg"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Frame_552_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "rich_text_mK3aiV": {
       "type": "rich-text",
       "blocks": {
@@ -604,6 +707,7 @@
         "text_ipJEUr",
         "button_aifyej"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "background-1",
         "full_width": true,
@@ -667,7 +771,7 @@
         "image": "shopify://shop_images/ribbon-weave_1.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
-        "layout": "image_first",
+        "layout": "text_first",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "center",
         "content_layout": "no-overlap",
@@ -695,9 +799,11 @@
     "slider_collection_w9UPnP",
     "image_banner_7KcrDG",
     "rich_text_QhLa6i",
+    "image_with_text_3LYwUa",
     "hero_video_banner_ewbVHJ",
     "slider_collection_UXXejj",
     "image_banner_mtUte6",
+    "image_with_text_fJxWJL",
     "rich_text_mK3aiV",
     "slider_collection_4DwdzD",
     "image_with_text_mXahdi"
