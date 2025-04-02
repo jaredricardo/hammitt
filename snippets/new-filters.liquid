@@ -474,8 +474,55 @@
     minty-fresh-filters #toggle-filter-drawer {
         display: flex;
         gap: 4px;
-
     }
+
+    /* color swatches */
+
+    minty-fresh-filter-input .color-box[data-value="Black"] {
+        background-color: black;
+    }
+    minty-fresh-filter-input .color-box[data-value="Blue"] {
+        background-color: #0040A7;
+    }
+    minty-fresh-filter-input .color-box[data-value="Brown"] {
+        background-color: #744F00;
+    }
+    minty-fresh-filter-input .color-box[data-value="Burgundy"] {
+        background-color: #760909;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Green"] {
+        background-color: #008C21;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Grey"] {
+        background-color: #838383;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Metallic"] {
+        background: linear-gradient(90deg, #585858, #DBDBDB, #757575);
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Multicolor"] {
+        background: linear-gradient(90deg, #D39F38, #FFE139, #0040A7, #51A94D);   
+    }   
+
+    minty-fresh-filter-input .color-box[data-value="Pink"] {
+        background-color: #FF54D7;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Red"] {
+        background-color: #FF2424;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="White"] {
+        background-color: white;
+        outline: 1px sold black;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Yellow"] {
+        background-color: #FFE139;
+    } 
 
     @media screen and (max-width: 1007px) {
         main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
