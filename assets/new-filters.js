@@ -161,14 +161,15 @@ class MintyFreshSortDrawer extends HTMLElement {
 
     const sortSelect = document.querySelector('minty-fresh-filter-drawer .hidden-sort-select select')
 
-    document.querySelectorAll('minty-fresh-filter-drawer .hidden-sort-select option').forEach((option) => {
+    document.querySelectorAll('minty-fresh-filter-drawer .hidden-sort-select option').forEach((option, i) => {
       if(option.value == this.dataset.value) {
-        sortSelect.value = option.value
+        sortSelect.options[i].setAttribute('selected', 'selected')
+      } else {
+        sortSelect.options[i].removeAttribute('selected')
       }
-    
     })
-
     this.classList.add('active')
+    document.querySelector('minty-fresh-filter-drawer form').submit()
   }
 }
 
