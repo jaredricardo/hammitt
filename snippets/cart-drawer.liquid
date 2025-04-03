@@ -361,7 +361,7 @@
                       <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                       {% render 'icon-minus' %}
                     </button>
-                    <input class="quantity__input"
+                    <input class="quantity__input {% if item.selling_plan_allocation and item.selling_plan_allocation.selling_plan.name contains 'Try Before You Buy' %}TryNow-Item{% endif %}"
                            type="number"
                            name="updates[]"
                            value="{{ item.quantity }}"
@@ -374,7 +374,7 @@
                            data-index="{{ item.index | plus: 1 }}"
                           >
                     <button
-                      class="quantity__button no-js-hidden" 
+                      class="quantity__button no-js-hidden {% if item.selling_plan_allocation and item.selling_plan_allocation.selling_plan.name contains 'Try Before You Buy' %}TryNow-Item{% endif %}" 
                       name="plus" 
                       type="button"
                     >
@@ -393,7 +393,6 @@
                       </svg>
                     </div>
                   </div>
-                  {% render 'swym-hammitt-custom-favorite-button', product:item.product %}
                   <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
                     <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
                       {% render 'icon-remove' %}
@@ -471,6 +470,44 @@
             <div class="swiper-button-prev"></div>
           </div>
 
+          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
+            <div class="gift-box-content">{{ content.description }}</div>
+            {% if settings.enable_hammitt_gift_messaging %}
+              <div class="cart-drawer-gift-note"
+                {% if cart.attributes['Gift Note'] %}
+                  data-server-has-note="true"
+                  {% else %}
+                  data-server-has-note="false"
+                {% endif %}
+              >
+                <div class="checkbox-message-area">
+                  <input type="checkbox" id="hammitt-gift-message-checkbox">
+                  <label for="hammit-gift-message-checkbox"> {{ settings.hammitt_gift_message }}</label>
+                </div>
+                <div class="hammitt-gift-note-area">
+                  <label for="gift-note" class="visually-hidden">Add gift note?</label>
+                  <div class="note-area-container">
+                    <textarea maxlength="500" placeholder="Enter your gift note here" name="note" id="gift-note-text-area"></textarea>
+                    <span id="gift-note-char-limit">0/500</span>
+                  </div>  
+                  <button id="gift-note-save-button">save</button>
+                  {% comment %} <div id="hidden-existing-cart-attribute">current cart att: {{ cart.attributes['Gift Note'] }}</div> {% endcomment %}
+                </div>
+              </div>
+            {% endif %}
+            {% if settings.giftBox_enabled %}
+            <div class="cart__gift--notes">
+              <input id="cart__gift--check" class="cart__gift__input" type="checkbox">
+              <label for="cart__gift--check">{{ content.checkbox_content }}</label>
+              <zest-button 
+                shop-id="{{ shop.permanent_domain }}"
+                variant="outline"
+                border-width="1px" 
+                border-color="black">
+              </zest-button>
+            </div>
+            {% endif %}
+          {% endfor %}
         </gift-box-section>
       {% endif %}
       <cart-upsells class="cart-drawer-upsells" data-upsell-title="{{ first_cart_item.product.title }}" >
@@ -596,6 +633,9 @@
       
       <div class="drawer__buttons">
         <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
+          {% if settings.enable_hammitt_gift_messaging %}
+            <input id="hammitt-gift-message-form-input" type="hidden" name="attributes[Gift Note]" value="">
+          {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>
         {% comment %}          
@@ -646,3 +686,117 @@
   }
 </style>
 
+{% if settings.enable_hammitt_gift_messaging %}
+<script>
+
+  window.addEventListener('DOMContentLoaded', () => {
+
+    if({{ cart.item_count }} === 0) return
+
+    const giftNoteValue = document.querySelector('input#hammitt-gift-message-form-input')
+    const giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
+    const saveButton = document.querySelector('button#gift-note-save-button')
+    const giftNoteCharLimit = document.querySelector('span#gift-note-char-limit')
+    const giftNoteCheckbox = document.querySelector('input#hammitt-gift-message-checkbox')
+    let textAreaPlaceholder = giftNoteTextArea.placeholder
+    let currentNote = ''
+
+    initGiftNote()
+
+    saveButton.addEventListener('click', (e) => {
+      saveButton.classList.add('saved')
+      saveButton.innerText = 'Saved'
+      giftNoteValue.value = currentNote
+      textAreaPlaceholder = currentNote
+      localStorage.setItem('giftNote', currentNote)
+    })
+
+    giftNoteCheckbox.addEventListener('change', (e) => {
+      if(e.target.checked) return
+      localStorage.removeItem('giftNote')
+      giftNoteValue.value = ''
+      giftNoteTextArea.value = ''
+      giftNoteCharLimit.innerText = `0/500`
+      saveButton.classList.remove('saved')
+      saveButton.innerText = 'Save'
+    })
+    
+    giftNoteTextArea.addEventListener('input', (e) => {
+
+      if(e.target.value.length >= 500){
+        giftNoteCharLimit.innerText = `500/500`
+        saveButton.disabled = true
+        return       
+      } else {
+        saveButton.disabled = false
+        saveButton.classList.remove('saved')
+        saveButton.innerText = 'Save'
+        currentNote = e.target.value
+        giftNoteCharLimit.innerText = `${e.target.value.length}/500`
+      }
+    })
+
+    function initGiftNote(){
+
+      console.log('init gift note!!')
+
+      //unsure if we need this from the server tbh
+      const giftNoteInitData = document.querySelector('div.cart-drawer-gift-note')
+
+      if(localStorage.getItem('giftNote')){
+        giftNoteValue.value = localStorage.getItem('giftNote')
+        giftNoteTextArea.value = localStorage.getItem('giftNote')
+        giftNoteCheckbox.checked = true
+        giftNoteCharLimit.innerText = `${localStorage.getItem('giftNote').length}/500`
+        saveButton.classList.add('saved')
+        saveButton.innerText = 'Saved'
+      } 
+
+      if(giftNoteInitData.dataset.serverHasNote === 'false' && !localStorage.getItem('giftNote')){
+        localStorage.removeItem('giftNote')
+        giftNoteCheckbox.checked = false
+      }
+    }
+
+  })
+
+</script>
+{% endif %}
+
+<!-- TRYNOW QUANTITY -->
+  <script type="text/javascript">
+
+    window.addEventListener("load", async function() {
+      const isCartLimitMet = await window.trynow.cart.isTryNowCartLimitMet();
+      if (!isCartLimitMet) return;
+      const quantityButtons = document.querySelectorAll('.TryNow-Item');
+      if (!quantityButtons) {
+        console.info('Element with ID TryNow-Item not found.');
+        return;
+      }
+      quantityButtons.forEach(button => {
+        button.disabled = true;
+        button.style.cursor = 'auto'
+      })
+    });
+
+    const observer = new MutationObserver((mutationsList) => {
+      mutationsList.forEach(async (record) => {
+        if (!window.trynow) return;
+        const upperLimitIsMet = await window.trynow.cart.isTryNowCartLimitMet();
+        if (record.target && upperLimitIsMet) {
+          const quantityButtonNodes = document.querySelectorAll(".TryNow-Item");
+          quantityButtonNodes.forEach((btn) => {
+            btn.disabled = true;
+            btn.style.cursor = 'auto';
+          })
+        }
+      })
+    })
+    
+    observer.observe(document.body, {
+      subtree: true,
+      childList: true,
+    })
+  </script>
+<!-- END TRYNOW QUANTITY -->

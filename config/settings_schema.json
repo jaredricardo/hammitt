@@ -1255,8 +1255,36 @@
       ]
     },
     {
-      "name": "Cart shipping message",
+      "name": "Cart shipping messages",
       "settings": [
+        {
+          "type": "header",
+          "content": "Native Hammit Gift Messaging",
+          "info": "Below is Hammitt's native built gift messaging settings."
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_hammitt_gift_messaging",
+          "label": "Enable Hammitt Gift Messaging",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "hammitt_gift_message", 
+          "label": "Gift checkbox label",
+          "default": "Sending this as a Gift? Add a gift note here."
+        },
+        {
+          "type": "header",
+          "content": "Zest Gift Messaging",
+          "info": "Below is Zest gift messaging settings."
+        },
+        {
+          "type": "checkbox",
+          "id": "giftBox_enabled",
+          "default": false,
+          "label": "Giftbox enabled"
+        },
         {
           "id": "cart_shipping_msg",
           "type": "richtext",
@@ -1282,12 +1310,6 @@
           "type": "color",
           "label": "Text color",
           "default": "#000000"
-        },
-        {
-          "type": "checkbox",
-          "id": "giftBox_enabled",
-          "default": false,
-          "label": "Giftbox enabled"
         }
       ]
     },
