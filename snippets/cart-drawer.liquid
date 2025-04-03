@@ -490,7 +490,7 @@
                     <textarea maxlength="500" placeholder="Enter your gift note here" name="note" id="gift-note-text-area"></textarea>
                     <span id="gift-note-char-limit">0/500</span>
                   </div>  
-                  <button type="button" id="gift-note-save-button">save</button>
+                  <div role="button" tabindex="0" id="gift-note-save-button">save</divn>
                   {% comment %} <div id="hidden-existing-cart-attribute">current cart att: {{ cart.attributes['Gift Note'] }}</div> {% endcomment %}
                 </div>
               </div>
@@ -695,7 +695,7 @@
 
     const giftNoteValue = document.querySelector('input#hammitt-gift-message-form-input')
     const giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
-    const saveButton = document.querySelector('button#gift-note-save-button')
+    const saveButton = document.querySelector('#gift-note-save-button')
     const giftNoteCharLimit = document.querySelector('span#gift-note-char-limit')
     const giftNoteCheckbox = document.querySelector('input#hammitt-gift-message-checkbox')
     let textAreaPlaceholder = giftNoteTextArea.placeholder
