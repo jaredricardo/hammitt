@@ -45,7 +45,6 @@
         "heading_WpCU3k",
         "buttons_WxEPdr"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -56,7 +55,7 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/banner-desktop-most-loved.gif",
+        "image": "shopify://shop_images/Group_1068.jpg",
         "image_2": "shopify://shop_images/mob.gif",
         "image_link": "shopify://collections/bluebird",
         "image_overlay_opacity": 10,
@@ -121,6 +120,7 @@
         "heading_wKWyAi",
         "buttons_zGtFY7"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -238,7 +238,7 @@
       "settings": {
         "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "color_scheme": "background-1",
-        "padding_top": 0,
+        "padding_top": 28,
         "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 36,
