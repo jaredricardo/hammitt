@@ -378,6 +378,7 @@
     </script>
     {% if settings.enable_hammitt_gift_messaging %}
       <script>
+        // this should be moved to its own file
         window.addEventListener('DOMContentLoaded', () => {
           class hammittGiftNote extends HTMLElement {
             constructor() {
@@ -389,11 +390,10 @@
                 this.giftNoteCharLimit = document.querySelector('span#gift-note-char-limit')
                 this.giftNoteCheckbox = document.querySelector('input#hammitt-gift-message-checkbox')
                 this.textAreaPlaceholder = this.giftNoteTextArea.placeholder
-                this.giftNoteInitData = document.querySelector('div.cart-drawer-gift-note')
+                this.giftNoteInitData = document.querySelector('.cart-drawer-gift-note')
                 this.currentNote = ''
     
                 this.querySelector('button#gift-note-save-button').addEventListener('click', () => {
-                  console.log('SAVING VIA SAVE BUTTON')
                   this.saveButton.classList.add('saved')
                   this.saveButton.innerText = 'Saved'
                   this.giftNoteValue.value = this.currentNote
@@ -402,7 +402,6 @@
                 })
 
                 this.giftNoteCheckbox.addEventListener('change', (e) => {
-                  console.log('CHECKBOX CHANGED')
                   if(e.target.checked) return
                   localStorage.removeItem('giftNote')
                   this.giftNoteValue.value = ''
@@ -413,7 +412,6 @@
                 })
 
                 this.giftNoteTextArea.addEventListener('input', (e) => {
-                  console.log('TEXT AREA CHANGED')
                   if(e.target.value.length >= 500){
                     this.giftNoteCharLimit.innerText = `500/500`
                     this.saveButton.disabled = true
