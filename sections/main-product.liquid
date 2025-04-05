@@ -456,6 +456,12 @@
                   {% if product_title[2] %}
                   {{ product_title[2] }}
                   {% endif %}
+                  {% if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold %}
+                    <div class="only-x-left-container">
+                      {% render 'icon-timer' %}
+                      {{ settings.only_a_few_left_text }}
+                    </div>
+                  {% endif %}
                 </h1>
               </div>
               <div class="col right-col">
@@ -482,6 +488,7 @@
               </div>
             </div>
           </div>
+          
   
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
         {%- for block in section.blocks -%}
@@ -536,6 +543,14 @@
               {% if product_title[2] %}
               {{ product_title[2] }}
               {% endif %}
+              
+              {% if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold %}
+                <div class="only-x-left-container">
+                  {% render 'icon-timer' %}
+                  {{ settings.only_a_few_left_text }}
+                </div>
+              {% endif %}
+
             </h1>
           {%- when 'price' -%}
             <div class="no-js-hidden product__price-wrapper flex small-hide variant_price" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>

@@ -113,7 +113,7 @@
 
 @media screen and (min-width: 750px) {
   .card__information {
-    padding-top: 1.7rem;
+    padding-top: 1.4rem;
   }
 }
 
@@ -558,4 +558,26 @@ quick-add .label {
 
 .quick-add__wrapper .hide-price-options{
   display: none;
+}
+
+.only-x-left-container {
+  font-family: var(--font-heading-family);
+  color: #7d2c34;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.card__content .only-x-left-container {
+  margin-bottom: 5px; 
+}
+
+@media screen and (max-width: 989px) {
+  .card__content .only-x-left-container {
+    font-size: 13px;
+    gap: 5px;
+  }
 }

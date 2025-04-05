@@ -1720,3 +1720,31 @@ a.button.klaviyo-bis-trigger:hover {
 .product-form .product-form__buttons .swym-wishlist-button-bar {
   display: none !important;
 }
+
+.pdp-hero-section .only-x-left-container {
+  font-size: 20px;
+  line-height: 16px;
+  text-align: center;
+  vertical-align: middle;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.pdp-hero-section .product__title:has(.only-x-left-container) {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+@media screen and (max-width: 989px) {
+  .pdp-hero-section .product__title:has(.only-x-left-container) {
+    flex-direction: column;
+  }
+  .pdp-hero-section .only-x-left-container {
+    justify-content: start;
+    font-size: 14px;
+  }
+}

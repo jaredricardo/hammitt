@@ -151,6 +151,12 @@ assign seo_tag = false
       </div>
       <div class="card__content card__main-content">
         <div class="card__information">
+          {% if card_product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold %}
+            <div class="only-x-left-container">
+              {% render 'icon-timer' %}
+              {{ settings.only_a_few_left_text }}
+            </div>
+          {% endif %}
           <h3 class="card__heading h4">
             <a
               {% if request.page_type == 'search' %}

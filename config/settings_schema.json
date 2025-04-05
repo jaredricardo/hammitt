@@ -1370,5 +1370,23 @@
           "default": "<p>Thanks for joining the waitlist! We’ll send you an email when this item comes back in stock.<\/p>"
         }
       ]
+    },
+    {
+      "name": "Only a few left settings",
+      "settings": [
+        {
+          "type": "number",
+          "id": "only_a_few_left_threshold",
+          "label": "Only a few left threshold",
+          "info": "Only show the message when the quantity is below this number.",
+          "default": 50
+        },
+        {
+          "type": "text",
+          "id": "only_a_few_left_text",
+          "label": "Only a few left text",
+          "default": "Only a few left!"
+        }
+      ] 
     }
 ]
