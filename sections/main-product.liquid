@@ -448,15 +448,29 @@
           <div class="mobile-pdp-info medium-hide medium-up-hide">
             <div class="flexbox mobile-block-wrap">
               <div class="col left-col">
-                <p class="pdp_color" style="margin-top: 0px;">{{ product_color }}</p>            
-                <h1 class="product__title h0" {{ block.shopify_attributes }}>
-                  {% if seo_tag %}<span class="h5 seo-tag">{{ seo_tag }}</span>{% endif %}
-                  {% assign product_title = product.title | split: settings.split_value  %}
-                  {{ product_title[0] }}
-                  {% if product_title[2] %}
-                  {{ product_title[2] }}
+                <p class="pdp_color" style="margin-top: 0px;">{{ product_color }}</p>     
+                <div class="top-text-wrapper">
+                  <h1 class="product__title h0" {{ block.shopify_attributes }}>
+                    {% if seo_tag %}<span class="h5 seo-tag">{{ seo_tag }}</span>{% endif %}
+                    {% assign product_title = product.title | split: settings.split_value  %}
+                    {{ product_title[0] }}
+                    {% if product_title[2] %}
+                    {{ product_title[2] }}
+                    {% endif %}
+                  </h1>
+                  {% if product.metafields.custom.back_in_stock_one_liner %}
+                    <div class="back-in-stock-one-liner-container">
+                      {{ product.metafields.custom.back_in_stock_one_liner }}
+                    </div>
+                    {% else %}
+                      {% if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available %}
+                        <div class="only-x-left-container">
+                          {% render 'icon-timer' %}
+                          {{ settings.only_a_few_left_text }}
+                        </div>
+                      {% endif %}
                   {% endif %}
-                </h1>
+                </div>       
               </div>
               <div class="col right-col">
                 <div class="mobile-price">
@@ -482,6 +496,7 @@
               </div>
             </div>
           </div>
+          
   
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
         {%- for block in section.blocks -%}
@@ -518,7 +533,7 @@
               {%- endif -%}
               {%- if block.settings.title2 != blank or block.settings.icon2 != blank -%}
               <div class="col flexbox align-center justify-center">
-                {% if block.settings.link2 != blank %}<a href="{{ block.settings.link2 }}" class="collink"></a>{% endif %}
+                {% if block.settings.link2 != blank %}<a href="{{ block.settings.link2 }}" .mobile-pdp-info .top-text-wrapperclass="collink"></a>{% endif %}
                 <div class="col-icon">
                   <img src="{{ block.settings.icon2 | img_url: "35x" }}">
                 </div>
@@ -528,15 +543,30 @@
             </div>
             {%- endif -%}
           {%- when 'title' -%}
-            <p class="pdp_color small-hide" style="margin-top: 0px;">{{ product_color }}</p>            
-            <h1 class="product__title h0 small-hide" {{ block.shopify_attributes }}>
+            <p class="pdp_color small-hide" style="margin-top: 0px;">{{ product_color }}</p>   
+            <div class="top-text-wrapper desktop">   
+              <h1 class="product__title h0 small-hide" {{ block.shopify_attributes }}>
               {% if seo_tag %}<span class="h5 seo-tag">{{ seo_tag }}</span>{% endif %}
-              {% assign product_title = product.title | split: settings.split_value  %}
-              {{ product_title[0] }}
-              {% if product_title[2] %}
-              {{ product_title[2] }}
+                {% assign product_title = product.title | split: settings.split_value  %}
+                {{ product_title[0] }}
+                {% if product_title[2] %}
+                {{ product_title[2] }}
               {% endif %}
-            </h1>
+              </h1>
+              {% if product.metafields.custom.back_in_stock_one_liner %}
+                <div class="back-in-stock-one-liner-container">
+                  {{ product.metafields.custom.back_in_stock_one_liner }}
+                </div>
+                {% else %}
+                  {% if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available %}
+                    <div class="only-x-left-container">
+                      {% render 'icon-timer' %}
+                      {{ settings.only_a_few_left_text }}
+                    </div>
+                  {% endif %}
+              {% endif %}
+            </div>      
+
           {%- when 'price' -%}
             <div class="no-js-hidden product__price-wrapper flex small-hide variant_price" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large' -%}
