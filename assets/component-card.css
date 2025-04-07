@@ -172,6 +172,10 @@
   line-height: 18.2px;
 }
 
+.card__badge:has(.badge.only-x-left-badge) .tag-badge {
+  display: none
+}
+
 .card__heading:last-child {
   margin-bottom: 0;
 }
@@ -560,6 +564,13 @@ quick-add .label {
   display: none;
 }
 
+.back-in-stock-one-liner-container {
+  font-family: var(--font-heading-family);
+  color: #7d2c34;
+  font-weight: 600;
+  font-size: 15px;
+}
+
 .only-x-left-container {
   font-family: var(--font-heading-family);
   color: #7d2c34;
@@ -569,6 +580,21 @@ quick-add .label {
   justify-content: center;
   font-size: 14px;
   font-weight: 600;
+}
+
+.badge.only-x-left-badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: #7D2C34;
+  background-color: #F1E8E5;
+  border: none;
+  padding: 0.8rem 0.25rem
+}
+
+.badge.only-x-left-badge svg {
+  height: 12px;
 }
 
 
@@ -581,5 +607,8 @@ quick-add .label {
   .card__content .only-x-left-container {
     font-size: 13px;
     gap: 5px;
+  }
+  .back-in-stock-one-liner-container {
+    font-size: 13px;
   }
 }

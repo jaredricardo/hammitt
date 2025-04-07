@@ -130,12 +130,18 @@ assign seo_tag = false
             {% for tag in card_product.tags %}
               {% if tag contains 'tag:' or tag contains 'Tag:'%}
                 {% assign tag_to_check = tag | downcase %}
-                <span class="badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}"author>{{ tag_to_check | remove: 'tag:' }}</span>
+                <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}"author>{{ tag_to_check | remove: 'tag:' }}</span>
               {% endif %}
             {% endfor %}
             {%- if card_product.compare_at_price > card_product.price and card_product.available -%}
               <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
             {%- endif -%}
+            {% if card_product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and card_product.available %}
+              <span class="badge only-x-left-badge">
+                {% render 'icon-timer' %}
+                {{ settings.only_a_few_left_text }}
+              </span>
+            {% endif %}
           </div>
           {% endunless %}
           
@@ -151,12 +157,18 @@ assign seo_tag = false
       </div>
       <div class="card__content card__main-content">
         <div class="card__information">
-          {% if card_product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold %}
+          {% comment %} 
+
+            unused for the moment
+
+          {% if card_product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and card_product.available%}
             <div class="only-x-left-container">
               {% render 'icon-timer' %}
               {{ settings.only_a_few_left_text }}
             </div>
-          {% endif %}
+          {% endif %} 
+          {% endcomment %}
+
           <h3 class="card__heading h4">
             <a
               {% if request.page_type == 'search' %}
