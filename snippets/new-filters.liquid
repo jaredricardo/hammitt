@@ -92,7 +92,7 @@
         background-color: black;
     }
 
-    minty-fresh-filters #toggle-grid.grid-view .collection-view{
+    minty-fresh-filters #toggle-grid.grid-view .collection-view {
         background-color: #D8D8D8;
     }
 
@@ -120,14 +120,19 @@
         display: none;
     }
 
-    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__information {
-
-    }
-
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__heading,
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .price,
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__seo-text {
         color: transparent;
+    }
+
+    @media screen and (max-width: 576px) {
+        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) .swym-button.hammitt-custom {
+            width: 20px;
+            height: 20px;
+            top: 0.65rem;
+            right: 0.65rem;
+        }
     }
 
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card--standard > .card__content {
@@ -306,13 +311,20 @@
     }
 
     minty-fresh-filter-drawer .number-display-box {
-    
+        display: inline-block;
+        margin-left: 1rem;
     }
 
     /* range css */
 
     .double-slider-box {
         border-radius: 10px;
+    }
+
+    .double-slider-box .min-box input,
+    .double-slider-box .max-box input {
+        width: 100px;   
+        max-width: 100px;
     }
 
     h3.range-title {
@@ -396,17 +408,17 @@
     }
 
     .input-box {
-        display: display;
+        display: flex;
+        margin-top: 1.5rem;
+    }
+    #current-high,
+    #current-low {
+        font-weight: 400;
     }
 
     .min-box,
     .max-box {
         width: 50%;
-    }
-
-    .min-box {
-        padding-right: 0.5rem;
-        margin-right: 0.5rem;
     }
 
     .input-wrap {
@@ -415,6 +427,11 @@
         flex-wrap: wrap;
         align-items: stretch;
         width: 100%;
+    }
+
+    .input-wrap label {
+        font-weight: 600;
+        margin-right: 6px;
     }
 
     .input-addon {
@@ -430,25 +447,21 @@
         background: white;
         border: 1px solid #d4d7e5;
         border-radius: 0.25rem;
-        border-top-right-raduis: 0;
-        border-bottom-right-radius: 0;
     }
 
     .input-field {
-        margin-left: 1px;
         padding: .425rem .75rem;
-        font-size: 0.8125rem;
+        font-weight: 600;
+        font-size: 14px;
         border-radius: 0.25rem;
         position: relative;
         flex: 1 1 auto;
-        width: 1%;
-        min-width: 0;
-        color:#4b566b;
+        color: black;
         background-color: #fff;
         background-clip: padding-box;
-        border: 1px solid #d4d7e5;
-        border-top-left-raduis: 0;
-        border-bottom-left-radius: 0;
+        border: 1px solid lightgray;
+        border-radius: 0.25rem;
+        margin-left: 3px;
     }
 
     .input-field:focus {
@@ -484,11 +497,24 @@
     minty-fresh-filter-input .color-box[data-value="Blue"] {
         background-color: #0040A7;
     }
+    minty-fresh-filter-input .color-box[data-value="Lilac"] {
+        background-color: #D45EE3;
+    }
+    minty-fresh-filter-input .color-box[data-value="Tan"] {
+        background-color:#D2B48C;
+    }
+
     minty-fresh-filter-input .color-box[data-value="Brown"] {
         background-color: #744F00;
     }
     minty-fresh-filter-input .color-box[data-value="Burgundy"] {
         background-color: #760909;
+    }
+    minty-fresh-filter-input .color-box[data-value="Silver"] {
+        background-color: #C0C0C0
+    }
+    minty-fresh-filter-input .color-box[data-value="Pewter"] {
+        background-color: #968771;
     }
 
     minty-fresh-filter-input .color-box[data-value="Green"] {
@@ -497,6 +523,9 @@
 
     minty-fresh-filter-input .color-box[data-value="Grey"] {
         background-color: #838383;
+    }
+    minty-fresh-filter-input .color-box[data-value="Orange"] {
+        background-color: #FFB22D;
     }
 
     minty-fresh-filter-input .color-box[data-value="Metallic"] {
@@ -517,7 +546,7 @@
 
     minty-fresh-filter-input .color-box[data-value="White"] {
         background-color: white;
-        outline: 1px sold black;
+        outline: 1px solid black;
     }
 
     minty-fresh-filter-input .color-box[data-value="Yellow"] {
@@ -645,6 +674,13 @@
                                              
                                             %}
                                             <minty-fresh-price-range>
+                                                <div class="number-display-box" style="display: none;">
+
+                                                    <span id="current-low">${{ range_min | divided_by: 100 }}</span>
+                                                    -
+                                                    <span id="current-high">${{ range_max | divided_by: 100 }}</span>
+                                                </div>
+
                                                 <div class="double-slider-box">
                                                     <div class="range-slider">
                                                         <span class="slider-track"></span>
@@ -653,36 +689,33 @@
                                                         <div class="tooltip min-tooltip"></div>
                                                         <div class="tooltip max-tooltip"></div>
                                                     </div>
-                                                    {% comment %}
-                                                    not using currently 
-    
+                                                  
                                                     <div class="input-box">
+
                                                         <div class="min-box">
                                                             <div class="input-wrap">
-                                                                <span class="input-addon"></span>
-                                                                <input type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
+                                                                {% comment %} <span class="input-addon"></span> {% endcomment %}
+                                                                <label for="min_input">From:</label>
+                                                                $<input type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
                                                             </div>
-                                                            
-                                                            <div class="max-box">
-                                                                <div class="input-wrap">
-                                                                    <span class="input-addon"></span>
-                                                                    <input type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
-                                                                </div>
-                                                            </div>
-                                                             
                                                         </div>
+                                                            
+
+                                                        <div class="max-box">
+                                                            <div class="input-wrap">
+                                                                {% comment %} <span class="input-addon"></span> {% endcomment %}
+                                                                <label for="max_input">To:</label>
+                                                                $<input type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                                                            </div>
+                                                        </div>
+
                                                     </div>
-                                                    {% endcomment  %}
+                                                 
                                                 </div>
                                                 {% comment %} 
                                                 <input type="range" id="fromSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" />
                                                 <input type="range" id="toSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" /> 
                                                 {% endcomment %}
-                                                <div class="number-display-box">
-                                                    <span id="current-low">${{ range_min | divided_by: 100 }}</span>
-                                                    -
-                                                    <span id="current-high">${{ range_max | divided_by: 100 }}</span>
-                                                </div>
                                             </minty-fresh-price-range>
                                     {% endcase %}
                                 </div>

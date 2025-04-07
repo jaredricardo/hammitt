@@ -29,18 +29,18 @@ window.onload = function () {
   slideMax()
 }
 
-const minVal = document.querySelector(".min-val")
-const maxVal = document.querySelector(".max-val")
+const minVal = document.querySelector("minty-fresh-price-range .min-val")
+const maxVal = document.querySelector("minty-fresh-price-range .max-val")
 
-// const priceInputMin = document.querySelector(".min-input")
-// const priceInputMax = document.querySelector(".max-input")
-const priceDisplayMin = document.querySelector("#current-low")
-const priceDisplayMax = document.querySelector("#current-high")
+const priceInputMin = document.querySelector("minty-fresh-price-range .min-input")
+const priceInputMax = document.querySelector("minty-fresh-price-range .max-input")
+const priceDisplayMin = document.querySelector("minty-fresh-price-range #current-low")
+const priceDisplayMax = document.querySelector("minty-fresh-price-range #current-high")
 
-const minTooltip = document.querySelector(".min-tooltip")
-const maxTooltip = document.querySelector(".max-tooltip")
+const minTooltip = document.querySelector("minty-fresh-price-range .min-tooltip")
+const maxTooltip = document.querySelector("minty-fresh-price-range .max-tooltip")
 const minGap = 0
-const range = document.querySelector(".slider-track")
+const range = document.querySelector("minty-fresh-price-range .slider-track")
 const sliderMinValue = parseInt(minVal.min)
 const sliderMaxValue = parseInt(maxVal.max)
 
@@ -50,7 +50,7 @@ function slideMin() {
     minVal.value = parseInt(maxVal.value) - minGap
   }
   minTooltip.innerHTML = `$${minVal.value}`
-  // priceInputMin.value = minVal.value
+  priceInputMin.value = minVal.value
   priceDisplayMin.innerHTML = `$${minVal.value}`
   setArea()
 }
@@ -61,7 +61,7 @@ function slideMax() {
     maxVal.value = parseInt(minVal.value) + minGap
   }
   maxTooltip.innerHTML = "$" + maxVal.value
-  // priceInputMax.value = maxVal.value
+  priceInputMax.value = maxVal.value
   priceDisplayMax.innerHTML = "$" + maxVal.value
   setArea()
 }
