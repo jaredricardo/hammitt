@@ -1,0 +1,781 @@
+<style>
+    /* 
+    
+        Jared new filters added for Mint's design 
+    
+        Tried to place this CSS in other files but the load delay was causing layout shift. This should ideally
+        be adde to a global CSS file that loads before the page content.
+    
+    */
+
+    minty-fresh-filters {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 2rem;
+    }
+
+    minty-fresh-filters ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    minty-fresh-filters minty-fresh-sort-drawer ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    minty-fresh-filters minty-fresh-sort-drawer ul li {
+        padding: 1rem 1.5rem;
+        line-height: 1.2;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    minty-fresh-filters minty-fresh-sort-drawer ul li:hover,
+    minty-fresh-filters minty-fresh-sort-drawer ul li.active {
+        background-color: #eae9e9;
+    }
+
+    minty-fresh-filters ul li {
+        list-style: none;
+        width: max-content;
+        font-size: 14px;
+        font-family: var(--font-body-family);
+    }
+
+    minty-fresh-filters button {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        align-items: center;
+    }
+
+    minty-fresh-filters .filter-actions-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-left: auto;
+        width: auto;
+    }
+
+    minty-fresh-filters #toggle-grid {
+        display: flex;
+        gap: 8px;
+    }
+
+    minty-fresh-filters #toggle-grid .grid-view-svg {
+        height: 14px;
+        width: 14px;
+    }
+
+    minty-fresh-filters #toggle-grid .collection-view {
+        display: block;
+        height: 14px;
+        width: 14px;
+    }
+
+    minty-fresh-filters #toggle-grid.collection-view .grid-view-svg rect {
+        fill: #D8D8D8;
+    }
+
+    minty-fresh-filters #toggle-grid.grid-view .grid-view-svg rect {
+        fill: black;
+    }
+
+    minty-fresh-filters #toggle-grid.collection-view .collection-view {
+        background-color: black;
+    }
+
+    minty-fresh-filters #toggle-grid.grid-view .collection-view {
+        background-color: #D8D8D8;
+    }
+
+    minty-fresh-filters li a {
+        text-decoration: none;
+        color: #626262;
+        text-transform: uppercase;
+        padding: 1.5rem;
+    }
+    minty-fresh-filters li a.on-collection {
+        text-decoration: underline;
+        color: black;
+        font-weight: 600;
+    }
+
+    /* Collection product card state when grid view is toggle on */
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer {
+        /* for testing */
+        /* background-color: rgb(249, 192, 192); */
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__badge,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .quick-add__wrapper{
+        display: none;
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__heading,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .price,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__seo-text {
+        color: transparent;
+    }
+
+    @media screen and (max-width: 576px) {
+        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) .swym-button.hammitt-custom {
+            width: 20px;
+            height: 20px;
+            top: 0.65rem;
+            right: 0.65rem;
+        }
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card--standard > .card__content {
+        position: absolute;
+        top: 0;
+        color: transparent;
+        height: 100%;
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .product-card {
+        padding-bottom: 0;
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
+        display: grid;
+        column-gap: 4px; 
+        row-gap: 4px;
+        grid-template-columns: repeat(6, 1fr);
+        min-height: auto;
+    }
+
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .grid__item {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+    }
+
+    minty-fresh-filter-drawer {
+        background: white;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        overflow-y: auto;
+        width: 390px;
+        max-width: 100%;
+        box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+        transition: 0.3s ease-in-out;
+    }
+
+    minty-fresh-sort-drawer {
+        display: none;
+        background: white;
+        box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        z-index: 5;
+        left: auto;
+        width: max-content;
+        cursor: pointer;
+    }
+
+    minty-fresh-sort-drawer.sort-drawer-open {
+        display: flex;
+    }
+
+    minty-fresh-filter-drawer.filter-drawer-open,
+    minty-fresh-sort-drawer.sort-drawer-open {
+        right: 0;
+        z-index: 5;
+    }
+
+    minty-fresh-filter-drawer .top-area,
+    minty-fresh-filter-drawer .filter-area,
+    minty-fresh-filter-drawer .apply-area,
+    minty-fresh-filter-drawer span,
+    minty-fresh-filter-drawer .minty-fresh-active-filter-count {
+        font-size: 16px;
+        font-family: var(--font-body-family);
+    }
+
+    minty-fresh-filter-drawer span {
+        font-weight: 600;
+    }
+
+    minty-fresh-filter-drawer .apply-area {
+        position: fixed;
+        bottom: 0;
+        width: -webkit-fill-available;
+        z-index: 10;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+    }
+
+    minty-fresh-filter-drawer .inner,
+    minty-fresh-filters .sort-drawer-area  {
+        position: relative;
+    }
+
+    minty-fresh-filter-drawer .top-area,
+    minty-fresh-filter-drawer .apply-area {
+        padding: 1.25rem;
+    }
+
+    minty-fresh-filter-drawer .filter-area {
+        padding: 1.25rem 1.25rem 0 1.25rem;
+    }
+
+    minty-fresh-filter-drawer .top-area {
+        border-bottom: 1.5px solid black;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    minty-fresh-filter-drawer .top-area svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    minty-fresh-filter-drawer .top-area button {
+        padding: 5px;
+    }
+
+    minty-fresh-filter-drawer .filter-area-wrap:has(minty-fresh-filter-input) {
+        border-bottom: 1px solid #d1d1d1;
+        padding-bottom: 0.5rem;
+    }
+
+    minty-fresh-filter-drawer .filter-area .label {
+        margin-bottom: 0.5rem;
+    }
+    minty-fresh-filter-input {
+        display: flex;  
+        align-items: center;
+        margin-bottom: 0.5rem;  
+        gap: 1rem;
+        cursor: pointer;
+    }
+
+    minty-fresh-filter-drawer button {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+
+    minty-fresh-filter-input input {
+        width: 15px !important;
+        height: 15px;
+        margin: 0 !important;
+        accent-color: black;
+        pointer-events: none;
+    }
+
+    minty-fresh-filter-input .color-box {
+        background-color: lightskyblue;
+        width: 15px;
+        height: 15px;
+        border-radius: 50px;
+    }
+
+    minty-fresh-filter-drawer #apply,
+    minty-fresh-filter-drawer #reset {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        font-size: 16px;
+        font-family: var(--font-body-family);
+        text-transform: uppercase;
+        color: black;
+        text-decoration: none;
+    }
+
+    minty-fresh-filter-drawer #apply  {
+        border: 1.5px solid black;
+    }
+    minty-fresh-filter-drawer .filters-area {
+        padding-bottom: 140px;
+    }
+
+    minty-fresh-filter-drawer #filter-range {
+        width: 100%;
+        height: 3px;
+        accent-color: black;
+        border: none;
+    }
+
+    minty-fresh-filter-drawer .number-display-box {
+        display: inline-block;
+        margin-left: 1rem;
+    }
+
+    /* range css */
+
+    .double-slider-box {
+        border-radius: 10px;
+    }
+
+    .double-slider-box .min-box input,
+    .double-slider-box .max-box input {
+        width: 100px;   
+        max-width: 100px;
+    }
+
+    h3.range-title {
+        margin-bottom: 4rem;
+    }
+
+    .range-slider {
+        position: relative;
+        width: 100%;
+        height: 2px;
+        margin: 20px 0;
+        background-color: #D3D3D3;
+    }
+
+    .slider-track {
+        height: 100%;
+        position: absolute;
+        background-color: black;
+    }
+
+    .range-slider input {
+        position: absolute;
+        width: 100%;
+        background: none;
+        pointer-events: none;
+        top: 50%;
+        transform: translateY(-50%);
+        appearance: none;
+        margin: 0;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        border: 3px solid back;
+        background: black;
+        pointer-events: auto;
+        appearance: none;
+        cursor: pointer;
+        /* box-shadow: 0 .125rem .5625rem -0.125rem rgba(0,0,0,.25);  */
+    }
+    
+    input[type="range"]::-moz-range-thumb  {
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        border: 3px solid back;
+        background: black;
+        pointer-events: auto;
+        -mox-appearance: none; 
+        cursor: pointer;
+        /* box-shadow: 0 .125rem .5625rem -0.125rem rgba(0,0,0,.25); */
+    }
+
+    .double-slider-box .tooltip {
+        padding: .25rem .5rem;
+        border: 0;
+        background-color: #373f50;
+        color: white;
+        font-size: 0.75rem;
+        line-height: 1.2;
+        border-radius: 0.25rem;
+        bottom: 120%;
+        display: none;
+        position: absolute;
+        text-align: center;
+        white-space: nowrap;
+
+    }
+
+    .min-tooltip {
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%);
+        z-index: 5;
+    }
+
+    .max-tooltip {
+        right: 50%;
+        transform: translateX(50%) translateY(-100%);
+    }
+
+    .input-box {
+        display: flex;
+        margin-top: 1.5rem;
+    }
+    #current-high,
+    #current-low {
+        font-weight: 400;
+    }
+
+    .min-box,
+    .max-box {
+        width: 50%;
+    }
+
+    .input-wrap {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .input-wrap label {
+        font-weight: 600;
+        margin-right: 6px;
+    }
+
+    .input-addon {
+        display: flex;
+        align-items: center;
+        padding: 0.625rem 1rem;
+        font-size: 0.9375rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #4b566b;
+        text-align: center;
+        white-space: nowrap;
+        background: white;
+        border: 1px solid #d4d7e5;
+        border-radius: 0.25rem;
+    }
+
+    .input-field {
+        padding: .425rem .75rem;
+        font-weight: 600;
+        font-size: 14px;
+        border-radius: 0.25rem;
+        position: relative;
+        flex: 1 1 auto;
+        color: black;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid lightgray;
+        border-radius: 0.25rem;
+        margin-left: 3px;
+    }
+
+    .input-field:focus {
+        outline: none;
+    }
+
+    /* end range css */
+
+    minty-fresh-filters .filter-sort-button-container {
+        display: flex;
+        gap: 10px;
+        z-index: 5;
+    }
+
+    minty-fresh-filters #toggle-filter-drawer,
+    minty-fresh-filters #toggle-sort-drawer {
+        font-size: 14px;
+        font-weight: 600;
+        font-family: var(--font-body-family);
+        color: black !important;
+    }
+
+    minty-fresh-filters #toggle-filter-drawer {
+        display: flex;
+        gap: 4px;
+    }
+
+    /* color swatches */
+
+    minty-fresh-filter-input .color-box[data-value="Black"] {
+        background-color: black;
+    }
+    minty-fresh-filter-input .color-box[data-value="Blue"] {
+        background-color: #0040A7;
+    }
+    minty-fresh-filter-input .color-box[data-value="Lilac"] {
+        background-color: #D45EE3;
+    }
+    minty-fresh-filter-input .color-box[data-value="Tan"] {
+        background-color:#D2B48C;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Brown"] {
+        background-color: #744F00;
+    }
+    minty-fresh-filter-input .color-box[data-value="Burgundy"] {
+        background-color: #760909;
+    }
+    minty-fresh-filter-input .color-box[data-value="Silver"] {
+        background-color: #C0C0C0
+    }
+    minty-fresh-filter-input .color-box[data-value="Pewter"] {
+        background-color: #968771;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Green"] {
+        background-color: #008C21;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Grey"] {
+        background-color: #838383;
+    }
+    minty-fresh-filter-input .color-box[data-value="Orange"] {
+        background-color: #FFB22D;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Metallic"] {
+        background: linear-gradient(90deg, #585858, #DBDBDB, #757575);
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Multicolor"] {
+        background: linear-gradient(90deg, #D39F38, #FFE139, #0040A7, #51A94D);   
+    }   
+
+    minty-fresh-filter-input .color-box[data-value="Pink"] {
+        background-color: #FF54D7;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Red"] {
+        background-color: #FF2424;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="White"] {
+        background-color: white;
+        outline: 1px solid black;
+    }
+
+    minty-fresh-filter-input .color-box[data-value="Yellow"] {
+        background-color: #FFE139;
+    } 
+
+    @media screen and (max-width: 1007px) {
+        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 2px; 
+            row-gap: 2px;
+        }
+        minty-fresh-filters {
+            flex-direction: column;
+            gap: 0;
+            padding: 0;
+            align-items: start;
+        }
+        minty-fresh-filters ul {
+            gap: 10px;
+            flex-wrap: nowrap;
+            position: relative;
+            border-bottom: 1px solid #F3F3F3; 
+            overflow-x: auto;
+            display: flex;
+            white-space: nowrap;
+            overflow:auto;
+            max-width: 100vw;
+        }
+        minty-fresh-filters .filter-actions-container {
+            margin-left: unset;
+            justify-content: space-between;
+            width: 100%;
+        }
+        minty-fresh-filters .filter-actions-container,
+        minty-fresh-filters ul {
+            padding: 1rem;
+        }
+        minty-fresh-filters li a {
+            padding: 1rem 0.5rem;
+        }
+        minty-fresh-filters ul li {
+            font-size: 12px;
+        }
+        minty-fresh-filter-drawer .filters-area {
+            padding-bottom: 240px;
+        }
+    }
+</style>
+
+{% liquid 
+
+    assign has_collection_links = false
+    assign results = collection
+    assign active_filter_count = 0
+    assign sort_by = results.sort_by | default: results.default_sort_by
+
+    assign filter_blocks = blocks | where: "type", "collection-filter-link"
+
+    if filter_blocks
+        assign has_collection_links = true
+    endif
+
+    for filter in results.filters
+        assign active_filter_count = active_filter_count | plus: filter.active_values.size
+    endfor
+
+-%}
+
+<minty-fresh-filters>
+
+    <minty-fresh-filter-drawer>
+        <form>
+            <div class="inner">
+                <div class="top-area">
+                    <span>Filter <span class="minty-fresh-active-filter-count">({{ active_filter_count }})</span></span>
+                    <button id="close-filter-drawer" type="button">
+                        {% render 'icon-close' %}
+                    </button>
+                </div>
+                <div class="filters-area">
+                    <div class="hidden hidden-sort-select">
+                        <select name="sort_by">
+                            {%- for option in results.sort_options -%}
+                              <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+                            {%- endfor -%}
+                          </select>
+                    </div>
+                    {% for filter in results.filters %}
+                        {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+                            <div class="filter-area">
+                                <div class="filter-area-wrap">
+                                    <span class="label">{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
+                                    {% case filter.type %}
+                                        {% when 'list' %}
+                                            {% for value in filter.values %}
+                                                <minty-fresh-filter-input>
+                                                    <input name="{{ value.param_name }}" value="{{ value.value }}" type="checkbox" {% if value.active %} checked {% endif %}>
+                                                    {% if filter.label == "Color" %}
+                                                        <span class="color-box" data-value="{{ value.value }}"></span>
+                                                    {% endif %}
+                                                    <div>
+                                                        <span class="color-swatch">{{ value.value }}</span>
+                                                        <span class="available-options">({{ value.count }})</span>
+                                                    </div>
+                                                </minty-fresh-filter-input>
+                                            {% endfor %}
+                                        {% when 'price_range'%}
+                                            {% liquid
+        
+                                                assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+                                                assign uses_comma_decimals = false
+                                                assign range_min = filter.min_value.value | default: 0
+                                                assign range_max = filter.max_value.value | default: filter.range_max 
+        
+                                                if currencies_using_comma_decimals contains cart.currency.iso_code
+                                                    assign uses_comma_decimals = true
+                                                endif
+                                             
+                                            %}
+                                            <minty-fresh-price-range>
+                                                <div class="number-display-box" style="display: none;">
+
+                                                    <span id="current-low">${{ range_min | divided_by: 100 }}</span>
+                                                    -
+                                                    <span id="current-high">${{ range_max | divided_by: 100 }}</span>
+                                                </div>
+
+                                                <div class="double-slider-box">
+                                                    <div class="range-slider">
+                                                        <span class="slider-track"></span>
+                                                        <input type="range" name="{{ filter.min_value.param_name }}" class="min-val" min="0" max="{{ filter.range_max | divided_by: 100 }}" value="{{ range_min |  divided_by: 100 }}" oninput="slideMin()"/>
+                                                        <input type="range" name="{{ filter.max_value.param_name }}" class="max-val" min="0" max="{{ filter.range_max | divided_by: 100 }}" value="{{ range_max |  divided_by: 100 }}" oninput="slideMax()"/>
+                                                        <div class="tooltip min-tooltip"></div>
+                                                        <div class="tooltip max-tooltip"></div>
+                                                    </div>
+                                                  
+                                                    <div class="input-box">
+
+                                                        <div class="min-box">
+                                                            <div class="input-wrap">
+                                                                {% comment %} <span class="input-addon"></span> {% endcomment %}
+                                                                <label for="min_input">From:</label>
+                                                                $<input type="text" name="min_input" class="input-field min-input" onchange="setMinInput()">
+                                                            </div>
+                                                        </div>
+                                                            
+
+                                                        <div class="max-box">
+                                                            <div class="input-wrap">
+                                                                {% comment %} <span class="input-addon"></span> {% endcomment %}
+                                                                <label for="max_input">To:</label>
+                                                                $<input type="text" name="max_input" class="input-field max-input" onchange="setMaxInput()">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                 
+                                                </div>
+                                                {% comment %} 
+                                                <input type="range" id="fromSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" />
+                                                <input type="range" id="toSlider" placeholder="{{ range_min }}" min="{{ range_min }}" max="{{ range_max }}" /> 
+                                                {% endcomment %}
+                                            </minty-fresh-price-range>
+                                    {% endcase %}
+                                </div>
+                            </div>
+                    {% endfor %}
+                </div>
+                <div class="apply-area">
+                    <button id="apply">Apply</button>
+                    <a id="reset" href="{{ collection.url }}">Reset</a>
+                </div>
+            </div>
+        </form>
+    </minty-fresh-filter-drawer>
+
+    {% if has_collection_links %}
+        <ul>
+            {% for block in filter_blocks %}
+                {% assign on_collection = false %}
+                {% assign index_collection_handle = block.settings.collection | handle %}
+
+                {% if collection.handle == index_collection_handle %}
+                    {% assign on_collection = true %}
+                {% endif %}
+
+                <li>
+                    <a href="{{ block.settings.collection.url }}" {% if on_collection %} class="on-collection" {% endif %}>
+                        {% if block.settings.title != blank %}
+                            {{ block.settings.title | strip }}
+                        {% else %}
+                            {{ block.settings.collection.title | strip }}
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="filter-actions-container">
+        <button id="toggle-grid" class="collection-view">
+            {% render 'grid-view-svg' %}
+            <span class="collection-view"></span>   
+        </button>
+        <div class="filter-sort-button-container">
+            <button id="toggle-filter-drawer">
+                Filter
+                <span class="minty-fresh-active-filter-count">({{ active_filter_count }})</span>
+            </button>
+            <div class="sort-drawer-area">
+                <button id="toggle-sort-drawer">
+                    Sort
+                </button>
+                <minty-fresh-sort-drawer>
+                    <ul>
+                        {% for option in results.sort_options %}
+                            <li data-value="{{ option.value | escape }}"{% if option.value == sort_by %} class="active" {% endif %}>
+                                {{ option.name | escape }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </minty-fresh-sort-drawer>
+            </div>
+        </div>
+    </div>
+</minty-fresh-filters>

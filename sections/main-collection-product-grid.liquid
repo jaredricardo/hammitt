@@ -3,6 +3,7 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }} {% endcomment %}
 
+
 <link data-href="{{ 'template-collection.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
 <link data-href="{{ 'component-loading-overlay.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
 <link data-href="{{ 'component-card.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
@@ -84,10 +85,19 @@
   {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
     <link data-href="{{ 'component-facets.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
     {% comment %} {{ 'component-facets.css' | asset_url | stylesheet_tag }} {% endcomment %}
-    <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+
+    {% if section.settings.use_new_filters %}
+        <script src="{{ 'new-filters.js' | asset_url }}" defer="defer"></script>
+      {% else %}
+        <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
   
     <div class="page-width small-full-width" id="main-collection-filters" data-id="{{ section.id }}">
-      {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+      {% if section.settings.use_new_filters %}
+        {% render 'new-filters', blocks: section.blocks %}
+      {% else %}
+        {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+      {% endif %}
     </div>
   {%- endif -%}
   
@@ -209,6 +219,13 @@
     {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_new_filters",
+      "label": "Use new filters",
+      "info": "Uses new filters designed by Mint and implented by Jared",
+      "default": false
     },
     {
       "type": "range",
@@ -389,7 +406,24 @@
 		  "label":"Button text"
 		}
 	  ]
-	}
+	},
+  {
+    "type": "collection-filter-link",
+    "name": "Collection Filter Link",
+    "limit": 9,
+    "settings": [
+      {
+        "type":"collection",
+        "id": "collection",
+        "label": "Collection URL"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Alternative Collection Title (optional)"
+      }
+    ]
+  }
   ]
 }
 {% endschema %}

@@ -8,7 +8,7 @@ endfor
 -%}
 <div id="mega-menu-replacement-{{ section.id }}" style="display: none;">
   <details-disclosure>
-    <details id="Details-HeaderMenu-{{ main_index }}">
+    <details id="Details-HeaderMenu-{{ main_index }}" class="details-header">
       <summary class="main-nav-item header__menu-item list-menu__item link focus-inset" data-url="{{ main_link.url }}">
         <span {% if main_link.child_active %}class="header__active-menu-item"{% endif %}>{{ section.settings.parent | escape }}</span>
         {% render 'icon-caret' %}
