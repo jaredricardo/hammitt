@@ -1444,16 +1444,16 @@ function updateCart(params) {
 }
 
 checkGWPs();
-document.addEventListener('change', function(evt) {
-  if(document.querySelector('.cart-drawer-btn') != null) {
-    document.querySelector('.cart-drawer-btn').disabled = true;  
-  }
+// document.addEventListener('change', function(evt) {
+//   if(document.querySelector('.cart-drawer-btn') != null) {
+//     document.querySelector('.cart-drawer-btn').disabled = true;  
+//   }
   
-  if(document.querySelector('.cart__checkout-button') != null) {
-    document.querySelector('.cart__checkout-button').disabled = true;  
-  }
+//   if(document.querySelector('.cart__checkout-button') != null) {
+//     document.querySelector('.cart__checkout-button').disabled = true;  
+//   }
   
-});
+// });
 
 const cartUpdate = (json = false) => {
   const cartUpdates = [

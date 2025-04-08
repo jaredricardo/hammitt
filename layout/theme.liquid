@@ -376,6 +376,76 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    {% if settings.enable_hammitt_gift_messaging %}
+      <script>
+        // this should be moved to its own file
+        window.addEventListener('DOMContentLoaded', () => {
+          class hammittGiftNote extends HTMLElement {
+            constructor() {
+              super()
+
+                this.giftNoteValue = document.querySelector('input#hammitt-gift-message-form-input')
+                this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
+                this.saveButton = document.querySelector('#gift-note-save-button')
+                this.giftNoteCharLimit = document.querySelector('span#gift-note-char-limit')
+                this.giftNoteCheckbox = document.querySelector('input#hammitt-gift-message-checkbox')
+                this.textAreaPlaceholder = this.giftNoteTextArea.placeholder
+                this.giftNoteInitData = document.querySelector('.cart-drawer-gift-note')
+                this.currentNote = ''
+    
+                this.querySelector('button#gift-note-save-button').addEventListener('click', () => {
+                  this.saveButton.classList.add('saved')
+                  this.saveButton.innerText = 'Saved'
+                  this.giftNoteValue.value = this.currentNote
+                  this.textAreaPlaceholder = this.currentNote
+                  localStorage.setItem('giftNote', this.currentNote)
+                })
+
+                this.giftNoteCheckbox.addEventListener('change', (e) => {
+                  if(e.target.checked) return
+                  localStorage.removeItem('giftNote')
+                  this.giftNoteValue.value = ''
+                  this.giftNoteTextArea.value = ''
+                  this.giftNoteCharLimit.innerText = `0/500`
+                  this.saveButton.classList.remove('saved')
+                  this.saveButton.innerText = 'Save'
+                })
+
+                this.giftNoteTextArea.addEventListener('input', (e) => {
+                  if(e.target.value.length >= 500){
+                    this.giftNoteCharLimit.innerText = `500/500`
+                    this.saveButton.disabled = true
+                    return       
+                  } else {
+                    this.saveButton.disabled = false
+                    this.saveButton.classList.remove('saved')
+                    this.saveButton.innerText = 'Save'
+                    this.currentNote = e.target.value
+                    this.giftNoteCharLimit.innerText = `${e.target.value.length}/500`
+                  }
+                })
+           
+                if(localStorage.getItem('giftNote')){
+                  this.giftNoteValue.value = localStorage.getItem('giftNote')
+                  this.giftNoteTextArea.value = localStorage.getItem('giftNote')
+                  this.giftNoteCheckbox.checked = true
+                  this.giftNoteCharLimit.innerText = `${localStorage.getItem('giftNote').length}/500`
+                  this.saveButton.classList.add('saved')
+                  this.saveButton.innerText = 'Saved'
+                }
+
+                if(this.giftNoteInitData.dataset.serverHasNote === 'false' && !localStorage.getItem('giftNote')){
+                  localStorage.removeItem('giftNote')
+                  this.giftNoteCheckbox.checked = false
+                }
+
+              }
+          }
+          customElements.define('hammitt-gift-note', hammittGiftNote)  
+        })
+      
+      </script>
+    {% endif %}
     <script
       {%- if template contains 'index' or template contains 'collection' or template contains 'product' -%}
         type="noscript-s" data-
@@ -803,5 +873,6 @@ template-{{ template.name -}}
     <script src="https://res4.applovin.com/p/l/loader.iife.js" async></script>
   </body>
 </html>
+
 
 {% if content_for_header contains "kimonix_void_script" %}<script async id="kimonix_elements_script" src="https://api.kimonix.com/kimonix_elements.js?shop=hammitt.myshopify.com"></script>{% endif %}

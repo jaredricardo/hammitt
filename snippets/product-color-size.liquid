@@ -90,7 +90,7 @@
           {% endif %}
 
           {% assign style_count = style_count | plus: 1 %}
-          <li class="swiper-slide tttttt1" data-tooltip="{{ reltitle[1] }}">
+          <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
             {%- assign more_colors_list = more_colors_list | plus: 1 -%}
             <div class="image customSwatch">
               <a 
@@ -237,7 +237,7 @@
           {% unless this_size contains current_size %}
             {% if this_size contains 'Sml' %}
               {% assign sml = true %}{% assign smalls_colors_list = smalls_colors_list | plus: 1 %}
-              <li class="swiper-slide ttttt2" data-too   ltip="{{ reltitle[1] }}">
+              <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
                 <div class="image customSwatch">
                   <a href="{{ product.url }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
                     {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
@@ -288,7 +288,7 @@
           {% unless this_size contains current_size %}
             {% if this_size contains 'Med' %}
               {% assign med = true %}{% assign meds_colors_list = meds_colors_list | plus: 1 %}
-              <li class="swiper-slide ttttt3" data-tooltip="{{ reltitle[1] }}">
+              <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
                 <div class="image customSwatch">
                   <a href="{{ product.url }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
                     {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
@@ -343,7 +343,7 @@
           {% unless this_size contains current_size %}
             {% if this_size contains 'Lrg' %}
               {% assign lrg = true %}{% assign lrgs_colors_list = lrgs_colors_list | plus: 1 %}
-              <li class="swiper-slide ttttt4" data-tooltip="{{ reltitle[1] }}">
+              <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
                 <div class="image customSwatch">
                   <a href="{{ product.url }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
                     {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}

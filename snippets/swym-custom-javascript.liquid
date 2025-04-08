@@ -5,6 +5,7 @@
       // initialize count
       const navHeartCount = document.querySelector('.nav-wishlist-button .heart-count')
       const data = await getListsData()
+      if(data.length === 0) return
       const wishlistItems = data[0].listcontents
 
       let count = data[0].listcontents.length

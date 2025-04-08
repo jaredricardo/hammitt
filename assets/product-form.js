@@ -482,7 +482,6 @@ const buildOptions = (b) => {
 };
 
 const completeTheSetPDP = (c) => {
-  console.clear();
   console.log('completeTheSetPDP');
   const productUpsells = document.querySelector('.product__upsells .product__upsells-scroller');
   if(!productUpsells) return

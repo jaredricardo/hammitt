@@ -36,6 +36,7 @@
         "heading_WpCU3k",
         "buttons_WxEPdr"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -101,7 +102,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/oak-edge",
+            "button_link_1": "shopify:\/\/collections\/chaparral-raffia",
             "button_style_secondary_1": false
           }
         }
@@ -111,7 +112,6 @@
         "heading_wKWyAi",
         "buttons_zGtFY7"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -157,8 +157,8 @@
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 20,
+        "collection": "raffia-collection",
+        "max_products": 30,
         "image_ratio": "square",
         "hide_price": false,
         "hide_tag": false,
@@ -166,6 +166,79 @@
         "hide_quick_add": false,
         "padding_top": 18,
         "padding_bottom": 7,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_UTpKR6": {
+      "type": "image-banner",
+      "blocks": {
+        "buttons_EiKVRG": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "shopify:\/\/pages\/april-drop",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "buttons_EiKVRG"
+      ],
+      "settings": {
+        "title": "",
+        "title_color": "rgba(0,0,0,0)",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify:\/\/shop_images\/Group_1068.jpg",
+        "image_2": "shopify:\/\/shop_images\/new-april-drop-mob.gif",
+        "image_link": "shopify:\/\/pages\/april-drop",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 32,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_bxbhAf": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 2,
+        "padding_bottom": 20,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
       }
@@ -279,6 +352,7 @@
         "column_cm4gE7",
         "column_kbVKLG"
       ],
+      "disabled": true,
       "settings": {
         "title": "SHOP NEW ARRIVALS",
         "title_color": "#000000",
@@ -388,6 +462,7 @@
         "column_J9Wq67",
         "column_LfTEmc"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "#000000",
@@ -425,14 +500,15 @@
         "column_Tg37qD": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2024-10-07_HAMMITT_CAMPAIGN_1557_3_3b4d27d2-6efc-45bc-8133-e704a55b6216.jpg",
+            "image": "shopify:\/\/shop_images\/Group_1061_1.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Group_1070.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "SHOP RAFFIA COLLECTION",
-            "link": "shopify:\/\/collections\/raffia-collection",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/charles-crossbody",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -448,14 +524,15 @@
         "column_CrR4hC": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Tezza-3506-1_2_4afaf90f-c607-4a49-958d-38cf67d1e49e.jpg",
+            "image": "shopify:\/\/shop_images\/Group_1060_1.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Group_1073.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "SHOP CROCCO COLLECTION",
-            "link": "shopify:\/\/pages\/crocco-collection",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/daniel",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -467,39 +544,14 @@
             "cta_top_spacing": 5,
             "cta_bottom_spacing": 5
           }
-        },
-        "column_kAVB7m": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Tezza-3506_3_22eb1372-5dd9-4c21-950f-1b97e54ca8eb.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "SHOP TOM",
-            "link": "shopify:\/\/pages\/tom-zip",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 14,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 127,
-            "cta_width_desktop": 164,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
         }
       },
       "block_order": [
         "column_Tg37qD",
-        "column_CrR4hC",
-        "column_kAVB7m"
+        "column_CrR4hC"
       ],
-      "disabled": true,
       "settings": {
-        "title": "SHOP NEW ARRIVALS",
+        "title": "HAMMITT ICONS",
         "title_color": "",
         "heading_size": "h1",
         "paragraph": "",
@@ -509,11 +561,11 @@
         "image_ratio": "adapt",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 3,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
+        "columns_desktop": 2,
+        "columns_gap": 1,
+        "row_gap": 1,
+        "mobile_columns_gap": 1,
+        "mobile_row_gap": 1,
         "column_alignment": "center",
         "text_position": "overlay_type",
         "background_style": "primary",
@@ -529,24 +581,91 @@
         "custom_class": ""
       }
     },
-    "slider_collection_bxbhAf": {
-      "type": "slider-collection",
-      "disabled": true,
+    "multicolumn_CBezGE": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_TMJDJz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1062_3.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Group_1071.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/vip",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 14,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 200,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_UPE7T9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_1059_1.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Group_1072.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/tom-zip",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 14,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 224,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_TMJDJz",
+        "column_UPE7T9"
+      ],
       "settings": {
         "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 20,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 18,
-        "padding_bottom": 7,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 2,
+        "columns_gap": 1,
+        "row_gap": 1,
+        "mobile_columns_gap": 1,
+        "mobile_row_gap": 1,
+        "column_alignment": "center",
+        "text_position": "overlay_type",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "shopify:\/\/collections\/new-arrivals",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 1,
+        "padding_bottom": 0,
+        "padding_top_mobile": 1,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
       }
     },
     "rich_text_rW88VK": {
@@ -572,70 +691,6 @@
         "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 40
-      }
-    },
-    "image_banner_UTpKR6": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_W9dJxr": {
-          "type": "heading",
-          "settings": {
-            "heading": "THE MARCH DROP",
-            "heading_size_mobile": 20,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 48
-          }
-        },
-        "buttons_CwULAY": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/pages\/spring-2025",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_W9dJxr",
-        "buttons_CwULAY"
-      ],
-      "settings": {
-        "title": "SHOP NEW ARRIVALS",
-        "title_color": "rgba(0,0,0,0)",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_887.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_887.jpg",
-        "image_link": "",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "dark",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": false,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 4,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
       }
     },
     "rich_text_L6NKKA": {
@@ -826,6 +881,7 @@
       "block_order": [
         "heading_WV46XH"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "background-1",
         "full_width": true,
@@ -937,6 +993,7 @@
         "column_cD8fYH",
         "column_BMfNU7"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -1005,6 +1062,7 @@
         "column_V3e3pa",
         "column_7tVPrL"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
@@ -1108,8 +1166,8 @@
     "hero_video_banner_RVzeet": {
       "type": "hero-video-banner",
       "settings": {
-        "video_height": "auto",
-        "video_height_mobile": "auto",
+        "video_height": "100vh",
+        "video_height_mobile": "450px",
         "full_width": true,
         "enable_video_looping": true,
         "video": "shopify:\/\/files\/videos\/copy_B7D84662-1616-48D2-A663-5E492D4C7E49.mov",
@@ -1133,10 +1191,10 @@
         "content_size_mobile": 14,
         "content_color": "#ffffff",
         "content_color_mobile": "#000000",
-        "content_space_top": 4,
-        "content_space_bottom": 12,
-        "content_space_top_mob": 0,
-        "content_space_bottom_mob": 10,
+        "content_space_top": 14,
+        "content_space_bottom": 24,
+        "content_space_top_mob": 10,
+        "content_space_bottom_mob": 28,
         "cta_text": "<p>SHOP NOW<\/p>",
         "cta_url": "shopify:\/\/collections\/view-all",
         "cta_font_size": 16,
@@ -1147,7 +1205,7 @@
         "cta_bg_color": "#ffffff",
         "cta_bg_color_mobile": "#000000",
         "cta_width": 120,
-        "cta_width_mobile": 110,
+        "cta_width_mobile": 300,
         "cta_top_bottom": 0,
         "cta_top_bottom_mobile": 0,
         "padding_top": 0,
@@ -1192,14 +1250,15 @@
     "image_banner_Crq7NP",
     "image_banner_ENyxDQ",
     "slider_collection_CwB3RG",
+    "image_banner_UTpKR6",
+    "slider_collection_bxbhAf",
     "custom_liquid_DgMPUR",
     "slider_featured_collection_bTka8m",
     "multicolumn_GMpXGB",
     "multicolumn_8wAJqn",
     "multicolumn_Rb6MCR",
-    "slider_collection_bxbhAf",
+    "multicolumn_CBezGE",
     "rich_text_rW88VK",
-    "image_banner_UTpKR6",
     "rich_text_L6NKKA",
     "custom_liquid_NgfUX8",
     "home-hero-section",
