@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner_Crq7NP": {
@@ -26,7 +35,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/best-selling-bags",
+            "button_link_1": "shopify://collections/best-selling-bags",
             "button_style_secondary_1": false
           }
         }
@@ -47,9 +56,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/banner-desktop-most-loved.gif",
-        "image_2": "shopify:\/\/shop_images\/mob.gif",
-        "image_link": "shopify:\/\/collections\/bluebird",
+        "image": "shopify://shop_images/banner-desktop-most-loved.gif",
+        "image_2": "shopify://shop_images/mob.gif",
+        "image_link": "shopify://collections/bluebird",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -82,7 +91,7 @@
         "text_hDJ9Kt": {
           "type": "text",
           "settings": {
-            "text": "NEW IN",
+            "text": "NEW! HABANERO",
             "text_style": "body",
             "text_size_mobile": 14,
             "text_size_tablet": 16,
@@ -92,7 +101,7 @@
         "heading_wKWyAi": {
           "type": "heading",
           "settings": {
-            "heading": "CHAPARRAL RAFFIA",
+            "heading": "STAND OUT AT THE CHECKOUT",
             "heading_size_mobile": 22,
             "heading_size_tablet": 20,
             "heading_size_desktop": 50
@@ -102,7 +111,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/chaparral-raffia",
+            "button_link_1": "shopify://collections/chaparral-raffia",
             "button_style_secondary_1": false
           }
         }
@@ -122,9 +131,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/hp-banner-desk-raffia.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_1020.jpg",
-        "image_link": "shopify:\/\/collections\/oak-edge",
+        "image": "shopify://shop_images/TOM_ZIP_MED_HABANERO_2640.jpg",
+        "image_2": "shopify://shop_images/TOM_ZIP_MED_HABANERO_2640_a2a9a6e1-1c62-4416-a148-4e4631b5ec95.jpg",
+        "image_link": "shopify://collections/oak-edge",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -177,7 +186,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "",
-            "button_link_1": "shopify:\/\/pages\/april-drop",
+            "button_link_1": "shopify://pages/april-drop",
             "button_style_secondary_1": false
           }
         }
@@ -195,9 +204,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1068.jpg",
-        "image_2": "shopify:\/\/shop_images\/new-april-drop-mob.gif",
-        "image_link": "shopify:\/\/pages\/april-drop",
+        "image": "shopify://shop_images/Group_1068.jpg",
+        "image_2": "shopify://shop_images/new-april-drop-mob.gif",
+        "image_link": "shopify://pages/april-drop",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -246,7 +255,7 @@
     "custom_liquid_DgMPUR": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n<\/style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1\/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n<\/fw-player> <\/div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 \/ 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n<\/fw-player> <\/div>",
+        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 0,
@@ -280,14 +289,14 @@
         "column_aWtC3c": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2024-10-07_HAMMITT_CAMPAIGN_0603_10.jpg",
+            "image": "shopify://shop_images/2024-10-07_HAMMITT_CAMPAIGN_0603_10.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "SHOP DAWN",
-            "link": "shopify:\/\/collections\/dawn",
+            "link": "shopify://collections/dawn",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -303,14 +312,14 @@
         "column_cm4gE7": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2024-10-07_HAMMITT_CAMPAIGN_1557_8.jpg",
+            "image": "shopify://shop_images/2024-10-07_HAMMITT_CAMPAIGN_1557_8.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "SHOP RAFFIA",
-            "link": "shopify:\/\/pages\/raffia",
+            "link": "shopify://pages/raffia",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -326,14 +335,14 @@
         "column_kbVKLG": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2024-10-07_HAMMITT_CAMPAIGN_0603_11.jpg",
+            "image": "shopify://shop_images/2024-10-07_HAMMITT_CAMPAIGN_0603_11.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "SHOP OAK EDGE",
-            "link": "shopify:\/\/collections\/oak-edge",
+            "link": "shopify://collections/oak-edge",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -390,14 +399,14 @@
         "column_WDm8GX": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Shuolder-bag.jpg",
+            "image": "shopify://shop_images/Shuolder-bag.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "SHOP BLUEBIRD",
-            "link": "shopify:\/\/collections\/bluebird",
+            "link": "shopify://collections/bluebird",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -413,14 +422,14 @@
         "column_J9Wq67": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Tezza-3506_609b38b8-dddb-4227-9689-1484647d6abd.jpg",
+            "image": "shopify://shop_images/Tezza-3506_609b38b8-dddb-4227-9689-1484647d6abd.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "SHOP TOM ZIP",
-            "link": "shopify:\/\/collections\/tom-zip",
+            "link": "shopify://collections/tom-zip",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -436,14 +445,14 @@
         "column_LfTEmc": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2024-04-11_HAMMITT_CAMPAIGN_1307_1.png",
+            "image": "shopify://shop_images/2024-04-11_HAMMITT_CAMPAIGN_1307_1.png",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "SHOP MAHOGANY PEBBLE",
-            "link": "shopify:\/\/collections\/mahogany-pebble",
+            "link": "shopify://collections/mahogany-pebble",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -500,15 +509,15 @@
         "column_Tg37qD": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_1061_1.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/Group_1070.jpg",
+            "image": "shopify://shop_images/Group_1061_1.jpg",
+            "mobile_image": "shopify://shop_images/Group_1070.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/charles-crossbody",
+            "link": "shopify://collections/charles-crossbody",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -524,15 +533,15 @@
         "column_CrR4hC": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_1060_1.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/Group_1073.jpg",
+            "image": "shopify://shop_images/Group_1060_1.jpg",
+            "mobile_image": "shopify://shop_images/Group_1073.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/daniel",
+            "link": "shopify://collections/daniel",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -570,7 +579,7 @@
         "text_position": "overlay_type",
         "background_style": "primary",
         "button_label": "",
-        "button_link": "shopify:\/\/collections\/new-arrivals",
+        "button_link": "shopify://collections/new-arrivals",
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
@@ -587,15 +596,15 @@
         "column_TMJDJz": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_1062_3.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/Group_1071.jpg",
+            "image": "shopify://shop_images/Group_1062_3.jpg",
+            "mobile_image": "shopify://shop_images/Group_1071.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/vip",
+            "link": "shopify://collections/vip",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -611,15 +620,15 @@
         "column_UPE7T9": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_1059_1.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/Group_1072.jpg",
+            "image": "shopify://shop_images/Group_1059_1.jpg",
+            "mobile_image": "shopify://shop_images/Group_1072.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/tom-zip",
+            "link": "shopify://collections/tom-zip",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -657,7 +666,7 @@
         "text_position": "overlay_type",
         "background_style": "primary",
         "button_label": "",
-        "button_link": "shopify:\/\/collections\/new-arrivals",
+        "button_link": "shopify://collections/new-arrivals",
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
@@ -675,7 +684,7 @@
           "type": "button",
           "settings": {
             "button_label": "SHOP ALL NEW ARRIVALS",
-            "button_link": "shopify:\/\/collections\/new-arrivals",
+            "button_link": "shopify://collections/new-arrivals",
             "button_style_secondary": false
           }
         }
@@ -707,7 +716,7 @@
         "text_686dDt": {
           "type": "text",
           "settings": {
-            "text": "<p>Get a front row seat to our top videos and shop your favorites products now.<\/p>"
+            "text": "<p>Get a front row seat to our top videos and shop your favorites products now.</p>"
           }
         }
       },
@@ -727,7 +736,7 @@
     "custom_liquid_NgfUX8": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    <\/style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ><\/fw-storyblock>\n    <\/div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n             player_placement=\"bottom-right\"\n        ><\/fw-embed-feed>\n    <\/div>",
+        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
         "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 20,
@@ -741,8 +750,8 @@
       "disabled": true,
       "settings": {
         "media_type": "video",
-        "video": "shopify:\/\/files\/videos\/premiere-hero-banner-CU.mp4",
-        "mobile_video": "shopify:\/\/files\/videos\/premiere-hero-mobile-banner-CU.mp4",
+        "video": "shopify://files/videos/premiere-hero-banner-CU.mp4",
+        "mobile_video": "shopify://files/videos/premiere-hero-mobile-banner-CU.mp4",
         "text_align": "center",
         "text_vertical_align": "center",
         "text_horizontal_align": "center",
@@ -754,7 +763,7 @@
         "description": "Collect Holiday 2024's glimmering drop.",
         "description_color": "#ffffff",
         "button": "Shop Now",
-        "link": "shopify:\/\/pages\/the-premiere-collection",
+        "link": "shopify://pages/the-premiere-collection",
         "button_text_color": "#000000",
         "button_bg_color": "#ffffff"
       }
@@ -785,15 +794,15 @@
         "column_K73pbJ": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Model_Carrying_White_Kyle_Bag_On_Shoulder.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/Model_Carrying_White_Kyle_Bag_On_Shoulder.jpg",
+            "image": "shopify://shop_images/Model_Carrying_White_Kyle_Bag_On_Shoulder.jpg",
+            "mobile_image": "shopify://shop_images/Model_Carrying_White_Kyle_Bag_On_Shoulder.jpg",
             "title": "AS SEEN IN ROLLING STONE",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "SHOP THE KYLE",
-            "link": "shopify:\/\/collections\/kyle",
+            "link": "shopify://collections/kyle",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -809,14 +818,14 @@
         "column_JEDtkD": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/mostloved_1.jpg",
+            "image": "shopify://shop_images/mostloved_1.jpg",
             "title": "MOST LOVED",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "SHOP BESTSELLERS",
-            "link": "shopify:\/\/collections\/new-arrivals",
+            "link": "shopify://collections/new-arrivals",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -897,14 +906,14 @@
         "column_G4qNEn": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/vip-banner.jpg",
+            "image": "shopify://shop_images/vip-banner.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "SHOP THE VIP",
-            "link": "shopify:\/\/collections\/vip",
+            "link": "shopify://collections/vip",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -920,14 +929,14 @@
         "column_Gf8xit": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/tote-banner.jpg",
+            "image": "shopify://shop_images/tote-banner.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "SHOP MULTIPLE SIZES",
-            "link": "shopify:\/\/collections\/multiple-sizes",
+            "link": "shopify://collections/multiple-sizes",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -943,14 +952,14 @@
         "column_cD8fYH": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/charle-banner.jpg",
+            "image": "shopify://shop_images/charle-banner.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "SHOP THE CHARLES",
-            "link": "shopify:\/\/collections\/charles-crossbody",
+            "link": "shopify://collections/charles-crossbody",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -966,14 +975,14 @@
         "column_BMfNU7": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/wallets-banner.jpg",
+            "image": "shopify://shop_images/wallets-banner.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "SHOP WALLETS",
-            "link": "shopify:\/\/collections\/wallets",
+            "link": "shopify://collections/wallets",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -1031,29 +1040,29 @@
         "column_RTNzzB": {
           "type": "column",
           "settings": {
-            "svg_image": "<svg width=\"60\" height=\"55\" viewbox=\"0 0 60 55\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M55.528 20.24C52.48 8.408 41.808 0.142998 29.573 0.142998C15.518 0.142998 3.955 11.02 2.858 24.798L1.578 23.518C1.49225 23.4321 1.39042 23.364 1.27832 23.3174C1.16623 23.2709 1.04607 23.2469 0.924707 23.2468C0.803341 23.2467 0.683145 23.2705 0.570982 23.3169C0.458818 23.3632 0.356885 23.4312 0.271 23.517C0.185116 23.6028 0.116962 23.7046 0.0704317 23.8167C0.0239011 23.9288 -9.56997e-05 24.0489 -0.000188557 24.1703C-0.000281414 24.2917 0.0235315 24.4119 0.0698905 24.524C0.11625 24.6362 0.184247 24.7381 0.27 24.824L3.038 27.592C3.08314 27.6372 3.13272 27.6777 3.186 27.713L3.202 27.723L3.262 27.759L3.286 27.771L3.344 27.798L3.371 27.808C3.40042 27.8191 3.43048 27.8284 3.461 27.836L3.516 27.85L3.558 27.856L3.605 27.863C3.69247 27.8711 3.78064 27.8671 3.867 27.851L3.874 27.85C3.9 27.845 3.925 27.838 3.95 27.831L3.96 27.829C3.98501 27.8213 4.00969 27.8127 4.034 27.803L4.046 27.799C4.07 27.789 4.093 27.778 4.116 27.766L4.128 27.761C4.15266 27.7478 4.17669 27.7335 4.2 27.718L4.205 27.715C4.25966 27.6789 4.31028 27.6369 4.356 27.59L7.122 24.825C7.29532 24.6517 7.39269 24.4166 7.39269 24.1715C7.39269 23.9264 7.29532 23.6913 7.122 23.518C6.94868 23.3447 6.71361 23.2473 6.4685 23.2473C6.22339 23.2473 5.98832 23.3447 5.815 23.518L4.73 24.604C5.914 11.938 16.603 1.992 29.573 1.992C40.963 1.992 50.901 9.685 53.737 20.701C53.8039 20.9319 53.9581 21.1277 54.1669 21.2469C54.3757 21.366 54.6227 21.3992 54.8556 21.3394C55.0884 21.2796 55.2888 21.1315 55.4144 20.9265C55.5399 20.7214 55.5806 20.4746 55.528 20.24ZM58.872 29.062L56.151 26.341C56.0653 26.2382 55.9577 26.1559 55.8361 26.1002C55.7144 26.0444 55.5818 26.0167 55.448 26.019C55.3262 26.0185 55.2056 26.042 55.093 26.0884C54.9804 26.1347 54.8781 26.2029 54.792 26.289C54.775 26.306 54.761 26.324 54.746 26.341L52.025 29.062C51.8517 29.2352 51.7543 29.4701 51.7542 29.7151C51.7541 29.9602 51.8513 30.1952 52.0245 30.3685C52.1977 30.5418 52.4326 30.6392 52.6776 30.6393C52.9227 30.6394 53.1577 30.5422 53.331 30.369L54.488 29.212C53.786 42.347 42.879 52.817 29.572 52.817C18.182 52.817 8.244 45.124 5.408 34.108C5.34562 33.8713 5.19242 33.6687 4.98162 33.5442C4.77082 33.4197 4.51943 33.3833 4.282 33.443C4.04476 33.5042 3.84151 33.657 3.71683 33.868C3.59216 34.0789 3.55625 34.3306 3.617 34.568C6.665 46.402 17.337 54.666 29.572 54.666C43.919 54.666 55.67 43.331 56.342 29.146L57.564 30.369C57.6496 30.4552 57.7514 30.5236 57.8636 30.5703C57.9757 30.617 58.096 30.641 58.2175 30.641C58.339 30.641 58.4593 30.617 58.5714 30.5703C58.6836 30.5236 58.7854 30.4552 58.871 30.369C58.957 30.2833 59.0252 30.1814 59.0717 30.0693C59.1182 29.9571 59.1422 29.8369 59.1422 29.7155C59.1422 29.5941 59.1182 29.4739 59.0717 29.3617C59.0252 29.2496 58.957 29.1477 58.871 29.062H58.872Z\" fill=\"currentColor\"><\/path><path d=\"M47.132 24.15C47.132 24.128 47.131 24.1059 47.129 24.084L47.127 24.058C47.1244 24.0362 47.1211 24.0145 47.117 23.993L47.114 23.976L47.112 23.968C47.1075 23.9471 47.1022 23.9264 47.096 23.906L47.087 23.876C47.082 23.859 47.075 23.843 47.069 23.826C47.0525 23.7839 47.0328 23.7431 47.01 23.704L47.001 23.688L44.229 19.065L44.216 19.046L44.187 19.004C44.1794 18.9927 44.1714 18.9817 44.163 18.971L44.131 18.933L44.103 18.903L44.068 18.868L44.039 18.842C44.0175 18.8226 43.9948 18.8045 43.971 18.788C43.9548 18.7764 43.9381 18.7654 43.921 18.755L43.898 18.742C43.8784 18.7306 43.8584 18.7199 43.838 18.71L43.822 18.702C43.7994 18.6917 43.7764 18.6823 43.753 18.674L43.741 18.669C43.7173 18.661 43.6933 18.6539 43.669 18.648L43.655 18.644C43.6318 18.6385 43.6085 18.6338 43.585 18.63L43.564 18.627C43.5421 18.6239 43.5201 18.6216 43.498 18.62L43.47 18.618L43.436 18.616H26.827C26.8033 18.615 26.7797 18.615 26.756 18.616H15.708L15.693 18.617C15.6716 18.6173 15.6503 18.6187 15.629 18.621L15.597 18.624C15.5786 18.6265 15.5603 18.6295 15.542 18.633L15.505 18.64L15.455 18.652C15.4262 18.6592 15.3981 18.6689 15.371 18.681L15.334 18.696L15.287 18.719C15.2497 18.7365 15.2142 18.7576 15.181 18.782C15.1649 18.7934 15.1492 18.8054 15.134 18.818L15.111 18.836C15.0962 18.8488 15.0818 18.8621 15.068 18.876L15.044 18.898C15.0121 18.9308 14.983 18.9663 14.957 19.004C14.9465 19.019 14.9365 19.0343 14.927 19.05C14.923 19.055 14.919 19.06 14.917 19.065L12.144 23.688L12.141 23.694C12.1275 23.7167 12.1152 23.7401 12.104 23.764L12.097 23.778C12.0869 23.8 12.0775 23.8223 12.069 23.845L12.061 23.867C12.0509 23.8972 12.0422 23.9279 12.035 23.959L12.026 24.008C12.0218 24.0362 12.0185 24.0646 12.016 24.093C12.0145 24.1113 12.0135 24.1296 12.013 24.148L12.012 24.164V47.688C12.012 47.9331 12.1094 48.1681 12.2826 48.3414C12.4559 48.5146 12.6909 48.612 12.936 48.612C13.1811 48.612 13.4161 48.5146 13.5894 48.3414C13.7627 48.1681 13.86 47.9331 13.86 47.688V25.088H24.95V29.73C24.95 29.744 24.952 29.757 24.953 29.77C24.9543 29.7901 24.9563 29.8101 24.959 29.83C24.959 29.838 24.961 29.845 24.962 29.853C24.966 29.88 24.972 29.905 24.978 29.931V29.937C25.011 30.064 25.069 30.181 25.148 30.282L25.192 30.332L25.202 30.343C25.216 30.359 25.232 30.373 25.246 30.387L25.259 30.398C25.2774 30.4151 25.2968 30.4311 25.317 30.446C25.39 30.501 25.471 30.546 25.557 30.577L25.58 30.585C25.6207 30.5991 25.6625 30.6098 25.705 30.617C25.7216 30.6199 25.7383 30.6223 25.755 30.624L25.787 30.628C25.8156 30.6309 25.8443 30.6326 25.873 30.633H25.875C25.9321 30.6331 25.9891 30.6275 26.045 30.616L26.08 30.609L26.097 30.605L29.571 29.737L33.044 30.606C33.049 30.606 33.053 30.608 33.057 30.609L33.097 30.617C33.1185 30.6211 33.1402 30.6244 33.162 30.627L33.188 30.629C33.2136 30.6315 33.2393 30.6328 33.265 30.633H33.267C33.296 30.6331 33.3251 30.6318 33.354 30.629L33.381 30.625C33.4001 30.6229 33.4191 30.6202 33.438 30.617L33.473 30.61C33.5012 30.6038 33.5289 30.5958 33.556 30.586C33.5694 30.5816 33.5828 30.577 33.596 30.572L33.635 30.557L33.673 30.538C33.695 30.528 33.716 30.516 33.737 30.504L33.774 30.481C33.7967 30.4649 33.8191 30.4482 33.841 30.431L33.869 30.408L33.905 30.376L33.929 30.352L33.964 30.314C33.971 30.306 33.978 30.299 33.984 30.29C33.9959 30.2754 34.0072 30.2604 34.018 30.245L34.034 30.223C34.049 30.201 34.063 30.178 34.076 30.155L34.095 30.116L34.112 30.081L34.13 30.035C34.134 30.024 34.139 30.014 34.142 30.003L34.156 29.956L34.162 29.935L34.165 29.921C34.1688 29.9034 34.1722 29.8858 34.175 29.868L34.183 29.822L34.186 29.784L34.189 29.724V25.091H45.281V47.694C45.281 47.9392 45.3784 48.1743 45.5518 48.3477C45.7252 48.5211 45.9603 48.6185 46.2055 48.6185C46.4507 48.6185 46.6858 48.5211 46.8592 48.3477C47.0326 48.1743 47.13 47.9392 47.13 47.694V24.17L47.129 24.156L47.132 24.15ZM29.83 27.893C29.6619 27.8436 29.4831 27.8436 29.315 27.893L26.798 28.522V25.084H32.345V28.521L29.83 27.893ZM16.232 20.462H25.672L25.117 23.236H14.567L16.232 20.462ZM31.588 20.462L32.143 23.236H27.002L27.557 20.462H31.588ZM34.028 23.236L33.473 20.462H42.913L44.577 23.236H34.028Z\" fill=\"currentColor\"><\/path><path d=\"M37.893 39.873H21.251C21.0058 39.873 20.7707 39.9704 20.5973 40.1438C20.4239 40.3172 20.3265 40.5523 20.3265 40.7975C20.3265 41.0427 20.4239 41.2778 20.5973 41.4512C20.7707 41.6246 21.0058 41.722 21.251 41.722H37.893C38.1382 41.722 38.3733 41.6246 38.5467 41.4512C38.7201 41.2778 38.8175 41.0427 38.8175 40.7975C38.8175 40.5523 38.7201 40.3172 38.5467 40.1438C38.3733 39.9704 38.1382 39.873 37.893 39.873ZM37.893 36.184H21.251C21.0059 36.184 20.7709 36.2813 20.5976 36.4546C20.4243 36.6279 20.327 36.8629 20.327 37.108C20.327 37.3531 20.4243 37.5881 20.5976 37.7614C20.7709 37.9346 21.0059 38.032 21.251 38.032H37.893C38.1381 38.032 38.3731 37.9346 38.5464 37.7614C38.7197 37.5881 38.817 37.3531 38.817 37.108C38.817 36.8629 38.7197 36.6279 38.5464 36.4546C38.3731 36.2813 38.1381 36.184 37.893 36.184ZM33.271 43.572H25.875C25.6299 43.572 25.3949 43.6693 25.2216 43.8426C25.0484 44.0159 24.951 44.2509 24.951 44.496C24.951 44.7411 25.0484 44.9761 25.2216 45.1494C25.3949 45.3226 25.6299 45.42 25.875 45.42H33.271C33.5161 45.42 33.7511 45.3226 33.9244 45.1494C34.0976 44.9761 34.195 44.7411 34.195 44.496C34.195 44.2509 34.0976 44.0159 33.9244 43.8426C33.7511 43.6693 33.5161 43.572 33.271 43.572Z\" fill=\"currentColor\"><\/path><\/svg>",
+            "svg_image": "<svg width=\"60\" height=\"55\" viewbox=\"0 0 60 55\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M55.528 20.24C52.48 8.408 41.808 0.142998 29.573 0.142998C15.518 0.142998 3.955 11.02 2.858 24.798L1.578 23.518C1.49225 23.4321 1.39042 23.364 1.27832 23.3174C1.16623 23.2709 1.04607 23.2469 0.924707 23.2468C0.803341 23.2467 0.683145 23.2705 0.570982 23.3169C0.458818 23.3632 0.356885 23.4312 0.271 23.517C0.185116 23.6028 0.116962 23.7046 0.0704317 23.8167C0.0239011 23.9288 -9.56997e-05 24.0489 -0.000188557 24.1703C-0.000281414 24.2917 0.0235315 24.4119 0.0698905 24.524C0.11625 24.6362 0.184247 24.7381 0.27 24.824L3.038 27.592C3.08314 27.6372 3.13272 27.6777 3.186 27.713L3.202 27.723L3.262 27.759L3.286 27.771L3.344 27.798L3.371 27.808C3.40042 27.8191 3.43048 27.8284 3.461 27.836L3.516 27.85L3.558 27.856L3.605 27.863C3.69247 27.8711 3.78064 27.8671 3.867 27.851L3.874 27.85C3.9 27.845 3.925 27.838 3.95 27.831L3.96 27.829C3.98501 27.8213 4.00969 27.8127 4.034 27.803L4.046 27.799C4.07 27.789 4.093 27.778 4.116 27.766L4.128 27.761C4.15266 27.7478 4.17669 27.7335 4.2 27.718L4.205 27.715C4.25966 27.6789 4.31028 27.6369 4.356 27.59L7.122 24.825C7.29532 24.6517 7.39269 24.4166 7.39269 24.1715C7.39269 23.9264 7.29532 23.6913 7.122 23.518C6.94868 23.3447 6.71361 23.2473 6.4685 23.2473C6.22339 23.2473 5.98832 23.3447 5.815 23.518L4.73 24.604C5.914 11.938 16.603 1.992 29.573 1.992C40.963 1.992 50.901 9.685 53.737 20.701C53.8039 20.9319 53.9581 21.1277 54.1669 21.2469C54.3757 21.366 54.6227 21.3992 54.8556 21.3394C55.0884 21.2796 55.2888 21.1315 55.4144 20.9265C55.5399 20.7214 55.5806 20.4746 55.528 20.24ZM58.872 29.062L56.151 26.341C56.0653 26.2382 55.9577 26.1559 55.8361 26.1002C55.7144 26.0444 55.5818 26.0167 55.448 26.019C55.3262 26.0185 55.2056 26.042 55.093 26.0884C54.9804 26.1347 54.8781 26.2029 54.792 26.289C54.775 26.306 54.761 26.324 54.746 26.341L52.025 29.062C51.8517 29.2352 51.7543 29.4701 51.7542 29.7151C51.7541 29.9602 51.8513 30.1952 52.0245 30.3685C52.1977 30.5418 52.4326 30.6392 52.6776 30.6393C52.9227 30.6394 53.1577 30.5422 53.331 30.369L54.488 29.212C53.786 42.347 42.879 52.817 29.572 52.817C18.182 52.817 8.244 45.124 5.408 34.108C5.34562 33.8713 5.19242 33.6687 4.98162 33.5442C4.77082 33.4197 4.51943 33.3833 4.282 33.443C4.04476 33.5042 3.84151 33.657 3.71683 33.868C3.59216 34.0789 3.55625 34.3306 3.617 34.568C6.665 46.402 17.337 54.666 29.572 54.666C43.919 54.666 55.67 43.331 56.342 29.146L57.564 30.369C57.6496 30.4552 57.7514 30.5236 57.8636 30.5703C57.9757 30.617 58.096 30.641 58.2175 30.641C58.339 30.641 58.4593 30.617 58.5714 30.5703C58.6836 30.5236 58.7854 30.4552 58.871 30.369C58.957 30.2833 59.0252 30.1814 59.0717 30.0693C59.1182 29.9571 59.1422 29.8369 59.1422 29.7155C59.1422 29.5941 59.1182 29.4739 59.0717 29.3617C59.0252 29.2496 58.957 29.1477 58.871 29.062H58.872Z\" fill=\"currentColor\"></path><path d=\"M47.132 24.15C47.132 24.128 47.131 24.1059 47.129 24.084L47.127 24.058C47.1244 24.0362 47.1211 24.0145 47.117 23.993L47.114 23.976L47.112 23.968C47.1075 23.9471 47.1022 23.9264 47.096 23.906L47.087 23.876C47.082 23.859 47.075 23.843 47.069 23.826C47.0525 23.7839 47.0328 23.7431 47.01 23.704L47.001 23.688L44.229 19.065L44.216 19.046L44.187 19.004C44.1794 18.9927 44.1714 18.9817 44.163 18.971L44.131 18.933L44.103 18.903L44.068 18.868L44.039 18.842C44.0175 18.8226 43.9948 18.8045 43.971 18.788C43.9548 18.7764 43.9381 18.7654 43.921 18.755L43.898 18.742C43.8784 18.7306 43.8584 18.7199 43.838 18.71L43.822 18.702C43.7994 18.6917 43.7764 18.6823 43.753 18.674L43.741 18.669C43.7173 18.661 43.6933 18.6539 43.669 18.648L43.655 18.644C43.6318 18.6385 43.6085 18.6338 43.585 18.63L43.564 18.627C43.5421 18.6239 43.5201 18.6216 43.498 18.62L43.47 18.618L43.436 18.616H26.827C26.8033 18.615 26.7797 18.615 26.756 18.616H15.708L15.693 18.617C15.6716 18.6173 15.6503 18.6187 15.629 18.621L15.597 18.624C15.5786 18.6265 15.5603 18.6295 15.542 18.633L15.505 18.64L15.455 18.652C15.4262 18.6592 15.3981 18.6689 15.371 18.681L15.334 18.696L15.287 18.719C15.2497 18.7365 15.2142 18.7576 15.181 18.782C15.1649 18.7934 15.1492 18.8054 15.134 18.818L15.111 18.836C15.0962 18.8488 15.0818 18.8621 15.068 18.876L15.044 18.898C15.0121 18.9308 14.983 18.9663 14.957 19.004C14.9465 19.019 14.9365 19.0343 14.927 19.05C14.923 19.055 14.919 19.06 14.917 19.065L12.144 23.688L12.141 23.694C12.1275 23.7167 12.1152 23.7401 12.104 23.764L12.097 23.778C12.0869 23.8 12.0775 23.8223 12.069 23.845L12.061 23.867C12.0509 23.8972 12.0422 23.9279 12.035 23.959L12.026 24.008C12.0218 24.0362 12.0185 24.0646 12.016 24.093C12.0145 24.1113 12.0135 24.1296 12.013 24.148L12.012 24.164V47.688C12.012 47.9331 12.1094 48.1681 12.2826 48.3414C12.4559 48.5146 12.6909 48.612 12.936 48.612C13.1811 48.612 13.4161 48.5146 13.5894 48.3414C13.7627 48.1681 13.86 47.9331 13.86 47.688V25.088H24.95V29.73C24.95 29.744 24.952 29.757 24.953 29.77C24.9543 29.7901 24.9563 29.8101 24.959 29.83C24.959 29.838 24.961 29.845 24.962 29.853C24.966 29.88 24.972 29.905 24.978 29.931V29.937C25.011 30.064 25.069 30.181 25.148 30.282L25.192 30.332L25.202 30.343C25.216 30.359 25.232 30.373 25.246 30.387L25.259 30.398C25.2774 30.4151 25.2968 30.4311 25.317 30.446C25.39 30.501 25.471 30.546 25.557 30.577L25.58 30.585C25.6207 30.5991 25.6625 30.6098 25.705 30.617C25.7216 30.6199 25.7383 30.6223 25.755 30.624L25.787 30.628C25.8156 30.6309 25.8443 30.6326 25.873 30.633H25.875C25.9321 30.6331 25.9891 30.6275 26.045 30.616L26.08 30.609L26.097 30.605L29.571 29.737L33.044 30.606C33.049 30.606 33.053 30.608 33.057 30.609L33.097 30.617C33.1185 30.6211 33.1402 30.6244 33.162 30.627L33.188 30.629C33.2136 30.6315 33.2393 30.6328 33.265 30.633H33.267C33.296 30.6331 33.3251 30.6318 33.354 30.629L33.381 30.625C33.4001 30.6229 33.4191 30.6202 33.438 30.617L33.473 30.61C33.5012 30.6038 33.5289 30.5958 33.556 30.586C33.5694 30.5816 33.5828 30.577 33.596 30.572L33.635 30.557L33.673 30.538C33.695 30.528 33.716 30.516 33.737 30.504L33.774 30.481C33.7967 30.4649 33.8191 30.4482 33.841 30.431L33.869 30.408L33.905 30.376L33.929 30.352L33.964 30.314C33.971 30.306 33.978 30.299 33.984 30.29C33.9959 30.2754 34.0072 30.2604 34.018 30.245L34.034 30.223C34.049 30.201 34.063 30.178 34.076 30.155L34.095 30.116L34.112 30.081L34.13 30.035C34.134 30.024 34.139 30.014 34.142 30.003L34.156 29.956L34.162 29.935L34.165 29.921C34.1688 29.9034 34.1722 29.8858 34.175 29.868L34.183 29.822L34.186 29.784L34.189 29.724V25.091H45.281V47.694C45.281 47.9392 45.3784 48.1743 45.5518 48.3477C45.7252 48.5211 45.9603 48.6185 46.2055 48.6185C46.4507 48.6185 46.6858 48.5211 46.8592 48.3477C47.0326 48.1743 47.13 47.9392 47.13 47.694V24.17L47.129 24.156L47.132 24.15ZM29.83 27.893C29.6619 27.8436 29.4831 27.8436 29.315 27.893L26.798 28.522V25.084H32.345V28.521L29.83 27.893ZM16.232 20.462H25.672L25.117 23.236H14.567L16.232 20.462ZM31.588 20.462L32.143 23.236H27.002L27.557 20.462H31.588ZM34.028 23.236L33.473 20.462H42.913L44.577 23.236H34.028Z\" fill=\"currentColor\"></path><path d=\"M37.893 39.873H21.251C21.0058 39.873 20.7707 39.9704 20.5973 40.1438C20.4239 40.3172 20.3265 40.5523 20.3265 40.7975C20.3265 41.0427 20.4239 41.2778 20.5973 41.4512C20.7707 41.6246 21.0058 41.722 21.251 41.722H37.893C38.1382 41.722 38.3733 41.6246 38.5467 41.4512C38.7201 41.2778 38.8175 41.0427 38.8175 40.7975C38.8175 40.5523 38.7201 40.3172 38.5467 40.1438C38.3733 39.9704 38.1382 39.873 37.893 39.873ZM37.893 36.184H21.251C21.0059 36.184 20.7709 36.2813 20.5976 36.4546C20.4243 36.6279 20.327 36.8629 20.327 37.108C20.327 37.3531 20.4243 37.5881 20.5976 37.7614C20.7709 37.9346 21.0059 38.032 21.251 38.032H37.893C38.1381 38.032 38.3731 37.9346 38.5464 37.7614C38.7197 37.5881 38.817 37.3531 38.817 37.108C38.817 36.8629 38.7197 36.6279 38.5464 36.4546C38.3731 36.2813 38.1381 36.184 37.893 36.184ZM33.271 43.572H25.875C25.6299 43.572 25.3949 43.6693 25.2216 43.8426C25.0484 44.0159 24.951 44.2509 24.951 44.496C24.951 44.7411 25.0484 44.9761 25.2216 45.1494C25.3949 45.3226 25.6299 45.42 25.875 45.42H33.271C33.5161 45.42 33.7511 45.3226 33.9244 45.1494C34.0976 44.9761 34.195 44.7411 34.195 44.496C34.195 44.2509 34.0976 44.0159 33.9244 43.8426C33.7511 43.6693 33.5161 43.572 33.271 43.572Z\" fill=\"currentColor\"></path></svg>",
             "title": "FREE SHIPPING",
             "text": "",
-            "link": "shopify:\/\/pages\/faqs"
+            "link": "shopify://pages/faqs"
           }
         },
         "column_V3e3pa": {
           "type": "column",
           "settings": {
-            "svg_image": "<svg width=\"55\" height=\"55\" viewbox=\"0 0 55 55\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M28.557 0.413003L33.529 5.001L40.128 3.513C40.5103 3.4272 40.9109 3.48839 41.2501 3.68441C41.5894 3.88044 41.8424 4.19694 41.959 4.571L43.971 11.03L50.43 13.041C50.8041 13.1578 51.1205 13.4111 51.3164 13.7505C51.5122 14.09 51.5731 14.4907 51.487 14.873L50 21.472L54.589 26.443C54.8549 26.731 55.0025 27.1086 55.0025 27.5005C55.0025 27.8924 54.8549 28.27 54.589 28.558L50 33.529L51.488 40.129C51.5738 40.5113 51.5126 40.9119 51.3166 41.2511C51.1206 41.5904 50.8041 41.8434 50.43 41.96L43.972 43.971L41.961 50.431C41.8442 50.8051 41.5909 51.1215 41.2515 51.3174C40.912 51.5132 40.5113 51.5741 40.129 51.488L33.528 50L28.558 54.588C28.27 54.8539 27.8925 55.0015 27.5005 55.0015C27.1086 55.0015 26.731 54.8539 26.443 54.588L21.47 50L14.871 51.488C14.4886 51.5741 14.0877 51.513 13.7483 51.317C13.4088 51.1209 13.1556 50.8043 13.039 50.43L11.029 43.971L4.56901 41.961C4.19492 41.8442 3.87848 41.5909 3.68264 41.2515C3.48679 40.912 3.42587 40.5113 3.51201 40.129L5.00001 33.529L0.413006 28.557C0.147427 28.2691 -3.05176e-05 27.8917 -3.05176e-05 27.5C-3.05176e-05 27.1083 0.147427 26.7309 0.413006 26.443L5.00101 21.471L3.51301 14.872C3.42692 14.4896 3.48797 14.0887 3.68402 13.7493C3.88007 13.4098 4.19673 13.1566 4.57101 13.04L11.03 11.03L13.041 4.57C13.1578 4.19591 13.4111 3.87948 13.7505 3.68363C14.09 3.48778 14.4907 3.42687 14.873 3.513L21.472 5L26.442 0.412003C26.73 0.146138 27.1076 -0.00149536 27.4995 -0.00149536C27.8915 -0.00149536 28.269 0.147138 28.557 0.413003ZM32.924 7.258L40.124 5.634L42.319 12.681L49.366 14.875L47.742 22.076L52.75 27.5L47.743 32.924L49.367 40.124L42.32 42.319L40.126 49.366L32.925 47.742L27.5 52.75L22.076 47.743L14.876 49.367L12.681 42.32L5.63401 40.126L7.25801 32.925L2.25001 27.5L7.25701 22.076L5.63301 14.876L12.68 12.681L14.874 5.634L22.075 7.258L27.5 2.25L32.924 7.258ZM38.554 21.905C38.8084 21.5921 38.9317 21.1928 38.8981 20.791C38.8645 20.3891 38.6766 20.0159 38.3738 19.7495C38.071 19.4832 37.6768 19.3445 37.274 19.3625C36.8711 19.3805 36.4909 19.5538 36.213 19.846L25.765 31.731L20.34 27.282C20.1819 27.1505 19.9993 27.0516 19.8028 26.9909C19.6063 26.9303 19.3998 26.9091 19.1951 26.9286C18.9903 26.9482 18.7915 27.008 18.61 27.1047C18.4285 27.2014 18.268 27.3331 18.1376 27.4921C18.0072 27.6511 17.9095 27.8343 17.8502 28.0313C17.791 28.2282 17.7712 28.4349 17.7922 28.6395C17.8132 28.844 17.8744 29.0424 17.9723 29.2233C18.0703 29.4041 18.2031 29.5637 18.363 29.693L24.953 35.097C25.2657 35.3533 25.6656 35.4781 26.0686 35.4453C26.4715 35.4125 26.8459 35.2245 27.113 34.921L38.554 21.905Z\" fill=\"currentColor\"><\/path><\/svg>",
+            "svg_image": "<svg width=\"55\" height=\"55\" viewbox=\"0 0 55 55\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M28.557 0.413003L33.529 5.001L40.128 3.513C40.5103 3.4272 40.9109 3.48839 41.2501 3.68441C41.5894 3.88044 41.8424 4.19694 41.959 4.571L43.971 11.03L50.43 13.041C50.8041 13.1578 51.1205 13.4111 51.3164 13.7505C51.5122 14.09 51.5731 14.4907 51.487 14.873L50 21.472L54.589 26.443C54.8549 26.731 55.0025 27.1086 55.0025 27.5005C55.0025 27.8924 54.8549 28.27 54.589 28.558L50 33.529L51.488 40.129C51.5738 40.5113 51.5126 40.9119 51.3166 41.2511C51.1206 41.5904 50.8041 41.8434 50.43 41.96L43.972 43.971L41.961 50.431C41.8442 50.8051 41.5909 51.1215 41.2515 51.3174C40.912 51.5132 40.5113 51.5741 40.129 51.488L33.528 50L28.558 54.588C28.27 54.8539 27.8925 55.0015 27.5005 55.0015C27.1086 55.0015 26.731 54.8539 26.443 54.588L21.47 50L14.871 51.488C14.4886 51.5741 14.0877 51.513 13.7483 51.317C13.4088 51.1209 13.1556 50.8043 13.039 50.43L11.029 43.971L4.56901 41.961C4.19492 41.8442 3.87848 41.5909 3.68264 41.2515C3.48679 40.912 3.42587 40.5113 3.51201 40.129L5.00001 33.529L0.413006 28.557C0.147427 28.2691 -3.05176e-05 27.8917 -3.05176e-05 27.5C-3.05176e-05 27.1083 0.147427 26.7309 0.413006 26.443L5.00101 21.471L3.51301 14.872C3.42692 14.4896 3.48797 14.0887 3.68402 13.7493C3.88007 13.4098 4.19673 13.1566 4.57101 13.04L11.03 11.03L13.041 4.57C13.1578 4.19591 13.4111 3.87948 13.7505 3.68363C14.09 3.48778 14.4907 3.42687 14.873 3.513L21.472 5L26.442 0.412003C26.73 0.146138 27.1076 -0.00149536 27.4995 -0.00149536C27.8915 -0.00149536 28.269 0.147138 28.557 0.413003ZM32.924 7.258L40.124 5.634L42.319 12.681L49.366 14.875L47.742 22.076L52.75 27.5L47.743 32.924L49.367 40.124L42.32 42.319L40.126 49.366L32.925 47.742L27.5 52.75L22.076 47.743L14.876 49.367L12.681 42.32L5.63401 40.126L7.25801 32.925L2.25001 27.5L7.25701 22.076L5.63301 14.876L12.68 12.681L14.874 5.634L22.075 7.258L27.5 2.25L32.924 7.258ZM38.554 21.905C38.8084 21.5921 38.9317 21.1928 38.8981 20.791C38.8645 20.3891 38.6766 20.0159 38.3738 19.7495C38.071 19.4832 37.6768 19.3445 37.274 19.3625C36.8711 19.3805 36.4909 19.5538 36.213 19.846L25.765 31.731L20.34 27.282C20.1819 27.1505 19.9993 27.0516 19.8028 26.9909C19.6063 26.9303 19.3998 26.9091 19.1951 26.9286C18.9903 26.9482 18.7915 27.008 18.61 27.1047C18.4285 27.2014 18.268 27.3331 18.1376 27.4921C18.0072 27.6511 17.9095 27.8343 17.8502 28.0313C17.791 28.2282 17.7712 28.4349 17.7922 28.6395C17.8132 28.844 17.8744 29.0424 17.9723 29.2233C18.0703 29.4041 18.2031 29.5637 18.363 29.693L24.953 35.097C25.2657 35.3533 25.6656 35.4781 26.0686 35.4453C26.4715 35.4125 26.8459 35.2245 27.113 34.921L38.554 21.905Z\" fill=\"currentColor\"></path></svg>",
             "title": "LIFETIME GUARANTEE",
             "text": "",
-            "link": "shopify:\/\/pages\/lifetime-promise-1"
+            "link": "shopify://pages/lifetime-promise-1"
           }
         },
         "column_7tVPrL": {
           "type": "column",
           "disabled": true,
           "settings": {
-            "svg_image": "<svg width=\"30\" height=\"56\" viewbox=\"0 0 30 56\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M24.181 0H5.819C2.611 0 0 2.644 0 5.893V49.31C0 52.558 2.611 55.203 5.819 55.203H24.181C27.389 55.203 30 52.558 30 49.31V5.893C30 2.644 27.389 0 24.181 0ZM27.612 49.961C27.612 51.726 26.195 53.157 24.457 53.157H5.543C3.8 53.157 2.387 51.722 2.387 49.961V5.241C2.387 3.475 3.804 2.044 5.543 2.044H24.455C26.198 2.044 27.612 3.48 27.612 5.24V49.961Z\" fill=\"currentColor\"><\/path><path d=\"M12.992 6.974H17.002C17.764 6.974 18.378 6.357 18.378 5.589C18.378 4.822 17.764 4.205 17.002 4.205H12.992C12.229 4.205 11.615 4.822 11.615 5.589C11.615 6.357 12.229 6.974 12.992 6.974ZM20.832 47.44H9.168C8.363 47.44 7.714 48.018 7.714 48.734C7.714 49.451 8.363 50.028 9.168 50.028H20.832C21.637 50.028 22.286 49.451 22.286 48.734C22.286 48.018 21.637 47.44 20.832 47.44Z\" fill=\"currentColor\"><\/path><\/svg>",
+            "svg_image": "<svg width=\"30\" height=\"56\" viewbox=\"0 0 30 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M24.181 0H5.819C2.611 0 0 2.644 0 5.893V49.31C0 52.558 2.611 55.203 5.819 55.203H24.181C27.389 55.203 30 52.558 30 49.31V5.893C30 2.644 27.389 0 24.181 0ZM27.612 49.961C27.612 51.726 26.195 53.157 24.457 53.157H5.543C3.8 53.157 2.387 51.722 2.387 49.961V5.241C2.387 3.475 3.804 2.044 5.543 2.044H24.455C26.198 2.044 27.612 3.48 27.612 5.24V49.961Z\" fill=\"currentColor\"></path><path d=\"M12.992 6.974H17.002C17.764 6.974 18.378 6.357 18.378 5.589C18.378 4.822 17.764 4.205 17.002 4.205H12.992C12.229 4.205 11.615 4.822 11.615 5.589C11.615 6.357 12.229 6.974 12.992 6.974ZM20.832 47.44H9.168C8.363 47.44 7.714 48.018 7.714 48.734C7.714 49.451 8.363 50.028 9.168 50.028H20.832C21.637 50.028 22.286 49.451 22.286 48.734C22.286 48.018 21.637 47.44 20.832 47.44Z\" fill=\"currentColor\"></path></svg>",
             "title": "HERE FOR YOU, ALWAYS",
             "text": "",
-            "link": "shopify:\/\/pages\/contact"
+            "link": "shopify://pages/contact"
           }
         }
       },
@@ -1109,7 +1118,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "vip",
-            "image": "shopify:\/\/shop_images\/Rectangle_15.jpg",
+            "image": "shopify://shop_images/Rectangle_15.jpg",
             "title": "SHOP THE VIP FAMILY"
           }
         },
@@ -1117,7 +1126,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "charles-crossbody",
-            "image": "shopify:\/\/shop_images\/Rectangle_15-1.jpg",
+            "image": "shopify://shop_images/Rectangle_15-1.jpg",
             "title": "SHOP THE CHARLES FAMILY"
           }
         },
@@ -1125,7 +1134,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "multiple-sizes",
-            "image": "shopify:\/\/shop_images\/Rectangle_15-2.jpg",
+            "image": "shopify://shop_images/Rectangle_15-2.jpg",
             "title": "SHOP MULTIPLE SIZES"
           }
         },
@@ -1133,7 +1142,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "wallets",
-            "image": "shopify:\/\/shop_images\/Rectangle_15-3.jpg",
+            "image": "shopify://shop_images/Rectangle_15-3.jpg",
             "title": "SHOP WALLETS"
           }
         }
@@ -1170,8 +1179,8 @@
         "video_height_mobile": "450px",
         "full_width": true,
         "enable_video_looping": true,
-        "video": "shopify:\/\/files\/videos\/copy_B7D84662-1616-48D2-A663-5E492D4C7E49.mov",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "video": "shopify://files/videos/copy_B7D84662-1616-48D2-A663-5E492D4C7E49.mov",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "description": "",
         "video_overlay": 0,
         "video_overlay_color": "#000000",
@@ -1195,8 +1204,8 @@
         "content_space_bottom": 24,
         "content_space_top_mob": 10,
         "content_space_bottom_mob": 28,
-        "cta_text": "<p>SHOP NOW<\/p>",
-        "cta_url": "shopify:\/\/collections\/view-all",
+        "cta_text": "<p>SHOP NOW</p>",
+        "cta_url": "shopify://collections/view-all",
         "cta_font_size": 16,
         "cta_font_size_mobile": 16,
         "cta_text_decoration": "none",
@@ -1219,9 +1228,9 @@
         "heading": "",
         "heading_size": "h1",
         "subheading": "",
-        "video": "shopify:\/\/files\/videos\/HammittFeature_Compressed.mp4",
+        "video": "shopify://files/videos/HammittFeature_Compressed.mp4",
         "video_url": "",
-        "mobile_video": "shopify:\/\/files\/videos\/HammittFeature_Compressed.mp4",
+        "mobile_video": "shopify://files/videos/HammittFeature_Compressed.mp4",
         "mobile_video_url": "",
         "description": "",
         "full_width": true,
@@ -1241,7 +1250,7 @@
         "paragraph": "Tag #HammittLA for a chance to be featured on our feed.",
         "text_align": "center",
         "show_link_to_page": true,
-        "link_to_page": "shopify:\/\/pages\/shop-insta",
+        "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
       }
     }
