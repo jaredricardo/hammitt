@@ -256,7 +256,7 @@
         </div>
 
       </div>
-      <media-gallery id="MediaGallery-{{ section.id }}" role="region" class="main-product-media-gallery small-hide {% if section.settings.enable_sticky_info %}product__media-gallery{% endif %}" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
+      <media-gallery style="position: relative;" id="MediaGallery-{{ section.id }}" role="region" class="main-product-media-gallery small-hide {% if section.settings.enable_sticky_info %}product__media-gallery{% endif %}" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
 
         {% render 'swym-hammitt-custom-favorite-button', product:product %}
         
