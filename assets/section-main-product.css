@@ -1762,4 +1762,16 @@ a.button.klaviyo-bis-trigger:hover {
   .top-text-wrapper.desktop {
     display: none;
   }
+  .pdp-hero-section .colorway-optimized .custom-variant-list {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+  }  
 }
+
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .custom-variant-title,
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .custom-variant-list {
+  display: none !important;
+}
+
+
+
