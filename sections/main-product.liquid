@@ -450,14 +450,41 @@
               <div class="col left-col">
                 <p class="pdp_color" style="margin-top: 0px;">{{ product_color }}</p>     
                 <div class="top-text-wrapper">
-                  <h1 class="product__title h0" {{ block.shopify_attributes }}>
-                    {% if seo_tag %}<span class="h5 seo-tag">{{ seo_tag }}</span>{% endif %}
-                    {% assign product_title = product.title | split: settings.split_value  %}
-                    {{ product_title[0] }}
-                    {% if product_title[2] %}
-                    {{ product_title[2] }}
+
+                  {% if seo_tag %}
+                    <div class="title-container">
+                      <h1 class="h5 seo-tag">
+                        {{ seo_tag }}
+                      </h1>
+                      <span class="product__title h0">
+                        {% assign product_title = product.title | split: settings.split_value  %}
+                        {{ product_title[0] }}
+                        {% if product_title[2] %}
+                          {{ product_title[2] }}
+                        {% endif %}
+                      </span>
+                    </div>
+                    {% else %}
+                    <h1 class="product__title h0">
+                      {% assign product_title = product.title | split: settings.split_value  %}
+                      {{ product_title[0] }}
+                      {% if product_title[2] %}
+                        {{ product_title[2] }}
+                      {% endif %}
+                    </h1>
+                  {% endif %}
+
+                  {% comment %} 
+                    old (mobile) product title display logic
+                    <h1 class="product__title h0" {{ block.shopify_attributes }}>
+                      {% if seo_tag %}<span class="h5 seo-tag">{{ seo_tag }}</span>{% endif %}
+                      {% assign product_title = product.title | split: settings.split_value  %}
+                      {{ product_title[0] }}
+                      {% if product_title[2] %}
+                      {{ product_title[2] }}
                     {% endif %}
-                  </h1>
+                    </h1> 
+                  {% endcomment %}
                   {% if product.metafields.custom.back_in_stock_one_liner %}
                     <div class="back-in-stock-one-liner-container">
                       {{ product.metafields.custom.back_in_stock_one_liner }}
@@ -533,7 +560,7 @@
               {%- endif -%}
               {%- if block.settings.title2 != blank or block.settings.icon2 != blank -%}
               <div class="col flexbox align-center justify-center">
-                {% if block.settings.link2 != blank %}<a href="{{ block.settings.link2 }}" .mobile-pdp-info .top-text-wrapperclass="collink"></a>{% endif %}
+                {% if block.settings.link2 != blank %}<a href="{{ block.settings.link2 }}" class="collink"></a>{% endif %}
                 <div class="col-icon">
                   <img src="{{ block.settings.icon2 | img_url: "35x" }}">
                 </div>
@@ -545,14 +572,40 @@
           {%- when 'title' -%}
             <p class="pdp_color small-hide" style="margin-top: 0px;">{{ product_color }}</p>   
             <div class="top-text-wrapper desktop">   
-              <h1 class="product__title h0 small-hide" {{ block.shopify_attributes }}>
-              {% if seo_tag %}<span class="h5 seo-tag">{{ seo_tag }}</span>{% endif %}
-                {% assign product_title = product.title | split: settings.split_value  %}
-                {{ product_title[0] }}
-                {% if product_title[2] %}
-                {{ product_title[2] }}
+              {% if seo_tag %}
+                <div class="title-container">
+                  <h1 class="h5 seo-tag">
+                    {{ seo_tag }}
+                  </h1>
+                  <span class="product__title h0 small-hide">
+                    {% assign product_title = product.title | split: settings.split_value  %}
+                    {{ product_title[0] }}
+                    {% if product_title[2] %}
+                      {{ product_title[2] }}
+                    {% endif %}
+                  </span>
+                </div>
+                {% else %}
+                <h1 class="product__title h0 small-hide">
+                  {% assign product_title = product.title | split: settings.split_value  %}
+                  {{ product_title[0] }}
+                  {% if product_title[2] %}
+                    {{ product_title[2] }}
+                  {% endif %}
+                </h1>
               {% endif %}
-              </h1>
+
+              {% comment %} 
+                old product title display logic
+                <h1 class="product__title h0 small-hide" {{ block.shopify_attributes }}>
+                {% if seo_tag %}<span class="h5 seo-tag">{{ seo_tag }}</span>{% endif %}
+                  {% assign product_title = product.title | split: settings.split_value  %}
+                  {{ product_title[0] }}
+                  {% if product_title[2] %}
+                  {{ product_title[2] }}
+                {% endif %}
+                </h1> 
+              {% endcomment %}
               {% if product.metafields.custom.back_in_stock_one_liner %}
                 <div class="back-in-stock-one-liner-container">
                   {{ product.metafields.custom.back_in_stock_one_liner }}
