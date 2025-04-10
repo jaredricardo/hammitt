@@ -473,7 +473,7 @@
     minty-fresh-filters .filter-sort-button-container {
         display: flex;
         gap: 10px;
-        z-index: 5;
+        z-index: 4;
     }
 
     minty-fresh-filters #toggle-filter-drawer,
@@ -606,7 +606,6 @@
 {% liquid 
 
     assign has_collection_links = false
-    assign results = collection
     assign active_filter_count = 0
     assign sort_by = results.sort_by | default: results.default_sort_by
 
