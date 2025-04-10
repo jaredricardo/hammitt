@@ -51,15 +51,12 @@
   endfor
 %}
 
+{% comment %} 
 
-{% assign pname = product_type | append: product_size %}
+- FIGURE OUT ISCURRENT
+- MUST MAKE JSON OBJECT HERE + IN THE ORIGINAL SNIPPET 
 
-{% capture pname %}
-  {{ product_type }}{{ product_size }}
-{% endcapture %}
-
-{% assign style_count = 0 %}
-{% assign size_count = 0 %}
+{% endcomment %}
 
 <div class="product-colors color_group color_group_block custom-variant-options colorway-optimized">
   {% comment %} color products {% endcomment %}
@@ -71,6 +68,8 @@
       {% for product in colorway_collection %}
   
         {% liquid 
+
+          assign isCurrent = false
   
           if product.title contains "Sml" or product.title contains "Med" or product.title contains "Lrg"
             continue
@@ -84,17 +83,21 @@
           if product.metafields.custom.hide_product_all_customers == 1
             continue
           endif
+
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
   
         -%}
   
-        <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}" {{ product.title }} data-else="{{ relsize }} || {{ reltitle }} || {{ isCurrent }} || THIS SIZE:{{ this_size }}">
+        <li data-tooltip="{{ reltitle[1] }}" {{ product.title }}>
           <div class="image customSwatch">
             <a 
               href="{{ product.url }}" 
               data-product-title="{{ product.title }}" 
               data-sku="{{ product.selected_or_first_available_variant.sku }}"
               data-product-img="{{ product.featured_image | img_url: 'medium' }}"
-              aria-label="{{ reltitle[1] }}" {% if iscurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+              aria-label="{{ reltitle[1] }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
               {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
             </a>
           </div>
@@ -136,26 +139,20 @@
             continue
           endif
 
-          #### everything below needs to be figured out 
-
-          # if pname contains relsize
-            #if reltitle[1] == product_color
-            #  assign isCurrent = true
-            # endif
-          #endif
-
-          #style_count = style_count | plus: 
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
 
         -%}
 
-          <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}" {{ product.title }} data-else="{{ relsize }} || {{ reltitle }} || {{ isCurrent }} || THIS SIZE:{{ this_size }}">
+          <li data-tooltip="{{ reltitle[1] }}" {{ product.title }}>
             <div class="image customSwatch">
               <a 
                 href="{{ product.url }}" 
                 data-product-title="{{ product.title }}" 
                 data-sku="{{ product.selected_or_first_available_variant.sku }}"
                 data-product-img="{{ product.featured_image | img_url: 'medium' }}"
-                aria-label="{{ reltitle[1] }}" {% if iscurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                aria-label="{{ reltitle[1] }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
                 {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
               </a>
             </div>
@@ -178,11 +175,11 @@
   
         {% liquid 
         
-          assign reltitle = product.title | split: '|'
+          assign reltitle = product.title | split: '|' 
           assign relsize = reltitle[0] | append: reltitle[2]
           assign this_size = reltitle[2] | strip
           assign isCurrent = false
-      
+
           unless this_size == "Med"
             continue 
           endunless
@@ -196,26 +193,21 @@
             continue
           endif
   
-          #### everything below needs to be figured out 
-  
-          # if pname contains relsize
-            #if reltitle[1] == product_color
-            #  assign isCurrent = true
-            # endif
-          #endif
-  
-          #style_count = style_count | plus: 
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
   
         -%}
   
-          <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}" {{ product.title }} data-else="{{ relsize }} || {{ reltitle }} || {{ isCurrent }} || THIS SIZE:{{ this_size }}">
+          <li data-tooltip="{{ reltitle[1] }}" {{ product.title }}>
             <div class="image customSwatch">
               <a 
+                {{ isCurrent }}
                 href="{{ product.url }}" 
                 data-product-title="{{ product.title }}" 
                 data-sku="{{ product.selected_or_first_available_variant.sku }}"
                 data-product-img="{{ product.featured_image | img_url: 'medium' }}"
-                aria-label="{{ reltitle[1] }}" {% if iscurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                aria-label="{{ reltitle[1] }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
                 {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
               </a>
             </div>
@@ -256,46 +248,28 @@
             continue
           endif
   
-          #### everything below needs to be figured out 
-  
-          # if pname contains relsize
-            #if reltitle[1] == product_color
-            #  assign isCurrent = true
-            # endif
-          #endif
-  
-          #style_count = style_count | plus: 
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
   
         -%}
   
-          <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}" {{ product.title }} data-else="{{ relsize }} || {{ reltitle }} || {{ isCurrent }} || THIS SIZE:{{ this_size }}">
+          <li data-tooltip="{{ reltitle[1]}}" {{ product.title }}>
             <div class="image customSwatch">
               <a 
+                {{ isCurrent }}
                 href="{{ product.url }}" 
                 data-product-title="{{ product.title }}" 
                 data-sku="{{ product.selected_or_first_available_variant.sku }}"
                 data-product-img="{{ product.featured_image | img_url: 'medium' }}"
-                aria-label="{{ reltitle[1] }}" {% if iscurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                aria-label="{{ reltitle[1] }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
                 {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
               </a>
             </div>
           </li>
   
-      {% endfor %}
+      {%- endfor -%}
     </ul>
   </div>
 
 </div>
-
-
-{% comment %}
-  {%- if size_count < 1 -%}
-  <style>
-  .size_group {display:none;}
-  </style>
-  {% endif %}
-{% endcomment %}
-
-
-
-
