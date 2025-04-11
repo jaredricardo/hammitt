@@ -1,0 +1,271 @@
+<style>
+  .product-colors {
+    margin: 20px 0;
+  }
+
+  .product-colors ul {
+    margin-block-start: 0em;
+    padding-inline-start: 0em;
+  }
+
+  .product-colors ul li {
+    list-style: none;
+    display: inline-block;
+    border: 1px solid white;
+    margin-right: 2px;
+  }
+  .product-colors li:hover,
+  .highlight {
+    border: 1px solid #e0dfde;
+  }
+
+  .tooltip-block:hover:after {
+    border: 1px solid #fc0;
+    padding: 3px 6px;
+    background: #fffea1;
+    content: attr(data-title);
+    position: absolute;
+    right: -50px;
+    top: 100px;
+  }
+
+  /* .size_title{font-weight: 600;text-transform: uppercase;margin-bottom: 10px;} */
+
+  .swatch_image-a{
+    display: flex;
+  }
+</style>
+
+{% liquid
+
+
+  assign colorway_collection_handle = product.metafields.custom.colorway_collection.value.handle
+  assign colorway_collection = collections[colorway_collection_handle].products
+  assign dc_product_size = product_size | downcase | strip
+
+  assign isShareholder = false
+  for tag in customer.tags
+    if tag == 'shareholder'
+      assign isShareholder = true
+    endif
+  endfor
+%}
+
+<div class="product-colors color_group color_group_block custom-variant-options colorway-optimized">
+  {% comment %} color products {% endcomment %}
+  <div class="variant-picker-group-wrapper">
+    {% unless dc_product_size == 'sml' or dc_product_size == "med" or dc_product_size == "lrg" %}
+    <p class="custom-variant-title"><span>{{ 'MORE COLORS:' | upcase }}</span> <strong>{{ product_color }}</strong></p>
+    {% endunless %}
+    <ul class="custom-variant-list">
+      {% for product in colorway_collection %}
+  
+        {% liquid 
+
+          assign reltitle = product.title | split: '|'
+          assign relsize = reltitle[0] | append: reltitle[2]
+          assign this_size = reltitle[2] | strip
+          assign isCurrent = false
+  
+          if product.title contains "Sml" or product.title contains "Med" or product.title contains "Lrg"
+            continue
+          endif
+  
+          # Only show exclusive product if customer has shareholder tag and seo hidden is 1 #
+          if isShareholder == false and product.metafields.seo.hidden == 1
+            continue 
+          endif
+  
+          if product.metafields.custom.hide_product_all_customers == 1
+            continue
+          endif
+
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
+  
+        -%}
+  
+        <li data-tooltip="{{ reltitle[1] }}">
+          <div class="image customSwatch">
+            <a 
+              href="{{ product.url }}" 
+              data-product-title="{{ product.title }}" 
+              data-sku="{{ product.selected_or_first_available_variant.sku }}"
+              data-product-img="{{ product.featured_image | img_url: 'medium' }}"
+              aria-label="{{ reltitle[1] }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+              {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
+            </a>
+          </div>
+        </li>
+  
+  
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% comment %} Small products {% endcomment %}
+  <div class="variant-picker-group-wrapper">
+      <p class="custom-variant-title">
+        <span>{{ 'Small:' | upcase }}</span> 
+        {% if dc_product_size == "sml" %}
+          <strong>{{ product_color }}</strong>
+        {% endif %}
+      </p>
+    <ul class="custom-variant-list">
+      {%- for product in colorway_collection -%}
+
+        {% liquid 
+        
+          assign reltitle = product.title | split: '|'
+          assign relsize = reltitle[0] | append: reltitle[2]
+          assign this_size = reltitle[2] | strip
+          assign isCurrent = false
+      
+          unless this_size == "Sml"
+            continue 
+          endunless
+
+          # Only show exclusive product if customer has shareholder tag and seo hidden is 1 #
+          if isShareholder == false and product.metafields.seo.hidden == 1
+            continue 
+          endif
+
+          if product.metafields.custom.hide_product_all_customers == 1
+            continue
+          endif
+
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
+
+        -%}
+
+          <li data-tooltip="{{ reltitle[1] }}">
+            <div class="image customSwatch">
+              <a 
+                href="{{ product.url }}" 
+                data-product-title="{{ product.title }}" 
+                data-sku="{{ product.selected_or_first_available_variant.sku }}"
+                data-product-img="{{ product.featured_image | img_url: 'medium' }}"
+                aria-label="{{ reltitle[1] }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
+              </a>
+            </div>
+          </li>
+
+      {% endfor %}
+    </ul>
+  </div>
+  
+  {% comment %} Medium products {% endcomment %}
+  <div class="variant-picker-group-wrapper">
+      <p class="custom-variant-title">
+        <span>{{ 'Medium:' | upcase }}</span> 
+        {% if dc_product_size == "med" %}
+          <strong>{{ product_color }}</strong>
+        {% endif %}
+      </p>
+    <ul class="custom-variant-list">
+      {%- for product in colorway_collection -%}
+  
+        {% liquid 
+        
+          assign reltitle = product.title | split: '|' 
+          assign relsize = reltitle[0] | append: reltitle[2]
+          assign this_size = reltitle[2] | strip
+          assign isCurrent = false
+
+          unless this_size == "Med"
+            continue 
+          endunless
+  
+          # Only show exclusive product if customer has shareholder tag and seo hidden is 1 #
+          if isShareholder == false and product.metafields.seo.hidden == 1
+            continue 
+          endif
+  
+          if product.metafields.custom.hide_product_all_customers == 1
+            continue
+          endif
+  
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
+  
+        -%}
+  
+          <li data-tooltip="{{ reltitle[1] }}">
+            <div class="image customSwatch">
+              <a 
+                {{ isCurrent }}
+                href="{{ product.url }}" 
+                data-product-title="{{ product.title }}" 
+                data-sku="{{ product.selected_or_first_available_variant.sku }}"
+                data-product-img="{{ product.featured_image | img_url: 'medium' }}"
+                aria-label="{{ reltitle[1] }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
+              </a>
+            </div>
+          </li>
+  
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% comment %} Large products {% endcomment %}
+  <div class="variant-picker-group-wrapper">
+      <p class="custom-variant-title">
+        <span>{{ 'Large:' | upcase }}</span> 
+      {% if dc_product_size == "lrg" %}
+        <strong>{{ product_color }}</strong>
+      {% endif %}
+      </p>
+    <ul class="custom-variant-list">
+      {%- for product in colorway_collection -%}
+  
+        {% liquid 
+        
+          assign reltitle = product.title | split: '|'
+          assign relsize = reltitle[0] | append: reltitle[2]
+          assign this_size = reltitle[2] | strip
+          assign isCurrent = false
+      
+          unless this_size == "Lrg"
+            continue 
+          endunless
+  
+          # Only show exclusive product if customer has shareholder tag and seo hidden is 1 #
+          if isShareholder == false and product.metafields.seo.hidden == 1
+            continue 
+          endif
+  
+          if product.metafields.custom.hide_product_all_customers == 1
+            continue
+          endif
+  
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
+  
+        -%}
+  
+          <li data-tooltip="{{ reltitle[1]}}">
+            <div class="image customSwatch">
+              <a 
+                {{ isCurrent }}
+                href="{{ product.url }}" 
+                data-product-title="{{ product.title }}" 
+                data-sku="{{ product.selected_or_first_available_variant.sku }}"
+                data-product-img="{{ product.featured_image | img_url: 'medium' }}"
+                aria-label="{{ reltitle[1] }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
+              </a>
+            </div>
+          </li>
+  
+      {%- endfor -%}
+    </ul>
+  </div>
+  <span class="hidden" data-product-variant-json="{{ colorway_collection | json }}"></span>
+</div>
