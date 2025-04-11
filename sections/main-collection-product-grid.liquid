@@ -94,7 +94,7 @@
   
     <div class="page-width small-full-width" id="main-collection-filters" data-id="{{ section.id }}">
       {% if section.settings.use_new_filters %}
-        {% render 'new-filters', blocks: section.blocks %}
+        {% render 'new-filters', results: collection, blocks: section.blocks %}
       {% else %}
         {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
       {% endif %}
@@ -359,7 +359,7 @@
   "blocks": [
 	{
 	  "type":"marketing_tile",
-      "name":"Marketing Tile",
+    "name":"Marketing Tile",
 	  "settings": [
 		{
 		  "type":"image_picker",
@@ -423,7 +423,7 @@
         "label": "Alternative Collection Title (optional)"
       }
     ]
-  }
+    }
   ]
 }
 {% endschema %}

@@ -473,7 +473,7 @@
     minty-fresh-filters .filter-sort-button-container {
         display: flex;
         gap: 10px;
-        z-index: 5;
+        z-index: 4;
     }
 
     minty-fresh-filters #toggle-filter-drawer,
@@ -557,6 +557,9 @@
         main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
             grid-template-columns: repeat(5, 1fr);
         }
+        .template-search:has(minty-fresh-filters):has(#toggle-grid.grid-view) .collection.page-width {
+            padding: 0;
+        }
     }
 
     @media screen and (max-width: 768px) {
@@ -606,7 +609,6 @@
 {% liquid 
 
     assign has_collection_links = false
-    assign results = collection
     assign active_filter_count = 0
     assign sort_by = results.sort_by | default: results.default_sort_by
 
@@ -622,8 +624,7 @@
 
 -%}
 
-<minty-fresh-filters>
-
+<minty-fresh-filters {% if request.page_type == "search" %}data-on-search="true"{% endif %}>
     <minty-fresh-filter-drawer>
         <form>
             <div class="inner">
@@ -724,7 +725,13 @@
                 </div>
                 <div class="apply-area">
                     <button id="apply">Apply</button>
-                    <a id="reset" href="{{ collection.url }}">Reset</a>
+                    {% if request.page_type == "collection" %}
+                        <a id="reset" href="{{ collection.url }}">Reset</a>
+                    {% endif %}
+                    {% if request.page_type == "search" %}
+                        <input type="search" class="hidden" name="q" value="{{ results.terms }}">
+                        <a id="reset" href="/search?q={{ results.terms }}">Reset</a>
+                    {% endif %}
                 </div>
             </div>
         </form>
