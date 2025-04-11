@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const resetFilters = document.querySelector('.apply-area #reset')
 
   targetInsert.insertAdjacentElement('afterend', filterDrawer)
-  // targetInsert.insertAdjacentElement('afterend', sortDrawer)
 
   applyFilters.addEventListener('click', () => {
 
