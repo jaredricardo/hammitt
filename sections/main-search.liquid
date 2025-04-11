@@ -200,7 +200,7 @@
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <div class="page-width">
           {% if section.settings.use_new_filters %}
-              {% render 'new-filters', results: search %}
+              {% render 'new-filters', results: search, blocks: section.blocks%}
             {% else %}
               {% render 'facets', results: search, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
           {% endif %}
@@ -333,7 +333,6 @@
   "tag": "section",
   "class": "section",
   "settings": [
-  
     {
       "type": "range",
       "id": "columns_desktop",
@@ -475,6 +474,25 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    }
+  ],
+  "blocks": [
+    {
+    "type": "collection-filter-link",
+    "name": "Collection Filter Link",
+    "limit": 9,
+    "settings": [
+      {
+        "type":"collection",
+        "id": "collection",
+        "label": "Collection URL"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Alternative Collection Title (optional)"
+      }
+    ]
     }
   ]
 }
