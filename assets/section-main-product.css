@@ -1765,6 +1765,10 @@ a.button.klaviyo-bis-trigger:hover {
   color: #000;
 }
 
+.pdp-hero-section .pdp-info-col .custom-variant-options.colorway-optimized ul li{
+  min-width: 70px;
+}
+
 @media screen and (max-width: 989px) {
   .pdp-hero-section .product__title:has(.only-x-left-container) {
     flex-direction: column;
