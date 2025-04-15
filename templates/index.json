@@ -1241,24 +1241,6 @@
         "padding_bottom": 20
       }
     },
-    "video_pVxm6Q": {
-      "type": "video",
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "subheading": "",
-        "video": "shopify://files/videos/HammittFeature_Compressed.mp4",
-        "video_url": "",
-        "mobile_video": "shopify://files/videos/HammittFeature_Compressed.mp4",
-        "mobile_video_url": "",
-        "description": "",
-        "full_width": true,
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "homepage_instagram_RrcAhY": {
       "type": "homepage-instagram",
       "settings": {
@@ -1272,6 +1254,82 @@
         "show_link_to_page": true,
         "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
+      }
+    },
+    "image_banner_iCzGqf": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_dtdYNp": {
+          "type": "heading",
+          "settings": {
+            "heading": "MAKE MOM BEAM",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_886xK3": {
+          "type": "text",
+          "settings": {
+            "text": "Pick a present for the special lady in your life. We'll even pen a handwritten note for that special touch.",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
+        "buttons_c3ceWA": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "MOTHER'S DAY GIFT GUIDE",
+            "button_link_1": "shopify://collections/mothers-day",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dtdYNp",
+        "text_886xK3",
+        "buttons_c3ceWA"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/mothers-day.jpg",
+        "image_2": "shopify://shop_images/mothers-day-mobile.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 20,
+        "content_padding_bottom": 20,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 19,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 32,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
       }
     }
   },
@@ -1299,7 +1357,7 @@
     "slider_collection_j6pDQ7",
     "collection_list_Ri6BcY",
     "hero_video_banner_RVzeet",
-    "video_pVxm6Q",
-    "homepage_instagram_RrcAhY"
+    "homepage_instagram_RrcAhY",
+    "image_banner_iCzGqf"
   ]
 }
