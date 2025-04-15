@@ -394,9 +394,11 @@
                 this.currentNote = ''
     
                 this.querySelector('button#gift-note-save-button').addEventListener('click', () => {
+
+                  this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
                   this.saveButton.classList.add('saved')
-                  this.saveButton.innerText = 'Saved'
-                  this.giftNoteValue.value = this.currentNote
+                  this.saveButton.innerText = 'Savedd'
+                  document.querySelector('input#hammitt-gift-message-form-input').value = this.currentNote
                   this.textAreaPlaceholder = this.currentNote
                   localStorage.setItem('giftNote', this.currentNote)
                 })
