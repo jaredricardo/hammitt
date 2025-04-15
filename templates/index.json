@@ -304,6 +304,82 @@
         "mobile_padding_bottom": 0
       }
     },
+    "image_banner_iCzGqf": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_dtdYNp": {
+          "type": "heading",
+          "settings": {
+            "heading": "MAKE MOM BEAM",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 30,
+            "heading_size_desktop": 52
+          }
+        },
+        "text_886xK3": {
+          "type": "text",
+          "settings": {
+            "text": "Pick a present for the special lady in your life. We'll even pen a handwritten note for that special touch.",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
+        "buttons_c3ceWA": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "MOTHER'S DAY GIFT GUIDE",
+            "button_link_1": "shopify://pages/mothers-day-gift-guide",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dtdYNp",
+        "text_886xK3",
+        "buttons_c3ceWA"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/mothers-day-ribbon-box.jpg",
+        "image_2": "shopify://shop_images/mothers-day-mobile.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 10,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": true,
+        "content_padding_top": 32,
+        "content_padding_bottom": 20,
+        "content_padding_left": 100,
+        "content_padding_right": 100,
+        "content_padding_top_mobile": 19,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 32,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
     "multicolumn_GMpXGB": {
       "type": "multicolumn",
       "blocks": {
@@ -1111,26 +1187,6 @@
         "custom_class": "homeiconlist-section"
       }
     },
-    "slider_collection_j6pDQ7": {
-      "type": "slider-collection",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "#000000",
-        "collection": "canyon-crocco",
-        "max_products": 20,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
     "collection_list_Ri6BcY": {
       "type": "collection-list",
       "blocks": {
@@ -1255,82 +1311,6 @@
         "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
       }
-    },
-    "image_banner_iCzGqf": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_dtdYNp": {
-          "type": "heading",
-          "settings": {
-            "heading": "MAKE MOM BEAM",
-            "heading_size_mobile": 30,
-            "heading_size_tablet": 30,
-            "heading_size_desktop": 52
-          }
-        },
-        "text_886xK3": {
-          "type": "text",
-          "settings": {
-            "text": "Pick a present for the special lady in your life. We'll even pen a handwritten note for that special touch.",
-            "text_style": "body",
-            "text_size_mobile": 18,
-            "text_size_tablet": 18,
-            "text_size_desktop": 18
-          }
-        },
-        "buttons_c3ceWA": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "MOTHER'S DAY GIFT GUIDE",
-            "button_link_1": "shopify://collections/mothers-day",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_dtdYNp",
-        "text_886xK3",
-        "buttons_c3ceWA"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/mothers-day-ribbon-box.jpg",
-        "image_2": "shopify://shop_images/mothers-day-mobile.jpg",
-        "image_link": "",
-        "image_overlay_opacity": 10,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "dark",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": true,
-        "content_padding_top": 32,
-        "content_padding_bottom": 20,
-        "content_padding_left": 100,
-        "content_padding_right": 100,
-        "content_padding_top_mobile": 19,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 32,
-        "padding_bottom": 20,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
     }
   },
   "order": [
@@ -1355,7 +1335,6 @@
     "rich_text_Wxdcai",
     "multicolumn_YhVnir",
     "value_props_frHLp3",
-    "slider_collection_j6pDQ7",
     "collection_list_Ri6BcY",
     "hero_video_banner_RVzeet",
     "homepage_instagram_RrcAhY"
