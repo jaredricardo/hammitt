@@ -48,6 +48,7 @@
       "blocks": {
         "heading_imdBkp": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "MAKE MOM BEAM",
             "heading_size_mobile": 30,
@@ -57,6 +58,7 @@
         },
         "text_dPPnVe": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "Pick a present for the special lady in your life. We’ll even pen a handwritten note for that special touch.",
             "text_style": "body",
@@ -79,6 +81,7 @@
         "text_dPPnVe",
         "buttons_WHkAjE"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "title": "",
@@ -119,14 +122,15 @@
         "custom_class": ""
       }
     },
-    "slider_collection_d3MPb4": {
+    "slider_collection_4KHV7n": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Slider Collection",
       "settings": {
-        "title": "Perfect Accessories for Her",
+        "title": "Gifts She'll Love",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "spring-accessories",
+        "collection": "mothers-day",
         "max_products": 30,
         "image_ratio": "square",
         "hide_price": false,
@@ -175,6 +179,7 @@
         "text_MN8GLH",
         "buttons_EqC9jf"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "title": "",
@@ -216,32 +221,13 @@
     },
     "slider_collection_dHxRRp": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "Courtyard Cream",
         "heading_align": "center",
         "heading_color": "",
         "collection": "courtyard-cream",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
-    "slider_collection_4KHV7n": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "Gifts She'll Love",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "mothers-day",
         "max_products": 30,
         "image_ratio": "square",
         "hide_price": false,
@@ -290,6 +276,7 @@
         "text_97RpVP",
         "buttons_qNMiWW"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "title": "",
@@ -327,6 +314,27 @@
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36,
         "custom_class": ""
+      }
+    },
+    "slider_collection_d3MPb4": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Slider Collection",
+      "settings": {
+        "title": "Perfect Accessories for Her",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "spring-accessories",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
       }
     }
   },
