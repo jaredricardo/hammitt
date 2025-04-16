@@ -102,6 +102,11 @@
         text-transform: uppercase;
         padding: 1.5rem;
     }
+
+    minty-fresh-filters li a:hover  {
+        text-decoration: underline;
+        color: black;
+    }
     minty-fresh-filters li a.on-collection {
         text-decoration: underline;
         color: black;
@@ -152,6 +157,7 @@
         row-gap: 4px;
         grid-template-columns: repeat(6, 1fr);
         min-height: auto;
+        overflow: hidden;
     }
 
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .grid__item {
@@ -165,7 +171,7 @@
         height: 100vh;
         position: fixed;
         top: 0;
-        right: -100%;
+        right: -110%;
         overflow-y: auto;
         width: 390px;
         max-width: 100%;
@@ -487,6 +493,10 @@
     minty-fresh-filters #toggle-filter-drawer {
         display: flex;
         gap: 4px;
+    }
+
+    .main-search-grid:has(minty-fresh-filters) {
+        overflow: hidden;
     }
 
     /* color swatches */

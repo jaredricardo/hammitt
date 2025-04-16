@@ -3425,3 +3425,9 @@ button.swym-add-to-wishlist,
 .swym-tooltip.swym-inject {
   display: none !important;
 }
+
+/* swym heart randomly appearing under checkout button in cart */
+
+form.cart__contents .swym-button-bar {
+  display: none !important;
+}
