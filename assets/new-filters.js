@@ -106,6 +106,7 @@ class MintyFreshFilters extends HTMLElement {
   }
 
   openFilterDrawer(){
+    document.body.classList.add('overflow-hidden-all')
     document.querySelector('minty-fresh-filter-drawer').classList.add('filter-drawer-open')
     document.querySelector('minty-fresh-filter-drawer').classList.remove('sort-drawer-open')
   }
@@ -128,6 +129,7 @@ class MintyFreshFilterDrawer extends HTMLElement {
 
   closeFilterDrawer() {
     this.closest('minty-fresh-filter-drawer').classList.remove('filter-drawer-open')
+    document.body.classList.remove('overflow-hidden-all')
   }
 }
 

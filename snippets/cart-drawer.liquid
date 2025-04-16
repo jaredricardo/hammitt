@@ -361,7 +361,7 @@
                       <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                       {% render 'icon-minus' %}
                     </button>
-                    <input class="quantity__input {% if item.selling_plan_allocation and item.selling_plan_allocation.selling_plan.name contains 'Try Before You Buy' %}TryNow-Item{% endif %}"
+                    <input class="quantity__input"
                            type="number"
                            name="updates[]"
                            value="{{ item.quantity }}"
@@ -374,7 +374,7 @@
                            data-index="{{ item.index | plus: 1 }}"
                           >
                     <button
-                      class="quantity__button no-js-hidden {% if item.selling_plan_allocation and item.selling_plan_allocation.selling_plan.name contains 'Try Before You Buy' %}TryNow-Item{% endif %}" 
+                      class="quantity__button no-js-hidden" 
                       name="plus" 
                       type="button"
                     >
@@ -619,12 +619,6 @@
       <div class="drawer__subtotal">
         {% assign adjusted_total_price = cart.total_price %}
 
-        {% for item in cart.items %}
-          {% if item.selling_plan_allocation and item.selling_plan_allocation.selling_plan.name contains 'Try Before You Buy'%}
-            {% assign product_price = item.final_line_price %}
-            {% assign adjusted_total_price = adjusted_total_price | minus: product_price %}
-          {% endif %}
-        {% endfor %}
         <span class="totals__subtotal">{% if adjusted_total_price != cart.total_price %}Amount due today{% else %}{{ 'sections.cart.subtotal' | t }}{% endif %}	:</span>
         <span class="totals__subtotal-value">
           {{ adjusted_total_price | money_with_currency }}
@@ -685,42 +679,3 @@
     padding: 10px 10px 0;
   }
 </style>
-
-
-<!-- TRYNOW QUANTITY -->
-  <script type="text/javascript">
-
-    window.addEventListener("load", async function() {
-      const isCartLimitMet = await window.trynow.cart.isTryNowCartLimitMet();
-      if (!isCartLimitMet) return;
-      const quantityButtons = document.querySelectorAll('.TryNow-Item');
-      if (!quantityButtons) {
-        console.info('Element with ID TryNow-Item not found.');
-        return;
-      }
-      quantityButtons.forEach(button => {
-        button.disabled = true;
-        button.style.cursor = 'auto'
-      })
-    });
-
-    const observer = new MutationObserver((mutationsList) => {
-      mutationsList.forEach(async (record) => {
-        if (!window.trynow) return;
-        const upperLimitIsMet = await window.trynow.cart.isTryNowCartLimitMet();
-        if (record.target && upperLimitIsMet) {
-          const quantityButtonNodes = document.querySelectorAll(".TryNow-Item");
-          quantityButtonNodes.forEach((btn) => {
-            btn.disabled = true;
-            btn.style.cursor = 'auto';
-          })
-        }
-      })
-    })
-    
-    observer.observe(document.body, {
-      subtree: true,
-      childList: true,
-    })
-  </script>
-<!-- END TRYNOW QUANTITY -->

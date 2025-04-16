@@ -782,7 +782,20 @@
               </div>
 
               <div class="share-icon">
-                <a href="//twitter.com/intent/tweet?text=Check%20out%20this%20{%if template contains "article" or template contains "blog"%}blog%20post{% elsif template contains "product" %}product{%endif%}:+{{ shareurl }}"  target="_blank">
+                {% liquid 
+
+                assign share_href = ''
+
+                if template contains "article" or template contains "blog"
+                  assign share_href = 'blog%20post'
+                elsif template contains "product"
+                  assign share_href = 'product'
+                endif
+
+                assign share_href = share_href | append: ':+' | append: shareurl
+
+              -%}
+                <a href="//twitter.com/intent/tweet?text=Check%20out%20this%20{{ share_href }}"  target="_blank">
                   {% include 'icon-twitter' %}</a>
               </div>
 

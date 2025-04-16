@@ -142,9 +142,7 @@ endfor
           </div>
           {% unless hide_quick_add %}
           {% if settings.enable_quick_add %}
-          {% unless collection.url == "/collections/try-now" %}
-          {%- render 'quick-add', product: card_product, isIDayPromotionProduct: isIDayPromotionProduct, isPreOrderProduct: isPreOrderProduct, isBadgeProduct: isBadgeProduct -%}
-          {% endunless %}
+            {%- render 'quick-add', product: card_product, isIDayPromotionProduct: isIDayPromotionProduct, isPreOrderProduct: isPreOrderProduct, isBadgeProduct: isBadgeProduct -%}
           {% endif %}
           {% endunless %}
         </div>
