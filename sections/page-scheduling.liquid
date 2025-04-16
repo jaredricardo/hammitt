@@ -97,34 +97,6 @@
   </div>
 </div>
 
-{% comment %}START TRYNOW CODE{% endcomment %}
-{% comment %}Load slick script for slider on home page{% endcomment %}
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script type="text/javascript">
-  tryNowSlick($('.category-wrapper'));
-  function tryNowSlick(slider) {
-    $(window).on('load resize', function () {
-      if ($(window).width() > 767) {
-        if (slider.hasClass('slick-initialized')) {
-          slider.slick('unslick');
-          slider.addClass('display-table');
-        }
-        return;
-      }
-      if (!slider.hasClass('slick-initialized')) {
-        slider.removeClass('display-table');
-        return slider.slick({
-          dots: false,
-          arrows: false,
-          centerMode: true,
-          centerPadding: '60px',
-          slidesToShow: 1,
-        });
-      }
-    });
-  }
-</script>
-{% comment %}END TRYNOW CODE{% endcomment %}
 {% schema %}
 {
   "name": "Scheduling",
