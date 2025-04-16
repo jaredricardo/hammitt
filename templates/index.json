@@ -9,155 +9,56 @@
  */
 {
   "sections": {
-    "image_banner_Crq7NP": {
-      "type": "image-banner",
-      "blocks": {
-        "text_WFnVyp": {
-          "type": "text",
-          "settings": {
-            "text": "TRENDING BESTSELLERS",
-            "text_style": "body",
-            "text_size_mobile": 14,
-            "text_size_tablet": 16,
-            "text_size_desktop": 16
-          }
-        },
-        "heading_WpCU3k": {
-          "type": "heading",
-          "settings": {
-            "heading": "MOST LOVED",
-            "heading_size_mobile": 30,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 52
-          }
-        },
-        "buttons_WxEPdr": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/best-selling-bags",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "text_WFnVyp",
-        "heading_WpCU3k",
-        "buttons_WxEPdr"
-      ],
-      "disabled": true,
+    "custom_liquid_DgMPUR": {
+      "type": "custom-liquid",
       "settings": {
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/banner-desktop-most-loved.gif",
-        "image_2": "shopify://shop_images/mob.gif",
-        "image_link": "shopify://collections/bluebird",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
+        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gld3rP\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gld3rP\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 0,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
+        "padding_bottom_mobile": 36,
         "custom_class": ""
       }
     },
-    "image_banner_ENyxDQ": {
-      "type": "image-banner",
+    "rich_text_fnLXJC": {
+      "type": "rich-text",
       "blocks": {
-        "text_hDJ9Kt": {
-          "type": "text",
-          "settings": {
-            "text": "NEW! HABANERO",
-            "text_style": "body",
-            "text_size_mobile": 14,
-            "text_size_tablet": 16,
-            "text_size_desktop": 16
-          }
-        },
-        "heading_wKWyAi": {
+        "heading_dDFFfp": {
           "type": "heading",
           "settings": {
-            "heading": "STAND OUT AT THE CHECKOUT",
-            "heading_size_mobile": 30,
-            "heading_size_tablet": 30,
-            "heading_size_desktop": 52
+            "heading_html_tag": "h1",
+            "heading": "NEW! HABANERO",
+            "heading_size": "h0"
           }
         },
-        "buttons_zGtFY7": {
-          "type": "buttons",
+        "text_nCTbKy": {
+          "type": "text",
           "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/habanero",
-            "button_style_secondary_1": false
+            "text": "<p>STAND OUT AT THE CHECKOUT</p>"
+          }
+        },
+        "button_DYJJB4": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/habanero",
+            "button_style_secondary": false
           }
         }
       },
       "block_order": [
-        "text_hDJ9Kt",
-        "heading_wKWyAi",
-        "buttons_zGtFY7"
+        "heading_dDFFfp",
+        "text_nCTbKy",
+        "button_DYJJB4"
       ],
       "settings": {
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/habanero-hp.jpg",
-        "image_2": "shopify://shop_images/TOM_ZIP_MED_HABANERO_2640_fb883bd3-5f5c-4caa-a42f-330213105fb0.jpg",
-        "image_link": "shopify://collections/oak-edge",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
+        "color_scheme": "background-1",
         "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
+        "padding_top": 52,
+        "padding_bottom": 12,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 36
       }
     },
     "slider_collection_CwB3RG": {
@@ -273,15 +174,78 @@
         "mobile_padding_bottom": 0
       }
     },
-    "custom_liquid_DgMPUR": {
-      "type": "custom-liquid",
+    "image_banner_Crq7NP": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_WpCU3k": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE BESTSELLING KYLE",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 52
+          }
+        },
+        "text_WFnVyp": {
+          "type": "text",
+          "settings": {
+            "text": "Get that perfect slouch.",
+            "text_style": "body",
+            "text_size_mobile": 14,
+            "text_size_tablet": 16,
+            "text_size_desktop": 16
+          }
+        },
+        "buttons_WxEPdr": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/kyle",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WpCU3k",
+        "text_WFnVyp",
+        "buttons_WxEPdr"
+      ],
       "settings": {
-        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "color_scheme": "background-1",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/kyle-banner-deskop-0416.jpg",
+        "image_2": "shopify://shop_images/kyle-banner-mob-0416.jpg",
+        "image_link": "shopify://collections/bluebird",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
         "padding_top": 0,
         "padding_bottom": 0,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 36,
+        "padding_bottom_mobile": 0,
         "custom_class": ""
       }
     },
@@ -378,6 +342,26 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 36,
         "custom_class": ""
+      }
+    },
+    "slider_collection_UFbFLQ": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "MOTHER'S DAY GIFTS",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "mothers-day",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
       }
     },
     "multicolumn_GMpXGB": {
@@ -1311,35 +1295,15 @@
         "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
       }
-    },
-    "slider_collection_UFbFLQ": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "MOTHER'S DAY GIFTS",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "mothers-day",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
     }
   },
   "order": [
-    "image_banner_Crq7NP",
-    "image_banner_ENyxDQ",
+    "custom_liquid_DgMPUR",
+    "rich_text_fnLXJC",
     "slider_collection_CwB3RG",
     "image_banner_UTpKR6",
     "slider_collection_bxbhAf",
-    "custom_liquid_DgMPUR",
+    "image_banner_Crq7NP",
     "slider_featured_collection_bTka8m",
     "image_banner_iCzGqf",
     "slider_collection_UFbFLQ",
