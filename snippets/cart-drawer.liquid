@@ -420,7 +420,7 @@
             {% if settings.package_options_product_one %}
               <input type="hidden" name="id" value="{{ settings.package_options_product_one.first_available_variant.id }}" class="product-variant-id">
             {% endif %}
-            <button id="test-submit-button" name="add" type="submit" class="product-form__submit button button--full-width button--primary">submit testing form</button>
+            {% comment %} <button id="test-submit-button" name="add" type="submit" class="product-form__submit button button--full-width button--primary">submit testing form</button> {% endcomment %}
             </form>
           </package-options-section>
         {% endif %}

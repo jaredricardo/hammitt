@@ -17,6 +17,7 @@ if (!customElements.get('product-form')) {
     }
 
     onSubmitHandler(evt) {
+      console.log('ON SUBMIT PRODUCT FORM')
       evt.preventDefault();
       let submitButton = this.querySelector('[type="submit"]');
 
