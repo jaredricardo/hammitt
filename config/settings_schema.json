@@ -1255,7 +1255,7 @@
       ]
     },
     {
-      "name": "Cart shipping messages",
+      "name": "Slide Out Cart settings",
       "settings": [
         {
           "type": "header",
@@ -1310,6 +1310,26 @@
           "type": "color",
           "label": "Text color",
           "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Package Options settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_package_options",
+          "label": "Enable Package Options",
+          "default": false
+        },
+        {
+          "type": "product",
+          "id": "package_options_product_one",
+          "label": "Package Options Product 1"
+        },
+        {
+          "type": "product",
+          "id": "package_options_product_two",
+          "label": "Package Options Product 2"
         }
       ]
     },

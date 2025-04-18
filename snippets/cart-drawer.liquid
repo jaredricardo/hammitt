@@ -413,6 +413,11 @@
           <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
           <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
         </cart-items>
+        {% if settings.enable_package_options%}
+          <package-options-section>
+            PACKAGE OPTIONS
+          </package-options-section>
+        {% endif %}
         {% if cart.item_count > 0  %}
         <gift-box-section>
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
