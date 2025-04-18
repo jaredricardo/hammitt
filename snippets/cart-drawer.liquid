@@ -415,7 +415,13 @@
         </cart-items>
         {% if settings.enable_package_options%}
           <package-options-section>
-            PACKAGE OPTIONS
+            <form action="/cart/add" method="post">
+              <input type="hidden" name="form_type" value="product">
+            {% if settings.package_options_product_one %}
+              <input type="hidden" name="id" value="{{ settings.package_options_product_one.first_available_variant.id }}" class="product-variant-id">
+            {% endif %}
+            <button id="test-submit-button" name="add" type="submit" class="product-form__submit button button--full-width button--primary">submit testing form</button>
+            </form>
           </package-options-section>
         {% endif %}
         {% if cart.item_count > 0  %}
