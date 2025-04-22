@@ -9,84 +9,13 @@
  */
 {
   "sections": {
-    "custom_liquid_DgMPUR": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gld3rP\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gld3rP\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "rich_text_GfLkWE": {
-      "type": "rich-text",
-      "blocks": {
-        "text_txfj9z": {
-          "type": "text",
-          "settings": {
-            "text": "<p>STAND OUT AT THE CHECKOUT</p>"
-          }
-        },
-        "heading_y4bVAz": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "NEW! HABANERO",
-            "heading_size": "h1"
-          }
-        },
-        "button_p8QQdF": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP NOW",
-            "button_link": "shopify://collections/habanero",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "text_txfj9z",
-        "heading_y4bVAz",
-        "button_p8QQdF"
-      ],
-      "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20
-      }
-    },
-    "slider_collection_CwB3RG": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "habanero",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 18,
-        "padding_bottom": 7,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
-      }
-    },
     "image_banner_UTpKR6": {
       "type": "image-banner",
       "blocks": {
         "heading_NVrr9F": {
           "type": "heading",
           "settings": {
-            "heading": "MOSAIC DENIM",
+            "heading": "CREAM + SUGAR ",
             "heading_size_mobile": 30,
             "heading_size_tablet": 20,
             "heading_size_desktop": 36
@@ -95,7 +24,7 @@
         "text_xPNA9w": {
           "type": "text",
           "settings": {
-            "text": "Faded indigo hues collide in a woven homage to lived-in blue jeans.",
+            "text": "Embrace two hues in one with this timeless take on trim. ",
             "text_style": "body",
             "text_size_mobile": 14,
             "text_size_tablet": 16,
@@ -106,7 +35,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/mosaic-denim",
+            "button_link_1": "shopify://collections/courtyard-cream",
             "button_style_secondary_1": false
           }
         }
@@ -126,12 +55,12 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/DENIM-MOSAIC_1702_two.jpg",
-        "image_2": "shopify://shop_images/DENIM-MOSAIC_1702_1.jpg",
-        "image_link": "shopify://pages/april-drop",
+        "image": "shopify://shop_images/CY-desk-banner.jpg",
+        "image_2": "shopify://shop_images/CY-mob-banner.jpg",
+        "image_link": "shopify://collections/courtyard-cream",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "bottom-center",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
@@ -155,28 +84,27 @@
         "custom_class": ""
       }
     },
-    "slider_collection_bxbhAf": {
+    "slider_collection_CwB3RG": {
       "type": "slider-collection",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "mosaic-denim",
+        "collection": "courtyard-cream",
         "max_products": 30,
         "image_ratio": "square",
         "hide_price": false,
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
-        "padding_top": 2,
-        "padding_bottom": 20,
+        "padding_top": 18,
+        "padding_bottom": 7,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
       }
     },
     "custom_liquid_yXAKqM": {
       "type": "custom-liquid",
-      "disabled": true,
       "settings": {
         "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "color_scheme": "background-1",
@@ -184,81 +112,6 @@
         "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
-    },
-    "image_banner_ENyxDQ": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_wKWyAi": {
-          "type": "heading",
-          "settings": {
-            "heading": "THE BESTSELLING KYLE",
-            "heading_size_mobile": 22,
-            "heading_size_tablet": 30,
-            "heading_size_desktop": 52
-          }
-        },
-        "text_hDJ9Kt": {
-          "type": "text",
-          "settings": {
-            "text": "Get that perfect slouch.",
-            "text_style": "body",
-            "text_size_mobile": 14,
-            "text_size_tablet": 16,
-            "text_size_desktop": 16
-          }
-        },
-        "buttons_zGtFY7": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/kyle",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_wKWyAi",
-        "text_hDJ9Kt",
-        "buttons_zGtFY7"
-      ],
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/kyle-banner-deskop-0416.jpg",
-        "image_2": "shopify://shop_images/kyle-banner-mob-0416.jpg",
-        "image_link": "shopify://collections/oak-edge",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
         "custom_class": ""
       }
     },
@@ -317,6 +170,7 @@
         "text_886xK3",
         "buttons_c3ceWA"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -356,42 +210,23 @@
         "custom_class": ""
       }
     },
-    "slider_collection_UFbFLQ": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "MOTHER'S DAY GIFTS",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "mothers-day",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
     "multicolumn_GMpXGB": {
       "type": "multicolumn",
       "blocks": {
         "column_aWtC3c": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Kyle-COURTYARD-CREAM_4573.jpg",
+            "image": "shopify://shop_images/VIP-Satchel-COURTYARD-CREAM_4539_919fe105-8008-4f8b-a173-3ae59cd56ec2.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "SHOP COURTYARD CREAM",
+            "link_label": "Shop Mother's Day Gifting Guide",
             "link": "shopify://collections/courtyard-cream",
-            "cta_color": "#ffffff",
+            "cta_color": "#000000",
             "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
+            "cta_bg_color": "#ffffff",
             "cta_font_size": 15,
             "cta_font_size_mobile": 14,
             "hide_arrows": true,
@@ -404,17 +239,17 @@
         "column_cm4gE7": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MARLEY_KEYCHAIN_HABANERO_1170.jpg",
+            "image": "shopify://shop_images/habe-new.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "SHOP ACCESSORIES",
-            "link": "shopify://collections/spring-accessories",
-            "cta_color": "#ffffff",
+            "link_label": "Shop Habanero",
+            "link": "shopify://collections/habanero",
+            "cta_color": "#000000",
             "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
+            "cta_bg_color": "#ffffff",
             "cta_font_size": 15,
             "cta_font_size_mobile": 14,
             "hide_arrows": true,
@@ -427,17 +262,17 @@
         "column_kbVKLG": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/VIP_MED_Sunburst3.jpg",
+            "image": "shopify://shop_images/acc-new-2.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "SHOP SUNBURST",
-            "link": "shopify://products/vip-med-clutch-sunburst-brushed-gold",
-            "cta_color": "#ffffff",
+            "link_label": "Shop Accessories",
+            "link": "shopify://collections/accessories",
+            "cta_color": "#000000",
             "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
+            "cta_bg_color": "#ffffff",
             "cta_font_size": 15,
             "cta_font_size_mobile": 14,
             "hide_arrows": true,
@@ -482,6 +317,72 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 30,
         "custom_class": "behind-design-section"
+      }
+    },
+    "image_banner_ENyxDQ": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_wKWyAi": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size_mobile": 22,
+            "heading_size_tablet": 30,
+            "heading_size_desktop": 52
+          }
+        },
+        "text_hDJ9Kt": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body",
+            "text_size_mobile": 14,
+            "text_size_tablet": 16,
+            "text_size_desktop": 16
+          }
+        }
+      },
+      "block_order": [
+        "heading_wKWyAi",
+        "text_hDJ9Kt"
+      ],
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/april-skinny-banner-desktop.jpg",
+        "image_2": "shopify://shop_images/april-skinny-banner-mobile.jpg",
+        "image_link": "shopify://pages/april-drop",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
       }
     },
     "multicolumn_Rb6MCR": {
@@ -905,20 +806,29 @@
         "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
       }
+    },
+    "custom_liquid_DgMPUR": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gld3rP\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gld3rP\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
     }
   },
   "order": [
-    "custom_liquid_DgMPUR",
-    "rich_text_GfLkWE",
-    "slider_collection_CwB3RG",
     "image_banner_UTpKR6",
-    "slider_collection_bxbhAf",
+    "slider_collection_CwB3RG",
     "custom_liquid_yXAKqM",
-    "image_banner_ENyxDQ",
     "slider_featured_collection_bTka8m",
     "image_banner_iCzGqf",
-    "slider_collection_UFbFLQ",
     "multicolumn_GMpXGB",
+    "image_banner_ENyxDQ",
     "multicolumn_Rb6MCR",
     "multicolumn_CBezGE",
     "rich_text_L6NKKA",
@@ -927,6 +837,7 @@
     "value_props_frHLp3",
     "collection_list_Ri6BcY",
     "hero_video_banner_RVzeet",
-    "homepage_instagram_RrcAhY"
+    "homepage_instagram_RrcAhY",
+    "custom_liquid_DgMPUR"
   ]
 }
