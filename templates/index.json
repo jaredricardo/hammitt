@@ -255,6 +255,15 @@
             "heading_size_desktop": 10
           }
         },
+        "buttons_K3N4cM": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://pages/april-drop",
+            "button_style_secondary_1": false
+          }
+        },
         "text_hDJ9Kt": {
           "type": "text",
           "settings": {
@@ -268,6 +277,7 @@
       },
       "block_order": [
         "heading_wKWyAi",
+        "buttons_K3N4cM",
         "text_hDJ9Kt"
       ],
       "settings": {
@@ -283,12 +293,12 @@
         "image": "shopify://shop_images/april-skinny-banner-desktop.jpg",
         "image_2": "shopify://shop_images/april-skinny-banner-mobile.jpg",
         "image_link": "shopify://pages/april-drop",
-        "image_overlay_opacity": 10,
+        "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
+        "desktop_content_position": "bottom-right",
+        "desktop_content_alignment": "right",
         "color_scheme": "light",
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "right",
         "color_scheme_mobile": "dark",
         "show_text_below": true,
         "full_width": true,
