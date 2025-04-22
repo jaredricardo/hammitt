@@ -155,8 +155,8 @@
             "cta_font_size_mobile": 14,
             "hide_arrows": true,
             "cta_width_mobile": 200,
-            "cta_width_desktop": 246,
-            "cta_top_spacing": 10,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
             "cta_bottom_spacing": 10
           }
         },
@@ -179,7 +179,7 @@
             "hide_arrows": true,
             "cta_width_mobile": 180,
             "cta_width_desktop": 236,
-            "cta_top_spacing": 10,
+            "cta_top_spacing": 0,
             "cta_bottom_spacing": 10
           }
         },
@@ -202,7 +202,7 @@
             "hide_arrows": true,
             "cta_width_mobile": 200,
             "cta_width_desktop": 246,
-            "cta_top_spacing": 10,
+            "cta_top_spacing": 0,
             "cta_bottom_spacing": 10
           }
         }
@@ -248,6 +248,7 @@
       "blocks": {
         "heading_YTTkDn": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Image banner",
             "heading_size_mobile": 25,
@@ -257,6 +258,7 @@
         },
         "text_MwpVj8": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "Give customers details about the banner image(s) or content on the template.",
             "text_style": "body",
@@ -267,6 +269,7 @@
         },
         "buttons_nAywtp": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
             "button_label_1": "Button label",
             "button_link_1": "",
@@ -279,7 +282,6 @@
         "text_MwpVj8",
         "buttons_nAywtp"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -290,10 +292,12 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image_link": "",
+        "image": "shopify://shop_images/april-skinny-banner-desktop.jpg",
+        "image_2": "shopify://shop_images/april-skinny-banner-mobile.jpg",
+        "image_link": "shopify://pages/april-drop",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-right",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
@@ -312,8 +316,8 @@
         "content_padding_right_mobile": 0,
         "padding_top": 0,
         "padding_bottom": 0,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
         "custom_class": ""
       }
     },
