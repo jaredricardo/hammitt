@@ -308,6 +308,29 @@
     },
     "image_banner_z7XbRd": {
       "type": "image-banner",
+      "blocks": {
+        "heading_KWPc4L": {
+          "type": "heading",
+          "settings": {
+            "heading": "The April Drop",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "buttons_7i7ra3": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NEW",
+            "button_link_1": "shopify://pages/april-drop",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KWPc4L",
+        "buttons_7i7ra3"
+      ],
       "settings": {
         "title": "",
         "title_color": "",
@@ -318,14 +341,14 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/april-skinny-banner-desktop.jpg",
-        "image_2": "shopify://shop_images/april-skinny-banner-mobile.jpg",
+        "image": "shopify://shop_images/banner-desktop.jpg",
+        "image_2": "shopify://shop_images/Group_1246.jpg",
         "image_link": "shopify://pages/april-drop",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "bottom-right",
         "desktop_content_alignment": "center",
-        "color_scheme": "light",
+        "color_scheme": "dark",
         "mobile_content_alignment": "center",
         "color_scheme_mobile": "dark",
         "show_text_below": true,
