@@ -413,17 +413,30 @@
           <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
           <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
         </cart-items>
-        {% if settings.enable_package_options%}
+        {% if settings.package_options_product_one or settings.package_options_product_two %}
+          {% comment %} need to check if cart contains either package options to get default checked case {% endcomment %}
           <package-options-section>
-            <form action="/cart/add" method="post">
-              <input type="hidden" name="form_type" value="product">
-            {% if settings.package_options_product_one %}
-              <input type="hidden" name="id" value="{{ settings.package_options_product_one.first_available_variant.id }}" class="product-variant-id">
-            {% endif %}
-            {% comment %} <button id="test-submit-button" name="add" type="submit" class="product-form__submit button button--full-width button--primary">submit testing form</button> {% endcomment %}
+            <form>
+              <div class="package-option">
+                <label for="no-pack">No Packaging Please</label>
+                <input type="radio" name="package-option" id="no-package" value="" checked>
+              </div>
+              {% if settings.package_options_product_one %}
+                <div class="package-option">
+                  <label for="package-one">{{ settings.package_options_product_one.title }}</label>
+                  <input type="radio" name="package-option" id="package-one" value="{{ settings.package_options_product_one.first_available_variant.id }}">
+                </div>
+              {% endif %}
+              {% if settings.package_options_product_two %}
+                <div class="package-option">
+                  <label for="package-two">{{ settings.package_options_product_two.title }}</label>
+                  <input type="radio" name="package-option" id="package-two" value="{{ settings.package_options_product_two.first_available_variant.id }}">
+                </div>
+              {% endif %}
             </form>
           </package-options-section>
         {% endif %}
+
         {% if cart.item_count > 0  %}
         <gift-box-section>
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}

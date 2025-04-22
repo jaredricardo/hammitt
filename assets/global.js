@@ -1456,6 +1456,8 @@ checkGWPs();
 // });
 
 const cartUpdate = (json = false) => {
+  console.log('CART UPDATE FUNCTION CALLED')
+  console.log(json)
   const cartUpdates = [
     {
       section: "cart-drawer",

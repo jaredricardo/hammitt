@@ -697,3 +697,42 @@ class FreeShippingGoal extends HTMLElement {
   }
 }
 customElements.define('free-shipping-goal', FreeShippingGoal);
+
+
+
+class PackageOptionsSection extends HTMLElement {
+  constructor() {
+    super()
+    this.querySelector('form').addEventListener('change', () => {
+      const checkedVal = this.querySelector('input[type="radio"]:checked').value
+      const notCheckedEls = this.querySelectorAll('input[type="radio"]:not(:checked)')
+      console.log(checkedVal)
+      console.log(notCheckedEls)
+      return
+      this.addPackageOptionToCart(chckedVal, notCheckedNodes)
+    })
+  }
+  addPackageOptionToCart(idToAdd, idsToRmove) {
+    console.log('Adding package option to cart')
+    let itemObj = {}
+    if(!value) {
+      
+      console.log('remove both from cart')
+    } else {
+      // remove all from cart besides checked 
+    }
+
+    let formData = {
+      'items': [{
+        'id': this.querySelector('.product-variant-id').value,
+        'quantity': 1
+      }]
+    }
+    console.log(formData)
+    return
+    addToCart(formData)
+  }
+}
+customElements.define('package-options-section', PackageOptionsSection);
+
+

@@ -1316,10 +1316,9 @@
           "content": "Package Options settings"
         },
         {
-          "type": "checkbox",
-          "id": "enable_package_options",
-          "label": "Enable Package Options",
-          "default": false
+          "type": "header",
+          "content": "Package Wrapping Options",
+          "info": "Below is the package wrapping options settings. If there is no product added to either setting, then package option area does not render"
         },
         {
           "type": "product",
