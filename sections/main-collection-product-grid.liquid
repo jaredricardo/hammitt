@@ -214,13 +214,49 @@
         /
         <a href="{{ collection.url }}">{{ collection.title }}</a>
       </div>
-      <h2>{{ collection.title }}</h2>
+      <button>
+        <span class="open">+</span>
+        <span class="close">-</span>
+        Collection Details
+      </button>
       <div class="description-container">
         <p>{{ collection.description }}</p>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+
+    const collectionSeoButton = document.querySelector('.seo-description-container button')
+
+    collectionSeoButton.addEventListener('click', () => {
+      openSeoDescription()
+    })
+
+    function openSeoDescription() { 
+
+      const descriptionContainer = document.querySelector('.seo-description-container .description-container')
+      const neededHeight = descriptionContainer.scrollHeight
+    
+      if(descriptionContainer.classList.contains('open')) {
+        descriptionContainer.style.height = '0px'
+        descriptionContainer.classList.remove('open')
+
+        descriptionContainer.style.minHeight = 'unset'
+
+      } else {
+        setTimeout(() => {
+          descriptionContainer.style.minHeight = 'max-content'
+        }, 300)
+        document.querySelector('.seo-description-container .description-container').classList.add('open')
+        document.querySelector('.seo-description-container .description-container').style.height = `${neededHeight}px`
+      }
+    }
+
+  })
+</script>
 
 {% schema %}
 {
