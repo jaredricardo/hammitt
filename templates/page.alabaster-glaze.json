@@ -195,7 +195,7 @@
         "title": "From Functional to Iconic | DANIEL",
         "heading_align": "left",
         "heading_color": "",
-        "collection": "daniel-1",
+        "collection": "daniel",
         "max_products": 30,
         "image_ratio": "adapt",
         "hide_price": false,
@@ -214,7 +214,7 @@
         "title": "Rivet-adorned styles | TOM ZIP",
         "heading_align": "left",
         "heading_color": "",
-        "collection": "the-tom-zip-shop",
+        "collection": "colorway-tom-zip",
         "max_products": 30,
         "image_ratio": "adapt",
         "hide_price": false,
@@ -226,6 +226,115 @@
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36
       }
+    },
+    "multicolumn_DcgexH": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ECXPML": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/studs-bestseller.jpg",
+            "title": "",
+            "b_title_color": "#000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "SHOP BESTSELLERS",
+            "link": "shopify://collections/best-selling-bags",
+            "cta_color": "#fff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_LbAEAL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/studs-newin.jpg",
+            "title": "",
+            "b_title_color": "#000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "SHOP NEW IN",
+            "link": "shopify://collections/new-arrivals",
+            "cta_color": "#fff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_wtdnKE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/studs-all.jpg",
+            "title": "",
+            "b_title_color": "#000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "SHOP ALL",
+            "link": "shopify://collections/view-all",
+            "cta_color": "#fff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_ECXPML",
+        "column_LbAEAL",
+        "column_wtdnKE"
+      ],
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 3,
+        "columns_gap": 2,
+        "row_gap": 2,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "bottom",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -235,6 +344,7 @@
     "image_with_text_8eACBH",
     "slider_collection_LGDbnL",
     "slider_collection_HztTGn",
-    "slider_collection_MADL6Y"
+    "slider_collection_MADL6Y",
+    "multicolumn_DcgexH"
   ]
 }
