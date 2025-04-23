@@ -48,13 +48,14 @@
 }
 
 .seo-description-container .breadcrumb {
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 
 .seo-description-container .description-container {
   height: 0;
   transition: height 0.3s ease-in-out;
   overflow: hidden;
+  max-width: 50%;
 }
 
 .seo-description-container a {
@@ -95,16 +96,18 @@
 }
 
 .seo-description-container span.open {
-  display: block;
+  display: flex;
 }
 
 .seo-description-container button span {
-  min-width: 20px;
-  font-weight: bold;
+  min-width: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .seo-description-container:has(.description-container.open) span.close {
-  display: block;
+  display: flex;
 }
 .seo-description-container:has(.description-container.open) span.open {
   display: none;
@@ -123,5 +126,8 @@
 @media screen and (max-width: 768px) {
   .seo-description-container.page-width.small-full-width {
     padding: 0 1rem !important;
+  }
+  .seo-description-container .description-container {
+    max-width: 100%;
   }
 }

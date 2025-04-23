@@ -3431,3 +3431,12 @@ button.swym-add-to-wishlist,
 form.cart__contents .swym-button-bar {
   display: none !important;
 }
+
+.swiper-scrollbar.upsell-swiper-scrollbar {
+  height: 5px;
+}
+
+.upsell-swiper-scrollbar .swiper-scrollbar-drag {
+  display: block !important;
+  background-color: black;
+}

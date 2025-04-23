@@ -528,6 +528,10 @@
               "mousewheel": false,
               "loop": false,
               "effect": "slide",
+              "scrollbar": {
+                "el": ".upsell-swiper-scrollbar",
+                "draggable": true
+              },
               "breakpoints": {
                 "750": {
                   "slidesPerView": "2.5",
@@ -585,6 +589,7 @@
                       <p>No Products found</p>
                     {% endif %}
                   </div>
+                  <div class="swiper-scrollbar upsell-swiper-scrollbar"></div>
                 </div>
             {% endfor %}
           </div>
