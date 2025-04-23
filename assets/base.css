@@ -3432,11 +3432,11 @@ form.cart__contents .swym-button-bar {
   display: none !important;
 }
 
-.swiper-scrollbar.upsell-swiper-scrollbar {
-  height: 5px;
+cart-upsells .swiper-scrollbar {
+  height: 5px !important;
 }
 
-.upsell-swiper-scrollbar .swiper-scrollbar-drag {
+cart-upsells .swiper-scrollbar-drag {
   display: block !important;
   background-color: black;
 }
