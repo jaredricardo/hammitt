@@ -208,6 +208,17 @@
         </div>
       {%- endif -%}
     {%- endpaginate -%}
+    <div class="seo-description-container page-width small-full-width">
+      <div class="breadcrumb">
+        <a href="{{ shop.url }}">Home</a>
+        /
+        <a href="{{ collection.url }}">{{ collection.title }}</a>
+      </div>
+      <h2>{{ collection.title }}</h2>
+      <div class="description-container">
+        <p>{{ collection.description }}</p>
+      </div>
+    </div>
   </div>
 </div>
 
