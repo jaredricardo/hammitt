@@ -209,18 +209,18 @@
       {%- endif -%}
     {%- endpaginate -%}
     <div class="seo-description-container page-width small-full-width">
-      <div class="breadcrumb">
-        <a href="{{ shop.url }}">Home</a>
-        /
-        <a href="{{ collection.url }}">{{ collection.title }}</a>
-      </div>
       <button>
+        Collection Details
         <span class="open">+</span>
         <span class="close">-</span>
-        Collection Details
       </button>
       <div class="description-container">
         <p>{{ collection.description }}</p>
+      </div>
+      <div class="breadcrumb">
+        <a style="text-decoration: underline;"href="{{ shop.url }}">Home</a>
+        /
+        <a href="{{ collection.url }}">{{ collection.title }}</a>
       </div>
     </div>
   </div>
