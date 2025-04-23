@@ -71,9 +71,11 @@
   }
 }
 
-.seo-description-container .breadcrumb {
-  margin: 1rem 0;
+.collection-breadcrumb a {
+  color: black;
+  text-decoration: none;
 }
+
 
 .seo-description-container .description-container {
   height: 0;
@@ -154,6 +156,12 @@
   .seo-description-container .description-container {
     max-width: 100%;
   }
+  .collection-breadcrumb {
+    padding: 0 1rem;
+  }
+  .collection-breadcrumb a {
+    font-size: 12px;
+  }
 }
 
 {%- endstyle -%}
@@ -179,6 +187,11 @@
     {% endif %}
   
     <div class="page-width small-full-width" id="main-collection-filters" data-id="{{ section.id }}">
+      <div class="collection-breadcrumb">
+        <a style="text-decoration: underline;"href="{{ shop.url }}">Home</a>
+        /
+        <a href="{{ collection.url }}">{{ collection.title }}</a>
+      </div>
       {% if section.settings.use_new_filters %}
         {% render 'new-filters', results: collection, blocks: section.blocks %}
       {% else %}
@@ -295,11 +308,6 @@
       {%- endif -%}
     {%- endpaginate -%}
     <div class="seo-description-container page-width small-full-width">
-      <div class="breadcrumb">
-        <a style="text-decoration: underline;"href="{{ shop.url }}">Home</a>
-        /
-        <a href="{{ collection.url }}">{{ collection.title }}</a>
-      </div>
       <button>
         Collection Details
         <span class="open">{% render 'icon-plus' %}</span>
