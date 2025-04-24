@@ -51,6 +51,11 @@
   endfor
 %}
 
+<script>
+  console.log('/////')
+  console.log({{ colorway_collection | json }});
+</script>
+
 <div class="product-colors color_group color_group_block custom-variant-options colorway-optimized">
   {% comment %} color products {% endcomment %}
   <div class="variant-picker-group-wrapper">
@@ -267,5 +272,9 @@
       {%- endfor -%}
     </ul>
   </div>
-  <span class="hidden" data-product-variant-json='{{ colorway_collection | json }}'></span>
+  <script class="hidden" type="application/json" id="data-product-variant-json">
+    {
+      "variant-data": {{ colorway_collection | json }}
+    }
+  </script>
 </div>
