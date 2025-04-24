@@ -1202,6 +1202,7 @@ const productSwatchReload = () => {
 productSwatchReload();
 
 const addToCart = (itemsObj) => {
+  console.log('ADDING AN ITEM TO CART!!!!')
   if(!itemsObj.hasOwnProperty('sections')) {
     itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
   }
@@ -1360,6 +1361,7 @@ const gwpInCart = (id = false) => {
 };
 
 const checkGWPs = (json = false) => {
+  console.log('CHECKING GWPS!!! /////')
   if(document.querySelector('.cart-drawer-btn') != null) {
     document.querySelector('.cart-drawer-btn').disabled = false;  
   }        
@@ -1376,6 +1378,9 @@ const checkGWPs = (json = false) => {
     json = JSON.parse(drawerItems.getAttribute('data-json'));
   }
   const subtotal = parseFloat(drawerItems.getAttribute('data-subtotal'));
+
+  console.log('++++++++')
+  console.log(gwps)
   
   const sortedGwps = gwps.sort((a, b) => b.minimum - a.minimum);
   let addedGwp = false;
