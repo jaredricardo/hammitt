@@ -105,6 +105,7 @@
     },
     "custom_liquid_yXAKqM": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5ndXwQ\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "color_scheme": "background-1",
@@ -112,6 +113,81 @@
         "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
+    "image_banner_w8P4kC": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_KY8qcx": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE BESTSELLING KYLE",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_nL7XeF": {
+          "type": "text",
+          "settings": {
+            "text": "Get the perfect slouch.",
+            "text_style": "body",
+            "text_size_mobile": 14,
+            "text_size_tablet": 16,
+            "text_size_desktop": 16
+          }
+        },
+        "buttons_DcW3k7": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/kyle",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KY8qcx",
+        "text_nL7XeF",
+        "buttons_DcW3k7"
+      ],
+      "settings": {
+        "title": "",
+        "title_color": "rgba(0,0,0,0)",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/kyle-banner-deskop-0416.jpg",
+        "image_2": "shopify://shop_images/kyle-banner-mob-0416.jpg",
+        "image_link": "shopify://collections/courtyard-cream",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
         "custom_class": ""
       }
     },
@@ -747,6 +823,7 @@
     "image_banner_UTpKR6",
     "slider_collection_CwB3RG",
     "custom_liquid_yXAKqM",
+    "image_banner_w8P4kC",
     "slider_featured_collection_bTka8m",
     "multicolumn_GMpXGB",
     "image_banner_3FKmDP",
