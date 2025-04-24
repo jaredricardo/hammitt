@@ -267,5 +267,9 @@
       {%- endfor -%}
     </ul>
   </div>
-  <span class="hidden" data-product-variant-json='{{ colorway_collection | json }}'></span>
+    <script class="hidden" type="application/json" id="data-product-variant-json">
+      {
+        "variant-data": {{ colorway_collection | json }}
+      }
+  </script>
 </div>
