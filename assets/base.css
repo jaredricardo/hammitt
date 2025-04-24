@@ -3178,6 +3178,7 @@ details-disclosure > details {
 cart-upsells {
   display: block;
   width: 100%;
+  padding-bottom: 2.5rem;
 }
 
 .overflow-x-scroll {
@@ -3430,4 +3431,13 @@ button.swym-add-to-wishlist,
 
 form.cart__contents .swym-button-bar {
   display: none !important;
+}
+
+cart-upsells .swiper-scrollbar {
+  height: 5px !important;
+}
+
+cart-upsells .swiper-scrollbar-drag {
+  display: block !important;
+  background-color: black;
 }

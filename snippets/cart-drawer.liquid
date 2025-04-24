@@ -516,34 +516,40 @@
             <ul>
               {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
                   {% assign cartCollection = collections[cartUpsell.collection] %}
-                <li class="tab-item {% if forloop.first %} active {% endif %}"><a href="#" data-href="{{ cartCollection.handle }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
+                <li class="tab-item upsell-index-{{ forloop.index}} {% if forloop.first %} active {% endif %}"><a href="#" data-href="{{ cartCollection.handle }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
               {% endfor %}
             </ul>
           </div>
-          {%- capture swiperJson -%}
-            {
-              "slidesPerView": 2.5,
-              "spaceBetween": 9,
-              "freeMode": false,
-              "mousewheel": false,
-              "loop": false,
-              "effect": "slide",
-              "breakpoints": {
-                "750": {
-                  "slidesPerView": "2.5",
-                  "spaceBetween": 20
-                },
-                "990": {
-                  "slidesPerView": "2.8",
-                  "spaceBetween": 9
-                }
-              }
-            }
-          {%- endcapture -%}
-
           <div class="tab-content">
-              {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
-                {% assign cartCollection = collections[cartUpsell.collection] %}
+            {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
+
+              {% assign cartCollection = collections[cartUpsell.collection] %}
+
+                {%- capture swiperJson -%}
+                  {
+                    "slidesPerView": 2.5,
+                    "spaceBetween": 9,
+                    "freeMode": false,
+                    "mousewheel": false,
+                    "loop": false,
+                    "effect": "slide",
+                    "scrollbar": {
+                      "el": ".upsell-swiper-scrollbar--{{ cartCollection.handle }}",
+                      "draggable": true
+                    },
+                    "breakpoints": {
+                      "750": {
+                        "slidesPerView": "2.5",
+                        "spaceBetween": 20
+                      },
+                      "990": {
+                        "slidesPerView": "2.8",
+                        "spaceBetween": 9
+                      }
+                    }
+                  }
+                {%- endcapture -%}
+
                 <div class="swiper {% if forloop.first %} shown {% else %} hidden {% endif %}" data-json='{{- swiperJson -}}' data-target={{ cartCollection.handle }} >
                   <div class="horizontal-scroller__upsell swiper-wrapper">
                     {% liquid
@@ -585,6 +591,7 @@
                       <p>No Products found</p>
                     {% endif %}
                   </div>
+                  <div class="swiper-scrollbar upsell-swiper-scrollbar--{{ cartCollection.handle }}"></div>
                 </div>
             {% endfor %}
           </div>
