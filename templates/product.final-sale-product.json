@@ -110,7 +110,7 @@
         "badge_position": "top left",
         "badge_corner_radius": 0,
         "badges_color": "#afafaf",
-        "badges_background_color": "transparent",
+        "badges_background_color": "rgba(0,0,0,0)",
         "padding_top": 36,
         "padding_bottom": 12
       }
@@ -193,15 +193,15 @@
           "type": "column",
           "settings": {
             "title": "Column",
-            "b_title_color": "#000",
+            "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
             "link": "shopify:\/\/collections\/all",
-            "cta_color": "#fff",
+            "cta_color": "#ffffff",
             "cta_column_alignment": "center",
-            "cta_bg_color": "#000",
+            "cta_bg_color": "#000000",
             "cta_font_size": 18,
             "cta_font_size_mobile": 14,
             "hide_arrows": false,
@@ -215,15 +215,15 @@
           "type": "column",
           "settings": {
             "title": "Column",
-            "b_title_color": "#000",
+            "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
             "link": "shopify:\/\/collections\/all",
-            "cta_color": "#fff",
+            "cta_color": "#ffffff",
             "cta_column_alignment": "center",
-            "cta_bg_color": "#000",
+            "cta_bg_color": "#000000",
             "cta_font_size": 18,
             "cta_font_size_mobile": 14,
             "hide_arrows": false,
@@ -237,15 +237,15 @@
           "type": "column",
           "settings": {
             "title": "Column",
-            "b_title_color": "#000",
+            "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
             "link": "shopify:\/\/collections\/all",
-            "cta_color": "#fff",
+            "cta_color": "#ffffff",
             "cta_column_alignment": "center",
-            "cta_bg_color": "#000",
+            "cta_bg_color": "#000000",
             "cta_font_size": 18,
             "cta_font_size_mobile": 14,
             "hide_arrows": false,
@@ -305,18 +305,6 @@
         "custom_class": ""
       }
     },
-    "1663620115294d4fc1": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<script type=\"text\/javascript\">\nvar _learnq = _learnq || [];\nfunction addedToCart() {\n  fetch(`${window.location.origin}\/cart.js`)\n  .then(res => res.clone().json().then(data => {\n    var cart = {\n      total_price: data.total_price\/100,\n      $value: data.total_price\/100,\n      total_discount: data.total_discount,\n      original_total_price: data.original_total_price\/100,\n      items: data.items\n    }\n    if (item !== 'undefined') {\n      cart = Object.assign(cart, item)\n    }\n    _learnq.push(['track', 'Added to Cart', cart])\n  }))\n} \n(function (ns, fetch) {\n  ns.fetch = function() {\n    const response = fetch.apply(this, arguments);\n    response.then(res => {\n      if (`${window.location.origin}\/cart\/add.js`\n      \t.includes(res.url)) {\n        \taddedToCart()\n      }\n    });\n    return response\n  }\n}(window, window.fetch))\n$(document).ajaxComplete(function(event, request, settings){\n  if(settings.url == \"\/cart\/add.js\"){\n      addedToCart()\n  }\n})<\/script>",
-        "color_scheme": "background-1",
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
-    },
     "39447007-c15e-4f52-8f7b-f66a411ad0d1": {
       "type": "custom-liquid",
       "settings": {
@@ -363,7 +351,6 @@
     "1652732945762f7cb3",
     "1651521355129ac414",
     "16588605168effe9cc",
-    "1663620115294d4fc1",
     "39447007-c15e-4f52-8f7b-f66a411ad0d1",
     "5a9b387b-a991-4f93-a7fe-7984cc545a1c",
     "258b19c0-600c-433e-a929-fc429936c77a"

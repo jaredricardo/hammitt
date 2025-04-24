@@ -1,0 +1,19 @@
+/* 
+
+    The css in this file loads before all the weird script delays targeting many CSS files in the theme.
+    Most of the CSS in here is to prevent layout shifts on page load.
+
+
+*/
+.grid__item {
+    position: relative; 
+}
+
+.grid__item:has(.tangiblee-cta) button.swym-add-to-wishlist-view-product.hammitt-custom {
+    top: 5rem;
+}
+
+product-recommendations button.swym-add-to-wishlist-view-product.hammitt-custom {
+    /* for some reason these still arent working. */
+    display: none !important;
+}

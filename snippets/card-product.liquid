@@ -51,7 +51,8 @@ assign seo_tag = false
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper" id="{{ card_product.id }}" data-current-page="{{ currentPage }}">
+  {% render 'swym-hammitt-custom-favorite-button', product:card_product %}
+  <div class="card-wrapper" id="{{ card_product.id }}" data-current-page="{{ currentPage }}"> 
     <div class="card
       card--{{ settings.card_style }}
       product-card
@@ -62,7 +63,6 @@ assign seo_tag = false
       data-json='{{- json -}}'
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
-    {% render 'swym-hammitt-custom-favorite-button', product:card_product %}
       <div class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }}{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
         {%- if card_product.featured_media -%}
           <div class="card__media">
