@@ -307,16 +307,18 @@
         </div>
       {%- endif -%}
     {%- endpaginate -%}
-    <div class="seo-description-container page-width small-full-width">
-      <button>
-        Collection Details
-        <span class="open">{% render 'icon-plus' %}</span>
-        <span class="close">{% render 'icon-minus' %}</span>
-      </button>
-      <div class="description-container">
-        <p>{{ collection.description }}</p>
+    {% unless collection.description == blank%}
+      <div class="seo-description-container page-width small-full-width">
+        <button>
+          Collection Details
+          <span class="open">{% render 'icon-plus' %}</span>
+          <span class="close">{% render 'icon-minus' %}</span>
+        </button>
+        <div class="description-container">
+          <p>{{ collection.description }}</p>
+        </div>
       </div>
-    </div>
+    {% endunless %}
   </div>
 </div>
 

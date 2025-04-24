@@ -629,7 +629,7 @@ cart-upsells .tab-item__upsell ul {
   display: flex;
   align-items: center;
   padding: 0 0 10px;
-  margin: 34px 0 10px;
+  margin: 25px 0px 0px;
   gap: 25px;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -656,7 +656,7 @@ cart-upsells .tab-item__upsell ul li.tab-item.active a{  text-decoration: underl
 cart-upsells .loading-overlay {right: 0;  margin: auto;}
 cart-upsells .upsell__title {font-size: 12px;line-height: 1.2;}
 cart-upsells .upsell__price {font-family: Sofia Pro;font-weight: 400;font-size: 12px;line-height: 22px;letter-spacing: 1.2;margin-top: 5px; display: block;}
-cart-upsells .swiper-wrapper {  min-height: 240px;}
+/* cart-upsells .swiper-wrapper {  min-height: 240px;} */
 .drawer__content-items .drawer__content-item:last-child {border-bottom: 0 !important;}
 cart-upsells .upsell__image {
   position: relative;
