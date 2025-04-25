@@ -72,6 +72,7 @@
           {% if cart.total_price >= required_amount_gwp1 %}
             <style>.progress-bar:before { width: 100% !important;}</style>
             <p>You've earned <b>Free Shiping</b> and a <b>FREE</b> {{ settings.gwp_product.title }}</p>
+            <progress-bar style="margin-top: 1rem;" class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}" style="--percent: {{ percentage }}%;"></progress-bar>
           {% endif %}
         </div>
         {% comment %} as a bandaid, below is visually hidden for now as it was causing javascript errors without it {% endcomment %}
