@@ -368,7 +368,6 @@ class MenuDrawer extends HTMLElement {
   }
 
   onSummaryClick(event) {
-    console.log('MenuDrawer onSummaryClick()');
     this.scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     const summaryElement = event.currentTarget;
     const detailsElement = summaryElement.parentNode;
@@ -437,7 +436,6 @@ class MenuDrawer extends HTMLElement {
   onCloseButtonClick(event) {
     const detailsElement = event.currentTarget.closest('details');
     document.body.classList.remove(`overflow-hidden-${this.dataset.breakpoint}`);
-    console.log('MenuDrawer onCloseButtonClick()');
     this.closeSubmenu(detailsElement);
   }
 
@@ -1202,6 +1200,7 @@ const productSwatchReload = () => {
 productSwatchReload();
 
 const addToCart = (itemsObj) => {
+  console.log('ADDING AN ITEM TO CART!!!!')
   if(!itemsObj.hasOwnProperty('sections')) {
     itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
   }
@@ -1356,7 +1355,7 @@ const klaviyoBISsubmit = (form) => {
 };
 
 const gwpInCart = (id = false) => {
-    return document.querySelector(`[data-variant-id="${id}"`);  
+  return document.querySelector(`[data-variant-id="${id}"`);  
 };
 
 const checkGWPs = (json = false) => {
@@ -1376,7 +1375,7 @@ const checkGWPs = (json = false) => {
     json = JSON.parse(drawerItems.getAttribute('data-json'));
   }
   const subtotal = parseFloat(drawerItems.getAttribute('data-subtotal'));
-  
+ 
   const sortedGwps = gwps.sort((a, b) => b.minimum - a.minimum);
   let addedGwp = false;
   sortedGwps.forEach(gwp => { 
@@ -1420,7 +1419,7 @@ const checkGWPs = (json = false) => {
       updateCart({
         url: '/cart/update.js',
         data: JSON.stringify(updatesObj)
-      })
+      });
     }
   });  
 };
@@ -1443,7 +1442,7 @@ function updateCart(params) {
   });
 }
 
-checkGWPs();
+checkGWPs(false);
 // document.addEventListener('change', function(evt) {
 //   if(document.querySelector('.cart-drawer-btn') != null) {
 //     document.querySelector('.cart-drawer-btn').disabled = true;  
@@ -1459,7 +1458,7 @@ const cartUpdate = (json = false) => {
   const cartUpdates = [
     {
       section: "cart-drawer",
-      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes"]
+      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp"]
     },
     {
       section: "cart-icon-bubble",
@@ -1561,7 +1560,6 @@ const cartUpdate = (json = false) => {
   }
 
   if (onCartPage && document.querySelector(".cart-items.cart-page-items").getAttribute("data-qty-updated") === "true") {
-    console.log("QTY UPDATED");
     window.location.href = '/cart';
   }
 }
@@ -1613,7 +1611,7 @@ document.addEventListener('shopify:section:load', event => {
   klaviyoForms();
   headerScroll();
   footerCollapse();
-  checkGWPs();
+  checkGWPs(false);
 });
 
 

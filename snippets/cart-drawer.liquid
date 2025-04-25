@@ -15,19 +15,82 @@
   <div class="drawer__content">
     <div class="drawer__header appear-animation appear-delay-{{ appear_delay }}">
     {% assign appear_delay = appear_delay | plus: 1 %}
-    {% liquid
-      assign required_amount = settings.freeShippingThreshold | times: 100
-      assign amount_needed = required_amount | minus: cart.total_price
-      assign percentage = required_amount | minus: cart.total_price | times: 100.0 | divided_by: required_amount | minus: 100 | abs | round | at_most: 100
-    %}
 
+    {% liquid
+
+      if settings.gwp_enabled
+
+        assign required_amount_free_shipping = settings.freeShippingThreshold | times: 100
+        assign required_amount_gwp1 = settings.gwp_min_price | times: 100
+        assign required_amount = required_amount_free_shipping | plus: required_amount_gwp1
+        assign percentage = 0
+
+      else 
+
+        assign required_amount = settings.freeShippingThreshold | times: 100
+        assign amount_needed = required_amount | minus: cart.total_price
+        assign percentage = required_amount | minus: cart.total_price | times: 100.0 | divided_by: required_amount | minus: 100 | abs | round | at_most: 100
+
+      endif
+   
+    %}
       
     <strong data-empty-div class="drawer__title h2 display-block  {% if cart.item_count == 0 %}  drawer_heading {% else %} hidden {% endif %}">Your cart is currently empty</strong>
-    <free-shipping-goal data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h2 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
-      <span class="free-shipping-goal__label free-shipping-goal__label--success">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
-      <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!</span>
-      <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
-    </free-shipping-goal>
+    {% if settings.gwp_enabled %}
+      {% comment %} temporary solution for a single GWP, needs to be expanded to work with animation as well as multiple GWPS {% endcomment %}
+      <style>
+        .jr-temp-single-gwp p {
+          margin: 0 auto 0.5rem auto;
+          line-height: 1.3;
+          max-width: 80%;
+          font-size: 14px;
+        }
+
+        @media screen and (max-width: 768px) {
+          .jr-temp-single-gwp p {
+            max-width: 90%;
+          }
+        }
+        
+      </style>
+        <div class="jr-temp-single-gwp">
+          {% if cart.total_price <= required_amount_free_shipping and cart.item_count > 0 %}
+            {% assign percentage = required_amount_free_shipping | minus: cart.total_price | times: 100.0 | divided_by: required_amount_free_shipping | minus: 100 | abs | round | at_most: 100 %}
+            {% assign amount_left = required_amount_free_shipping | minus: cart.total_price  %}
+            <style>.progress-bar:before { width: {{ percentage }}% !important;}</style>
+            <p>Spend <b>{{ amount_left | money_without_trailing_zeros }}</b> more to reach <b>Free Shipping!</b></p>
+            <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
+          {% endif %}
+          {% if cart.total_price > required_amount_free_shipping and cart.total_price < required_amount_gwp1 %}
+            {% assign percentage = required_amount_gwp1 | minus: cart.total_price | times: 100.0 | divided_by: required_amount_gwp1 | minus: 100 | abs | round | at_most: 100 %}
+            {% assign amount_left = required_amount_gwp1 | minus: cart.total_price  %}
+            <style>.progress-bar:before { width: {{ percentage }}% !important;}</style>
+            <p>You’ve received <b>Free Shipping!</b></p>
+            <p>You are <b>{{ amount_left | money_without_trailing_zeros }}</b> away from a <b>Free {{ settings.gwp_product.title }}</b></p>
+            <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}" style="--percent: {{ percentage }}%;"></progress-bar>
+          {% endif %}
+          {% if cart.total_price >= required_amount_gwp1 %}
+            <style>.progress-bar:before { width: 100% !important;}</style>
+            <p>You've earned <b>Free Shiping</b> and a <b>Free {{ settings.gwp_product.title }}</b></p>
+            <progress-bar style="margin-top: 1rem;" class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}" style="--percent: {{ percentage }}%;"></progress-bar>
+          {% endif %}
+        </div>
+        {% comment %} as a bandaid, below is visually hidden for now as it was causing javascript errors without it {% endcomment %}
+      <free-shipping-goal style="display: none !important;" data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h2 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
+        <span class="free-shipping-goal__label free-shipping-goal__label--success">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
+        <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!</span>
+        <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
+      </free-shipping-goal>
+      {% else %}
+        <free-shipping-goal data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h2 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
+          <span class="free-shipping-goal__label free-shipping-goal__label--success">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
+          <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!</span>
+          <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
+        </free-shipping-goal>
+    {% endif %}
+
+    
+
     {% comment %} <strong class="drawer__title h2 display-block {% if cart.item_count == 0 %} drawer_heading {% endif %}">
       {% if cart.item_count == 0 %}
         Your cart is currently empty
@@ -61,7 +124,7 @@
         -%}
     </div>
     {% endcomment %}
-     {% assign cartSubTotal = cart.items_subtotal_price %}
+    {% assign cartSubTotal = cart.items_subtotal_price %}
     <script>
     window.freeGWPProduct = false;
    </script>
@@ -271,9 +334,9 @@
                 <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.image.alt }}"> 
               </div> 
               <div class="drawer__content-item-info"> 
-                {%  if is_gwp %}
+                {% if is_gwp %}
                   <div class="cart-item__name break">You've qualified for a free gift!</div>
-                  <small>promo excludes tax + shipping</small>
+                  <small>(promo excludes tax + shipping)</small>
                 {% endif %}
                 <div> 
                   <div class="drawer__content-item-tprice">
@@ -292,6 +355,10 @@
                   </div> 
                   <div class="drawer_product-info"> 
                     <span class="product-option"><strong class="pink">{{ item_title[1] }}</strong></span>
+                    {% comment %} needs to be deleted after red TLC promo {% endcomment %}
+                    {% if settings.gwp_product.selected_or_first_available_variant.id == item.id %}
+                      <p style="margin: 8px 0 0 0; font-size: 12px; font-weight: 600; line-height: 1.3;">Heads up: Our TLC kit can be used on all pebbled leathers. Wondering if the cleaner inside is right for your bag? Email wecare@hammitt.com</p>
+                    {% endif %}
                     {% if has_monogram %}
                       <div class="monogram product-option">
                         <div class="drawer__content-item-info"> 
@@ -301,11 +368,11 @@
                     {% endif %}
                     {% unless item.product.has_only_default_variant %}
                     {% for option in item.options_with_values %}
-                    <div class="product-option">                      
-                      <dt>{{ option.name }}:</dt>
-                      <dd>{{ option.value }}</dd>
-                    </div> 
-                    {% endfor %}
+                      <div class="product-option">                      
+                        <dt>{{ option.name }}:</dt>
+                        <dd>{{ option.value }}</dd>
+                      </div> 
+                      {% endfor %}
                     {% endunless %}
                     {% if item.selling_plan_allocation.selling_plan.name %}
                     <div class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</div>

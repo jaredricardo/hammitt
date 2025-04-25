@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": {
     "colors_solid_button_labels": "#ffffff",
@@ -36,19 +27,20 @@
     "badge_corner_radius": 0,
     "sale_badge_color_scheme": "accent-1",
     "sold_out_badge_color_scheme": "background-1",
-    "social_twitter_link": "https://www.twitter.com/hammittla",
-    "social_facebook_link": "https://www.facebook.com/hammittla",
-    "social_pinterest_link": "https://www.pinterest.com/hammittla",
-    "social_instagram_link": "https://www.instagram.com/hammittla",
-    "social_tiktok_link": "https://www.tiktok.com/@hammittla",
-    "favicon": "shopify://shop_images/Hammitt_Blush_Icon_Logo_Favicon.png",
+    "social_twitter_link": "https:\/\/www.twitter.com\/hammittla",
+    "social_facebook_link": "https:\/\/www.facebook.com\/hammittla",
+    "social_pinterest_link": "https:\/\/www.pinterest.com\/hammittla",
+    "social_instagram_link": "https:\/\/www.instagram.com\/hammittla",
+    "social_tiktok_link": "https:\/\/www.tiktok.com\/@hammittla",
+    "favicon": "shopify:\/\/shop_images\/Hammitt_Blush_Icon_Logo_Favicon.png",
     "sticky_announcement": true,
     "currency_code_enabled": false,
-    "gwp_enabled": false,
-    "gwp_product": "pch-card-holder-black",
+    "ee_gwp_product": "",
+    "gwp_enabled": true,
+    "gwp_product": "tlc-kit-leather-care-red",
     "gwp_min_price": 350,
     "gwp2_enabled": false,
-    "gwp_product2": "felix-lrg-shoulder-bag-black-gunmetal",
+    "gwp_product2": "kyle-shoulder-bag-habanero-gold",
     "gwp2_min_price": 650,
     "gwp3_enabled": false,
     "split_value": "|",
@@ -57,18 +49,18 @@
     "enable_card_swatches": false,
     "hammitt_gift_message": "A gift? Add a note—from you, but handwritten by us!",
     "cart_shipping_msg": "",
-    "freeShippingThreshold": "0",
-    "cart_drawer_msg": "<p>Free shipping. Taxes calculated at checkout.</p>",
+    "freeShippingThreshold": "1",
+    "cart_drawer_msg": "<p>Free shipping. Taxes calculated at checkout.<\/p>",
     "email_text": "Register to receive a notification when this item comes back in stock.",
-    "subscribe_to_email_text": "<p>Add me to your email list.</p>",
+    "subscribe_to_email_text": "<p>Add me to your email list.<\/p>",
     "enable_sms_subscribe": false,
     "phone_text": "Mobile phone number.",
     "country_code": "+1",
     "content": "",
-    "Klaviyo_confirmation_text": "<p>Thanks for joining the wishlist! We’ll send you an email when this item comes back in stock.</p>",
+    "Klaviyo_confirmation_text": "<p>Thanks for joining the wishlist! We’ll send you an email when this item comes back in stock.<\/p>",
     "only_a_few_left_threshold": 15,
     "tn_cart_widget_link": "",
-    "checkout_logo_image": "shopify://shop_images/hammitt.png",
+    "checkout_logo_image": "shopify:\/\/shop_images\/hammitt.png",
     "checkout_accent_color": "#000000",
     "checkout_button_color": "#000000",
     "sections": {
@@ -80,7 +72,7 @@
             "settings": {
               "text": "Free Shipping",
               "color_scheme": "inverse",
-              "link": "shopify://collections/best-selling-bags"
+              "link": "shopify:\/\/collections\/best-selling-bags"
             }
           },
           "announcement_JmPzA9": {
@@ -88,7 +80,7 @@
             "settings": {
               "text": "Lifetime Guarantee",
               "color_scheme": "inverse",
-              "link": "shopify://collections/core"
+              "link": "shopify:\/\/collections\/core"
             }
           },
           "announcement_cYVjic": {
@@ -96,7 +88,7 @@
             "settings": {
               "text": "Add some love with a free handwritten gift note!",
               "color_scheme": "accent-1",
-              "link": "shopify://collections/best-selling-bags"
+              "link": "shopify:\/\/collections\/best-selling-bags"
             }
           }
         },
@@ -111,13 +103,13 @@
         "type": "header",
         "settings": {
           "color_scheme": "background-1",
-          "logo": "shopify://shop_images/Primary.svg",
+          "logo": "shopify:\/\/shop_images\/Primary.svg",
           "logo_width": 120,
           "logo__mobile_width": 100,
           "logo_position": "middle-center",
           "menu": "new-menu-23",
           "menu_mobile": "mobile-menu",
-          "wishlist_page": "shopify://pages/my-wishlist",
+          "wishlist_page": "shopify:\/\/pages\/my-wishlist",
           "show_line_separator": false,
           "transparent_homepage": false,
           "invert_colors": true,
@@ -134,8 +126,8 @@
             "type": "custom_section",
             "settings": {
               "heading": "Come Visit Us",
-              "footer_image": "shopify://shop_images/la_jolla.jpg",
-              "footer_image_link": "shopify://pages/our-stores",
+              "footer_image": "shopify:\/\/shop_images\/la_jolla.jpg",
+              "footer_image_link": "shopify:\/\/pages\/our-stores",
               "footer_paragraph": "Store Locations"
             }
           },
@@ -157,7 +149,7 @@
             "type": "newsletter_signup",
             "settings": {
               "heading": "Join Our VIP List",
-              "paragraph": "<p>By entering your email address, you agree to our Privacy Policy and will receive Hammitt offers, promotions and other commercial messages. You may unsubscribe at any time.</p>"
+              "paragraph": "<p>By entering your email address, you agree to our Privacy Policy and will receive Hammitt offers, promotions and other commercial messages. You may unsubscribe at any time.<\/p>"
             }
           },
           "709746f1-d285-46a0-b876-75c8b5c5de2b": {
@@ -411,16 +403,16 @@
               "image": "shopify://shop_images/MONTANA_CLUTCH_SML_Lifestyle.jpg",
               "image_ratio": "portrait",
               "image_caption": "Mother's Day Handwritten Gift Notes",
-              "image_link": "shopify://collections/mothers-day"
+              "image_link": "shopify:\/\/collections\/mothers-day"
             }
           },
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/mega-chaparral.jpg",
+              "image": "shopify:\/\/shop_images\/mega-chaparral.jpg",
               "image_ratio": "portrait",
               "image_caption": "New Arrivals",
-              "image_link": "shopify://collections/new-arrivals"
+              "image_link": "shopify:\/\/collections\/new-arrivals"
             }
           }
         },
@@ -446,7 +438,7 @@
           "6d9abf8e-31e5-4200-8c9c-2e9c9d950d23": {
             "type": "paragraph",
             "settings": {
-              "title": "<p>Tag #HammittLA on Instagram for a chance to be featured in our gallery @HammittLA</p>"
+              "title": "<p>Tag #HammittLA on Instagram for a chance to be featured in our gallery @HammittLA<\/p>"
             }
           },
           "119ca879-88eb-4efe-8851-06380d2dda8e": {
@@ -462,7 +454,7 @@
           "30753d7f-8c38-48bf-87cb-99f3d607bf00": {
             "type": "button",
             "settings": {
-              "link": "https://www.hammitt.com/pages/shop-insta",
+              "link": "https:\/\/www.hammitt.com\/pages\/shop-insta",
               "link_text": "Shop Insta",
               "button_style": "button"
             }
@@ -486,7 +478,7 @@
         "type": "ab-header",
         "settings": {
           "color_scheme": "background-1",
-          "logo": "shopify://shop_images/Wholesale_LA_MARKET.jpg",
+          "logo": "shopify:\/\/shop_images\/Wholesale_LA_MARKET.jpg",
           "logo_width": 90,
           "logo_position": "middle-center",
           "menu": "new-menu-23",
@@ -502,47 +494,47 @@
     "content_for_index": [],
     "blocks": {
       "189343447730839328": {
-        "type": "shopify://apps/one-to-one-digital-clienteling/blocks/widget-app-embed-block/82ddd03c-b32f-4a1f-8513-6ca7e308c90d",
+        "type": "shopify:\/\/apps\/one-to-one-digital-clienteling\/blocks\/widget-app-embed-block\/82ddd03c-b32f-4a1f-8513-6ca7e308c90d",
         "disabled": false,
         "settings": {}
       },
       "13317804832702693876": {
-        "type": "shopify://apps/one-to-one-digital-clienteling/blocks/product-recently-viewed-app-embed-block/82ddd03c-b32f-4a1f-8513-6ca7e308c90d",
+        "type": "shopify:\/\/apps\/one-to-one-digital-clienteling\/blocks\/product-recently-viewed-app-embed-block\/82ddd03c-b32f-4a1f-8513-6ca7e308c90d",
         "disabled": false,
         "settings": {}
       },
       "2153490007123654574": {
-        "type": "shopify://apps/consentmo-gdpr/blocks/gdpr_cookie_consent/4fbe573f-a377-4fea-9801-3ee0858cae41",
+        "type": "shopify:\/\/apps\/consentmo-gdpr\/blocks\/gdpr_cookie_consent\/4fbe573f-a377-4fea-9801-3ee0858cae41",
         "disabled": false,
         "settings": {}
       },
       "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {}
       },
       "17428600031447253342": {
-        "type": "shopify://apps/attentive/blocks/attn-tag/8df62c72-8fe4-407e-a5b3-72132be30a0d",
+        "type": "shopify:\/\/apps\/attentive\/blocks\/attn-tag\/8df62c72-8fe4-407e-a5b3-72132be30a0d",
         "disabled": false,
         "settings": {}
       },
       "12512365888938011351": {
-        "type": "shopify://apps/analyzify-ga4-ads-tracking/blocks/app-embed/69637cfd-dd6f-4511-aa97-7037cfb5515c",
+        "type": "shopify:\/\/apps\/analyzify-ga4-ads-tracking\/blocks\/app-embed\/69637cfd-dd6f-4511-aa97-7037cfb5515c",
         "disabled": false,
         "settings": {}
       },
       "3577669850698438243": {
-        "type": "shopify://apps/preorder-now-wod-presale/blocks/app-embed/fdf17d17-ef12-4a7b-8383-20cc1fc2a4b6",
+        "type": "shopify:\/\/apps\/preorder-now-wod-presale\/blocks\/app-embed\/fdf17d17-ef12-4a7b-8383-20cc1fc2a4b6",
         "disabled": false,
         "settings": {}
       },
       "11809892702313333283": {
-        "type": "shopify://apps/firework-shoppable-video-ugc/blocks/firework-header/347a2e4c-f5cb-410d-8354-490d1e80558c",
+        "type": "shopify:\/\/apps\/firework-shoppable-video-ugc\/blocks\/firework-header\/347a2e4c-f5cb-410d-8354-490d1e80558c",
         "disabled": false,
         "settings": {}
       },
       "8962992520437913685": {
-        "type": "shopify://apps/yotpo-loyalty-rewards/blocks/loader-app-embed-block/2f9660df-5018-4e02-9868-ee1fb88d6ccd",
+        "type": "shopify:\/\/apps\/yotpo-loyalty-rewards\/blocks\/loader-app-embed-block\/2f9660df-5018-4e02-9868-ee1fb88d6ccd",
         "disabled": false,
         "settings": {
           "inject_modules_loader": true,
@@ -550,12 +542,12 @@
         }
       },
       "17676059084223943535": {
-        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "type": "shopify:\/\/apps\/triplewhale\/blocks\/triple_pixel_snippet\/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
         "disabled": false,
         "settings": {}
       },
       "10274264662263595587": {
-        "type": "shopify://apps/wishlist-plus/blocks/wishlist-collections-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+        "type": "shopify:\/\/apps\/wishlist-plus\/blocks\/wishlist-collections-embed\/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
         "disabled": true,
         "settings": {
           "swym_collections_icon_type": "heart",
@@ -581,7 +573,7 @@
         }
       },
       "5946647744298494267": {
-        "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+        "type": "shopify:\/\/apps\/wishlist-plus\/blocks\/wishlist-app-embed\/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
         "disabled": false,
         "settings": {
           "storefront_layout_enabled": true,
@@ -601,7 +593,7 @@
         }
       },
       "13824410216918709005": {
-        "type": "shopify://apps/drop-hint/blocks/app-embed/2087e30d-3884-4008-9b6b-545028750b80",
+        "type": "shopify:\/\/apps\/drop-hint\/blocks\/app-embed\/2087e30d-3884-4008-9b6b-545028750b80",
         "disabled": false,
         "settings": {}
       },
@@ -768,7 +760,7 @@
               "type": "text",
               "settings": {
                 "heading": "Our mission",
-                "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
+                "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
               }
             }
           },
