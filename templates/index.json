@@ -84,6 +84,82 @@
         "custom_class": ""
       }
     },
+    "image_banner_q8JJbE": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hJ8F8g": {
+          "type": "heading",
+          "settings": {
+            "heading": "48 HOURS ONLY",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_76AYV6": {
+          "type": "text",
+          "settings": {
+            "text": "Enjoy the TLC Kit as our gift with your purchase of $350+",
+            "text_style": "body",
+            "text_size_mobile": 14,
+            "text_size_tablet": 16,
+            "text_size_desktop": 16
+          }
+        },
+        "buttons_G3XC7f": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/best-selling-bags",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hJ8F8g",
+        "text_76AYV6",
+        "buttons_G3XC7f"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "title_color": "rgba(0,0,0,0)",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/GWP-banner.gif",
+        "image_2": "shopify://shop_images/mobile-GWP.gif",
+        "image_link": "shopify://collections/best-selling-bags",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "slider_collection_CwB3RG": {
       "type": "slider-collection",
       "settings": {
@@ -680,67 +756,6 @@
         "custom_class": "homeiconlist-section"
       }
     },
-    "collection_list_Ri6BcY": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_NqeqVG": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "vip",
-            "image": "shopify://shop_images/Rectangle_15.jpg",
-            "title": "SHOP THE VIP FAMILY"
-          }
-        },
-        "featured_collection_Twra37": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "charles-crossbody",
-            "image": "shopify://shop_images/Rectangle_15-1.jpg",
-            "title": "SHOP THE CHARLES FAMILY"
-          }
-        },
-        "featured_collection_ideYGQ": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "multiple-sizes",
-            "image": "shopify://shop_images/Rectangle_15-2.jpg",
-            "title": "SHOP MULTIPLE SIZES"
-          }
-        },
-        "featured_collection_KNbjNF": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "wallets",
-            "image": "shopify://shop_images/Rectangle_15-3.jpg",
-            "title": "SHOP WALLETS"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_NqeqVG",
-        "featured_collection_Twra37",
-        "featured_collection_ideYGQ",
-        "featured_collection_KNbjNF"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 14,
-        "color_scheme": "background-1",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "removed_section_padding": true,
-        "padding_top": 0,
-        "padding_bottom": 38
-      }
-    },
     "hero_video_banner_RVzeet": {
       "type": "hero-video-banner",
       "settings": {
@@ -821,6 +836,7 @@
   },
   "order": [
     "image_banner_UTpKR6",
+    "image_banner_q8JJbE",
     "slider_collection_CwB3RG",
     "custom_liquid_yXAKqM",
     "image_banner_w8P4kC",
@@ -833,7 +849,6 @@
     "custom_liquid_NgfUX8",
     "home-hero-section",
     "value_props_frHLp3",
-    "collection_list_Ri6BcY",
     "hero_video_banner_RVzeet",
     "homepage_instagram_RrcAhY",
     "custom_liquid_DgMPUR"
