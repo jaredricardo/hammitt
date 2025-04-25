@@ -1375,10 +1375,7 @@ const checkGWPs = (json = false) => {
     json = JSON.parse(drawerItems.getAttribute('data-json'));
   }
   const subtotal = parseFloat(drawerItems.getAttribute('data-subtotal'));
-
-  console.log('++++++++')
-  console.log(gwps)
-  
+ 
   const sortedGwps = gwps.sort((a, b) => b.minimum - a.minimum);
   let addedGwp = false;
   sortedGwps.forEach(gwp => { 
