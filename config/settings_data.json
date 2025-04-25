@@ -400,7 +400,7 @@
           "75df491d-94a6-4328-a6e5-ea89a743cf66": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/RIBBON-WEAVE_2148.jpg",
+              "image": "shopify://shop_images/MONTANA_CLUTCH_SML_Lifestyle.jpg",
               "image_ratio": "portrait",
               "image_caption": "Mother's Day Handwritten Gift Notes",
               "image_link": "shopify:\/\/collections\/mothers-day"
@@ -596,6 +596,18 @@
         "type": "shopify:\/\/apps\/drop-hint\/blocks\/app-embed\/2087e30d-3884-4008-9b6b-545028750b80",
         "disabled": false,
         "settings": {}
+      },
+      "7079518687644006178": {
+        "type": "shopify://apps/checkout-blocks/blocks/app-embed/b0024ca5-9de8-4bf0-a92f-cd0783877ae2",
+        "disabled": false,
+        "settings": {
+          "utm_id": true,
+          "utm_source": true,
+          "utm_medium": true,
+          "utm_campaign": true,
+          "utm_term": true,
+          "ref": true
+        }
       }
     }
   },
