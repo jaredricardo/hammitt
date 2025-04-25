@@ -66,12 +66,12 @@
             {% assign amount_left = required_amount_gwp1 | minus: cart.total_price  %}
             <style>.progress-bar:before { width: {{ percentage }}% !important;}</style>
             <p>You’ve received <b>Free Shipping!</b></p>
-            <p>You are <b>{{ amount_left | money_without_trailing_zeros }}</b> away from a <b>FREE</b> {{ settings.gwp_product.title }}</p>
+            <p>You are <b>{{ amount_left | money_without_trailing_zeros }}</b> away from a <b>Free {{ settings.gwp_product.title }}</b></p>
             <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}" style="--percent: {{ percentage }}%;"></progress-bar>
           {% endif %}
           {% if cart.total_price >= required_amount_gwp1 %}
             <style>.progress-bar:before { width: 100% !important;}</style>
-            <p>You've earned <b>Free Shiping</b> and a <b>FREE</b> {{ settings.gwp_product.title }}</p>
+            <p>You've earned <b>Free Shiping</b> and a <b>Free {{ settings.gwp_product.title }}</b></p>
             <progress-bar style="margin-top: 1rem;" class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}" style="--percent: {{ percentage }}%;"></progress-bar>
           {% endif %}
         </div>
