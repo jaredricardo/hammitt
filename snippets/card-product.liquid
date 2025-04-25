@@ -130,7 +130,13 @@ assign seo_tag = false
             {% for tag in card_product.tags %}
               {% if tag contains 'tag:' or tag contains 'Tag:'%}
                 {% assign tag_to_check = tag | downcase %}
-                <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}"author>{{ tag_to_check | remove: 'tag:' }}</span>
+                <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}"author>
+                  {% if card_product.available %}
+                    {{ tag_to_check | remove: 'tag:' }}
+                  {% else %}
+                    Sold Out
+                  {% endif %}
+                </span>
               {% endif %}
             {% endfor %}
             {%- if card_product.compare_at_price > card_product.price and card_product.available -%}
