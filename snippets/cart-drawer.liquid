@@ -39,24 +39,21 @@
     {% if settings.gwp_enabled %}
       {% comment %} temporary solution for a single GWP, needs to be expanded to work with animation as well as multiple GWPS {% endcomment %}
       <style>
-         .jr-temp-single-gwp {
-            max-width: 80%;
-            margin: 0 auto;
-         }
         .jr-temp-single-gwp p {
-          margin: 0 0 0.5rem 0;
+          margin: 0 auto 0.5rem auto;
           line-height: 1.3;
+          max-width: 80%;
         }
       </style>
         <div class="jr-temp-single-gwp">
-          {% if cart.total_price <= required_amount_free_shipping %}
+          {% if cart.total_price <= required_amount_free_shipping and cart.item_count > 0 %}
             {% assign percentage = required_amount_free_shipping | minus: cart.total_price | times: 100.0 | divided_by: required_amount_free_shipping | minus: 100 | abs | round | at_most: 100 %}
             {% assign amount_left = required_amount_free_shipping | minus: cart.total_price  %}
             <style>.progress-bar:before { width: {{ percentage }}% !important;}</style>
             <p>Spend <b>{{ amount_left | money_without_trailing_zeros }}</b> more to reach <b>Free Shipping!</b></p>
             <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
           {% endif %}
-          {% if cart.total_price >= required_amount_free_shipping and cart.total_price <= required_amount_gwp1 %}
+          {% if cart.total_price > required_amount_free_shipping and cart.total_price < required_amount_gwp1 %}
             {% assign percentage = required_amount_gwp1 | minus: cart.total_price | times: 100.0 | divided_by: required_amount_gwp1 | minus: 100 | abs | round | at_most: 100 %}
             {% assign amount_left = required_amount_gwp1 | minus: cart.total_price  %}
             <style>.progress-bar:before { width: {{ percentage }}% !important;}</style>
