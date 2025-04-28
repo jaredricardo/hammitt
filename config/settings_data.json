@@ -45,7 +45,7 @@
     "sticky_announcement": true,
     "currency_code_enabled": false,
     "ee_gwp_product": "",
-    "gwp_enabled": true,
+    "gwp_enabled": false,
     "gwp_product": "tlc-kit-leather-care-red",
     "gwp_min_price": 350,
     "gwp2_enabled": false,
@@ -78,6 +78,7 @@
         "blocks": {
           "announcement_CwR3it": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Free gift with a $350 order.",
               "color_scheme": "accent-1",
