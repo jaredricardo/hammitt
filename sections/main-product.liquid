@@ -320,16 +320,7 @@
 
                   {% comment %} Product Badges  {% endcomment %}
                   {% if section.settings.enabled_product_badges and forloop.first %}
-                    <div class="card__badge-wrapper">
-                      {% for tag in product.tags %}
-                        {% if tag contains 'tag:' %}
-                          <span class="badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">{{ tag | remove: 'tag:' }}</span>
-                        {% endif %}
-                      {% endfor %}
-                      {%- if product.compare_at_price > product.price and product.available -%}
-                        <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
-                      {%- endif -%}
-                    </div>
+                    {% render 'badge-logic', product:product, type:"pdp"%}
                   {% endif %}
                 </li>
               {%- endunless -%}
@@ -1053,7 +1044,13 @@
                           </div>
                       </button>
                     {% else %}
-                      <button type="button" data-variant-id="{{ product.selected_or_first_available_variant.id }}" data-title="{{ product.title }}" data-variant-title="{{ product.selected_or_first_available_variant.title | prepend:" " }}" class="{% if product.selected_or_first_available_variant.available %}hidden{% endif %} button button--full-width button--primary klaviyo_button_product">{{ 'Notify me when available' }}</button>
+                      <button type="button" style="text-transform: uppercase;" data-variant-id="{{ product.selected_or_first_available_variant.id }}" data-title="{{ product.title }}" data-variant-title="{{ product.selected_or_first_available_variant.title | prepend:" " }}" class="{% if product.selected_or_first_available_variant.available %}hidden{% endif %} button button--full-width button--primary klaviyo_button_product">
+                        {% if product.metafields.custom.restock_date_text %}
+                            {{ 'Notify me | ' | append: product.metafields.custom.restock_date_text  }} 
+                          {% else %}
+                            {{ 'Notify me when available ??? ' }}
+                        {% endif %}
+                      </button>
                     {% endif %}
 
                     {% if IDayPromotionProduct %}

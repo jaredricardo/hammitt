@@ -1,0 +1,75 @@
+{% comment %}
+    usage:
+
+    product: product object
+    type: "pdp" or "card"
+
+{% endcomment %}
+
+<div class="{% if type == "pdp" %} card__badge-wrapper {% endif %} {% if type == "card" %}card__badge {{ settings.badge_position }} {% endif %}">
+
+
+    {% liquid 
+
+        assign tag_assigned = false
+        assign badge_tag = ''
+        assign is_only_a_few_left_tag = false
+
+    -%}
+        
+    {% for tag in product.tags %}
+
+        {% assign tag_to_check = tag | downcase %}
+
+        {% liquid
+        
+            if product.available == false 
+                assign tag_assigned = true
+                assign badge_tag = "Sold Out"
+            endif
+
+            if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available and tag_assigned == false 
+                if type == "card"
+                    assign tag_assigned = true
+                    assign is_only_a_few_left_tag = true
+                    assign badge_tag = settings.only_a_few_left_text
+                endif
+            endif
+
+            if tag_to_check contains 'tag' and tag_assigned == false
+                assign badge_tag = tag_to_check | remove: 'tag:' 
+                assign tag_assigned = true     
+            endif
+    
+        -%}
+    
+        
+        {% if tag_assigned %}
+            
+            {% if is_only_a_few_left_tag == true and type == "card" %}
+                <div class="badge only-x-left-badge">
+                    {% render 'icon-timer' %}
+                    {{ settings.only_a_few_left_text }}
+                </div>
+            {% else %}
+                <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">
+                    {{ badge_tag  }}
+                </span>
+            {% endif %}
+
+            {% break %}
+
+        {% endif %}
+  
+        
+        {% comment %} 
+            not using until nov
+            {%- if product.compare_at_price > product.price and product.available -%}
+                <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
+            {%- endif -%} 
+        {% endcomment %}
+
+
+    {% endfor %}
+
+</div>
