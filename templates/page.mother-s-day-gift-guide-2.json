@@ -250,6 +250,25 @@
         "custom_class": ""
       }
     },
+    "slider_collection_7DYdWe": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "One for You, One for Me.",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "hydrangea-suede",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
     "image_banner_zKmxK6": {
       "type": "image-banner",
       "blocks": {
@@ -532,23 +551,80 @@
         "mobile_padding_bottom": 36
       }
     },
-    "slider_collection_7DYdWe": {
-      "type": "slider-collection",
+    "image_banner_k8nbML": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_BnUhmp": {
+          "type": "heading",
+          "settings": {
+            "heading": "PEWTER RAFFIA",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_nVbctd": {
+          "type": "text",
+          "settings": {
+            "text": "Perfect for Summer. A fresh twist on our beloved Spanish raffia and neutral leather.",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
+        "buttons_ap4WNN": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_BnUhmp",
+        "text_nVbctd",
+        "buttons_ap4WNN"
+      ],
+      "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "title": "One for You, One for Me.",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "hydrangea-suede",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/pewter_raffia_evan_becker.jpg",
+        "image_2": "shopify://shop_images/pewter_raffia_evan_becker.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
       }
     }
   },
@@ -564,6 +640,7 @@
     "image_banner_tJUrwa",
     "slider_collection_qjVAxw",
     "image_banner_4kzbyd",
-    "slider_collection_zezxdW"
+    "slider_collection_zezxdW",
+    "image_banner_k8nbML"
   ]
 }
