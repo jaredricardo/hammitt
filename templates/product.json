@@ -513,10 +513,28 @@
         "padding_bottom_mobile": 36,
         "custom_class": ""
       }
+    },
+    "928b18aaf91cc2f853c4": {
+      "type": "apps",
+      "blocks": {
+        "c76dc59c-df2d-4d31-8403-08fae3d56773": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "c76dc59c-df2d-4d31-8403-08fae3d56773"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
+    "928b18aaf91cc2f853c4",
     "pdp-video-section",
     "custom_liquid_jiGdDY",
     "foursixty_bn3ptH",
