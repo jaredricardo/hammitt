@@ -651,6 +651,57 @@
         "mobile_padding_bottom": 36
       }
     },
+    "image_with_text_8EgBGr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_hm4HmE": {
+          "type": "heading",
+          "settings": {
+            "heading": "COLLECT SUNBURST",
+            "heading_size": "h1"
+          }
+        },
+        "text_7NHMYa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This hand-numbered edition of our VIP changes color in the sunlight.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_P73PGq": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://products/vip-med-clutch-sunburst-brushed-gold",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hm4HmE",
+        "text_7NHMYa",
+        "button_P73PGq"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/VIP_MED_Sunburst3.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "image_banner_tJUrwa": {
       "type": "image-banner",
       "blocks": {
@@ -934,57 +985,6 @@
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36
       }
-    },
-    "image_with_text_8EgBGr": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_hm4HmE": {
-          "type": "heading",
-          "settings": {
-            "heading": "COLLECT SUNBURST",
-            "heading_size": "h1"
-          }
-        },
-        "text_7NHMYa": {
-          "type": "text",
-          "settings": {
-            "text": "<p>This hand-numbered edition of our VIP changes color in the sunlight.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_P73PGq": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP NOW",
-            "button_link": "shopify://products/vip-med-clutch-sunburst-brushed-gold",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_hm4HmE",
-        "text_7NHMYa",
-        "button_P73PGq"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/VIP_MED_Sunburst3.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "center",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "left",
-        "color_background": "",
-        "show_color_background": false,
-        "color_background_height": 50,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
     }
   },
   "order": [
@@ -1002,12 +1002,12 @@
     "slider_collection_L6zWBW",
     "image_banner_LRKmm4",
     "slider_collection_h3xgGm",
+    "image_with_text_8EgBGr",
     "image_banner_tJUrwa",
     "slider_collection_qjVAxw",
     "image_banner_4kzbyd",
     "slider_collection_zezxdW",
     "image_banner_bUFHn6",
-    "slider_collection_GwUF7e",
-    "image_with_text_8EgBGr"
+    "slider_collection_GwUF7e"
   ]
 }
