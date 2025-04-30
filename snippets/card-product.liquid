@@ -126,29 +126,7 @@ assign seo_tag = false
             </h3>
           </div>
           {% unless hide_tag %}
-          <div class="card__badge {{ settings.badge_position }}">
-            {% for tag in card_product.tags %}
-              {% if tag contains 'tag:' or tag contains 'Tag:'%}
-                {% assign tag_to_check = tag | downcase %}
-                <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}"author>
-                  {% if card_product.available %}
-                    {{ tag_to_check | remove: 'tag:' }}
-                  {% else %}
-                    Sold Out
-                  {% endif %}
-                </span>
-              {% endif %}
-            {% endfor %}
-            {%- if card_product.compare_at_price > card_product.price and card_product.available -%}
-              <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
-            {%- endif -%}
-            {% if card_product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and card_product.available %}
-              <span class="badge only-x-left-badge">
-                {% render 'icon-timer' %}
-                {{ settings.only_a_few_left_text }}
-              </span>
-            {% endif %}
-          </div>
+            {% render 'badge-logic', product:card_product, type:'card' %}
           {% endunless %}
           
           {% unless hide_quick_add %}

@@ -17,25 +17,14 @@
     %}
 {% endcomment %}
 
-{% capture product_badges %}
-  <div class="card__badge-wrapper">
-    {% for tag in product.tags %}
-      {% if tag contains 'tag:' or tag contains 'Tag:'%}
-        {% assign tag_to_check = tag | downcase %}
-        <span class="badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">{{ tag_to_check | remove: 'tag:' }}</span>
-      {% endif %}
-    {% endfor %}
-    {%- if product.compare_at_price > product.price and product.available -%}
-      <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
-    {%- endif -%}
-  </div>
-{% endcapture %}
 
-<div class="media" style="padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;">
+<div class="media" style="padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;" data-mobile-index="{{ index }}">
   {% comment %} Product Badges  {% endcomment %}
   {% if show_product_badges %}
-    {% if isMobile or index == 1 %}
-      {{ product_badges }}
+    {% if isMobile %}
+      {% if index == 1 %}
+        {% render 'badge-logic', type: "pdp", product: product %}
+      {% endif %}
     {% endif %}
   {% endif %}
 

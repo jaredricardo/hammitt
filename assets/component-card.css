@@ -172,7 +172,7 @@
   line-height: 18.2px;
 }
 
-.card__badge:has(.badge.only-x-left-badge) .tag-badge {
+.card__badge:has(.badge.red-badge) .tag-badge {
   display: none
 }
 
@@ -582,20 +582,35 @@ quick-add .label {
   font-weight: 600;
 }
 
-.badge.only-x-left-badge {
+.badge.red-badge {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  color: #7D2C34;
-  background-color: #F1E8E5;
+  color: #7D2C34 !important; 
+  background-color: #F1E8E5 !important;
   border: none;
   padding: 0.8rem 0.65rem;
   text-transform: none;
+  border: none !important;
 }
 
-.badge.only-x-left-badge svg {
+.badge.red-badge .gift-gif {
+  width: 12px; 
+  height: 12px; 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center;
+  display: inline-block;
+}
+
+.badge.red-badge svg,
+.badge.red-badge img {
   height: 12px;
+}
+
+.badge.red-badge svg path {
+  fill: #7d2c34;
 }
 
 
