@@ -11,65 +11,69 @@
 
     {% liquid 
 
-        assign tag_assigned = false
-        assign badge_tag = ''
+        assign special_tag_assigned = false
+        assign product_tag_assigned = false
         assign is_only_a_few_left_tag = false
+        assign has_top_gift_tag = false
+        assign badge_tag = ''
+
+        if product.available == false
+            assign special_tag_assigned = true
+            assign badge_tag = "Sold Out"
+        endif
+
+        if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available and special_tag_assigned == false
+            assign special_tag_assigned = true
+            assign is_only_a_few_left_tag = true
+            assign badge_tag = settings.only_a_few_left_text
+        endif
+
+        unless special_tag_assgined
+            for tag in product.tags
+
+                assign tag_to_check = tag | downcase
+
+                if tag_to_check contains 'tag:'
+                    assign product_tag_assigned = true
+                    assign badge_tag = tag_to_check | remove: 'tag:'
+                endif
+
+                if tag_to_check contains 'top gift'
+                    assign has_top_gift_tag = true
+                endif
+
+            endfor
+        endunless
 
     -%}
+
+    {% comment %} 
+        not using until nov
+        {%- if product.compare_at_price > product.price and product.available -%}
+            <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
+        {%- endif -%} 
+    {% endcomment %}
         
-    {% for tag in product.tags %}
 
-        {% assign tag_to_check = tag | downcase %}
-
-        {% liquid
-        
-            if product.available == false 
-                assign tag_assigned = true
-                assign badge_tag = "Sold Out"
-            endif
-
-            if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available and tag_assigned == false 
-                if type == "card"
-                    assign tag_assigned = true
-                    assign is_only_a_few_left_tag = true
-                    assign badge_tag = settings.only_a_few_left_text
-                endif
-            endif
-
-            if tag_to_check contains 'tag' and tag_assigned == false
-                assign badge_tag = tag_to_check | remove: 'tag:' 
-                assign tag_assigned = true     
-            endif
-    
-        -%}
-    
-        
-        {% if tag_assigned %}
-            
-            {% if is_only_a_few_left_tag == true and type == "card" %}
-                <div class="badge only-x-left-badge">
-                    {% render 'icon-timer' %}
-                    {{ settings.only_a_few_left_text }}
-                </div>
-            {% else %}
-                <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">
-                    {{ badge_tag  }}
-                </span>
-            {% endif %}
-
-            {% break %}
-
-        {% endif %}
+    {% if has_top_gift_tag and product_tag_assigned == true and special_tag_assigned == false %}
+        {% assign badge_tag = "Top Gift" %}
+    {% endif %}
   
-        
-        {% comment %} 
-            not using until nov
-            {%- if product.compare_at_price > product.price and product.available -%}
-                <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
-            {%- endif -%} 
-        {% endcomment %}
 
+            
+    {% if special_tag_assigned or product_tag_assigned %}
+            
+        {% if is_only_a_few_left_tag == true and type == "card" %}
+            <div class="badge only-x-left-badge">
+                {% render 'icon-timer' %}
+                {{ settings.only_a_few_left_text }}
+            </div>
+        {% else %}
+            <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">
+                {{ badge_tag  }}
+            </span>
+        {% endif %}
 
-    {% endfor %}
+    {% endif %}
 
 </div>
