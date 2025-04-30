@@ -18,7 +18,6 @@
 
         if product.available == false
             assign special_tag_assigned = true
-            assign badge_tag = "Sold Out"
         endif
 
         if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available and special_tag_assigned == false
@@ -59,14 +58,24 @@
     {% endif %}
   
     {% if special_tag_assigned or product_tag_assigned %}
-        {% if is_only_a_few_left_tag == true and type == "card" %}
-            <div class="badge only-x-left-badge">
+        {% if product.available == false %}
+            <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">
+                Sold Out
+            </span>
+        {% elsif is_only_a_few_left_tag == true %}
+            <span class="badge red-badge">
                 {% render 'icon-timer' %}
                 {{ settings.only_a_few_left_text }}
-            </div>
+            </span>
+        {% elsif has_top_gift_tag == true %}
+            <span class="badge red-badge">
+                {% comment %} {% render 'icon-gift' %} {% endcomment %}
+                <div class="gift-gif" style="background-image: url('{{ 'gift-gif.gif' | asset_url }}');" aria-label="Gift Icon"></div>
+                {{ badge_tag }}
+            </span>
         {% else %}
             <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">
-                {{ badge_tag  }}
+                {{ badge_tag }}
             </span>
         {% endif %}
     {% endif %}
