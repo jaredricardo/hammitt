@@ -9,6 +9,121 @@
  */
 {
   "sections": {
+    "custom_liquid_gA9GNL": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_banner_MLUaKq": {
+      "type": "image-banner",
+      "settings": {
+        "title": "",
+        "title_color": "rgba(0,0,0,0)",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_1260.jpg",
+        "image_2": "shopify://shop_images/Group_1261.jpg",
+        "image_link": "shopify://pages/tim",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_qbCrBb": {
+      "type": "rich-text",
+      "blocks": {
+        "text_p6QbRB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A YEAR IN THE MAKING:</p>"
+          }
+        },
+        "heading_XDLAAf": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "MEET TIM",
+            "heading_size": "h1"
+          }
+        },
+        "button_CQCaH8": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://pages/tim",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "text_p6QbRB",
+        "heading_XDLAAf",
+        "button_CQCaH8"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "slider_collection_CwB3RG": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 18,
+        "padding_bottom": 7,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
+      }
+    },
     "image_banner_q8JJbE": {
       "type": "image-banner",
       "blocks": {
@@ -84,13 +199,13 @@
         "custom_class": ""
       }
     },
-    "slider_collection_CwB3RG": {
+    "slider_collection_9a7MAc": {
       "type": "slider-collection",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "new-arrivals",
+        "collection": "mothers-day",
         "max_products": 30,
         "image_ratio": "square",
         "hide_price": false,
@@ -200,6 +315,29 @@
     "multicolumn_GMpXGB": {
       "type": "multicolumn",
       "blocks": {
+        "column_aWtC3c": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_573_1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "<p>New! </p>",
+            "link_label": "Shop Lime Zest",
+            "link": "shopify://collections/lime-zest",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 18,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
         "column_cm4gE7": {
           "type": "column",
           "settings": {
@@ -245,35 +383,12 @@
             "cta_top_spacing": 0,
             "cta_bottom_spacing": 10
           }
-        },
-        "column_aWtC3c": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/shop-cy.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Shop Courtyard Cream",
-            "link": "shopify://collections/courtyard-cream",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 18,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 10
-          }
         }
       },
       "block_order": [
+        "column_aWtC3c",
         "column_cm4gE7",
-        "column_kbVKLG",
-        "column_aWtC3c"
+        "column_kbVKLG"
       ],
       "settings": {
         "title": "SHOP NEW ARRIVALS",
@@ -301,7 +416,7 @@
         "swipe_on_mobile": false,
         "padding_top": 0,
         "padding_bottom": 36,
-        "padding_top_mobile": 0,
+        "padding_top_mobile": 38,
         "padding_bottom_mobile": 30,
         "custom_class": "behind-design-section"
       }
@@ -858,8 +973,12 @@
     }
   },
   "order": [
-    "image_banner_q8JJbE",
+    "custom_liquid_gA9GNL",
+    "image_banner_MLUaKq",
+    "rich_text_qbCrBb",
     "slider_collection_CwB3RG",
+    "image_banner_q8JJbE",
+    "slider_collection_9a7MAc",
     "image_banner_w8P4kC",
     "slider_featured_collection_bTka8m",
     "multicolumn_GMpXGB",
