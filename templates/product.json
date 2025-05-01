@@ -16,15 +16,15 @@
           "type": "title",
           "settings": {}
         },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
         "c4fdcec2-91c4-4fc2-8147-f7f96f5f87df": {
           "type": "shopify://apps/yotpo-product-reviews/blocks/star-rating/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
           "settings": {
             "product": "{{product}}"
           }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -147,8 +147,8 @@
       },
       "block_order": [
         "title",
-        "price",
         "c4fdcec2-91c4-4fc2-8147-f7f96f5f87df",
+        "price",
         "variant_picker",
         "buy_buttons",
         "monogram_btn_A3DWwd",
@@ -181,23 +181,6 @@
         "padding_bottom": 12
       }
     },
-    "928b18aaf91cc2f853c4": {
-      "type": "apps",
-      "blocks": {
-        "c76dc59c-df2d-4d31-8403-08fae3d56773": {
-          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
-          "settings": {
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "c76dc59c-df2d-4d31-8403-08fae3d56773"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "pdp-video-section": {
       "type": "pdp-video-section",
       "settings": {
@@ -224,6 +207,23 @@
         "padding_top_mobile": 100,
         "padding_bottom_mobile": 20,
         "custom_class": ""
+      }
+    },
+    "928b18aaf91cc2f853c4": {
+      "type": "apps",
+      "blocks": {
+        "c76dc59c-df2d-4d31-8403-08fae3d56773": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "c76dc59c-df2d-4d31-8403-08fae3d56773"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "foursixty_bn3ptH": {
@@ -515,9 +515,9 @@
   },
   "order": [
     "main",
-    "928b18aaf91cc2f853c4",
     "pdp-video-section",
     "custom_liquid_jiGdDY",
+    "928b18aaf91cc2f853c4",
     "foursixty_bn3ptH",
     "multicolumn_YpDmQ6",
     "image_with_text_q9fxHx",
