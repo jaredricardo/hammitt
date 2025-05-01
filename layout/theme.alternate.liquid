@@ -41,10 +41,6 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
-<!-- Start of Shoplift scripts -->
-{% render 'shoplift' %}
-<!-- End of Shoplift scripts -->
-
     {% unless is_admin_interface %}
       {% render '__opt-theme-observer' %}
     {% endunless %}
