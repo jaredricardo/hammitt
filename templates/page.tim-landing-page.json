@@ -100,7 +100,8 @@
     "slider_collection_w9UPnP": {
       "type": "slider-collection",
       "custom_css": [
-        ".section-productgrid.swiper-wrapper {justify-content: : center;}"
+        ".section-productgrid.swiper-wrapper {justify-content: center;}",
+        "@media screen and (max-width: 990px) {.section-productgrid.swiper-wrapper {justify-content: initial;}}"
       ],
       "settings": {
         "title": "",
