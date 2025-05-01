@@ -22,6 +22,81 @@
         "custom_class": ""
       }
     },
+    "image_banner_reRehV": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_apH9Gt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_BCAweY": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
+        "buttons_YUYCzm": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_apH9Gt",
+        "text_BCAweY",
+        "buttons_YUYCzm"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_1260.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
     "rich_text_qbCrBb": {
       "type": "rich-text",
       "blocks": {
@@ -53,6 +128,7 @@
         "heading_XDLAAf",
         "button_CQCaH8"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "color_scheme": "background-1",
@@ -932,6 +1008,7 @@
   },
   "order": [
     "custom_liquid_gA9GNL",
+    "image_banner_reRehV",
     "rich_text_qbCrBb",
     "slider_collection_CwB3RG",
     "image_banner_q8JJbE",
