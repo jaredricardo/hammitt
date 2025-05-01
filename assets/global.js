@@ -1769,7 +1769,9 @@ const findElement = setInterval(expressCheckout, 1000);
 function expressCheckout() {
   if(document.querySelector('shopify-paypal-button')) {
     document.querySelector('shopify-paypal-button').remove();
-    document.querySelector('shopify-google-pay-button').remove();
+    if(document.querySelector('shopify-google-pay-button')) {
+      document.querySelector('shopify-google-pay-button').remove();
+    }
     if(document.querySelector('shopify-apple-pay-button')) {
       document.querySelector('shopify-apple-pay-button').remove();
     }
