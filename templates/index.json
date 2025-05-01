@@ -9,6 +9,19 @@
  */
 {
   "sections": {
+    "custom_liquid_gA9GNL": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
     "image_banner_q8JJbE": {
       "type": "image-banner",
       "blocks": {
@@ -856,17 +869,45 @@
         "link_to_page_text": "Shop Insta"
       }
     },
-    "custom_liquid_gA9GNL": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
+    "rich_text_qbCrBb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XDLAAf": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "MEET TIM",
+            "heading_size": "h1"
+          }
+        },
+        "text_p6QbRB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_CQCaH8": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://pages/tim-landing-page",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_XDLAAf",
+        "text_p6QbRB",
+        "button_CQCaH8"
+      ],
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"modern\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0,
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
         "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
+        "padding_bottom_mobile": 36
       }
     }
   },
@@ -885,6 +926,7 @@
     "custom_liquid_NgfUX8",
     "home-hero-section",
     "hero_video_banner_RVzeet",
-    "homepage_instagram_RrcAhY"
+    "homepage_instagram_RrcAhY",
+    "rich_text_qbCrBb"
   ]
 }
