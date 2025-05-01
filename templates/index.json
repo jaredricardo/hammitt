@@ -22,6 +22,47 @@
         "custom_class": ""
       }
     },
+    "rich_text_qbCrBb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XDLAAf": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "MEET TIM",
+            "heading_size": "h1"
+          }
+        },
+        "text_p6QbRB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_CQCaH8": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://pages/tim-landing-page",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_XDLAAf",
+        "text_p6QbRB",
+        "button_CQCaH8"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "image_banner_q8JJbE": {
       "type": "image-banner",
       "blocks": {
@@ -868,51 +909,11 @@
         "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
       }
-    },
-    "rich_text_qbCrBb": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_XDLAAf": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "MEET TIM",
-            "heading_size": "h1"
-          }
-        },
-        "text_p6QbRB": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-          }
-        },
-        "button_CQCaH8": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP NOW",
-            "button_link": "shopify://pages/tim-landing-page",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_XDLAAf",
-        "text_p6QbRB",
-        "button_CQCaH8"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
     }
   },
   "order": [
     "custom_liquid_gA9GNL",
+    "rich_text_qbCrBb",
     "image_banner_q8JJbE",
     "slider_collection_CwB3RG",
     "image_banner_w8P4kC",
@@ -926,7 +927,6 @@
     "custom_liquid_NgfUX8",
     "home-hero-section",
     "hero_video_banner_RVzeet",
-    "homepage_instagram_RrcAhY",
-    "rich_text_qbCrBb"
+    "homepage_instagram_RrcAhY"
   ]
 }
