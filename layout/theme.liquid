@@ -338,6 +338,7 @@
     }
   }
 </style>
+{{ 'critical.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
     {% if template contains 'index' %}
       {% render '__index-css' %}
