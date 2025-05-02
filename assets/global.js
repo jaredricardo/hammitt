@@ -1129,6 +1129,9 @@ const productSwatchReload = () => {
           } else {
             console.log(currentEl,newEl,el);
           }
+          if(document.querySelector('.pdp-hero-wrap .yotpo-widget-instance')) {
+            yotpoWidgetsContainer.initWidgets()
+          }
         });
 
         lazyImages();

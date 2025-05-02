@@ -1,0 +1,9 @@
+/* This file is for CSS that is critical in preventing CLS on page load. Base.css loads after a lot of markup has alredy loaded. */
+
+#yotpo-star-rating-highly-rated-topics {
+    background: transparent !important;
+    padding: 1rem 0 !important;
+}
+.yotpo-star-rating-highly-rated-topics-text span {
+    font-size: 14px !important
+}
