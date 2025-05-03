@@ -77,7 +77,7 @@
         "text_Btyftk": {
           "type": "text",
           "settings": {
-            "text": "Meet Lime Zest, featuring classic pebbled leather with a bright green twist. SHOP NOW",
+            "text": "Meet Lime Zest, featuring classic pebbled leather with a bright green twist.",
             "text_style": "body",
             "text_size_mobile": 12,
             "text_size_tablet": 14,
@@ -135,6 +135,100 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
+      }
+    },
+    "image_banner_cmTRyK": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_xFxypt": {
+          "type": "heading",
+          "settings": {
+            "heading": "PUT IT IN NEUTRAL",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_wQFVQm": {
+          "type": "text",
+          "settings": {
+            "text": "A classic hue and iconic texture collide with new Pewter Pebble.",
+            "text_style": "body",
+            "text_size_mobile": 12,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_arKhwn": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/lime-zest",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_xFxypt",
+        "text_wQFVQm",
+        "buttons_arKhwn"
+      ],
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_1130_1.jpg",
+        "image_2": "shopify://shop_images/Rectangle_602_1.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_ppJpUU": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "lime-zest",
+        "max_products": 30,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     },
     "image_banner_tgKCXT": {
@@ -212,13 +306,13 @@
         "custom_class": ""
       }
     },
-    "slider_collection_ppJpUU": {
+    "slider_collection_RXmtTL": {
       "type": "slider-collection",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "lime-zest",
+        "collection": "tim",
         "max_products": 30,
         "image_ratio": "adapt",
         "hide_price": false,
@@ -313,25 +407,6 @@
         "heading_align": "center",
         "heading_color": "",
         "collection": "sidewalk-silver",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "slider_collection_RXmtTL": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "tim",
         "max_products": 30,
         "image_ratio": "adapt",
         "hide_price": false,
@@ -469,6 +544,7 @@
         "text_ApwM9c",
         "button_PEcVHe"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/Sunburst3.jpg",
         "height": "adapt",
@@ -524,6 +600,7 @@
         "text_ydhhgy",
         "buttons_FTEhmU"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -565,6 +642,7 @@
     },
     "slider_collection_w9UPnP": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -613,6 +691,7 @@
         "text_enRVyF",
         "button_XF9rKT"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/Frame_549_1.jpg",
         "height": "adapt",
@@ -634,6 +713,7 @@
     },
     "hero_video_banner_ewbVHJ": {
       "type": "hero-video-banner",
+      "disabled": true,
       "settings": {
         "video_height": "100vh",
         "video_height_mobile": "450px",
@@ -744,6 +824,7 @@
     },
     "image_banner_UBXpNc": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -925,6 +1006,7 @@
         "text_b3cFPd",
         "button_R3KiGX"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/ribbon-weave_1.jpg",
         "height": "adapt",
@@ -949,6 +1031,7 @@
     "main",
     "image_banner_bkPemt",
     "image_banner_qeqPUd",
+    "image_banner_cmTRyK",
     "slider_collection_ppJpUU",
     "image_banner_tgKCXT",
     "slider_collection_RXmtTL",
