@@ -113,6 +113,57 @@
         "padding_bottom_mobile": 36
       }
     },
+    "image_with_text_V3eQ4H": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_j4N7mt": {
+          "type": "heading",
+          "settings": {
+            "heading": "INFLUENCER FAVORITES",
+            "heading_size": "h1"
+          }
+        },
+        "text_9fXNKf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From city strolls to weekend getaways—see how style leaders are carrying Hammitt all year long.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_QCE8eV": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP INFLU FAV",
+            "button_link": "shopify://collections/influencer-favorites",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_j4N7mt",
+        "text_9fXNKf",
+        "button_QCE8eV"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Group_1113.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "multicolumn_wngqhj": {
       "type": "multicolumn",
       "blocks": {
@@ -227,6 +278,7 @@
     "main",
     "image_banner_bkPemt",
     "image_with_text_FijA7q",
+    "image_with_text_V3eQ4H",
     "multicolumn_wngqhj"
   ]
 }
