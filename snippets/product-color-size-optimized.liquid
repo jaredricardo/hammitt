@@ -54,9 +54,7 @@
 <div class="product-colors color_group color_group_block custom-variant-options colorway-optimized">
   {% comment %} color products {% endcomment %}
   <div class="variant-picker-group-wrapper">
-    {% unless dc_product_size == 'sml' or dc_product_size == "med" or dc_product_size == "lrg" %}
     <p class="custom-variant-title"><span>{{ 'MORE COLORS:' | upcase }}</span> <strong>{{ product_color }}</strong></p>
-    {% endunless %}
     <ul class="custom-variant-list">
       {% for product in colorway_collection %}
   
