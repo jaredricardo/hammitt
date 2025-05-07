@@ -43,6 +43,59 @@
         top: 0;
         left: 0;
       }
+
+      {% if section.settings.enable_5050 and collection.image != blank %}
+        [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050  {
+          display: flex;
+          flex-direction: row-reverse;
+        }
+        [data-section-id="{{ section.id }}"] .page-width.e5050 {
+          padding-left: 0 !important;
+          padding-bottom: 1rem !important;
+        }
+        [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__text-wrapper {
+          position: relative !important;
+          flex-direction: column;
+          display: flex;
+          align-items: start;
+          justify-content: center;
+          padding-left: 5vw;
+          text-align: left !important;
+          /* overwrtiting content alignments */
+          top: auto !important;
+          transform: revert !important;
+          right: auto !important;
+        }
+        [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__description {
+          margin: 0;
+        }
+        [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__description > div {
+          text-align: left !important;
+        }
+
+        @media screen and (max-width: 768px) {
+          [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050  {
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 0 !important;
+            gap: 1rem;
+          }
+          [data-section-id="{{ section.id }}"] .page-width.e5050 {
+            padding-right: 0 !important;
+          }
+          [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__text-wrapper {
+            align-items: center;
+            gap: 1rem;
+            padding-left: 16.75px;
+          }
+          [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__text-wrapper,
+          [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__description > div {
+            text-align: center !important;
+          }
+        }
+
+      {% endif %}
+
       @media screen and (max-width: 750px) {
       #shopify-section-{{ section.id }} .collection-hero__text-wrapper.y-collection_banner{
       {% if content_postion_mobile == "top_left" or content_postion_mobile == "top_right" or content_postion_mobile == "center_right" or content_postion_mobile == "center_center" or content_postion_mobile == "center_left" %}
@@ -110,9 +163,9 @@
     }
 {%- endstyle -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="{% if section.settings.make_full_width != true %}page-width{% endif %}">
-    <div class="collection-hero__inner">
+<div data-section-id="{{ section.id }}" class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  <div class="{% if section.settings.make_full_width != true %}page-width{% endif %} {% if section.settings.enable_5050 and collection.image != blank %} e5050 {% endif %}">
+    <div class="collection-hero__inner{% if section.settings.enable_5050 and collection.image != blank %} e5050 {% endif %}">
       {% if section.settings.show_collection_title or section.settings.show_collection_description %}
         <div class="collection-hero__text-wrapper{% if section.settings.make_full_width %} collection-hero__text-space{% endif %}{% unless section.settings.show_collection_image and collection.image %} no-collection_banner{% else %} y-collection_banner{% endunless %}">
           {% if section.settings.show_collection_title %}
@@ -123,7 +176,13 @@
           {% endif %}
 
           {%- if section.settings.show_collection_description -%}
-            <div class="collection-hero__description rte">{{ collection.description }}</div>
+            {% if collection.metafields.custom.alt_short_description %}
+                <div class="collection-hero__description rte">{{ collection.metafields.custom.alt_short_description }}</div>
+              {% else %}
+                {% unless section.settings.use_alt_description_only %}
+                  <div class="collection-hero__description rte">{{ collection.description }}</div>
+                {% endunless %}
+            {% endif %}
           {%- endif -%}
         </div>
       {% endif %}
@@ -228,6 +287,13 @@
       "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
     },
     {
+      "type": "checkbox",
+      "id": "use_alt_description_only",
+      "default": true,
+      "label": "Use Alt Description Only",
+      "info": "Overrides the default description with the alt description from the metafield. This should generally be kept on as the decscriptions in the admin are often too long for the hero and mostly used for SEO purposes. Even if the alt description is blank, it is better to use this setting."
+    },
+    {
       "type": "color",
       "label": "Color",
       "id": "description_color",
@@ -243,6 +309,13 @@
       "default": false,
       "label": "t:sections.main-collection-banner.settings.show_collection_image.label",
       "info": "t:sections.main-collection-banner.settings.show_collection_image.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_5050",
+      "default": true,
+      "label": "Enable 50/50 Layout [image - text]",
+      "info": "IMPORTANT: requires a collection image to be set on the individual collections in the admin. If there is no image, the layout will not change."
     },
     {
       "type": "checkbox",
