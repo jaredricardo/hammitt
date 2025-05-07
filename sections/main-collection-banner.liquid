@@ -64,6 +64,9 @@
         [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__description {
           margin: 0;
         }
+        [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__description > div {
+          text-align: left !important;
+        }
 
         @media screen and (max-width: 768px) {
           [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050  {
@@ -79,6 +82,9 @@
             align-items: center;
             gap: 1rem;
             padding-left: 16.75px;
+          }
+          [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__description > div {
+            text-align: center !important;
           }
         }
 
@@ -164,10 +170,12 @@
           {% endif %}
 
           {%- if section.settings.show_collection_description -%}
-            {% if collection.metafields.custom.alt_short_description or section.settings.use_alt_description_only %}
+            {% if collection.metafields.custom.alt_short_description %}
                 <div class="collection-hero__description rte">{{ collection.metafields.custom.alt_short_description }}</div>
               {% else %}
-                <div class="collection-hero__description rte">{{ collection.description }}</div>
+                {% unless section.settings.use_alt_description_only %}
+                  <div class="collection-hero__description rte">{{ collection.description }}</div>
+                {% endunless %}
             {% endif %}
           {%- endif -%}
         </div>
@@ -277,7 +285,7 @@
       "id": "use_alt_description_only",
       "default": true,
       "label": "Use Alt Description Only",
-      "info": "Overrides the default description with the alt description from the metafield, as the collection description is often too long for the hero."
+      "info": "Overrides the default description with the alt description from the metafield. This should generally be kept on as the decscriptions in the admin are often too long for the hero and mostly used for SEO purposes. Even if the alt description is blank, it is better to use this setting."
     },
     {
       "type": "color",
