@@ -60,6 +60,11 @@
           align-items: start;
           justify-content: center;
           padding-left: 5vw;
+          text-align: left !important;
+          /* overwrtiting content alignments */
+          top: auto !important;
+          transform: revert !important;
+          right: auto !important;
         }
         [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__description {
           margin: 0;
@@ -83,6 +88,7 @@
             gap: 1rem;
             padding-left: 16.75px;
           }
+          [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__text-wrapper,
           [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__description > div {
             text-align: center !important;
           }
