@@ -188,7 +188,10 @@
       {% endif %}
 
       {%- if section.settings.show_collection_image and collection.image -%}
-        <div class="collection-hero__image-container media gradient">
+
+      {% assign aspect_ratio = collection.image.width | append: '/' | append: collection.image.height %}
+
+      <div class="collection-hero__image-container media gradient" {% if section.settings.enable_banner_natural_height %} style="aspect-ratio: {{ aspect_ratio }}; min-height: revert !important;" {% endif %} >
           <img
             srcset="
               {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
@@ -322,6 +325,13 @@
       "id": "make_full_width",
       "default": false,
       "label": "Full Width"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_banner_natural_height",
+      "default": false,
+      "label": "Use Natural Height",
+      "info": "This will use the natural height of the image instead of the set height. Probably best to leave this off unless every product that uses this template has a specifically set image."
     },
     {
       "type": "select",
