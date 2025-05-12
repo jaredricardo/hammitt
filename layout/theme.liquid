@@ -342,6 +342,10 @@
 
 <style>
 
+  main:has(.yotpo-empty-state-blank) .pdp-hero-wrap .yotpo-widget-instance {
+    display: none !important;
+  }
+
   {% if request.page_type == "product" and product.id == 6076389327032 %}
       .yotpo-widget-instance,
       .card__badge-wrapper,
