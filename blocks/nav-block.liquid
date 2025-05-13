@@ -1,21 +1,35 @@
-<div class="group">
-    {% content_for "blocks" %}
-</div>
+<li class="visual-nav-navigation-item">
+    <a href="{{ block.settings.nav_link }}" class="visual-navigation-item-link">
+        {% if block.settings.nav_image %}
+            <img src="{{ block.settings.nav_image | img_url: '300x300' }}" alt="{{ block.settings.nav_item_alt_title | escape }}" class="visual-nav-navigation-item__image">
+        {% endif %}
+        <h5>{{ block.settings.title }}</h5>
+    </a>
+</li>
 
 {% schema %}
 {
-    "name": "Visual Nav Group",
+    "name": "Visual Nav Item",
     "settings": [
-
-    ],
-    "blocks": [
         {
-            "type": "@theme"
+            "type": "url",
+            "id": "nav_link",
+            "label": "Navigation link"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Navigation item title"
+        },
+        {
+            "type": "image_picker",
+            "id": "nav_image",
+            "label": "Navigation image"
         }
     ],
     "presets": [
         {
-            "name": "Visual Nav Group"
+            "name": "Visual Nav Item"
         }
     ]
 }
