@@ -8,8 +8,16 @@
     font-size: 14px !important
 }
 
-/* .shopify-section:has(.homepage-fw) {
-    min-height: 73vh;
+.shopify-section:has(.homepage-fw) > div,
+.shopify-section:has(.homepage-fw) > div > div,
+.shopify-section:has(.homepage-fw) .fwmobile,
+.shopify-section:has(.homepage-fw) .fwdesktop  {
+    min-height: 100%;
+    height: 100%;
+}
+
+.shopify-section:has(.homepage-fw) fw-player {
+    height: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -17,4 +25,3 @@
         height: 55vh;
     }
 }
- */
