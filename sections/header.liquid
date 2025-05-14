@@ -98,6 +98,26 @@
   
   <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const sublinkOpenerButtons = document.querySelectorAll('.sublink-opener .sublink-accordion-button')
+
+      if(!sublinkOpenerButtons) return
+
+      sublinkOpenerButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const sublinkContainer = button.closest('.sublink-opener').querySelector('.sublinks-container')
+          sublinkContainer.classList.toggle('open')
+          sublinkContainer.classList.contains('open') 
+            ? 
+              sublinkContainer.style.height = `${sublinkContainer.scrollHeight}px`
+            :
+              sublinkContainer.style.height = '0px'
+        })
+      })
+    })
+  </script>
   
   <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
     <symbol id="icon-search" viewbox="0 0 13 17">
@@ -124,7 +144,7 @@
                 <div class="menu-drawer__inner-container">
                   <div class="menu-drawer__navigation-container">
                     <nav class="menu-drawer__navigation">
-                      <ul class="menu-drawer__menu list-menu" role="list">
+                      <ul class="menu-drawer__menu list-menu text-menu" role="list">
                         {%- for link in section.settings.menu_mobile.links -%}
                           <li>
                             {%- if link.links != blank -%}
@@ -184,6 +204,36 @@
                             {%- endif -%}
                           </li>
                         {%- endfor -%}
+                      </ul> 
+                      <ul class="menu-drawer__menu list-menu visual-menu visual-ab" role="list">
+                        {% content_for "blocks" %}
+                      </ul>
+                      <ul class="beneath-visual-menu visual-ab" role="list">
+                        {% for link in section.settings.menu_under_visual_menu.links %}
+                          {% if link.links %}
+                            <li class="sublink-opener">
+                              <span class="sublink-accordion-button" tabindex=0>
+                                {{ link.title }}
+                                {% render 'icon-plus' %}
+                                {% render 'icon-minus' %}
+                              </span>
+                              <ul class="sublinks-container">
+                                {% for sublink in link.links %}
+                                  <li class="sublink">
+                                    <a class="sublink-link"href="{{ sublink.link }}">
+                                      {{ sublink.title }}
+                                    </a>
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            </li>
+                            {% else %}
+                            <a href="{{ link.url }}">
+                              {{ link.title }}
+                            </a>
+                          {% endif %}
+ 
+                        {% endfor %}
                       </ul>
                     </nav>
                     <div class="menu-drawer__utility-links">
@@ -912,6 +962,11 @@
         "label": "Mobile Menu"
       },
       {
+        "type": "link_list",
+        "id": "menu_under_visual_menu",
+        "label": "Mobile menu underneath visual menu items"
+      },
+      {
         "type": "url",
         "id": "wishlist_page",
         "label": "Wishlist Link Page"
@@ -966,6 +1021,11 @@
         "id": "yotpo_text_Color",
         "label": "Yotpo text color",
         "info": "These text color settings apply only to mobile devices."
+      }
+    ],    
+    "blocks": [
+      {
+        "type":"@theme"
       }
     ]
   }
