@@ -235,6 +235,7 @@ details[open].menu-opening > .menu-drawer__submenu {
   justify-content: flex-start;
   margin-left: -1.25rem;
   margin-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .menu-drawer .list-social:empty {
@@ -326,19 +327,8 @@ a.nav-wishlist-button .heart-count {
 
 /* ab test hide classes */
 
-.menu-drawer__menu.list-menu.visual-menu.visual-ab {
-  display: grid;
-}
-.beneath-visual-menu.visual-ab {
-  display: block;
-}
-
 .menu-drawer__menu.list-menu.visual-menu,
 .beneath-visual-menu {
-  display: none;
-}
-
-.menu-drawer__navigation:has(.visual-ab) .menu-drawer__menu.list-menu.text-menu {
   display: none;
 }
 

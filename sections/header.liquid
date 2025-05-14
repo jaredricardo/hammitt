@@ -205,10 +205,10 @@
                           </li>
                         {%- endfor -%}
                       </ul> 
-                      <ul class="menu-drawer__menu list-menu visual-menu" role="list">
+                      <ul class="menu-drawer__menu list-menu visual-menu visual-ab" role="list">
                         {% content_for "blocks" %}
                       </ul>
-                      <ul class="beneath-visual-menu" role="list">
+                      <ul class="beneath-visual-menu visual-ab" role="list">
                         {% for link in section.settings.menu_under_visual_menu.links %}
                           {% if link.links %}
                             <li class="sublink-opener">
