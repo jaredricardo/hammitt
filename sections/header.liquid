@@ -98,6 +98,26 @@
   
   <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const sublinkOpenerButtons = document.querySelectorAll('.sublink-opener button')
+
+      if(!sublinkOpenerButtons) return
+
+      sublinkOpenerButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const sublinkContainer = button.closest('.sublink-opener').querySelector('.sublinks-container')
+          sublinkContainer.classList.toggle('open')
+          sublinkContainer.classList.contains('open') 
+            ? 
+              sublinkContainer.style.height = `${sublinkContainer.scrollHeight}px`
+            :
+              sublinkContainer.style.height = '0px'
+        })
+      })
+    })
+  </script>
   
   <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
     <symbol id="icon-search" viewbox="0 0 13 17">
@@ -124,77 +144,95 @@
                 <div class="menu-drawer__inner-container">
                   <div class="menu-drawer__navigation-container">
                     <nav class="menu-drawer__navigation">
-                      {% comment %} 
-                        <ul class="menu-drawer__menu list-menu text-menu" role="list">
-                          {%- for link in section.settings.menu_mobile.links -%}
-                            <li>
-                              {%- if link.links != blank -%}
-                                <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
-                                  <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
-                                    {{ link.title | escape }}
-                                    {% render 'icon-arrow' %}
-                                    {% render 'icon-caret' %}
-                                  </summary>
-                                  <div id="link-{{ link.title | escape }}" class="menu-drawer__submenu motion-reduce" tabindex="-1">
-                                    <div class="menu-drawer__inner-submenu">
-                                      <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                                        {% render 'icon-arrow' %}
-                                        {{ link.title | escape }}
-                                      </button>
-                                      <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
-                                        {%- for childlink in link.links -%}
-                                          <li>
-                                            {%- if childlink.links == blank -%}
-                                              <a href="{{ childlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
-                                                {{ childlink.title | escape }}
-                                              </a>
-                                            {%- else -%}
-                                              <details id="Details-menu-drawer-submenu-{{ forloop.index }}">
-                                                <summary class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
-                                                  {{ childlink.title | escape }}
-                                                  {% render 'icon-arrow' %}
-                                                  {% render 'icon-caret' %}
-                                                </summary>
-                                                <div id="childlink-{{ childlink.title | escape }}" class="menu-drawer__submenu motion-reduce">
-                                                  <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                                                    {% render 'icon-arrow' %}
-                                                    {{ childlink.title | escape }}
-                                                  </button>
-                                                  <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
-                                                    {%- for grandchildlink in childlink.links -%}
-                                                      <li>
-                                                        <a href="{{ grandchildlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
-                                                          {{ grandchildlink.title | escape }}
-                                                        </a>
-                                                      </li>
-                                                    {%- endfor -%}
-                                                  </ul>
-                                                </div>
-                                              </details>
-                                            {%- endif -%}
-                                          </li>
-                                        {%- endfor -%}
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </details>
-                              {%- else -%}
-                                <a href="{{ link.url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"{% if link.current %} aria-current="page"{% endif %}>
+                      <ul class="menu-drawer__menu list-menu text-menu" role="list">
+                        {%- for link in section.settings.menu_mobile.links -%}
+                          <li>
+                            {%- if link.links != blank -%}
+                              <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
+                                <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
                                   {{ link.title | escape }}
-                                </a>
-                              {%- endif -%}
-                            </li>
-                          {%- endfor -%}
-                        </ul> 
-                      {% endcomment %}
+                                  {% render 'icon-arrow' %}
+                                  {% render 'icon-caret' %}
+                                </summary>
+                                <div id="link-{{ link.title | escape }}" class="menu-drawer__submenu motion-reduce" tabindex="-1">
+                                  <div class="menu-drawer__inner-submenu">
+                                    <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+                                      {% render 'icon-arrow' %}
+                                      {{ link.title | escape }}
+                                    </button>
+                                    <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+                                      {%- for childlink in link.links -%}
+                                        <li>
+                                          {%- if childlink.links == blank -%}
+                                            <a href="{{ childlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
+                                              {{ childlink.title | escape }}
+                                            </a>
+                                          {%- else -%}
+                                            <details id="Details-menu-drawer-submenu-{{ forloop.index }}">
+                                              <summary class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
+                                                {{ childlink.title | escape }}
+                                                {% render 'icon-arrow' %}
+                                                {% render 'icon-caret' %}
+                                              </summary>
+                                              <div id="childlink-{{ childlink.title | escape }}" class="menu-drawer__submenu motion-reduce">
+                                                <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+                                                  {% render 'icon-arrow' %}
+                                                  {{ childlink.title | escape }}
+                                                </button>
+                                                <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+                                                  {%- for grandchildlink in childlink.links -%}
+                                                    <li>
+                                                      <a href="{{ grandchildlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
+                                                        {{ grandchildlink.title | escape }}
+                                                      </a>
+                                                    </li>
+                                                  {%- endfor -%}
+                                                </ul>
+                                              </div>
+                                            </details>
+                                          {%- endif -%}
+                                        </li>
+                                      {%- endfor -%}
+                                    </ul>
+                                  </div>
+                                </div>
+                              </details>
+                            {%- else -%}
+                              <a href="{{ link.url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"{% if link.current %} aria-current="page"{% endif %}>
+                                {{ link.title | escape }}
+                              </a>
+                            {%- endif -%}
+                          </li>
+                        {%- endfor -%}
+                      </ul> 
                       <ul class="menu-drawer__menu list-menu visual-menu visual-ab" role="list">
                         {% content_for "blocks" %}
                       </ul>
                       <ul class="beneath-visual-menu visual-ab" role="list">
                         {% for link in section.settings.menu_under_visual_menu.links %}
-                          <li>
-                            {{ link.title }}
-                          </li>
+                          {% if link.links %}
+                            <li class="sublink-opener">
+                              <button>
+                                {{ link.title }}
+                                {% render 'icon-plus' %}
+                                {% render 'icon-minus' %}
+                              </button>
+                              <ul class="sublinks-container">
+                                {% for sublink in link.links %}
+                                  <li class="sublink">
+                                    <a class="sublink-link"href="{{ sublink.link }}">
+                                      {{ sublink.title }}
+                                    </a>
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            </li>
+                            {% else %}
+                            <a href="{{ link.url }}">
+                              {{ link.title }}
+                            </a>
+                          {% endif %}
+ 
                         {% endfor %}
                       </ul>
                     </nav>
