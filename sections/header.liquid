@@ -101,7 +101,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-      const sublinkOpenerButtons = document.querySelectorAll('.sublink-opener button')
+      const sublinkOpenerButtons = document.querySelectorAll('.sublink-opener .sublink-accordion-button')
 
       if(!sublinkOpenerButtons) return
 
@@ -212,11 +212,11 @@
                         {% for link in section.settings.menu_under_visual_menu.links %}
                           {% if link.links %}
                             <li class="sublink-opener">
-                              <button>
+                              <span class="sublink-accordion-button" tabindex=0>
                                 {{ link.title }}
                                 {% render 'icon-plus' %}
                                 {% render 'icon-minus' %}
-                              </button>
+                              </span>
                               <ul class="sublinks-container">
                                 {% for sublink in link.links %}
                                   <li class="sublink">
