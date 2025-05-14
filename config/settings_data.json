@@ -47,7 +47,7 @@
     "enable_quick_add": true,
     "enable_total_colors": false,
     "enable_card_swatches": false,
-    "hammitt_gift_message": "A gift? Add a note—from you, but handwritten by us!",
+    "hammitt_gift_message": "A gift? Add a typed gift note letting them know you sent it.",
     "cart_shipping_msg": "",
     "freeShippingThreshold": "1",
     "cart_drawer_msg": "<p>Free shipping. Taxes calculated at checkout.<\/p>",
@@ -67,10 +67,19 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_UdnEaT": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "It's Not Too Late! Send a Digital Gift Card",
+              "color_scheme": "accent-1",
+              "link": "shopify://products/rise-ai-giftcard"
+            }
+          },
           "announcement_CwR3it": {
             "type": "announcement",
             "settings": {
-              "text": "Shop Mother's Day Gift Guide",
+              "text": "Free Shipping",
               "color_scheme": "accent-1",
               "link": "shopify:\/\/pages\/mothers-day-gift-guide"
             }
@@ -85,6 +94,7 @@
           },
           "announcement_cYVjic": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Add some love with a free handwritten gift note!",
               "color_scheme": "accent-1",
@@ -93,6 +103,7 @@
           }
         },
         "block_order": [
+          "announcement_UdnEaT",
           "announcement_CwR3it",
           "announcement_JmPzA9",
           "announcement_cYVjic"
@@ -515,10 +526,10 @@
           "75df491d-94a6-4328-a6e5-ea89a743cf66": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Chaparral-Raffia-7_540a4148-2029-4675-b843-c7d2442a2710.jpg",
+              "image": "shopify://shop_images/Rectangle_573_1.jpg",
               "image_ratio": "portrait",
-              "image_caption": "Mother's Day Handwritten Gift Notes",
-              "image_link": "shopify:\/\/collections\/mothers-day"
+              "image_caption": "Trending Now",
+              "image_link": "shopify://collections/best-sellers"
             }
           },
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f": {

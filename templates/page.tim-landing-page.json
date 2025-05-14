@@ -39,7 +39,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/tim",
+            "button_link_1": "shopify://collections/tim",
             "button_style_secondary_1": false
           }
         }
@@ -59,9 +59,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1075_2.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_1076_1.jpg",
-        "image_link": "shopify:\/\/collections\/tim",
+        "image": "shopify://shop_images/Group_1075_2.jpg",
+        "image_2": "shopify://shop_images/Group_1076_1.jpg",
+        "image_link": "shopify://collections/tim",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-left-more",
@@ -92,7 +92,7 @@
       "type": "slider-collection",
       "custom_css": [
         ".section-productgrid.swiper-wrapper {justify-content: center;}",
-        "@media screen and (max-width: 990px) {.section-productgrid.swiper-wrapper {justify-content: initial;}}"
+        "@media screen and (max-width: 990px) {.section-productgrid.swiper-wrapper {justify-content: initial; }}"
       ],
       "settings": {
         "title": "",
@@ -115,7 +115,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n<\/style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1\/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n<\/fw-player> <\/div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 \/ 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n<\/fw-player> <\/div>",
+        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 0,
@@ -138,7 +138,7 @@
         "text_eD64fG": {
           "type": "text",
           "settings": {
-            "text": "<p>Our design and merchandising teams have been hard at work perfecting a soft yet sleek hobo bag. Today, it's finally here.Say hello to Tim.Equal parts effortless and polished, this special bag holds it all together in style. Stay organized with an interior drop pocket and card slot, as well as a subtle exterior pocket.With a little glimmer of our signature riveted touch, there's a detail here for everyone - especially you.<\/p>"
+            "text": "<p>Our design and merchandising teams have been hard at work perfecting a soft yet sleek hobo bag. Today, it's finally here.Say hello to Tim.Equal parts effortless and polished, this special bag holds it all together in style. Stay organized with an interior drop pocket and card slot, as well as a subtle exterior pocket.With a little glimmer of our signature riveted touch, there's a detail here for everyone - especially you.</p>"
           }
         }
       },
@@ -167,9 +167,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1101_1.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_1102.jpg",
-        "image_link": "shopify:\/\/collections\/tim",
+        "image": "shopify://shop_images/Group_1101_1.jpg",
+        "image_2": "shopify://shop_images/Group_1102.jpg",
+        "image_link": "shopify://collections/tim",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -208,9 +208,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1105.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_1107.jpg",
-        "image_link": "shopify:\/\/collections\/tim",
+        "image": "shopify://shop_images/Group_1105.jpg",
+        "image_2": "shopify://shop_images/Group_1107.jpg",
+        "image_link": "shopify://collections/tim",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -232,6 +232,19 @@
         "content_padding_right_mobile": 0,
         "padding_top": 0,
         "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "custom_liquid_gM3dyW": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"g1WX7O\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"g1WX7O\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36,
         "custom_class": ""
@@ -243,7 +256,7 @@
         "column_9LghBD": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/tom-zip-strap.jpg",
+            "image": "shopify://shop_images/tom-zip-strap.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -266,7 +279,7 @@
         "column_RkLhbQ": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_512_1.jpg",
+            "image": "shopify://shop_images/Rectangle_512_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -289,7 +302,7 @@
         "column_qFmQti": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Screenshot_2025-02-11_at_4.00.55_PM.png",
+            "image": "shopify://shop_images/Screenshot_2025-02-11_at_4.00.55_PM.png",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -312,7 +325,7 @@
         "column_8kghhA": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/H_tom_zip.jpg",
+            "image": "shopify://shop_images/H_tom_zip.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -360,7 +373,7 @@
         "text_position": "bottom",
         "background_style": "none",
         "button_label": "",
-        "button_link": "shopify:\/\/collections\/tim",
+        "button_link": "shopify://collections/tim",
         "color_scheme": "background-1",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
@@ -377,7 +390,7 @@
         "column_gGwpL8": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/tom-zip-strap.jpg",
+            "image": "shopify://shop_images/tom-zip-strap.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -400,7 +413,7 @@
         "column_ddadPq": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_512_1.jpg",
+            "image": "shopify://shop_images/Rectangle_512_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -423,7 +436,7 @@
         "column_4E8Gc9": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Screenshot_2025-02-11_at_4.00.55_PM.png",
+            "image": "shopify://shop_images/Screenshot_2025-02-11_at_4.00.55_PM.png",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -446,7 +459,7 @@
         "column_q8PnVw": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/H_tom_zip.jpg",
+            "image": "shopify://shop_images/H_tom_zip.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -494,7 +507,7 @@
         "text_position": "bottom",
         "background_style": "none",
         "button_label": "",
-        "button_link": "shopify:\/\/collections\/tim",
+        "button_link": "shopify://collections/tim",
         "color_scheme": "background-1",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
@@ -514,6 +527,7 @@
     "rich_text_JGnmHi",
     "image_banner_qeqPUd",
     "image_banner_g6qx3f",
+    "custom_liquid_gM3dyW",
     "multicolumn_wngqhj",
     "multicolumn_eEfFVp"
   ]

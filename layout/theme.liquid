@@ -338,6 +338,24 @@
     }
   }
 </style>
+{% comment %} The following CSS should be moved into a conditional css.liquid file at some point  {% endcomment %}
+
+<style>
+
+  main:has(.yotpo-empty-state-blank) .pdp-hero-wrap .yotpo-widget-instance {
+    display: none !important;
+  }
+
+  {% if request.page_type == "product" and product.id == 6076389327032 %}
+      .yotpo-widget-instance,
+      .card__badge-wrapper,
+      .only-x-left-container   {
+        display: none !important;
+      }
+  {% endif %}
+
+</style>
+
 {{ 'critical.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
     {% if template contains 'index' %}
