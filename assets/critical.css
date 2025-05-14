@@ -8,6 +8,10 @@
     font-size: 14px !important
 }
 
+.shopify-section:has(.homepage-fw) {
+  height: 75vh;
+}
+
 .shopify-section:has(.homepage-fw) > div,
 .shopify-section:has(.homepage-fw) > div > div,
 .shopify-section:has(.homepage-fw) .fwmobile,
