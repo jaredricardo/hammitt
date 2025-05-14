@@ -7,3 +7,13 @@
 .yotpo-star-rating-highly-rated-topics-text span {
     font-size: 14px !important
 }
+
+.shopify-section:has(.homepage-fw) {
+    min-height: 73vh;
+}
+
+@media screen and (max-width: 768px) {
+    .shopify-section:has(.homepage-fw) {
+        min-height: 45vh;
+    }
+}
