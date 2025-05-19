@@ -1498,55 +1498,10 @@ const cartUpdate = (json = false) => {
       const doc = parser.parseFromString(json.sections[update.section], "text/html");
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
-
-
-
-      if(element == '.jr-temp-single-gwp') {
-        let oldPercent = '0';
-        if(elOld.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
-          oldPercent = elOld.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')
-        }
-       
-        const oldStyle = document.createElement('style')
-
-        oldStyle.textContent = `
-          .jr-temp-single-gwp .progress-bar:before {
-            width: ${oldPercent}% !important;
-          }
-        `
-        oldStyle.id = 'temp-single-psuedo'
-
-        elNew.querySelector('#temp-single-psuedo').remove()
-
-        elNew.appendChild(oldStyle) 
-        
-      }
-
       if(elOld && elNew) {
         elOld.outerHTML = elNew.outerHTML;
       }
-
-      if(element == '.jr-temp-single-gwp') {
-        setTimeout(() => {
-          let newPercent = '0'
-          if(elNew.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
-            newPercent = elNew.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')
-          }
-          const newStyle = document.createElement('style')
-          newStyle.textContent = `
-            .jr-temp-single-gwp .progress-bar:before { 
-              width: ${newPercent}% !important;
-            }
-          `
-          newStyle.id = 'temp-single-psuedo'
-          document.querySelector('#temp-single-psuedo').remove()
-          document.querySelector('.jr-temp-single-gwp').appendChild(newStyle)
-        }, 200)
-        
-      }
-
-    })
-
+    });
     cartUpsellSwiper();
     var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
     .then(response => response.json())
