@@ -57,23 +57,26 @@
           {% if cart.total_price <= required_amount_free_shipping and cart.item_count > 0 %}
             {% assign percentage = required_amount_free_shipping | minus: cart.total_price | times: 100.0 | divided_by: required_amount_free_shipping | minus: 100 | abs | round | at_most: 100 %}
             {% assign amount_left = required_amount_free_shipping | minus: cart.total_price  %}
-            <style>.progress-bar:before { width: {{ percentage }}% !important;}</style>
             <p>Spend <b>{{ amount_left | money_without_trailing_zeros }}</b> more to reach <b>Free Shipping!</b></p>
-            <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
+            <progress-bar class="progress-bar" data-percentage="{{ percentage }}" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}"></progress-bar>
           {% endif %}
           {% if cart.total_price > required_amount_free_shipping and cart.total_price < required_amount_gwp1 %}
             {% assign percentage = required_amount_gwp1 | minus: cart.total_price | times: 100.0 | divided_by: required_amount_gwp1 | minus: 100 | abs | round | at_most: 100 %}
             {% assign amount_left = required_amount_gwp1 | minus: cart.total_price  %}
-            <style>.progress-bar:before { width: {{ percentage }}% !important;}</style>
             <p>You’ve received <b>Free Shipping!</b></p>
             <p>You are <b>{{ amount_left | money_without_trailing_zeros }}</b> away from a <b>Free {{ settings.gwp_product.title }}</b></p>
-            <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}" style="--percent: {{ percentage }}%;"></progress-bar>
+            <progress-bar class="progress-bar" data-percentage="{{ percentage }}" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}"></progress-bar>
           {% endif %}
           {% if cart.total_price >= required_amount_gwp1 %}
-            <style>.progress-bar:before { width: 100% !important;}</style>
+            {% assign percentage = '100' %}
             <p>You've earned <b>Free Shiping</b> and a <b>Free {{ settings.gwp_product.title }}</b></p>
-            <progress-bar style="margin-top: 1rem;" class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}" style="--percent: {{ percentage }}%;"></progress-bar>
+            <progress-bar style="margin-top: 1rem;" data-percentage="{{ percentage }}" class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}"></progress-bar>
           {% endif %}
+          <style id="temp-single-psuedo">
+            .jr-temp-single-gwp .progress-bar:before {
+              width: {{ percentage }}% !important;
+            }
+          </style>
         </div>
         {% comment %} as a bandaid, below is visually hidden for now as it was causing javascript errors without it {% endcomment %}
       <free-shipping-goal style="display: none !important;" data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h2 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
@@ -357,7 +360,7 @@
                     <span class="product-option"><strong class="pink">{{ item_title[1] }}</strong></span>
                     {% comment %} needs to be deleted after red TLC promo {% endcomment %}
                     {% if settings.gwp_product.selected_or_first_available_variant.id == item.id %}
-                      <p style="margin: 8px 0 0 0; font-size: 12px; font-weight: 600; line-height: 1.3;">Heads up: Our TLC kit can be used on all pebbled leathers. Wondering if the cleaner inside is right for your bag? Email wecare@hammitt.com</p>
+                      {% comment %} <p style="margin: 8px 0 0 0; font-size: 12px; font-weight: 600; line-height: 1.3;">Heads up: Our TLC kit can be used on all pebbled leathers. Wondering if the cleaner inside is right for your bag? Email wecare@hammitt.com</p> {% endcomment %}
                     {% endif %}
                     {% if has_monogram %}
                       <div class="monogram product-option">

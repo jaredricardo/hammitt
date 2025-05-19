@@ -493,6 +493,10 @@ span.freeRemainShippingMsg,
   color: rgb(13,135,86);
 }
 
+.jr-temp-single-gwp .progress-bar:before {
+  width: 0%;
+}
+
 .progress-bar:before {
   --scale-x: 0;
   content: "";
