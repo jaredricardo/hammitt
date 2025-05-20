@@ -1,0 +1,234 @@
+{% if section.blocks.size == 1 %}
+    <style>
+      [data-section-id="{{ section.id }}"] scrolling-text {
+        justify-content: center;
+      } 
+    </style>
+  {% endif %}
+  
+  <script src="{{ 'scrolling-text.js' | asset_url }}" defer="defer"></script>
+  
+  
+  {% if section.blocks.size > 0 %}
+  
+      {% assign show_on_page = true %}
+      {% if section.settings.home-page-only and template != 'index' or template == 'password' %}
+          {% assign show_on_page = false %}
+      {% endif %}
+      <style>
+          .announcement--root[data-section-id="{{ section.id }}"] {
+              background-color: {{ section.settings.bg_color }};
+              --color--alternative: {{ section.settings.color }};
+              overflow: hidden;
+          }
+  
+          .announcement--root[data-section-id="{{ section.id }}"] a.announcement--link:focus,
+          .announcement--root[data-section-id="{{ section.id }}"] a.announcement--link:hover {
+              --color--alternative: #fff;
+          }
+          [data-section-id="{{ section.id }}"] scrolling-text{
+              display: flex;
+              padding: {{ section.settings.padding_y }}px 0;
+          }
+          [data-section-id="{{ section.id }}"]  .announcement--text {
+              color: {{ section.settings.color }};
+              line-height: 1;
+          }
+          .announcement__items {
+              display: inline-flex;
+              overflow: hidden;
+              white-space: nowrap;
+              width: fit-content;
+              min-width: fit-content;
+              font-weight: bold;
+              align-items: center;
+              justify-content: center;
+          }
+          .announcement--icon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+  
+          [data-section-id="{{ section.id }}"] .announcement__item {
+              margin: 0 {{ section.settings.text_margin }}px;
+          }
+  
+          scrolling-text .announcement--wrapper{
+              max-width: none;
+          }
+  
+          {% if section.settings.align_icons_row %}
+           [data-section-id="{{ section.id }}"] .announcement--wrapper {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+            }
+          {% endif %}
+  
+          [data-section-id="{{ section.id }}"] .announcement--icon img {
+             width: 100%;
+          }
+          [data-section-id="{{ section.id }}"] .announcement--icon {
+            width: {{ section.settings.icon_max_width }}px;
+          }
+
+          [data-section-id="{{ section.id }}"] h2 {
+            text-align: center;
+          }
+          
+      </style>
+  
+  
+      <div
+        class="announcement--root"
+        data-section-id="{{ section.id }}"
+        data-section-type="announcement"
+        data-js-class="IndexAnnouncement"
+        data-alternative-color="{{ section.settings.alternative-color }}"
+        role="region"
+        aria-label="Discount banner"
+      >
+      {% if section.settings.header %}
+        <h2>{{ section.settings.header }}</h2>
+      {% endif %}
+          {% if section.settings.enabled and show_on_page %}
+              <scrolling-text  data-scrolling-speed="{{ section.settings.speed }}" data-scrolling-direction="ltr" data-pause-on-hover="false" dir="ltr" data-num-blocks="{{ section.blocks.size }}">
+                  <div class="announcement__items">
+                  {% for block in section.blocks %}
+                      <div class="announcement__item">
+                      {% if block.settings.link != blank %}
+                          <a class="announcement--link" href="{{ block.settings.link }}">
+                              {% endif %}
+  
+                              <div class="announcement--wrapper">
+                                  {% if block.settings.icon %}
+                                      <div class="announcement--icon">
+                                          {{ block.settings.icon | img_url: 'master' | img_tag: block.settings.icon.alt }}
+                                      </div>
+                                  {% endif %}
+  
+                                  {% if block.settings.text != blank %}
+                                      <div class="announcement--text" data-item="paragraph-text">
+                                          {{ block.settings.text | escape }}
+                                      </div>
+                                  {% endif %}
+                              </div>
+  
+                              {% if block.settings.link != blank %}
+                          </a>
+                          {% endif %}
+                      </div>
+                  {% endfor %}
+                  </div>
+              </scrolling-text>
+          {% endif %}
+      </div>
+  {% endif %}
+  {% schema %}
+  {
+    "name": "JR Scrolling Text",
+    "settings": [
+        {
+            "type": "text",
+            "id": "header",
+            "label": "Header",
+            "default": "As Seen In"   
+        },
+        {
+            "type": "number",
+            "id": "text_margin",
+            "label": "Text Spacing",
+            "default": 120
+        },
+        {
+            "type": "checkbox",
+            "id": "enabled",
+            "label": "Show announcement",
+            "default": true
+        },
+        {
+            "type": "number",
+            "id": "icon_max_width",
+            "label": "Icon max width",
+            "default": 50
+        },
+        {
+            "type": "number",
+            "id": "padding_y",
+            "label": "Top / Bottom padding",
+            "default": 10
+        },
+        {
+            "type": "checkbox",
+            "id": "home-page-only",
+            "label": "Home page only",
+            "default": true
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default": "#f9e4e9"
+        },
+        {
+            "type": "color",
+            "id": "color",
+            "label": "Text Color",
+            "default": "#fff"
+        },
+        {
+            "id": "alternative-color",
+            "label": "Use light text color",
+            "type": "checkbox",
+            "default": true
+        },
+        {
+            "type": "range",
+            "id": "speed",
+            "label": "Scroll speed",
+            "min": 0,
+            "max": 300,
+            "step": 10,
+            "default": 60
+        },
+        {
+            "type": "checkbox",
+            "id": "align_icons_row",
+            "label": "Align img icons in row instead of stacked",
+            "default": false
+        }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon image",
+            "info": "50 x 50px recommended"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "Annoucement for sales, promos, shipping info & more — Click and Collect available"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "JR Scrolling Text"
+      }
+    ]
+  }
+{% endschema %}
