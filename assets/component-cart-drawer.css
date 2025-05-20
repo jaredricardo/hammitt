@@ -708,8 +708,13 @@ gift-box-section .swiper-slide {
     cursor: pointer;
 }
 .dynamic-checkout__content {
-  height: 60px;
-  overflow: hidden;
+  /* height: 54px;
+  overflow: hidden; */
+}
+
+shopify-accelerated-checkout-cart {
+  height: 125px;
+  display: block;
 }
 /* 
 .os-macOs shopify-paypal-button,

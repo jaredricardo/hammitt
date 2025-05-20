@@ -1,4 +1,4 @@
-/* eslint-disable */
+i /* eslint-disable */
 
 function getFocusableElements(container) {
   return Array.from(
@@ -1458,10 +1458,11 @@ checkGWPs(false);
 // });
 
 const cartUpdate = (json = false) => {
+  console.log('///// cart update')
   const cartUpdates = [
     {
       section: "cart-drawer",
-      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp"]
+      elements: [".cart-announcement-bar",".drawer__items",".drawer__subtotal",".cart_shipping_notes",".jr-temp-single-gwp"]
     },
     {
       section: "cart-icon-bubble",
