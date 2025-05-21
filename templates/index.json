@@ -36,6 +36,92 @@
         "custom_class": ""
       }
     },
+    "jr_scrolling_text_QzMT7i": {
+      "type": "jr-scrolling-text",
+      "blocks": {
+        "text_hTrtNR": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/forbe-logo.png",
+            "text": "",
+            "link": ""
+          }
+        },
+        "text_reNwbA": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/TravelLeisure-logo.png",
+            "text": "",
+            "link": ""
+          }
+        },
+        "text_4JVAEz": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/RollingStone-logo.png",
+            "text": "",
+            "link": ""
+          }
+        },
+        "text_iGtbEV": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/ok-mag.png",
+            "text": "",
+            "link": ""
+          }
+        },
+        "text_jaTa9g": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/NewYorkPost-logo.png",
+            "text": "",
+            "link": ""
+          }
+        },
+        "text_bCUrwx": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/Brides-logo.png",
+            "text": "",
+            "link": ""
+          }
+        },
+        "text_gjLtj3": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/Cosmopolitan-logo.png",
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_hTrtNR",
+        "text_reNwbA",
+        "text_4JVAEz",
+        "text_iGtbEV",
+        "text_jaTa9g",
+        "text_bCUrwx",
+        "text_gjLtj3"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 768px) {scrolling-text {padding: 20px 0; } .announcement--icon {width: 100px; }}"
+      ],
+      "name": "JR Scrolling Text",
+      "settings": {
+        "text_margin": 35,
+        "enabled": true,
+        "icon_max_width": 105,
+        "padding_y": 30,
+        "home-page-only": true,
+        "bg_color": "#ffffff",
+        "color": "#ffffff",
+        "alternative-color": true,
+        "speed": 30,
+        "align_icons_row": false
+      }
+    },
     "image_banner_MLUaKq": {
       "type": "image-banner",
       "settings": {
@@ -918,6 +1004,7 @@
   "order": [
     "custom_liquid_gA9GNL",
     "custom_liquid_q8cpzb",
+    "jr_scrolling_text_QzMT7i",
     "image_banner_MLUaKq",
     "slider_collection_CwB3RG",
     "image_banner_3FKmDP",
