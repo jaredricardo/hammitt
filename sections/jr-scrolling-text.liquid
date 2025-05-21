@@ -90,9 +90,6 @@
         role="region"
         aria-label="Discount banner"
       >
-      {% if section.settings.header %}
-        <h2>{{ section.settings.header }}</h2>
-      {% endif %}
           {% if section.settings.enabled and show_on_page %}
               <scrolling-text  data-scrolling-speed="{{ section.settings.speed }}" data-scrolling-direction="ltr" data-pause-on-hover="false" dir="ltr" data-num-blocks="{{ section.blocks.size }}">
                   <div class="announcement__items">
@@ -130,12 +127,6 @@
   {
     "name": "JR Scrolling Text",
     "settings": [
-        {
-            "type": "text",
-            "id": "header",
-            "label": "Header",
-            "default": "As Seen In"   
-        },
         {
             "type": "number",
             "id": "text_margin",
