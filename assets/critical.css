@@ -24,6 +24,16 @@
     height: 100%;
 }
 
+.menu-drawer__navigation .menu-drawer__menu.list-menu.text-menu {
+    display: none;
+}
+.menu-drawer__menu.list-menu.visual-menu.visual-ab {
+    display: grid !important;
+}
+.beneath-visual-menu.visual-ab {
+    display: block !important;
+}
+
 @media screen and (max-width: 768px) {
     .shopify-section:has(.homepage-fw) {
         height: 55vh;
