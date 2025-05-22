@@ -9,20 +9,6 @@
  */
 {
   "sections": {
-    "custom_liquid_gA9GNL": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     class=\"homepage-fw\"\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"N07lzYx\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     class=\"homepage-fw\"\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"N07lzYx\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "custom_liquid_q8cpzb": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
@@ -36,45 +22,44 @@
         "custom_class": ""
       }
     },
-    "image_banner_MLUaKq": {
-      "type": "image-banner",
+    "rich_text_L6NKKA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_DHwcrh": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h1",
+            "heading": "The Perfect Travel Companion",
+            "heading_size": "h0"
+          }
+        },
+        "text_686dDt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Select the right size for your next trip. Stash it in your carryon when you get on the plane.</p>"
+          }
+        },
+        "button_EtYrka": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "https://www.hammitt.com/collections/charles",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_DHwcrh",
+        "text_686dDt",
+        "button_EtYrka"
+      ],
       "settings": {
-        "title": "",
-        "title_color": "rgba(0,0,0,0)",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_1303.jpg",
-        "image_2": "shopify://shop_images/Group_1300.jpg",
-        "image_link": "shopify://collections/lime-zest",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
+        "color_scheme": "background-1",
         "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 20,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
+        "padding_top": 20,
+        "padding_bottom": 12,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 36
       }
     },
     "jr_scrolling_text_QzMT7i": {
@@ -924,10 +909,10 @@
         "custom_class": ""
       }
     },
-    "rich_text_L6NKKA": {
+    "rich_text_anGCrT": {
       "type": "rich-text",
       "blocks": {
-        "heading_DHwcrh": {
+        "heading_qU7Pia": {
           "type": "heading",
           "settings": {
             "heading_html_tag": "h1",
@@ -935,7 +920,7 @@
             "heading_size": "h0"
           }
         },
-        "text_686dDt": {
+        "text_pXTHmR": {
           "type": "text",
           "settings": {
             "text": "<p>Get a front row seat to our top videos and shop your favorites products now.</p>"
@@ -943,8 +928,8 @@
         }
       },
       "block_order": [
-        "heading_DHwcrh",
-        "text_686dDt"
+        "heading_qU7Pia",
+        "text_pXTHmR"
       ],
       "settings": {
         "color_scheme": "background-1",
@@ -1056,9 +1041,8 @@
     }
   },
   "order": [
-    "custom_liquid_gA9GNL",
     "custom_liquid_q8cpzb",
-    "image_banner_MLUaKq",
+    "rich_text_L6NKKA",
     "jr_scrolling_text_QzMT7i",
     "slider_collection_CwB3RG",
     "image_banner_3FKmDP",
@@ -1069,7 +1053,7 @@
     "multicolumn_Rb6MCR",
     "multicolumn_CBezGE",
     "multicolumn_7jnCPC",
-    "rich_text_L6NKKA",
+    "rich_text_anGCrT",
     "custom_liquid_NgfUX8",
     "home-hero-section",
     "hero_video_banner_RVzeet",
