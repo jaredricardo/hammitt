@@ -195,7 +195,7 @@
         "icon_max_width": 105,
         "padding_y": 30,
         "home-page-only": true,
-        "bg_color": "#faf7f3",
+        "bg_color": "#ffffff",
         "color": "#ffffff",
         "alternative-color": true,
         "speed": 30,
@@ -298,6 +298,7 @@
     },
     "image_banner_gVFBDk": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "rgba(0,0,0,0)",
@@ -331,9 +332,9 @@
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
         "padding_top": 0,
-        "padding_bottom": 20,
+        "padding_bottom": 0,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 20,
+        "padding_bottom_mobile": 0,
         "custom_class": ""
       }
     },
@@ -434,6 +435,30 @@
     "multicolumn_GMpXGB": {
       "type": "multicolumn",
       "blocks": {
+        "column_YpxLMp": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/north-banner_1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "North End",
+            "link": "shopify://collections/north-end",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
         "column_aWtC3c": {
           "type": "column",
           "settings": {
@@ -443,14 +468,14 @@
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
-            "text": "<p>New In</p>",
+            "text": "",
             "link_label": "Lime Zest",
             "link": "shopify://collections/lime-zest",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
             "cta_font_size": 18,
-            "cta_font_size_mobile": 18,
+            "cta_font_size_mobile": 14,
             "hide_arrows": true,
             "cta_width_mobile": 200,
             "cta_width_desktop": 250,
@@ -467,14 +492,14 @@
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
-            "text": "<p>New In</p>",
+            "text": "",
             "link_label": "Sidewalk Silver",
             "link": "shopify://collections/sidewalk-silver",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
             "cta_font_size": 18,
-            "cta_font_size_mobile": 18,
+            "cta_font_size_mobile": 14,
             "hide_arrows": true,
             "cta_width_mobile": 180,
             "cta_width_desktop": 236,
@@ -491,7 +516,7 @@
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
-            "text": "<p>Hot Picks</p>",
+            "text": "",
             "link_label": "Pewter Pebble",
             "link": "shopify://collections/pewter-pebble",
             "cta_color": "#000000",
@@ -508,6 +533,7 @@
         }
       },
       "block_order": [
+        "column_YpxLMp",
         "column_aWtC3c",
         "column_cm4gE7",
         "column_kbVKLG"
@@ -523,7 +549,7 @@
         "image_ratio": "square",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "columns_gap": 2,
         "row_gap": 2,
         "mobile_columns_gap": 2,
