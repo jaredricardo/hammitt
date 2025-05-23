@@ -22,46 +22,6 @@
         "custom_class": ""
       }
     },
-    "rich_text_L6NKKA": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_DHwcrh": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h1",
-            "heading": "The Perfect Travel Companion",
-            "heading_size": "h1"
-          }
-        },
-        "text_686dDt": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Select the right size for your next trip. Stash it in your carryon when you get on the plane.</p>"
-          }
-        },
-        "button_EtYrka": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP NOW",
-            "button_link": "https://www.hammitt.com/collections/charles",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_DHwcrh",
-        "text_686dDt",
-        "button_EtYrka"
-      ],
-      "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 12,
-        "padding_top_mobile": 12,
-        "padding_bottom_mobile": 36
-      }
-    },
     "jr_scrolling_text_QzMT7i": {
       "type": "jr-scrolling-text",
       "blocks": {
@@ -195,11 +155,51 @@
         "icon_max_width": 105,
         "padding_y": 30,
         "home-page-only": true,
-        "bg_color": "#faf4f3",
+        "bg_color": "#ffffff",
         "color": "#ffffff",
         "alternative-color": true,
         "speed": 30,
         "align_icons_row": false
+      }
+    },
+    "rich_text_L6NKKA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_DHwcrh": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h1",
+            "heading": "The Perfect Travel Companion",
+            "heading_size": "h1"
+          }
+        },
+        "text_686dDt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Select the right size for your next trip. Stash it in your carryon when you get on the plane.</p>"
+          }
+        },
+        "button_EtYrka": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "https://www.hammitt.com/collections/charles",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_DHwcrh",
+        "text_686dDt",
+        "button_EtYrka"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 12,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 36
       }
     },
     "slider_collection_CwB3RG": {
@@ -1068,8 +1068,8 @@
   },
   "order": [
     "custom_liquid_q8cpzb",
-    "rich_text_L6NKKA",
     "jr_scrolling_text_QzMT7i",
+    "rich_text_L6NKKA",
     "slider_collection_CwB3RG",
     "image_banner_3FKmDP",
     "image_banner_w8P4kC",
