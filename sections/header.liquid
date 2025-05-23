@@ -144,6 +144,8 @@
                 <div class="menu-drawer__inner-container">
                   <div class="menu-drawer__navigation-container">
                     <nav class="menu-drawer__navigation">
+                      {% comment %}
+                      turned off text menu because visual nav won AB test, leaving here for future refernce.
                       <ul class="menu-drawer__menu list-menu text-menu" role="list">
                         {%- for link in section.settings.menu_mobile.links -%}
                           <li>
@@ -205,6 +207,7 @@
                           </li>
                         {%- endfor -%}
                       </ul> 
+                      {% endcomment %}
                       <ul class="menu-drawer__menu list-menu visual-menu visual-ab" role="list">
                         {% content_for "blocks" %}
                       </ul>
