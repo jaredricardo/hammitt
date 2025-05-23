@@ -13,17 +13,19 @@
 {% endstyle %}
 
 <div data-section-id="{{ section.id }}">
-    <div class="jr-section jr-customer-reviews">
+    <div class="jr-customer-reviews page-width">
         <div class="swiper-reviews">
             <div class="reviews-container swiper-wrapper">
                 {% for block in section.blocks %}
                     <div class="review-card swiper-slide">
                         <div class="review-card-inner">
-                            <div class="img-container">
+                            <div class="card-img-container">
                                 {{ block.settings.review_image | image_url: width: 500 | image_tag }}
                             </div>
                             {% if section.settings.stars_image %}
-                                {{ section.settings.stars_image | image_url: width: 300 | image_tag }}
+                                <div class="star-img-container">
+                                    {{ section.settings.stars_image | image_url: width: 300 | image_tag }}
+                                </div>
                             {% endif %}
                             <div class="review-content">
                                 <h3>{{ block.settings.title }}</h3>
@@ -34,6 +36,7 @@
                     </div>
                 {% endfor %}
             </div>
+            <div class="swiper-scrollbar"></div>
         </div>
     </div>
 </div>
@@ -45,19 +48,19 @@
         
         const swiper = new Swiper(sectionSwiper, {
             autoHeight: true,
-            loop: true,
             speed: 400,
             spaceBetween: 20,
-            slidesPerView: 1.8,
+            slidesPerView: 1.7,
             centeredSlides: false,
             breakpoints: {
                 768: {
-                    slidesPerView: 4.3
+                    slidesPerView: 4.5,
+                    spaceBetween: 30,
                 }
             },
-            pagination: {
-                el: '[data-section-id="{{ section.id }}"] .swiper-pagination',
-                clickable: true
+            scrollbar: {
+                el: '[data-section-id="{{ section.id }}"] .swiper-scrollbar',
+                draggable: true
             }
         })
     })
