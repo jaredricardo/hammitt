@@ -1,33 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "custom_liquid_gA9GNL": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n<\/style>\n<div class=\"fwmobile\">\n<fw-player\n     class=\"homepage-fw\"\n     style=\"width:100%;\n             aspect-ratio: 1\/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oWlrpD\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n<\/fw-player> <\/div>\n <div class=\"fwdesktop\">\n   <fw-player\n     class=\"homepage-fw\"\n     style=\"width:100%;\n             aspect-ratio: 16 \/ 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oWlrpD\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n<\/fw-player> <\/div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "custom_liquid_q8cpzb": {
       "type": "custom-liquid",
-      "disabled": true,
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n<\/style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1\/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n<\/fw-player> <\/div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 \/ 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n<\/fw-player> <\/div>",
+        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbQ8Y\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbQ8Y\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 0,
@@ -36,45 +13,63 @@
         "custom_class": ""
       }
     },
-    "image_banner_MLUaKq": {
-      "type": "image-banner",
+    "rich_text_L6NKKA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_DHwcrh": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h1",
+            "heading": "The Perfect Travel Companion",
+            "heading_size": "h1"
+          }
+        },
+        "text_686dDt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Select the right size for your next trip. Stash it in your carryon when you get on the plane.</p>"
+          }
+        },
+        "button_EtYrka": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP CHARLES",
+            "button_link": "https://www.hammitt.com/collections/charles",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_DHwcrh",
+        "text_686dDt",
+        "button_EtYrka"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 12,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "slider_collection_CwB3RG": {
+      "type": "slider-collection",
       "settings": {
         "title": "",
-        "title_color": "rgba(0,0,0,0)",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1303.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_1300.jpg",
-        "image_link": "shopify:\/\/collections\/lime-zest",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 20,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "charles",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 18,
+        "padding_bottom": 7,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
       }
     },
     "jr_scrolling_text_QzMT7i": {
@@ -83,41 +78,41 @@
         "text_gjLtj3": {
           "type": "text",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Cosmopolitan-logo.png",
+            "icon": "shopify://shop_images/Cosmopolitan-logo.png",
             "text": "",
-            "link": "shopify:\/\/pages\/in-the-press"
+            "link": "shopify://pages/in-the-press"
           }
         },
         "text_URPC6X": {
           "type": "text",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/elle-logo.png",
+            "icon": "shopify://shop_images/elle-logo.png",
             "text": "",
-            "link": "shopify:\/\/pages\/in-the-press"
+            "link": "shopify://pages/in-the-press"
           }
         },
         "text_aUXCkX": {
           "type": "text",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/glamour-logo.png",
+            "icon": "shopify://shop_images/glamour-logo.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         },
         "text_CwAjih": {
           "type": "text",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/usweekly.png",
+            "icon": "shopify://shop_images/usweekly.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         },
         "text_qXbKiV": {
           "type": "text",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Instyle-logo.png",
+            "icon": "shopify://shop_images/Instyle-logo.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         },
         "text_hTrtNR": {
@@ -125,23 +120,23 @@
           "settings": {
             "icon": "shopify:\/\/shop_images\/forbe-logo.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         },
         "text_BYaKNE": {
           "type": "text",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/e-logo.png",
+            "icon": "shopify://shop_images/e-logo.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         },
         "text_jN8LUc": {
           "type": "text",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/people-logo.png",
+            "icon": "shopify://shop_images/people-logo.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         },
         "text_reNwbA": {
@@ -149,7 +144,7 @@
           "settings": {
             "icon": "shopify:\/\/shop_images\/TravelLeisure-logo.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         },
         "text_4JVAEz": {
@@ -157,7 +152,7 @@
           "settings": {
             "icon": "shopify:\/\/shop_images\/RollingStone-logo.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         },
         "text_iGtbEV": {
@@ -165,7 +160,7 @@
           "settings": {
             "icon": "shopify:\/\/shop_images\/ok-mag.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         },
         "text_jaTa9g": {
@@ -173,7 +168,7 @@
           "settings": {
             "icon": "shopify:\/\/shop_images\/NewYorkPost-logo.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         },
         "text_bCUrwx": {
@@ -181,7 +176,7 @@
           "settings": {
             "icon": "shopify:\/\/shop_images\/Brides-logo.png",
             "text": "",
-            "link": "https:\/\/www.hammitt.com\/pages\/in-the-press"
+            "link": "https://www.hammitt.com/pages/in-the-press"
           }
         }
       },
@@ -215,25 +210,6 @@
         "alternative-color": true,
         "speed": 30,
         "align_icons_row": false
-      }
-    },
-    "slider_collection_CwB3RG": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 18,
-        "padding_bottom": 7,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
       }
     },
     "image_banner_3FKmDP": {
@@ -293,7 +269,7 @@
         "mobile_content_alignment": "center",
         "color_scheme_mobile": "dark",
         "show_text_below": true,
-        "full_width": true,
+        "full_width": false,
         "cta_color_scheme": "dark",
         "custom_content_spacing": false,
         "content_padding_top": 0,
@@ -308,47 +284,6 @@
         "padding_bottom": 12,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "image_banner_gVFBDk": {
-      "type": "image-banner",
-      "settings": {
-        "title": "",
-        "title_color": "rgba(0,0,0,0)",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/tim-desktop-banner.jpg",
-        "image_2": "shopify:\/\/shop_images\/tim-mobile-banner.jpg",
-        "image_link": "shopify:\/\/pages\/tim",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 20,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 20,
         "custom_class": ""
       }
     },
@@ -446,9 +381,86 @@
         "mobile_padding_bottom": 0
       }
     },
+    "image_banner_gVFBDk": {
+      "type": "image-banner",
+      "settings": {
+        "title": "",
+        "title_color": "rgba(0,0,0,0)",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/charle-desktop-banner.jpg",
+        "image_2": "shopify://shop_images/charle-mobile-banner.gif",
+        "image_link": "https://www.hammitt.com/blogs/news/summer-2025-travel-edit-the-charles-crossbody",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "custom_liquid_NgfUX8": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n      captions=\"false\"\n\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
     "multicolumn_GMpXGB": {
       "type": "multicolumn",
       "blocks": {
+        "column_YpxLMp": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/north-banner_1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "North End",
+            "link": "shopify://collections/north-end",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
         "column_aWtC3c": {
           "type": "column",
           "settings": {
@@ -458,14 +470,14 @@
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
-            "text": "<p>New In<\/p>",
+            "text": "",
             "link_label": "Lime Zest",
             "link": "shopify:\/\/collections\/lime-zest",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
             "cta_font_size": 18,
-            "cta_font_size_mobile": 18,
+            "cta_font_size_mobile": 14,
             "hide_arrows": true,
             "cta_width_mobile": 200,
             "cta_width_desktop": 250,
@@ -482,14 +494,14 @@
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
-            "text": "<p>New In<\/p>",
+            "text": "",
             "link_label": "Sidewalk Silver",
             "link": "shopify:\/\/collections\/sidewalk-silver",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
             "cta_font_size": 18,
-            "cta_font_size_mobile": 18,
+            "cta_font_size_mobile": 14,
             "hide_arrows": true,
             "cta_width_mobile": 180,
             "cta_width_desktop": 236,
@@ -506,14 +518,14 @@
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
-            "text": "<p>Hot Picks<\/p>",
+            "text": "",
             "link_label": "Pewter Pebble",
             "link": "shopify:\/\/collections\/pewter-pebble",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
             "cta_font_size": 18,
-            "cta_font_size_mobile": 18,
+            "cta_font_size_mobile": 14,
             "hide_arrows": true,
             "cta_width_mobile": 200,
             "cta_width_desktop": 246,
@@ -523,6 +535,7 @@
         }
       },
       "block_order": [
+        "column_YpxLMp",
         "column_aWtC3c",
         "column_cm4gE7",
         "column_kbVKLG"
@@ -538,7 +551,7 @@
         "image_ratio": "square",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "columns_gap": 2,
         "row_gap": 2,
         "mobile_columns_gap": 2,
@@ -550,12 +563,75 @@
         "button_link": "",
         "color_scheme": "background-1",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "padding_top": 0,
-        "padding_bottom": 36,
-        "padding_top_mobile": 38,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 30,
         "custom_class": "behind-design-section"
+      }
+    },
+    "jr_customer_reviews_kz8t7H": {
+      "type": "jr-customer-reviews",
+      "blocks": {
+        "customer_review_cD44MW": {
+          "type": "customer-review",
+          "settings": {
+            "title": "I love this bag",
+            "review_image": "shopify:\/\/shop_images\/Rectangle_643_2x_607ffde4-3560-4e62-a1a0-2523bd3cdfc2.png",
+            "customer_name": "Miranda P",
+            "review_text": "I love this bag - it’s absolutely stunning. The leather is buttery soft and the gold accents elevate it perfectly. An effortlessly beautiful piece I’ll reach for again and again."
+          }
+        },
+        "customer_review_mfM8Bh": {
+          "type": "customer-review",
+          "settings": {
+            "title": "Absolutely beautiful handbag.",
+            "review_image": "shopify:\/\/shop_images\/Rectangle_644_2x_3780e1d0-c5d0-4cfa-941e-bb7cf9126e67.png",
+            "customer_name": "Tom R",
+            "review_text": "I love everything about it.\nThank you for creating\nsuch a beautiful bag."
+          }
+        },
+        "customer_review_kRkRxd": {
+          "type": "customer-review",
+          "settings": {
+            "title": "Love this bag!!",
+            "review_image": "shopify:\/\/shop_images\/Rectangle_645_2x_2d84d9ff-b651-4aa2-b4f4-7383372e4149.png",
+            "customer_name": "Laurie",
+            "review_text": "Beautiful leather and perfect size to carry the stuff I need day to day! It is fabulous."
+          }
+        },
+        "customer_review_WKMm3A": {
+          "type": "customer-review",
+          "settings": {
+            "title": "It truly is the perfect!",
+            "review_image": "shopify:\/\/shop_images\/Rectangle_646_2x_a19c5dfb-e49b-4660-952f-544e570124d0.png",
+            "customer_name": "Tonya J",
+            "review_text": "I love this so much! It’s perfect! And perfect for the summer!"
+          }
+        },
+        "customer_review_6dyahc": {
+          "type": "customer-review",
+          "settings": {
+            "title": "Love it!",
+            "review_image": "shopify:\/\/shop_images\/Rectangle_647_2x_142a459e-6151-4006-a010-e2a9fba1b350.png",
+            "customer_name": "Teresa S.",
+            "review_text": "Love it! Adds another element of layering and jewelry for my bag."
+          }
+        }
+      },
+      "block_order": [
+        "customer_review_cD44MW",
+        "customer_review_mfM8Bh",
+        "customer_review_kRkRxd",
+        "customer_review_WKMm3A",
+        "customer_review_6dyahc"
+      ],
+      "name": "JR Customer Reviews",
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "stars_image": "shopify:\/\/shop_images\/Frame_1298.svg"
       }
     },
     "multicolumn_Rb6MCR": {
@@ -639,10 +715,10 @@
         "button_link": "shopify:\/\/collections\/new-arrivals",
         "color_scheme": "background-1",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
+        "swipe_on_mobile": true,
+        "padding_top": 0,
         "padding_bottom": 0,
-        "padding_top_mobile": 36,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
       }
@@ -728,7 +804,7 @@
         "button_link": "shopify:\/\/collections\/new-arrivals",
         "color_scheme": "background-1",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "padding_top": 1,
         "padding_bottom": 0,
         "padding_top_mobile": 1,
@@ -924,49 +1000,6 @@
         "custom_class": ""
       }
     },
-    "rich_text_L6NKKA": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_DHwcrh": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h1",
-            "heading": "TRENDING NOW",
-            "heading_size": "h0"
-          }
-        },
-        "text_686dDt": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Get a front row seat to our top videos and shop your favorites products now.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_DHwcrh",
-        "text_686dDt"
-      ],
-      "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 12,
-        "padding_top_mobile": 32,
-        "padding_bottom_mobile": 36
-      }
-    },
-    "custom_liquid_NgfUX8": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    <\/style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ><\/fw-storyblock>\n    <\/div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n      captions=\"false\"\n\n             player_placement=\"bottom-right\"\n        ><\/fw-embed-feed>\n    <\/div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 20,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
-    },
     "home-hero-section": {
       "type": "home-hero-section",
       "disabled": true,
@@ -1056,21 +1089,20 @@
     }
   },
   "order": [
-    "custom_liquid_gA9GNL",
     "custom_liquid_q8cpzb",
-    "image_banner_MLUaKq",
-    "jr_scrolling_text_QzMT7i",
+    "rich_text_L6NKKA",
     "slider_collection_CwB3RG",
+    "jr_scrolling_text_QzMT7i",
     "image_banner_3FKmDP",
-    "image_banner_gVFBDk",
     "image_banner_w8P4kC",
     "slider_featured_collection_bTka8m",
+    "image_banner_gVFBDk",
+    "custom_liquid_NgfUX8",
     "multicolumn_GMpXGB",
+    "jr_customer_reviews_kz8t7H",
     "multicolumn_Rb6MCR",
     "multicolumn_CBezGE",
     "multicolumn_7jnCPC",
-    "rich_text_L6NKKA",
-    "custom_liquid_NgfUX8",
     "home-hero-section",
     "hero_video_banner_RVzeet",
     "homepage_instagram_RrcAhY"
