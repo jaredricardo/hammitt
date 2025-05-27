@@ -1,0 +1,21 @@
+<div class="homepage-fw">
+    {{ section.settings.fw_code }}
+</div>
+
+{% schema %}
+    {
+        "name": "JR Homepage Fireworks",
+        "presets": [
+            {
+                "name": "JR Homepage Fireworks"
+            }
+        ],
+        "settings": [
+            {
+                "type": "liquid",
+                "id": "fw_code",
+                "label": "Fireworks Code"
+            }
+        ]
+    }
+{% endschema %}
