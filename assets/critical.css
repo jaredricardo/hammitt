@@ -8,19 +8,19 @@
     font-size: 14px !important
 }
 
-.shopify-section:has(.homepage-fw) {
+.shopify-section:has(fw-player) {
   height: 75vh;
 }
 
-.shopify-section:has(.homepage-fw) > div,
-.shopify-section:has(.homepage-fw) > div > div,
-.shopify-section:has(.homepage-fw) .fwmobile,
-.shopify-section:has(.homepage-fw) .fwdesktop  {
+.shopify-section:has(fw-player) > div,
+.shopify-section:has(fw-player) > div > div,
+.shopify-section:has(fw-player) .fwmobile,
+.shopify-section:has(fw-player) .fwdesktop  {
     min-height: 100%;
     height: 100%;
 }
 
-.shopify-section:has(.homepage-fw) fw-player {
+.shopify-section:has(fw-player) fw-player {
     height: 100%;
 }
 
@@ -35,7 +35,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .shopify-section:has(.homepage-fw) {
+    .shopify-section:has(fw-player) {
         height: 55vh;
     }
 }
