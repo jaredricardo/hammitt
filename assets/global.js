@@ -368,6 +368,7 @@ class MenuDrawer extends HTMLElement {
   }
 
   onSummaryClick(event) {
+    console.log('MenuDrawer onSummaryClick()');
     this.scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     const summaryElement = event.currentTarget;
     const detailsElement = summaryElement.parentNode;
@@ -436,6 +437,7 @@ class MenuDrawer extends HTMLElement {
   onCloseButtonClick(event) {
     const detailsElement = event.currentTarget.closest('details');
     document.body.classList.remove(`overflow-hidden-${this.dataset.breakpoint}`);
+    console.log('MenuDrawer onCloseButtonClick()');
     this.closeSubmenu(detailsElement);
   }
 
@@ -1129,9 +1131,6 @@ const productSwatchReload = () => {
           } else {
             console.log(currentEl,newEl,el);
           }
-          if(document.querySelector('.pdp-hero-wrap .yotpo-widget-instance')) {
-            yotpoWidgetsContainer.initWidgets()
-          }
         });
 
         lazyImages();
@@ -1203,7 +1202,6 @@ const productSwatchReload = () => {
 productSwatchReload();
 
 const addToCart = (itemsObj) => {
-  console.log('ADDING AN ITEM TO CART!!!!')
   if(!itemsObj.hasOwnProperty('sections')) {
     itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
   }
@@ -1358,7 +1356,7 @@ const klaviyoBISsubmit = (form) => {
 };
 
 const gwpInCart = (id = false) => {
-  return document.querySelector(`[data-variant-id="${id}"`);  
+    return document.querySelector(`[data-variant-id="${id}"`);  
 };
 
 const checkGWPs = (json = false) => {
@@ -1378,7 +1376,7 @@ const checkGWPs = (json = false) => {
     json = JSON.parse(drawerItems.getAttribute('data-json'));
   }
   const subtotal = parseFloat(drawerItems.getAttribute('data-subtotal'));
- 
+  
   const sortedGwps = gwps.sort((a, b) => b.minimum - a.minimum);
   let addedGwp = false;
   sortedGwps.forEach(gwp => { 
@@ -1422,7 +1420,7 @@ const checkGWPs = (json = false) => {
       updateCart({
         url: '/cart/update.js',
         data: JSON.stringify(updatesObj)
-      });
+      })
     }
   });  
 };
@@ -1445,7 +1443,7 @@ function updateCart(params) {
   });
 }
 
-checkGWPs(false);
+checkGWPs();
 // document.addEventListener('change', function(evt) {
 //   if(document.querySelector('.cart-drawer-btn') != null) {
 //     document.querySelector('.cart-drawer-btn').disabled = true;  
@@ -1461,7 +1459,7 @@ const cartUpdate = (json = false) => {
   const cartUpdates = [
     {
       section: "cart-drawer",
-      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp"]
+      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes"]
     },
     {
       section: "cart-icon-bubble",
@@ -1498,55 +1496,10 @@ const cartUpdate = (json = false) => {
       const doc = parser.parseFromString(json.sections[update.section], "text/html");
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
-
-
-
-      if(element == '.jr-temp-single-gwp') {
-        let oldPercent = '0';
-        if(elOld.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
-          oldPercent = elOld.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')
-        }
-       
-        const oldStyle = document.createElement('style')
-
-        oldStyle.textContent = `
-          .jr-temp-single-gwp .progress-bar:before {
-            width: ${oldPercent}% !important;
-          }
-        `
-        oldStyle.id = 'temp-single-psuedo'
-
-        elNew.querySelector('#temp-single-psuedo').remove()
-
-        elNew.appendChild(oldStyle) 
-        
-      }
-
       if(elOld && elNew) {
         elOld.outerHTML = elNew.outerHTML;
       }
-
-      if(element == '.jr-temp-single-gwp') {
-        setTimeout(() => {
-          let newPercent = '0'
-          if(elNew.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
-            newPercent = elNew.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')
-          }
-          const newStyle = document.createElement('style')
-          newStyle.textContent = `
-            .jr-temp-single-gwp .progress-bar:before { 
-              width: ${newPercent}% !important;
-            }
-          `
-          newStyle.id = 'temp-single-psuedo'
-          document.querySelector('#temp-single-psuedo').remove()
-          document.querySelector('.jr-temp-single-gwp').appendChild(newStyle)
-        }, 200)
-        
-      }
-
-    })
-
+    });
     cartUpsellSwiper();
     var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
     .then(response => response.json())
@@ -1608,6 +1561,7 @@ const cartUpdate = (json = false) => {
   }
 
   if (onCartPage && document.querySelector(".cart-items.cart-page-items").getAttribute("data-qty-updated") === "true") {
+    console.log("QTY UPDATED");
     window.location.href = '/cart';
   }
 }
@@ -1659,7 +1613,7 @@ document.addEventListener('shopify:section:load', event => {
   klaviyoForms();
   headerScroll();
   footerCollapse();
-  checkGWPs(false);
+  checkGWPs();
 });
 
 
@@ -1817,9 +1771,7 @@ const findElement = setInterval(expressCheckout, 1000);
 function expressCheckout() {
   if(document.querySelector('shopify-paypal-button')) {
     document.querySelector('shopify-paypal-button').remove();
-    if(document.querySelector('shopify-google-pay-button')) {
-      document.querySelector('shopify-google-pay-button').remove();
-    }
+    document.querySelector('shopify-google-pay-button').remove();
     if(document.querySelector('shopify-apple-pay-button')) {
       document.querySelector('shopify-apple-pay-button').remove();
     }
