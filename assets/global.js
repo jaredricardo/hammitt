@@ -993,7 +993,6 @@ const playPauseVideo = () => {
             entries.forEach((entry) => {
               if (entry.intersectionRatio <= 0 && !video.paused) {
                 video.pause();
-                console.log('pause me');
               } else if (video.paused) {
                 video.play();
               }
@@ -1427,6 +1426,67 @@ const checkGWPs = (json = false) => {
   });  
 };
 
+function checkOrderProtection() {
+
+  const json = JSON.parse(document.querySelector('.drawer__items').getAttribute('data-json'))
+
+  console.log('CHECKING ORDER PROTECTION')
+  console.log(json)
+
+  if(!json) return
+
+  json.forEach((item) => {
+    if(item.vendor  == "Order Protection") {
+      console.log('removing order protection')
+      const updates = {}
+
+      updates[item.variant_id] = 0
+
+      console.log(updates)
+
+      fetch(window.Shopify.routes.root + 'cart/update.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ updates })
+      })
+      .then(async response => {
+        if(response.ok) {
+          console.log('RESPONSE WAS OK, GRABBING SECTION HEADER HTML')
+
+          const response = await fetch(
+            `${Shopify.routes}?sections=header`
+          )
+          const htmlSection = await response.json()
+
+          console.log(htmlSection)
+  
+          
+          // console.log(doc.querySelector('#cart-icon-bubble'))
+          // console.log(doc.querySelector('#cart-drawer'))
+          // console.log(document.querySelector('#cart-icon-bubble'))
+          // console.log(document.querySelector('#cart-drawer'))
+
+          // doc.querySelector('#cart-icon-bubble').innerHTML = document.querySelector('#cart-icon-bubble').innerHTML
+          // doc.querySelector(('#cart-drawer')).innerHTML = document.querySelector('#cart-drawer').innerHTML
+
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      })
+
+
+    }
+  })
+
+}
+
+function reloadCartAndbubble() {
+  
+}
+
 function updateCart(params) {  
   fetch(params.url, {
     method: 'POST',
@@ -1445,7 +1505,10 @@ function updateCart(params) {
   });
 }
 
-checkGWPs(false);
+// initial on load check for Order Protection items to remove them from cart. They should only be in cart at checkout.
+checkOrderProtection()
+checkGWPs(false)
+
 // document.addEventListener('change', function(evt) {
 //   if(document.querySelector('.cart-drawer-btn') != null) {
 //     document.querySelector('.cart-drawer-btn').disabled = true;  
