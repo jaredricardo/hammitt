@@ -1,0 +1,62 @@
+{% style %}
+
+    [data-section-id="{{ section.id }}"] {
+        background-color: {{ section.settings.background_color }};
+    }
+
+    html {
+        scroll-behavior: smooth !important;
+    }
+
+{% endstyle %}
+
+<div data-section-id="{{ section.id }}">
+    <div class="jr-image-with-text-navigator page-width">
+        <ul>
+            {% for block in section.blocks %}
+                <li>
+                    <a href="#{{ block.settings.href }}">{{ block.settings.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "JR Image Text Navigator",
+        "presets": [
+            {
+                "name": "JR Image Text Navigator"
+            }
+        ],
+        "settings": [
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background Color",
+                "default": "#ffffff"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "navigator",
+                "name": "scroll to",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Navigation title"
+                    },
+                    {
+
+                        "type": "text",
+                        "id": "href",
+                        "label": "Href to scroll to"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}
