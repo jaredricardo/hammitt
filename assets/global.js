@@ -1455,9 +1455,7 @@ function checkOrderProtection() {
         if(response.ok) {
           console.log('RESPONSE WAS OK, GRABBING SECTION HEADER HTML')
 
-          const response = await fetch(
-            `${Shopify.routes}?sections=header`
-          )
+          const response = await fetch(`${Shopify.routes}?sections=header`)
           const htmlSection = await response.json()
 
           console.log(htmlSection)
