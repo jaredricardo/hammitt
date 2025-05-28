@@ -23,9 +23,25 @@
     </div>
 </div>
 
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+
+        const links = document.querySelectorAll(`[data-section-id="{{ section.id }}"] ul li`)
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                links.forEach((l) => {l.classList.remove('active')})
+                link.classList.add('active')
+            })
+        })
+    })
+
+</script>
+
 {% schema %}
     {
         "name": "JR Image Text Navigator",
+        "limit": 1,
         "presets": [
             {
                 "name": "JR Image Text Navigator"
