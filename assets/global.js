@@ -1499,9 +1499,7 @@ const cartUpdate = (json = false) => {
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
 
-
-
-      if(element == '.jr-temp-single-gwp') {
+      if(element == '.jr-temp-single-gwp' && document.querySelector('.jr-temp-single-gwp') != null) {
         let oldPercent = '0';
         if(elOld.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
           oldPercent = elOld.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')
@@ -1526,7 +1524,7 @@ const cartUpdate = (json = false) => {
         elOld.outerHTML = elNew.outerHTML;
       }
 
-      if(element == '.jr-temp-single-gwp') {
+      if(element == '.jr-temp-single-gwp' && document.querySelector('.jr-temp-single-gwp') != null) {
         setTimeout(() => {
           let newPercent = '0'
           if(elNew.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
