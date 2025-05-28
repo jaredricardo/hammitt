@@ -3490,7 +3490,8 @@ cart-upsells .swiper-scrollbar-drag {
 }
 body.overflow-hidden .shopify-section:has(.jr-image-with-text-navigator),
 body.overflow-hidden-all .shopify-section:has(.jr-image-with-text-navigator),
-body.overflow-hidden-tablet .shopify-section:has(.jr-image-with-text-navigator), {
+body.overflow-hidden-tablet .shopify-section:has(.jr-image-with-text-navigator),
+body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-image-with-text-navigator) {
   z-index: 4;
 }
 
