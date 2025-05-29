@@ -1429,8 +1429,6 @@ function checkOrderProtection() {
 
   const initialJson = JSON.parse(document.querySelector('.drawer__items').getAttribute('data-json'))
 
-  console.log('CHECKING ORDER PROTECTION')
-
   if(!initialJson) return
 
   initialJson.forEach((item) => {
