@@ -164,7 +164,7 @@
 </style>
 
 
-<div class="{{ section.settings.custom_class }}{% unless section.settings.full_width %}page-width {% endunless %} section-{{ section.id }}-padding relative">
+<div class="{{ section.settings.custom_class }}{% unless section.settings.full_width %}page-width {% endunless %} section-{{ section.id }}-padding relative {{ section.settings.custom_classes }}">
   {% if section.settings.title != blank %}
   <div class="section-header-wrap center">
    <div class="page-width">
@@ -300,6 +300,11 @@
   "tag": "section",
   "class": "section banner-section",
   "settings": [
+    {
+      "type": "textarea",
+      "id": "custom_classes",
+      "label": "Custom classes for AB tests or otherwise"
+    },
     {
       "type": "text",
       "id": "title",
