@@ -1202,7 +1202,6 @@ const productSwatchReload = () => {
 productSwatchReload();
 
 const addToCart = (itemsObj) => {
-  console.log('ADDING AN ITEM TO CART!!!!')
   if(!itemsObj.hasOwnProperty('sections')) {
     itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
   }
@@ -1428,48 +1427,60 @@ const checkGWPs = (json = false) => {
 
 function checkOrderProtection() {
 
-  const json = JSON.parse(document.querySelector('.drawer__items').getAttribute('data-json'))
+  const initialJson = JSON.parse(document.querySelector('.drawer__items').getAttribute('data-json'))
 
   console.log('CHECKING ORDER PROTECTION')
-  console.log(json)
 
-  if(!json) return
+  if(!initialJson) return
 
-  json.forEach((item) => {
+  initialJson.forEach((item) => {
     if(item.vendor  == "Order Protection") {
       console.log('removing order protection')
-      const updates = {}
+        
+      let updatesObj = { 
+        updates: {},
+        sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+      }
 
-      updates[item.variant_id] = 0
+      updatesObj.updates[item.variant_id] = 0
+      
+      const body = JSON.stringify(updatesObj)
 
-      console.log(updates)
-
-      fetch(window.Shopify.routes.root + 'cart/update.js', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ updates })
+      fetch(window.Shopify.routes.root + 'cart/update.js', { ...fetchConfig(), ...{ body }})
+      .then(response => {
+        return response.json()
       })
-      .then(async response => {
-        if(response.ok) {
-          console.log('RESPONSE WAS OK, GRABBING SECTION HEADER HTML')
+      .then((data)  => {
 
-          const response = await fetch(`${Shopify.routes}?sections=header`)
-          const htmlSection = await response.json()
+        // this update call is the same as whats called in cartUpdate() except it dosnt pop open the cart automatically or reload the page (also does not have
+        // the logic that animates the GWP bar, as it will be hidden anyway). 
+        const toUpdate = [
+          {
+            section: "cart-drawer",
+            elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp"]
+          },
+          {
+            section: "cart-icon-bubble",
+            elements: [".cart-count-bubble"]
+          }
+        ]
 
-          console.log(htmlSection)
-  
-          
-          // console.log(doc.querySelector('#cart-icon-bubble'))
-          // console.log(doc.querySelector('#cart-drawer'))
-          // console.log(document.querySelector('#cart-icon-bubble'))
-          // console.log(document.querySelector('#cart-drawer'))
+        toUpdate.forEach((update) => {
+          update.elements.forEach((element) => {
 
-          // doc.querySelector('#cart-icon-bubble').innerHTML = document.querySelector('#cart-icon-bubble').innerHTML
-          // doc.querySelector(('#cart-drawer')).innerHTML = document.querySelector('#cart-drawer').innerHTML
+            const parser = new DOMParser()
+            const doc = parser.parseFromString(data.sections[update.section], "text/html")
+            const elOld = document.querySelector(element)
+            const elNew = doc.querySelector(element)
 
-        }
+            if(elOld && elNew) {
+              elOld.outerHTML = elNew.outerHTML
+            }
+
+          })
+
+        })
+
       })
       .catch((error) => {
         console.error('Error:', error);
