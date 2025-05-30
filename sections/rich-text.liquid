@@ -18,7 +18,7 @@
   }
 {%- endstyle -%}
 
-<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
+<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %} {{ section.settings.custom_classes }}">
   <div class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
     <div class="rich-text__blocks">
       {%- for block in section.blocks -%}
@@ -43,6 +43,11 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "textarea",
+      "id": "custom_classes",
+      "label": "Custom classes for AB tests or otherwise"
+    },
     {
       "type": "select",
       "id": "color_scheme",
