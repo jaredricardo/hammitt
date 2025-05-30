@@ -341,6 +341,9 @@
 {% comment %} The following CSS should be moved into a conditional css.liquid file at some point  {% endcomment %}
 
 <style>
+  .shopify-section:has(.kyle-ab-static) {
+    display: none;
+  }
 
   main:has(.yotpo-empty-state-blank) .pdp-hero-wrap .yotpo-widget-instance {
     display: none !important;
