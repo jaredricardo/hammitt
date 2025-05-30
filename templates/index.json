@@ -11,6 +11,7 @@
   "sections": {
     "homepage_fireworks_pxtfb9": {
       "type": "homepage-fireworks",
+      "disabled": true,
       "settings": {
         "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbQ8Y\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbQ8Y\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>"
       }
@@ -46,6 +47,7 @@
         "text_686dDt",
         "button_EtYrka"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "background-1",
         "full_width": true,
@@ -133,6 +135,7 @@
     },
     "slider_collection_CwB3RG": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -1089,13 +1092,13 @@
     }
   },
   "order": [
+    "image_banner_w8P4kC",
+    "slider_featured_collection_bTka8m",
     "homepage_fireworks_pxtfb9",
     "rich_text_L6NKKA",
     "image_banner_3FKmDP",
     "slider_collection_CwB3RG",
     "jr_scrolling_text_QzMT7i",
-    "image_banner_w8P4kC",
-    "slider_featured_collection_bTka8m",
     "image_banner_gVFBDk",
     "jr_customer_reviews_kz8t7H",
     "multicolumn_GMpXGB",
