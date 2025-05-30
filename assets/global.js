@@ -993,7 +993,6 @@ const playPauseVideo = () => {
             entries.forEach((entry) => {
               if (entry.intersectionRatio <= 0 && !video.paused) {
                 video.pause();
-                console.log('pause me');
               } else if (video.paused) {
                 video.play();
               }
@@ -1203,7 +1202,6 @@ const productSwatchReload = () => {
 productSwatchReload();
 
 const addToCart = (itemsObj) => {
-  console.log('ADDING AN ITEM TO CART!!!!')
   if(!itemsObj.hasOwnProperty('sections')) {
     itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
   }
@@ -1427,6 +1425,75 @@ const checkGWPs = (json = false) => {
   });  
 };
 
+function checkOrderProtection() {
+
+  const initialJson = JSON.parse(document.querySelector('.drawer__items').getAttribute('data-json'))
+
+  if(!initialJson) return
+
+  initialJson.forEach((item) => {
+    if(item.vendor  == "Order Protection") {
+      console.log('removing order protection')
+        
+      let updatesObj = { 
+        updates: {},
+        sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+      }
+
+      updatesObj.updates[item.variant_id] = 0
+      
+      const body = JSON.stringify(updatesObj)
+
+      fetch(window.Shopify.routes.root + 'cart/update.js', { ...fetchConfig(), ...{ body }})
+      .then(response => {
+        return response.json()
+      })
+      .then((data)  => {
+
+        // this update call is the same as whats called in cartUpdate() except it dosnt pop open the cart automatically or reload the page (also does not have
+        // the logic that animates the GWP bar, as it will be hidden anyway). 
+        const toUpdate = [
+          {
+            section: "cart-drawer",
+            elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp"]
+          },
+          {
+            section: "cart-icon-bubble",
+            elements: [".cart-count-bubble"]
+          }
+        ]
+
+        toUpdate.forEach((update) => {
+          update.elements.forEach((element) => {
+
+            const parser = new DOMParser()
+            const doc = parser.parseFromString(data.sections[update.section], "text/html")
+            const elOld = document.querySelector(element)
+            const elNew = doc.querySelector(element)
+
+            if(elOld && elNew) {
+              elOld.outerHTML = elNew.outerHTML
+            }
+
+          })
+
+        })
+
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      })
+
+
+    }
+  })
+
+}
+
+function reloadCartAndbubble() {
+  
+}
+
 function updateCart(params) {  
   fetch(params.url, {
     method: 'POST',
@@ -1445,7 +1512,10 @@ function updateCart(params) {
   });
 }
 
-checkGWPs(false);
+// initial on load check for Order Protection items to remove them from cart. They should only be in cart at checkout.
+checkOrderProtection()
+checkGWPs(false)
+
 // document.addEventListener('change', function(evt) {
 //   if(document.querySelector('.cart-drawer-btn') != null) {
 //     document.querySelector('.cart-drawer-btn').disabled = true;  
