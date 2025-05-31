@@ -76,20 +76,20 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_CwR3it": {
+            "type": "announcement",
+            "settings": {
+              "text": "Free Shipping on All Orders",
+              "color_scheme": "accent-1",
+              "link": "shopify://collections/best-selling-bags"
+            }
+          },
           "announcement_UdnEaT": {
             "type": "announcement",
             "settings": {
               "text": "Order Protection is now available at checkout.",
               "color_scheme": "accent-1",
               "link": "shopify://collections/new-arrivals"
-            }
-          },
-          "announcement_CwR3it": {
-            "type": "announcement",
-            "settings": {
-              "text": "Free Shipping",
-              "color_scheme": "accent-1",
-              "link": "shopify://collections/best-selling-bags"
             }
           },
           "announcement_JmPzA9": {
@@ -111,8 +111,8 @@
           }
         },
         "block_order": [
-          "announcement_UdnEaT",
           "announcement_CwR3it",
+          "announcement_UdnEaT",
           "announcement_JmPzA9",
           "announcement_cYVjic"
         ],
