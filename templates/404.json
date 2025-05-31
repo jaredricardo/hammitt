@@ -13,43 +13,24 @@
       "type": "main-404",
       "settings": {}
     },
-    "featured_collection_tLKPwc": {
-      "type": "featured-collection",
-      "blocks": {
-        "collection_8awa7w": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "best-sellers"
-          }
-        }
-      },
-      "block_order": [
-        "collection_8awa7w"
-      ],
+    "slider_collection_iLUpRH": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
       "settings": {
-        "color_scheme": "background-1",
-        "title": "Shop Bestsellers",
-        "heading_align": "left",
-        "paragraph": "",
-        "full_width": true,
-        "stagger": false,
-        "collection": "",
-        "max_products": 5,
-        "spacing": 20,
-        "card_width_desktop": 22,
-        "card_width_mobile": 85,
-        "scrollbar": true,
-        "arrows": false,
-        "hide_quick_add": false,
+        "title": "Bestsellers",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "best-selling-bags",
+        "max_products": 30,
+        "image_ratio": "square",
         "hide_price": false,
         "hide_tag": false,
         "hide_subtitle": false,
-        "image_ratio": "adapt",
-        "border_top": false,
-        "border_bottom": false,
+        "hide_quick_add": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
       }
     },
     "slider_collection_CmWHAU": {
@@ -135,7 +116,7 @@
   },
   "order": [
     "main",
-    "featured_collection_tLKPwc",
+    "slider_collection_iLUpRH",
     "slider_collection_CmWHAU",
     "slider_collection_YeBNnE",
     "slider_collection_U6Ch6L",
