@@ -1,8 +1,37 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-404",
       "settings": {}
+    },
+    "slider_collection_CmWHAU": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "Heading",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
     },
     "featured_collection_tLKPwc": {
       "type": "featured-collection",
@@ -46,6 +75,7 @@
   },
   "order": [
     "main",
+    "slider_collection_CmWHAU",
     "featured_collection_tLKPwc"
   ]
 }
