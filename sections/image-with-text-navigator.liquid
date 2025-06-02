@@ -27,6 +27,8 @@
     window.addEventListener('DOMContentLoaded', () => {
 
         const links = document.querySelectorAll(`[data-section-id="{{ section.id }}"] ul li`)
+        const observerSelector = "{{ section.settings.observer_class_selector }}"
+        const sectionsToCheckScroll = document.querySelectorAll(`.${observerSelector}`)
 
         links.forEach(link => {
             link.addEventListener('click', () => {
@@ -34,6 +36,28 @@
                 link.classList.add('active')
             })
         })
+
+        if(sectionsToCheckScroll.length === 0) return
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeLink = document.querySelector(`li:has([href="#${entry.target.id}"])`)
+                    links.forEach((l) => {l.classList.remove('active')})
+                    if (activeLink) {
+                        activeLink.classList.add('active')
+                    }
+                } 
+            })
+        }, {
+            root: null,
+            threshold: 1
+        })
+
+        sectionsToCheckScroll.forEach(section => {
+            observer.observe(section)
+        })
+
     })
 
 </script>
@@ -42,6 +66,11 @@
     {
         "name": "JR Image Text Navigator",
         "limit": 1,
+        "enabled_on": {
+            "templates": [
+                "page"
+            ]
+        },
         "presets": [
             {
                 "name": "JR Image Text Navigator"
@@ -53,6 +82,12 @@
                 "id": "background_color",
                 "label": "Background Color",
                 "default": "#ffffff"
+            },
+            {
+                "type": "text",
+                "id": "observer_class_selector",
+                "label": "Observer Class Selector",
+                "info": "This is the class selector that should be used for the obserever to work correctly. This class is used to determine which element has been scrolled into view, then modifies the active link in the navigator based on what is in view."
             }
         ],
         "blocks": [

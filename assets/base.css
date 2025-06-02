@@ -3449,9 +3449,10 @@ cart-upsells .swiper-scrollbar-drag {
 }
 
 .jr-image-with-text-navigator {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   padding-right: 0rem;
+  border-bottom: 1px solid #ECECEC;
 }
 
 .jr-image-with-text-navigator ul {
@@ -3484,10 +3485,10 @@ cart-upsells .swiper-scrollbar-drag {
 
 .shopify-section:has(.jr-image-with-text-navigator) {
   position: sticky;
-  top: 0;
+  top: 100px;
   z-index: 5;
-  background-color: white;
 }
+
 body.overflow-hidden .shopify-section:has(.jr-image-with-text-navigator),
 body.overflow-hidden-all .shopify-section:has(.jr-image-with-text-navigator),
 body.overflow-hidden-tablet .shopify-section:has(.jr-image-with-text-navigator),
@@ -3499,4 +3500,35 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   .jr-image-with-text-navigator ul li a  {
     font-size: 16px;
   }
+  .jr-image-with-text-navigator {
+    padding: 1.5rem 0;
+  }
+}
+
+.jr-material-guide .care-guide-accordion-item__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.jr-material-guide .care-guide-items {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.jr-material-guide .care-guide-accordion-item__header {
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.jr-material-guide .care-guide-accordion-item__header svg {
+  width: 15px;
+  height: auto;
 }

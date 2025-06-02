@@ -1,0 +1,91 @@
+{% style %}
+
+    [data-section-id="{{ section.id }}"] {
+        background-color: {{ section.settings.background_color }};
+    }
+
+{% endstyle %}
+
+<div data-section-id="{{ section.id }}">
+    <div class="jr-material-guide page-width">
+        <ul class="care-guide-items">
+            {% for block in section.blocks %}
+                <li class="care-guide-accordion-item__container">
+                    <div class="care-guide-accordion-item__header" style="background-image: url({{ block.settings.item_bg_image | img_url: '1000x1000' }})">
+                        <p>{{ block.settings.item_title }}</p>
+                        <div class="icons">
+                            {% render 'icon-plus' %}
+                            {% render 'icon-minus' %}
+                        </div>
+                    </div>
+                    <div class="care-guide-accordion-item__content">
+                        <div class="care-guide-accordion-item__description">
+                            {{ block.settings.item_description | richtext }}
+                        </div>
+                        {% for product in block.settings.item_products %}
+                            <p>item: {{ product.title }} / {{ product.id }}</p>
+                        {% endfor %}
+                    </div>  
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script>
+
+</script>
+
+{% schema %}
+    {
+        "name": "JR Care LP Material Guide",
+        "presets": [
+            {
+                "name": "JR Care LP Material Guide",
+            }
+        ],
+        "enabled_on": {
+            "templates": [
+                "page"
+            ]
+        },
+        "settings": [
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background Color",
+                "default": "#ffffff"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "care-guide-item",
+                "name": "Care Guide Item",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "item_bg_image",
+                        "label": "Accordian Background Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "item_title",
+                        "label": "Item Title / Material Name",
+                        "default": "Material Name"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "item_description",
+                        "label": "Item Description",
+                        "default": "<p>Material description goes here. This is a rich text field that can include links, images, and other formatting.</p>"
+                    },
+                    {
+                        "type": "product_list",
+                        "id": "item_products",
+                        "label": "Product list inside accordian item"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}
