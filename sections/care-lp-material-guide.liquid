@@ -22,9 +22,15 @@
                         <div class="care-guide-accordion-item__description">
                             {{ block.settings.item_description | richtext }}
                         </div>
-                        {% for product in block.settings.item_products %}
-                            <p>item: {{ product.title }} / {{ product.id }}</p>
-                        {% endfor %}
+                        {% if block.settings.item_products %}
+                            <ul class="material-guide-product-list">
+                                {% for product in block.settings.item_products %}
+                                    <li>
+                                        {% render 'material-guide-product-card', product:product %}
+                                    </li>
+                                {% endfor %}    
+                            </ul>
+                        {% endif %}
                     </div>  
                 </li>
             {% endfor %}
@@ -34,6 +40,44 @@
 
 <script>
 
+    window.addEventListener('DOMContentLoaded', () => {
+
+        const accordionItems = document.querySelectorAll('[data-section-id="{{ section.id }}"] .care-guide-accordion-item__container .care-guide-accordion-item__header')
+        const guideATCs = document.querySelectorAll('[data-section-id="{{ section.id }}"] .jr-material-guide .care-guide-accordion-item__content form button')
+
+        accordionItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                item.closest('.care-guide-accordion-item__container').classList.toggle('active')
+            })
+        })
+
+        guideATCs.forEach((atc) => {
+            atc.addEventListener('click', (e) => {
+                e.preventDefault()
+                const form = atc.closest('form')
+                const itemObj = {
+                    items: [
+                        {
+                            id: form.querySelector('input[name="id"]').value,
+                            quantity: 1
+                        }
+                    ],
+                    sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+                }
+
+                form.querySelector('button').classList.add('loading')
+
+                addToCart(itemObj)
+
+                setTimeout(() => {
+                    // this should reall be done in the success callback of the addToCart function
+                    // but for the sake of simplicity, we are using a timeout here
+                    form.querySelector('button').classList.remove('loading')
+                }, 2000)
+            })
+        })
+    })
+
 </script>
 
 {% schema %}
@@ -41,7 +85,7 @@
         "name": "JR Care LP Material Guide",
         "presets": [
             {
-                "name": "JR Care LP Material Guide",
+                "name": "JR Care LP Material Guide"
             }
         ],
         "enabled_on": {

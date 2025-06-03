@@ -3505,10 +3505,14 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   }
 }
 
+.jr-material-guide {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
 .jr-material-guide .care-guide-accordion-item__container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 
 .jr-material-guide .care-guide-items {
@@ -3526,9 +3530,88 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   justify-content: space-between;
   background-repeat: no-repeat; 
   background-size: cover;
+  padding: 0 5%;
+  cursor: pointer;
 }
 
 .jr-material-guide .care-guide-accordion-item__header svg {
   width: 15px;
   height: auto;
+}
+.jr-material-guide .care-guide-accordion-item__header p {
+  margin: 0;
+  font-size: 22px;
+  color: white;
+  font-weight: 600;
+}
+
+.jr-material-guide .care-guide-accordion-item__header .icons {
+  display: flex;
+  align-items: center;
+}
+
+.jr-material-guide .care-guide-accordion-item__container.active .icon-plus,
+.jr-material-guide .care-guide-accordion-item__header .icon-minus  {
+  display: none;
+} 
+
+.jr-material-guide .care-guide-accordion-item__container.active .icon-minus {
+  display: block;
+}
+
+.jr-material-guide .care-guide-accordion-item__header .icons svg,
+.jr-material-guide .care-guide-accordion-item__header .icons path {
+  stroke: white;
+  fill: white;
+}
+
+.jr-material-guide .care-guide-accordion-item__content {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.jr-material-guide .care-guide-accordion-item__container.active .care-guide-accordion-item__content  {
+  height: auto;
+  padding: 2rem 1rem;
+}
+
+.care-guide-accordion-item__description {
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.material-guide-product-list {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  overflow: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.material-guide-product-list li {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.material-guide-product-list li button {
+  cursor: pointer;
+}
+
+.material-guide-product-list button.loading p {
+  display: none;
+}
+
+.material-guide-product-list button.loading .loading-overlay__spinner.hidden {
+  display: block !important;
+}
+
+@media screen and (max-width: 768px) {
+  
 }
