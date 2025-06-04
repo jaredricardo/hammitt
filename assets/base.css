@@ -3580,6 +3580,7 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 .care-guide-accordion-item__description {
   font-size: 20px;
   line-height: 25px;
+  margin: 2rem 0;
 }
 
 .material-guide-product-list {
@@ -3597,21 +3598,82 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   flex-direction: column;
   text-align: center;
   align-items: center;
-  justify-content: center;
+  flex: 1;
 }
 
 .material-guide-product-list li button {
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .material-guide-product-list button.loading p {
   display: none;
 }
 
+.material-guide-product-card {
+  align-self: stretch;
+}
+
+.material-guide-product-card,
+.material-guide-product-card img {
+  max-width: 100%;
+}
+
+.material-guide-product-card img {
+  aspect-ratio: 1/1;
+  height: auto;
+  object-fit: cover;
+}
+
 .material-guide-product-list button.loading .loading-overlay__spinner.hidden {
   display: block !important;
 }
 
-@media screen and (max-width: 768px) {
-  
+.material-guide-product-card h5 {
+  font-weight: 600;
+  font-size: 18px;
 }
+
+@media screen and (max-width: 768px) {
+  .material-guide-product-list li {
+    min-width: 40%;
+  }
+  .material-guide-product-list {
+    gap: 1.5rem;
+  }
+  .jr-material-guide .care-guide-accordion-item__content {
+    max-width: 95%;
+  }
+  .care-guide-accordion-item__description {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .jr-material-guide .care-guide-accordion-item__container.active .care-guide-accordion-item__content {
+    padding: 0;
+  }
+  .material-guide-product-card h5 {
+    margin: 1rem 0;
+    font-size: 14px;
+  }
+  .jr-material-guide .care-guide-accordion-item__header {
+    height: 80px;
+  }
+  .jr-material-guide .care-guide-accordion-item__header p {
+    font-size: 18px;
+  }
+  .jr-material-guide.page-width {
+    padding: 3rem 0.75rem;
+  }
+  .jr-material-guide form p {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 461px) {
+  .material-guide-product-list li {
+    min-width: 75%;
+  }
+} 
