@@ -3569,18 +3569,18 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   height: 0;
   overflow: hidden;
   transition: height 0.3s ease-in-out;
-  max-width: 90%;
+  max-width: 85%;
   margin: 0 auto;
 }
 .jr-material-guide .care-guide-accordion-item__container.active .care-guide-accordion-item__content  {
   height: auto;
-  padding: 2rem 1rem;
+  padding: 4rem 1rem;
 }
 
 .care-guide-accordion-item__description {
   font-size: 20px;
   line-height: 25px;
-  margin: 2rem 0;
+  margin: 3rem 2rem 4rem 2rem;
 }
 
 .material-guide-product-list {
@@ -3669,6 +3669,9 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   }
   .jr-material-guide form p {
     font-size: 15px;
+  }
+  .care-guide-accordion-item__description {
+    margin: 2rem 10px;
   }
 }
 

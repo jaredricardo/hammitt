@@ -1203,9 +1203,6 @@ const productSwatchReload = () => {
 productSwatchReload();
 
 const addToCart = (itemsObj) => {
-  console.log('ADDING AN ITEM TO CART!!!!')
-  console.log(itemsObj)
-
   if(!itemsObj.hasOwnProperty('sections')) {
     itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
   }
@@ -1213,7 +1210,6 @@ const addToCart = (itemsObj) => {
   if(!itemsObj.hasOwnProperty('sections_url')) {
     itemsObj.sections_url = "/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items";
   }
-  console.log(itemsObj)
 
   fetch('/cart/add.js', {
     body: JSON.stringify(itemsObj),
@@ -1231,7 +1227,6 @@ const addToCart = (itemsObj) => {
       itemsObj.items.shift();
       addToCart(itemsObj);
     } else {
-      console.log('??? json before cart update???')
       cartUpdate(json);
     }
   }).catch(function(err) {
@@ -1501,10 +1496,6 @@ const cartUpdate = (json = false) => {
   cartUpdates.forEach(update => {
     update.elements.forEach(element => {
       const parser = new DOMParser();
-      console.log('[][][][][[] ')
-      console.log(json)
-      console.log(update)
-      console.log(json.sections)
       const doc = parser.parseFromString(json.sections[update.section], "text/html");
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
