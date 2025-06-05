@@ -134,3 +134,10 @@
     align-items: center;
   }
 }
+
+@media screen and (max-width: 561px) {
+  li.slide-peek--true {
+    width: 85% !important;
+    max-width: 85% !important;
+  }
+}

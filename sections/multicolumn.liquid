@@ -9,12 +9,15 @@
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
   } 
 
+
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
   :root .multicolumn[section-id="{{ section.id }}"]{
     --grid-desktop-horizontal-spacing:{{section.settings.columns_gap}}px;
     --grid-desktop-vertical-spacing:{{section.settings.row_gap}}px;
@@ -114,7 +117,7 @@
           endfor
         -%}
         {%- for block in section.blocks -%}
-          <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}" {{ block.shopify_attributes }}>
+          <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="slide-peek--{{ section.settings.enable_peek }} multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}" {{ block.shopify_attributes }}>
             <div class="multicolumn-card content-container {% if block.settings.reverse_image_and_text_order %} reverse-order {% endif %}">
               {%- if block.settings.image != blank -%}
                 {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
@@ -484,6 +487,18 @@
       "id": "swipe_on_mobile",
       "default": false,
       "label": "t:sections.multicolumn.settings.swipe_on_mobile.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_peek",
+      "default": false,
+      "label": "Enable peek on slider (about 15% of the next slide is visible)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile_slider",
+      "default": true,
+      "label": "Show mobile slider"
     },
     {
       "type": "header",
