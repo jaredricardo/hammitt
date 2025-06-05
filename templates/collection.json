@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -14,6 +23,7 @@
         "show_collection_image": true,
         "enable_5050": true,
         "make_full_width": false,
+        "enable_banner_natural_ratio": false,
         "banner_height_desktop": "400",
         "banner_height_mobile": "200",
         "content_position_align": "bottom_left",
@@ -37,8 +47,8 @@
           "type": "marketing_tile",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Shop_Banner-New_Arrivals.jpg",
-            "link": "shopify:\/\/collections\/clear-bags",
+            "image": "shopify://shop_images/Shop_Banner-New_Arrivals.jpg",
+            "link": "shopify://collections/clear-bags",
             "position": 5,
             "width": "2x",
             "title": "Discover the Clear Collection",
@@ -50,8 +60,8 @@
           "type": "marketing_tile",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Perfect_Additions.jpg",
-            "link": "shopify:\/\/collections\/bottoms-skimpy",
+            "image": "shopify://shop_images/Perfect_Additions.jpg",
+            "link": "shopify://collections/bottoms-skimpy",
             "position": 12,
             "width": "1x",
             "title": "Perfect Additions",
@@ -70,7 +80,7 @@
           "type": "collection-filter-link",
           "settings": {
             "collection": "best-selling-bags",
-            "title": "Best Sellers"
+            "title": "Bestsellers"
           }
         },
         "collection_filter_link_GM3dJ9": {
@@ -158,14 +168,15 @@
         "16524788759772bfca-0": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/collection_footer-2.jpg",
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/collection_footer-2.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
-            "text": "<h2>On The Go<\/h2>",
+            "text": "<h2>On The Go</h2>",
             "link_label": "",
-            "link": "shopify:\/\/collections\/on-the-go",
+            "link": "shopify://collections/on-the-go",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -181,14 +192,15 @@
         "16524788759772bfca-1": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/img_4627_1.jpg",
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/img_4627_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
-            "text": "<h2>The Essentials<\/h2>",
+            "text": "<h2>The Essentials</h2>",
             "link_label": "",
-            "link": "shopify:\/\/collections\/core",
+            "link": "shopify://collections/core",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -231,6 +243,8 @@
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
         "padding_top": 36,
         "padding_bottom": 36,
         "padding_top_mobile": 36,
@@ -253,6 +267,7 @@
         "show_collection_image": false,
         "enable_5050": true,
         "make_full_width": false,
+        "enable_banner_natural_ratio": false,
         "banner_height_desktop": "200",
         "banner_height_mobile": "200",
         "content_position_align": "bottom_left",
