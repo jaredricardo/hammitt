@@ -10,9 +10,9 @@
     <div class="jr-material-guide page-width">
         <ul class="care-guide-items">
             {% for block in section.blocks %}
-                <li class="care-guide-accordion-item__container">
+                <li class="care-guide-accordion-item__container {{ block.settings.css_class }}">
                     <div class="care-guide-accordion-item__header" style="background-image: url({{ block.settings.item_bg_image | img_url: '1000x1000' }})">
-                        <p>{{ block.settings.item_title }}</p>
+                        <p >{{ block.settings.item_title }}</p>
                         <div class="icons">
                             {% render 'icon-plus' %}
                             {% render 'icon-minus' %}
@@ -127,6 +127,11 @@
                         "type": "product_list",
                         "id": "item_products",
                         "label": "Product list inside accordian item"
+                    },
+                    {
+                        "type": "text",
+                        "id": "css_class",
+                        "label": "CSS Class"
                     }
                 ]
             }
