@@ -76,6 +76,14 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_CwR3it": {
+            "type": "announcement",
+            "settings": {
+              "text": "Free Shipping on All Orders",
+              "color_scheme": "accent-1",
+              "link": "shopify://collections/best-selling-bags"
+            }
+          },
           "announcement_UdnEaT": {
             "type": "announcement",
             "settings": {
@@ -84,20 +92,13 @@
               "link": "shopify://collections/new-arrivals"
             }
           },
-          "announcement_CwR3it": {
-            "type": "announcement",
-            "settings": {
-              "text": "Free Shipping",
-              "color_scheme": "accent-1",
-              "link": "shopify://collections/best-selling-bags"
-            }
-          },
           "announcement_JmPzA9": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
-              "text": "Lifetime Guarantee",
+              "text": "Limited Lifetime Warranty",
               "color_scheme": "accent-1",
-              "link": "shopify://collections/core"
+              "link": "shopify://collections/best-selling-bags"
             }
           },
           "announcement_cYVjic": {
@@ -111,8 +112,8 @@
           }
         },
         "block_order": [
-          "announcement_UdnEaT",
           "announcement_CwR3it",
+          "announcement_UdnEaT",
           "announcement_JmPzA9",
           "announcement_cYVjic"
         ],
@@ -130,15 +131,6 @@
             },
             "blocks": {}
           },
-          "nav_block_iiB4B4": {
-            "type": "nav-block",
-            "settings": {
-              "nav_link": "shopify://collections/best-sellers",
-              "title": "Top Trending",
-              "nav_image": "shopify://shop_images/Rectangle_375_832874c6-6ae2-47e3-8682-b61211261b43.jpg"
-            },
-            "blocks": {}
-          },
           "nav_block_xxYG6y": {
             "type": "nav-block",
             "settings": {
@@ -148,12 +140,39 @@
             },
             "blocks": {}
           },
+          "nav_block_iiB4B4": {
+            "type": "nav-block",
+            "settings": {
+              "nav_link": "shopify://collections/best-sellers",
+              "title": "Top Trending",
+              "nav_image": "shopify://shop_images/Rectangle_375_832874c6-6ae2-47e3-8682-b61211261b43.jpg"
+            },
+            "blocks": {}
+          },
+          "nav_block_qazXUY": {
+            "type": "nav-block",
+            "settings": {
+              "nav_link": "shopify://collections/kyle",
+              "title": "Kyle",
+              "nav_image": "shopify://shop_images/Rectangle_33.png"
+            },
+            "blocks": {}
+          },
           "nav_block_PrW4FG": {
             "type": "nav-block",
             "settings": {
               "nav_link": "shopify://collections/core",
               "title": "Hammitt Icons",
               "nav_image": "shopify://shop_images/Rectangle_379.jpg"
+            },
+            "blocks": {}
+          },
+          "nav_block_EEFWxD": {
+            "type": "nav-block",
+            "settings": {
+              "nav_link": "shopify://collections/gifts",
+              "title": "Gifts",
+              "nav_image": "shopify://shop_images/Rectangle_352_1_1_1.jpg"
             },
             "blocks": {}
           },
@@ -172,24 +191,6 @@
               "nav_link": "shopify://collections/view-all",
               "title": "Shop All",
               "nav_image": "shopify://shop_images/Rectangle_372.jpg"
-            },
-            "blocks": {}
-          },
-          "nav_block_EEFWxD": {
-            "type": "nav-block",
-            "settings": {
-              "nav_link": "shopify://collections/gifts",
-              "title": "Gifts",
-              "nav_image": "shopify://shop_images/Rectangle_352_1_1_1.jpg"
-            },
-            "blocks": {}
-          },
-          "nav_block_qazXUY": {
-            "type": "nav-block",
-            "settings": {
-              "nav_link": "shopify://collections/kyle",
-              "title": "Kyle",
-              "nav_image": "shopify://shop_images/Rectangle_33.png"
             },
             "blocks": {}
           },
@@ -214,13 +215,13 @@
         },
         "block_order": [
           "nav_block_Cmwef8",
-          "nav_block_iiB4B4",
           "nav_block_xxYG6y",
+          "nav_block_iiB4B4",
+          "nav_block_qazXUY",
           "nav_block_PrW4FG",
+          "nav_block_EEFWxD",
           "nav_block_cD9ebQ",
           "nav_block_JmTgTw",
-          "nav_block_EEFWxD",
-          "nav_block_qazXUY",
           "nav_block_PN6HAb",
           "nav_block_VHbVHp"
         ],
