@@ -25,9 +25,8 @@
                 {% for block in section.blocks %}
                     <li class="leather-block">
 
-                        {% if block.settings.product_link  != blank%}
-                            {% assign product = all_products[block.settings.product_link] %}
-                            <a href="{{ product.url }}">
+                        {% if block.settings.url != blank%}
+                            <a href="{{ block.settings.url }}">
                         {% endif %}
 
                             {% if block.settings.leather_image %}
@@ -35,7 +34,7 @@
                             {% endif %}
                             <h5>{{ block.settings.leather_name }}</h5>
 
-                        {% if block.settings.product_link != blank %}
+                        {% if block.settings.url != blank %}
                             </a>
                         {% endif %}
                     </li>
@@ -106,9 +105,9 @@
                         "default": "Leather Name"
                     },
                     {
-                        "type": "product",
-                        "id": "product_link",
-                        "label": "Product Link (optional)"
+                        "type": "url",
+                        "id": "url",
+                        "label": "Url Link (optional)"
                     }
                 ] 
             }
