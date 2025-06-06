@@ -24,10 +24,20 @@
             <ul class="leather-container">
                 {% for block in section.blocks %}
                     <li class="leather-block">
-                        {% if block.settings.leather_image %}
-                            {{ block.settings.leather_image | image_url: width: 500 | image_tag }}
+
+                        {% if block.settings.product_link  != blank%}
+                            {% assign product = all_products[block.settings.product_link] %}
+                            <a href="{{ product.url }}">
                         {% endif %}
-                        <h5>{{ block.settings.leather_name }}</h5>
+
+                            {% if block.settings.leather_image %}
+                                {{ block.settings.leather_image | image_url: width: 500 | image_tag }}
+                            {% endif %}
+                            <h5>{{ block.settings.leather_name }}</h5>
+
+                        {% if block.settings.product_link != blank %}
+                            </a>
+                        {% endif %}
                     </li>
                 {% endfor %}
             </ul>
@@ -94,8 +104,12 @@
                         "id": "leather_name",
                         "label": "Leather Name",
                         "default": "Leather Name"
+                    },
+                    {
+                        "type": "product",
+                        "id": "product_link",
+                        "label": "Product Link (optional)"
                     }
-
                 ] 
             }
         ]
