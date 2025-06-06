@@ -6,6 +6,13 @@
 
     html {
         scroll-behavior: smooth !important;
+        scroll-padding-top: 150px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+        html {
+            scroll-padding-top: 75px !important;
+        }
     }
 
 {% endstyle %}
@@ -29,9 +36,12 @@
     window.addEventListener('DOMContentLoaded', () => {
 
         const links = document.querySelectorAll(`[data-section-id="{{ section.id }}"] ul li`)
-        const observerSelector = "{{ section.settings.observer_class_selector }}"
-        const sectionsToCheckScroll = document.querySelectorAll(`.${observerSelector}`)
 
+        let selectors = []
+        {% for block in section.blocks %}
+            selectors.push('#{{ block.settings.href }}')
+        {% endfor %}
+        
         links.forEach(link => {
             link.addEventListener('click', () => {
                 links.forEach((l) => {l.classList.remove('active')})
@@ -39,7 +49,7 @@
             })
         })
 
-        if(sectionsToCheckScroll.length === 0) return
+        if(selectors.length === 0) return
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -56,10 +66,13 @@
             threshold: 1
         })
 
-        sectionsToCheckScroll.forEach(section => {
-            observer.observe(section)
+        selectors.forEach((selector) => {
+            const selected = document.querySelector(selector)
+            if (selected) {
+               observer.observe(selected)
+            }
         })
-
+ 
     })
 
 </script>
@@ -84,12 +97,6 @@
                 "id": "background_color",
                 "label": "Background Color",
                 "default": "#ffffff"
-            },
-            {
-                "type": "text",
-                "id": "observer_class_selector",
-                "label": "Observer Class Selector",
-                "info": "This is the class selector that should be used for the obserever to work correctly. This class is used to determine which element has been scrolled into view, then modifies the active link in the navigator based on what is in view."
             }
         ],
         "blocks": [

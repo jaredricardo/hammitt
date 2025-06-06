@@ -3463,6 +3463,10 @@ cart-upsells .swiper-scrollbar-drag {
   gap: 1.5rem;
   list-style: none;
   overflow: auto;
+  scrollbar-width: none;
+}
+.jr-image-with-text-navigator ul::-webkit-scrollbar  {
+  display: none;
 }
 
 .jr-image-with-text-navigator ul li {

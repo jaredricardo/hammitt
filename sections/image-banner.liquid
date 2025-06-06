@@ -164,7 +164,7 @@
 </style>
 
 
-<div class="{{ section.settings.custom_class }}{% unless section.settings.full_width %}page-width {% endunless %} section-{{ section.id }}-padding relative">
+<div class="{{ section.settings.custom_class }}{% unless section.settings.full_width %}page-width {% endunless %} section-{{ section.id }}-padding relative" {% if section.settings.custom_id %} id="{{ section.settings.custom_id }}" {% endif %}>
   {% if section.settings.title != blank %}
   <div class="section-header-wrap center">
    <div class="page-width">
@@ -300,6 +300,11 @@
   "tag": "section",
   "class": "section banner-section",
   "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID (optional)"
+    },
     {
       "type": "text",
       "id": "title",
