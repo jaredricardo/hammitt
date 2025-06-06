@@ -54,6 +54,7 @@
         ".banner__box {max-width: 75rem;}"
       ],
       "settings": {
+        "custom_id": "",
         "title": "",
         "title_color": "",
         "description": "",
@@ -99,21 +100,21 @@
           "type": "navigator",
           "settings": {
             "title": "Cleaning",
-            "href": "daily-leather-tlc"
+            "href": "cleaning-care"
           }
         },
         "navigator_cJVxrb": {
           "type": "navigator",
           "settings": {
             "title": "Protecting",
-            "href": "stain"
+            "href": "protecting-care"
           }
         },
         "navigator_3wKPKh": {
           "type": "navigator",
           "settings": {
             "title": "Maintaining",
-            "href": "protecting-your-hammitt"
+            "href": "condition-maintain"
           }
         },
         "navigator_gGNNek": {
@@ -127,14 +128,14 @@
           "type": "navigator",
           "settings": {
             "title": "Material Care Guide",
-            "href": "like-a-pro"
+            "href": "material-guide"
           }
         },
         "navigator_jQkHAC": {
           "type": "navigator",
           "settings": {
             "title": "Leather Cleaner",
-            "href": "little-things"
+            "href": "leather-cleaner"
           }
         }
       },
@@ -185,7 +186,7 @@
         ".image-with-text__heading {font-weight: 600;}"
       ],
       "settings": {
-        "id_for_scroll_navigator": "daily-leather-tlc",
+        "id_for_scroll_navigator": "cleaning-care",
         "image": "shopify://shop_images/Rectangle_28.jpg",
         "height": "large",
         "desktop_image_width": "medium",
@@ -239,7 +240,7 @@
         ".image-with-text__heading {font-weight: 600;}"
       ],
       "settings": {
-        "id_for_scroll_navigator": "stain",
+        "id_for_scroll_navigator": "",
         "image": "shopify://shop_images/Rectangle_18.jpg",
         "height": "large",
         "desktop_image_width": "medium",
@@ -293,7 +294,7 @@
         ".image-with-text__heading {font-weight: 600;}"
       ],
       "settings": {
-        "id_for_scroll_navigator": "protecting-your-hammitt",
+        "id_for_scroll_navigator": "protecting-care",
         "image": "shopify://shop_images/Rectangle_19.jpg",
         "height": "large",
         "desktop_image_width": "medium",
@@ -401,7 +402,7 @@
         ".image-with-text__heading {font-weight: 600;}"
       ],
       "settings": {
-        "id_for_scroll_navigator": "like-a-pro",
+        "id_for_scroll_navigator": "o",
         "image": "shopify://shop_images/Rectangle_21.jpg",
         "height": "large",
         "desktop_image_width": "medium",
@@ -503,6 +504,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
+        "custom_id": "material-guide",
         "title": "",
         "title_color": "",
         "description": "",
@@ -709,6 +711,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
+        "custom_id": "leather-cleaner",
         "title": "",
         "title_color": "#000000",
         "description": "",
@@ -770,12 +773,28 @@
             "leather_image": "shopify://shop_images/Rectangle_334_1_5f6abe4c-cbc2-4357-b3fa-7fe7edfbe477.jpg",
             "leather_name": "Italian Metallic Leather"
           }
+        },
+        "leather_block_6RqPM6": {
+          "type": "leather-block",
+          "settings": {
+            "leather_image": "shopify://shop_images/Close_Up_Of_White_Leather_Charles_Bag.jpg",
+            "leather_name": "Leather Name"
+          }
+        },
+        "leather_block_parPbg": {
+          "type": "leather-block",
+          "settings": {
+            "leather_image": "shopify://shop_images/Close_Up_Of_White_Leather_Charles_Bag.jpg",
+            "leather_name": "Leather Name"
+          }
         }
       },
       "block_order": [
         "leather_block_kXTGRr",
         "leather_block_GYqeVc",
-        "leather_block_Rz3GTq"
+        "leather_block_Rz3GTq",
+        "leather_block_6RqPM6",
+        "leather_block_parPbg"
       ],
       "name": "Care LP Leather Cleaner",
       "settings": {
@@ -835,9 +854,9 @@
       "name": "Care LP Leather Cleaner",
       "settings": {
         "background_color": "#ffffff",
-        "main_image": "shopify://shop_images/Leather-Laundry-Spot-Cleaner-Spray---Lrg--1_4e1f65d6-a59c-4266-8b1d-17135f43ef55.jpg",
-        "title": "Spot Cleaner",
-        "description": "<p>A gentle cleaner for fresh spills to remove dirt and surface contamination before conditioning. The spot cleaner can be used on suede and nubuck, but demands extra care and attention. Please note that this cannot be used to lift stains or other deep set contaminants.</p><p>This is not a protectant, but can be used for spot cleaning.</p>",
+        "main_image": "shopify://shop_images/Hammitt_Waterproofing-Spray_1_2_1.jpg",
+        "title": "Water Proof Spray",
+        "description": "<p>A gentle cleaner for fresh spills to remove dirt and surface contamination before conditioning. The spot cleaner can be used on suede and nubuck, but demands extra care and attention. Please note that this cannot be used to lift stains or other deep set contaminants.</p>",
         "leather_title": "Best for these leather"
       }
     },
