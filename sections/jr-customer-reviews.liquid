@@ -17,23 +17,34 @@
         <div class="swiper-reviews">
             <div class="reviews-container swiper-wrapper">
                 {% for block in section.blocks %}
-                    <div class="review-card swiper-slide">
-                        <div class="review-card-inner">
-                            <div class="card-img-container">
-                                {{ block.settings.review_image | image_url: width: 500 | image_tag }}
-                            </div>
-                            {% if section.settings.stars_image %}
-                                <div class="star-img-container">
-                                    {{ section.settings.stars_image | image_url: width: 300 | image_tag }}
+                    {% assign product = all_products[block.settings.product] %}
+                    {% if block.settings.product != blank %}
+                            <a href="{{ product.url }}" class="review-card swiper-slide">
+                        {% else %}
+                            <div class="review-card swiper-slide">
+                    {% endif %}
+
+                            <div class="review-card-inner">
+                                <div class="card-img-container">
+                                    {{ block.settings.review_image | image_url: width: 500 | image_tag }}
                                 </div>
-                            {% endif %}
-                            <div class="review-content">
-                                <h3>{{ block.settings.title }}</h3>
-                                <p>{{ block.settings.review_text }}</p>
-                                <h5>{{ block.settings.customer_name }}</h5>
+                                {% if section.settings.stars_image %}
+                                    <div class="star-img-container">
+                                        {{ section.settings.stars_image | image_url: width: 300 | image_tag }}
+                                    </div>
+                                {% endif %}
+                                <div class="review-content">
+                                    <h3>{{ block.settings.title }}</h3>
+                                    <p>{{ block.settings.review_text }}</p>
+                                    <h5>{{ block.settings.customer_name }}</h5>
+                                </div>
                             </div>
+
+                    {% if block.settings.product != blank %}
+                        </a>
+                    {% else %}
                         </div>
-                    </div>
+                    {% endif %}
                 {% endfor %}
             </div>
             <div class="swiper-scrollbar"></div>
@@ -120,6 +131,11 @@
                         "id": "review_text",
                         "label": "Customer Review",
                         "default": "lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    },
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Product Link Out (optional)",
                     }
                 ]
             }
