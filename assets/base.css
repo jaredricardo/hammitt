@@ -3749,6 +3749,12 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   aspect-ratio: 1/1;
 }
 
+#care-lp-scroll-top {
+  position: absolute;
+  bottom: -75vh;
+  left: 1rem;
+}
+
 @media screen and (max-width: 768px) {
   .jr-leather-cleaner .col:nth-of-type(2) h2 {
     font-size: 22px;
@@ -3767,5 +3773,8 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   }
   .jr-leather-cleaner .leather-container {
     gap: 1rem;
+  }
+  #care-lp-scroll-top {
+    bottom: -65vh;
   }
 }
