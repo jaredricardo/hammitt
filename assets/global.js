@@ -1205,9 +1205,11 @@ const addToCart = (itemsObj) => {
   if(!itemsObj.hasOwnProperty('sections')) {
     itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
   }
+
   if(!itemsObj.hasOwnProperty('sections_url')) {
     itemsObj.sections_url = "/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items";
   }
+
   fetch('/cart/add.js', {
     body: JSON.stringify(itemsObj),
     credentials: 'same-origin',
@@ -1569,7 +1571,8 @@ const cartUpdate = (json = false) => {
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
 
-      if(element == '.jr-temp-single-gwp' && document.querySelector('.jr-temp-single-gwp') != null) {
+
+      if(element == '.jr-temp-single-gwp') {
         let oldPercent = '0';
         if(elOld.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
           oldPercent = elOld.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')

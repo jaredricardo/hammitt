@@ -1,0 +1,122 @@
+{% style %}
+
+    [data-section-id="{{ section.id }}"] {
+        background-color: {{ section.settings.background_color }};
+    }
+
+    html {
+        scroll-behavior: smooth !important;
+        scroll-padding-top: 150px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+        html {
+            scroll-padding-top: 75px !important;
+        }
+    }
+
+{% endstyle %}
+
+<div data-section-id="{{ section.id }}">
+    <div class="jr-image-with-text-navigator page-width">
+        <ul>
+            {% for block in section.blocks %}
+                <li>
+                    <a href="#{{ block.settings.href }}">{{ block.settings.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a id="care-lp-scroll-top" href="#MainContent">
+            {% render 'icon-to-top' %}
+        </a>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+
+        const links = document.querySelectorAll(`[data-section-id="{{ section.id }}"] ul li`)
+
+        let selectors = []
+        {% for block in section.blocks %}
+            selectors.push('#{{ block.settings.href }}')
+        {% endfor %}
+        
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                links.forEach((l) => {l.classList.remove('active')})
+                link.classList.add('active')
+            })
+        })
+
+        if(selectors.length === 0) return
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeLink = document.querySelector(`li:has([href="#${entry.target.id}"])`)
+                    links.forEach((l) => {l.classList.remove('active')})
+                    if (activeLink) {
+                        activeLink.classList.add('active')
+                    }
+                } 
+            })
+        }, {
+            root: null,
+            threshold: 1
+        })
+
+        selectors.forEach((selector) => {
+            const selected = document.querySelector(selector)
+            if (selected) {
+               observer.observe(selected)
+            }
+        })
+ 
+    })
+
+</script>
+
+{% schema %}
+    {
+        "name": "JR Image Text Navigator",
+        "limit": 1,
+        "enabled_on": {
+            "templates": [
+                "page"
+            ]
+        },
+        "presets": [
+            {
+                "name": "JR Image Text Navigator"
+            }
+        ],
+        "settings": [
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background Color",
+                "default": "#ffffff"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "navigator",
+                "name": "scroll to",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Navigation title"
+                    },
+                    {
+
+                        "type": "text",
+                        "id": "href",
+                        "label": "Href to scroll to"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

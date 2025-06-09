@@ -1,0 +1,116 @@
+{% style %}
+
+    [data-section-id="{{ section.id }}"] {
+        background-color: {{ section.settings.background_color }};
+    }
+
+{% endstyle %}
+
+<div data-section-id="{{ section.id }}">
+    <div class="page-width jr-leather-cleaner">
+        <div class="col">
+            {{ section.settings.main_image | image_url: width: 800 |  image_tag }}
+        </div>
+        <div class="col">
+            {% if section.settings.title %}
+                <h2>{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.description %}
+                <p>{{ section.settings.description }}</p>
+            {% endif %}
+            {% if section.settings.leather_title %}
+                <h4>{{ section.settings.leather_title }}</h4>
+            {% endif %}
+            <ul class="leather-container">
+                {% for block in section.blocks %}
+                    <li class="leather-block">
+
+                        {% if block.settings.url != blank%}
+                            <a href="{{ block.settings.url }}">
+                        {% endif %}
+
+                            {% if block.settings.leather_image %}
+                                {{ block.settings.leather_image | image_url: width: 500 | image_tag }}
+                            {% endif %}
+                            <h5>{{ block.settings.leather_name }}</h5>
+
+                        {% if block.settings.url != blank %}
+                            </a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Care LP Leather Cleaner",
+        "presets": [
+            {
+                "name": "Care LP Leather Cleaner"
+            }
+        ],
+        "enabled_on": {
+            "templates": [
+                "page"
+            ]
+        },
+        "settings": [
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background Color",
+                "default": "#ffffff"
+            },
+            {
+                "type": "image_picker",
+                "id": "main_image",
+                "label": "Main Image"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Section Title",
+                "default": "Leather Sub Section Title"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "label": "Section Description",
+                "default": "<p>Leather Section Description</p>"
+            },
+            {
+                "type": "text",
+                "id": "leather_title",
+                "label": "Leather Title",
+                "default": "Best for these leathers"
+            }
+        ],
+        "blocks": [
+            { 
+                "type": "leather-block",
+                "name": "Leather Block",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "leather_image",
+                        "label": "Leather Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "leather_name",
+                        "label": "Leather Name",
+                        "default": "Leather Name"
+                    },
+                    {
+                        "type": "url",
+                        "id": "url",
+                        "label": "Url Link (optional)"
+                    }
+                ] 
+            }
+        ]
+    }
+{% endschema %}
