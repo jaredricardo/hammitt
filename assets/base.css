@@ -3785,3 +3785,100 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
     bottom: -65vh;
   }
 }
+
+.jr-featured-products-and-image {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0 3rem 0 !important;
+}
+
+.jr-featured-products-and-image  .mobile {
+  display: none;
+}
+
+.jr-featured-products-and-image h2 {
+  font-weight: 600;
+}
+
+.jr-featured-products-and-image .col:nth-of-type(1) {
+  width: 35%;
+}
+
+.jr-featured-products-and-image .col:nth-of-type(2) {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.jr-featured-products-and-image .col:nth-of-type(1) img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.jr-featured-products-and-image .col:nth-of-type(2) ul {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-wrap: nowrap;
+  overflow: auto;
+  padding-top: 2rem;
+  padding-right: 2rem;
+}
+
+.jr-featured-products-and-image .col:nth-of-type(2) ul li {
+  min-width: 42%;
+  flex: 1;
+}
+
+.jr-featured-products-and-image .mobile {
+  flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .jr-featured-products-and-image {
+    flex-direction: column;
+    padding: 1rem 0 !important;
+    gap: 0rem;
+  }
+  .jr-featured-products-and-image .col:nth-of-type(1) {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .jr-featured-products-and-image .col:nth-of-type(1),
+  .jr-featured-products-and-image .col:nth-of-type(2) {
+    width: 100%;
+  } 
+  .jr-featured-products-and-image .desktop {
+    display: none;
+  }
+  .jr-featured-products-and-image .mobile {
+    display: flex;
+  }
+  .jr-featured-products-and-image .col:nth-of-type(1) .img-container,
+  .jr-featured-products-and-image .col:nth-of-type(1) .container.mobile  {
+    flex: 1;
+  }
+  .jr-featured-products-and-image .col:nth-of-type(2) {
+    padding-left: 1rem;
+  }
+  .jr-featured-products-and-image .col:nth-of-type(2) ul {
+    gap: 1rem;
+  }
+  .jr-featured-products-and-image .container h3 {
+    font-size: 14px;
+    margin: 0;
+  }
+  .jr-featured-products-and-image .product-card {
+    padding-bottom: 1rem;
+  }
+}

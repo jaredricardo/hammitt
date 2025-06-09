@@ -26,9 +26,11 @@
                 </li>
             {% endfor %}
         </ul>
-        <a id="care-lp-scroll-top" href="#MainContent">
-            {% render 'icon-to-top' %}
-        </a>
+        {% if section.settings.enable_scroll_to_top %}
+            <a id="care-lp-scroll-top" href="#MainContent">
+                {% render 'icon-to-top' %}
+            </a>
+        {% endif %}
     </div>
 </div>
 
@@ -79,7 +81,7 @@
 
 {% schema %}
     {
-        "name": "JR Image Text Navigator",
+        "name": "JR Section Navigator",
         "limit": 1,
         "enabled_on": {
             "templates": [
@@ -88,7 +90,7 @@
         },
         "presets": [
             {
-                "name": "JR Image Text Navigator"
+                "name": "JR Section Navigator"
             }
         ],
         "settings": [
@@ -97,6 +99,12 @@
                 "id": "background_color",
                 "label": "Background Color",
                 "default": "#ffffff"
+            },
+            {
+                "type": "checkbox",
+                "id": "enable_scroll_to_top",
+                "label": "Enable scroll to top button",
+                "default": true
             }
         ],
         "blocks": [
