@@ -1,0 +1,35 @@
+{% liquid 
+
+    assign merch_image = settings.merch_box_default_image | default: settings.merch_box_default_image
+    assign num_slots = 1 | default: 1
+    assign title = 'Always Sold Out' | default: 'Always Sold Out'
+    assign title_color = 'white' | default: 'white'
+    assign button_text = 'Shop Now' 
+    assign button_link = '/' 
+
+    assign button_border = 'black' | default: 'transparent'
+    assign button_text_color = 'white' | default: 'white'
+    assign button_bg_color = 'black' | default: 'transparent'
+
+-%}
+
+
+<div class="merch-box num-slots-{{ num_slots }}">
+    <div class="img-container">
+        {{ merch_image | image_url: width: 1200 | image_tag: widths: '600, 900, 1100' }}
+    </div>
+    <div class="content-container">
+        {% if title %}
+            <h3 style="color: {{ title_color }};">
+                {{ title }}
+            </h3>
+        {% endif %}
+        {% if button_link %}
+        <a href="{{ button_link }}" 
+           class="merch-button" 
+           style="border: 1px solid {{ button_border }}; color: {{ button_text_color }}; background-color: {{ button_bg_color }};">
+            {{ button_text }}
+        </a>
+        {% endif %}
+    </div>
+</div>
