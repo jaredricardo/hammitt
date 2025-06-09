@@ -36,7 +36,7 @@
   &nbsp;
 </div>
 {% endif %}
-<div class="image-with-text image-with-text--{{ section.settings.content_layout }} page-width small-full-width isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == 'background-1' and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %} section-{{ section.id }}-padding">
+<div id="{{ section.settings.id_for_scroll_navigator }}" class="image-with-text image-with-text--{{ section.settings.content_layout }} page-width small-full-width isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == 'background-1' and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %} section-{{ section.id }}-padding">
   <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
     <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
       <div class="image-with-text__media image-with-text__media--{{ section.settings.height }} {% unless section.settings.show_color_background %}gradient color-{{ section.settings.color_scheme }}{% endunless %} global-media-settings {% if section.settings.image != blank %}media{% else %}image-with-text__media--placeholder placeholder{% endif %}"
@@ -93,6 +93,12 @@
   "name": "t:sections.image-with-text.name",
   "class": "section relative",
   "settings": [
+    {
+      "type": "text",
+      "id": "id_for_scroll_navigator",
+      "label": "ID for scroll navigator",
+      "info": "This ID is used to scroll to this section from the image with text navigator section. If you leave this empty, the section will not be scrollable via that navigator. This is fine if you are not using the navigator. If you are however using the navigator, you should set this to a unique ID that is not used by any other section on the page and make sure the blocks ID in the navigator section match this ID exactly.",
+    },
     {
       "type": "image_picker",
       "id": "image",
