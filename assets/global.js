@@ -1513,7 +1513,7 @@ function updateCart(params) {
 }
 
 // initial on load check for Order Protection items to remove them from cart. They should only be in cart at checkout.
-checkOrderProtection()
+// checkOrderProtection()
 checkGWPs(false)
 
 // document.addEventListener('change', function(evt) {
