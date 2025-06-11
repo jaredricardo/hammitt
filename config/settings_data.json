@@ -95,6 +95,7 @@
           },
           "announcement_JmPzA9": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Complimentary shipping available for every US order",
               "color_scheme": "accent-1",
@@ -109,7 +110,7 @@
         ],
         "custom_css": [
           ".announcement-slider .announcement-bar__message {/* opacity: 0; */ /* transition: 300ms ease; */}",
-          ".announcement-slider .announcement-bar__message.ab-inserted {opacity: 1 !important;}"
+          ".announcement-slider .announcement-bar__message.ab-inserted {/* opacity: 1 !important; */}"
         ],
         "settings": {}
       },
