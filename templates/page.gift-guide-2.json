@@ -71,25 +71,18 @@
     "image_with_text_navigator_3mM6rF": {
       "type": "image-with-text-navigator",
       "blocks": {
-        "navigator_AYa9WG": {
-          "type": "navigator",
-          "settings": {
-            "title": "Jenna Ortega",
-            "href": "jenna-ortega"
-          }
-        },
-        "navigator_6bDGWW": {
-          "type": "navigator",
-          "settings": {
-            "title": "Jamie Chung",
-            "href": "jamie-chung"
-          }
-        },
         "navigator_6QYWA8": {
           "type": "navigator",
           "settings": {
             "title": "Angelina Jolie",
             "href": "angelina-jolie"
+          }
+        },
+        "navigator_AYa9WG": {
+          "type": "navigator",
+          "settings": {
+            "title": "Jenna Ortega",
+            "href": "jenna-ortega"
           }
         },
         "navigator_VXxGFG": {
@@ -98,18 +91,45 @@
             "title": "Abigail Spencer",
             "href": "abigail-spencer"
           }
+        },
+        "navigator_6bDGWW": {
+          "type": "navigator",
+          "settings": {
+            "title": "Jamie Chung",
+            "href": "jamie-chung"
+          }
         }
       },
       "block_order": [
-        "navigator_AYa9WG",
-        "navigator_6bDGWW",
         "navigator_6QYWA8",
-        "navigator_VXxGFG"
+        "navigator_AYa9WG",
+        "navigator_VXxGFG",
+        "navigator_6bDGWW"
       ],
       "name": "JR Section Navigator",
       "settings": {
         "background_color": "#ffffff",
         "enable_scroll_to_top": false
+      }
+    },
+    "featured_products_and_image_EJQ8cC": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "angelina-jolie",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/IMG_5489.png",
+        "header": "Angelina Jolie – On-the-Go Mom Mode",
+        "subheader": "Classic, functional, and always elevated—Angelina keeps it sleek while managing life in motion with a Hammitt tote.",
+        "featured_products": [
+          "lax-intl-blk-gm-duffel",
+          "montana-backpack-xl-black-backpack",
+          "montana-backpack-xl-backpack-black-brushed-gold-red-zip",
+          "hunter-med-backpack-black-brushed-gold-red-zip",
+          "hunter-med-backpack-black-gunmetal",
+          "montana-backpack-xl-backpack-canyon-crocco-brushed-gold"
+        ]
       }
     },
     "featured_products_and_image_N7DjDd": {
@@ -132,6 +152,25 @@
         ]
       }
     },
+    "featured_products_and_image_d8F4Kg": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "abigail-spencer",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/IMG_5489-1.png",
+        "header": "Abigail Spencer – Red Carpet Ready",
+        "subheader": "Chic, compact, and camera-ready—Abigail stuns with a Hammitt clutch on the step-and-repeat.",
+        "featured_products": [
+          "daniel-med-black-satchel",
+          "daniel-lrg-black-tote-bag",
+          "vip-grand-crossbody-black-gunmetal",
+          "daniel-lrg-black-bg-r-zip-tote-bag",
+          "daniel-med-satchel-black-brushed-gold-red-zip"
+        ]
+      }
+    },
     "featured_products_and_image_Mh6Uhq": {
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
@@ -150,67 +189,15 @@
           "tom-zip-shoulder-bag-black-brushed-gold-red-zip"
         ]
       }
-    },
-    "featured_products_and_image_EJQ8cC": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "angelina-jolie",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/IMG_5489.png",
-        "header": "Angelina Jolie – On-the-Go Mom Mode",
-        "subheader": "Classic, functional, and always elevated—Angelina keeps it sleek while managing life in motion with a Hammitt tote.",
-        "featured_products": [
-          "kyle-shoulder-bag-black-gunmetal",
-          "kyle-shoulder-bag-calla-lily-white-brushed-gold",
-          "kyle-shoulder-bag-dawn-brushed-gold",
-          "kyle-shoulder-bag-gala-gold-brushed-gold-hammered",
-          "kyle-shoulder-bag-landscape-green-brushed-silver",
-          "kyle-shoulder-bag-pewter-pebble-brushed-silver",
-          "kyle-shoulder-bag-lime-zest-brushed-silver",
-          "kyle-shoulder-bag-sidewalk-silver-brushed-silver",
-          "kyle-shoulder-bag-pewter-brushed-silver",
-          "kyle-shoulder-bag-habanero-gold",
-          "kyle-shoulder-bag-courtyard-cream-brushed-gold",
-          "kyle-shoulder-bag-calla-lily-white-silver"
-        ]
-      }
-    },
-    "featured_products_and_image_d8F4Kg": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "abigail-spencer",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/IMG_5489-1.png",
-        "header": "Abigail Spencer – Red Carpet Ready",
-        "subheader": "Chic, compact, and camera-ready—Abigail stuns with a Hammitt clutch on the step-and-repeat.",
-        "featured_products": [
-          "kyle-shoulder-bag-black-gunmetal",
-          "kyle-shoulder-bag-calla-lily-white-brushed-gold",
-          "kyle-shoulder-bag-dawn-brushed-gold",
-          "kyle-shoulder-bag-gala-gold-brushed-gold-hammered",
-          "kyle-shoulder-bag-landscape-green-brushed-silver",
-          "kyle-shoulder-bag-pewter-pebble-brushed-silver",
-          "kyle-shoulder-bag-lime-zest-brushed-silver",
-          "kyle-shoulder-bag-sidewalk-silver-brushed-silver",
-          "kyle-shoulder-bag-pewter-brushed-silver",
-          "kyle-shoulder-bag-habanero-gold",
-          "kyle-shoulder-bag-courtyard-cream-brushed-gold",
-          "kyle-shoulder-bag-calla-lily-white-silver"
-        ]
-      }
     }
   },
   "order": [
     "main",
     "image_with_text_TWNkJG",
     "image_with_text_navigator_3mM6rF",
-    "featured_products_and_image_N7DjDd",
-    "featured_products_and_image_Mh6Uhq",
     "featured_products_and_image_EJQ8cC",
-    "featured_products_and_image_d8F4Kg"
+    "featured_products_and_image_N7DjDd",
+    "featured_products_and_image_d8F4Kg",
+    "featured_products_and_image_Mh6Uhq"
   ]
 }
