@@ -328,7 +328,6 @@
                 data-key="{{ item.key }}"
                 id="CartDrawerItem-{{ item.index | plus: 1 }}"
                 data-custom-index="{{ item.index | plus: 1 }}"
-                style= "{% if item.title == "Order Protection" %} display:none {% endif %}"
                 {% if item.variant_id == MonogramAddOnId %}
                   style="display: none !important; height: 0 !important; width: 0 !important; visibility: hidden !important;"
                 {% endif %}
