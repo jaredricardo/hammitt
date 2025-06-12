@@ -330,7 +330,6 @@
                 data-custom-index="{{ item.index | plus: 1 }}"
                 {% if item.variant_id == MonogramAddOnId %}
                   style="display: none !important; height: 0 !important; width: 0 !important; visibility: hidden !important;"
-                  style= "{% if item.product.vendor == "Order Protection" %} display:none {% endif %}"
                 {% endif %}
               > 
               {% assign appear_delay = appear_delay | plus: 1 %}
