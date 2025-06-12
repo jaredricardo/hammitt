@@ -1,0 +1,26 @@
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const pdpAccordions = document.querySelectorAll('.product__accordion.accordion')
+        if(!pdpAccordions.length) return
+
+        pdpAccordions.forEach((accordion) => {  
+
+            const data = accordion.getAttribute('data-accordion')
+            
+            if(data === 'care') {              
+
+                const accordionToMove = accordion
+                const parent = accordionToMove.parentElement
+
+                parent.insertBefore(accordionToMove, pdpAccordions[0])
+
+            
+            }
+
+        })
+
+    })
+</script>
