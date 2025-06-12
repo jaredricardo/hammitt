@@ -90,7 +90,7 @@
                     assign is_gwp = true
                   endif
                 %}
-                
+                {% unless item.product.title == 'Order Protection' %}
                 <tr class="cart-item {% if is_gwp %}cart-item__gwp{% endif %}" id="CartItem-{{ item.index | plus: 1 }}" data-custom-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
                   <td class="cart-item__media">
                     {% if item.image %}
@@ -351,6 +351,7 @@
                     </div>
                   </td>
                 </tr>
+              {% endunless %}
               {%- endfor -%}
             </tbody>
           </table>
