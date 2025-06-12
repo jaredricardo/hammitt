@@ -498,9 +498,9 @@
 
     {% if product %}
       {% assign material = product.metafields.custom.material | downcase %}
-      {% unless material == 'raffia' or meterial == 'suede' %}
+      {% if material == 'raffia' or material == 'suede' %}
         {% render 'care-pdp-material-check' %}
-      {% endunless %}
+      {% endif %}
     {% endif %}
 
     {% comment %} Tangiblee Custom CSS For Mobile  {% endcomment %}
