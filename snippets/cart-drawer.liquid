@@ -233,7 +233,7 @@
       {%- for item in cart.items -%}
         {% assign qty = qty | plus:item.quantity %}
       {%- endfor -%}
-      <div class="drawer__items-inner" style= "{% if item.product.vendor == "Order Protection" %} display:none {% endif %}">
+      <div class="drawer__items-inner">
         <cart-items>
           <div class="loading-overlay hidden">
             <div class="loading-overlay__spinner">
