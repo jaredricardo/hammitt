@@ -234,6 +234,7 @@
         {% assign qty = qty | plus:item.quantity %}
       {%- endfor -%}
       <div class="drawer__items-inner">
+        {% unless item.vendor == "Order Protection" %}
         <cart-items>
           <div class="loading-overlay hidden">
             <div class="loading-overlay__spinner">
@@ -488,6 +489,7 @@
           <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
           <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
         </cart-items>
+        {% endunless %}
         {% if cart.item_count > 0  %}
         <gift-box-section>
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
