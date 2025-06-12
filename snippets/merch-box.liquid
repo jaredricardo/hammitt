@@ -2,34 +2,40 @@
 
     assign merch_image = settings.merch_box_default_image | default: settings.merch_box_default_image
     assign num_slots = 1 | default: 1
-    assign title = 'Always Sold Out' | default: 'Always Sold Out'
-    assign title_color = 'white' | default: 'white'
+    assign title = 'Always Sold Out' 
+    assign title_color = 'black' | default: 'white'
     assign button_text = 'Shop Now' 
     assign button_link = '/' 
 
-    assign button_border = 'black' | default: 'transparent'
-    assign button_text_color = 'white' | default: 'white'
-    assign button_bg_color = 'black' | default: 'transparent'
+    assign button_border = 'transparent' | default: 'transparent'
+    assign button_text_color = 'black' | default: 'white'
+    assign button_bg_color = 'transparent' | default: 'transparent'
+    assign use_underline = true | default: false
+    assign use_bottom_text = true | default: false
+    assign content_y_position = 'center' | default: 'center'
+    assign content_x_position = 'center' | default: 'center'
 
 -%}
 
 
-<div class="merch-box num-slots-{{ num_slots }}">
+<div class="merch-box num-slots-{{ num_slots }} {% if use_bottom_text %} use-bottom-text {% endif %}">
     <div class="img-container">
         {{ merch_image | image_url: width: 1200 | image_tag: widths: '600, 900, 1100' }}
     </div>
-    <div class="content-container">
-        {% if title %}
-            <h3 style="color: {{ title_color }};">
-                {{ title }}
-            </h3>
-        {% endif %}
-        {% if button_link %}
-        <a href="{{ button_link }}" 
-           class="merch-button" 
-           style="border: 1px solid {{ button_border }}; color: {{ button_text_color }}; background-color: {{ button_bg_color }};">
-            {{ button_text }}
-        </a>
+    <div class="content-container y-alignment--{{ content_y_position }} x-alignment--{{ content_x_position }}">
+        <div class="container-container">
+            {% if title %}
+                <h3 style="color: {{ title_color }};">
+                    {{ title }}
+                </h3>
+            {% endif %}
+            {% if button_link %}
+            <a href="{{ button_link }}" 
+               class="merch-button" 
+               style="border: 1px solid {{ button_border }}; color: {{ button_text_color }}; background-color: {{ button_bg_color }}; {% if use_underline %} text-decoration: underline; {% endif %}">
+                {{ button_text }}
+            </a>
+        </div>
         {% endif %}
     </div>
 </div>
