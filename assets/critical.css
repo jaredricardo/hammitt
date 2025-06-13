@@ -156,6 +156,6 @@
   order: 0;
 }
 
-.product-collapse-container .product__accordion:not([data-access-attribute="care"]) {
+.product-collapse-container:has([data-access-attribute="care"]) .product__accordion:not([data-access-attribute="care"]) {
   order: 1;
 }
