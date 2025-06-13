@@ -1767,6 +1767,11 @@ a.button.klaviyo-bis-trigger:hover {
 
 .pdp-hero-section .pdp-info-col .custom-variant-options.colorway-optimized ul li{
   min-width: 70px;
+  order: 1;
+}
+
+.pdp-hero-section .pdp-info-col .custom-variant-options ul li:has([style="outline: 1px solid black;"]) {
+  order: 0;
 }
 
 @media screen and (max-width: 989px) {
