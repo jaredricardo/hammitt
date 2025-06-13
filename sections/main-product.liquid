@@ -85,7 +85,6 @@
   assign core_colors = linklists.colors-core.links | map: 'title' | join: ','
   assign limited_colors = linklists.colors-limited-edition.links | map: 'title' | join: ','
   assign seo_tag = false
-  assign material = product.metafields.custom.material | downcase 
   assign product_collapsible_not_set = true
 
   # PreOrder
@@ -685,36 +684,46 @@
             {%- when 'product_collapsible' -%}
               {% if product_collapsible_not_set == true %}
                 <div class="product-collapse-container">
-                  {% for block in section.blocks %}
-                    {% if block.type == 'product_collapsible' %}
+                  {% for inner_block in section.blocks %}
+                    {% if inner_block.type == 'product_collapsible' %}
   
                       {%- assign product_description = product.description | split: '<!--split-->' -%}
-                      {%- assign pdpdecdata = product_description[block.settings.split_index] -%}
+                      {%- assign pdpdecdata = product_description[inner_block.settings.split_index] -%}
+                      {%  assign material = product.metafields.custom.material | downcase  %}
   
                       {%- if pdpdecdata != blank -%}
-                        {% assign accordion_data_att = block.settings.accordion_data_attribute | handle %}
-                        <div class="product__accordion accordion new_accordion_block"  data-accordion="{{ block.settings.heading }}" {{ block.shopify_attributes }} data-access-attribute="{{ accordion_data_att }}">
-                          <details id="Details-{{ block.id }}-{{ section.id }}" {% if blockHeading == "description" or material == 'suede' or material == 'raffia' %} open{% endif %}>
+
+                        {% assign accordion_data_att = inner_block.settings.accordion_data_attribute | handle %}
+                        {% assign open_for_material = false %}
+
+                        {% if accordion_data_att == 'care' %}
+                          {% if material == 'suede' or material == 'raffia' %}
+                            {% assign open_for_material = true %}
+                          {% endif %}
+                        {% endif %}
+                  
+                        <div class="product__accordion accordion new_accordion_block"  data-accordion="{{ inner_block.settings.heading }}" {{ inner_block.shopify_attributes }} data-access-attribute="{{ accordion_data_att }}">
+                          <details id="Details-{{ inner_block.id }}-{{ section.id }}" {% if blockHeading == "description" %} open {% endif %} {% if open_for_material  %} open {% endif %}>
                             <summary>
                               <div class="summary__title">
                                 <strong class="h4 accordion__title 2555">
-                                  {{ block.settings.heading | default: block.settings.page.title }}
+                                  {{ inner_block.settings.heading | default: inner_block.settings.page.title }}
                                 </strong>
                               </div>
                               {% render 'icon-caret' %}
                             </summary>
-                            <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                            <div class="accordion__content rte" id="ProductAccordion-{{ inner_block.id }}-{{ section.id }}">
                               {% if accordion_data_att == "care" %}
                                 {% if material == 'suede' %}
                                   {{ settings.pdp_care_suede }}
                                 {% elsif material == 'raffia' %}
-                                    {{ settings.pdp_care_raffia }}
-                                {% else %}
-                                  {{ block.settings.content }}
-                                  {{ block.settings.page.content }}
-                                  {% if block.settings.split_content %}
-                                    {{ product_description[block.settings.split_index] }}
-                                  {% endif %}
+                                  {{ settings.pdp_care_raffia }}
+                                {% endif %}
+                              {% else %}
+                                {{ inner_block.settings.content }}
+                                {{ inner_block.settings.page.content }}
+                                {% if inner_block.settings.split_content %}
+                                  {{ product_description[inner_block.settings.split_index] }}
                                 {% endif %}
                               {% endif %}
                             </div>
