@@ -496,13 +496,6 @@
       ];
     </script>
 
-    {% if product %}
-      {% assign material = product.metafields.custom.material | downcase %}
-      {% if material == 'raffia' or material == 'suede' %}
-        {% render 'care-pdp-material-check' %}
-      {% endif %}
-    {% endif %}
-
     {% comment %} Tangiblee Custom CSS For Mobile  {% endcomment %}
     <style>
       @media screen and (max-width: 750px) {

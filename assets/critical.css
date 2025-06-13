@@ -145,3 +145,17 @@
     max-width: 85% !important;
   }
 }
+
+
+.product-collapse-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-collapse-container [data-access-attribute="care"] {
+  order: 0;
+}
+
+.product-collapse-container .product__accordion:not([data-access-attribute="care"]) {
+  order: 1;
+}
