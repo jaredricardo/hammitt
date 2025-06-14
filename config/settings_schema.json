@@ -1390,8 +1390,19 @@
       ] 
     },
     {
-      "name": "PDP Care copy",
+      "name": "Special Leathers Setting",
       "settings": [
+        {
+          "type": "header",
+          "content": "Special Leathers String",
+          "info": "Input comma seperated material / leather types here. These must match the 'material' metafield in the product cusomizer to work. The products that have the leather types will be 1. given a special icon, 2. given a tooltip, and 3. have the 'care' info accordion pulled to the top of the accordion list on the PDPs."
+        },
+        {
+          "type": "textarea",
+          "id": "special_leathers",
+          "label": "Comma separated list of special leathers",
+          "default": "suede, raffia"
+        },
         {
           "type": "header",
           "content": "PDP 'care' accordion copy for 'suede'"

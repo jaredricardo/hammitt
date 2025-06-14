@@ -1752,8 +1752,16 @@ a.button.klaviyo-bis-trigger:hover {
   gap: 10px;
 }
 
+/* 
+
+Coming back to this, I do not remember why these selectors had to be set up like this. Like why wouldnt I just
+target the entire .variant-picker-group-wrapper? I don't remember why, but i know there was a reason.
+
+*/
+
 .pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .custom-variant-title,
-.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .custom-variant-list {
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .custom-variant-list,
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .special-care-tooltip {
   display: none !important;
 }
 
