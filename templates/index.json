@@ -88,9 +88,8 @@
     },
     "homepage_fireworks_pxtfb9": {
       "type": "homepage-fireworks",
-      "disabled": true,
       "settings": {
-        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"N07lzYx\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oerz6P\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5qk80W\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5qk80W\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "custom_classes": ""
       }
     },
@@ -101,21 +100,21 @@
           "type": "heading",
           "settings": {
             "heading_html_tag": "h1",
-            "heading": "THE BESTSELLING KYLE",
+            "heading": "INTRODUCING MEADOW WEAVE",
             "heading_size": "h1"
           }
         },
         "text_686dDt": {
           "type": "text",
           "settings": {
-            "text": "<p>Get that perfect slouch.</p>"
+            "text": ""
           }
         },
         "button_EtYrka": {
           "type": "button",
           "settings": {
-            "button_label": "SHOP KYLE",
-            "button_link": "shopify://collections/kyle",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/meadow-weave",
             "button_style_secondary": false
           }
         }
@@ -125,7 +124,6 @@
         "text_686dDt",
         "button_EtYrka"
       ],
-      "disabled": true,
       "settings": {
         "custom_classes": "kyle-ab-video",
         "color_scheme": "background-1",
@@ -137,6 +135,25 @@
       }
     },
     "slider_collection_CwB3RG": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "meadow-weave",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 18,
+        "padding_bottom": 7,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "slider_collection_yfxrhP": {
       "type": "slider-collection",
       "settings": {
         "title": "",
@@ -1199,10 +1216,11 @@
     }
   },
   "order": [
-    "image_banner_3FKmDP",
     "homepage_fireworks_pxtfb9",
     "rich_text_L6NKKA",
     "slider_collection_CwB3RG",
+    "image_banner_3FKmDP",
+    "slider_collection_yfxrhP",
     "jr_scrolling_text_QzMT7i",
     "image_banner_w8P4kC",
     "slider_featured_collection_bTka8m",
