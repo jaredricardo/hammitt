@@ -175,6 +175,16 @@
   endfor
 %}
 
+
+{% liquid 
+
+  #merch box logic
+  assign merch_box_one = collection.metafields.custom.merch_box.value
+  assign merch_box_two = collection.metafields.custom.merch_box_two.value
+
+
+-%}
+
 <div class="section-{{ section.id }}-padding col-wrap">
   {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
     <link data-href="{{ 'component-facets.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
@@ -240,11 +250,13 @@
               {% comment %} 
             
                   - merch box is appearing on every page 
-                  - need to make at least 3 available
+                  - need to make at least 2 available
                   - need to allow to change index in the grid loop
+                  - if we have 2 columns, the index merch box is inserted must be odd or else the grid gets screwed up
+                  - do not show mearch box on urls with filters
                
               {% endcomment %}
-              {% render 'merch-box', obj:collection.metafields.custom.merch_box.value  %}
+              {% render 'merch-box', obj: merch_box_two  %}
             </li>
 
 
