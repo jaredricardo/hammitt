@@ -1388,5 +1388,54 @@
           "default": "Only a few left!"
         }
       ] 
+    },
+    {
+      "name": "Special Leathers Setting",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Special Leathers String",
+          "info": "Input comma seperated material / leather types here. These must match the 'material' metafield in the product cusomizer to work. The products that have the leather types will be 1. given a special icon, 2. given a tooltip, and 3. have the 'care' info accordion pulled to the top of the accordion list on the PDPs."
+        },
+        {
+          "type": "textarea",
+          "id": "special_leathers",
+          "label": "Comma separated list of special leathers",
+          "default": "suede, raffia"
+        },
+        {
+          "type": "header",
+          "content": "Special Care tooltip settings"
+        },
+        {
+          "type": "richtext",
+          "id": "special_leather_tooltip_copy",
+          "label": "Special Care tooltip copy",
+          "default": "<p>This unique leather requires special care. Don’t worry - we’ll walk you through, step by step!.<\/p>"
+        },
+        {
+          "type": "url",
+          "id": "special_leather_tooltip_link",
+          "label": "Special Care tooltip link"
+        },
+        {
+          "type": "header",
+          "content": "PDP 'care' accordion copy for 'suede'"
+        },
+        {
+          "type": "richtext",
+          "id": "pdp_care_suede",
+          "label": "PDP 'care' accordion copy for 'suede'"
+        },
+        {
+          "type": "header",
+          "content": "PDP 'care' accordion copy for 'Raffia'"
+        },
+        {
+          "type": "richtext",
+          "id": "pdp_care_raffia",
+          "label": "PDP 'care' accordion copy for 'Raffia'"
+        }
+      ]
     }
 ]
