@@ -237,7 +237,14 @@
 
 
             <li class="grid__item">
-              {% render 'merch-box' %}
+              {% comment %} 
+            
+                  - merch box is appearing on every page 
+                  - need to make at least 3 available
+                  - need to allow to change index in the grid loop
+               
+              {% endcomment %}
+              {% render 'merch-box', obj:collection.metafields.custom.merch_box.value  %}
             </li>
 
 

@@ -259,6 +259,10 @@
   font-size: 14px;
 }
 
+.merch-box.num-slots-2 .img-container img {
+  aspect-ratio: auto;
+}
+
 
 @media screen and (max-width: 989px) {
   .grid__item:has(.num-slots-1) {
@@ -267,8 +271,7 @@
   }
   
   .grid__item:has(.num-slots-2) {
-    width: calc(100% - 9px) !important;
-    max-width: calc(100% - 9px) !important;
+    min-width: 100% !important;
   }
 }
 
@@ -280,5 +283,8 @@
   .merch-box .merch-button {
 
     font-size: 14px;
+  }
+  .merch-box .content-container {
+    padding: 4% 3%;
   }
 }
