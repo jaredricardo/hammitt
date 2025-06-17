@@ -9,6 +9,73 @@
  */
 {
   "sections": {
+    "homepage_fireworks_pxtfb9": {
+      "type": "homepage-fireworks",
+      "settings": {
+        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5qk80W\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5qk80W\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "custom_classes": ""
+      }
+    },
+    "rich_text_L6NKKA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_DHwcrh": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h1",
+            "heading": "INTRODUCING MEADOW WEAVE",
+            "heading_size": "h1"
+          }
+        },
+        "text_686dDt": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "button_EtYrka": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/meadow-weave",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_DHwcrh",
+        "text_686dDt",
+        "button_EtYrka"
+      ],
+      "settings": {
+        "custom_classes": "kyle-ab-video",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 12,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "slider_collection_CwB3RG": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "meadow-weave",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 18,
+        "padding_bottom": 7,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
+      }
+    },
     "image_banner_3FKmDP": {
       "type": "image-banner",
       "blocks": {
@@ -84,73 +151,6 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
-      }
-    },
-    "homepage_fireworks_pxtfb9": {
-      "type": "homepage-fireworks",
-      "settings": {
-        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5qk80W\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5qk80W\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "custom_classes": ""
-      }
-    },
-    "rich_text_L6NKKA": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_DHwcrh": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h1",
-            "heading": "INTRODUCING MEADOW WEAVE",
-            "heading_size": "h1"
-          }
-        },
-        "text_686dDt": {
-          "type": "text",
-          "settings": {
-            "text": ""
-          }
-        },
-        "button_EtYrka": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP NOW",
-            "button_link": "shopify://collections/meadow-weave",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_DHwcrh",
-        "text_686dDt",
-        "button_EtYrka"
-      ],
-      "settings": {
-        "custom_classes": "kyle-ab-video",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 12,
-        "padding_top_mobile": 12,
-        "padding_bottom_mobile": 36
-      }
-    },
-    "slider_collection_CwB3RG": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "meadow-weave",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 18,
-        "padding_bottom": 7,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
       }
     },
     "slider_collection_yfxrhP": {
@@ -821,8 +821,8 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/tom-desk.jpg",
-            "mobile_image": "shopify://shop_images/tom-mob.jpg",
+            "image": "shopify://shop_images/desktop-TIM.jpg",
+            "mobile_image": "shopify://shop_images/mobile-TIM.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
