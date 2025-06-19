@@ -1109,7 +1109,8 @@ const productSwatchReload = () => {
       const elementsToUpdate = [
         '.pdp-hero-wrap',
         '.pdp-review-section',
-        '.pdp-rc-section'
+        '.pdp-rc-section',
+        'product-modal'
       ];
 
       fetch(productURL)
