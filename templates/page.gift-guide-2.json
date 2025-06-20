@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -26,7 +35,7 @@
         "text_XM8fwJ": {
           "type": "text",
           "settings": {
-            "text": "<p>From red carpets to everyday errands—discover the handbags making headlines on your favorite celebrities.<\/p>",
+            "text": "<p>From red carpets to everyday errands—discover the handbags making headlines on your favorite celebrities.</p>",
             "text_style": "body"
           }
         }
@@ -41,7 +50,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "id_for_scroll_navigator": "",
-        "image": "shopify:\/\/shop_images\/banner-celeb-lp_1.jpg",
+        "image": "shopify://shop_images/banner-celeb-lp_1.jpg",
         "height": "adapt",
         "desktop_image_width": "large",
         "layout": "image_first",
@@ -89,13 +98,21 @@
             "title": "Jamie Chung",
             "href": "jamie-chung"
           }
+        },
+        "navigator_JgKFqt": {
+          "type": "navigator",
+          "settings": {
+            "title": "Vita Sidorkina",
+            "href": "vita"
+          }
         }
       },
       "block_order": [
         "navigator_6QYWA8",
         "navigator_AYa9WG",
         "navigator_VXxGFG",
-        "navigator_6bDGWW"
+        "navigator_6bDGWW",
+        "navigator_JgKFqt"
       ],
       "name": "JR Section Navigator",
       "settings": {
@@ -110,7 +127,7 @@
         "href": "angelina-jolie",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "image": "shopify:\/\/shop_images\/IMG_5489.png",
+        "image": "shopify://shop_images/IMG_5489.png",
         "header": "Angelina Jolie – On-the-Go Mom Mode",
         "subheader": "Classic, functional, and always elevated—Angelina keeps it sleek while managing life in motion with a Hammitt tote.",
         "featured_products": [
@@ -130,7 +147,7 @@
         "href": "jenna-ortega",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "image": "shopify:\/\/shop_images\/8B1A3264-ED79-4418-A8A5-0F622D8496C9_1.png",
+        "image": "shopify://shop_images/8B1A3264-ED79-4418-A8A5-0F622D8496C9_1.png",
         "header": "Jenna Ortega – From Street to Night Out",
         "subheader": "Edgy yet effortless, Jenna turns heads with soft black bags, styled for errands and concerts in the city.",
         "featured_products": [
@@ -150,7 +167,7 @@
         "href": "abigail-spencer",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "image": "shopify:\/\/shop_images\/IMG_5489-1.png",
+        "image": "shopify://shop_images/IMG_5489-1.png",
         "header": "Abigail Spencer – A Fashion Week Favorite",
         "subheader": "Chic, compact, and camera-ready, Abigail stuns with a Hammitt carry-all, just steps from the runway.",
         "featured_products": [
@@ -169,7 +186,7 @@
         "href": "jamie-chung",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "image": "shopify:\/\/shop_images\/IMG_5489-2.png",
+        "image": "shopify://shop_images/IMG_5489-2.png",
         "header": "Jamie Chung – Everyday Elegance",
         "subheader": "From errands to casual meetings, Jamie’s laid-back cool proves a Hammitt makes the perfect pop of color.",
         "featured_products": [
@@ -186,6 +203,25 @@
           "tom-zip-med-shoulder-bag-black-brushed-gold-red-zip",
           "tom-zip-shoulder-bag-black-gunmetal",
           "tom-zip-med-shoulder-bag-black-gunmetal"
+        ]
+      }
+    },
+    "featured_products_and_image_YzXVNb": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "vita",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/IMG_3029_4_1.jpg",
+        "header": "Vita Sidorkina - Vacation Chic",
+        "subheader": "Sun-drenched destinations, effortless style. Discover how Vita Sidorkina brings Hammitt along for every getaway.",
+        "featured_products": [
+          "tim-med-shoulder-bag-lime-zest-brushed-silver",
+          "becker-sml-shoulder-bag-ribbon-weave-brushed-gold",
+          "tom-zip-med-shoulder-bag-black-brushed-gold-red-zip",
+          "kyle-shoulder-bag-calla-lily-white-brushed-gold",
+          "tom-zip-med-shoulder-bag-lime-zest-brushed-silver"
         ]
       }
     },
@@ -218,6 +254,7 @@
     "featured_products_and_image_N7DjDd",
     "featured_products_and_image_d8F4Kg",
     "featured_products_and_image_Mh6Uhq",
+    "featured_products_and_image_YzXVNb",
     "slider_collection_KftTyy"
   ]
 }
