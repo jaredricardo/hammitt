@@ -89,7 +89,7 @@
 
   assign on_special_leather = false
   assign leathers = settings.special_leathers | split: ','
-  assign material = product.metafields.custom.material | default: product_type | downcase | trim
+  assign material = product.metafields.custom.material | downcase | trim
 
   for leather in leathers
     assign stripped_leather = leather | strip
@@ -142,6 +142,13 @@
     endif
   endfor
 %}
+
+<script>
+  console.log('?????????')
+  console.log({{ leathers | json }})
+  console.log({{ on_special_leather | json }})
+
+</script>
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
@@ -725,12 +732,14 @@
                               </div>
                               {% render 'icon-caret' %}
                             </summary>
-                            <div class="accordion__content rte" id="ProductAccordion-{{ inner_block.id }}-{{ section.id }}">
+                            <div class="accordion__content rte" id="ProductAccordion-{{ inner_block.id }}-{{ section.id }}" {{ stripped_material }} {{ stripped_leather }}>
                               {% if accordion_data_att == "care" %}
                                 {% if stripped_material == 'suede' %}
                                   {{ settings.pdp_care_suede }}
                                 {% elsif stripped_material == 'raffia' %}
                                   {{ settings.pdp_care_raffia }}
+                                {% elsif stripped_material == 'woven leather' %}
+                                  {{ settings.pdp_care_weaves_fabrics }}
                                 {% endif %}
                               {% else %}
                                 {{ inner_block.settings.content }}
