@@ -295,7 +295,7 @@
 
                   {% if merch_box_one.number_of_columns == 1 and merch_box_one.position_in_grid == forloop.index %}
                     <li class="grid__item">
-                      {% render 'merch-box', obj: merch_box_one %}
+                      {% render 'merch-box', obj: merch_box_one, index:forloop.index %}
                     </li>
                   {% endif %}
 
@@ -315,7 +315,7 @@
 
                     {% if nearest_odd_number == forloop.index %}
                       <li class="grid__item">
-                        {% render 'merch-box', obj: merch_box_one %}
+                        {% render 'merch-box', obj: merch_box_one, index:forloop.index %}
                       </li>
                     {% endif %}
                     
@@ -328,7 +328,7 @@
     
                   {% if merch_box_two.number_of_columns == 1 and merch_box_two.position_in_grid == forloop.index %}
                     <li class="grid__item">
-                      {% render 'merch-box', obj: merch_box_two %}
+                      {% render 'merch-box', obj: merch_box_two, index: forloop.index %}
                     </li>
                   {% endif %}
 
@@ -358,7 +358,7 @@
 
                     {% if nearest_odd_number == true_insertion_index %}
                       <li class="grid__item">
-                        {% render 'merch-box', obj: merch_box_two %}
+                        {% render 'merch-box', obj: merch_box_two, index:true_insertion_index  %}
                       </li>
                     {% endif %}
                     

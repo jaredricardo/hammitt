@@ -212,15 +212,22 @@
 
 .merch-box,
 .merch-box .img-container,
-.merch-box img  {
+.merch-box .media-container,
+.merch-box img,
+.merch-box video   {
   height: 100%;
   width: 100%;
 }
 
-.merch-box img {
-  aspect-ratio: 1/1;
+.merch-box img,
+.merch-box video  {
   object-fit: cover;
   vertical-align: bottom;
+}
+
+.merch-box .media-container{
+  position: relative;
+  z-index: 1;
 }
 
 .merch-box .merch-button {
@@ -236,7 +243,6 @@
 .merch-box .content-container:after {
   display: none;
 }
-
 
 #MainContent:has(.grid-view) .grid__item:has(.merch-box){
   display: none;
@@ -286,5 +292,9 @@
   }
   .merch-box .content-container {
     padding: 4% 3%;
+  }
+  .merch-box img,
+  .merch-box video {
+    aspect-ratio: 8 / 5;
   }
 }
