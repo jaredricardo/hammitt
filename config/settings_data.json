@@ -19,6 +19,7 @@
     "variant_pills_radius": 36,
     "card_style": "standard",
     "card_text_alignment": "center",
+    "text_boxes_border_thickness": 0,
     "media_border_thickness": 0,
     "popup_border_thickness": 0,
     "popup_border_opacity": 0,
@@ -59,7 +60,12 @@
     "content": "",
     "Klaviyo_confirmation_text": "<p>Thanks for joining the wishlist! We’ll send you an email when this item comes back in stock.<\/p>",
     "only_a_few_left_threshold": 15,
-    "merch_box_default_image": "shopify:\/\/shop_images\/Rectangle_388.png",
+    "special_leathers": "suede,raffia,woven leather",
+    "special_leather_tooltip_link": "shopify://pages/hammitt-leather-care",
+    "special_leather_tooltip_linkout_anchor": "#material-guide",
+    "pdp_care_suede": "<p>The suede is deliciously soft - and we're here to help you keep it that way! We handpick suede that is generally water resistant. We do recommend keeping this bag away from dirt and oils - storing in its dust bag is a must!  Take special caution after applying lotion, sunscreen or other skincare. We recommend washing your hands before carrying your bag! </p><p>If your bag gets extremely wet, we strongly suggest drying it away from a heater, very slowly. Please air dry the bag and do not use heat. Once dry, brush your suede to lift fibers again. This will bring its soft hand feel back to life! <a href=\"https://www.hammitt.com/pages/hammitt-leather-care\">Learn More</a></p>",
+    "pdp_care_raffia": "<p>Spray with protectant before your first outing. Avoid contact with dark washes, denim dye, and sharp objects. Store in a dust bag for safekeeping. Please note, our raffia collections feature both leather and Spanish raffia. Apply designated cleaners to leather sparingly and according to instruction. <a href=\"/pages/hammitt-leather-care\" title=\"Hammitt Leather Care\">Learn More</a></p>",
+    "pdp_care_weaves_fabrics": "<p>Spray with protectant before your first outing. Avoid contact with dark washes, denim dye, and sharp objects. Store in a dust bag for safekeeping. Please note, these special collections feature leather accents. Apply designated cleaners to leather sparingly and according to instruction. </p><p>Note, this collection features a unique Italian cotton and jute blend that creates a textured canvas for the silk print overlay. Its print showcases natural variations, accentuating the rich artisanal nature of this woven textile. Each piece has individual character, with a vintage effect that is still brand new.</p>",
     "tn_cart_widget_link": "",
     "checkout_logo_image": "shopify:\/\/shop_images\/hammitt.png",
     "checkout_accent_color": "#000000",
@@ -83,32 +89,13 @@
               "color_scheme": "accent-1",
               "link": "shopify:\/\/collections\/new-arrivals"
             }
-          },
-          "announcement_JmPzA9": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "Limited Lifetime Warranty",
-              "color_scheme": "accent-1",
-              "link": "shopify:\/\/collections\/best-selling-bags"
-            }
-          },
-          "announcement_cYVjic": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "Add some love with a free handwritten gift note!",
-              "color_scheme": "accent-1",
-              "link": "shopify:\/\/collections\/best-selling-bags"
-            }
           }
         },
         "block_order": [
           "announcement_CwR3it",
-          "announcement_UdnEaT",
-          "announcement_JmPzA9",
-          "announcement_cYVjic"
+          "announcement_UdnEaT"
         ],
+        "custom_css": [],
         "settings": {}
       },
       "header": {
@@ -119,7 +106,7 @@
             "settings": {
               "nav_link": "shopify:\/\/collections\/new-arrivals",
               "title": "New In",
-              "nav_image": "shopify:\/\/shop_images\/Rectangle_380.jpg"
+              "nav_image": "shopify://shop_images/Rectangle_372.png"
             },
             "blocks": {}
           },
@@ -135,7 +122,7 @@
           "nav_block_iiB4B4": {
             "type": "nav-block",
             "settings": {
-              "nav_link": "shopify:\/\/collections\/best-sellers",
+              "nav_link": "shopify://collections/trending-1",
               "title": "Top Trending",
               "nav_image": "shopify:\/\/shop_images\/Rectangle_379_1.jpg"
             },
@@ -150,12 +137,52 @@
             },
             "blocks": {}
           },
+          "nav_block_mRWT3q": {
+            "type": "nav-block",
+            "name": "Visual Nav Item",
+            "settings": {
+              "nav_link": "shopify://collections/travel",
+              "title": "Vacation Bound",
+              "nav_image": "shopify://shop_images/Rectangle_388_64cc844a-542f-4645-b5fb-977a1f81462e.png"
+            },
+            "blocks": {}
+          },
+          "nav_block_6TmWB7": {
+            "type": "nav-block",
+            "name": "Visual Nav Item",
+            "settings": {
+              "nav_link": "shopify://collections/low-inventory",
+              "title": "Going Fast",
+              "nav_image": "shopify://shop_images/Rectangle_387_cd89a02d-c997-43b4-bae9-817378dd6f88.png"
+            },
+            "blocks": {}
+          },
+          "nav_block_TDrWJ4": {
+            "type": "nav-block",
+            "name": "Visual Nav Item",
+            "settings": {
+              "nav_link": "shopify://collections/colorway-metal-chain-shoulder-strap",
+              "title": "Metal Chain Straps",
+              "nav_image": "shopify://shop_images/Rectangle_21_95c8a1fb-c5fd-4642-8ff7-f9f89efb66fe.png"
+            },
+            "blocks": {}
+          },
+          "nav_block_Wdh9zC": {
+            "type": "nav-block",
+            "name": "Visual Nav Item",
+            "settings": {
+              "nav_link": "shopify://collections/bag-charms",
+              "title": "Bag Charms",
+              "nav_image": "shopify://shop_images/Rectangle_380_fc33c6b9-d505-40ee-9176-eb2a509928f6.png"
+            },
+            "blocks": {}
+          },
           "nav_block_PrW4FG": {
             "type": "nav-block",
             "settings": {
               "nav_link": "shopify:\/\/collections\/core",
               "title": "Hammitt Icons",
-              "nav_image": "shopify:\/\/shop_images\/Rectangle_386.jpg"
+              "nav_image": "shopify://shop_images/Rectangle_376.png"
             },
             "blocks": {}
           },
@@ -210,6 +237,10 @@
           "nav_block_xxYG6y",
           "nav_block_iiB4B4",
           "nav_block_qazXUY",
+          "nav_block_mRWT3q",
+          "nav_block_6TmWB7",
+          "nav_block_TDrWJ4",
+          "nav_block_Wdh9zC",
           "nav_block_PrW4FG",
           "nav_block_EEFWxD",
           "nav_block_cD9ebQ",
@@ -255,6 +286,13 @@
               "menu": "v2-0-company-2022"
             }
           },
+          "link_list_a9BtLm": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Shop",
+              "menu": "footer-shop"
+            }
+          },
           "36cc633c-d646-4a92-b90f-1d34898a17ab": {
             "type": "link_list",
             "settings": {
@@ -280,6 +318,7 @@
         "block_order": [
           "custom_section_PVzHhe",
           "48671833-4571-483c-a096-566b4031c091",
+          "link_list_a9BtLm",
           "36cc633c-d646-4a92-b90f-1d34898a17ab",
           "fce1d666-3b70-4a2f-b9e0-440d04b3a2e6",
           "709746f1-d285-46a0-b876-75c8b5c5de2b"
@@ -517,16 +556,16 @@
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/01_2024-08-16_HAMMITT_PDP_CREATIVE_0598_17_1.jpg",
+              "image": "shopify://shop_images/thumpnail-desktop_18.jpg",
               "image_ratio": "portrait",
               "image_caption": "Trending Now",
-              "image_link": "shopify:\/\/collections\/best-sellers"
+              "image_link": "shopify://collections/trending-1"
             }
           },
           "image_gY6exJ": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Group_1139.png",
+              "image": "shopify://shop_images/Rectangle_680_1.jpg",
               "image_ratio": "portrait",
               "image_caption": "New Arrivals",
               "image_link": "shopify:\/\/collections\/new-arrivals"
@@ -735,6 +774,37 @@
         "type": "shopify:\/\/apps\/intelligems-a-b-testing\/blocks\/intelligems-script\/fa83b64c-0c77-4c0c-b4b2-b94b42f5ef19",
         "disabled": false,
         "settings": {}
+      },
+      "16268456933323476198": {
+        "type": "shopify://apps/xgen-ai/blocks/xgen-search/0faa3e62-37f5-4cdf-80aa-dfb5fac9fabc",
+        "disabled": true,
+        "settings": {
+          "element_id": "acf20249-770a-4e8f-8407-ab4c8527df46",
+          "search_selector": "",
+          "vertical_position": 50,
+          "search_behavior": "2",
+          "show_suggestions": true,
+          "show_search_history": false,
+          "suggestion_1": "Suggestion one",
+          "suggestion_2": "Suggestion two",
+          "suggestion_3": "Suggestion three",
+          "suggestion_4": "Suggestion four",
+          "suggestion_5": "Suggestion five",
+          "enable_results_count": true,
+          "max_visible_items": 10,
+          "enable_filter": true,
+          "enable_sort": true,
+          "desktop_columns": "4",
+          "desktop_horizontal_spacing": 80,
+          "desktop_vertical_spacing": 28,
+          "mobile_columns": "1",
+          "mobile_horizontal_spacing": 40,
+          "mobile_vertical_spacing": 16,
+          "show_vendor": true,
+          "show_variant_selector": false,
+          "show_add_to_cart": false,
+          "custom_css": ""
+        }
       }
     }
   },

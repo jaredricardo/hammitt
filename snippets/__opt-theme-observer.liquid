@@ -126,9 +126,6 @@
         window.YETT_BLACKLIST.push(/jquery\.min\.js/);
         window.YETT_BLACKLIST.push(/try-before-you-buy\.min\.js/);
     {% endunless %}
-    {% if template contains 'product' %}
-      // window.YETT_BLACKLIST.push(/tangiblee-bundle\.min\.js/);  
-    {% endif %}
 
   if(window.botScore && window.botScore > 0.34) {
     window.isBot = true;
@@ -144,7 +141,6 @@
       window.YETT_BLACKLIST.push(/try-before-you-buy\.min\.js/);
       window.YETT_BLACKLIST.push(/cart\.js/);
       window.YETT_BLACKLIST.push(/swiper\.js/);
-      window.YETT_BLACKLIST.push(/tangiblee-bundle\.min\.js/); 
       window.YETT_BLACKLIST.push(/www\.resellerratings\.com/);   
     {% endif %}
     window.YETT_BLACKLIST.push(/js\.adsrvr\.org/);
@@ -198,7 +194,6 @@
     {% if template contains 'product' %}
     optThemeConfig.blockInlineScripts.push('window.coreColors');
     optThemeConfig.blockInlineScripts.push('recently-viewed.js');
-    optThemeConfig.blockInlineScripts.push('tangiblee-bundle.min.js');
     optThemeConfig.blockInlineScripts.push('_learnq');
     optThemeConfig.blockInlineScripts.push('theme.swatchColors');
     optThemeConfig.blockInlineScripts.push('gtag');

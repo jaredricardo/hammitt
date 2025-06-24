@@ -1515,7 +1515,7 @@ input.iStock-notify-btn {
 /* .pdp-hero-section .pdp-info-col .custom-variant-options ul.swiper.swiper-initialized li{max-width:unset;} */
 
 
-.pdp-hero-section .pdp-info-col .custom-variant-title{font-size:13px;font-size: 13px;line-height:1.125;display: flex;gap: 7px;margin-bottom:10px;}
+.pdp-hero-section .pdp-info-col .custom-variant-title{font-size:13px;font-size: 13px;line-height:1.125;display: flex;gap: 7px;margin-bottom:10px; align-items: center;}
 .pdp-hero-section .pdp-info-col .custom-variant-title span{display:inline-block;padding-top:2px;}
 .pdp-hero-section .pdp-info-col .custom-variant-title strong{font-size:16px;}
 .pdp-hero-section .product-form{margin:0px;}
@@ -1557,10 +1557,6 @@ input.iStock-notify-btn {
 .pdp-hero-section .signal-icontext-block .block-icon img{position:absolute;top:0px;left:0px;width:100%;height:100%;object-fit:contain;}
 .pdp-hero-section .card__badge-wrapper .badge{font-size:11px;text-transform:capitalize;font-family:var(--semi-bold-family);font-weight:var(--semi-bold-weight);padding: 3px 10px;color: #000;line-height: 2;border:1px solid #000;}
 .pdp-hero-section .card__badge-wrapper{top: 10px !important;left: 10px !important;}
-.pdp-hero-section .tangiblee-cta.tangiblee-desktop{top:10px;right:10px;}
-.pdp-hero-section .tangiblee-cta:before{width:29px;height:13px;background-image:url(https://cdn.shopify.com/s/files/1/0661/5963/files/icon-bag-size.svg?v=1729058893);object-fit: contain;margin:0px;}
-.pdp-hero-section .tangiblee-cta{font-size: 11px;font-weight: 700;height: auto;width: auto;border: 1px solid #7d2c34;padding: 8px 11px;display: flex;gap: 9px;align-items: center;line-height: 1;letter-spacing: normal;font-family: var(--font-body-family);}
-.pdp-hero-section .tangiblee-cta:hover:before{background-image:url(https://cdn.shopify.com/s/files/1/0661/5963/files/icon-bag-size-hover.svg?v=1729059586);}
 .pdp-hero-section .pdp-info-col .shopify-app-block[id*="shopify-block-yotpo_loyalty_rewards_product_points"]{margin-top:10px;}
 .pdp-hero-section .pdp-info-col .shopify-app-block[id*="shopify-block-yotpo_loyalty_rewards_product_points"] .yotpo-product-points-widget .yotpo-product-points-widget-potential-earning-points{justify-content:center;}
 
@@ -1639,7 +1635,7 @@ body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg{f
   .pdp-hero-section .mobile-pdp-info .mobile-block-wrap{align-items:start;justify-content: space-between;}
   .pdp-hero-section .mobile-pdp-info .mobile-price .product__price-wrapper{margin:0px;}
   .pdp-hero-section .pdp-info-col #RR_PR_Widget_Wrapper{margin:0px;}
-  .pdp-hero-section .pdp-info-col .custom-variant-title strong{font-size:15px;}
+  .pdp-hero-section .pdp-info-col .custom-variant-title strong{font-size:12px;}
   .pdp-hero-section .iconsblock-wrap p.coltitle{font-size:13px;width: 100%;text-align: center;max-width:100%;margin-top:4px;padding:0px;max-width:120px;}
   .pdp-hero-section .iconsblock-wrap{padding:14px 10px;}
   .pdp-hero-section .signal-icontext-block h4 strong{display:block;width:100%;font-size:14px;}
@@ -1752,8 +1748,16 @@ a.button.klaviyo-bis-trigger:hover {
   gap: 10px;
 }
 
+/* 
+
+Coming back to this, I do not remember why these selectors had to be set up like this. Like why wouldnt I just
+target the entire .variant-picker-group-wrapper? I don't remember why, but i know there was a reason.
+
+*/
+
 .pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .custom-variant-title,
-.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .custom-variant-list {
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .custom-variant-list,
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .special-care-tooltip {
   display: none !important;
 }
 
@@ -1765,8 +1769,54 @@ a.button.klaviyo-bis-trigger:hover {
   color: #000;
 }
 
-.pdp-hero-section .pdp-info-col .custom-variant-options.colorway-optimized ul li{
+.pdp-hero-section .pdp-info-col .custom-variant-options ul li {
   min-width: 70px;
+  order: 1;
+}
+
+.pdp-hero-section .pdp-info-col .custom-variant-options ul li:has([style="outline: 1px solid black;"]) {
+  order: 0 !important;
+}
+
+.pdp-hero-section .special-care-tooltip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.pdp-hero-section .special-care-tooltip:hover .special-care-tooltip-content {
+  display: flex;
+}
+
+.special-care-tooltip-content {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  width: max-content;
+  max-width: 180px;
+  z-index: 1;
+  text-align: center;
+  padding: 1.5rem;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  box-shadow: 0px 0px 3px 2px #0000001A;
+  top: 100%;
+}
+
+
+.special-care-tooltip-content .button {
+  min-width: auto;
+  max-width: max-content;
+}
+
+.variant-picker-group-wrapper:not(:has(li.current-swatch)) .special-care-tooltip {
+  display: none !important;
 }
 
 @media screen and (max-width: 989px) {
@@ -1789,4 +1839,11 @@ a.button.klaviyo-bis-trigger:hover {
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
   }  
+}
+
+
+@media screen and (max-width: 501px) {
+  .special-care-tooltip-content {
+    left: -90%;
+  }
 }

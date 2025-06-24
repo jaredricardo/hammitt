@@ -495,17 +495,6 @@
         }
       ];
     </script>
-
-    {% comment %} Tangiblee Custom CSS For Mobile  {% endcomment %}
-    <style>
-      @media screen and (max-width: 750px) {
-        .tangiblee-cta {
-          width: 130px !important;
-          height: 30px !important;
-          font-size: 10px !important;
-        }
-      }
-    </style>
     
     {% comment %} EE GWP  {% endcomment %}
     <script type="text/javascript">
@@ -751,31 +740,6 @@ template-{{ template.name -}}
     
     {% if template contains 'collection' or template contains 'search' %}
       <script src="{{ 'infinite-scroll.js' | asset_url }}" defer="defer"></script>
-    {% endif %}
-
-    {% comment %}Reseller Ratings PDP{% endcomment %}
-    {% if template contains 'product' and product %}
-      <script>
-        var __RRPRWidget_Settings = {
-          name: "{{ product.title }}",
-          sku: "{{ product.selected_or_first_available_variant.sku }}",
-          img: "{{ product.featured_media.preview_image | image_url: width: 500 }}",
-          url: "https://hammitt.com{{ product.url }}",
-          onclick: function(){
-              $('html').animate({
-              scrollTop: $('#RR_PR_Frame_Wrapper').offset().top - 50
-              }, 700);
-              document.getElementById('RR_PR_Frame_Wrapper').click();
-          }
-        };
-      </script>
-      <!-- Bottom of your page -->
-      <script
-        {% if template contains 'index' or template contains 'collection' %}
-          type="noscript-s" data-
-        {% endif -%}
-        src="https://www.resellerratings.com/productreviews/widget/javascript/Hammitt.js?sku={{ product.selected_or_first_available_variant.sku }}"
-      ></script>
     {% endif %}
 
     <!-- accessiBe Installed Summer 2023 -->

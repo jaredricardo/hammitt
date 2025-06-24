@@ -85,6 +85,20 @@
   assign core_colors = linklists.colors-core.links | map: 'title' | join: ','
   assign limited_colors = linklists.colors-limited-edition.links | map: 'title' | join: ','
   assign seo_tag = false
+  assign product_collapsible_not_set = true
+
+  assign on_special_leather = false
+  assign leathers = settings.special_leathers | split: ','
+  assign material = product.metafields.custom.material | downcase | trim
+
+  for leather in leathers
+    assign stripped_leather = leather | strip
+    assign stripped_material = material | strip
+
+    if stripped_leather == stripped_material
+      assign on_special_leather = true
+    endif
+  endfor
 
   # PreOrder
   assign isPreOrderProduct = false
@@ -681,29 +695,64 @@
                  </div>
                  {% endif %}
             {%- when 'product_collapsible' -%}
-            {%- assign product_description = product.description | split: '<!--split-->' -%}
-            {%- assign pdpdecdata = product_description[block.settings.split_index] -%}
-           {%- if pdpdecdata != blank -%}
-              <div class="product__accordion accordion new_accordion_block"  data-accordion="{{  block.settings.heading | handle }}" {{ block.shopify_attributes }}>
-                 <details id="Details-{{ block.id }}-{{ section.id }}" {% if blockHeading == "description" %} open{% endif %}>
-                  <summary>
-                    <div class="summary__title">
-                      <strong class="h4 accordion__title 2555">
-                        {{ block.settings.heading | default: block.settings.page.title }}
-                      </strong>
-                    </div>
-                    {% render 'icon-caret' %}
-                  </summary>
-                  <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                    {{ block.settings.content }}
-                    {{ block.settings.page.content }}
-                    {% if block.settings.split_content %}
-                      {{ product_description[block.settings.split_index] }}
+              {% if product_collapsible_not_set == true %}
+
+                <div class="product-collapse-container">
+                  {% for inner_block in section.blocks %}
+                    {% if inner_block.type == 'product_collapsible' %}
+  
+                      {%- assign product_description = product.description | split: '<!--split-->' -%}
+                      {%- assign pdpdecdata = product_description[inner_block.settings.split_index] -%}
+  
+                      {%- if pdpdecdata != blank -%}
+
+                        {% assign accordion_data_att = inner_block.settings.accordion_data_attribute | handle %}
+                        {% assign open_material = false %}
+
+                        {% if accordion_data_att == 'care' %}
+                          {% if on_special_leather %}
+                            {% assign open_material = true %}
+                          {% endif %}
+                        {% endif %}
+                  
+                        <div data-on-special="{{ on_special_leather }}" class="product__accordion accordion new_accordion_block"  data-accordion="{{ inner_block.settings.heading }}" {{ inner_block.shopify_attributes }} data-access-attribute="{{ accordion_data_att }}">
+                          <details id="Details-{{ inner_block.id }}-{{ section.id }}" {% if blockHeading == "description" %} open {% endif %} {% if open_material %} open {% endif %}>
+                            <summary>
+                              <div class="summary__title">
+                                <strong class="h4 accordion__title 2555">
+                                  {{ inner_block.settings.heading | default: inner_block.settings.page.title }}
+                                </strong>
+                              </div>
+                              {% render 'icon-caret' %}
+                            </summary>
+                            <div class="accordion__content rte" id="ProductAccordion-{{ inner_block.id }}-{{ section.id }}" {{ stripped_material }} {{ stripped_leather }}>
+                              {% if accordion_data_att == "care" %}
+                                {% if stripped_material == 'suede' %}
+                                  {{ settings.pdp_care_suede }}
+                                {% elsif stripped_material == 'raffia' %}
+                                  {{ settings.pdp_care_raffia }}
+                                {% elsif stripped_material == 'woven leather' %}
+                                  {{ settings.pdp_care_weaves_fabrics }}
+                                {% endif %}
+                              {% else %}
+                                {{ inner_block.settings.content }}
+                                {{ inner_block.settings.page.content }}
+                                {% if inner_block.settings.split_content %}
+                                  {{ product_description[inner_block.settings.split_index] }}
+                                {% endif %}
+                              {% endif %}
+                            </div>
+                          </details>
+                        </div>
+                      {% endif %}
+  
                     {% endif %}
-                  </div>
-              </details>
-              </div>
-             {% endif %}
+                  {% endfor %}
+                </div>
+
+                {% assign product_collapsible_not_set = false %}
+
+              {% endif %}
           {%- when 'custom_liquid' -%}
             {{ block.settings.custom_liquid }}
           {%- when 'collapsible_tab' -%}
@@ -886,7 +935,7 @@
             {%- else -%}
 
             {% if product.metafields.custom.colorway_collection != blank %}
-                {% render 'product-color-size-optimized', product_title: product_title, product_type: product_type, product_color: product_color, product_size: product_size, top_level_handle: product.handle %}
+                {% render 'product-color-size-optimized', product_title: product_title, product_type: product_type, product_color: product_color, product_size: product_size, top_level_handle: product.handle, on_special_leather:on_special_leather %}
               {% else %}
                 {% render 'product-color-size', product_title: product_title, product_type: product_type, product_color: product_color, product_size: product_size %}
             {% endif %}
@@ -1380,11 +1429,6 @@
 </script>
 
 
-{% comment %}
-<!-- generic Tangiblee API - tangiblee.min.js - code placed in a <script> tag --> 
-<script async src="https://cdn.tangiblee.com/integration/3.1/tangiblee.min.js"></script>
-{%  endcomment %}
-
 {% if IDayPromotionProduct %}
   <script src="{{ 'iday-promotion.js' | asset_url }}" defer></script>
 {% endif %}
@@ -1580,6 +1624,12 @@
       "type": "product_collapsible",
       "name": "Product Collapsible",
       "settings": [
+        {
+          "type": "text",
+          "id": "accordion_data_attribute",
+          "label": "Accordion data attribute",
+          "info": "To be used to access accordion via JS when needed."
+        },
         {
           "type": "text",
           "id": "heading",

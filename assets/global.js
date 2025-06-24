@@ -1102,9 +1102,6 @@ const productSwatchReload = () => {
       const productTitle = event.currentTarget.getAttribute('data-product-title');
       const productImage = event.currentTarget.getAttribute('data-product-img');
       
-      window.__RRPRWidget.product_id = productSKU;
-      window.__RRPRWidget.sku = productSKU;
-      
       if(event.currentTarget.closest('.customSwatch') != null) {
         event.currentTarget.closest('.customSwatch').classList.add('btn--loading');  
       }
@@ -1112,7 +1109,8 @@ const productSwatchReload = () => {
       const elementsToUpdate = [
         '.pdp-hero-wrap',
         '.pdp-review-section',
-        '.pdp-rc-section'
+        '.pdp-rc-section',
+        'product-modal'
       ];
 
       fetch(productURL)
@@ -1142,57 +1140,11 @@ const productSwatchReload = () => {
         const swiper = document.getElementById('product__mobile-images');
         const json = JSON.parse(swiper.getAttribute('data-json'));
         const productSwiper = new Swiper(swiper, json);
-
-        var __RRPRWidget_Settings = {
-          name: productTitle,
-          sku: productSKU,
-          img: productImage,
-          url: `https://hammitt.com${productURL}`,
-          onclick: function(){
-            $('html').animate({
-            scrollTop: $('#RR_PR_Frame_Wrapper').offset().top - 50
-            }, 700);
-            document.getElementById('RR_PR_Frame_Wrapper').click();
-          }
-        };
-
-
-        let scriptsAllTag = document.querySelectorAll('script');
-        scriptsAllTag.forEach(script => {
-            if (script.src.includes("https://www.resellerratings.com/productreviews/widget/javascript/Hammitt.js")) {
-                script.remove(); // Remove the script from the DOM
-                console.log("Review script removed.");
-            }
-        });
-
-
-        let script = document.createElement("script");
-        script.src = `https://www.resellerratings.com/productreviews/widget/javascript/Hammitt.js?sku=${productSKU}`; // Replace with the actual script URL
-        script.onload = function () {
-            console.log("Review script loaded successfully.");
-        };
-        document.body.appendChild(script);
-
-        delete window.initializedRRProductReviews;
-        __RRPRWidget.init(__RRPRWidget_Settings);
-
         
         history.pushState(null, "", `${productURL}`);
       }).finally(() => {
           if(document.querySelector('.swym-button.hammitt-custom')) {
             document.dispatchEvent(new CustomEvent("swym:collections-loaded"))
-          }
-          
-          const myInterval = setInterval(myTimer, 1000);
-          function myTimer() {
-            if(document.querySelector('.rr_img_overall_container img') != null) {
-              document.querySelector('.rr_img_overall_container img').setAttribute('src', productImage);
-              document.querySelector('.acs_heading_lg').innerHTML = productTitle;
-              myStopFunction();
-            }
-          }
-          function myStopFunction() {
-            clearInterval(myInterval);
           }
       });
     });
@@ -1205,9 +1157,11 @@ const addToCart = (itemsObj) => {
   if(!itemsObj.hasOwnProperty('sections')) {
     itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
   }
+
   if(!itemsObj.hasOwnProperty('sections_url')) {
     itemsObj.sections_url = "/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items";
   }
+
   fetch('/cart/add.js', {
     body: JSON.stringify(itemsObj),
     credentials: 'same-origin',
@@ -1569,7 +1523,9 @@ const cartUpdate = (json = false) => {
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
 
-      if(element == '.jr-temp-single-gwp' && document.querySelector('.jr-temp-single-gwp') != null) {
+      if(elOld == null || elNew == null) return
+
+      if(element == '.jr-temp-single-gwp') {
         let oldPercent = '0';
         if(elOld.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
           oldPercent = elOld.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')

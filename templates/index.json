@@ -6,7 +6,7 @@
         "heading_YTTkDn": {
           "type": "heading",
           "settings": {
-            "heading": "THE BESTSELLING KYLE",
+            "heading": "MEET KYLE MED",
             "heading_size_mobile": 25,
             "heading_size_tablet": 20,
             "heading_size_desktop": 36
@@ -15,7 +15,7 @@
         "text_6CK6QY": {
           "type": "text",
           "settings": {
-            "text": "Get that perfect slouch.",
+            "text": "A roomy new take on a viral favorite.",
             "text_style": "body",
             "text_size_mobile": 13,
             "text_size_tablet": 14,
@@ -37,7 +37,8 @@
         "buttons_nAywtp"
       ],
       "settings": {
-        "custom_classes": "kyle-ab-static",
+        "custom_classes": "",
+        "custom_id": "",
         "title": "",
         "title_color": "",
         "description": "",
@@ -47,12 +48,12 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1365.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_1367.jpg",
-        "image_link": "shopify:\/\/collections\/kyle",
+        "image": "shopify://shop_images/Group-1396.gif",
+        "image_2": "shopify://shop_images/mobile.gif",
+        "image_link": "shopify://collections/kyle",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "bottom-center",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
@@ -71,16 +72,35 @@
         "content_padding_right_mobile": 0,
         "padding_top": 0,
         "padding_bottom": 12,
-        "padding_top_mobile": 0,
+        "padding_top_mobile": 20,
         "padding_bottom_mobile": 0,
         "custom_class": ""
+      }
+    },
+    "slider_featured_collection_bTka8m": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "#000000",
+        "collection": "kyle",
+        "max_products": 20,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     },
     "homepage_fireworks_pxtfb9": {
       "type": "homepage-fireworks",
       "settings": {
-        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n<\/style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1\/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oAKQ0n\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n<\/fw-player> <\/div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 \/ 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oAKQ0n\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n<\/fw-player> <\/div>",
-        "custom_classes": "kyle-ab-video"
+        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5qk80W\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5qk80W\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "custom_classes": ""
       }
     },
     "rich_text_L6NKKA": {
@@ -90,21 +110,21 @@
           "type": "heading",
           "settings": {
             "heading_html_tag": "h1",
-            "heading": "THE BESTSELLING KYLE",
+            "heading": "INTRODUCING MEADOW WEAVE",
             "heading_size": "h1"
           }
         },
         "text_686dDt": {
           "type": "text",
           "settings": {
-            "text": "<p>Get that perfect slouch.<\/p>"
+            "text": ""
           }
         },
         "button_EtYrka": {
           "type": "button",
           "settings": {
-            "button_label": "SHOP KYLE",
-            "button_link": "shopify:\/\/collections\/kyle",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/meadow-weave",
             "button_style_secondary": false
           }
         }
@@ -126,6 +146,26 @@
     },
     "slider_collection_CwB3RG": {
       "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "meadow-weave",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 18,
+        "padding_bottom": 7,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "slider_collection_yfxrhP": {
+      "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -152,6 +192,14 @@
             "icon": "shopify:\/\/shop_images\/Cosmopolitan-logo.png",
             "text": "",
             "link": "shopify:\/\/pages\/in-the-press"
+          }
+        },
+        "text_DPBf4P": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/Rectangle_657_1.jpg",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
           }
         },
         "text_URPC6X": {
@@ -253,6 +301,7 @@
       },
       "block_order": [
         "text_gjLtj3",
+        "text_DPBf4P",
         "text_URPC6X",
         "text_aUXCkX",
         "text_CwAjih",
@@ -321,6 +370,7 @@
       "disabled": true,
       "settings": {
         "custom_classes": "",
+        "custom_id": "",
         "title": "",
         "title_color": "rgba(0,0,0,0)",
         "description": "",
@@ -359,30 +409,45 @@
         "custom_class": ""
       }
     },
-    "slider_featured_collection_bTka8m": {
-      "type": "slider-collection",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "#000000",
-        "collection": "best-selling-bags",
-        "max_products": 20,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
     "image_banner_gVFBDk": {
       "type": "image-banner",
+      "blocks": {
+        "heading_WrGzC9": {
+          "type": "heading",
+          "settings": {
+            "heading": "RAFFIA SEASON",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_XJEx97": {
+          "type": "text",
+          "settings": {
+            "text": "Summer’s calling - bring these bags along for the ride.",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
+        "buttons_XTTDpr": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/raffia",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WrGzC9",
+        "text_XJEx97",
+        "buttons_XTTDpr"
+      ],
       "settings": {
         "custom_classes": "",
+        "custom_id": "",
         "title": "",
         "title_color": "rgba(0,0,0,0)",
         "description": "",
@@ -392,9 +457,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/charle-desktop-banner.jpg",
-        "image_2": "shopify:\/\/shop_images\/charle-mobile-banner.gif",
-        "image_link": "https:\/\/www.hammitt.com\/blogs\/journal\/summer-2025-travel-edit-the-charles-crossbody",
+        "image": "shopify://shop_images/Group_1403_1.jpg",
+        "image_2": "shopify://shop_images/Group_1403_1.jpg",
+        "image_link": "shopify://collections/raffia",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -428,7 +493,7 @@
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "charles-crossbody",
+        "collection": "raffia",
         "max_products": 30,
         "image_ratio": "square",
         "hide_price": false,
@@ -477,8 +542,8 @@
         "customer_review_WKMm3A": {
           "type": "customer-review",
           "settings": {
-            "title": "It truly is the perfect!",
-            "review_image": "shopify:\/\/shop_images\/Rectangle_646_2x_a19c5dfb-e49b-4660-952f-544e570124d0.png",
+            "title": "It truly is the perfect bag!",
+            "review_image": "shopify://shop_images/Rectangle_646_2x_a19c5dfb-e49b-4660-952f-544e570124d0.png",
             "customer_name": "Tonya J",
             "review_text": "I love this so much! It’s perfect! And perfect for the summer!",
             "product": "tom-zip-med-shoulder-bag-lime-zest-brushed-silver"
@@ -508,14 +573,82 @@
         "stars_image": "shopify:\/\/shop_images\/Frame_1298.svg"
       }
     },
+    "slider_collection_pmp3Dg": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "Bestsellers",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "best-selling-bags",
+        "max_products": 5,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
     "multicolumn_GMpXGB": {
       "type": "multicolumn",
       "blocks": {
+        "column_cm4gE7": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Group_12336_1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Waterline",
+            "link": "shopify://collections/waterline",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 180,
+            "cta_width_desktop": 236,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
+        "column_aWtC3c": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/DANIEL_CROSSBODY_MEADOW-WEAVE_4231_1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Meadow Weave",
+            "link": "shopify://collections/meadow-weave",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
         "column_kbVKLG": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/ar-c_1.jpg",
+            "image": "shopify://shop_images/srtco_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -558,61 +691,13 @@
             "cta_top_spacing": 5,
             "cta_bottom_spacing": 5
           }
-        },
-        "column_cm4gE7": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Group_1269_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Sidewalk Silver",
-            "link": "shopify:\/\/collections\/sidewalk-silver",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 180,
-            "cta_width_desktop": 236,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 10
-          }
-        },
-        "column_aWtC3c": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_573_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Lime Zest",
-            "link": "shopify:\/\/collections\/lime-zest",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 10
-          }
         }
       },
       "block_order": [
-        "column_kbVKLG",
-        "column_YpxLMp",
         "column_cm4gE7",
-        "column_aWtC3c"
+        "column_aWtC3c",
+        "column_kbVKLG",
+        "column_YpxLMp"
       ],
       "settings": {
         "title": "SHOP NEW ARRIVALS",
@@ -641,8 +726,8 @@
         "enable_peek": true,
         "show_mobile_slider": true,
         "padding_top": 20,
-        "padding_bottom": 20,
-        "padding_top_mobile": 20,
+        "padding_bottom": 0,
+        "padding_top_mobile": 40,
         "padding_bottom_mobile": 30,
         "custom_class": "behind-design-section"
       }
@@ -674,15 +759,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/charle-desk.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/charle-mob.jpg",
+            "image": "shopify://shop_images/Group_1393.jpg",
+            "mobile_image": "shopify://shop_images/Group_1387.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/charles-crossbody",
+            "link": "shopify://collections/vip",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -699,15 +784,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/desk-new-d.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/desk-new-m.jpg",
+            "image": "shopify://shop_images/Group_1391.jpg",
+            "mobile_image": "shopify://shop_images/Group_1388.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/daniel-1",
+            "link": "shopify://collections/tom-zip",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -725,6 +810,7 @@
         "column_Tg37qD",
         "column_CrR4hC"
       ],
+      "disabled": true,
       "settings": {
         "title": "HAMMITT ICONS",
         "title_color": "",
@@ -765,15 +851,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/vip-desk.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/vip-mob.jpg",
+            "image": "shopify://shop_images/Group_1394.jpg",
+            "mobile_image": "shopify://shop_images/Group_1390.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/vip",
+            "link": "shopify://collections/daniel-1",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "#ffffff",
@@ -790,8 +876,8 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/tom-desk.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/tom-mob.jpg",
+            "image": "shopify://shop_images/Group_1383_1.jpg",
+            "mobile_image": "shopify://shop_images/Group_1375_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -816,6 +902,7 @@
         "column_TMJDJz",
         "column_UPE7T9"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "",
@@ -840,7 +927,7 @@
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "enable_peek": false,
+        "enable_peek": true,
         "show_mobile_slider": true,
         "padding_top": 1,
         "padding_bottom": 20,
@@ -851,6 +938,7 @@
     },
     "slider_collection_MMdCw8": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "",
@@ -1087,7 +1175,7 @@
         "color_scheme": "background-1",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "enable_peek": false,
+        "enable_peek": true,
         "show_mobile_slider": true,
         "padding_top": 10,
         "padding_bottom": 36,
@@ -1186,15 +1274,17 @@
   },
   "order": [
     "image_banner_3FKmDP",
+    "slider_featured_collection_bTka8m",
     "homepage_fireworks_pxtfb9",
     "rich_text_L6NKKA",
     "slider_collection_CwB3RG",
+    "slider_collection_yfxrhP",
     "jr_scrolling_text_QzMT7i",
     "image_banner_w8P4kC",
-    "slider_featured_collection_bTka8m",
     "image_banner_gVFBDk",
     "slider_collection_RWT74t",
     "jr_customer_reviews_kz8t7H",
+    "slider_collection_pmp3Dg",
     "multicolumn_GMpXGB",
     "slider_collection_Bdj9Pd",
     "multicolumn_Rb6MCR",

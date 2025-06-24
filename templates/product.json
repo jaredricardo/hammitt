@@ -51,6 +51,7 @@
         },
         "icons_block_gC6npw": {
           "type": "icons_block",
+          "disabled": true,
           "settings": {
             "background_color": "#f1e8e5",
             "text_color": "#000000",
@@ -86,6 +87,7 @@
         "4feccff6-ce47-4d0d-b144-fdf6fa022a48": {
           "type": "product_collapsible",
           "settings": {
+            "accordion_data_attribute": "",
             "heading": "NOTES & DIMENSIONS",
             "content": "",
             "page": "",
@@ -96,15 +98,28 @@
         "product_collapsible_b6973x": {
           "type": "product_collapsible",
           "settings": {
-            "heading": "CARE",
+            "accordion_data_attribute": "care",
+            "heading": "CARE INSTRUCTIONS",
             "content": "",
             "page": "",
             "split_content": true,
             "split_index": 3
           }
         },
+        "product_collapsible_wc7rRx": {
+          "type": "product_collapsible",
+          "settings": {
+            "accordion_data_attribute": "",
+            "heading": "SHIPPING & RETURNS",
+            "content": "<p>We cover shipping on orders within the United States. Need it more quickly? No problem, for info on expedited shipping and 30-day returns, visit our <a href=\"https:\/\/www.hammitt.com\/pages\/faq\">FAQ page<\/a>. <\/p><p><strong>PLEASE NOTE: LIMITED EDITION ITEMS, COLLABORATIVE DROPS, AND ANY MARKDOWNS ARE FINAL SALE AND MARKED AS SUCH. <\/strong><\/p>",
+            "page": "",
+            "split_content": false,
+            "split_index": 0
+          }
+        },
         "collapsible-row-1": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "SHIPPING & RETURNS",
             "content": "<p>We cover shipping on orders within the United States. Need it more quickly? No problem, for info on expedited shipping and 30-day returns, visit our <a href=\"https:\/\/www.hammitt.com\/pages\/faq\">FAQ page<\/a>. <\/p><p><strong>PLEASE NOTE: LIMITED EDITION ITEMS, COLLABORATIVE DROPS, AND ANY MARKDOWNS ARE FINAL SALE AND MARKED AS SUCH. <\/strong><\/p>",
@@ -153,6 +168,7 @@
         "complimentary_WncCqX",
         "4feccff6-ce47-4d0d-b144-fdf6fa022a48",
         "product_collapsible_b6973x",
+        "product_collapsible_wc7rRx",
         "collapsible-row-1",
         "33eef7f8-e913-4138-826c-895eccbce3c5",
         "signal_icon_text_eyKkp6"
@@ -473,30 +489,6 @@
         "mobile_padding_top": 40,
         "mobile_padding_bottom": 40
       }
-    },
-    "custom_liquid_eeNU9L": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<script async src=\"https:\/\/cdn.tangiblee.com\/integration\/3.1\/managed\/www.hammitt.com\/revision_1\/variation_original\/tangiblee-bundle.min.js\"><\/script>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "custom_liquid_LzhpmW": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<div id=\"rr_dam_widget\"> <\/div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
     }
   },
   "order": [
@@ -508,8 +500,6 @@
     "multicolumn_YpDmQ6",
     "image_with_text_q9fxHx",
     "product-recommendations",
-    "1652732945762f7cb3",
-    "custom_liquid_eeNU9L",
-    "custom_liquid_LzhpmW"
+    "1652732945762f7cb3"
   ]
 }

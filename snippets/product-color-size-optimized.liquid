@@ -54,7 +54,13 @@
 <div class="product-colors color_group color_group_block custom-variant-options colorway-optimized">
   {% comment %} color products {% endcomment %}
   <div class="variant-picker-group-wrapper">
-    <p class="custom-variant-title"><span>{{ 'MORE COLORS:' | upcase }}</span> <strong>{{ product_color }}</strong></p>
+    <div class="custom-variant-title">
+      <span>{{ 'MORE COLORS:' | upcase }}</span> 
+      <strong>{{ product_color }}</strong>
+      {% if on_special_leather %}
+        {% render 'special-care-tooltip' %}
+      {% endif %}
+    </div>
     <ul class="custom-variant-list">
       {% for product in colorway_collection %}
   
@@ -84,7 +90,7 @@
   
         -%}
   
-        <li data-tooltip="{{ reltitle[1] }}">
+        <li data-tooltip="{{ reltitle[1] }}" class="{% if isCurrent %} current-swatch {% endif %}">
           <div class="image customSwatch">
             <a 
               href="{{ product.url }}" 
@@ -110,12 +116,15 @@
 
   {% comment %} Small products {% endcomment %}
   <div class="variant-picker-group-wrapper">
-      <p class="custom-variant-title">
+      <div class="custom-variant-title">
         <span>{{ 'Small:' | upcase }}</span> 
         {% if dc_product_size == "sml" %}
           <strong>{{ product_color }}</strong>
         {% endif %}
-      </p>
+        {% if on_special_leather %}
+          {% render 'special-care-tooltip' %}
+        {% endif %}
+      </div>
     <ul class="custom-variant-list">
       {%- for product in colorway_collection -%}
 
@@ -145,7 +154,7 @@
 
         -%}
 
-          <li data-tooltip="{{ reltitle[1] }}">
+          <li data-tooltip="{{ reltitle[1] }}" class="{% if isCurrent %} current-swatch {% endif %}">
             <div class="image customSwatch">
               <a 
                 href="{{ product.url }}" 
@@ -166,12 +175,15 @@
   
   {% comment %} Medium products {% endcomment %}
   <div class="variant-picker-group-wrapper">
-      <p class="custom-variant-title">
+      <div class="custom-variant-title">
         <span>{{ 'Medium:' | upcase }}</span> 
         {% if dc_product_size == "med" %}
           <strong>{{ product_color }}</strong>
         {% endif %}
-      </p>
+        {% if on_special_leather %}
+          {% render 'special-care-tooltip' %}
+        {% endif %}
+      </div>
     <ul class="custom-variant-list">
       {%- for product in colorway_collection -%}
   
@@ -201,7 +213,7 @@
   
         -%}
   
-          <li data-tooltip="{{ reltitle[1] }}">
+          <li data-tooltip="{{ reltitle[1] }}" class="{% if isCurrent %} current-swatch {% endif %}">
             <div class="image customSwatch">
               <a 
                 {{ isCurrent }}
@@ -223,12 +235,15 @@
 
   {% comment %} Large products {% endcomment %}
   <div class="variant-picker-group-wrapper">
-      <p class="custom-variant-title">
+      <div class="custom-variant-title">
         <span>{{ 'Large:' | upcase }}</span> 
       {% if dc_product_size == "lrg" %}
         <strong>{{ product_color }}</strong>
       {% endif %}
-      </p>
+        {% if on_special_leather %}
+          {% render 'special-care-tooltip' %}
+        {% endif %}
+      </div>
     <ul class="custom-variant-list">
       {%- for product in colorway_collection -%}
   
@@ -258,7 +273,7 @@
   
         -%}
   
-          <li data-tooltip="{{ reltitle[1]}}">
+          <li data-tooltip="{{ reltitle[1]}}" class="{% if isCurrent %} current-swatch {% endif %}">
             <div class="image customSwatch">
               <a 
                 {{ isCurrent }}

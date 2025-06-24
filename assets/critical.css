@@ -146,7 +146,6 @@
   }
 }
 
-
 .grid__item:has(.num-slots-1) {
   width: calc(25% - 9px) !important;
   max-width: calc(25% - 9px) !important;
@@ -298,3 +297,36 @@
     aspect-ratio: 8 / 5;
   }
 }
+
+.product-collapse-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-collapse-container [data-access-attribute="care"] {
+  order: 0;
+}
+
+.product-collapse-container:has([data-access-attribute="care"]) .product__accordion:not([data-access-attribute="care"]) {
+  order: 1;
+}
+
+.special-care-tooltip {
+  display: inline-block;
+  position: relative;
+}
+
+.special-care-tooltip .exclaimation-icon {
+  height: 11px;
+  width: 11px;
+}
+
+@media screen and (max-width: 768px) {
+  minty-fresh-filters ul li {
+    order: 1;
+  }
+  minty-fresh-filters ul li:has(.on-collection) {
+    order: 0;
+  }
+}
+
