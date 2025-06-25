@@ -1,4 +1,4 @@
-<div class="homepage-fw">
+<div class="homepage-fw {{ section.settings.custom_classes }}">
     {{ section.settings.fw_code }}
 </div>
 
@@ -20,6 +20,11 @@
                 "type": "liquid",
                 "id": "fw_code",
                 "label": "Fireworks Code"
+            },
+            {
+            "type": "textarea",
+            "id": "custom_classes",
+            "label": "Custom classes for AB tests or otherwise"
             }
         ]
     }

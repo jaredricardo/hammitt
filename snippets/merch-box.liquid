@@ -1,0 +1,64 @@
+{% liquid 
+
+    # USAGE:
+    # obj variable passed from snippet render as 'collection.metafields.custom.merch_box.value'
+    # index: forloop index of the merch box, used for unique IDs
+
+    # even though this is referring to an image, it can actually also be a video file type.
+    assign merch_media = obj.image
+    assign overlay_percent = obj.overlay_percentage | default: 0
+    assign num_slots = obj.number_of_columns | default: 1
+    assign title = obj.merch_box_title 
+    assign title_color = obj.title_color | default: 'white'
+    assign button_text = obj.button_text
+    assign button_link = obj.button_link.value.url
+
+    assign button_border = obj.button_border_color | default: 'transparent'
+    assign button_text_color = obj.button_text_color | default: 'white'
+    assign button_bg_color = obj.button_background_color | default: 'transparent'
+    assign use_underline = obj.use_underline | default: false
+    assign use_bottom_text = obj.use_bottom_text | default: false
+    assign content_y_position = obj.content_y_position | default: 'center'
+    assign content_x_position = obj.content_x_position | default: 'center'
+    
+-%}
+
+<style>
+    .merch-box-index-{{ index }} .media-container:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.{{ overlay_percent }}); 
+        z-index: 1;
+    }
+</style>
+
+
+<div class="merch-box merch-box-index-{{ index }} num-slots-{{ num_slots }} {% if use_bottom_text %} use-bottom-text {% endif %}">
+    <div class="media-container">
+        {% if merch_media.value.media_type == "video" %}
+            <video src="{{ merch_media | file_url }}" loop="true" autoplay="true" muted playsinline type="video/mp4"></video>
+        {% else %}
+            {{ merch_media | image_url: width: 1200 | image_tag: widths: '600, 900, 1100' }}
+        {% endif %}
+    </div>
+    <div class="content-container y-alignment--{{ content_y_position }} x-alignment--{{ content_x_position }}">
+        <div class="container-container">
+            {% if title %}
+                <h3 style="color: {{ title_color }};">
+                    {{ title }}
+                </h3>
+            {% endif %}
+            {% if button_link %}
+                <a href="{{ button_link }}" 
+                class="merch-button" 
+                style="border: 1px solid {{ button_border }}; color: {{ button_text_color }}; background-color: {{ button_bg_color }}; {% if use_underline %} text-decoration: underline; {% endif %}">
+                    {{ button_text }}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

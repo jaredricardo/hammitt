@@ -175,6 +175,22 @@
   endfor
 %}
 
+
+{% liquid 
+
+  assign merch_box_one = collection.metafields.custom.merch_box.value
+  assign merch_box_two = collection.metafields.custom.merch_box_two.value
+  assign filters_are_active = false
+
+  for filter in collection.filters
+    if filter.active_values.size > 0
+      assign filters_are_active = true
+    endif
+  endfor
+
+
+-%}
+
 <div class="section-{{ section.id }}-padding col-wrap">
   {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
     <link data-href="{{ 'component-facets.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
@@ -270,6 +286,87 @@
               {%- endif -%}
               {%- if product.tags contains 'hidden' or product.type == 'hidden' or product.title contains 'Gift wrapping' -%}{%- continue -%}{%- endif -%}
 		          {% assign myIndex = myIndex | plus: 1 %}
+
+              {% comment %} MERCH BOX LOGIC / HANDLING {% endcomment %}
+
+              {% comment %} MERCH BOX ONE {% endcomment %}
+              {% unless filters_are_active %}
+                {% if merch_box_one and merch_box_one.enable_merch_box %}
+
+                  {% if merch_box_one.number_of_columns == 1 and merch_box_one.position_in_grid == forloop.index %}
+                    <li class="grid__item">
+                      {% render 'merch-box', obj: merch_box_one, index:forloop.index %}
+                    </li>
+                  {% endif %}
+
+                  {% if merch_box_one.number_of_columns == 2 %}
+
+                    {% assign nearest_odd_number = merch_box_one.position_in_grid %}
+                    {% assign mod = nearest_odd_number | modulo: 2 %}
+                    {% assign is_even = false %}
+
+                    {% if mod == 0 %}
+                      {% assign is_even = true %}
+                    {% endif %}
+
+                    {% if is_even  %}
+                      {% assign nearest_odd_number = nearest_odd_number | minus: 1 %}
+                    {% endif %}
+
+                    {% if nearest_odd_number == forloop.index %}
+                      <li class="grid__item">
+                        {% render 'merch-box', obj: merch_box_one, index:forloop.index %}
+                      </li>
+                    {% endif %}
+                    
+                  {% endif %}
+
+                {% endif %}
+
+                {% comment %} MERCH BOX TWO {% endcomment %}
+                {% if merch_box_two and merch_box_two.enable_merch_box %}
+    
+                  {% if merch_box_two.number_of_columns == 1 and merch_box_two.position_in_grid == forloop.index %}
+                    <li class="grid__item">
+                      {% render 'merch-box', obj: merch_box_two, index: forloop.index %}
+                    </li>
+                  {% endif %}
+
+                  {% if merch_box_two.number_of_columns == 2 %}
+
+                    {% assign nearest_odd_number = merch_box_two.position_in_grid %}
+                    {% assign mod = nearest_odd_number | modulo: 2 %}
+                    {% assign is_even = false %}
+
+                    {% if mod == 0 %}
+                      {% assign is_even = true %}
+                    {% endif %}
+
+                    {% if is_even  %}
+                      {% assign nearest_odd_number = nearest_odd_number | minus: 1 %}
+                    {% endif %}
+
+                    {% comment %} 
+                      In the case of merch box two, we need to account for how many columns merch box 1 is taking up and adjust grid accordingly 
+                    {% endcomment %}
+
+                    {% assign true_insertion_index = forloop.index %}
+
+                    {% if merch_box_one and merch_box_one.enable_merch_box %}
+                      {% assign true_insertion_index = true_insertion_index | plus: merch_box_one.number_of_columns %}
+                    {% endif %}
+
+                    {% if nearest_odd_number == true_insertion_index %}
+                      <li class="grid__item">
+                        {% render 'merch-box', obj: merch_box_two, index:true_insertion_index  %}
+                      </li>
+                    {% endif %}
+                    
+                  {% endif %}
+
+                {% endif %}
+              {% endunless %}
+
               <li class="grid__item">
                 {% render 'card-product',
                   card_product: product,
