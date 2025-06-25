@@ -14,6 +14,7 @@
         assign product_tag_assigned = false
         assign is_only_a_few_left_tag = false
         assign has_top_gift_tag = false
+        assign has_limited_edition_tag = false
         assign badge_tag = ''
 
         if product.available == false
@@ -26,7 +27,13 @@
             assign badge_tag = settings.only_a_few_left_text
         endif
 
-        unless special_tag_assgined
+        if product.tags contains 'limited-edition' and special_tag_assigned == false
+            assign special_tag_assigned = true
+            assign has_limited_edition_tag = true
+            assign badge_tag = 'Limited Edition'
+        endif
+
+        unless special_tag_assigned
             for tag in product.tags
 
                 assign tag_to_check = tag | downcase
@@ -66,6 +73,11 @@
             <span class="badge red-badge">
                 {% render 'icon-timer' %}
                 {{ settings.only_a_few_left_text }}
+            </span>
+        {% elsif has_limited_edition_tag == true %}
+            <span class="badge gray-badge">
+                {% render 'icon-limited-edition' %}
+                {{ badge_tag }}
             </span>
         {% elsif has_top_gift_tag == true %}
             <span class="badge red-badge">

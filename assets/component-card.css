@@ -582,17 +582,26 @@ quick-add .label {
   font-weight: 600;
 }
 
-.badge.red-badge {
+.badge.red-badge,
+.badge.gray-badge {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  color: #7D2C34 !important; 
-  background-color: #F1E8E5 !important;
   border: none;
   padding: 0.8rem 0.65rem;
   text-transform: none;
   border: none !important;
+}
+
+.badge.red-badge {
+  color: #7D2C34 !important; 
+  background-color: #F1E8E5 !important;
+}
+
+.badge.gray-badge {
+  background-color:rgb(237, 236, 236) !important;
+  color: #483D3C !important;
 }
 
 .badge.red-badge .gift-gif {
