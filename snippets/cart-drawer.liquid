@@ -318,6 +318,7 @@
 
             {% else %}
 
+            {% unless item.product.title == 'Order Protection' %} <!-- Beginning of OP Hiding Logic -->
             <li class="drawer__content-item cart-item CartItem-{{ item.index | plus: 1 }} appear-animation appear-delay-{{ appear_delay }} {%  if is_gift_note %}cart-item__drawer-note{% endif %} {%  if is_gwp %}cart-item__gwp{%  endif %}" 
                 data-line="{{ forloop.index }}" 
                 data-json='{{ item | json | escape }}' 
@@ -480,6 +481,7 @@
                 {% endif %}
               </div> 
             </li>
+            {% endunless %} <!-- End of OP Hiding Logic -->
             {% endif %}
             {% endfor %}
 
@@ -698,6 +700,7 @@
           <label for="add-gift-receipt">Gift Receipt + Note</label>
         </gift-note>
       </div> -->
+      <order-protection style="line-height:1.2"></order-protection>
       <div class="drawer__subtotal">
         {% assign adjusted_total_price = cart.total_price %}
 
