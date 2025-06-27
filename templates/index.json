@@ -966,18 +966,6 @@
         "mobile_padding_bottom": 36
       }
     },
-    "custom_liquid_NgfUX8": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n      captions=\"false\"\n\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 20,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
-    },
     "multicolumn_7jnCPC": {
       "type": "multicolumn",
       "blocks": {
@@ -1216,6 +1204,18 @@
         "button_bg_color": "#ffffff"
       }
     },
+    "custom_liquid_NgfUX8": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n      captions=\"false\"\n\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
     "hero_video_banner_RVzeet": {
       "type": "hero-video-banner",
       "settings": {
@@ -1299,9 +1299,9 @@
     "multicolumn_Rb6MCR",
     "multicolumn_CBezGE",
     "slider_collection_MMdCw8",
-    "custom_liquid_NgfUX8",
     "multicolumn_7jnCPC",
     "home-hero-section",
+    "custom_liquid_NgfUX8",
     "hero_video_banner_RVzeet",
     "homepage_instagram_RrcAhY"
   ]
