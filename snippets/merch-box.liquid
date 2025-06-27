@@ -10,9 +10,13 @@
     assign num_slots = obj.number_of_columns | default: 1
     assign title = obj.merch_box_title 
     assign title_color = obj.title_color | default: 'white'
+    assign title_margin_top = obj.title_margin_top | default: 0
+    assign title_margin_bottom = obj.title_margin_bottom | default: 0
+    assign subtitle = obj.merch_box_subtitle
+    assign subtitle_color = obj.subtitle_color | default: 'white'
     assign button_text = obj.button_text
     assign button_link = obj.button_link.value.url
-
+    assign entire_box_links_out = obj.entire_box_links_out | default: false
     assign button_border = obj.button_border_color | default: 'transparent'
     assign button_text_color = obj.button_text_color | default: 'white'
     assign button_bg_color = obj.button_background_color | default: 'transparent'
@@ -20,6 +24,8 @@
     assign use_bottom_text = obj.use_bottom_text | default: false
     assign content_y_position = obj.content_y_position | default: 'center'
     assign content_x_position = obj.content_x_position | default: 'center'
+    assign text_alignment = obj.text_alignment | default: 'center'
+    assign index = forloop.index0 | default: 0
     
 -%}
 
@@ -38,6 +44,9 @@
 
 
 <div class="merch-box merch-box-index-{{ index }} num-slots-{{ num_slots }} {% if use_bottom_text %} use-bottom-text {% endif %}">
+    {% if entire_box_links_out %}
+        <a href="{{ button_link }}">
+    {% endif %}
     <div class="media-container">
         {% if merch_media.value.media_type == "video" %}
             <video src="{{ merch_media | file_url }}" loop="true" autoplay="true" muted playsinline type="video/mp4"></video>
@@ -46,19 +55,34 @@
         {% endif %}
     </div>
     <div class="content-container y-alignment--{{ content_y_position }} x-alignment--{{ content_x_position }}">
-        <div class="container-container">
+        <div class="container-container" style="text-align: {{ text_alignment }}">
             {% if title %}
-                <h3 style="color: {{ title_color }};">
+                <h3 style="color: {{ title_color }}; margin-top: {{ title_margin_top }}%; margin-bottom: {{ title_margin_bottom }}%;">
                     {{ title }}
                 </h3>
             {% endif %}
-            {% if button_link %}
+            {% if subtitle %}
+                <h4 style="color: {{ subtitle_color }};">
+                    {{ subtitle }}
+                </h4>
+            {% endif %}
+            {% if button_link and entire_box_links_out == false%}
                 <a href="{{ button_link }}" 
                 class="merch-button" 
                 style="border: 1px solid {{ button_border }}; color: {{ button_text_color }}; background-color: {{ button_bg_color }}; {% if use_underline %} text-decoration: underline; {% endif %}">
                     {{ button_text }}
                 </a>
             {% endif %}
+            {% if button_link and entire_box_links_out == true %}
+                <span 
+                class="merch-button" 
+                style="border: 1px solid {{ button_border }}; color: {{ button_text_color }}; background-color: {{ button_bg_color }}; {% if use_underline %} text-decoration: underline; {% endif %}">
+                    {{ button_text }}
+                </span>
+            {% endif %}
         </div>
     </div>
+    {% if entire_box_links_out %}
+        </a>
+    {% endif %}
 </div>
