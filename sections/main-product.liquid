@@ -79,9 +79,19 @@
 {%- liquid
 
   assign product_title = product.title | split: settings.split_value
-  assign product_type = product_title[0]
-  assign product_color = product_title[1]
-  assign product_size = product_title[2]
+  ####### old way of assigning product title
+
+  # assign product_type = product_title[0]
+  # assign product_color = product_title[1]
+  # assign product_size = product_title[2]
+
+  ####### new way of assigning product title
+
+  assign product_type = product.metafields.custom.product_title_type
+  assign product_color = product.metafields.custom.product_title_color_descriptor
+  assign product_size = product.metafields.hammitt.size
+
+  #######
   assign core_colors = linklists.colors-core.links | map: 'title' | join: ','
   assign limited_colors = linklists.colors-limited-edition.links | map: 'title' | join: ','
   assign seo_tag = false
@@ -461,7 +471,7 @@
                       <h1 class="h5 seo-tag">
                         {{ seo_tag }}
                       </h1>
-                      <span class="product__title h0">
+                      <span class="product__title h0 title-1">
                         {% assign product_title = product.title | split: settings.split_value  %}
                         {{ product_title[0] }}
                         {% if product_title[2] %}
@@ -470,7 +480,7 @@
                       </span>
                     </div>
                     {% else %}
-                    <h1 class="product__title h0">
+                    <h1 class="product__title h0 title-2">
                       {% assign product_title = product.title | split: settings.split_value  %}
                       {{ product_title[0] }}
                       {% if product_title[2] %}
@@ -582,7 +592,7 @@
                   <h1 class="h5 seo-tag">
                     {{ seo_tag }}
                   </h1>
-                  <span class="product__title h0 small-hide">
+                  <span class="product__title h0 small-hide title-3">
                     {% assign product_title = product.title | split: settings.split_value  %}
                     {{ product_title[0] }}
                     {% if product_title[2] %}
@@ -591,12 +601,17 @@
                   </span>
                 </div>
                 {% else %}
-                <h1 class="product__title h0 small-hide">
-                  {% assign product_title = product.title | split: settings.split_value  %}
+                <h1 class="product__title h0 small-hide title-4">
+                  {{ product_type }}
+                  {% if product_size %}
+                    {{ product_size }}
+                  {% endif %}
+                  
+                  {% comment %} {% assign product_title = product.title | split: settings.split_value  %}
                   {{ product_title[0] }}
                   {% if product_title[2] %}
                     {{ product_title[2] }}
-                  {% endif %}
+                  {% endif %} {% endcomment %}
                 </h1>
               {% endif %}
 
