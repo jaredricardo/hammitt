@@ -27,7 +27,7 @@
             assign badge_tag = settings.only_a_few_left_text
         endif
 
-        if product.tags contains 'tag: new arrival' and special_tag_assigned == false
+        if product.tags contains 'new-arrival' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign badge_tag = 'New Arrival'
         endif
