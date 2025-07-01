@@ -24,7 +24,7 @@
         "text_6CK6QY": {
           "type": "text",
           "settings": {
-            "text": "Most love bags",
+            "text": "Most Loved Bags.",
             "text_style": "body",
             "text_size_mobile": 13,
             "text_size_tablet": 14,
@@ -86,8 +86,28 @@
         "custom_class": ""
       }
     },
+    "slider_collection_CwB3RG": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "best-selling-bags",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 18,
+        "padding_bottom": 7,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
+      }
+    },
     "slider_featured_collection_bTka8m": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -107,28 +127,10 @@
     },
     "homepage_fireworks_pxtfb9": {
       "type": "homepage-fireworks",
+      "disabled": true,
       "settings": {
         "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbLW4\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbLW4\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "custom_classes": ""
-      }
-    },
-    "slider_collection_CwB3RG": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "best-selling-bags",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 18,
-        "padding_bottom": 7,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_GMpXGB": {
@@ -823,13 +825,13 @@
   },
   "order": [
     "image_banner_3FKmDP",
+    "slider_collection_CwB3RG",
+    "home-hero-section",
     "slider_featured_collection_bTka8m",
     "homepage_fireworks_pxtfb9",
-    "slider_collection_CwB3RG",
     "multicolumn_GMpXGB",
     "slider_collection_RWT74t",
     "jr_scrolling_text_QzMT7i",
-    "home-hero-section",
     "rich_text_xFdwjM",
     "jr_customer_reviews_kz8t7H",
     "multicolumn_7jnCPC",
