@@ -105,9 +105,29 @@
         "mobile_padding_bottom": 0
       }
     },
+    "home-hero-section": {
+      "type": "home-hero-section",
+      "settings": {
+        "media_type": "video",
+        "video": "shopify://files/videos/Untitled design.mp4",
+        "text_align": "center",
+        "text_vertical_align": "bottom",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "center",
+        "text_horizontal_align_mobile": "center",
+        "title": "RAFFIA SEASON",
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "#ffffff",
+        "button": "SHOP NOW",
+        "link": "shopify://collections/raffia",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffffff"
+      }
+    },
     "slider_featured_collection_bTka8m": {
       "type": "slider-collection",
-      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -127,7 +147,6 @@
     },
     "homepage_fireworks_pxtfb9": {
       "type": "homepage-fireworks",
-      "disabled": true,
       "settings": {
         "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbLW4\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbLW4\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "custom_classes": ""
@@ -413,27 +432,6 @@
         "alternative-color": true,
         "speed": 30,
         "align_icons_row": false
-      }
-    },
-    "home-hero-section": {
-      "type": "home-hero-section",
-      "settings": {
-        "media_type": "video",
-        "video": "shopify://files/videos/Untitled design.mp4",
-        "text_align": "center",
-        "text_vertical_align": "bottom",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "center",
-        "text_horizontal_align_mobile": "center",
-        "title": "RAFFIA SEASON",
-        "title_color": "#ffffff",
-        "description": "",
-        "description_color": "#ffffff",
-        "button": "SHOP NOW",
-        "link": "shopify://collections/raffia",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff"
       }
     },
     "rich_text_xFdwjM": {
@@ -827,8 +825,8 @@
     "image_banner_3FKmDP",
     "slider_collection_CwB3RG",
     "home-hero-section",
-    "slider_featured_collection_bTka8m",
     "homepage_fireworks_pxtfb9",
+    "slider_featured_collection_bTka8m",
     "multicolumn_GMpXGB",
     "slider_collection_RWT74t",
     "jr_scrolling_text_QzMT7i",
