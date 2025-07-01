@@ -90,8 +90,32 @@
   assign product_type = product.metafields.custom.product_title_type
   assign product_color = product.metafields.custom.product_title_color_descriptor
   assign product_size = product.metafields.hammitt.size
+  assign product_size_abbreviated = null
+  assign formatted_size_string = null
+  assign formatted_product_title = product_type
+
+  
+  if product_size 
+
+    assign formatted_size_string = product_size | downcase | strip
+
+    case formatted_size_string 
+      when 'small'  
+        assign product_size_abbreviated = 'sml'
+      when 'medium'
+        assign product_size_abbreviated = 'med'
+      when 'large'
+        assign product_size_abbreviated = 'lrg'
+    endcase
+
+    assign formatted_product_title = formatted_product_title | append: ' ' | append: product_size_abbreviated
+
+  endif
+
 
   #######
+
+
   assign core_colors = linklists.colors-core.links | map: 'title' | join: ','
   assign limited_colors = linklists.colors-limited-edition.links | map: 'title' | join: ','
   assign seo_tag = false
@@ -472,20 +496,12 @@
                         {{ seo_tag }}
                       </h1>
                       <span class="product__title h0 title-1">
-                        {% assign product_title = product.title | split: settings.split_value  %}
-                        {{ product_title[0] }}
-                        {% if product_title[2] %}
-                          {{ product_title[2] }}
-                        {% endif %}
+                        {{ formatted_product_title }}
                       </span>
                     </div>
                     {% else %}
                     <h1 class="product__title h0 title-2">
-                      {% assign product_title = product.title | split: settings.split_value  %}
-                      {{ product_title[0] }}
-                      {% if product_title[2] %}
-                        {{ product_title[2] }}
-                      {% endif %}
+                      {{ formatted_product_title }}
                     </h1>
                   {% endif %}
 
@@ -593,25 +609,12 @@
                     {{ seo_tag }}
                   </h1>
                   <span class="product__title h0 small-hide title-3">
-                    {% assign product_title = product.title | split: settings.split_value  %}
-                    {{ product_title[0] }}
-                    {% if product_title[2] %}
-                      {{ product_title[2] }}
-                    {% endif %}
+                      {{ formatted_product_title }}
                   </span>
                 </div>
                 {% else %}
                 <h1 class="product__title h0 small-hide title-4">
-                  {{ product_type }}
-                  {% if product_size %}
-                    {{ product_size }}
-                  {% endif %}
-                  
-                  {% comment %} {% assign product_title = product.title | split: settings.split_value  %}
-                  {{ product_title[0] }}
-                  {% if product_title[2] %}
-                    {{ product_title[2] }}
-                  {% endif %} {% endcomment %}
+                  {{ formatted_product_title }}
                 </h1>
               {% endif %}
 
@@ -950,7 +953,7 @@
             {%- else -%}
 
             {% if product.metafields.custom.colorway_collection != blank %}
-                {% render 'product-color-size-optimized', product_title: product_title, product_type: product_type, product_color: product_color, product_size: product_size, top_level_handle: product.handle, on_special_leather:on_special_leather %}
+                {% render 'product-color-size-optimized', top_level_handle: product.handle, on_special_leather: on_special_leather %}
               {% else %}
                 {% render 'product-color-size', product_title: product_title, product_type: product_type, product_color: product_color, product_size: product_size %}
             {% endif %}
