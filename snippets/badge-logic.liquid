@@ -32,7 +32,7 @@
             assign badge_tag = 'New Arrival'
         endif
 
-        if product.tags contains 'limited-edition' and special_tag_assigned == false
+        if product.tags contains 'limited-release' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign has_limited_edition_tag = true
             assign badge_tag = 'Limited Edition'
