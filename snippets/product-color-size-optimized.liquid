@@ -41,7 +41,6 @@
 
   assign colorway_collection_handle = product.metafields.custom.colorway_collection.value.handle
   assign colorway_collection = collections[colorway_collection_handle].products
-  assign dc_product_size = product_size | downcase | strip
 
   assign isShareholder = false
   for tag in customer.tags
@@ -56,7 +55,9 @@
   <div class="variant-picker-group-wrapper">
     <div class="custom-variant-title">
       <span>{{ 'MORE COLORS:' | upcase }}</span> 
-      <strong>{{ product_color }}</strong>
+      {% comment %} {% if current_product_size == null %}
+        <strong>{{ current_product_color }}</strong>
+      {% endif %} {% endcomment %}
       {% if on_special_leather %}
         {% render 'special-care-tooltip' %}
       {% endif %}
@@ -124,9 +125,9 @@
   <div class="variant-picker-group-wrapper">
       <div class="custom-variant-title">
         <span>{{ 'Small:' | upcase }}</span> 
-        {% if dc_product_size == "small" %}
-          <strong>{{ product_color }}</strong>
-        {% endif %}
+        {% comment %} {% if curent_product_size == "small" %}
+          <strong>{{ current_product_color }}</strong>
+        {% endif %} {% endcomment %}
         {% if on_special_leather %}
           {% render 'special-care-tooltip' %}
         {% endif %}
@@ -195,9 +196,9 @@
   <div class="variant-picker-group-wrapper">
       <div class="custom-variant-title">
         <span>{{ 'Medium:' | upcase }}</span> 
-        {% if dc_product_size == "medium" %}
-          <strong>{{ product_color }}</strong>
-        {% endif %}
+        {% comment %} {% if current_product_size == "medium" %}
+          <strong>{{ current_product_color }}</strong>
+        {% endif %} {% endcomment %}
         {% if on_special_leather %}
           {% render 'special-care-tooltip' %}
         {% endif %}
@@ -267,9 +268,9 @@
   <div class="variant-picker-group-wrapper">
       <div class="custom-variant-title">
         <span>{{ 'Large:' | upcase }}</span> 
-      {% if dc_product_size == "large" %}
-        <strong>{{ product_color }}</strong>
-      {% endif %}
+      {% comment %} {% if current_product_size == "large" %}
+        <strong>{{ current_product_color }}</strong>
+      {% endif %} {% endcomment %}
         {% if on_special_leather %}
           {% render 'special-care-tooltip' %}
         {% endif %}

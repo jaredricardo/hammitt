@@ -1733,8 +1733,14 @@ a.button.klaviyo-bis-trigger:hover {
 
 .pdp-hero-section .top-text-wrapper {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
+  flex-direction: column;
+}
+
+.pdp-hero-section .top-text-wrapper h3 {
+  color:rgb(48, 48, 48);
+  margin: 0.75rem 0 1.5rem 0;
 }
 
 .pdp-hero-section .title-container {
