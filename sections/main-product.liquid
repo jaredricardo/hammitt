@@ -251,7 +251,7 @@
         {% assign product_title = product.title | split: settings.split_value  %}
         <a href="{{ product.url }}">{{ product_title[0] }}</a>
         {% if product_title[2] %}
-         <a style="margin-left: 5px;" href="{{ product.url }}">/ &nbsp; {{ product_title[2] }}</a>
+         <a style="margin-left: 5px;" href="{{ product.url }}">/ &nbsp; {{ product_type }} {{ product_size_abbreviated }}</a>
         {% endif %}
       </li>
   {%- endcapture -%}
@@ -489,15 +489,12 @@
               <div class="col left-col">
                 <p class="pdp_color" style="margin-top: 0px;">{{ product_color }}</p>     
                 <div class="top-text-wrapper">
-
-                  <h1 class="product__title h0 title-2">
+                  <h2 class="product__title h0 title-2">
                     {{ formatted_product_title }}
-                  </h1>
+                  </h2>
                   {% if product_color %}
-                      <h3>{{ product_color }}</h3>
+                    <h3>{{ product_color }}</h3>
                   {% endif %}
-
-
                   {% if product.metafields.custom.back_in_stock_one_liner %}
                     <div class="back-in-stock-one-liner-container">
                       {{ product.metafields.custom.back_in_stock_one_liner }}
@@ -585,10 +582,14 @@
           {%- when 'title' -%}
             <p class="pdp_color small-hide" style="margin-top: 0px;">{{ product_color }}</p>   
             <div class="top-text-wrapper desktop">   
-
-              <h1 class="product__title h0 small-hide title-4">
-                {{ formatted_product_title }}
-              </h1>
+              {% if seo_tag %}
+                  <h1 class="hidden">{{ seo_tag }}</h1>
+                  <h2 class="product__title h0">{{ formatted_product_title }}</h2>
+                {% else %}
+                  <h1 class="product__title h0 small-hide title-4">
+                    {{ formatted_product_title }}
+                  </h1>
+              {% endif %}
               {% if product_color %}
                 <h3>{{ product_color }}</h3>
               {% endif %}
