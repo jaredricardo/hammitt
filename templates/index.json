@@ -976,98 +976,6 @@
         "mobile_padding_bottom": 36
       }
     },
-    "multicolumn_CBezGE": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_TMJDJz": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_1394.jpg",
-            "mobile_image": "shopify://shop_images/Group_1390.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/daniel-1",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 14,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 200,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_UPE7T9": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_1383_1.jpg",
-            "mobile_image": "shopify://shop_images/Group_1375_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/tom-zip",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 14,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 224,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_TMJDJz",
-        "column_UPE7T9"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 2,
-        "columns_gap": 1,
-        "row_gap": 1,
-        "mobile_columns_gap": 1,
-        "mobile_row_gap": 1,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "primary",
-        "button_label": "",
-        "button_link": "shopify://collections/new-arrivals",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "enable_peek": true,
-        "show_mobile_slider": true,
-        "padding_top": 1,
-        "padding_bottom": 20,
-        "padding_top_mobile": 1,
-        "padding_bottom_mobile": 20,
-        "custom_class": ""
-      }
-    },
     "multicolumn_7jnCPC": {
       "type": "multicolumn",
       "blocks": {
@@ -1332,6 +1240,32 @@
         "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
       }
+    },
+    "rich_text_r3DYmQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nyfFHe": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "TOP RATED BAGS",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nyfFHe"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
     }
   },
   "order": [
@@ -1351,11 +1285,11 @@
     "slider_collection_RWT74t",
     "homepage_fireworks_KdFtKB",
     "slider_collection_BUdVTn",
+    "rich_text_r3DYmQ",
     "jr_customer_reviews_kz8t7H",
     "slider_collection_pmp3Dg",
     "multicolumn_GMpXGB",
     "slider_collection_Bdj9Pd",
-    "multicolumn_CBezGE",
     "multicolumn_7jnCPC",
     "home-hero-section",
     "custom_liquid_NgfUX8",
