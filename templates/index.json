@@ -268,6 +268,28 @@
         "mobile_padding_bottom": 0
       }
     },
+    "home-hero-section": {
+      "type": "home-hero-section",
+      "settings": {
+        "media_type": "video",
+        "video": "shopify://files/videos/Untitled design.mp4",
+        "mobile_video": "shopify://files/videos/mob-w.mp4",
+        "text_align": "center",
+        "text_vertical_align": "bottom",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "bottom",
+        "text_horizontal_align_mobile": "center",
+        "title": "RAFFIA SEASON",
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "#ffffff",
+        "button": "Shop Now",
+        "link": "shopify://collections/raffia",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffffff"
+      }
+    },
     "hero_video_banner_RVzeet": {
       "type": "hero-video-banner",
       "settings": {
@@ -728,6 +750,32 @@
         "padding_bottom": 36,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36
+      }
+    },
+    "rich_text_r3DYmQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nyfFHe": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "TOP RATED BAGS",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nyfFHe"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
     },
     "jr_customer_reviews_kz8t7H": {
@@ -1191,29 +1239,6 @@
         "custom_class": ""
       }
     },
-    "home-hero-section": {
-      "type": "home-hero-section",
-      "disabled": true,
-      "settings": {
-        "media_type": "video",
-        "video": "shopify://files/videos/premiere-hero-banner-CU.mp4",
-        "mobile_video": "shopify://files/videos/premiere-hero-mobile-banner-CU.mp4",
-        "text_align": "center",
-        "text_vertical_align": "center",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "center",
-        "text_horizontal_align_mobile": "center",
-        "title": "THE PREMIERE COLLECTION",
-        "title_color": "#ffffff",
-        "description": "Collect Holiday 2024's glimmering drop.",
-        "description_color": "#ffffff",
-        "button": "Shop Now",
-        "link": "shopify://pages/the-premiere-collection",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff"
-      }
-    },
     "custom_liquid_NgfUX8": {
       "type": "custom-liquid",
       "settings": {
@@ -1240,32 +1265,6 @@
         "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
       }
-    },
-    "rich_text_r3DYmQ": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_nyfFHe": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "TOP RATED BAGS",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_nyfFHe"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "custom_classes": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
     }
   },
   "order": [
@@ -1276,6 +1275,7 @@
     "homepage_fireworks_pxtfb9",
     "rich_text_L6NKKA",
     "slider_collection_CwB3RG",
+    "home-hero-section",
     "hero_video_banner_RVzeet",
     "multicolumn_Rb6MCR",
     "slider_collection_MMdCw8",
@@ -1291,7 +1291,6 @@
     "multicolumn_GMpXGB",
     "slider_collection_Bdj9Pd",
     "multicolumn_7jnCPC",
-    "home-hero-section",
     "custom_liquid_NgfUX8",
     "homepage_instagram_RrcAhY"
   ]
