@@ -394,6 +394,7 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
     {% if settings.enable_hammitt_gift_messaging %}
       <script>
         // this should be moved to its own file
@@ -514,6 +515,8 @@
 
       gtag('config', 'G-E9B9SCSR4D');
     </script> -->
+
+    {% render 'x-gen' %}
 
     {% comment %} MS CLARITY {% endcomment %}
     <script type="text/javascript">
