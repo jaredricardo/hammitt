@@ -65,6 +65,12 @@
     <ul class="custom-variant-list">
       {% for product in colorway_collection %}
   
+        <script>
+          console.log('!!!')
+          console.log({{ product.title | json }})
+          console.log({{ product.metafields.hammitt.size.value | json }})
+        </script>
+
         {% liquid 
 
           assign isCurrent = false
@@ -73,13 +79,13 @@
 
           assign product_type = product.metafields.custom.product_title_type
           assign product_color = product.metafields.custom.product_title_color_descriptor
-          assign product_size = product.metafields.hammitt.size
+          assign product_size = product.metafields.hammitt.size.value
 
           #######
 
           ## Only show products that are not small, medium, or large, if this metafield dosnt exist, then we are on a 
           ## color variant with no sizes.
-          if product_size
+          if product_size and product_size != 'One Size'
             continue
           endif
   
@@ -143,7 +149,7 @@
 
           assign product_type = product.metafields.custom.product_title_type
           assign product_color = product.metafields.custom.product_title_color_descriptor
-          assign product_size = product.metafields.hammitt.size
+          assign product_size = product.metafields.hammitt.size.value
           assign formatted_size_string = null
 
           if product_size 
@@ -214,7 +220,7 @@
 
           assign product_type = product.metafields.custom.product_title_type
           assign product_color = product.metafields.custom.product_title_color_descriptor
-          assign product_size = product.metafields.hammitt.size
+          assign product_size = product.metafields.hammitt.size.value
           assign formatted_size_string = null
           
           if product_size 
@@ -286,7 +292,7 @@
 
           assign product_type = product.metafields.custom.product_title_type
           assign product_color = product.metafields.custom.product_title_color_descriptor
-          assign product_size = product.metafields.hammitt.size
+          assign product_size = product.metafields.hammitt.size.value
           assign formatted_size_string = null
           
           if product_size 
