@@ -86,6 +86,84 @@
         "custom_class": ""
       }
     },
+    "image_banner_ezVVdn": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_r84kmd": {
+          "type": "heading",
+          "settings": {
+            "heading": "BESTSELLERS",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_4EKEHN": {
+          "type": "text",
+          "settings": {
+            "text": "Most Loved Bags.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_h3eaz3": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/best-selling-bags",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_r84kmd",
+        "text_4EKEHN",
+        "buttons_h3eaz3"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Dune-hp-desktop_1.jpg",
+        "image_2": "shopify://shop_images/Dune-hp-mobile_1.jpg",
+        "image_link": "shopify://collections/best-selling-bags",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "slider_collection_CwB3RG": {
       "type": "slider-collection",
       "settings": {
@@ -856,6 +934,7 @@
   },
   "order": [
     "image_banner_3FKmDP",
+    "image_banner_ezVVdn",
     "slider_collection_CwB3RG",
     "home-hero-section",
     "slider_collection_mh9wtX",
