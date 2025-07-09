@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -14,6 +23,7 @@
     },
     "image_banner_bkPemt": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -26,8 +36,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1141.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_1138.jpg",
+        "image": "shopify://shop_images/Group_1141.jpg",
+        "image_2": "shopify://shop_images/Group_1138.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -61,23 +71,34 @@
         "heading_qAqQkK": {
           "type": "heading",
           "settings": {
-            "heading": "INTRODUCING MEADOW WEAVE",
+            "heading": "Meet Dune: No Popcorn Required",
             "heading_size_mobile": 25,
             "heading_size_tablet": 20,
             "heading_size_desktop": 36
           }
         },
+        "text_fVGdtb": {
+          "type": "text",
+          "settings": {
+            "text": "It's not a two-part film - but it is one of our greatest masterpieces. Just arrived, Dune leather is smooth to the touch, featuring an effortless neutral hue.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 16
+          }
+        },
         "buttons_NNwd68": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/meadow-weave",
+            "button_label_1": "SHOP DUNE",
+            "button_link_1": "shopify://collections/dune",
             "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
         "heading_qAqQkK",
+        "text_fVGdtb",
         "buttons_NNwd68"
       ],
       "settings": {
@@ -92,8 +113,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1144.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_1139.png",
+        "image": "shopify://shop_images/july-drop-Lp-banner-desktop_1.jpg",
+        "image_2": "shopify://shop_images/july-drop-Lp-banner-mobile_1.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -114,7 +135,7 @@
         "content_padding_bottom_mobile": 0,
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
-        "padding_top": 40,
+        "padding_top": 0,
         "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
@@ -127,7 +148,7 @@
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "meadow-weave",
+        "collection": "dune",
         "max_products": 30,
         "image_ratio": "adapt",
         "hide_price": false,
@@ -138,6 +159,286 @@
         "padding_bottom": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
+      }
+    },
+    "multicolumn_H8Miea": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_WcRKKk": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/meadow-weaave-tile_1.jpg",
+            "title": "<strong>Meadow Weave</strong>",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/meadow-weave",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_CV4jHe": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/artichoke-tile_1.jpg",
+            "title": "<strong>Artichoke</strong>",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/artichoke",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_YWdcEr": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/waterline-tile_1.jpg",
+            "title": "<strong>Waterline</strong>",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/waterline",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_kTJYqb": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/giraffe-tile_1.jpg",
+            "title": "<strong>Giraffe </strong>",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/giraffee",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_WcRKKk",
+        "column_CV4jHe",
+        "column_YWdcEr",
+        "column_kTJYqb"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 4,
+        "columns_gap": 2,
+        "row_gap": 2,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "overlay_type",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
+        "padding_top": 36,
+        "padding_bottom": 2,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "multicolumn_kn4GX8": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_37Gynj": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/northend-tile_1.jpg",
+            "title": "<strong>North End</strong>",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/meadow-weave",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_h8kDKz": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/line-tile_1.jpg",
+            "title": "<strong>Lime Zest</strong>",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/artichoke",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_FQxb4e": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/courtyard-cream-tile_1.jpg",
+            "title": "<strong>Courtyard Cream </strong>",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/waterline",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_D8LBG6": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/morgan-tile_1.jpg",
+            "title": "<strong>Mosaic Denim</strong>",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/giraffee",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_37Gynj",
+        "column_h8kDKz",
+        "column_FQxb4e",
+        "column_D8LBG6"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 4,
+        "columns_gap": 2,
+        "row_gap": 2,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "overlay_type",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
       }
     },
     "image_banner_4icATm": {
@@ -166,7 +467,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/artichoke",
+            "button_link_1": "shopify://collections/artichoke",
             "button_style_secondary_1": false
           }
         }
@@ -176,6 +477,7 @@
         "text_fwUYDG",
         "buttons_BbJWAa"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -188,8 +490,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1127.png",
-        "image_2": "shopify:\/\/shop_images\/Group_1139.png",
+        "image": "shopify://shop_images/Group_1127.png",
+        "image_2": "shopify://shop_images/Group_1139.png",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -219,6 +521,7 @@
     },
     "slider_collection_tU7qnA": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -262,7 +565,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/north-end",
+            "button_link_1": "shopify://collections/north-end",
             "button_style_secondary_1": false
           }
         }
@@ -272,6 +575,7 @@
         "text_ExXCLG",
         "buttons_nP99bd"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -284,8 +588,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1140.png",
-        "image_2": "shopify:\/\/shop_images\/Rectangle_352.png",
+        "image": "shopify://shop_images/Group_1140.png",
+        "image_2": "shopify://shop_images/Rectangle_352.png",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -315,6 +619,7 @@
     },
     "slider_collection_A7b7Pz": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -358,7 +663,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/lime-zest",
+            "button_link_1": "shopify://collections/lime-zest",
             "button_style_secondary_1": false
           }
         }
@@ -368,6 +673,7 @@
         "text_c9reNN",
         "buttons_6f3g7x"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -380,8 +686,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Rectangle_592_1.jpg",
-        "image_2": "shopify:\/\/shop_images\/Rectangle_592-1_1.jpg",
+        "image": "shopify://shop_images/Rectangle_592_1.jpg",
+        "image_2": "shopify://shop_images/Rectangle_592-1_1.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -411,6 +717,7 @@
     },
     "slider_collection_ppJpUU": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -454,7 +761,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/pages\/tim",
+            "button_link_1": "shopify://pages/tim",
             "button_style_secondary_1": false
           }
         }
@@ -464,6 +771,7 @@
         "text_UKjWgm",
         "buttons_RNzC9f"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -476,8 +784,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1119_1.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_1076_1.jpg",
+        "image": "shopify://shop_images/Group_1119_1.jpg",
+        "image_2": "shopify://shop_images/Group_1076_1.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -507,6 +815,7 @@
     },
     "slider_collection_RXmtTL": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -550,7 +859,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/sidewalk-silver",
+            "button_link_1": "shopify://collections/sidewalk-silver",
             "button_style_secondary_1": false
           }
         }
@@ -560,6 +869,7 @@
         "text_rPx7JD",
         "buttons_CNthMx"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -572,8 +882,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1122_1.jpg",
-        "image_2": "shopify:\/\/shop_images\/Group_1118_1.jpg",
+        "image": "shopify://shop_images/Group_1122_1.jpg",
+        "image_2": "shopify://shop_images/Group_1118_1.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -603,6 +913,7 @@
     },
     "slider_collection_Yi3aE8": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -646,7 +957,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/pewter-pebble",
+            "button_link_1": "shopify://collections/pewter-pebble",
             "button_style_secondary_1": false
           }
         }
@@ -656,6 +967,7 @@
         "text_wQFVQm",
         "buttons_arKhwn"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -668,8 +980,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1130_1.jpg",
-        "image_2": "shopify:\/\/shop_images\/Rectangle_602_1.jpg",
+        "image": "shopify://shop_images/Group_1130_1.jpg",
+        "image_2": "shopify://shop_images/Rectangle_602_1.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -699,6 +1011,7 @@
     },
     "slider_collection_4MBn77": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -742,7 +1055,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/collections\/habanero",
+            "button_link_1": "shopify://collections/habanero",
             "button_style_secondary_1": false
           }
         }
@@ -752,6 +1065,7 @@
         "text_REVxzD",
         "buttons_ymxeUp"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -764,8 +1078,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Group_1106_1.jpg",
-        "image_2": "shopify:\/\/shop_images\/Summer_2025_Sneak_Peek_Images_1_1_1.jpg",
+        "image": "shopify://shop_images/Group_1106_1.jpg",
+        "image_2": "shopify://shop_images/Summer_2025_Sneak_Peek_Images_1_1_1.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -795,6 +1109,7 @@
     },
     "slider_collection_j4fmV8": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -812,96 +1127,6 @@
         "mobile_padding_bottom": 0
       }
     },
-    "multicolumn_H8Miea": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_WcRKKk": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_604_1.jpg",
-            "title": "<strong>SHOP COURTYARD CREAM<\/strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link": "shopify:\/\/collections\/courtyard-cream",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_kTJYqb": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_607_1.jpg",
-            "title": "<strong>SHOP RIBBON WEAVE<\/strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link": "shopify:\/\/collections\/ribbon-weave",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_WcRKKk",
-        "column_kTJYqb"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 2,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 36,
-        "padding_bottom": 2,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "multicolumn_4DPNEh": {
       "type": "multicolumn",
       "blocks": {
@@ -909,14 +1134,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_606_1.jpg",
-            "title": "<strong>SHOP MOSAIC DENIM<\/strong>",
-            "b_title_color": "#ffffff",
+            "image": "shopify://shop_images/tim-lp-julydrop.jpg",
+            "title": "TIM",
+            "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/mosaic-denim",
+            "link": "shopify://collections/mosaic-denim",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -933,14 +1158,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_605_1_59a1a9df-9dcf-44b1-a1fb-a2ff6ba393da.jpg",
-            "title": "<strong>SHOP HYDRANGEA SUEDE <\/strong>",
+            "image": "shopify://shop_images/Rectangle_683_1.jpg",
+            "title": "KYLE",
             "b_title_color": "#ffffff",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/hydrangea-suede",
+            "link": "shopify://collections/hydrangea-suede",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -985,11 +1210,30 @@
         "swipe_on_mobile": false,
         "enable_peek": false,
         "show_mobile_slider": true,
-        "padding_top": 0,
+        "padding_top": 50,
         "padding_bottom": 0,
         "padding_top_mobile": 2,
         "padding_bottom_mobile": 0,
         "custom_class": ""
+      }
+    },
+    "slider_collection_6Tgwrg": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "Shop All Summer Bags",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "summer-handbags",
+        "max_products": 30,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_NHk9TT": {
@@ -999,14 +1243,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_596_1.jpg",
-            "title": "<strong>Shop Calla Lily White Raffia<\/strong>",
+            "image": "shopify://shop_images/Rectangle_596_1.jpg",
+            "title": "<strong>Shop Calla Lily White Raffia</strong>",
             "b_title_color": "#000000",
             "b_title_font_desktop": 16,
             "b_title_font_mobile": 14,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/calla-lily-white-raffia",
+            "link": "shopify://collections/calla-lily-white-raffia",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -1023,14 +1267,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_597.jpg",
-            "title": "<strong>Shop Coastal Cream<\/strong>",
+            "image": "shopify://shop_images/Rectangle_597.jpg",
+            "title": "<strong>Shop Coastal Cream</strong>",
             "b_title_color": "#000000",
             "b_title_font_desktop": 16,
             "b_title_font_mobile": 14,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/coastal-cream",
+            "link": "shopify://collections/coastal-cream",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -1047,14 +1291,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_598.jpg",
-            "title": "<strong>Shop Bluebird<\/strong>",
+            "image": "shopify://shop_images/Rectangle_598.jpg",
+            "title": "<strong>Shop Bluebird</strong>",
             "b_title_color": "#000000",
             "b_title_font_desktop": 16,
             "b_title_font_mobile": 14,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/bluebird",
+            "link": "shopify://collections/bluebird",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -1071,14 +1315,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_601_c1458597-2c21-41e7-8214-74832e9f48f7.jpg",
-            "title": "<strong>Shop Oak Edge<\/strong>",
+            "image": "shopify://shop_images/Rectangle_601_c1458597-2c21-41e7-8214-74832e9f48f7.jpg",
+            "title": "<strong>Shop Oak Edge</strong>",
             "b_title_color": "#000000",
             "b_title_font_desktop": 16,
             "b_title_font_mobile": 14,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/oak-edge",
+            "link": "shopify://collections/oak-edge",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -1098,6 +1342,7 @@
         "column_jV93kn",
         "column_BrzgdV"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "EXPLORE MORE COLORS",
@@ -1139,14 +1384,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_599.jpg",
-            "title": "<strong>Shop Sunburst<\/strong>",
+            "image": "shopify://shop_images/Rectangle_599.jpg",
+            "title": "<strong>Shop Sunburst</strong>",
             "b_title_color": "#000000",
             "b_title_font_desktop": 16,
             "b_title_font_mobile": 14,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/products\/vip-med-clutch-sunburst-brushed-gold",
+            "link": "shopify://products/vip-med-clutch-sunburst-brushed-gold",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -1163,14 +1408,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_602_2.jpg",
-            "title": "<strong>Shop Crocco Canyon<\/strong>",
+            "image": "shopify://shop_images/Rectangle_602_2.jpg",
+            "title": "<strong>Shop Crocco Canyon</strong>",
             "b_title_color": "#000000",
             "b_title_font_desktop": 16,
             "b_title_font_mobile": 14,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/canyon-crocco",
+            "link": "shopify://collections/canyon-crocco",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -1187,14 +1432,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_600.jpg",
-            "title": "<strong>Shop Dawn<\/strong>",
+            "image": "shopify://shop_images/Rectangle_600.jpg",
+            "title": "<strong>Shop Dawn</strong>",
             "b_title_color": "#000000",
             "b_title_font_desktop": 16,
             "b_title_font_mobile": 14,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/dawn",
+            "link": "shopify://collections/dawn",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -1211,14 +1456,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_603_1.jpg",
-            "title": "<strong>Shop Pewter Raffia<\/strong>",
+            "image": "shopify://shop_images/Rectangle_603_1.jpg",
+            "title": "<strong>Shop Pewter Raffia</strong>",
             "b_title_color": "#000000",
             "b_title_font_desktop": 16,
             "b_title_font_mobile": 14,
             "text": "",
             "link_label": "",
-            "link": "shopify:\/\/collections\/pewter-raffia",
+            "link": "shopify://collections/pewter-raffia",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -1238,6 +1483,7 @@
         "column_6yRePt",
         "column_XUwJKH"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "",
@@ -1259,7 +1505,7 @@
         "text_position": "bottom",
         "background_style": "none",
         "button_label": "SHOP ALL SUMMER BAGS",
-        "button_link": "https:\/\/www.hammitt.com\/collections\/summer-handbags",
+        "button_link": "https://www.hammitt.com/collections/summer-handbags",
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
@@ -1278,6 +1524,8 @@
     "image_banner_bkPemt",
     "image_banner_qeqPUd",
     "slider_collection_fyPrtJ",
+    "multicolumn_H8Miea",
+    "multicolumn_kn4GX8",
     "image_banner_4icATm",
     "slider_collection_tU7qnA",
     "image_banner_RMM6WP",
@@ -1292,8 +1540,8 @@
     "slider_collection_4MBn77",
     "image_banner_nXLDrd",
     "slider_collection_j4fmV8",
-    "multicolumn_H8Miea",
     "multicolumn_4DPNEh",
+    "slider_collection_6Tgwrg",
     "multicolumn_NHk9TT",
     "multicolumn_Gkhp9F"
   ]
