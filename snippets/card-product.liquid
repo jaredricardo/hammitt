@@ -24,21 +24,50 @@
 {%- endcapture -%}
 
 {%- liquid 
-assign seo_tag = false
-assign isBadgeProduct = false 
-for tag in card_product.tags 
-  if tag contains 'seo:'
-    assign seo_tag = tag | remove: 'seo:'
-  endif
-  if tag == 'tag: Final Sale' or tag == 'tag: final sale' or tag == 'tag: final sale'
-    assign isBadgeProduct = true 
-  endif
-endfor 
-assign seo_tag = false
+
+  assign seo_tag = false
+  assign isBadgeProduct = false 
+  for tag in card_product.tags 
+    if tag contains 'seo:'
+      assign seo_tag = tag | remove: 'seo:'
+    endif
+    if tag == 'tag: Final Sale' or tag == 'tag: final sale' or tag == 'tag: final sale'
+      assign isBadgeProduct = true 
+    endif
+  endfor 
+  assign seo_tag = false
+
+  ####### new way of assigning product title
+
+    assign product_type = card_product.metafields.custom.product_title_type
+    assign product_color = card_product.metafields.custom.product_title_color_descriptor
+    assign product_size = card_product.metafields.hammitt.size.value
+    assign product_size_abbreviated = null
+    assign formatted_size_string = null
+    assign formatted_product_title = product_type
+
+
+    if product_size 
+
+      assign formatted_size_string = product_size | downcase | strip
+
+      case formatted_size_string 
+        when 'small'  
+          assign product_size_abbreviated = 'sml'
+        when 'medium'
+          assign product_size_abbreviated = 'med'
+        when 'large'
+          assign product_size_abbreviated = 'lrg'
+      endcase
+
+      assign formatted_product_title = formatted_product_title | append: ' ' | append: product_size_abbreviated
+
+    endif
+
+  #######
+
 -%}
 
-{% assign product_title = card_product.title | split: settings.split_value %}
-{% assign product_color = product_title[1] %}
 {%- if card_product and card_product != empty -%}
   {%- liquid
     assign ratio = 1
@@ -121,7 +150,7 @@ assign seo_tag = false
                   href="{{ card_product.url | within:collection }}" 
                 {% endif %} 
                 class="full-unstyled-link">
-                {{ product_title | first | escape }}
+                {{ product_type }} {% if product_size %} {{ product_size_abbreviated }} {% endif %}
               </a>
             </h3>
           </div>
@@ -159,10 +188,7 @@ assign seo_tag = false
                 href="{{ card_product.url | within:collection }}" 
               {% endif %}
               class="full-unstyled-link">
-              {{ product_title | first | escape }}
-              {% if product_title[2] %}
-                {{  product_title[2] }}
-              {% endif %}
+                {{ product_type }} {% if product_size %} {{ product_size_abbreviated }} {% endif %}
             </a>
             {% unless hide_price %}
             {% render 'price', product: card_product, price_class: '' %}
@@ -172,10 +198,10 @@ assign seo_tag = false
           <div class="card-information">
             {% unless hide_subtitle %}
               {% if seo_tag %}
-              <small class="card__seo-text">{{ seo_tag }}</small>
+                <small class="card__seo-text has-seo-tag">{{ seo_tag }}</small>
               {% endif %}
-              <small class="card__seo-text">{{ product_color }}</small>
-              {% endunless %}
+              <small class="card__seo-text no-seo-tag">{{ product_color }}</small>
+            {% endunless %}
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
@@ -209,7 +235,7 @@ assign seo_tag = false
         </div>
         
         {% if settings.enable_total_colors %}
-        <div class="total-colors" data-style="{{ product_title | first | escape  | strip }}" data-color="{{ product_title | last | escape | strip }}"><span>+</span></div>
+        <div class="total-colors" data-style="{{ formatted_product_title }}" data-color="{{ formatted_product_title }}"><span>+</span></div>
         {% endif %}
         
         <div class="card__badge {{ settings.badge_position }}">

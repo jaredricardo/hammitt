@@ -79,9 +79,43 @@
 {%- liquid
 
   assign product_title = product.title | split: settings.split_value
-  assign product_type = product_title[0]
-  assign product_color = product_title[1]
-  assign product_size = product_title[2]
+  ####### old way of assigning product title
+
+  # assign product_type = product_title[0]
+  # assign product_color = product_title[1]
+  # assign product_size = product_title[2]
+
+  ####### new way of assigning product title
+
+  assign product_type = product.metafields.custom.product_title_type
+  assign product_color = product.metafields.custom.product_title_color_descriptor
+  assign product_size = product.metafields.hammitt.size.value
+  assign product_size_abbreviated = null
+  assign formatted_size_string = null
+  assign formatted_product_title = product_type
+
+  
+  if product_size 
+
+    assign formatted_size_string = product_size | downcase | strip
+
+    case formatted_size_string 
+      when 'small'  
+        assign product_size_abbreviated = 'sml'
+      when 'medium'
+        assign product_size_abbreviated = 'med'
+      when 'large'
+        assign product_size_abbreviated = 'lrg'
+    endcase
+
+    assign formatted_product_title = formatted_product_title | append: ' ' | append: product_size_abbreviated
+
+  endif
+
+
+  #######
+
+
   assign core_colors = linklists.colors-core.links | map: 'title' | join: ','
   assign limited_colors = linklists.colors-limited-edition.links | map: 'title' | join: ','
   assign seo_tag = false
@@ -217,7 +251,7 @@
         {% assign product_title = product.title | split: settings.split_value  %}
         <a href="{{ product.url }}">{{ product_title[0] }}</a>
         {% if product_title[2] %}
-         <a style="margin-left: 5px;" href="{{ product.url }}">/ &nbsp; {{ product_title[2] }}</a>
+         <a style="margin-left: 5px;" href="{{ product.url }}">/ &nbsp; {{ product_type }} {{ product_size_abbreviated }}</a>
         {% endif %}
       </li>
   {%- endcapture -%}
@@ -455,41 +489,12 @@
               <div class="col left-col">
                 <p class="pdp_color" style="margin-top: 0px;">{{ product_color }}</p>     
                 <div class="top-text-wrapper">
-
-                  {% if seo_tag %}
-                    <div class="title-container">
-                      <h1 class="h5 seo-tag">
-                        {{ seo_tag }}
-                      </h1>
-                      <span class="product__title h0">
-                        {% assign product_title = product.title | split: settings.split_value  %}
-                        {{ product_title[0] }}
-                        {% if product_title[2] %}
-                          {{ product_title[2] }}
-                        {% endif %}
-                      </span>
-                    </div>
-                    {% else %}
-                    <h1 class="product__title h0">
-                      {% assign product_title = product.title | split: settings.split_value  %}
-                      {{ product_title[0] }}
-                      {% if product_title[2] %}
-                        {{ product_title[2] }}
-                      {% endif %}
-                    </h1>
+                  <h2 class="product__title h0 title-2">
+                    {{ formatted_product_title }}
+                  </h2>
+                  {% if product_color %}
+                    <h3>{{ product_color }}</h3>
                   {% endif %}
-
-                  {% comment %} 
-                    old (mobile) product title display logic
-                    <h1 class="product__title h0" {{ block.shopify_attributes }}>
-                      {% if seo_tag %}<span class="h5 seo-tag">{{ seo_tag }}</span>{% endif %}
-                      {% assign product_title = product.title | split: settings.split_value  %}
-                      {{ product_title[0] }}
-                      {% if product_title[2] %}
-                      {{ product_title[2] }}
-                    {% endif %}
-                    </h1> 
-                  {% endcomment %}
                   {% if product.metafields.custom.back_in_stock_one_liner %}
                     <div class="back-in-stock-one-liner-container">
                       {{ product.metafields.custom.back_in_stock_one_liner }}
@@ -576,41 +581,23 @@
             {%- endif -%}
           {%- when 'title' -%}
             <p class="pdp_color small-hide" style="margin-top: 0px;">{{ product_color }}</p>   
+            <script>
+              console.log('/s////////dkjahfjahgdjkaghsjdaghjdsa')
+              console.log({{ formatted_product_title | json }})
+            </script>
             <div class="top-text-wrapper desktop">   
               {% if seo_tag %}
-                <div class="title-container">
-                  <h1 class="h5 seo-tag">
-                    {{ seo_tag }}
-                  </h1>
-                  <span class="product__title h0 small-hide">
-                    {% assign product_title = product.title | split: settings.split_value  %}
-                    {{ product_title[0] }}
-                    {% if product_title[2] %}
-                      {{ product_title[2] }}
-                    {% endif %}
-                  </span>
-                </div>
+                  <h1 class="hidden">{{ seo_tag }}</h1>
+                  <h2 class="product__title h0">{{ formatted_product_title }}</h2>
                 {% else %}
-                <h1 class="product__title h0 small-hide">
-                  {% assign product_title = product.title | split: settings.split_value  %}
-                  {{ product_title[0] }}
-                  {% if product_title[2] %}
-                    {{ product_title[2] }}
-                  {% endif %}
-                </h1>
+                  <h1 class="product__title h0 small-hide title-4">
+                    {{ formatted_product_title }}
+                  </h1>
+              {% endif %}
+              {% if product_color %}
+                <h3>{{ product_color }}</h3>
               {% endif %}
 
-              {% comment %} 
-                old product title display logic
-                <h1 class="product__title h0 small-hide" {{ block.shopify_attributes }}>
-                {% if seo_tag %}<span class="h5 seo-tag">{{ seo_tag }}</span>{% endif %}
-                  {% assign product_title = product.title | split: settings.split_value  %}
-                  {{ product_title[0] }}
-                  {% if product_title[2] %}
-                  {{ product_title[2] }}
-                {% endif %}
-                </h1> 
-              {% endcomment %}
               {% if product.metafields.custom.back_in_stock_one_liner %}
                 <div class="back-in-stock-one-liner-container">
                   {{ product.metafields.custom.back_in_stock_one_liner }}
@@ -929,13 +916,13 @@
 
                   <script type="application/json">
                     {{ product.variants | json }}
-                  </script>
+                  </script> 
                 </variant-selects>
               {%- endif -%}
             {%- else -%}
 
             {% if product.metafields.custom.colorway_collection != blank %}
-                {% render 'product-color-size-optimized', product_title: product_title, product_type: product_type, product_color: product_color, product_size: product_size, top_level_handle: product.handle, on_special_leather:on_special_leather %}
+                {% render 'product-color-size-optimized', top_level_handle: product.handle, on_special_leather: on_special_leather, current_product_size: formatted_size_string, current_product_color: product_color %}
               {% else %}
                 {% render 'product-color-size', product_title: product_title, product_type: product_type, product_color: product_color, product_size: product_size %}
             {% endif %}
