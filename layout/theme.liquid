@@ -517,6 +517,21 @@
     </script> -->
 
     {% render 'x-gen' %}
+    <script src="https://assets.xgen.dev/sdk-core/releases/latest/sdk-core.umd.cjs"></script>
+    <script>
+
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('X-Gen SDK loading......')
+            window.xg = new window.XGenSdkCore.XGenClient({
+              key: 'c5930cf4b8c47ffb15253a21a13a0a54',
+              secret: '5331b9792786c978024b2cd5336a18f4dd24ffe924576e38e0538535ef1fc88034ccd4c0c225de434700152bd22aa23eb5c05c057ce265d6e5b46c080295454a',
+              clientId: '95649fa1480c4eb7efbfdeaff081cdac',
+              trackerId: 'a0d9171b91b2403a9146d160bb69148c'
+            })
+     
+        })
+
+    </script>
 
     {% comment %} MS CLARITY {% endcomment %}
     <script type="text/javascript">
