@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "bac5be1b-0e1d-47ca-b925-caa0a486be2b": {
@@ -6,7 +15,7 @@
         "template--15995888566456__bac5be1b-0e1d-47ca-b925-caa0a486be2b-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "OUR LIMITED LIFETIME WARRANTY",
+            "heading": "Repairs Center",
             "heading_size_mobile": 25,
             "heading_size_tablet": 20,
             "heading_size_desktop": 36
@@ -18,6 +27,7 @@
       ],
       "settings": {
         "custom_classes": "",
+        "custom_id": "",
         "title": "",
         "title_color": "",
         "description": "",
@@ -27,8 +37,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/LifetimePromise_Banner_Desktop.jpg",
-        "image_2": "shopify:\/\/shop_images\/LifetimePromise_banner_Mobile.jpg",
+        "image": "shopify://shop_images/LifetimePromise_Banner_Desktop.jpg",
+        "image_2": "shopify://shop_images/LifetimePromise_banner_Mobile.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -63,7 +73,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Lifetime_Promise_Widgets_0009_10.jpg",
+            "image": "shopify://shop_images/Lifetime_Promise_Widgets_0009_10.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -87,7 +97,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Lifetime_Promise_Widgets_0013_14.jpg",
+            "image": "shopify://shop_images/Lifetime_Promise_Widgets_0013_14.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -111,7 +121,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Lifetime_Promise_Widgets_0011_12.jpg",
+            "image": "shopify://shop_images/Lifetime_Promise_Widgets_0011_12.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -162,6 +172,8 @@
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
+        "enable_peek": false,
+        "show_mobile_slider": true,
         "padding_top": 16,
         "padding_bottom": 36,
         "padding_top_mobile": 36,
@@ -175,7 +187,7 @@
         "1658653566aebbc009-1": {
           "type": "text",
           "settings": {
-            "text": "<p>We choose materials with care and intention, searching the world for the very best and most dependable leathers and hardware.<\/p><p>That said, we know life happens. That’s why we cover all functionality with a limited lifetime warranty. From hooks to D Rings, everything that makes your Hammitt ‘work’ can be repaired with our complimentary in-house service*.<\/p><p><\/p>"
+            "text": "<p>We choose materials with care and intention, searching the world for the very best and most dependable leathers and hardware.</p><p>That said, we know life happens. From hooks to D Rings, everything that makes your Hammitt ‘work’ can be repaired with our in-house service*.</p><p></p>"
           }
         }
       },
@@ -198,7 +210,7 @@
         "template--15995888566456__d625d180-d905-47cb-bc4a-1ab1c69b2fd2-text-1": {
           "type": "text",
           "settings": {
-            "text": "<h1><strong>How to Submit a Repair Request<\/strong><\/h1><h2>Email<strong>  <\/strong><a href=\"mailto:wecare@hammitt.com\" target=\"_blank\" title=\"mailto:wecare@hammitt.com\"><strong>wecare@hammitt.com<\/strong><\/a><strong> <\/strong>or call<strong> (<\/strong>310) 292-5200<strong>.<\/strong> <\/h2><h3>Be prepared to provide the following: <\/h3><p><strong>First and Last name<\/strong><\/p><p><strong>Telephone Number<\/strong><\/p><p><strong>Shipping Address (No P.O. Boxes)<\/strong><\/p><p><strong>At least 3 images of your bag (full front, up close, full back side). <br\/>One image of the logo on the bag.<br\/><\/strong><a href=\"\/pages\/faqs\" title=\"FAQs\"><strong>See details<\/strong><\/a><\/p>"
+            "text": "<h1><strong>How to Submit a Repair Request</strong></h1><h2>Email<strong>  </strong><a href=\"mailto:wecare@hammitt.com\" target=\"_blank\" title=\"mailto:wecare@hammitt.com\"><strong>wecare@hammitt.com</strong></a><strong> </strong>or call<strong> (</strong>310) 292-5200<strong>.</strong> </h2><h3>Be prepared to provide the following: </h3><p><strong>First and Last name</strong></p><p><strong>Telephone Number</strong></p><p><strong>Shipping Address (No P.O. Boxes)</strong></p><p><strong>At least 3 images of your bag (full front, up close, full back side). <br/>One image of the logo on the bag.<br/></strong><a href=\"/pages/faqs\" title=\"FAQs\"><strong>See details</strong></a></p>"
           }
         }
       },
@@ -228,7 +240,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "START A REPAIR REQUEST",
-            "link": "https:\/\/hammitt.returnlogic.com\/",
+            "link": "https://hammitt.returnlogic.com/",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -251,7 +263,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "START A REPAIR REQUEST",
-            "link": "https:\/\/hammitt.returnlogic.com\/warranty\/info",
+            "link": "https://hammitt.returnlogic.com/warranty/info",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
@@ -294,6 +306,8 @@
         "color_scheme": "background-2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
         "padding_top": 16,
         "padding_bottom": 60,
         "padding_top_mobile": 36,
@@ -314,7 +328,7 @@
         "template--15978607247544__874bc0d6-f598-4803-88d2-c596a9230bb9-16860706106ae9d9b3-1": {
           "type": "text",
           "settings": {
-            "text": "<h2><\/h2><ul><li>D-Rings<\/li><li>O-Rings<\/li><li>Broken Straps <\/li><li>Defective Magnets<\/li><li>Zipper Pulls<\/li><\/ul><h3><\/h3>",
+            "text": "<h2></h2><ul><li>D-Rings</li><li>O-Rings</li><li>Broken Straps </li><li>Defective Magnets</li><li>Zipper Pulls</li></ul><h3></h3>",
             "text_style": "body"
           }
         }
@@ -324,7 +338,8 @@
         "template--15978607247544__874bc0d6-f598-4803-88d2-c596a9230bb9-16860706106ae9d9b3-1"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Lifetime_Widget1.jpg",
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/Lifetime_Widget1.jpg",
         "height": "small",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -355,7 +370,7 @@
         "template--15978607247544__bc1932fc-6cab-4c6d-b2d0-a043b7210f29-16860706106ae9d9b3-1": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Torn or Stained Lining<\/li><li>Zipper Tape<\/li><li>Stained Leather<\/li><li>Normal Wear + Tear <\/li><\/ul>",
+            "text": "<ul><li>Torn or Stained Lining</li><li>Zipper Tape</li><li>Stained Leather</li><li>Normal Wear + Tear </li></ul>",
             "text_style": "body"
           }
         }
@@ -365,7 +380,8 @@
         "template--15978607247544__bc1932fc-6cab-4c6d-b2d0-a043b7210f29-16860706106ae9d9b3-1"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Lifetime_Widget2.jpg",
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/Lifetime_Widget2.jpg",
         "height": "small",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -389,7 +405,7 @@
         "template--15978607247544__698de4cc-2e00-4027-bd08-5fff727e9077-168564036867728526-1": {
           "type": "text",
           "settings": {
-            "text": "<p><em>*Please note, in select cases, we may no longer be able to replace materials on bags from seasons far past. In this case, our team will assess your unique request and offer an alternative replacement option.<\/em><\/p>"
+            "text": "<p><em>*Please note, in select cases, we may no longer be able to replace materials on bags from seasons far past. In this case, our team will assess your unique request and offer an alternative replacement option.</em></p>"
           }
         }
       },
