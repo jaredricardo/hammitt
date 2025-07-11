@@ -27,8 +27,20 @@ class PredictiveSearch extends HTMLElement {
     return this.input.value.trim();
   }
 
-  onChange() {
+  async onChange() {
     const searchTerm = this.getQuery();
+
+    console.log(searchTerm)
+
+    const results = await xg.search.getResults({
+      query: searchTerm, 
+        options: {
+            collection: 'default', 
+            deploymentId:'acf20249-770a-4e8f-8407-ab4c8527df46'
+        }
+    })    
+
+    console.log(results);
 
     if (!searchTerm.length) {
       this.close(true);

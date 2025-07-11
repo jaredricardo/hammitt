@@ -3882,3 +3882,39 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
     padding-bottom: 1rem;
   }
 }
+
+@media screen and (min-width: 1105px) {
+  .search-modal.modal__content:has(.x-gen-search) {
+    padding: 4rem 0;
+  }
+}
+
+
+
+.search-modal__content.x-gen-search {
+  padding: 1rem 0;
+}
+
+.search-modal__content.x-gen-search .predictive-search {
+  width: 100vw;
+}
+
+.search-modal__content.x-gen-search .search-modal__form {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-modal__content.x-gen-search .field {
+  border-radius: 5px;
+  max-width: 360px;
+}
+
+.search-modal__content.x-gen-search .field__input:focus {
+  box-shadow: none;
+}
+
+.search-modal__content.x-gen-search .field:after {
+  border-radius: 5px;
+  box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground),1)
+}

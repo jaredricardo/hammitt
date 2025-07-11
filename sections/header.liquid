@@ -344,9 +344,9 @@
                 </svg>
               </span>
             </summary>
-            <div class="search-modal modal__content" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+            <div class="search-modal modal__content search-modal-1" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
               <div class="modal-overlay"></div>
-              <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
+              <div class="search-modal__content zzzzz-1 x-gen-search search-mobile {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
                 {%- if settings.predictive_search_enabled -%}
                   <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
                 {%- endif -%}
@@ -357,7 +357,7 @@
                         type="search"
                         name="q"
                         value=""
-                        placeholder="{{ 'general.search.search' | t }}"
+                        placeholder="What can we help you find?"
                         {%- if settings.predictive_search_enabled -%}
                           role="combobox"
                           aria-expanded="false"
@@ -371,7 +371,7 @@
                           spellcheck="false"
                         {%- endif -%}
                       >
-                      <label class="field__label" for="Search-In-Modal-1">{{ 'general.search.search' | t }}</label>
+                      <label class="field__label" for="Search-In-Modal-1">What can we help you find?</label>
                       <input type="hidden" name="type" value="product">
                       <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
                         <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
@@ -423,7 +423,7 @@
             </summary>
             <div class="search-modal modal__content" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
               <div class="modal-overlay"></div>
-              <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
+              <div class="search-modal__content zzzzz-2 x-gen-search {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
                 {%- if settings.predictive_search_enabled -%}
                   <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
                 {%- endif -%}
@@ -434,7 +434,7 @@
                         type="search"
                         name="q"
                         value=""
-                        placeholder="{{ 'general.search.search' | t }}"
+                        placeholder="What can we help you find?"
                         {%- if settings.predictive_search_enabled -%}
                           role="combobox"
                           aria-expanded="false"
@@ -448,7 +448,7 @@
                           spellcheck="false"
                         {%- endif -%}
                       >
-                      <label class="field__label" for="Search-In-Modal-1">{{ 'general.search.search' | t }}</label>
+                      <label class="field__label" for="Search-In-Modal-1">What can we help you find?</label>
                       <input type="hidden" name="type" value="product">
                       <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
                         <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
@@ -584,7 +584,7 @@
             </summary>
             <div class="search-modal modal__content" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
               <div class="modal-overlay"></div>
-              <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
+              <div class="search-modal__content zzzzz-3 x-gen-search search-desktop {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
                 {%- if settings.predictive_search_enabled -%}
                   <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
                 {%- endif -%}
@@ -595,7 +595,7 @@
                         type="search"
                         name="q"
                         value=""
-                        placeholder="{{ 'general.search.search' | t }}"
+                        placeholder="What can we help you find?"
                         {%- if settings.predictive_search_enabled -%}
                           role="combobox"
                           aria-expanded="false"
@@ -609,7 +609,7 @@
                           spellcheck="false"
                         {%- endif -%}
                       >
-                      <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
+                      <label class="field__label" for="Search-In-Modal">What can we help you find?</label>
                       <input type="hidden" name="type" value="product">
                       <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
                         <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
@@ -617,6 +617,12 @@
                         </svg>
                       </button>
                     </div>
+
+                    <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
+                      <svg class="icon icon-close" aria-hidden="true" focusable="false" role="presentation">
+                        <use href="#icon-close" />
+                      </svg>
+                    </button>
   
                     {%- if settings.predictive_search_enabled -%}
                       <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
@@ -633,11 +639,6 @@
                 {%- if settings.predictive_search_enabled -%}
                   </predictive-search>
                 {%- endif -%}
-                <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
-                  <svg class="icon icon-close" aria-hidden="true" focusable="false" role="presentation">
-                    <use href="#icon-close" />
-                  </svg>
-                </button>
               </div>
             </div>
           </details>
