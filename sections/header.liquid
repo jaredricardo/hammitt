@@ -344,7 +344,7 @@
                 </svg>
               </span>
             </summary>
-            <div class="search-modal modal__content search-modal-1" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+            <div class="search-modal modal__content content--2" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
               <div class="modal-overlay"></div>
               <div class="search-modal__content zzzzz-1 x-gen-search search-mobile {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
                 {%- if settings.predictive_search_enabled -%}
@@ -381,7 +381,7 @@
                     </div>
 
                     {%- if settings.predictive_search_enabled -%}
-                      <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+                      <div class="predictive-search predictive-search--header header--1" tabindex="-1" data-predictive-search>
                         <div class="predictive-search__loading-state" style="display: none;">
                           <svg width="14" height="14" aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                             <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
@@ -401,6 +401,7 @@
                   </svg>
                 </button>
               </div>
+
             </div>
           </details>
         </details-modal>
@@ -421,7 +422,7 @@
                 </svg>
               </span>
             </summary>
-            <div class="search-modal modal__content" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+            <div class="search-modal modal__content content--3" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
               <div class="modal-overlay"></div>
               <div class="search-modal__content zzzzz-2 x-gen-search {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
                 {%- if settings.predictive_search_enabled -%}
@@ -461,7 +462,7 @@
                     </div>
   
                     {%- if settings.predictive_search_enabled -%}
-                      <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+                      <div class="predictive-search predictive-search--header header--2" tabindex="-1" data-predictive-search>
                         <div class="predictive-search__loading-state" style="display: none;">
                           <svg width="14" height="14" aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                             <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
@@ -582,7 +583,7 @@
                 </svg>
               </span>
             </summary>
-            <div class="search-modal modal__content" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+            <div class="search-modal modal__content content--1" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
               <div class="modal-overlay"></div>
               <div class="search-modal__content zzzzz-3 x-gen-search search-desktop {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
                 {%- if settings.predictive_search_enabled -%}
@@ -625,7 +626,7 @@
                     </button>
   
                     {%- if settings.predictive_search_enabled -%}
-                      <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+                      <div class="predictive-search predictive-search--header header--3" tabindex="-1" data-predictive-search>
                         <div class="predictive-search__loading-state">
                           <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                             <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
@@ -639,6 +640,24 @@
                 {%- if settings.predictive_search_enabled -%}
                   </predictive-search>
                 {%- endif -%}
+                
+                <div class="initial-search-modal-content">
+                  <div class="recent-or-trending-products">
+                    <h4>Recently Viewed Products</h4>
+                    <ul>
+                      {% for product in collections[all].products limit: 4 %}
+
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  <div class="recent-or-popular-searches">
+                    <h4>You Recent Searches</h4>
+                    <ul>
+
+                    </ul>
+                  </div>
+                </div>
+
               </div>
             </div>
           </details>
