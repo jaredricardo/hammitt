@@ -9,6 +9,83 @@
  */
 {
   "sections": {
+    "image_banner_aLnEec": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_QhDgnx": {
+          "type": "heading",
+          "settings": {
+            "heading": "PUT IT IN NEUTRAL",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_DnXtUy": {
+          "type": "text",
+          "settings": {
+            "text": "Explore soft, easy-to-style Dune leather.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_CWADxx": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/dune",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QhDgnx",
+        "text_DnXtUy",
+        "buttons_CWADxx"
+      ],
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Dune-hp-desktop_1.jpg",
+        "image_2": "shopify://shop_images/Dune-hp-mobile_1.jpg",
+        "image_link": "shopify://collections/dune",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left-more",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "image_banner_ezVVdn": {
       "type": "image-banner",
       "blocks": {
@@ -45,6 +122,7 @@
         "text_4EKEHN",
         "buttons_h3eaz3"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -57,12 +135,12 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Dune-hp-desktop_1.jpg",
-        "image_2": "shopify://shop_images/Dune-hp-mobile_1.jpg",
+        "image": "shopify://shop_images/july-drop-Lp-banner-desktop_1.jpg",
+        "image_2": "shopify://shop_images/july-drop-Lp-banner-mobile_1.jpg",
         "image_link": "shopify://collections/dune",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 10,
         "image_height": "adapt",
-        "desktop_content_position": "middle-left-more",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
@@ -1045,6 +1123,7 @@
     }
   },
   "order": [
+    "image_banner_aLnEec",
     "image_banner_ezVVdn",
     "slider_collection_RKJW7t",
     "image_banner_wjLTRm",
