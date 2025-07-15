@@ -109,10 +109,10 @@
         "custom_classes": "",
         "color_scheme": "background-1",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
       }
     },
     "slider_collection_w9UPnP": {
@@ -149,7 +149,7 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12377_1.jpg",
+        "image": "shopify://shop_images/Group_12377_92d5884c-98b8-42b5-991d-fef678c460fa.jpg",
         "image_2": "shopify://shop_images/Group_12379_1.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
@@ -198,22 +198,9 @@
         "color_scheme": "background-1",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
-    },
-    "custom_liquid_zWM97D": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"g20PJl\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"g20PJl\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n      captions=\"false\"\n\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
         "padding_bottom": 0,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
       }
     },
     "image_banner_jjdQ8P": {
@@ -257,6 +244,19 @@
         "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "custom_liquid_zWM97D": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"g20PJl\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"g20PJl\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n      captions=\"false\"\n\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
         "custom_class": ""
       }
     },
@@ -370,8 +370,8 @@
     "slider_collection_w9UPnP",
     "image_banner_tiwnHN",
     "rich_text_FCBJCn",
-    "custom_liquid_zWM97D",
     "image_banner_jjdQ8P",
+    "custom_liquid_zWM97D",
     "rich_text_Wdekkf",
     "jr_scrolling_text_G94P3P"
   ]
