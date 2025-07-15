@@ -178,30 +178,17 @@
         "custom_class": ""
       }
     },
-    "rich_text_FCBJCn": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_iQdB7B": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "Have date night plans? Heading out on the town? Sling on our trend-forward Kyle in an original, compact size.",
-            "heading_size": "h2"
-          }
-        }
-      },
-      "block_order": [
-        "heading_iQdB7B"
-      ],
-      "disabled": true,
+    "custom_liquid_zWM97D": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_classes": "",
+        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"g20PJl\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"g20PJl\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n      captions=\"false\"\n\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
         "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
+        "padding_top": 0,
         "padding_bottom": 0,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
       }
     },
     "image_banner_jjdQ8P": {
@@ -245,19 +232,6 @@
         "padding_bottom": 20,
         "padding_top_mobile": 16,
         "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "custom_liquid_zWM97D": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"g20PJl\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"g20PJl\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n      captions=\"false\"\n\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
         "custom_class": ""
       }
     },
@@ -370,9 +344,8 @@
     "rich_text_TVxR8H",
     "slider_collection_w9UPnP",
     "image_banner_tiwnHN",
-    "rich_text_FCBJCn",
-    "image_banner_jjdQ8P",
     "custom_liquid_zWM97D",
+    "image_banner_jjdQ8P",
     "rich_text_Wdekkf",
     "jr_scrolling_text_G94P3P"
   ]
