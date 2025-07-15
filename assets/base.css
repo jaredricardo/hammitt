@@ -3893,6 +3893,9 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 
 .search-modal__content.x-gen-search {
   padding: 1rem 0;
+  display: flex;
+  flex-direction: column; 
+  bottom: -45px !important;
 }
 
 .search-modal__content.x-gen-search .predictive-search {
@@ -3914,7 +3917,33 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   box-shadow: none;
 }
 
+.search-modal__content.x-gen-search .field__input {
+  margin: 0;
+}
+
 .search-modal__content.x-gen-search .field:after {
   border-radius: 5px;
   box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground),1)
+}
+
+.initial-search-modal-content {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  padding-top: 1rem;
+}
+
+.initial-search-modal-content .recent-or-trending-products {
+  flex: 7;
+}
+
+.initial-search-modal-content .recent-or-popular-searches {
+  flex: 3;
+}
+
+.initial-search-modal-content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
 }

@@ -641,17 +641,15 @@
                   </predictive-search>
                 {%- endif -%}
                 
-                <div class="initial-search-modal-content">
+                <div class="initial-search-modal-content page-width">
                   <div class="recent-or-trending-products">
-                    <h4>Recently Viewed Products</h4>
+                    <h4>Trending Now</h4>
                     <ul>
-                      {% for product in collections[all].products limit: 4 %}
-
-                      {% endfor %}
+     
                     </ul>
                   </div>
                   <div class="recent-or-popular-searches">
-                    <h4>You Recent Searches</h4>
+                    <h4>Most Popular Searches</h4>
                     <ul>
 
                     </ul>
@@ -660,6 +658,7 @@
 
               </div>
             </div>
+            
           </details>
         </details-modal>
   
@@ -1049,7 +1048,28 @@
     ],    
     "blocks": [
       {
-        "type":"@theme"
+        "type": "popular-search",
+        "name": "Popular Search",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "text",
+            "id": "search_term",
+            "label": "Search Term"
+          }
+        ]
+      },
+      {
+        "type": "trending-now-product",
+        "name": "Trending Now Product",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "product",
+            "id": "trending_product",
+            "label": "Trending Product"
+          }
+        ]
       }
     ]
   }
