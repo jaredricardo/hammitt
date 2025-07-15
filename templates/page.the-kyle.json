@@ -21,6 +21,84 @@
         "padding_bottom_mobile": 0
       }
     },
+    "image_banner_pD46Py": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_4YRQgz": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE KYLE",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_WxVJi7": {
+          "type": "text",
+          "settings": {
+            "text": "SIZE MATTERS",
+            "text_style": "body",
+            "text_size_mobile": 20,
+            "text_size_tablet": 18,
+            "text_size_desktop": 36
+          }
+        },
+        "buttons_ATeKdd": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_4YRQgz",
+        "text_WxVJi7",
+        "buttons_ATeKdd"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Rectangle_687_1.jpg",
+        "image_2": "shopify://shop_images/Group_12380.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "rich_text_TVxR8H": {
       "type": "rich-text",
       "blocks": {
@@ -85,6 +163,7 @@
   },
   "order": [
     "main",
+    "image_banner_pD46Py",
     "rich_text_TVxR8H",
     "slider_collection_w9UPnP"
   ]
