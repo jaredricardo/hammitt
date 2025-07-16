@@ -95,6 +95,14 @@
       }
     }
   {%- endstyle -%}
+
+  {% liquid 
+  
+    assign visual_nav_blocks = section.blocks | where: 'type', 'visual-menu-item'
+    assign popular_search_terms = section.blocks | where: 'type', 'popular-search'
+    assign trending_now_products = section.blocks | where: 'type', 'trending-now-products'
+  
+  -%}
   
   <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
@@ -209,7 +217,6 @@
                       </ul> 
                       {% endcomment %}
                       <ul class="menu-drawer__menu list-menu visual-menu visual-ab" role="list">
-                        {% assign visual_nav_blocks = section.blocks | where: 'type', 'visual-menu-item' %}
                         {% for block in visual_nav_blocks %}
                           <li class="visual-nav-navigation-item" data-link-title="{{ block.settings.title | escape }}">
                             <a href="{{ block.settings.nav_link }}" class="visual-navigation-item-link">
@@ -655,13 +662,23 @@
                   <div class="recent-or-trending-products">
                     <h4>Trending Now</h4>
                     <ul>
-     
+                      {% for block in trending_now_products %}
+                        {% for product in block.settings.trending_products %}
+                          <li>
+                            {% render 'card-product', card_product:product %}
+                          </li> 
+                        {% endfor %}
+                      {% endfor %}
                     </ul>
                   </div>
                   <div class="recent-or-popular-searches">
                     <h4>Most Popular Searches</h4>
                     <ul>
-
+                      {% for block in popular_search_terms %}
+                        <li>
+                          <a href="/search?q={{ block.settings.search_term }}&type=product">{{ block.settings.search_term }}</a>
+                        </li>
+                      {% endfor %}
                     </ul>
                   </div>
                 </div>
@@ -1080,25 +1097,25 @@
       },
       {
         "type": "popular-search",
-        "name": "Popular Search",
+        "name": "Default Pop Search Term",
         "limit": 4,
         "settings": [
           {
             "type": "text",
             "id": "search_term",
-            "label": "Default Search Term"
+            "label": "Default Popular Search Term"
           }
         ]
       },
       {
-        "type": "trending-now-product",
-        "name": "Trending Now Product",
-        "limit": 4,
+        "type": "trending-now-products",
+        "name": "Default Trending Products",
+        "limit": 1,
         "settings": [
           {
-            "type": "product",
-            "id": "trending_product",
-            "label": "Default Trending Product"
+            "type": "product_list",
+            "id": "trending_products",
+            "label": "Default Trending Products"
           }
         ]
       }
