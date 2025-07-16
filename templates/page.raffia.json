@@ -28,21 +28,10 @@
         "heading_YNLRyH": {
           "type": "heading",
           "settings": {
-            "heading": "MEET MEADOW WEAVE",
+            "heading": "RAFFIA SEASON",
             "heading_size_mobile": 18,
             "heading_size_tablet": 20,
             "heading_size_desktop": 32
-          }
-        },
-        "text_8jL86w": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Chaparral Raffia is back just in time for Spring.",
-            "text_style": "body",
-            "text_size_mobile": 14,
-            "text_size_tablet": 18,
-            "text_size_desktop": 18
           }
         },
         "buttons_Yd3Ph8": {
@@ -56,8 +45,85 @@
       },
       "block_order": [
         "heading_YNLRyH",
-        "text_8jL86w",
         "buttons_Yd3Ph8"
+      ],
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Raffia-desktop.gif",
+        "image_2": "shopify://shop_images/raffia-mob.gif",
+        "image_link": "",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
+    },
+    "image_banner_yhPJEr": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_WmpriM": {
+          "type": "heading",
+          "settings": {
+            "heading": "MEET MEADOW WEAVE",
+            "heading_size_mobile": 18,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 32
+          }
+        },
+        "text_99Caff": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Chaparral Raffia is back just in time for Spring.",
+            "text_style": "body",
+            "text_size_mobile": 14,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
+        "buttons_YwDfD9": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/meadow-weave",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WmpriM",
+        "text_99Caff",
+        "buttons_YwDfD9"
       ],
       "settings": {
         "custom_classes": "",
@@ -567,6 +633,7 @@
   "order": [
     "main",
     "image_banner_tiVhax",
+    "image_banner_yhPJEr",
     "slider_collection_nEw7ry",
     "image_banner_FLXgNt",
     "slider_collection_x4n8L8",
