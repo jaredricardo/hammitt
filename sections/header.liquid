@@ -664,9 +664,21 @@
                     <ul>
                       {% for block in trending_now_products %}
                         {% for product in block.settings.trending_products %}
-                          <li>
-                            {% render 'card-product', card_product:product %}
-                          </li> 
+                          <li data-basic-card-template class="basic-product-card-template--li">
+                              <a href="{{ product.url }}">
+                                  <div class="card-image">
+                                      <img src="{{ product.featured_image |  image_url: width: 200  }}" alt="{{ product.title }}">
+                                  </div>
+                                  <div class="card-content">
+                                    {% if product.metafields.custom.product_title_type and product.metafields.hammitt.size and product.metafields.product_title_color_descriptor %}
+                                      <h3 class="product-title">{{ product.metafields.custom.product_title_type }} {{ product.metafields.hammitt.size }}</h3>
+                                      <h5 class="product-color">{{ product.metafields.custom.product_title_color_descriptor }}</h5>
+                                    {% else %}
+                                      <h3>{{ product.title }}</h3>
+                                    {% endif %}
+                                  </div>
+                              </a>
+                          </li>
                         {% endfor %}
                       {% endfor %}
                     </ul>
