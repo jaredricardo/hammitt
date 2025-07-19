@@ -41,7 +41,7 @@
         })
 
         const results = await xg.search.getResults({
-            query: 'backpack', 
+            query: 'kyle', 
             options: {
                 collection: 'default', 
                 deploymentId:'acf20249-770a-4e8f-8407-ab4c8527df46'
@@ -122,7 +122,7 @@
 
         function buildXGenSearchResultsForSearchHeader(targetContainer, resultsArr) {
 
-            console.log('??????')
+            console.log('??????+')
             console.log(resultsArr)
             console.log(targetContainer)
 
@@ -143,12 +143,20 @@
                 if(i > 3) return
                 
                 let formattedProductTitle = result.prod_name
+                let productSize = result.metafields.hammitt.size || null
+                let productColorDescriptor = result.metafields.custom.product_title_color_descriptor || null
+                let productTitleType = result.metafields.custom.product_title_type || null
+                let useDescriptor = false
+
+               
+           
+                console.log(productSize, productColorDescriptor, productTitleType)
 
                 // need to handl if 1. metafields does not exist, 2. hammitt / custom metafields do not exist, and 3. if the bottom level metafields do not exist in order to safely format title
                 // also need to move this into the search input and trigger after debouncing.
                 // finally need to add loading animation between search and result states
 
-                
+
 
                 // const prodTypeMetafield = result.metafields.custom.product_title_type
                 // const prodColorDescriptorMetafield = result.metafields.custom.product_title_color_descriptor
@@ -160,6 +168,34 @@
                 // } 
 
 
+                if(productSize !== null && productColorDescriptor !== null && productTitleType !== null) {
+
+                    let finalSizeString = ''
+
+                    console.log('????')
+                    console.log(productSize)
+
+                    switch(productSize) {
+                        case 'Small':
+                            finalSizeString = 'sml'
+                            break
+                        case 'Medium':
+                            finalSizeString = "med"
+                            break
+                        case 'Large':
+                            finalSizeString = "lrg"
+                            break
+                        case 'Extra Large':
+                            finalSizeString = "xl"
+                            break
+                        default:
+                            finalSizeString = productSize
+                    }
+
+                    formattedProductTitle = `${productTitleType} ${finalSizeString}`
+                    useDescriptor = true   
+                }
+
 
                 const simpleProductCard = document.querySelector('[data-basic-card-template]').cloneNode(true)
 
@@ -168,7 +204,11 @@
                 simpleProductCard.querySelector('.card-image img').src = result.featured_image.src
                 simpleProductCard.querySelector('.card-image img').alt = result.prod_name
                 simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
-                // simpleProductCard.querySelector('.product-color').innerText = prodColorDescriptorMetafield || ''
+
+                if(useDescriptor) {
+                    simpleProductCard.querySelector('.product-color').innerText = productColorDescriptor
+                }
+        
                 simpleProductCard.querySelector('a').href = result.product_url
 
                 targetContainer.appendChild(simpleProductCard)
