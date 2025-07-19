@@ -28,105 +28,189 @@
             }
         } 
 
-
         if(recentOrPopularContainer) {
-             console.log('??????!!')
             buildRecentlySearched(recentOrPopularContainer)
         }    
 
 
-       
+        window.xg = new window.XGenSdkCore.XGenClient({
+            key: 'c5930cf4b8c47ffb15253a21a13a0a54',
+            secret: '5331b9792786c978024b2cd5336a18f4dd24ffe924576e38e0538535ef1fc88034ccd4c0c225de434700152bd22aa23eb5c05c057ce265d6e5b46c080295454a',
+            clientId: '95649fa1480c4eb7efbfdeaff081cdac',
+            trackerId: 'a0d9171b91b2403a9146d160bb69148c'
+        })
 
-
-
-        // window.xg = new window.XGenSdkCore.XGenClient({
-        //     key: 'c5930cf4b8c47ffb15253a21a13a0a54',
-        //     secret: '5331b9792786c978024b2cd5336a18f4dd24ffe924576e38e0538535ef1fc88034ccd4c0c225de434700152bd22aa23eb5c05c057ce265d6e5b46c080295454a',
-        //     clientId: '95649fa1480c4eb7efbfdeaff081cdac',
-        //     trackerId: 'a0d9171b91b2403a9146d160bb69148c'
-        // })
-
-        // const results = await xg.search.getResults({
-        //     query: 'backpack', 
-        //     options: {
-        //         collection: 'default', 
-        //         deploymentId:''
-        //     }
-        // })
-
-        // const results = await xg.recommend.getResultsById({elementId: '9165751025848'})
+        const results = await xg.search.getResults({
+            query: 'backpack', 
+            options: {
+                collection: 'default', 
+                deploymentId:'acf20249-770a-4e8f-8407-ab4c8527df46'
+            }
+        })
 
         // console.log(results)
 
+        buildXGenSearchResultsForSearchHeader(recentOrTrendingContainer, results.items)
 
-    function getRecentlyViewedProductsCookie() {
-        // taken and slightly modified from 'recently-viewed.js' RecentlyViewed class
-        var re = new RegExp('_rv' + "=([^;]+)")
-        var value = re.exec(document.cookie)
-        var cookie = (value != null) ? unescape(value[1]) : false
-        const json = cookie ? JSON.parse(cookie) : []
-        return json
-    }
 
-    function buildRecentlyViewedProductsInSearch(targetContainer) {
+        function getRecentlyViewedProductsCookie() {
+            // taken and slightly modified from 'recently-viewed.js' RecentlyViewed class
+            var re = new RegExp('_rv' + "=([^;]+)")
+            var value = re.exec(document.cookie)
+            var cookie = (value != null) ? unescape(value[1]) : false
+            const json = cookie ? JSON.parse(cookie) : []
+            return json
+        }
 
-        const recentlyViewedProducts = getRecentlyViewedProductsCookie()
+        function buildRecentlyViewedProductsInSearch(targetContainer) {
 
-        if(recentlyViewedProducts.length == 0) return
+            const recentlyViewedProducts = getRecentlyViewedProductsCookie()
 
-        recentOrTrendingHeader.innerText = 'Recently Viewed Products'
+            if(recentlyViewedProducts.length == 0) return
 
-        recentOrTrendingContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
+            recentOrTrendingHeader.innerText = 'Recently Viewed Products'
 
-        const reversed = recentlyViewedProducts.reverse()
+            recentOrTrendingContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
 
-        reversed.forEach((product, i) => {
+            const reversed = recentlyViewedProducts.reverse()
 
-            if(i > 3) return
-            
-            let formattedProductTitle = product.title
+            reversed.forEach((product, i) => {
 
-            if(product.product_title_type && product.product_title_color_descriptor) {
-                formattedProductTitle = `${product.product_title_type} ${product.product_size}`
-            } 
+                if(i > 3) return
+                
+                let formattedProductTitle = product.title
 
-            const productCard = document.querySelector('[data-basic-card-template]').cloneNode(true)
+                if(product.product_title_type && product.product_title_color_descriptor) {
+                    formattedProductTitle = `${product.product_title_type} ${product.product_size}`
+                } 
 
-            productCard.classList.remove('inactive')
+                const simpleProductCard = document.querySelector('[data-basic-card-template]').cloneNode(true)
 
-            productCard.querySelector('.card-image img').src = product.featured_image
-            productCard.querySelector('.card-image img').alt = product.title
-            productCard.querySelector('.product-title').innerText = formattedProductTitle
-            productCard.querySelector('.product-color').innerText = product.product_title_color_descriptor
-            productCard.querySelector('a').href = product.handle
+                simpleProductCard.classList.remove('inactive')
 
-            targetContainer.appendChild(productCard)
+                simpleProductCard.querySelector('.card-image img').src = product.featured_image
+                simpleProductCard.querySelector('.card-image img').alt = product.title
+                simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
+                simpleProductCard.querySelector('.product-color').innerText = product.product_title_color_descriptor
+                simpleProductCard.querySelector('a').href = product.handle
 
-        })
-    }
+                targetContainer.appendChild(simpleProductCard)
 
-    function buildRecentlySearched(targetContainer) {
+            })
+        }
 
-        console.log('BUILDING RECENT SEARCHES')
+        function buildRecentlySearched(targetContainer) {
 
-        if(recentSearches == null) return
+            if(recentSearches == null) return
 
-        recentOrPopularHeader.innerText = 'Recent Searches'
+            recentOrPopularHeader.innerText = 'Recent Searches'
 
-        recentOrPopularContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
+            recentOrPopularContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
 
-        const reversed = recentSearches.reverse()
+            const reversed = recentSearches.reverse()
 
-        reversed.forEach((search, i) => {
+            reversed.forEach((search, i) => {
 
-            if(i > 3) return
+                if(i > 3) return
 
-            const searchItem = document.createElement('li')
-            searchItem.innerHTML = `<a href="/search?q=${search}">${search}</a>`
-            targetContainer.appendChild(searchItem)
+                const searchItem = document.createElement('li')
+                searchItem.innerHTML = `<a href="/search?q=${search}">${search}</a>`
+                targetContainer.appendChild(searchItem)
 
-        })
-    }
+            })
+        }
+
+        function buildXGenSearchResultsForSearchHeader(targetContainer, resultsArr) {
+
+            console.log('??????')
+            console.log(resultsArr)
+            console.log(targetContainer)
+
+            if(!targetContainer) return
+
+            targetContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
+            recentOrTrendingHeader.innerText = 'Top Products'
+
+            if(resultsArr.length == 0) {
+                const noResults = document.createElement('li')
+                noResults.innerText = 'No results found'
+                targetContainer.appendChild(noResults)
+                return
+            }
+
+            resultsArr.forEach((result, i ) => {
+
+                if(i > 3) return
+                
+                let formattedProductTitle = result.prod_name
+
+                // need to handl if 1. metafields does not exist, 2. hammitt / custom metafields do not exist, and 3. if the bottom level metafields do not exist in order to safely format title
+                // also need to move this into the search input and trigger after debouncing.
+                // finally need to add loading animation between search and result states
+
+                
+
+                // const prodTypeMetafield = result.metafields.custom.product_title_type
+                // const prodColorDescriptorMetafield = result.metafields.custom.product_title_color_descriptor
+                // const prodSizeMetafield = result.metafields.hammitt.size    
+
+                // handle proper name formatting
+                // if(prodTypeMetafield && prodColorDescriptorMetafield && prodSizeMetafield) {
+                //     formattedProductTitle = `${prodTypeMetafield} ${product.product_size}`
+                // } 
+
+
+
+                const simpleProductCard = document.querySelector('[data-basic-card-template]').cloneNode(true)
+
+                simpleProductCard.classList.remove('inactive')
+
+                simpleProductCard.querySelector('.card-image img').src = result.featured_image.src
+                simpleProductCard.querySelector('.card-image img').alt = result.prod_name
+                simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
+                // simpleProductCard.querySelector('.product-color').innerText = prodColorDescriptorMetafield || ''
+                simpleProductCard.querySelector('a').href = result.product_url
+
+                targetContainer.appendChild(simpleProductCard)
+
+            })
+
+        }
+
+        // function buildXGenSearchResultsForCollectionGrid(targetContainer, resultsArr) {
+
+        //     if(!targetContainer) return
+
+        //     targetContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
+
+        //     if(resultsArr.length == 0) {
+        //         const noResults = document.createElement('li')
+        //         noResults.innerText = 'No results found'
+        //         targetContainer.appendChild(noResults)
+        //         return
+        //     }
+
+        //     resultsArr.forEach((result) => {
+
+        //         const productCard = document.querySelector('[data-complex-card-template]').cloneNode(true)
+
+        //         productCard.classList.remove('inactive')
+
+        //         productCard.querySelector('.card__media img').src = result.featured_image.src
+        //         productCard.querySelector('.card__media img').alt = result.prod_name
+        //         productCard.querySelector('.full-unstyled-link').href = result.product_url
+
+
+        //         productCard.querySelector('.card__heading').innerText = result.title
+
+        //         productCard.querySelector('.price-item--regular').innerText = result.price.formatted
+        //         productCard.querySelector('.card__seo-text').innerText = result.product_title_color_descriptor
+
+        //         targetContainer.appendChild(productCard)
+
+        //     })
+
+        // }
 
 })
 
@@ -142,5 +226,55 @@
             <h5 class="product-color"></h5>
         </div>
     </a>
+</li>
+
+<li data-complex-card-template class="grid__item complex-product-card-template--li inactive">
+    <div class="card-wrapper">
+        <div class="card card--standard" data-json="">
+            {% comment %} swym button needs init here {% endcomment %}
+            <div class="card__inner ratio">
+                <div class="card__media">
+                    <div class="media media--transparent media--hover-effect">
+                        <img class="motion-reduce fade" src="" alt="">
+                    </div>
+                </div>
+                <div class="card__content">
+                    <div class="card__badge top left">
+                        <span class="badge tag-badge badge--top-right"></span>
+                    </div>
+                    <div class="quick-add__wrapper">
+                        <quick-add>
+                            <form>
+                                <small class="label"></small>
+                                <button data-id="" class="quick-add-btn"></button>
+                            </form>
+                        </quick-add>
+                    </div>
+                </div>
+            </div>
+            <div class="card__content card__main-content">
+                <div class="card__information">
+                    <h3 class="card__heading h4">
+                        <a href="" class="full-unstyled-link"></a>
+                        <div class="price">
+                            <div class="price__container">
+                                <div class="price__regular">
+                                    <span class="visually-hidden visually-hidden--inline">Regular price</span>
+                                    <span class="price-item price-item--regular price_change">
+                                      {% comment %} price here {% endcomment %}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </h3>
+                    <div class="card-information">
+                        <small class="card__seo-text no-seo-tag">
+                            {% comment %} color silhouette {% endcomment %}
+                        </small>        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </li>
 
