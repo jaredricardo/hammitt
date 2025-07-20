@@ -19,8 +19,8 @@ class PredictiveSearch extends HTMLElement {
     }, 300).bind(this));
     this.input.addEventListener('focus', this.onFocus.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
-    this.addEventListener('keyup', this.onKeyup.bind(this));
-    this.addEventListener('keydown', this.onKeydown.bind(this));
+    // this.addEventListener('keyup', this.onKeyup.bind(this));
+    // this.addEventListener('keydown', this.onKeydown.bind(this));
   }
 
   getQuery() {
@@ -30,24 +30,23 @@ class PredictiveSearch extends HTMLElement {
   async onChange() {
     const searchTerm = this.getQuery();
 
-    console.log(searchTerm)
-
-    const results = await xg.search.getResults({
-      query: searchTerm, 
-        options: {
-            collection: 'default', 
-            deploymentId:'acf20249-770a-4e8f-8407-ab4c8527df46'
-        }
-    })    
-
-    console.log(results);
-
     if (!searchTerm.length) {
       this.close(true);
       return;
     }
 
-    this.getSearchResults(searchTerm);
+    const results = await xg.search.getResults({
+      query: searchTerm, 
+        options: {
+          collection: 'default', 
+          deploymentId:'acf20249-770a-4e8f-8407-ab4c8527df46'
+        }
+    })    
+
+     buildXGenSearchResultsForSearchHeader(results.items, searchTerm);
+
+    //  old get search results method turned off for now
+    // this.getSearchResults(searchTerm);
   }
 
   onFormSubmit(event) {
@@ -236,3 +235,83 @@ class PredictiveSearch extends HTMLElement {
 }
 
 customElements.define('predictive-search', PredictiveSearch);
+
+function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
+
+  const targetContainer = document.querySelector('.initial-search-modal-content .recent-or-trending-products ul')
+  const recentOrTrendingHeader = document.querySelector('.initial-search-modal-content .recent-or-trending-products h4')
+  const linkToAllQueryResults = document.querySelector('.initial-search-modal-content .rot-header-container a')
+
+  if(!targetContainer) return
+
+  targetContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
+  recentOrTrendingHeader.innerText = 'Top Products'
+
+  if(resultsArr.length == 0) {
+      const noResults = document.createElement('li')
+      noResults.innerText = 'No results found'
+      targetContainer.appendChild(noResults)
+      return
+  }
+
+  resultsArr.forEach((result, i ) => {
+
+    if(i > 3) return
+    
+    let formattedProductTitle = result.prod_name
+    let productSize = result.metafields.hammitt.size || null
+    let productColorDescriptor = result.metafields.custom.product_title_color_descriptor || null
+    let productTitleType = result.metafields.custom.product_title_type || null
+    let useDescriptor = false
+
+    if(productSize !== null && productColorDescriptor !== null && productTitleType !== null) {
+
+      let finalSizeString = ''
+
+      switch(productSize) {
+        case 'Small':
+          finalSizeString = 'sml'
+          break
+        case 'Medium':
+          finalSizeString = "med"
+          break
+        case 'Large':
+          finalSizeString = "lrg"
+          break
+        case 'Extra Large':
+          finalSizeString = "xl"
+          break
+        default:
+          finalSizeString = productSize
+      }
+
+      formattedProductTitle = `${productTitleType} ${finalSizeString}`
+      useDescriptor = true   
+    }
+
+    const simpleProductCard = document.querySelector('[data-basic-card-template]').cloneNode(true)
+
+    simpleProductCard.classList.remove('inactive')
+
+    simpleProductCard.querySelector('.card-image img').src = result.featured_image.src
+    simpleProductCard.querySelector('.card-image img').alt = result.prod_name
+    simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
+
+    if(useDescriptor) {
+        simpleProductCard.querySelector('.product-color').innerText = productColorDescriptor
+    }
+
+    simpleProductCard.querySelector('a').href = result.product_url
+
+    targetContainer.appendChild(simpleProductCard)
+  })
+
+  if(resultsArr.length > 3) {
+    linkToAllQueryResults.classList.remove('inactive')
+    linkToAllQueryResults.href = `/search?q=${searchTerm}&type=product`
+    linkToAllQueryResults.innerText = `View All (${resultsArr.length})`
+  } else {
+    linkToAllQueryResults.classList.add('inactive')
+  }
+
+}

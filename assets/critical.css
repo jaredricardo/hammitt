@@ -345,3 +345,23 @@
 .complex-product-card-template--li.inactive {
   display: none;  
 }
+
+.rot-header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.rot-header-container a {
+  text-decoration: underline;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 2rem;
+}
+
+.rot-header-container a.inactive {
+  display: none;
+}

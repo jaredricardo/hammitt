@@ -660,7 +660,11 @@
                 
                 <div class="initial-search-modal-content page-width">
                   <div class="recent-or-trending-products">
-                    <h4>Trending Now</h4>
+                    <div class="rot-header-container">
+                        <h4>Trending Now</h4>
+                        <a href="{{ routes.search_url }}" class="number-of-x-gen-results inactive"></a>
+                    </div>
+                    
                     <ul>
                       {% for block in trending_now_products %}
                         {% for product in block.settings.trending_products %}
