@@ -28,10 +28,22 @@ class PredictiveSearch extends HTMLElement {
   }
 
   async onChange() {
-    const searchTerm = this.getQuery();
+    const searchTerm = this.getQuery()
+    const numXGenSearchResults = document.querySelector('.number-of-x-gen-results')
+    const loader = `
+    <div class="loading-overlay__spinner predictive-search-spinner">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+        </svg>
+    </div>`
+
+    document.querySelector('.initial-search-modal-content .recent-or-trending-products ul').innerHTML = loader
+
 
     if (!searchTerm.length) {
       this.close(true);
+      document.querySelector('.predictive-search-spinner').remove()
+      numXGenSearchResults.classList.add('inactive')
       return;
     }
 
@@ -248,10 +260,12 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
   recentOrTrendingHeader.innerText = 'Top Products'
 
   if(resultsArr.length == 0) {
-      const noResults = document.createElement('li')
-      noResults.innerText = 'No results found'
-      targetContainer.appendChild(noResults)
-      return
+    const noResults = document.createElement('li')
+    linkToAllQueryResults.classList.add('inactive')
+    document.querySelector('.predictive-search-spinner').remove()
+    noResults.innerText = 'No results found'
+    targetContainer.appendChild(noResults)
+    return
   }
 
   resultsArr.forEach((result, i ) => {
@@ -298,7 +312,7 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
     simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
 
     if(useDescriptor) {
-        simpleProductCard.querySelector('.product-color').innerText = productColorDescriptor
+      simpleProductCard.querySelector('.product-color').innerText = productColorDescriptor
     }
 
     simpleProductCard.querySelector('a').href = result.product_url
@@ -313,5 +327,5 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
   } else {
     linkToAllQueryResults.classList.add('inactive')
   }
-
+  document.querySelector('.predictive-search-spinner').remove()
 }

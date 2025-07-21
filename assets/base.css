@@ -3962,6 +3962,13 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   margin: 0;
 }
 
+.initial-search-modal-content .recent-or-trending-products ul:has(.loading-overlay__spinner),
+.initial-search-modal-content .recent-or-popular-searches ul:has(.loading-overlay__spinner) {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .initial-search-modal-content .recent-or-trending-products ul {
   flex-direction: row;
   gap: 2rem;

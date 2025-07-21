@@ -666,7 +666,7 @@
                     </div>
                     
                     <ul>
-                      {% for block in trending_now_products %}
+                      {% for block in trending_now_products %}  
                         {% for product in block.settings.trending_products %}
                           <li data-basic-card-template class="basic-product-card-template--li">
                               <a href="{{ product.url }}">
