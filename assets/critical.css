@@ -366,3 +366,26 @@
 .rot-header-container a.inactive {
   display: none;
 }
+
+.native-shopify-search-results {
+  display: none;
+}
+
+#x-gen-search-results-container .product-grid:has(.collection-load-spinner) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-search-grid:has(#ProductGridContainerXGen) [role="status"],
+.main-search-grid:has(.x-gen-no-results) minty-fresh-filters {
+  display: none;
+}
+
+.collection-load-spinner {
+  width: 4rem !important;
+}
+
+#x-gen-search-results-container .card__content {
+  z-index: 1;
+}

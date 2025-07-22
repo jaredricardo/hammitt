@@ -12,27 +12,6 @@
         const params = new URLSearchParams(queryString)
         const searchValue = params.get('q')
 
-        if(recentOrTrendingContainer) {
-            buildRecentlyViewedProductsInSearch(recentOrTrendingContainer)
-        }    
-
-        // search value means we are on a search results page
-        if(searchValue) {
-            if(recentSearches === null) {
-                recentSearches = []
-                recentSearches.push(searchValue)
-                localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
-            } else if(!recentSearches.includes(searchValue)) {
-                recentSearches.push(searchValue)
-                localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
-            }
-        } 
-
-        if(recentOrPopularContainer) {
-            buildRecentlySearched(recentOrPopularContainer)
-        }    
-
-
         window.xg = new window.XGenSdkCore.XGenClient({
             key: 'c5930cf4b8c47ffb15253a21a13a0a54',
             secret: '5331b9792786c978024b2cd5336a18f4dd24ffe924576e38e0538535ef1fc88034ccd4c0c225de434700152bd22aa23eb5c05c057ce265d6e5b46c080295454a',
@@ -40,6 +19,29 @@
             trackerId: 'a0d9171b91b2403a9146d160bb69148c'
         })
 
+        if(recentOrTrendingContainer) {
+            buildRecentlyViewedProductsInSearch(recentOrTrendingContainer)
+        }    
+
+        // search value means we are on a search results page
+        if(searchValue) {
+            buildXGenSearchResultsForCollectionGrid(document.querySelector('#x-gen-search-results-container .product-grid'), searchValue)
+            if(recentSearches === null) {
+                recentSearches = []
+                recentSearches.push(searchValue)
+                localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
+            } else if(!recentSearches.includes(searchValue)) {
+                recentSearches.unshift(searchValue)
+                if(recentSearches.length > 4) {
+                    recentSearches.splice(4, recentSearches.length)
+                }
+                localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
+            }
+        } 
+
+        if(recentOrPopularContainer) {
+            buildRecentlySearched(recentOrPopularContainer)
+        }    
 
         function getRecentlyViewedProductsCookie() {
             // taken and slightly modified from 'recently-viewed.js' RecentlyViewed class
@@ -89,15 +91,15 @@
 
         function buildRecentlySearched(targetContainer) {
 
+            const recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
+
             if(recentSearches == null) return
 
             recentOrPopularHeader.innerText = 'Recent Searches'
 
             recentOrPopularContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
 
-            const reversed = recentSearches.reverse()
-
-            reversed.forEach((search, i) => {
+            recentSearches.forEach((search, i) => {
 
                 if(i > 3) return
 
@@ -108,40 +110,165 @@
             })
         }
 
-        // function buildXGenSearchResultsForCollectionGrid(targetContainer, resultsArr) {
+        function buildCardTag(product) {
 
-        //     if(!targetContainer) return
+            if(!product) return
 
-        //     targetContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
+            // copied and converted and modified the liquid tag logic from badge-logic.liquid into this js version
 
-        //     if(resultsArr.length == 0) {
-        //         const noResults = document.createElement('li')
-        //         noResults.innerText = 'No results found'
-        //         targetContainer.appendChild(noResults)
-        //         return
-        //     }
+            const tags = product.product_types || []
+            const only_a_few_left_threshold = {{ settings.only_a_few_left_threshold | json }}
+            const only_a_few_left_text = {{ settings.only_a_few_left_text | json }}
 
-        //     resultsArr.forEach((result) => {
+            // build html returns 
+            if (product.available === false) {
+                return `
+                        <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">
+                            Sold Out
+                        </span>
+                    `
+            }
 
-        //         const productCard = document.querySelector('[data-complex-card-template]').cloneNode(true)
+            if (product.quantity <= only_a_few_left_threshold && product.available) {
+                return `
+                        <span class="badge red-badge">
+                            <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.829782 17.2985V15.2521C0.829782 13.792 1.12533 12.6916 1.73311 11.8872C2.27688 11.1679 2.99906 10.7753 3.63613 10.4287C4.00726 10.227 4.35797 10.0365 4.65795 9.797C4.70153 9.76216 4.74205 9.73147 4.77916 9.70301C4.84045 9.65633 4.90344 9.60838 4.91979 9.58504C4.92319 9.57993 4.93 9.55563 4.93 9.5C4.93 9.44437 4.92319 9.42007 4.91979 9.41528C4.90344 9.39194 4.84011 9.34398 4.77916 9.29731C4.74205 9.26917 4.70187 9.23848 4.65795 9.20331C4.35797 8.96386 4.00726 8.77331 3.63613 8.57158C2.99906 8.22534 2.27688 7.83242 1.73311 7.11341C1.12533 6.30904 0.829782 5.2083 0.829782 3.74853V1.7021C0.829782 1.28681 0.252986 1.07484 0.249241 1.07357L0.00204182 0.987885V0H12V0.987565L11.7528 1.07325C11.747 1.07516 11.1723 1.28617 11.1723 1.70178V3.74821C11.1723 5.2083 10.8767 6.30872 10.2689 7.11309C9.72517 7.83243 9.00298 8.22502 8.36592 8.57126C7.99478 8.77299 7.64407 8.96354 7.3441 9.20299C7.30051 9.23784 7.25999 9.26853 7.22288 9.29699C7.16159 9.34366 7.0986 9.39162 7.08226 9.41496C7.07885 9.42007 7.07204 9.44437 7.07204 9.49968C7.07204 9.55499 7.07885 9.57961 7.08226 9.58472C7.0986 9.60806 7.16193 9.65602 7.22288 9.70269C7.25999 9.73083 7.30017 9.76152 7.3441 9.79669C7.64407 10.0361 7.99478 10.2267 8.36592 10.4284C9.00298 10.7747 9.72517 11.1676 10.2689 11.8869C10.8767 12.6913 11.1723 13.792 11.1723 15.2518V17.2982C11.1723 17.7135 11.7491 17.9255 11.7528 17.9268L12 18.0124V19H0.00204182V18.2599L-9.53674e-07 18.0131L0.247197 17.9274C0.252985 17.9252 0.829782 17.7135 0.829782 17.2979V17.2985ZM10.4157 15.2521C10.4157 12.3642 9.23588 11.7226 7.98661 11.0435C7.60287 10.8348 7.20586 10.619 6.85413 10.3383C6.81531 10.3073 6.77922 10.2801 6.74653 10.2548C6.53474 10.0934 6.31547 9.92649 6.31547 9.50032C6.31547 9.07415 6.5344 8.90727 6.74653 8.74582C6.77956 8.72088 6.81531 8.69339 6.85413 8.66238C7.2062 8.38136 7.60287 8.16588 7.98661 7.95711C9.23588 7.27806 10.4157 6.63673 10.4157 3.74853V2.05729H1.58636V3.74853C1.58636 6.63641 2.76617 7.27806 4.01544 7.95711C4.39917 8.16588 4.79619 8.38168 5.14792 8.66238C5.18673 8.69339 5.22282 8.72088 5.25551 8.74582C5.4673 8.90727 5.68658 9.07415 5.68658 9.50032C5.68658 9.92649 5.46764 10.0934 5.25551 10.2548C5.22248 10.2798 5.18673 10.3073 5.14792 10.3383C4.79585 10.6193 4.39917 10.8348 4.01544 11.0435C2.76617 11.7226 1.58636 12.3639 1.58636 15.2521V16.9433H10.4157V15.2521Z" fill="#7D2C34"/>
+                            </svg>
+                            ${only_a_few_left_text}
+                        </span>
+                    `
+            }
 
-        //         productCard.classList.remove('inactive')
+            if(tags.includes('new arrival') || tags.includes('tag: new arrival')) {
+                return `
+                    <span class="badge tag-badge badge--top-right">
+                        New Arrival
+                    </span>
+                `
+            }
 
-        //         productCard.querySelector('.card__media img').src = result.featured_image.src
-        //         productCard.querySelector('.card__media img').alt = result.prod_name
-        //         productCard.querySelector('.full-unstyled-link').href = result.product_url
+            if(tags.includes('limited-release')) {
+                return `
+                    <span class="badge gray-badge">
+                        <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.856 2.35753C10.6636 2.2863 9.72418 1.33747 9.65373 0.144301C9.64902 0.0631155 9.58171 0 9.50052 0C9.41934 0 9.35203 0.0631154 9.34732 0.144039C9.27608 1.33695 8.3249 2.28551 7.14404 2.35727C7.06312 2.36225 7 2.42955 7 2.51048C7 2.59166 7.06312 2.65897 7.14404 2.66394C8.32438 2.73518 9.27504 3.67641 9.34706 4.85596C9.35203 4.93688 9.41934 5 9.50026 5C9.58145 5 9.64875 4.93688 9.65347 4.85596C9.7247 3.67615 10.6636 2.73465 11.8557 2.66394C11.9369 2.65923 12 2.59192 12 2.51074C12 2.42955 11.9369 2.36225 11.856 2.35753Z" fill="#493D3C"/>
+                            <path d="M9.83303 7.69781C7.37404 7.61138 5.40537 5.62743 5.31954 3.16756C5.3163 3.07437 5.24046 3 5.14728 3H4.89123C4.79805 3 4.72221 3.07408 4.71897 3.16726C4.63167 5.62714 2.62831 7.61109 0.167558 7.69751C0.0740784 7.70104 0 7.77688 0 7.87007V7.99794V8.12582C0 8.219 0.0740784 8.29484 0.167264 8.29808C2.62802 8.3848 4.63137 10.3726 4.71868 12.8327C4.72191 12.9259 4.79775 13 4.89094 13H5.14698C5.24017 13 5.31601 12.9259 5.31924 12.8324C5.40508 10.3726 7.37345 8.3845 9.83274 8.29778C9.92592 8.29455 10 8.21871 10 8.12552V7.86948C10 7.7763 9.92592 7.70045 9.83274 7.69722L9.83303 7.69781Z" fill="#493D3C"/>
+                        </svg>
+                        Limited Release
+                    </span>
+                `
+            }
+            if(tags.includes('top gift') || tags.includes('tag: top gift')) {
+                return `
+                    <span class="badge red-badge">
+                        <div class="gift-gif" style="background-image: url('{{ 'gift-gif.gif' | asset_url }}');" aria-label="Gift Icon"></div>
+                        Top Gift
+                    </span>
+                `
+            }
 
 
-        //         productCard.querySelector('.card__heading').innerText = result.title
+            let usesBasicTag = false
+            let basicTagHtml = 'NO TAG HTML'
+            for(let i = 0; i < tags.length; i++) {
+                if(tags[i].includes('tag:')) {
+                    usesBasicTag = true
+                    let tag = tags[i].replace('tag:', '').trim().toLowerCase()
+                    basicTagHtml = `
+                        <span class="badge tag-badge badge--${tag} badge--top-right">
+                            ${ tag }
+                        </span>
+                    `
+                    break
+                }
+            }
 
-        //         productCard.querySelector('.price-item--regular').innerText = result.price.formatted
-        //         productCard.querySelector('.card__seo-text').innerText = result.product_title_color_descriptor
+            return usesBasicTag ? basicTagHtml : null
+        }   
 
-        //         targetContainer.appendChild(productCard)
+        async function buildXGenSearchResultsForCollectionGrid(targetContainer, searchTerm) {
 
-        //     })
+            if(!targetContainer || !searchTerm) return
 
-        // }
+            const results = await window.xg.search.getResults({
+                query: searchTerm, 
+                    options: {
+                    collection: 'default', 
+                    deploymentId:'acf20249-770a-4e8f-8407-ab4c8527df46'
+                }
+            }) 
+
+            console.log(results)
+
+            if(results.items.length == 0) {
+                const noResults = document.createElement('li')
+                noResults.classList.add('x-gen-no-results')
+                document.querySelector('.collection-load-spinner').remove()
+                noResults.innerText = 'No results found'
+                targetContainer.appendChild(noResults)
+                return
+            }
+
+            results.items.forEach((result) => {
+
+                const productCard = document.querySelector('[data-complex-card-template]').cloneNode(true)
+                let formattedProductTitle = result.prod_name
+                let productSize = result.metafields?.hammitt?.size || null
+                let productColorDescriptor = result.metafields?.custom?.product_title_color_descriptor || null
+                let productTitleType = result.metafields?.custom?.product_title_type || null
+                let useDescriptor = false
+                // no idea why x-gen calls tags product_types, but it does
+                const tagHTML = buildCardTag(result)
+
+                console.log(tagHTML)
+
+                if(productSize !== null && productColorDescriptor !== null && productTitleType !== null) {
+
+                    let finalSizeString = ''
+
+                    switch(productSize) {
+                        case 'Small':
+                        finalSizeString = 'sml'
+                        break
+                        case 'Medium':
+                        finalSizeString = "med"
+                        break
+                        case 'Large':
+                        finalSizeString = "lrg"
+                        break
+                        case 'Extra Large':
+                        finalSizeString = "xl"
+                        break
+                        default:
+                        finalSizeString = productSize
+                    }
+
+                    formattedProductTitle = `${productTitleType} ${finalSizeString}`
+                    useDescriptor = true   
+                }
+
+                productCard.querySelector('.card__media img').src = result.featured_image.src
+                productCard.querySelector('.card__media img').alt = result.prod_name
+
+                productCard.querySelector('.card__heading .full-unstyled-link').href = result.product_url
+                productCard.querySelector('.card__heading a').innerText = formattedProductTitle
+                productCard.querySelector('.card__badge').innerHTML = tagHTML
+
+                if(useDescriptor) {
+                    productCard.querySelector('.card__seo-text').innerText = productColorDescriptor
+                } 
+
+                productCard.querySelector('.price__regular .price-item--regular').innerHTML = `${result.currency_symbol}${result.price}`
+
+                productCard.classList.remove('inactive')
+                targetContainer.appendChild(productCard)
+
+            })
+
+            document.querySelector('.collection-load-spinner').remove()
+
+        }
 
 })
 
@@ -161,7 +288,7 @@
 
 <li data-complex-card-template class="grid__item complex-product-card-template--li inactive">
     <div class="card-wrapper">
-        <div class="card card--standard" data-json="">
+        <div class="card card--{{ settings.card_style }}  product-card"  style="--ratio-percent: 100%;" data-json="">
             {% comment %} swym button needs init here {% endcomment %}
             <div class="card__inner ratio">
                 <div class="card__media">
@@ -170,6 +297,9 @@
                     </div>
                 </div>
                 <div class="card__content">
+                    <div class="card__information" style="display: none;">
+                        {% comment %} seems to stay empty? {% endcomment %}
+                    </div>
                     <div class="card__badge top left">
                         <span class="badge tag-badge badge--top-right"></span>
                     </div>
@@ -208,4 +338,3 @@
         </div>
     </div>
 </li>
-

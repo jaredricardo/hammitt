@@ -273,9 +273,9 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
     if(i > 3) return
     
     let formattedProductTitle = result.prod_name
-    let productSize = result.metafields.hammitt.size || null
-    let productColorDescriptor = result.metafields.custom.product_title_color_descriptor || null
-    let productTitleType = result.metafields.custom.product_title_type || null
+    let productSize = result.metafields?.hammitt?.size || null
+    let productColorDescriptor = result.metafields?.custom?.product_title_color_descriptor || null
+    let productTitleType = result.metafields?.custom?.product_title_type || null
     let useDescriptor = false
 
     if(productSize !== null && productColorDescriptor !== null && productTitleType !== null) {

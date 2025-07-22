@@ -207,8 +207,20 @@
         </div>
       {%- endif -%}
     {%- endif -%}
+
+    <div id="x-gen-search-results-container">
+      <div class="page-width">
+        <ul id="ProductGridContainerXGen" class="grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ section.settings.columns_desktop }}-col-desktop{% endif %}" role="list" >
+          <div class="loading-overlay__spinner collection-load-spinner">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+            </svg>
+          </div>
+        </ul>
+      </div>
+    </div>
     
-    <div id="ProductGridContainer">
+    <div id="ProductGridContainer" class="native-shopify-search-results">
       {%- if search.results.size == 0 and search.filters != empty -%}
         <div class="template-search__results collection collection--empty page-width" data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>
@@ -230,7 +242,7 @@
                 class="load-previous"
               >
                 <a id="loadprev" href="{{ paginate.previous.url }}">
-                  {% comment %} <span id="product-loader"></span> {% endcomment %}
+                  <span style="display:none;" id="product-loader"></span>
                   <span class="loader-text">LOAD MORE</span>
                 </a>
               </div>
@@ -246,8 +258,10 @@
                 <li class="grid__item">
                   {%- case item.object_type -%}
                     {%- when 'product' -%}
-                      {% comment %} FOR EE GWP  {% endcomment %}
+                    
                       {% liquid
+                      
+                        # FOR EE GWP 
                         assign IDayPromotionProduct = false
 
                         # PreOrder
