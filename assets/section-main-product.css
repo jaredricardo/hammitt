@@ -1514,6 +1514,15 @@ input.iStock-notify-btn {
 .pdp-hero-section .pdp-info-col .custom-variant-options .custom-variant-list:not(.swiper-initialized) .section-productgrid .swiper-slide{min-width:70px;}
 /* .pdp-hero-section .pdp-info-col .custom-variant-options ul.swiper.swiper-initialized li{max-width:unset;} */
 
+@media screen and (max-width: 781px) {
+  .pdp-hero-section .pdp-info-col .custom-variant-options ul:not(.swiper) {
+    column-gap: 2vw;
+  }
+  .pdp-hero-section .pdp-info-col .custom-variant-options ul li .swatch_image-a {
+    max-width: 100% !important;
+  }
+}
+
 
 .pdp-hero-section .pdp-info-col .custom-variant-title{font-size:13px;font-size: 13px;line-height:1.125;display: flex;gap: 7px;margin-bottom:10px; align-items: center;}
 .pdp-hero-section .pdp-info-col .custom-variant-title span{display:inline-block;padding-top:2px;}
