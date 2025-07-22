@@ -303,6 +303,58 @@
         "mobile_padding_bottom": 0
       }
     },
+    "image_with_text_BNDXDw": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_6ka3tt": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>LIMITED DROP</h6>",
+            "text_style": "body"
+          }
+        },
+        "heading_WGYzq8": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE VIP REV LRG FLOW STATE",
+            "heading_size": "h1"
+          }
+        },
+        "button_WUQYDC": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://products/vip-rev-lrg-crossbody-flow-state-brushed-gold",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "text_6ka3tt",
+        "heading_WGYzq8",
+        "button_WUQYDC"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/Untitled_design_2.gif",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "image_banner_3FKmDP": {
       "type": "image-banner",
       "blocks": {
@@ -328,6 +380,7 @@
         "heading_YTTkDn",
         "buttons_nAywtp"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -371,6 +424,7 @@
     },
     "slider_collection_CwB3RG": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -586,14 +640,38 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/v-Rectangle_597_1.jpg",
-            "title": "",
+            "image": "shopify://shop_images/everybag.jpg",
+            "title": "EVERY BAGS",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "",
-            "link": "shopify://products/vip-rev-lrg-crossbody-flow-state-brushed-gold",
+            "link": "shopify://collections/everyday-bags",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 180,
+            "cta_width_desktop": 236,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
+        "column_WKNDbp": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/raffia_0f180132-5cdd-4f44-a779-99abab924609.jpg",
+            "title": "RAFFIA SEASON",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/raffia",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -610,14 +688,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Untitled_design_2.gif",
-            "title": "",
+            "image": "shopify://shop_images/shop-new-arrivals.jpg",
+            "title": "WORK  BAGS",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "",
-            "link": "shopify://products/vip-rev-lrg-crossbody-flow-state-brushed-gold",
+            "link": "shopify://collections/the-work-bag",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -634,14 +712,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_733_1.jpg",
-            "title": "",
+            "image": "shopify://shop_images/speical-night.jpg",
+            "title": "SPECIAL NIGHT",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
             "link_label": "",
-            "link": "shopify://products/vip-rev-lrg-crossbody-flow-state-brushed-gold",
+            "link": "shopify://collections/a-night-out",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -657,27 +735,28 @@
       },
       "block_order": [
         "column_cm4gE7",
+        "column_WKNDbp",
         "column_HRKVet",
         "column_U3xJBe"
       ],
       "settings": {
-        "title": "New VIP Rev Lrg Flow State",
+        "title": "",
         "title_color": "#000000",
         "heading_size": "h1",
-        "paragraph": "<p><a href=\"/products/vip-rev-lrg-crossbody-flow-state-brushed-gold\" title=\"VIP Rev | Flow State/Brushed Gold | Lrg\"><strong>SHOP NOW</strong></a></p>",
+        "paragraph": "",
         "paragraph_color": "",
         "larger_text": false,
         "image_width": "full",
         "image_ratio": "square",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "columns_gap": 2,
         "row_gap": 2,
         "mobile_columns_gap": 2,
         "mobile_row_gap": 20,
         "column_alignment": "center",
-        "text_position": "overlay_type",
+        "text_position": "bottom",
         "background_style": "none",
         "button_label": "",
         "button_link": "shopify://products/vip-rev-lrg-crossbody-flow-state-brushed-gold",
@@ -1114,6 +1193,7 @@
     "multicolumn_gQ3jM7",
     "image_banner_wjLTRm",
     "slider_featured_collection_bTka8m",
+    "image_with_text_BNDXDw",
     "image_banner_3FKmDP",
     "slider_collection_CwB3RG",
     "home-hero-section",
