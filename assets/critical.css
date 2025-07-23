@@ -387,5 +387,7 @@
 }
 
 #x-gen-search-results-container .card__content {
-  z-index: 1;
+  /* pasting some css styles here that weren't getting added to the card__content for some reason. */
+  padding: calc(var(--card-image-padding) + 1rem);
+  display: flex;
 }

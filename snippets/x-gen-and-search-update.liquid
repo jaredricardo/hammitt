@@ -187,6 +187,19 @@
             return usesBasicTag ? basicTagHtml : null
         }   
 
+        function buildCardJson(product){
+            const variant = product.variants[0]
+            if(!variant) return
+            return [{
+                id: product.first_available_variant,
+                available: variant.available,
+                options: variant.options,
+                title: variant.title,
+                color: product.metafields?.custom?.product_title_color_descriptor || product.prod_name,
+                productStyle: product.metafields?.custom?.product_title_color_descriptor || product.prod_name
+            }]   
+        }
+
         async function buildXGenSearchResultsForCollectionGrid(targetContainer, searchTerm) {
 
             if(!targetContainer || !searchTerm) return
@@ -220,8 +233,7 @@
                 let useDescriptor = false
                 // no idea why x-gen calls tags product_types, but it does
                 const tagHTML = buildCardTag(result)
-
-                console.log(tagHTML)
+                const dataJson = buildCardJson(result)
 
                 if(productSize !== null && productColorDescriptor !== null && productTitleType !== null) {
 
@@ -248,12 +260,19 @@
                     useDescriptor = true   
                 }
 
+                productCard.querySelector('.quick-add-btn').setAttribute('data-id', result.first_available_variant)
+                productCard.querySelector('.product-card').setAttribute('data-json', JSON.stringify(dataJson))
+           
                 productCard.querySelector('.card__media img').src = result.featured_image.src
                 productCard.querySelector('.card__media img').alt = result.prod_name
+                // prod_code = product id in x gen API 
+                productCard.querySelector('.swym-button').setAttribute('data-product-id', result.prod_code)
+                productCard.querySelector('.swym-button').setAttribute('data-variant-id', result.variants[0].id)
 
                 productCard.querySelector('.card__heading .full-unstyled-link').href = result.product_url
                 productCard.querySelector('.card__heading a').innerText = formattedProductTitle
                 productCard.querySelector('.card__badge').innerHTML = tagHTML
+                
 
                 if(useDescriptor) {
                     productCard.querySelector('.card__seo-text').innerText = productColorDescriptor
@@ -288,8 +307,20 @@
 
 <li data-complex-card-template class="grid__item complex-product-card-template--li inactive">
     <div class="card-wrapper">
-        <div class="card card--{{ settings.card_style }}  product-card"  style="--ratio-percent: 100%;" data-json="">
-            {% comment %} swym button needs init here {% endcomment %}
+        <div class="card card--{{ settings.card_style }}  product-card"  style="--ratio-percent: 100%;">
+           {% comment %} kept display none until base.css loads {% endcomment %}
+            <button
+               
+                class="swym-button hammitt-custom swym-add-to-wishlist-view-product product_{{product.id}}"
+                data-with-epi="true"
+                data-swaction="addToWishlist"
+                data-product-id="{{ product.id }}"
+                data-variant-id="{{ product.variants[0].id }}"
+                data-product-url="{{ shop.url }}{{ product.url }}"
+                >
+                {% render 'heart-empty' %}
+                {% render 'heart-full' %}
+            </button>
             <div class="card__inner ratio">
                 <div class="card__media">
                     <div class="media media--transparent media--hover-effect">
@@ -305,9 +336,9 @@
                     </div>
                     <div class="quick-add__wrapper">
                         <quick-add>
-                            <form>
-                                <small class="label"></small>
-                                <button data-id="" class="quick-add-btn"></button>
+                            <form class="quick-add__form">
+                                <small class="label">Add to Bag</small>
+                                <button data-id="" class="quick-add-btn">Add to Bag</button>
                             </form>
                         </quick-add>
                     </div>
