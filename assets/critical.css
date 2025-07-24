@@ -371,7 +371,7 @@
   display: none;
 }
 
-#x-gen-search-results-container .product-grid:has(.collection-load-spinner) {
+#x-gen-search-results-container .product-grid:has(.collection-load-spinner.active) {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -382,12 +382,58 @@
   display: none;
 }
 
-.collection-load-spinner {
+.collection-load-spinner.active {
+  display: block !important;
   width: 4rem !important;
 }
-
+.collection-load-spinner {
+  display: none !important;
+}
 #x-gen-search-results-container .card__content {
   /* pasting some css styles here that weren't getting added to the card__content for some reason. */
   padding: calc(var(--card-image-padding) + 1rem);
   display: flex;
+}
+
+fake-details-modal {
+  cursor: pointer;
+}
+
+.modal-content-mobile {
+  /* turned off for new x-gen search modal usasge on both desktop and mobile */
+  display: none !important; 
+}
+
+@media screen and (max-width: 989px) {
+  .x-gen-desktop-and-mobile-modal-opener {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 751px) {
+  .search-modal__content.x-gen-search {
+    padding: 1rem !important;
+  }
+  .search-modal__content.x-gen-search .field {
+    width: 90%;
+  }
+  .search-modal__content.x-gen-search .search-modal__form {
+    justify-content: start !important;
+  }
+  .initial-search-modal-content {
+    margin-top: 2rem !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  .initial-search-modal-content .recent-or-trending-products ul {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem !important;
+  }
+  .initial-search-modal-content.page-width {
+    padding: 0 .75rem;
+  }
+  .initial-search-modal-content .recent-or-trending-products li {
+    max-width: 100% !important;
+  }
 }

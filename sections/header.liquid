@@ -346,9 +346,9 @@
             </details>
           </header-drawer>
         {%- endif -%}
-        <details-modal class="header__search">
-          <details>
-            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+        <fake-details-modal class="header__search">
+          <fake-details>
+            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle new-x-gen-mobile-search-opener" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
               <span>
                 <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation" width="16" height="16" viewBox="0 0 16 16">
                   <path d="M5.64034 11.0127C2.67649 11.0127 0.266602 8.60278 0.266602 5.64041C0.266602 2.67803 2.67649 0.266663 5.64034 0.266663C8.6042 0.266663 11.0126 2.67655 11.0126 5.63892C11.0126 8.6013 8.60272 11.0127 5.64034 11.0127ZM5.64034 1.22055C3.20379 1.22055 1.22049 3.20385 1.22049 5.64041C1.22049 8.07696 3.20379 10.0603 5.64034 10.0603C8.0769 10.0603 10.0602 8.07696 10.0602 5.64041C10.0602 3.20385 8.0769 1.22055 5.64034 1.22055Z" fill="black"/>
@@ -361,7 +361,7 @@
                 </svg>
               </span>
             </summary>
-            <div class="search-modal modal__content content--2" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+            <div class="search-modal modal__content modal-content-mobile" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
               <div class="modal-overlay"></div>
               <div class="search-modal__content zzzzz-1 x-gen-search search-mobile {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
                 {%- if settings.predictive_search_enabled -%}
@@ -420,13 +420,13 @@
               </div>
 
             </div>
-          </details>
-        </details-modal>
+          </fake-details>
+        </fake-details-modal>
       </div>
       {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
         <details-modal class="header__search">
           <details>
-            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle search--2" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
               <span>
                 <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation" width="16" height="16" viewBox="0 0 16 16">
                   <path d="M5.64034 11.0127C2.67649 11.0127 0.266602 8.60278 0.266602 5.64041C0.266602 2.67803 2.67649 0.266663 5.64034 0.266663C8.6042 0.266663 11.0126 2.67655 11.0126 5.63892C11.0126 8.6013 8.60272 11.0127 5.64034 11.0127ZM5.64034 1.22055C3.20379 1.22055 1.22049 3.20385 1.22049 5.64041C1.22049 8.07696 3.20379 10.0603 5.64034 10.0603C8.0769 10.0603 10.0602 8.07696 10.0602 5.64041C10.0602 3.20385 8.0769 1.22055 5.64034 1.22055Z" fill="black"/>
@@ -585,9 +585,9 @@
         <a href="/pages/loyalty" class="header__link--rewards small-hide medium-hide">
           <span>Rivett Club</span>
         </a>
-        <details-modal class="header__search small-hide medium-hide">
+        <details-modal class="header__search open-x-gen-modal-instead">
           <details>
-            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle x-gen-desktop-and-mobile-modal-opener" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
               <span>
                 <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation" width="16" height="16" viewBox="0 0 16 16">
                   <path d="M5.64034 11.0127C2.67649 11.0127 0.266602 8.60278 0.266602 5.64041C0.266602 2.67803 2.67649 0.266663 5.64034 0.266663C8.6042 0.266663 11.0126 2.67655 11.0126 5.63892C11.0126 8.6013 8.60272 11.0127 5.64034 11.0127ZM5.64034 1.22055C3.20379 1.22055 1.22049 3.20385 1.22049 5.64041C1.22049 8.07696 3.20379 10.0603 5.64034 10.0603C8.0769 10.0603 10.0602 8.07696 10.0602 5.64041C10.0602 3.20385 8.0769 1.22055 5.64034 1.22055Z" fill="black"/>
