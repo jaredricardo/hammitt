@@ -32,7 +32,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<script async=\"\" src=\"//asset.fwcdn3.com/js/fwn.js\"></script>\n<fw-embed-feed channel=\"hammitt223858521\" skus=“{{ product.id }}” mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" branding=\"false\" captions=\"false\" player_placement=\"bottom-right\" class=\"needsclick\"></fw-embed-feed>",
+        "custom_liquid": "<script async=\"\" src=\"//asset.fwcdn3.com/js/fwn.js\"></script>\n<fw-embed-feed channel=\"hammitt223858521\" skus={{ product.id }} mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" branding=\"false\" captions=\"false\" player_placement=\"bottom-right\" class=\"needsclick\"></fw-embed-feed>",
         "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 0,
