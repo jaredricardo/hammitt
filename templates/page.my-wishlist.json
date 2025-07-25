@@ -27,24 +27,10 @@
       "settings": {
         "content": "<p><a href=\"/account\" title=\"/account\">Sign in or create an account</a> to save your items permanently, access your saved list from any device, save your addresses for faster checkout and update on items you love.</p>"
       }
-    },
-    "custom_liquid_WBC6pm": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<script async=\"\" src=\"//asset.fwcdn3.com/js/fwn.js\"></script>\n<fw-embed-feed channel=\"hammitt223858521\" skus={{ product.id }} mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" branding=\"false\" captions=\"false\" player_placement=\"bottom-right\" class=\"needsclick\"></fw-embed-feed>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
     }
   },
   "order": [
     "main",
-    "swym_hammitt_custom_wishlist_section_qtAXVr",
-    "custom_liquid_WBC6pm"
+    "swym_hammitt_custom_wishlist_section_qtAXVr"
   ]
 }
