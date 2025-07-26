@@ -60,7 +60,10 @@
 
             recentOrTrendingHeader.innerText = 'Recently Viewed Products'
 
-            recentOrTrendingContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
+            recentOrTrendingContainer.querySelectorAll('li').forEach((li) =>{
+                // hide the default trending products for later usage if there are no results
+                li.classList.add('hidden')
+            })
 
             const reversed = recentlyViewedProducts.reverse()
 

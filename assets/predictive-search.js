@@ -16,7 +16,7 @@ class PredictiveSearch extends HTMLElement {
 
     this.input.addEventListener('input', debounce((event) => {
       this.onChange(event);
-    }, 300).bind(this));
+    }, 100).bind(this));
     this.input.addEventListener('focus', this.onFocus.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
     // this.addEventListener('keyup', this.onKeyup.bind(this));
@@ -30,21 +30,26 @@ class PredictiveSearch extends HTMLElement {
   async onChange() {
     const searchTerm = this.getQuery()
     const numXGenSearchResults = document.querySelector('.number-of-x-gen-results')
+    
     const loader = `
     <div class="loading-overlay__spinner predictive-search-spinner">
         <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
           <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
         </svg>
     </div>`
+    const tempLi = document.createElement('li')
 
-    document.querySelector('.initial-search-modal-content .recent-or-trending-products ul').innerHTML = loader
+    document.querySelectorAll('.recent-or-trending-products .basic-product-card-template--li').forEach((li) => {
+      if(li.classList.contains('trending-now-product')) {
+        li.classList.add('hidden')
+      } else {
+        li.remove();
+      }
+    })
 
-
-    if (!searchTerm.length) {
-      this.close(true);
-      document.querySelector('.predictive-search-spinner').remove()
-      numXGenSearchResults.classList.add('inactive')
-      return;
+    if(!document.querySelector('.predictive-search-spinner')) {
+      tempLi.innerHTML = loader
+      document.querySelector('.initial-search-modal-content .recent-or-trending-products ul').appendChild(tempLi)
     }
 
     const results = await xg.search.getResults({
@@ -55,7 +60,7 @@ class PredictiveSearch extends HTMLElement {
         }
     })    
 
-     buildXGenSearchResultsForSearchHeader(results.items, searchTerm);
+    buildXGenSearchResultsForSearchHeader(results.items, searchTerm)
 
     //  old get search results method turned off for now
     // this.getSearchResults(searchTerm);
@@ -256,15 +261,29 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
 
   if(!targetContainer) return
 
-  targetContainer.querySelectorAll('li').forEach((li) =>{li.remove()})
+  // hide default suggested products
+
+  targetContainer.querySelectorAll('li').forEach((li) =>{
+    if(li.classList.contains('trending-now-product')) {
+      // hide trending now products for later usage if there are no results
+      li.classList.add('hidden')
+    } else {
+      // remove added product from previous build results
+      li.remove()
+    }
+  })
+  
   recentOrTrendingHeader.innerText = 'Top Products'
 
-  if(resultsArr.length == 0) {
-    const noResults = document.createElement('li')
-    linkToAllQueryResults.classList.add('inactive')
-    document.querySelector('.predictive-search-spinner').remove()
+  if(resultsArr.length == 0 || searchTerm.length == 0) {
+    const noResults = document.querySelector('.number-of-x-gen-results')
     noResults.innerText = 'No results found'
-    targetContainer.appendChild(noResults)
+    if(document.querySelector('.predictive-search-spinner')) {
+      document.querySelector('.predictive-search-spinner').remove()
+    }
+    document.querySelectorAll('.trending-now-product').forEach((li) => {
+      li.classList.remove('hidden')
+    })
     return
   }
 
@@ -278,9 +297,9 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
     let productTitleType = result.metafields?.custom?.product_title_type || null
     let useDescriptor = false
 
-    if(productSize !== null && productColorDescriptor !== null && productTitleType !== null) {
+    if(productColorDescriptor !== null && productTitleType !== null) {
 
-      let finalSizeString = ''
+      let finalSizeString = ''  
 
       switch(productSize) {
         case 'Small':
@@ -295,15 +314,18 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
         case 'Extra Large':
           finalSizeString = "xl"
           break
+        case 'One Size':
+          finalSizeString = ""
+          break
         default:
-          finalSizeString = productSize
+          finalSizeString = ""
       }
 
       formattedProductTitle = `${productTitleType} ${finalSizeString}`
       useDescriptor = true   
     }
 
-    const simpleProductCard = document.querySelector('[data-basic-card-template]').cloneNode(true)
+    const simpleProductCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
 
     simpleProductCard.classList.remove('inactive')
 
@@ -327,5 +349,7 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
   } else {
     linkToAllQueryResults.classList.add('inactive')
   }
-  document.querySelector('.predictive-search-spinner').remove()
+  if(document.querySelector('.predictive-search-spinner')) {
+    document.querySelector('.predictive-search-spinner').remove()
+  }
 }

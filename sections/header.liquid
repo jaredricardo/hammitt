@@ -668,7 +668,7 @@
                     <ul>
                       {% for block in trending_now_products %}  
                         {% for product in block.settings.trending_products %}
-                          <li data-basic-card-template class="basic-product-card-template--li">
+                          <li data-basic-card-template class="basic-product-card-template--li trending-now-product">
                               <a href="{{ product.url }}">
                                   <div class="card-image">
                                       <img src="{{ product.featured_image |  image_url: width: 200  }}" alt="{{ product.title }}">
