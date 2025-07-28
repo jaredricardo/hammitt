@@ -56,7 +56,7 @@ class PredictiveSearch extends HTMLElement {
       query: searchTerm, 
         options: {
           collection: 'default', 
-          deploymentId:'acf20249-770a-4e8f-8407-ab4c8527df46'
+          deploymentId:'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
         }
     })    
 
