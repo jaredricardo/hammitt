@@ -837,11 +837,10 @@ class QuickAdd extends HTMLElement {
       this.button.addEventListener('click', this.addItem.bind(this));  
     }
     
-
   }  
   async addItem(event) {
     event.preventDefault();
-
+    console.log('adding item for quick add!!!!!!!!!!!!')
     const target = event.target;
     const itemId = target.getAttribute('data-id');
 

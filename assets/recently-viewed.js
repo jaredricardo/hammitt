@@ -38,7 +38,10 @@ class RecentlyViewed extends HTMLElement {
       title: window.productJSON.title,
       handle: window.productJSON.handle,
       featured_image: window.productJSON.featured_image,
-      product_tags: window.productJSON.tags
+      product_tags: window.productJSON.tags,
+      product_title_type: window.productJSON.product_title_type,
+      product_title_color_descriptor: window.productJSON.product_title_color_descriptor,
+      product_size: window.productJSON.product_size
     };
     if(!this.cookie) {
       this.cookie = [];

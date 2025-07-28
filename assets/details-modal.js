@@ -59,4 +59,17 @@ class DetailsModal extends HTMLElement {
   }
 }
 
-customElements.define('details-modal', DetailsModal);
+customElements.define('details-modal', DetailsModal)
+
+window.addEventListener('DOMContentLoaded', () => {
+  // doing it this somewhat lazy way because: 
+  // 1. I want to keep the modal modal in tact in case we revert (and want to keep the dom structure the same)
+  // 2. because we shouldnt have two modals that do the same thing
+  const fakeDetailsModal = document.querySelector('fake-details-modal')
+  const realModal = document.querySelector('details-modal.open-x-gen-modal-instead')
+  fakeDetailsModal.addEventListener('click', () => {
+    const details = realModal.querySelector('details')
+    details.open = true
+    document.querySelector('.x-gen-search.search-desktop input').focus()
+  })
+})
