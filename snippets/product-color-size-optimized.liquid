@@ -64,12 +64,6 @@
     </div>
     <ul class="custom-variant-list">
       {% for product in colorway_collection %}
-  
-        <script>
-          console.log('!!!')
-          console.log({{ product.title | json }})
-          console.log({{ product.metafields.hammitt.size.value | json }})
-        </script>
 
         {% liquid 
 
@@ -131,9 +125,6 @@
   <div class="variant-picker-group-wrapper">
       <div class="custom-variant-title">
         <span>{{ 'Small:' | upcase }}</span> 
-        {% comment %} {% if curent_product_size == "small" %}
-          <strong>{{ current_product_color }}</strong>
-        {% endif %} {% endcomment %}
         {% if on_special_leather %}
           {% render 'special-care-tooltip' %}
         {% endif %}
@@ -202,16 +193,14 @@
   <div class="variant-picker-group-wrapper">
       <div class="custom-variant-title">
         <span>{{ 'Medium:' | upcase }}</span> 
-        {% comment %} {% if current_product_size == "medium" %}
-          <strong>{{ current_product_color }}</strong>
-        {% endif %} {% endcomment %}
+
         {% if on_special_leather %}
           {% render 'special-care-tooltip' %}
         {% endif %}
       </div>
     <ul class="custom-variant-list">
       {%- for product in colorway_collection -%}
-  
+     
         {% liquid 
         
           assign isCurrent = false
@@ -231,9 +220,13 @@
 
           #######
       
-          unless formatted_size_string == "medium"
+          unless formatted_size_string == "medium" 
             continue
           endunless
+
+          if product.metafields.custom.product_title_size_subcategory == "Short Strap"
+            continue
+          endif
   
           # Only show exclusive product if customer has shareholder tag and seo hidden is 1 #
           if isShareholder == false and product.metafields.seo.hidden == 1
@@ -250,7 +243,80 @@
   
         -%}
   
-          <li data-tooltip="{{ product_color }}" class="{% if isCurrent %} current-swatch {% endif %}">
+          <li data-tooltip="{{ product_color }}" class="{% if isCurrent %} current-swatch {% endif %}" data-test-sub="{{ product.metafialds.custom.product_title_size_subcategory }}">
+            <div class="image customSwatch">
+              <a 
+                {{ isCurrent }}
+                href="{{ product.url }}" 
+                data-product-title="{{ product.title }}" 
+                data-sku="{{ product.selected_or_first_available_variant.sku }}"
+                data-product-img="{{ product.featured_image | img_url: 'medium' }}"
+                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                {% if product.featured_image %}
+                  {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
+                {% endif %}
+              </a>
+            </div>
+          </li>
+  
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <div class="variant-picker-group-wrapper">
+    <div class="custom-variant-title">
+      <span>{{ 'Medium Short Strap:' | upcase }}</span> 
+
+      {% if on_special_leather %}
+        {% render 'special-care-tooltip' %}
+      {% endif %}
+    </div>
+    <ul class="custom-variant-list">
+      {%- for product in colorway_collection -%}
+     
+        {% liquid 
+        
+          assign isCurrent = false
+
+          ####### new way of assigning product title
+
+          assign product_type = product.metafields.custom.product_title_type
+          assign product_color = product.metafields.custom.product_title_color_descriptor
+          assign product_size = product.metafields.hammitt.size.value
+          assign formatted_size_string = null
+          
+          if product_size 
+
+            assign formatted_size_string = product_size | downcase | strip
+
+          endif
+
+          #######
+      
+          unless formatted_size_string == "medium" 
+            continue   
+          endunless
+
+          if product.metafields.custom.product_title_size_subcategory != 'Short Strap'
+            continue
+          endif
+  
+          # Only show exclusive product if customer has shareholder tag and seo hidden is 1 #
+          if isShareholder == false and product.metafields.seo.hidden == 1
+            continue 
+          endif
+  
+          if product.metafields.custom.hide_product_all_customers == 1
+            continue
+          endif
+  
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
+  
+        -%}
+  
+          <li data-tooltip="{{ product_color }}" class="{% if isCurrent %} current-swatch {% endif %}" data-test-sub="{{ product.metafialds.custom.product_title_size_subcategory }}">
             <div class="image customSwatch">
               <a 
                 {{ isCurrent }}
@@ -274,9 +340,6 @@
   <div class="variant-picker-group-wrapper">
       <div class="custom-variant-title">
         <span>{{ 'Large:' | upcase }}</span> 
-      {% comment %} {% if current_product_size == "large" %}
-        <strong>{{ current_product_color }}</strong>
-      {% endif %} {% endcomment %}
         {% if on_special_leather %}
           {% render 'special-care-tooltip' %}
         {% endif %}
@@ -345,9 +408,6 @@
   <div class="variant-picker-group-wrapper">
       <div class="custom-variant-title">
         <span>{{ 'Extra Large:' | upcase }}</span> 
-      {% comment %} {% if current_product_size == "large" %}
-        <strong>{{ current_product_color }}</strong>
-      {% endif %} {% endcomment %}
         {% if on_special_leather %}
           {% render 'special-care-tooltip' %}
         {% endif %}
