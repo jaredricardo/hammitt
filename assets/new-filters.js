@@ -156,6 +156,8 @@ class MintyFreshSortDrawer extends HTMLElement {
   }
   connectSortToHidenFormInput() {
 
+    const onXGenSearch = document.querySelector('.main-search-grid #x-gen-search-results-container')
+
     document.querySelectorAll('minty-fresh-sort-drawer li').forEach((li) => {
       li.classList.remove('active')
     })
@@ -169,9 +171,43 @@ class MintyFreshSortDrawer extends HTMLElement {
         sortSelect.options[i].removeAttribute('selected')
       }
     })
+
     this.classList.add('active')
-    document.querySelector('minty-fresh-filter-drawer form').submit()
+    
+    if(onXGenSearch) {
+
+      const targetContainer = document.querySelector('#x-gen-search-results-container .product-grid')
+      const queryString = window.location.search
+      const params = new URLSearchParams(queryString)
+      const searchTerm = params.get('q')
+
+      xGenSort(targetContainer, searchTerm, this.dataset.value)
+    } else {
+      document.querySelector('minty-fresh-filter-drawer form').submit()
+    }
+
+    onXGenSearch ? xGenSort() : document.querySelector('minty-fresh-filter-drawer form').submit()
+
   }
+}
+
+function xGenSort(targetContainer, searchTerm, sortValue) {
+
+  let sortValueFormatted = sortValue
+  // remove old container LIs and activate spinner
+  document.querySelectorAll('#ProductGridContainerXGen li').forEach((li) => { li.remove()})
+  document.querySelector('.collection-load-spinner').classList.add('active')
+
+  switch(sortValue) {
+    case 'price-ascending':
+      sortValueFormatted = 'asc'
+      break
+    case 'price-descending':
+      sortValueFormatted = 'desc'
+      break
+  }
+
+  window.buildXGenSearchResultsForCollectionGrid(targetContainer, searchTerm, sortValueFormatted)
 }
 
 customElements.define('minty-fresh-filters', MintyFreshFilters)

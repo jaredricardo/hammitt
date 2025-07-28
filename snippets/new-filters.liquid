@@ -121,13 +121,18 @@
     }
 
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__badge,
-    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .quick-add__wrapper{
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .quick-add__wrapper,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card__badge,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .quick-add__wrapper {
         display: none;
     }
 
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__heading,
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .price,
-    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__seo-text {
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__seo-text,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card__heading,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .price,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card__seo-tex {
         color: transparent;
     }
 
@@ -140,6 +145,7 @@
         }
     }
 
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card--standard > .card__content,
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card--standard > .card__content {
         position: absolute;
         top: 0;
@@ -147,11 +153,13 @@
         height: 100%;
     }
 
-    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .product-card {
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .product-card,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .product-card  {
         padding-bottom: 0;
     }
 
-    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainerXGen {
         display: grid;
         column-gap: 4px; 
         row-gap: 4px;
@@ -160,7 +168,8 @@
         overflow: hidden;
     }
 
-    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .grid__item {
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .grid__item,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .grid__item {
         width: 100%;
         height: 100%;
         max-width: none;
@@ -506,6 +515,10 @@
         overflow: hidden;
     }
 
+    .main-search-grid:has(#x-gen-search-results-container) #toggle-filter-drawer {
+        display: none;
+    }
+
     /* color swatches */
 
     minty-fresh-filter-input .color-box[data-value="Black"] {
@@ -569,9 +582,13 @@
     minty-fresh-filter-input .color-box[data-value="Yellow"] {
         background-color: #FFE139;
     } 
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainerXGen .card-information {
+        display: none;
+    }
 
     @media screen and (max-width: 1007px) {
-        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
+        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid,
+        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainerXGen {
             grid-template-columns: repeat(5, 1fr);
         }
         .template-search:has(minty-fresh-filters):has(#toggle-grid.grid-view) .collection.page-width {
@@ -580,7 +597,8 @@
     }
 
     @media screen and (max-width: 768px) {
-        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid {
+        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid,
+        main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainerXGen {
             grid-template-columns: repeat(4, 1fr);
             column-gap: 2px; 
             row-gap: 2px;

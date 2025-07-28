@@ -16,26 +16,54 @@ class PredictiveSearch extends HTMLElement {
 
     this.input.addEventListener('input', debounce((event) => {
       this.onChange(event);
-    }, 300).bind(this));
+    }, 100).bind(this));
     this.input.addEventListener('focus', this.onFocus.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
-    this.addEventListener('keyup', this.onKeyup.bind(this));
-    this.addEventListener('keydown', this.onKeydown.bind(this));
+    // this.addEventListener('keyup', this.onKeyup.bind(this));
+    // this.addEventListener('keydown', this.onKeydown.bind(this));
   }
 
   getQuery() {
     return this.input.value.trim();
   }
 
-  onChange() {
-    const searchTerm = this.getQuery();
+  async onChange() {
+    const searchTerm = this.getQuery()
+    const numXGenSearchResults = document.querySelector('.number-of-x-gen-results')
+    
+    const loader = `
+    <div class="loading-overlay__spinner predictive-search-spinner">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+        </svg>
+    </div>`
+    const tempLi = document.createElement('li')
 
-    if (!searchTerm.length) {
-      this.close(true);
-      return;
+    document.querySelectorAll('.recent-or-trending-products .basic-product-card-template--li').forEach((li) => {
+      if(li.classList.contains('trending-now-product')) {
+        li.classList.add('hidden')
+      } else {
+        li.remove();
+      }
+    })
+
+    if(!document.querySelector('.predictive-search-spinner')) {
+      tempLi.innerHTML = loader
+      document.querySelector('.initial-search-modal-content .recent-or-trending-products ul').appendChild(tempLi)
     }
 
-    this.getSearchResults(searchTerm);
+    const results = await xg.search.getResults({
+      query: searchTerm, 
+        options: {
+          collection: 'default', 
+          deploymentId:'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
+        }
+    })    
+
+    buildXGenSearchResultsForSearchHeader(results.items, searchTerm)
+
+    //  old get search results method turned off for now
+    // this.getSearchResults(searchTerm);
   }
 
   onFormSubmit(event) {
@@ -224,3 +252,104 @@ class PredictiveSearch extends HTMLElement {
 }
 
 customElements.define('predictive-search', PredictiveSearch);
+
+function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
+
+  const targetContainer = document.querySelector('.initial-search-modal-content .recent-or-trending-products ul')
+  const recentOrTrendingHeader = document.querySelector('.initial-search-modal-content .recent-or-trending-products h4')
+  const linkToAllQueryResults = document.querySelector('.initial-search-modal-content .rot-header-container a')
+
+  if(!targetContainer) return
+
+  // hide default suggested products
+
+  targetContainer.querySelectorAll('li').forEach((li) =>{
+    if(li.classList.contains('trending-now-product')) {
+      // hide trending now products for later usage if there are no results
+      li.classList.add('hidden')
+    } else {
+      // remove added product from previous build results
+      li.remove()
+    }
+  })
+  
+  recentOrTrendingHeader.innerText = 'Top Products'
+
+  if(resultsArr.length == 0 || searchTerm.length == 0) {
+    const noResults = document.querySelector('.number-of-x-gen-results')
+    noResults.innerText = 'No results found'
+    if(document.querySelector('.predictive-search-spinner')) {
+      document.querySelector('.predictive-search-spinner').remove()
+    }
+    document.querySelectorAll('.trending-now-product').forEach((li) => {
+      li.classList.remove('hidden')
+    })
+    return
+  }
+
+  resultsArr.forEach((result, i ) => {
+
+    if(i > 3) return
+    
+    let formattedProductTitle = result.prod_name
+    let productSize = result.metafields?.hammitt?.size || null
+    let productColorDescriptor = result.metafields?.custom?.product_title_color_descriptor || null
+    let productTitleType = result.metafields?.custom?.product_title_type || null
+    let useDescriptor = false
+
+    if(productColorDescriptor !== null && productTitleType !== null) {
+
+      let finalSizeString = ''  
+
+      switch(productSize) {
+        case 'Small':
+          finalSizeString = 'sml'
+          break
+        case 'Medium':
+          finalSizeString = "med"
+          break
+        case 'Large':
+          finalSizeString = "lrg"
+          break
+        case 'Extra Large':
+          finalSizeString = "xl"
+          break
+        case 'One Size':
+          finalSizeString = ""
+          break
+        default:
+          finalSizeString = ""
+      }
+
+      formattedProductTitle = `${productTitleType} ${finalSizeString}`
+      useDescriptor = true   
+    }
+
+    const simpleProductCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
+
+    simpleProductCard.classList.remove('inactive')
+
+    simpleProductCard.querySelector('.card-image img').src = result.featured_image.src
+    simpleProductCard.querySelector('.card-image img').alt = result.prod_name
+    simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
+
+    if(useDescriptor) {
+      simpleProductCard.querySelector('.product-color').innerText = productColorDescriptor
+    }
+
+    simpleProductCard.querySelector('a').href = result.product_url
+
+    targetContainer.appendChild(simpleProductCard)
+  })
+
+  if(resultsArr.length > 3) {
+    linkToAllQueryResults.classList.remove('inactive')
+    linkToAllQueryResults.href = `/search?q=${searchTerm}&type=product`
+    linkToAllQueryResults.innerText = `View All (${resultsArr.length})`
+  } else {
+    linkToAllQueryResults.classList.add('inactive')
+  }
+  if(document.querySelector('.predictive-search-spinner')) {
+    document.querySelector('.predictive-search-spinner').remove()
+  }
+}

@@ -1297,6 +1297,11 @@
   window.productJSON = {{ product | json }};
   window.productJSON.totalInventory = 0;
   
+  window.productJSON.product_title_type = {{ product.metafields.custom.product_title_type | json }};
+  window.productJSON.product_title_color_descriptor = {{ product.metafields.custom.product_title_color_descriptor | json }};
+  window.productJSON.product_size = {{ product.metafields.hammitt.size | json }};
+ 
+  
   {% for variant in product.variants %}
   window.productJSON.variants[{{ forloop.index0 }}].inventory_quantity = {{ variant.inventory_quantity | json }};
   window.productJSON.totalInventory += {{ variant.inventory_quantity }};
