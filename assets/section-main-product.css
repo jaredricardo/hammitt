@@ -1492,8 +1492,8 @@ input.iStock-notify-btn {
 
 .pdp-hero-section .pdp-hero-wrap{padding-left:20px;padding-right:20px;}
 .pdp-hero-section .pdp-info-col p.pdp_color{font-size:13px;line-height:1.385;margin-bottom:10px;display:none;}
-.pdp-hero-section .pdp-info-col h1.product__title{font-size:42px;line-height:1;margin:0px;font-weight:500}
-.pdp-hero-section .pdp-info-col h1.product__title .seo-tag{font-size:13px;line-height:1.385;margin-bottom:10px;color:#000;}
+.pdp-hero-section .pdp-info-col .product__title{font-size:42px;line-height:1;margin:0px;font-weight:500}
+.pdp-hero-section .pdp-info-col .product__title .seo-tag{font-size:13px;line-height:1.385;margin-bottom:10px;color:#000;}
 .pdp-hero-section .pdp-info-col #RR_PR_Widget_Wrapper{margin:5px 0px 8px;}
 .pdp-hero-section .pdp-info-col #RR_PR_Widget_Wrapper *{line-height:1;}
 .pdp-hero-section .pdp-info-col #RR_PR_Widget_Wrapper .acs_score_wrapper{display:flex;align-items:center;}
@@ -1513,6 +1513,15 @@ input.iStock-notify-btn {
 .pdp-hero-section .pdp-info-col .custom-variant-options .custom-variant-list:not(.swiper-initialized) .section-productgrid{display:flex;}
 .pdp-hero-section .pdp-info-col .custom-variant-options .custom-variant-list:not(.swiper-initialized) .section-productgrid .swiper-slide{min-width:70px;}
 /* .pdp-hero-section .pdp-info-col .custom-variant-options ul.swiper.swiper-initialized li{max-width:unset;} */
+
+@media screen and (max-width: 781px) {
+  .pdp-hero-section .pdp-info-col .custom-variant-options ul:not(.swiper) {
+    column-gap: 2vw;
+  }
+  .pdp-hero-section .pdp-info-col .custom-variant-options ul li .swatch_image-a {
+    max-width: 100% !important;
+  }
+}
 
 
 .pdp-hero-section .pdp-info-col .custom-variant-title{font-size:13px;font-size: 13px;line-height:1.125;display: flex;gap: 7px;margin-bottom:10px; align-items: center;}
@@ -1631,7 +1640,7 @@ body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg{f
 @media only screen and (max-width:749px){
   .pdp-hero-section .pdp-hero-wrap{padding:0px;}
   .pdp-hero-section .small-page-width{padding-left:10px;padding-right:10px;}
-  .pdp-hero-section .pdp-info-col h1.product__title{font-size:30px;}
+  .pdp-hero-section .pdp-info-col .product__title{font-size:30px;}
   .pdp-hero-section .mobile-pdp-info .mobile-block-wrap{align-items:start;justify-content: space-between;}
   .pdp-hero-section .mobile-pdp-info .mobile-price .product__price-wrapper{margin:0px;}
   .pdp-hero-section .pdp-info-col #RR_PR_Widget_Wrapper{margin:0px;}
@@ -1733,8 +1742,14 @@ a.button.klaviyo-bis-trigger:hover {
 
 .pdp-hero-section .top-text-wrapper {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
+  flex-direction: column;
+}
+
+.pdp-hero-section .top-text-wrapper h3 {
+  color:rgb(48, 48, 48);
+  margin: 0.75rem 0 1.5rem 0;
 }
 
 .pdp-hero-section .title-container {
@@ -1799,7 +1814,6 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
   background-color: white;
   width: max-content;
   max-width: 180px;
-  z-index: 1;
   text-align: center;
   padding: 1.5rem;
   font-weight: 500;
@@ -1807,6 +1821,7 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
   line-height: 16px;
   box-shadow: 0px 0px 3px 2px #0000001A;
   top: 100%;
+  z-index: 10;
 }
 
 
