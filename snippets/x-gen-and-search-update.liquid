@@ -224,7 +224,11 @@
 
             const results = await window.xg.search.getResults(searchObj) 
 
-            // console.log(results)
+            if(results.urlRedirect) {
+                window.location.href = results.urlRedirect
+            } else {
+                document.querySelector('#x-gen-search-results-container').classList.add('results-loaded')
+            }
 
             if(results.items.length == 0) {
                 const noResults = document.createElement('li')
@@ -233,8 +237,7 @@
                 noResults.innerText = 'No results found'
                 targetContainer.appendChild(noResults)
                 return
-            }
-
+            } 
             results.items.forEach((result) => {
 
                 const productCard = document.querySelector('[data-complex-card-template]').cloneNode(true)

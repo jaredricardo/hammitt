@@ -95,6 +95,7 @@
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
+    
 
     {% render 'meta-tags' %}
 
@@ -112,6 +113,18 @@
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
+
+    {% if request.page_type == "search" %}
+      {% comment %} append this to the body element until x-gen api loads {% endcomment %}
+       <style>
+        body:has(#x-gen-search-results-container) {
+          opacity: 0 !important;
+        }
+        body:has(#x-gen-search-results-container.results-loaded) {
+          opacity: 1 !important;
+        }
+       </style>
+    {% endif %}
 
     {% style %}
        {{ settings.type_body_font | font_face }}
@@ -650,7 +663,6 @@ template-{{ template.name -}}
     {{ 'swiper.css' | asset_url | stylesheet_tag }}
     {%- endcomment -%}
 
-    
     {{ 'swiper-new.css' | asset_url | stylesheet_tag }}
     {{ 'swiper.js' | asset_url | script_tag }}
     

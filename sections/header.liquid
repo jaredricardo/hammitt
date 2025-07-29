@@ -664,26 +664,23 @@
                         <h4>Trending Now</h4>
                         <a href="{{ routes.search_url }}" class="number-of-x-gen-results inactive"></a>
                     </div>
-                    
                     <ul>
-                      {% for block in trending_now_products %}  
-                        {% for product in block.settings.trending_products %}
-                          <li data-basic-card-template class="basic-product-card-template--li trending-now-product">
-                              <a href="{{ product.url }}">
-                                  <div class="card-image">
-                                      <img src="{{ product.featured_image |  image_url: width: 200  }}" alt="{{ product.title }}">
-                                  </div>
-                                  <div class="card-content">
-                                    {% if product.metafields.custom.product_title_type and product.metafields.hammitt.size and product.metafields.product_title_color_descriptor %}
-                                      <h3 class="product-title">{{ product.metafields.custom.product_title_type }} {{ product.metafields.hammitt.size }}</h3>
-                                      <h5 class="product-color">{{ product.metafields.custom.product_title_color_descriptor }}</h5>
-                                    {% else %}
-                                      <h3>{{ product.title }}</h3>
-                                    {% endif %}
-                                  </div>
-                              </a>
-                          </li>
-                        {% endfor %}
+                      {% for product in settings.default_search_products %} 
+                        <li data-basic-card-template class="basic-product-card-template--li trending-now-product">
+                          <a href="{{ product.url }}">
+                            <div class="card-image">
+                              <img src="{{ product.featured_image |  image_url: width: 200 }}" alt="{{ product.title }}">
+                            </div>
+                            <div class="card-content">
+                              {% if product.metafields.custom.product_title_type and product.metafields.hammitt.size and product.metafields.product_title_color_descriptor %}
+                                <h3 class="product-title">{{ product.metafields.custom.product_title_type }} {{ product.metafields.hammitt.size }}</h3>
+                                <h5 class="product-color">{{ product.metafields.custom.product_title_color_descriptor }}</h5>
+                              {% else %}
+                                <h3>{{ product.title }}</h3>
+                              {% endif %}
+                            </div>
+                          </a>
+                        </li>
                       {% endfor %}
                     </ul>
                   </div>
@@ -1108,18 +1105,6 @@
             "type": "image_picker",
             "id": "nav_image",
             "label": "Navigation image"
-          }
-        ]
-      },
-      {
-        "type": "popular-search",
-        "name": "Default Pop Search Term",
-        "limit": 4,
-        "settings": [
-          {
-            "type": "text",
-            "id": "search_term",
-            "label": "Default Popular Search Term"
           }
         ]
       },

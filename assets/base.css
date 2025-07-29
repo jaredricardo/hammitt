@@ -3916,6 +3916,12 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   max-width: 360px;
 }
 
+@media screen and (max-width: 768px) {
+  .search-modal__content.x-gen-search .field {
+    max-width: 100%;
+  }
+}
+
 .search-modal__content.x-gen-search .field__input:focus {
   box-shadow: none;
 }
