@@ -234,7 +234,8 @@
                 const noResults = document.createElement('li')
                 noResults.classList.add('x-gen-no-results')
                 document.querySelector('.collection-load-spinner').classList.remove('active')
-                noResults.innerText = 'No results found'
+                 document.querySelector('#x-gen-search-results-container').classList.add('no-results')
+                noResults.innerText = `No results found for "${searchTerm}"" Check the spelling or use a different word or phrase.`
                 targetContainer.appendChild(noResults)
                 return
             } 

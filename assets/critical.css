@@ -404,12 +404,19 @@ fake-details-modal {
   display: none !important; 
 }
 
+#x-gen-search-results-container #x-gen-no-results-default-products {
+  display: none;
+}
+
+#x-gen-search-results-container.results-loaded.no-results #x-gen-no-results-default-products {
+  display: flex;
+}
+
 @media screen and (max-width: 989px) {
   .x-gen-desktop-and-mobile-modal-opener {
     display: none !important;
   }
 }
-
 
 @media screen and (max-width: 751px) {
   .search-modal__content.x-gen-search {

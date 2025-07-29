@@ -210,12 +210,19 @@
 
     <div id="x-gen-search-results-container">
       <div class="page-width">
-        <ul id="ProductGridContainerXGen" class="grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ section.settings.columns_desktop }}-col-desktop{% endif %}" role="list" >
+        <ul id="ProductGridContainerXGen" class="grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ section.settings.columns_desktop }}-col-desktop{% endif %}" role="list">
           <div class="loading-overlay__spinner collection-load-spinner active">
             <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
               <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
             </svg>
           </div>
+        </ul>
+        <ul id="x-gen-no-results-default-products" class="grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ section.settings.columns_desktop }}-col-desktop{% endif %}" role="list">
+          {% for product in settings.default_search_products %} 
+            <li class="grid__item">
+              {% render 'card-product' card_product: product %}
+            </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
