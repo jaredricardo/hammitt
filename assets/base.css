@@ -3916,6 +3916,12 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   max-width: 360px;
 }
 
+@media screen and (max-width: 768px) {
+  .search-modal__content.x-gen-search .field {
+    max-width: 100%;
+  }
+}
+
 .search-modal__content.x-gen-search .field__input:focus {
   box-shadow: none;
 }
@@ -4027,4 +4033,12 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   .initial-search-modal-content h4 {
     margin: 0 0 1rem;
   }
+}
+
+.x-gen-no-results {
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 18px;
 }

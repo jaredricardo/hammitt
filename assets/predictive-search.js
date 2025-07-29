@@ -16,7 +16,7 @@ class PredictiveSearch extends HTMLElement {
 
     this.input.addEventListener('input', debounce((event) => {
       this.onChange(event);
-    }, 100).bind(this));
+    }, 350).bind(this));
     this.input.addEventListener('focus', this.onFocus.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
     // this.addEventListener('keyup', this.onKeyup.bind(this));
@@ -60,7 +60,7 @@ class PredictiveSearch extends HTMLElement {
         }
     })    
 
-    buildXGenSearchResultsForSearchHeader(results.items, searchTerm)
+    buildXGenSearchResultsForSearchHeader(results, searchTerm)
 
     //  old get search results method turned off for now
     // this.getSearchResults(searchTerm);
@@ -253,11 +253,16 @@ class PredictiveSearch extends HTMLElement {
 
 customElements.define('predictive-search', PredictiveSearch);
 
-function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
+function buildXGenSearchResultsForSearchHeader(response, searchTerm) {
 
+  const resultsArr = response.items
   const targetContainer = document.querySelector('.initial-search-modal-content .recent-or-trending-products ul')
   const recentOrTrendingHeader = document.querySelector('.initial-search-modal-content .recent-or-trending-products h4')
   const linkToAllQueryResults = document.querySelector('.initial-search-modal-content .rot-header-container a')
+  const noResults = document.querySelector('.number-of-x-gen-results')
+
+  // 0 indexed number of product cards to show, if there is a url redirect, we are going to insert a fake cart at the front so need one less. 
+  let numProductCardsNeeded = response.urlRedirect ? 2 : 3
 
   if(!targetContainer) return
 
@@ -276,20 +281,29 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
   recentOrTrendingHeader.innerText = 'Top Products'
 
   if(resultsArr.length == 0 || searchTerm.length == 0) {
-    const noResults = document.querySelector('.number-of-x-gen-results')
-    noResults.innerText = 'No results found'
-    if(document.querySelector('.predictive-search-spinner')) {
-      document.querySelector('.predictive-search-spinner').remove()
+    if(!response.urlRedirect) {
+      noResults.classList.remove('inactive')
+      noResults.innerText = 'No results found'
+      if(searchTerm.length === 0 ) {
+        noResults.classList.add('inactive')
+      }
+      if(document.querySelector('.predictive-search-spinner')) {
+        document.querySelector('.predictive-search-spinner').remove()
+      }
+      document.querySelectorAll('.trending-now-product').forEach((li) => {
+        li.classList.remove('hidden')
+      })
+      return
     }
-    document.querySelectorAll('.trending-now-product').forEach((li) => {
-      li.classList.remove('hidden')
-    })
-    return
   }
 
-  resultsArr.forEach((result, i ) => {
+  if(response.urlRedirect) {
+    buildRedirectCard(targetContainer, response, searchTerm)
+  }
 
-    if(i > 3) return
+  resultsArr.forEach((result, i) => {
+
+    if(i > numProductCardsNeeded) return
     
     let formattedProductTitle = result.prod_name
     let productSize = result.metafields?.hammitt?.size || null
@@ -327,8 +341,6 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
 
     const simpleProductCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
 
-    simpleProductCard.classList.remove('inactive')
-
     simpleProductCard.querySelector('.card-image img').src = result.featured_image.src
     simpleProductCard.querySelector('.card-image img').alt = result.prod_name
     simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
@@ -338,8 +350,10 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
     }
 
     simpleProductCard.querySelector('a').href = result.product_url
+    simpleProductCard.classList.remove('inactive')
 
     targetContainer.appendChild(simpleProductCard)
+    
   })
 
   if(resultsArr.length > 3) {
@@ -353,3 +367,15 @@ function buildXGenSearchResultsForSearchHeader(resultsArr, searchTerm) {
     document.querySelector('.predictive-search-spinner').remove()
   }
 }
+
+function buildRedirectCard(targetContainer, response, searchTerm){
+  const simplePageResultCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
+  simplePageResultCard.classList.remove('inactive')
+  simplePageResultCard.querySelector('.card-image img').src = 'https://cdn.shopify.com/s/files/1/0661/5963/files/Group_1010.png?v=1753809853'
+  simplePageResultCard.querySelector('.product-title').innerText = `${response.keyword}`
+  simplePageResultCard.querySelector('a').href = response.urlRedirect
+  document.querySelector('.initial-search-modal-content .recent-or-trending-products h4').innerText = `Other results for "${searchTerm}"`
+  targetContainer.appendChild(simplePageResultCard)
+}
+
+window.buildRedirectCard = buildRedirectCard

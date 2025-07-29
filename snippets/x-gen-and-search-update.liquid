@@ -224,17 +224,21 @@
 
             const results = await window.xg.search.getResults(searchObj) 
 
-            // console.log(results)
+            if(results.urlRedirect) {
+                window.location.href = results.urlRedirect
+            } else {
+                document.querySelector('#x-gen-search-results-container').classList.add('results-loaded')
+            }
 
             if(results.items.length == 0) {
                 const noResults = document.createElement('li')
                 noResults.classList.add('x-gen-no-results')
                 document.querySelector('.collection-load-spinner').classList.remove('active')
-                noResults.innerText = 'No results found'
+                 document.querySelector('#x-gen-search-results-container').classList.add('no-results')
+                noResults.innerText = `No results found for "${searchTerm}"" Check the spelling or use a different word or phrase.`
                 targetContainer.appendChild(noResults)
                 return
-            }
-
+            } 
             results.items.forEach((result) => {
 
                 const productCard = document.querySelector('[data-complex-card-template]').cloneNode(true)
