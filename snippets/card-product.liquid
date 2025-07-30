@@ -149,7 +149,7 @@
                   href="{{ card_product.url | within:collection }}" 
                 {% endif %} 
                 class="full-unstyled-link">
-                {{ formatted_product_title }} {% endif %}
+                {{ product_type }} {% if product_size %} {{ product_size_abbreviated }} {% endif %}
               </a>
             </h3>
           </div>

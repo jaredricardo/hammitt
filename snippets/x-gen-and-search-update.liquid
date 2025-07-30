@@ -211,7 +211,8 @@
                 query: searchTerm, 
                 options: {
                     collection: 'default', 
-                    deploymentId:'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
+                    deploymentId:'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b',
+                    facets: true
                 }
             }
 
@@ -223,6 +224,9 @@
             // console.log(searchObj)
 
             const results = await window.xg.search.getResults(searchObj) 
+
+            console.log('///////')
+            console.log(results)
 
             if(results.urlRedirect) {
                 window.location.href = results.urlRedirect
