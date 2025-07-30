@@ -71,7 +71,7 @@
 
                 if(i > 3) return
                 
-                let formattedProductTitle = product.title
+                let formattedProductTitle = product.title                
 
                 if(product.product_title_type && product.product_title_color_descriptor) {
                     formattedProductTitle = `${product.product_title_type} ${product.product_size}`
@@ -239,6 +239,7 @@
                 targetContainer.appendChild(noResults)
                 return
             } 
+
             results.items.forEach((result) => {
 
                 const productCard = document.querySelector('[data-complex-card-template]').cloneNode(true)
@@ -254,22 +255,25 @@
                 if(productSize !== null && productColorDescriptor !== null && productTitleType !== null) {
 
                     let finalSizeString = ''
-
+                 
                     switch(productSize) {
                         case 'Small':
-                        finalSizeString = 'sml'
-                        break
+                            finalSizeString = 'sml'
+                            break
                         case 'Medium':
-                        finalSizeString = "med"
-                        break
+                            finalSizeString = "med"
+                            break
                         case 'Large':
-                        finalSizeString = "lrg"
-                        break
+                            finalSizeString = "lrg"
+                            break
                         case 'Extra Large':
-                        finalSizeString = "xl"
-                        break
+                            finalSizeString = "xl"
+                            break
+                        case 'One Size': 
+                            finalSizeString = ''
+                            break
                         default:
-                        finalSizeString = productSize
+                            finalSizeString = productSize
                     }
 
                     formattedProductTitle = `${productTitleType} ${finalSizeString}`
