@@ -74,6 +74,7 @@
     }
   }
 
+
 {%- endstyle -%}
 
 {%- liquid
@@ -178,6 +179,45 @@
 %}
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<style>
+   li.grid__item:has(img[alt*="model height"]),
+   #product__mobile-images .swiper-slide:has(img[alt*="model height"]) .media {
+    position: relative;
+   }
+
+  li.grid__item:has(img[alt*="model height"])::before,
+  #product__mobile-images .swiper-slide:has(img[alt*="model height"]) .media::before {
+    content: "Model is 5'9\"";
+    font-size: 12px;
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    z-index: 1;
+    background-color: #E9E9E9CC;
+    color: black;
+    padding: 4px 7px;
+  }
+
+</style>
+{% comment %} model height alt image script {% endcomment %}
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+
+    const desktopImgContainer = document.querySelector('li.grid__item:has(img[alt*="model height"])')
+    const mobileImgContainer = document.querySelector('#product__mobile-images .swiper-slide:has(img[alt*="model height"]) .media')
+
+    console.log(desktopImgContainer) 
+    console.log(mobileImgContainer)  
+
+    if(desktopImgContainer) {
+      desktopImg.querySelector('::before').content = 'test'
+    }
+    if(mobileImgContainer) {
+      mobileImg.querySelector('::before').content = 'test'
+    }
+    
+  })
+</script>
 
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}
