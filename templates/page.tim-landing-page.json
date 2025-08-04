@@ -28,7 +28,7 @@
         "heading_6yBxEe": {
           "type": "heading",
           "settings": {
-            "heading": "THE TIM IS FINALLY HERE",
+            "heading": "THE TIM",
             "heading_size_mobile": 25,
             "heading_size_tablet": 20,
             "heading_size_desktop": 36
@@ -119,17 +119,49 @@
         "mobile_padding_bottom": 0
       }
     },
-    "custom_liquid_gM3dyW": {
+    "custom_liquid_WPAWMB": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"g1WX7O\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"g1WX7O\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
+        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 0,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36,
         "custom_class": ""
+      }
+    },
+    "rich_text_JGnmHi": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Ji84C4": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "A YEAR IN THE MAKING",
+            "heading_size": "h1"
+          }
+        },
+        "text_eD64fG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our design and merchandising teams have been hard at work perfecting a soft yet sleek hobo bag. Today, it's finally here.Say hello to Tim.Equal parts effortless and polished, this special bag holds it all together in style. Stay organized with an interior drop pocket and card slot, as well as a subtle exterior pocket.With a little glimmer of our signature riveted touch, there's a detail here for everyone - especially you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Ji84C4",
+        "text_eD64fG"
+      ],
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
     },
     "image_banner_g6qx3f": {
@@ -175,38 +207,6 @@
         "custom_class": ""
       }
     },
-    "rich_text_JGnmHi": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_Ji84C4": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "A YEAR IN THE MAKING",
-            "heading_size": "h1"
-          }
-        },
-        "text_eD64fG": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Our design and merchandising teams have been hard at work perfecting a soft yet sleek hobo bag. Today, it's finally here.Say hello to Tim.Equal parts effortless and polished, this special bag holds it all together in style. Stay organized with an interior drop pocket and card slot, as well as a subtle exterior pocket.With a little glimmer of our signature riveted touch, there's a detail here for everyone - especially you.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_Ji84C4",
-        "text_eD64fG"
-      ],
-      "settings": {
-        "custom_classes": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
-    },
     "image_banner_qeqPUd": {
       "type": "image-banner",
       "settings": {
@@ -250,11 +250,11 @@
         "custom_class": ""
       }
     },
-    "custom_liquid_WPAWMB": {
+    "custom_liquid_gM3dyW": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"v6YXDG\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"g1WX7O\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"g1WX7O\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
         "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 0,
@@ -548,11 +548,11 @@
     "main",
     "image_banner_bkPemt",
     "slider_collection_w9UPnP",
-    "custom_liquid_gM3dyW",
-    "image_banner_g6qx3f",
-    "rich_text_JGnmHi",
-    "image_banner_qeqPUd",
     "custom_liquid_WPAWMB",
+    "rich_text_JGnmHi",
+    "image_banner_g6qx3f",
+    "image_banner_qeqPUd",
+    "custom_liquid_gM3dyW",
     "multicolumn_wngqhj",
     "multicolumn_eEfFVp"
   ]
