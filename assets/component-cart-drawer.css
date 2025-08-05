@@ -18,6 +18,16 @@ cart-drawer {
   overflow: hidden;
 }
 
+#cart-drawer {
+  max-width: 60%;
+}
+
+@media screen and (max-width: 571px) {
+  #cart-drawer {
+    max-width: max-content;
+  }
+}
+
 cart-drawer > details[open] > summary::before {
   visibility: visible;
   opacity: 1;
