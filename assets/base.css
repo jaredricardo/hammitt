@@ -4042,3 +4042,58 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   margin-bottom: 2rem;
   font-size: 18px;
 }
+
+.page-width--narrow:has(#pl-returns-plugin),
+.page-width--narrow:has(#plx) {
+  max-width: 100rem !important; 
+}
+
+#pl-returns-plugin {
+  margin: 0 2rem;
+}
+
+#pl-returns-plugin p,
+#pl-returns-plugin a,
+#plx p,
+#plx a {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+#plx h3 {
+  margin: 0.5rem 0;
+}
+
+.plx .text-xs {
+  font-size: 11px !important; 
+  line-height: 1.25 !important;
+}
+
+#pl-returns-plugin h3,
+#plx h3,
+.plx .text-sm {
+  font-size: 12px !important; 
+}
+
+.pl-row.pl-space-top--half,
+.pl-page-courier {
+  font-size: 16px;
+}
+
+#pl-returns-plugin button,
+#plx button {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .pl-header-text p,
+  #pl-returns-plugin a,
+  .pl-row.pl-space-top--half,
+  .pl-page-courier,
+  #plx h3,
+  #pl-returns-plugin button,
+  #plx button  {
+    font-size: 12px
+  }
+
+}
