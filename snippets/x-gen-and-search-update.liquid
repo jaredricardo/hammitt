@@ -247,7 +247,12 @@
                 let productSize = result.metafields?.hammitt?.size || null
                 let productColorDescriptor = result.metafields?.custom?.product_title_color_descriptor || null
                 let productTitleType = result.metafields?.custom?.product_title_type || null
+                let preorderKey = result.metafields?.custom?.preorder_key || null
+                let preorderMessage = result.metafields?.custom?.preorder_message || null
+                let preorderButtonText = result.metafields?.custom?.preorder_cta_text || null
+
                 let useDescriptor = false
+
                 // no idea why x-gen calls tags product_types, but it does
                 const tagHTML = buildCardTag(result)
                 const dataJson = buildCardJson(result)
@@ -281,6 +286,7 @@
                 }
 
                 productCard.querySelector('.quick-add-btn').setAttribute('data-id', result.first_available_variant)
+
                 productCard.querySelector('.product-card').setAttribute('data-json', JSON.stringify(dataJson))
            
                 productCard.querySelector('.card__media img').src = result.featured_image.src
@@ -292,6 +298,19 @@
                 productCard.querySelector('.card__heading .full-unstyled-link').href = result.product_url
                 productCard.querySelector('.card__heading a').innerText = formattedProductTitle
                 productCard.querySelector('.card__badge').innerHTML = tagHTML
+
+                // preorder logic
+                if(preorderButtonText) {
+                    productCard.querySelector('.quick-add__form button').innerText = `${preorderButtonText}`
+                }
+                if(preorderKey && preorderMessage) {
+                    const preorderInput = document.createElement('input')
+                    preorderInput.setAttribute('type', 'hidden')
+                    preorderInput.setAttribute('name', preorderKey)
+                    preorderInput.setAttribute('value', preorderMessage)
+                    preorderInput.classList.add('preorder__field')
+                    productCard.querySelector('.quick-add__form').appendChild(preorderInput)
+                }
                 
 
                 if(useDescriptor) {
