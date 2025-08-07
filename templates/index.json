@@ -9,87 +9,17 @@
  */
 {
   "sections": {
-    "image_banner_aLnEec": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_QhDgnx": {
-          "type": "heading",
-          "settings": {
-            "heading": "SHINE IN STRATA",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_DnXtUy": {
-          "type": "text",
-          "settings": {
-            "text": "Earthy layers of neutral leather unite in this soft, wearable drop with shiny silver hardware.",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_CWADxx": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/strata",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_QhDgnx",
-        "text_DnXtUy",
-        "buttons_CWADxx"
-      ],
+    "homepage_fireworks_pxtfb9": {
+      "type": "homepage-fireworks",
       "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Strata-desk_1.jpg",
-        "image_2": "shopify://shop_images/Strata-mob_1.jpg",
-        "image_link": "shopify://collections/strata",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
+        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oN1E73\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oN1E73\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "custom_classes": ""
       }
     },
     "slider_featured_collection_bTka8m": {
       "type": "slider-collection",
       "settings": {
-        "title": "",
+        "title": "SHOP NEW ARRIVALS",
         "heading_align": "center",
         "heading_color": "#000000",
         "collection": "new-arrivals",
@@ -111,7 +41,7 @@
         "heading_8gGVUR": {
           "type": "heading",
           "settings": {
-            "heading": "BESTSELLERS",
+            "heading": "SHOP BESTSELLERS",
             "heading_size_mobile": 25,
             "heading_size_tablet": 20,
             "heading_size_desktop": 36
@@ -199,103 +129,6 @@
         "padding_bottom": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
-      }
-    },
-    "image_banner_ezVVdn": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_r84kmd": {
-          "type": "heading",
-          "settings": {
-            "heading": "PREORDER CHARLOTTE",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_4EKEHN": {
-          "type": "text",
-          "settings": {
-            "text": "As seen on Julie Bowen at the Happy Gilmore 2 premiere.",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_h3eaz3": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "PREORDER NOW",
-            "button_link_1": "shopify://collections/charlotte",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_r84kmd",
-        "text_4EKEHN",
-        "buttons_h3eaz3"
-      ],
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12402_1new.jpg",
-        "image_2": "shopify://shop_images/Dune-106-52.gif",
-        "image_link": "shopify://collections/charlotte",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_g86HxV": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "charlotte",
-        "max_products": 5,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
       }
     },
     "image_banner_3FKmDP": {
@@ -911,14 +744,6 @@
         "mobile_padding_bottom": 36
       }
     },
-    "homepage_fireworks_pxtfb9": {
-      "type": "homepage-fireworks",
-      "disabled": true,
-      "settings": {
-        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbLW4\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbLW4\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "custom_classes": ""
-      }
-    },
     "rich_text_xFdwjM": {
       "type": "rich-text",
       "blocks": {
@@ -1240,6 +1065,183 @@
         "custom_class": ""
       }
     },
+    "image_banner_aLnEec": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_QhDgnx": {
+          "type": "heading",
+          "settings": {
+            "heading": "SHINE IN STRATA",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_DnXtUy": {
+          "type": "text",
+          "settings": {
+            "text": "Earthy layers of neutral leather unite in this soft, wearable drop with shiny silver hardware.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_CWADxx": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/strata",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QhDgnx",
+        "text_DnXtUy",
+        "buttons_CWADxx"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Strata-desk_1.jpg",
+        "image_2": "shopify://shop_images/Strata-mob_1.jpg",
+        "image_link": "shopify://collections/strata",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_banner_ezVVdn": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_r84kmd": {
+          "type": "heading",
+          "settings": {
+            "heading": "PREORDER CHARLOTTE",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_4EKEHN": {
+          "type": "text",
+          "settings": {
+            "text": "As seen on Julie Bowen at the Happy Gilmore 2 premiere.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_h3eaz3": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "PREORDER NOW",
+            "button_link_1": "shopify://collections/charlotte",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_r84kmd",
+        "text_4EKEHN",
+        "buttons_h3eaz3"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12402_1new.jpg",
+        "image_2": "shopify://shop_images/Dune-106-52.gif",
+        "image_link": "shopify://collections/charlotte",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_g86HxV": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "charlotte",
+        "max_products": 5,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
     "hero_video_banner_RVzeet": {
       "type": "hero-video-banner",
       "disabled": true,
@@ -1307,12 +1309,10 @@
     }
   },
   "order": [
-    "image_banner_aLnEec",
+    "homepage_fireworks_pxtfb9",
     "slider_featured_collection_bTka8m",
     "image_banner_wjLTRm",
     "slider_collection_WbqGTG",
-    "image_banner_ezVVdn",
-    "slider_collection_g86HxV",
     "image_banner_3FKmDP",
     "slider_collection_CwB3RG",
     "home-hero-section",
@@ -1321,11 +1321,13 @@
     "multicolumn_GMpXGB",
     "multicolumn_dk43Jb",
     "slider_collection_RWT74t",
-    "homepage_fireworks_pxtfb9",
     "rich_text_xFdwjM",
     "jr_customer_reviews_kz8t7H",
     "multicolumn_7jnCPC",
     "custom_liquid_NgfUX8",
+    "image_banner_aLnEec",
+    "image_banner_ezVVdn",
+    "slider_collection_g86HxV",
     "hero_video_banner_RVzeet",
     "homepage_instagram_RrcAhY"
   ]
