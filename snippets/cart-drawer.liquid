@@ -614,38 +614,12 @@
         </gift-box-section>
       {% endif %}
       <cart-upsells class="cart-drawer-upsells" data-upsell-title="{{ first_cart_item.product.title }}" >
-
-        {% liquid 
-        
-          ## check if first item in cart has complete the set items, if not, check the next item until we do or don't find a complete the set
-
-          assign has_complete_the_set_items = true
-         
-        
-        -%}
-          
         {% if cart.item_count > 0 %}
           <div class="tab-item__upsell">
             <ul>
               {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
-                {% liquid 
-
-                  assign cartCollection = collections[cartUpsell.collection]
-                  assign data_href = cartCollection.handle
-                  assign heading = cartUpsell.heading | default: cartCollection.title
-
-                  if forloop.first
-                    if has_complete_the_set_items == true
-                      assign data_href = 'complete-the-set'
-                      assign heading = 'Complete the Set'
-                    endif
-                  endif
-                
-                -%}
-              
-                <li class="tab-item upsell-index-{{ forloop.index}} {% if forloop.first %} active {% endif %}">
-                  <a href="#" data-href="{{ data_href }}">{{ heading }}</a>
-                </li>  
+                  {% assign cartCollection = collections[cartUpsell.collection] %}
+                  <li class="tab-item upsell-index-{{ forloop.index}} {% if forloop.first %} active {% endif %}"><a href="#" data-href="{{ cartCollection.handle }}" data-heading="{{ cartUpsell.heading }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
               {% endfor %}
             </ul>
           </div>
@@ -679,7 +653,7 @@
                   }
                 {%- endcapture -%}
 
-                <div class="swiper {% if forloop.first %} shown {% else %} hidden {% endif %}" data-json='{{- swiperJson -}}' data-target={{ cartCollection.handle }} >
+                <div class="swiper {% if forloop.first %} shown {% else %} hidden {% endif %}" data-json='{{- swiperJson -}}' data-target={{ cartCollection.handle }} data-heading-target="{{ cartUpsell.heading }}">
                   <div class="horizontal-scroller__upsell swiper-wrapper">
                     {% liquid
                         assign cart_ids = cart.items | map: 'product_id' | uniq | join: ','
@@ -695,9 +669,8 @@
                           endif
                         endfor
                       %}
-                      {% comment %} here we need to check if the product has 'complete the set' items, and if so, instead of rendering the cartCollection products, we render the complete the set items {% endcomment %}
+                      
                       {% liquid 
-
                         for product in cartCollection.products limit: 20
                           if isShareholder == false and product.metafields.seo.hidden == 1
                             continue
@@ -747,6 +720,12 @@
          endfor
       -%}
       {% if cart.item_count > 0 %}
+<!--       <div class="cart__gift-receipt">
+        <gift-note class="checkbox" data-has-gift-note="{{  has_gift_note }}">
+          <input id="add-gift-receipt" class="gift-receipt__input" type="checkbox" name="gift-receipt" {% if has_gift_note %}checked="checked"{%  endif  %}>
+          <label for="add-gift-receipt">Gift Receipt + Note</label>
+        </gift-note>
+      </div> -->
       <order-protection style="line-height:1.2"></order-protection>
       <div class="drawer__subtotal">
         {% assign adjusted_total_price = cart.total_price %}
@@ -764,6 +743,9 @@
           {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>
+        {% comment %}          
+          <a href="/checkout" class="button button--full-width">Checkout</a>
+        {% endcomment %}
       </div>
       <div class="drawer__notification">
         <small class="rte">
