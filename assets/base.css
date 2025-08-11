@@ -681,6 +681,10 @@ h6:empty {
   z-index: 2;
 }
 
+.link--fill-parent.seventy {
+  height: 70% !important;
+}
+
 .link--cover-content:after {
   content: '' !important;
   position: absolute !important;
@@ -4032,6 +4036,17 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 @media screen and (max-width: 768px) {
   .initial-search-modal-content h4 {
     margin: 0 0 1rem;
+  }
+  #yotpo-reviews-main-widget .yotpo-bottom-line {
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0;
+  }
+  #yotpo-reviews-main-widget .yotpo-bottom-line .yotpo-bottom-line-right-panel {
+    padding: 0;
+  }
+  #yotpo-reviews-main-widget .yotpo-layout-header-wrapper {
+    gap: 2rem;
   }
 }
 

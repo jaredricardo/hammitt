@@ -619,7 +619,7 @@
             <ul>
               {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
                   {% assign cartCollection = collections[cartUpsell.collection] %}
-                <li class="tab-item upsell-index-{{ forloop.index}} {% if forloop.first %} active {% endif %}"><a href="#" data-href="{{ cartCollection.handle }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
+                  <li class="tab-item upsell-index-{{ forloop.index}} {% if forloop.first %} active {% endif %}"><a href="#" data-href="{{ cartCollection.handle }}" data-heading="{{ cartUpsell.heading }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
               {% endfor %}
             </ul>
           </div>
@@ -653,7 +653,7 @@
                   }
                 {%- endcapture -%}
 
-                <div class="swiper {% if forloop.first %} shown {% else %} hidden {% endif %}" data-json='{{- swiperJson -}}' data-target={{ cartCollection.handle }} >
+                <div class="swiper {% if forloop.first %} shown {% else %} hidden {% endif %}" data-json='{{- swiperJson -}}' data-target={{ cartCollection.handle }} data-heading-target="{{ cartUpsell.heading }}">
                   <div class="horizontal-scroller__upsell swiper-wrapper">
                     {% liquid
                         assign cart_ids = cart.items | map: 'product_id' | uniq | join: ','

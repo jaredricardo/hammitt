@@ -840,7 +840,6 @@ class QuickAdd extends HTMLElement {
   }  
   async addItem(event) {
     event.preventDefault();
-    console.log('adding item for quick add!!!!!!!!!!!!')
     const target = event.target;
     const itemId = target.getAttribute('data-id');
 
@@ -852,7 +851,6 @@ class QuickAdd extends HTMLElement {
       try {
         const isInCart = await isProductInCart(addOnId);
         addToCartPromo(itemId, isInCart ? false : addOnId);
-        console.log(`GWP is ${isInCart ? 'already' : 'not'} in the cart.`);
       } catch (error) {
         console.error('Error checking if product is in the cart:', error);
       }
@@ -957,8 +955,6 @@ class CardSwatches extends HTMLElement {
         const newEl = doc.querySelector(el);
         if(currentEl && newEl) {
           currentEl.innerHTML = newEl.innerHTML;
-        } else {
-          console.log(currentEl,newEl,el);
         }
         lazyImages();
       });
@@ -1122,8 +1118,6 @@ const productSwatchReload = () => {
           const newEl = doc.querySelector(el);
           if(currentEl && newEl) {
             currentEl.innerHTML = newEl.innerHTML;
-          } else {
-            console.log(currentEl,newEl,el);
           }
           if(document.querySelector('.pdp-hero-wrap .yotpo-widget-instance')) {
             yotpoWidgetsContainer.initWidgets()
@@ -1386,7 +1380,6 @@ function checkOrderProtection() {
 
   initialJson.forEach((item) => {
     if(item.vendor  == "Order Protection") {
-      console.log('removing order protection')
         
       let updatesObj = { 
         updates: {},
@@ -1460,7 +1453,7 @@ function updateCart(params) {
     cartUpdate(cart);
     const onCartPage = window.location.href.indexOf('/cart') > -1;
     if(onCartPage) {
-        window.location.reload()
+      window.location.reload()
     }
   });
 }
@@ -1571,6 +1564,7 @@ const cartUpdate = (json = false) => {
     })
 
     cartUpsellSwiper();
+
     var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
     .then(response => response.json())
     .then(data => 
@@ -1624,6 +1618,8 @@ const cartUpdate = (json = false) => {
   }
 
   checkGWPs(json);
+
+  window.buildCompleteTheSetInCart()
 
   if(!onCartPage) {
     const itemRemovedCartDrawer = new Event("itemRemovedFromCartDrawer");
@@ -1735,7 +1731,7 @@ class ProductRecommendations extends HTMLElement {
           }
 
           if (this.classList.contains('complimentary-products')) {
-            console.log('complientary')
+            // console.log('complientary')
             // this.remove();
           }
 
