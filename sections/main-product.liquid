@@ -74,6 +74,7 @@
     }
   }
 
+
 {%- endstyle -%}
 
 {%- liquid
@@ -178,6 +179,46 @@
 %}
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<style>
+   li.grid__item:has(img[alt*="Model height"]),
+   #product__mobile-images .swiper-slide:has(img[alt*="Model height"]) .media {
+    position: relative;
+   }
+
+  li.grid__item:has(img[alt*="Model height"])::before,
+  #product__mobile-images .swiper-slide:has(img[alt*="Model height"]) .media::before {
+    content: var(--content);
+    font-size: 12px;
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    z-index: 1;
+    background-color: #E9E9E9CC;
+    color: black;
+    padding: 4px 7px;
+  }
+
+</style>
+{% comment %} model height alt image script {% endcomment %}
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+
+    const desktopImgContainer = document.querySelector('li.grid__item:has(img[alt*="Model height"])')
+    const mobileImgContainer = document.querySelector('#product__mobile-images .swiper-slide:has(img[alt*="Model height"]) .media')
+    let contentDesktop
+    let contentMobile
+  
+    if(desktopImgContainer) {
+      contentDesktop = desktopImgContainer.querySelector('img').getAttribute('alt')
+      desktopImgContainer.style.setProperty("--content", `"${contentDesktop}"`);
+    }
+    if(mobileImgContainer) {
+      contentMobile = mobileImgContainer.querySelector('img').getAttribute('alt')
+      mobileImgContainer.style.setProperty("--content", `"${contentMobile}"`);
+    }
+   
+  })
+</script>
 
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}

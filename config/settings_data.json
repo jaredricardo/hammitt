@@ -121,7 +121,7 @@
             "settings": {
               "nav_link": "shopify://collections/new-arrivals",
               "title": "New In",
-              "nav_image": "shopify://shop_images/Group_12396.jpg"
+              "nav_image": "shopify://shop_images/Rectangle_410_1.jpg"
             }
           },
           "visual_menu_item_KWAJ7F": {
@@ -137,7 +137,7 @@
             "settings": {
               "nav_link": "shopify://collections/trending",
               "title": "Top Trending",
-              "nav_image": "shopify://shop_images/Rectangle_379_1.jpg"
+              "nav_image": "shopify://shop_images/Group_705.jpg"
             }
           },
           "visual_menu_item_PmYb6N": {
@@ -145,7 +145,15 @@
             "settings": {
               "nav_link": "shopify://collections/kyle",
               "title": "Kyle",
-              "nav_image": "shopify://shop_images/Rectangle_385.jpg"
+              "nav_image": "shopify://shop_images/Rectangle_408_1.jpg"
+            }
+          },
+          "visual_menu_item_RG36DA": {
+            "type": "visual-menu-item",
+            "settings": {
+              "nav_link": "https://www.hammitt.com/pages/current-season",
+              "title": "August Drop",
+              "nav_image": "shopify://shop_images/Rectangle_409_1.jpg"
             }
           },
           "visual_menu_item_f4DzN9": {
@@ -178,14 +186,6 @@
               "nav_link": "shopify://collections/accessories-view-all",
               "title": "Accessories",
               "nav_image": "shopify://shop_images/Dune-106_8_1.jpg"
-            }
-          },
-          "visual_menu_item_RG36DA": {
-            "type": "visual-menu-item",
-            "settings": {
-              "nav_link": "shopify://collections/tim",
-              "title": "Tim",
-              "nav_image": "shopify://shop_images/Rectangle_387.jpg"
             }
           },
           "visual_menu_item_CeKqAn": {
@@ -230,11 +230,11 @@
           "visual_menu_item_KWAJ7F",
           "visual_menu_item_He8yDn",
           "visual_menu_item_PmYb6N",
+          "visual_menu_item_RG36DA",
           "visual_menu_item_f4DzN9",
           "visual_menu_item_dbDRDJ",
           "visual_menu_item_BGKFjn",
           "visual_menu_item_9xHkTW",
-          "visual_menu_item_RG36DA",
           "visual_menu_item_CeKqAn",
           "popular_search_QfKWpn",
           "popular_search_yjeaJJ",
@@ -726,18 +726,15 @@
         "disabled": false,
         "settings": {
           "storefront_layout_enabled": true,
-          "storefront_layout_type": "as-section",
           "storefront_layout_collection_enabled": false,
           "storefront_layout_primary_bg_color": "#000000",
           "storefront_layout_primary_text_color": "#ffffff",
           "storefront_layout_secondary_bg_color": "#f4f8fe",
           "storefront_layout_secondary_text_color": "#333333",
           "storefront_layout_ui_border_radius": 6,
-          "storefront_layout_notification_enabled_as_default": true,
           "storefront_layout_notification_position": "left",
           "storefront_layout_action_popup_position": "left",
           "storefront_layout_drawer_position": "left",
-          "storefront_layout_drawer_width": 400,
           "storefront_layout_as_section_page": "my-wishlist"
         }
       },
@@ -801,6 +798,11 @@
       },
       "8421569037452459303": {
         "type": "shopify://apps/xgen-ai/blocks/xgen-scripts/0faa3e62-37f5-4cdf-80aa-dfb5fac9fabc",
+        "disabled": false,
+        "settings": {}
+      },
+      "2786716548061469553": {
+        "type": "shopify://apps/axon/blocks/app-embed/baa0f014-62ea-462f-a8aa-a94befb1cbad",
         "disabled": false,
         "settings": {}
       }

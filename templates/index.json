@@ -9,196 +9,29 @@
  */
 {
   "sections": {
-    "image_banner_ezVVdn": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_r84kmd": {
-          "type": "heading",
-          "settings": {
-            "heading": "PREORDER CHARLOTTE",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_4EKEHN": {
-          "type": "text",
-          "settings": {
-            "text": "As seen on Julie Bowen at the Happy Gilmore 2 premiere.",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_h3eaz3": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "PREORDER NOW",
-            "button_link_1": "shopify://collections/charlotte",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_r84kmd",
-        "text_4EKEHN",
-        "buttons_h3eaz3"
-      ],
+    "homepage_fireworks_pxtfb9": {
+      "type": "homepage-fireworks",
       "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12402_1new.jpg",
-        "image_2": "shopify://shop_images/Dune-106-52.gif",
-        "image_link": "shopify://collections/charlotte",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
+        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oN1E73\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oN1E73\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "custom_classes": ""
       }
     },
-    "slider_collection_g86HxV": {
+    "slider_featured_collection_bTka8m": {
       "type": "slider-collection",
-      "name": "Slider Collection",
       "settings": {
-        "title": "",
+        "title": "SHOP NEW ARRIVALS",
         "heading_align": "center",
-        "heading_color": "",
-        "collection": "charlotte",
-        "max_products": 5,
+        "heading_color": "#000000",
+        "collection": "new-arrivals",
+        "max_products": 20,
         "image_ratio": "square",
         "hide_price": false,
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
-    "image_banner_aLnEec": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_QhDgnx": {
-          "type": "heading",
-          "settings": {
-            "heading": "SHINE IN STRATA",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_DnXtUy": {
-          "type": "text",
-          "settings": {
-            "text": "Earthy layers of neutral leather unite in this soft, wearable drop with shiny silver hardware.",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_CWADxx": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/strata",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_QhDgnx",
-        "text_DnXtUy",
-        "buttons_CWADxx"
-      ],
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Strata-desk_1.jpg",
-        "image_2": "shopify://shop_images/Strata-mob_1.jpg",
-        "image_link": "shopify://collections/strata",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_RKJW7t": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "dune",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 18,
-        "padding_bottom": 7,
-        "mobile_padding_top": 20,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
     },
@@ -208,7 +41,7 @@
         "heading_8gGVUR": {
           "type": "heading",
           "settings": {
-            "heading": "BESTSELLERS",
+            "heading": "SHOP BESTSELLERS",
             "heading_size_mobile": 25,
             "heading_size_tablet": 20,
             "heading_size_desktop": 36
@@ -250,10 +83,10 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/best-sellers-desktop-hp_1.jpg",
-        "image_2": "shopify://shop_images/best-sellers-mobile-hp_1.jpg",
+        "image": "shopify://shop_images/kyle-all-desktop.gif",
+        "image_2": "shopify://shop_images/kyle-all-mobile.gif",
         "image_link": "shopify://collections/best-selling-bags",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 10,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
@@ -279,7 +112,7 @@
         "custom_class": ""
       }
     },
-    "slider_featured_collection_bTka8m": {
+    "slider_collection_WbqGTG": {
       "type": "slider-collection",
       "settings": {
         "title": "",
@@ -703,92 +536,18 @@
     "multicolumn_dk43Jb": {
       "type": "multicolumn",
       "blocks": {
-        "column_UM76N7": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/v-Rectangle_597_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "VIP Flow",
-            "link": "shopify://products/vip-rev-lrg-crossbody-flow-state-brushed-gold",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 180,
-            "cta_width_desktop": 236,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 10
-          }
-        },
-        "column_Qxf3Ar": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Dune-8_hunter_backpack.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Dune",
-            "link": "shopify://collections/dune",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 180,
-            "cta_width_desktop": 236,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 10
-          }
-        },
-        "column_p9EKmq": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/charlotte_1200.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Charlotte",
-            "link": "shopify://collections/charlotte",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 10
-          }
-        },
         "column_4rgMeQ": {
           "type": "column",
-          "disabled": true,
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/G-new_1.jpg",
+            "image": "shopify://shop_images/Rectangle_745_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "Giraffe",
-            "link": "shopify://collections/giraffee",
+            "link_label": "Limestone",
+            "link": "shopify://collections/limestone",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -801,19 +560,18 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_QdPbtj": {
+        "column_p9EKmq": {
           "type": "column",
-          "disabled": true,
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/MW-new_1.jpg",
+            "image": "shopify://shop_images/Rectangle_721_2.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "Meadow Weave",
-            "link": "shopify://collections/meadow-weave",
+            "link_label": "Giraffe",
+            "link": "shopify://collections/giraffe",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -826,11 +584,36 @@
             "cta_bottom_spacing": 10
           }
         },
-        "column_Y8MHWj": {
+        "column_Qxf3Ar": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Strata-mob_1.jpg",
+            "image": "shopify://shop_images/Rectangle_744_1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "As Seen On",
+            "link": "https://www.hammitt.com/pages/celebrity-hammitt-bags",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 180,
+            "cta_width_desktop": 236,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
+        "column_Y8MHWj": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_742_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -849,15 +632,63 @@
             "cta_top_spacing": 0,
             "cta_bottom_spacing": 10
           }
+        },
+        "column_QdPbtj": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_742_1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "strata",
+            "link": "shopify://collections/strata",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
+        "column_UM76N7": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/High-Top-50_1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "High Top",
+            "link": "shopify://collections/high-top",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 180,
+            "cta_width_desktop": 236,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
         }
       },
       "block_order": [
-        "column_UM76N7",
-        "column_Qxf3Ar",
-        "column_p9EKmq",
         "column_4rgMeQ",
+        "column_p9EKmq",
+        "column_Qxf3Ar",
+        "column_Y8MHWj",
         "column_QdPbtj",
-        "column_Y8MHWj"
+        "column_UM76N7"
       ],
       "settings": {
         "title": "",
@@ -870,7 +701,7 @@
         "image_ratio": "square",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 3,
+        "columns_desktop": 5,
         "columns_gap": 2,
         "row_gap": 2,
         "mobile_columns_gap": 2,
@@ -912,14 +743,6 @@
         "mobile_padding_bottom": 36
       }
     },
-    "homepage_fireworks_pxtfb9": {
-      "type": "homepage-fireworks",
-      "disabled": true,
-      "settings": {
-        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbLW4\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"vZbLW4\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "custom_classes": ""
-      }
-    },
     "rich_text_xFdwjM": {
       "type": "rich-text",
       "blocks": {
@@ -953,7 +776,7 @@
           "type": "customer-review",
           "settings": {
             "title": "I love this bag",
-            "review_image": "shopify://shop_images/Rectangle_643_2x_607ffde4-3560-4e62-a1a0-2523bd3cdfc2.png",
+            "review_image": "shopify://shop_images/rev-kyle_2e960766-8a13-48be-88a6-2caecfc0b4d3.jpg",
             "customer_name": "Miranda P",
             "review_text": "It’s absolutely stunning. The leather is buttery soft and the gold accents elevate it perfectly.",
             "product": "kyle-shoulder-bag-black-brushed-gold-red-zip"
@@ -963,10 +786,10 @@
           "type": "customer-review",
           "settings": {
             "title": "Absolutely beautiful handbag.",
-            "review_image": "shopify://shop_images/Rectangle_644_2x_3780e1d0-c5d0-4cfa-941e-bb7cf9126e67.png",
+            "review_image": "shopify://shop_images/rev-dan_0bc167a3-4a06-445e-add4-96ccfbe97501.jpg",
             "customer_name": "Tom R",
             "review_text": "I love everything about it.\nThank you for creating\nsuch a beautiful bag.",
-            "product": "daniel-med-satchel-hydrangea-suede-silver"
+            "product": "daniel-med-satchel-black-brushed-gold-red-zip"
           }
         },
         "customer_review_kRkRxd": {
@@ -983,10 +806,10 @@
           "type": "customer-review",
           "settings": {
             "title": "It truly is the perfect bag!",
-            "review_image": "shopify://shop_images/Rectangle_646_2x_a19c5dfb-e49b-4660-952f-544e570124d0.png",
+            "review_image": "shopify://shop_images/rev-tom_233c0e2b-571e-4488-8789-5b8bf14829ce.jpg",
             "customer_name": "Tonya J",
             "review_text": "I love this so much! It’s perfect! And perfect for the summer!",
-            "product": "tom-zip-med-shoulder-bag-lime-zest-brushed-silver"
+            "product": "tom-zip-shoulder-bag-mahogany-pebble-brushed-gold-red-zip"
           }
         },
         "customer_review_6dyahc": {
@@ -1020,7 +843,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Kyle-Med-Waterline-BG_5B_19_1.jpg",
+            "image": "shopify://shop_images/colo-blk_049bda11-fd45-4adb-b3c0-165473e1b7c6.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -1044,7 +867,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Tom-Zip---Mahogany-Pebble-Brushed-Gold-Red-Zip---Lrg-2_d1f4059d-dfd7-46d7-bb45-fde57a8a8e22.jpg",
+            "image": "shopify://shop_images/colo-brow_3f23c524-78a2-4bc8-8c82-d0980c42a84a.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -1068,7 +891,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/01_2024-08-16_HAMMITT_PDP_CREATIVE_0598_16_1.jpg",
+            "image": "shopify://shop_images/colo-raffia_3ec61e99-1647-45c5-b8af-b2bffe920349.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -1092,7 +915,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/CHARLES_Artichoke-12_1.jpg",
+            "image": "shopify://shop_images/color-green_15e30e5a-5597-4416-affa-109483f466c5.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -1112,18 +935,18 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_EEU3Vd": {
+        "column_8UgcPd": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/thumpnail-desktop_19_1_cf8036ff-9c1d-42bc-95d1-66efb11752de.jpg",
+            "image": "shopify://shop_images/colo-blue_6b6e3d02-8945-40ae-909d-5574fbf4e3b2.jpg",
             "title": "",
-            "b_title_color": "#000000",
+            "b_title_color": "#ffffff",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "CLEAR",
-            "link": "shopify://collections/clear-bags",
+            "link_label": "BLUE",
+            "link": "shopify://collections/blue",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -1136,18 +959,18 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_8UgcPd": {
+        "column_EEU3Vd": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/EVAN_WATERLINE_49752.jpg",
+            "image": "shopify://shop_images/colo-clear_ba2cfcd8-a10c-43de-9598-56a2ec7a06df.jpg",
             "title": "",
-            "b_title_color": "#ffffff",
+            "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "BLUE",
-            "link": "shopify://collections/blue",
+            "link_label": "CLEAR",
+            "link": "shopify://collections/clear-bags",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -1191,8 +1014,8 @@
         "column_YXrVq9",
         "column_DnK7iL",
         "column_WwgVah",
-        "column_EEU3Vd",
         "column_8UgcPd",
+        "column_EEU3Vd",
         "column_Rt4rC6"
       ],
       "settings": {
@@ -1239,6 +1062,183 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 36,
         "custom_class": ""
+      }
+    },
+    "image_banner_aLnEec": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_QhDgnx": {
+          "type": "heading",
+          "settings": {
+            "heading": "SHINE IN STRATA",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_DnXtUy": {
+          "type": "text",
+          "settings": {
+            "text": "Earthy layers of neutral leather unite in this soft, wearable drop with shiny silver hardware.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_CWADxx": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/strata",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QhDgnx",
+        "text_DnXtUy",
+        "buttons_CWADxx"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Strata-desk_1.jpg",
+        "image_2": "shopify://shop_images/Strata-mob_1.jpg",
+        "image_link": "shopify://collections/strata",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_banner_ezVVdn": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_r84kmd": {
+          "type": "heading",
+          "settings": {
+            "heading": "PREORDER CHARLOTTE",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_4EKEHN": {
+          "type": "text",
+          "settings": {
+            "text": "As seen on Julie Bowen at the Happy Gilmore 2 premiere.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_h3eaz3": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "PREORDER NOW",
+            "button_link_1": "shopify://collections/charlotte",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_r84kmd",
+        "text_4EKEHN",
+        "buttons_h3eaz3"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12402_1new.jpg",
+        "image_2": "shopify://shop_images/Dune-106-52.gif",
+        "image_link": "shopify://collections/charlotte",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_g86HxV": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "charlotte",
+        "max_products": 5,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
       }
     },
     "hero_video_banner_RVzeet": {
@@ -1308,12 +1308,10 @@
     }
   },
   "order": [
-    "image_banner_ezVVdn",
-    "slider_collection_g86HxV",
-    "image_banner_aLnEec",
-    "slider_collection_RKJW7t",
-    "image_banner_wjLTRm",
+    "homepage_fireworks_pxtfb9",
     "slider_featured_collection_bTka8m",
+    "image_banner_wjLTRm",
+    "slider_collection_WbqGTG",
     "image_banner_3FKmDP",
     "slider_collection_CwB3RG",
     "home-hero-section",
@@ -1322,11 +1320,13 @@
     "multicolumn_GMpXGB",
     "multicolumn_dk43Jb",
     "slider_collection_RWT74t",
-    "homepage_fireworks_pxtfb9",
     "rich_text_xFdwjM",
     "jr_customer_reviews_kz8t7H",
     "multicolumn_7jnCPC",
     "custom_liquid_NgfUX8",
+    "image_banner_aLnEec",
+    "image_banner_ezVVdn",
+    "slider_collection_g86HxV",
     "hero_video_banner_RVzeet",
     "homepage_instagram_RrcAhY"
   ]
