@@ -1453,7 +1453,7 @@ function updateCart(params) {
     cartUpdate(cart);
     const onCartPage = window.location.href.indexOf('/cart') > -1;
     if(onCartPage) {
-        window.location.reload()
+      window.location.reload()
     }
   });
 }
@@ -1564,6 +1564,7 @@ const cartUpdate = (json = false) => {
     })
 
     cartUpsellSwiper();
+
     var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
     .then(response => response.json())
     .then(data => 
@@ -1617,6 +1618,8 @@ const cartUpdate = (json = false) => {
   }
 
   checkGWPs(json);
+
+  window.buildCompleteTheSetInCart()
 
   if(!onCartPage) {
     const itemRemovedCartDrawer = new Event("itemRemovedFromCartDrawer");

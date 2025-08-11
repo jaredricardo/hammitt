@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-    window.checkCartForCompleteTheSet()
+    window.buildCompleteTheSetInCart()
 
 })

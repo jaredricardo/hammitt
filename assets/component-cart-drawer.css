@@ -332,7 +332,11 @@ button[aria-disabled="true"] {
 }
 
 .cart-drawer-upsells .upsell {
-  width: 40%;
+  width: 40% !important;
+}
+
+.swiper upsell-item-fake {
+  margin-right: 9px !important;
 }
 
 .drawer__content-item-actions{
