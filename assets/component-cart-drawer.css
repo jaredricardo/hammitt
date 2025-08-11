@@ -335,7 +335,7 @@ button[aria-disabled="true"] {
   width: 40% !important;
 }
 
-.swiper upsell-item-fake {
+.swiper upsell-item.cts {
   margin-right: 9px !important;
 }
 
@@ -351,7 +351,6 @@ button[aria-disabled="true"] {
   margin: auto;
   padding:10px 10px 0;
 }
-
 
 .emptyDrawerSection .drawer__items {
   padding-bottom: 0;
@@ -701,6 +700,12 @@ cart-upsells .upsell__image img {
   line-height: 1;
 }
 
+cart-upsells .upsell__image .icon-plus {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
 gift-box-section .swiper.gift-box--swiper {
   position: relative;
 }
@@ -819,7 +824,6 @@ div#dynamic-checkout-cart {
   color: white;
   background-color: black;
 }
-
 
 .hammit-gift-message-checkbox {
   font-size: 13px;

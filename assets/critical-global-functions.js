@@ -45,14 +45,20 @@ async function buildCompleteTheSetInCart() {
     if(!product.available || product.id == referenceProductId) return
 
     const productHtml = `
-      <upsell-item-fake class="upsell relative swiper-slide" data-title="${product.title}">
-        <a data-id="${product.variants[0].id}" href="/products/${product.handle}" class="link--fill-parent">
+      <upsell-item class="upsell cts relative swiper-slide" data-title="${product.title}">
+        <a data-id="${product.variants[0].id}" href="/products/${product.handle}" class="quick-add-btn link--fill-parent">
           <span class="visually-hidden">Link to ${product.title}</span>
         </a>
-        <div class="upsell__image"><img src="${product.featured_image}" width="100%" alt="${product.title}"></div>
+        <div class="upsell__image">
+          <img src="${product.featured_image}" width="100%" alt="${product.title}">
+          <svg class="icon-plus" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="black"/>
+            <path d="M7.37255 7.37255V4H8.60784V7.37255H12V8.60784H8.60784V12H7.37255V8.60784H4V7.37255H7.37255Z" fill="black"/>
+          </svg>
+        </div>
         <div class="upsell__title">${product.title}</div>
         <div class="upsell__price">${formatPrice(product.price)}</div>
-      </upsell-item-fake>
+      </upsell-item>
     `
     swiperWrapper.innerHTML += productHtml
   })
