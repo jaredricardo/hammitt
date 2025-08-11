@@ -46,7 +46,7 @@ async function buildCompleteTheSetInCart() {
 
     const productHtml = `
       <upsell-item class="upsell cts relative swiper-slide" data-title="${product.title}">
-        <a data-id="${product.variants[0].id}" href="/products/${product.handle}" class="quick-add-btn link--fill-parent">
+        <a data-id="${product.variants[0].id}" href="/products/${product.handle}" class="quick-add-btn link--fill-parent seventy">
           <span class="visually-hidden">Link to ${product.title}</span>
         </a>
         <div class="upsell__image">
@@ -56,7 +56,9 @@ async function buildCompleteTheSetInCart() {
             <path d="M7.37255 7.37255V4H8.60784V7.37255H12V8.60784H8.60784V12H7.37255V8.60784H4V7.37255H7.37255Z" fill="black"/>
           </svg>
         </div>
-        <div class="upsell__title">${product.title}</div>
+        <a href="${product.url}">
+          <div class="upsell__title">${product.title}</div>
+        </a>
         <div class="upsell__price">${formatPrice(product.price)}</div>
       </upsell-item>
     `

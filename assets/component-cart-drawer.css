@@ -671,7 +671,7 @@ cart-upsells .tab-item__upsell ul li a{
 }
 cart-upsells .tab-item__upsell ul li.tab-item.active a{  text-decoration: underline;}
 cart-upsells .loading-overlay {right: 0;  margin: auto;}
-cart-upsells .upsell__title {font-size: 12px;line-height: 1.2;}
+cart-upsells .upsell__title {font-size: 13px;line-height: 1.2;}
 cart-upsells .upsell__price {font-family: Sofia Pro;font-weight: 400;font-size: 12px;line-height: 22px;letter-spacing: 1.2;margin-top: 5px; display: block;}
 /* cart-upsells .swiper-wrapper {  min-height: 240px;} */
 .drawer__content-items .drawer__content-item:last-child {border-bottom: 0 !important;}
@@ -698,6 +698,10 @@ cart-upsells .upsell__image img {
   text-transform: uppercase;
   height: 53px;
   line-height: 1;
+}
+
+a:has(.upsell__title) {
+  color: black;
 }
 
 cart-upsells .upsell__image .icon-plus {
