@@ -17,7 +17,6 @@ async function buildCompleteTheSetInCart() {
     }
   }
 
-
   let upsellHeaderTarget = document.querySelector('cart-upsells ul .tab-item a[data-heading="You May Also Like"]')
   const upsellProductContainer = document.querySelector('cart-upsells .tab-content .swiper[data-heading-target="You May Also Like"]')
 
@@ -44,6 +43,7 @@ async function buildCompleteTheSetInCart() {
   completeTheSetProducts.forEach((product) => {
 
     if(!product.available || product.id == referenceProductId) return
+
     const productHtml = `
       <upsell-item-fake class="upsell relative swiper-slide" data-title="${product.title}">
         <a data-id="${product.variants[0].id}" href="/products/${product.handle}" class="link--fill-parent">
@@ -59,10 +59,6 @@ async function buildCompleteTheSetInCart() {
 
   swiperContainer.appendChild(swiperWrapper)
   swiperContainer.appendChild(swiperScrollbar)
-
-  // TO DO:
-  //  - init swiper after product are added
-  //  - call check cart function on cart update
 
   upsellProductContainer.parentElement.prepend(swiperContainer)
   upsellProductContainer.remove()
