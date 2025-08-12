@@ -1,8 +1,16 @@
 <upsell-item class="upsell relative swiper-slide" data-title="{{ product.title }}">
-  <a data-id="{{ product.selected_or_first_available_variant.id }}" href="/products/{{ product.handle }}" class="link--fill-parent quick-add-btn">
+  <a data-id="{{ product.selected_or_first_available_variant.id }}" href="/products/{{ product.handle }}" class="link--fill-parent seventy quick-add-btn">
     <span class="visually-hidden">Link to {{ product.title }}</span>
   </a>
-  <div class="upsell__image"><img src="{{ product.images[0] | img_url: '200x' }}" width="100%" alt="{{ product.title }}"></div>
-  <div class="upsell__title">{{ product.title }}</div>
+  <div class="upsell__image">
+    <img src="{{ product.images[0] | img_url: '200x' }}" width="100%" alt="{{ product.title }}">
+    <svg class="icon-plus" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="black"/>
+      <path d="M7.37255 7.37255V4H8.60784V7.37255H12V8.60784H8.60784V12H7.37255V8.60784H4V7.37255H7.37255Z" fill="black"/>
+    </svg>
+  </div>
+  <a href="{{ product.url }}">
+    <div class="upsell__title">{{ product.title }}</div>
+  </a>
   <div class="upsell__price">{{ product.price | money }}</div>
 </upsell-item>
