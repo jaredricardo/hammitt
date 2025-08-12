@@ -244,7 +244,7 @@
 
                 const productCard = document.querySelector('[data-complex-card-template]').cloneNode(true)
                 let formattedProductTitle = result.prod_name
-                let productSize = result.metafields?.hammitt?.size || null
+                let productSize = result.metafields?.hammitt?.size || ''
                 let productColorDescriptor = result.metafields?.custom?.product_title_color_descriptor || null
                 let productTitleType = result.metafields?.custom?.product_title_type || null
                 let preorderKey = result.metafields?.custom?.preorder_key || null
@@ -257,7 +257,7 @@
                 const tagHTML = buildCardTag(result)
                 const dataJson = buildCardJson(result)
 
-                if(productSize !== null && productColorDescriptor !== null && productTitleType !== null) {
+                if(productColorDescriptor !== null && productTitleType !== null) {
 
                     let finalSizeString = ''
                  
