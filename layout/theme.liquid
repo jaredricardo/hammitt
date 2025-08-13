@@ -873,7 +873,212 @@ template-{{ template.name -}}
         event_key: 'a61558c9-6f06-4a2f-9229-e9724f3935b7'
       };
     </script>
-
+    <script type="text/javascript">
+window.OrderProtection = {
+  config: [
+  {
+    "type": "vertical-stack",
+    "attributes": {
+      "gap": "0",
+      "padding": "0",
+      "margin": "0 0 1em 0",
+      "align-items": "stretch",
+      "justify-content": "flex-start"
+    },
+    "children": [
+      {
+        "type": "bordered-container",
+        "attributes": {
+          "padding": "2px",
+          "border-width": "1px 0 1px 0",
+          "border-style": "solid",
+          "border-color": "#e6e6e6",
+          "background-color": "transparent",
+          "border-radius": "0"
+        },
+        "children": [
+          {
+            "type": "horizontal-stack",
+            "attributes": {
+              "padding": "8px",
+              "align-items": "flex-start",
+              "justify-content": "space-between",
+              "gap": "0"
+            },
+            "children": [
+              {
+                "type": "horizontal-stack",
+                "attributes": {
+                  "gap": "8px",
+                  "align-items": "center",
+                  "justify-content": "flex-start",
+                  "padding": "0",
+                  "width": "auto"
+                },
+                "children": [
+                  {
+                    "type": "ui-image",
+                    "attributes": {
+                      "src": "https://storage.googleapis.com/cdn.orderprotection.com/Images/OP%20CE%20Logo.png",
+                      "alt": "Checkout+",
+                      "width": "40px",
+                      "height": "40px",
+                      "role": "img",
+                      "loading": "eager"
+                    }
+                  },
+                  {
+                    "type": "vertical-stack",
+                    "attributes": {
+                      "gap": "2px",
+                      "padding": "0px",
+                      "height": "100%",
+                      "align-items": "flex-start",
+                      "justify-content": "flex-start",
+                      "width": "auto"
+                    },
+                    "children": [
+                      {
+                        "type": "horizontal-stack",
+                        "attributes": {
+                          "gap": "8px",
+                          "padding": "0px",
+                          "align-items": "center",
+                          "justify-content": "flex-start",
+                          "width": "auto"
+                        },
+                        "children": [
+                          {
+                            "type": "custom-text",
+                            "attributes": {
+                              "text": "Order Protection",
+                              "font": "sof",
+                              "size": "14px",
+                              "color": "#1D2433",
+                              "weight": "600",
+                              "align": "left",
+                              "line-height": "normal",
+                              "text-transform": "none",
+                              "letter-spacing": "normal"
+                            }
+                          },
+                          {
+                            "type": "ui-modal",
+                            "attributes": {
+                              "aria-label": "Information Modal",
+                              "role": "dialog"
+                            },
+                            "children": [
+                              {
+                                "type": "ui-image",
+                                "attributes": {
+                                  "src": "https://op-media-asset.s3.us-west-1.amazonaws.com/assets/info-icon.svg",
+                                  "alt": "Info Modal",
+                                  "width": "12px",
+                                  "height": "12px",
+                                  "role": "button",
+                                  "aria-label": "Order Protection Info Modal",
+                                  "aria-haspopup": "dialog",
+                                  "tabIndex": "0",
+                                  "isInfoModal": true,
+                                  "loading": "eager"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "custom-text",
+                        "attributes": {
+                          "text": "Protection against Damage, Loss & Theft.",
+                          "font": "sof",
+                          "size": "11px",
+                          "color": "rgba(29, 36, 51, 0.8)",
+                          "weight": "400",
+                          "align": "left",
+                          "line-height": "normal",
+                          "text-transform": "none",
+                          "letter-spacing": "normal"
+                        }
+                      },
+                      {
+                        "type": "op-collapsible",
+                        "attributes": {
+                          "maxLength": 0,
+                          "expandColor": "#0066cc",
+                          "font": "sof",
+                          "size": "11px",
+                          "text": "By leaving this toggle on, I agree to include package insurance and priority support in my order. By deselecting order protection, I accept liability for any issues that occur while my package is in transit or being delivered."
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "vertical-stack",
+                "attributes": {
+                  "gap": "0",
+                  "padding": "0px",
+                  "width": "fit-content",
+                  "height": "100%",
+                  "align-items": "flex-end",
+                  "justify-content": "flex-start"
+                },
+                "children": [
+                  {
+                    "type": "horizontal-stack",
+                    "attributes": {
+                      "gap": "8px",
+                      "align-items": "center",
+                      "justify-content": "flex-end",
+                      "padding": "0",
+                      "width": "fit-content"
+                    },
+                    "children": [
+                      {
+                        "type": "ui-price",
+                        "attributes": {
+                          "currency": "$",
+                          "font": "sof",
+                          "size": "12px",
+                          "color": "#1D2433",
+                          "weight": "600",
+                          "type": "variant",
+                          "align": "right",
+                          "line-height": "normal",
+                          "letter-spacing": "normal",
+                          "width": "fit-content",
+                          "min-width": "60px",
+                          "text-align": "right"
+                        },
+                        "listens": ["widget/loaded", "cart/updated"]
+                      },
+                      {
+                        "type": "ui-switch",
+                        "attributes": {
+                          "aria-label": "Toggle Checkout+ protection",
+                          "role": "switch",
+                          "type": "toggle",
+                          "tabIndex": "0"
+                        },
+                        "listens": ["widget/loaded", "cart/updated"],
+                        "emits": ["protection/toggled"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+}
+</script>
     <script src="https://cdn.orderprotection.com/cart-widget/hammitt/widget.js"></script>
 
     <script src="https://res4.applovin.com/p/l/loader.iife.js" async></script>
