@@ -48,6 +48,36 @@
     opacity: 0;
   }
 
+  .custom-variant-list li.temp-opacity-0 {
+    opacity: 0;
+  }
+
+  .pdp-hero-section .colorway-optimized .custom-variant-list {
+    flex-wrap: wrap !important;
+  }
+  .show-or-hide-more-button-container {
+    background-color: #FDF8F5 !important;
+    text-color: black;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    min-height: 70px;
+  }
+
+  .show-or-hide-more-button-container.hidden {
+    display: none !important;
+  } 
+
+  show-more-variant-button,
+  show-less-variant-button {
+    height: 100%;
+    width: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
 </style>
 
 <script>
@@ -59,7 +89,6 @@
     }
 
     handleClick() {
-      console.log('cliked show more')
       const parentLi = this.closest('li')
       const parentUl = this.closest('ul')
       const showLessbutton = parentUl.querySelector('show-less-variant-button')
@@ -82,7 +111,6 @@
     }
 
     handleClick() {
-      console.log('cliked show less')
       const parentLi = this.closest('li')
       const parentUl = this.closest('ul')
 
@@ -100,14 +128,21 @@
 
   function initShowMoreAndLess(lis, lastLiIndex) {
 
+    // remove old show more + less in case they exist and we are resizing the viewport
+    const existingShowMoreOrLessButtons = document.querySelectorAll('.show-or-hide-more-button-container')
+    existingShowMoreOrLessButtons.forEach(button => {button.remove()})
+
     // insert the button
     const liButtonContainerShowMore = document.createElement('li')
     const liButtonContainerShowLess = document.createElement('li')
     const showMoreButton = document.createElement('show-more-variant-button')
     const showLessButton = document.createElement('show-less-variant-button')
+    let debounceTimeout
 
     const numHidden = lis.length - lastLiIndex
     const parentUl = lis[0].parentElement
+
+    console.log(parentUl)
     
     liButtonContainerShowMore.classList.add('show-or-hide-more-button-container')
     liButtonContainerShowMore.appendChild(showMoreButton)
@@ -126,8 +161,16 @@
       const liAfterLastInRow = lis[j]
       liAfterLastInRow.classList.add('hidden')
     }
+
     // append after the rest are hidden
     parentUl.appendChild(liButtonContainerShowLess)
+    // clearTimeout(debounceTimeout)
+    //  debounceTimeout = setTimeout(() => {
+    //   console.log('removing temp opacity after TIME !!!!')
+    //   lis.forEach((li) => { 
+    //     li.classList.remove('temp-opacity-0') 
+    //   })
+    // }, 1000)
   }
 
   function markLastInRow(ulSelector, liSelector) {
@@ -137,6 +180,9 @@
     if (!ul) return;
     const lis = ul.querySelectorAll(liSelector)
 
+    // set all the opacities to 1 
+    // lis.forEach((li) => { li.classList.add('temp-opacity-0') })
+    // lis.forEach((li) => { li.classList.remove('hidden')})
 
     let prevOffsetTop = null
     let lastLi = null
@@ -164,8 +210,9 @@
   window.addEventListener('DOMContentLoaded', () => {
     markLastInRow('.custom-variant-list.small-list', 'li')
   })
+  
 
-  // Optionally, re-run on resize:
+
   window.addEventListener('resize', () => {
     markLastInRow('.custom-variant-list.small-list', 'li')
   })
