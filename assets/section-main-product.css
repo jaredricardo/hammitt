@@ -1834,6 +1834,28 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
   display: none !important;
 }
 
+.show-or-hide-more-button-container {
+  background-color: #FDF8F5 !important;
+  text-color: black;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.show-or-hide-more-button-container.hidden {
+  display: none !important;
+} 
+
+show-more-variant-button,
+show-less-variant-button {
+  height: 100%;
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 @media screen and (max-width: 989px) {
   .pdp-hero-section .product__title:has(.only-x-left-container) {
     flex-direction: column;

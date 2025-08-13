@@ -36,6 +36,142 @@
   }
 </style>
 
+{% comment %} AB testing script and associated style {% endcomment %}
+
+<style>
+
+  .custom-variant-list li.last-in-row {
+    background-color: #FDF8F5;
+  }
+
+  .custom-variant-list li.last-in-row a {
+    opacity: 0;
+  }
+
+</style>
+
+<script>
+
+  class ShowMoreVariantButton extends HTMLElement {
+    constructor() {
+      super()
+      this.addEventListener('click', (event) => this.handleClick(event))
+    }
+
+    handleClick() {
+      console.log('cliked show more')
+      const parentLi = this.closest('li')
+      const parentUl = this.closest('ul')
+      const showLessbutton = parentUl.querySelector('show-less-variant-button')
+
+      parentUl.querySelectorAll('li.hidden').forEach(item => {
+        item.classList.remove('hidden')
+        item.classList.add('past-last-in-row')
+      })
+
+      parentLi.classList.add('hidden') 
+      showLessbutton.classList.remove('hidden')
+
+    }
+  }
+
+  class ShowLessVariantButton extends HTMLElement {
+    constructor() {
+      super()
+      this.addEventListener('click', (event) => this.handleClick(event))
+    }
+
+    handleClick() {
+      console.log('cliked show less')
+      const parentLi = this.closest('li')
+      const parentUl = this.closest('ul')
+
+      parentUl.querySelectorAll('li.past-last-in-row').forEach(item => {
+        item.classList.add('hidden')
+      })
+
+      parentUl.querySelector('li:has(show-more-variant-button)').classList.remove('hidden')
+      parentLi.classList.add('hidden') 
+    }
+  }
+
+  customElements.define('show-more-variant-button', ShowMoreVariantButton)
+  customElements.define('show-less-variant-button', ShowLessVariantButton)
+
+  function initShowMoreAndLess(lis, lastLiIndex) {
+
+    // insert the button
+    const liButtonContainerShowMore = document.createElement('li')
+    const liButtonContainerShowLess = document.createElement('li')
+    const showMoreButton = document.createElement('show-more-variant-button')
+    const showLessButton = document.createElement('show-less-variant-button')
+
+    const numHidden = lis.length - lastLiIndex
+    const parentUl = lis[0].parentElement
+    
+    liButtonContainerShowMore.classList.add('show-or-hide-more-button-container')
+    liButtonContainerShowMore.appendChild(showMoreButton)
+    showMoreButton.innerHTML = `+ ${numHidden} More`
+
+    liButtonContainerShowLess.classList.add('show-or-hide-more-button-container')
+    liButtonContainerShowLess.appendChild(showLessButton)
+    liButtonContainerShowLess.classList.add('hidden')
+    showLessButton.innerHTML = `Show Less`
+
+    parentUl.insertBefore(liButtonContainerShowMore, lis[lastLiIndex - 1])    
+
+    // hide the remaining swatch images
+    
+    for (let j = lastLiIndex - 1; j < lis.length; j++) {
+      const liAfterLastInRow = lis[j]
+      liAfterLastInRow.classList.add('hidden')
+    }
+    // append after the rest are hidden
+    parentUl.appendChild(liButtonContainerShowLess)
+  }
+
+  function markLastInRow(ulSelector, liSelector) {
+
+    const ul = document.querySelector(ulSelector)
+
+    if (!ul) return;
+    const lis = ul.querySelectorAll(liSelector)
+
+
+    let prevOffsetTop = null
+    let lastLi = null
+
+    for (let i = 0; i < lis.length; i++) {
+
+      const li = lis[i]
+
+      // If the offsetTop is different from the previous one, it means we are at a new row
+      if (prevOffsetTop !== null && li.offsetTop !== prevOffsetTop) {
+        // Previous li was the last in the row
+        if (lastLi) {
+          // Initialize show more functionality
+          initShowMoreAndLess(lis, i)
+
+          break
+        }
+      }
+      prevOffsetTop = li.offsetTop
+      lastLi = li
+    }
+
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    markLastInRow('.custom-variant-list.small-list', 'li')
+  })
+
+  // Optionally, re-run on resize:
+  window.addEventListener('resize', () => {
+    markLastInRow('.custom-variant-list.small-list', 'li')
+  })
+
+</script>
+
 {% liquid
 
 
@@ -62,7 +198,7 @@
         {% render 'special-care-tooltip' %}
       {% endif %}
     </div>
-    <ul class="custom-variant-list">
+    <ul class="custom-variant-list colors-list">
       {% for product in colorway_collection %}
 
         {% liquid 
@@ -129,7 +265,7 @@
           {% render 'special-care-tooltip' %}
         {% endif %}
       </div>
-    <ul class="custom-variant-list">
+    <ul class="custom-variant-list small-list">
       {%- for product in colorway_collection -%}
 
         {% liquid 
@@ -198,7 +334,7 @@
           {% render 'special-care-tooltip' %}
         {% endif %}
       </div>
-    <ul class="custom-variant-list">
+    <ul class="custom-variant-list medium-list">
       {%- for product in colorway_collection -%}
      
         {% liquid 
@@ -271,7 +407,7 @@
         {% render 'special-care-tooltip' %}
       {% endif %}
     </div>
-    <ul class="custom-variant-list">
+    <ul class="custom-variant-list medium-short-strap-list">
       {%- for product in colorway_collection -%}
      
         {% liquid 
@@ -344,7 +480,7 @@
           {% render 'special-care-tooltip' %}
         {% endif %}
       </div>
-    <ul class="custom-variant-list">
+    <ul class="custom-variant-list large-list">
       {%- for product in colorway_collection -%}
   
         {% liquid 
@@ -412,7 +548,7 @@
           {% render 'special-care-tooltip' %}
         {% endif %}
       </div>
-    <ul class="custom-variant-list">
+    <ul class="custom-variant-list extra-large-list">
       {%- for product in colorway_collection -%}
   
         {% liquid 
