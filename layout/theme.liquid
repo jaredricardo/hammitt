@@ -989,29 +989,42 @@ window.OrderProtection = {
                         ]
                       },
                       {
-                        "type": "custom-text",
-                        "attributes": {
-                          "text": "Protection for Damage, Loss & Theft.",
-                          "font": "sof",
-                          "size": "10px",
-                          "color": "rgba(29, 36, 51, 0.8)",
-                          "weight": "400",
-                          "align": "left",
-                          "line-height": "normal",
-                          "text-transform": "none",
-                          "letter-spacing": "normal"
-                        }
-                      },
-                      {
-                        "type": "op-collapsible",
-                        "attributes": {
-                          "maxLength": 0,
-                          "expandColor": "#0066cc",
-                          "font": "sof",
-                          "size": "10px",
-                          "text": "By leaving this toggle on, I agree to include package insurance and priority support in my order. By deselecting order protection, I accept liability for any issues that occur while my package is in transit or being delivered."
-                        }
-                      }
+  "type": "horizontal-stack",
+  "attributes": {
+    "gap": "4px",
+    "padding": "0px",
+    "align-items": "center",
+    "justify-content": "flex-start",
+    "width": "auto"
+  },
+  "children": [
+    {
+      "type": "custom-text",
+      "attributes": {
+        "text": "Protection for Damage, Loss & Theft.",
+        "font": "sof",
+        "size": "10px",
+        "color": "rgba(29, 36, 51, 0.8)",
+        "weight": "400",
+        "align": "left",
+        "line-height": "normal",
+        "text-transform": "none",
+        "letter-spacing": "normal"
+      }
+    },
+    {
+      "type": "op-collapsible",
+      "attributes": {
+        "maxLength": 0,
+        "expandColor": "#0066cc",
+        "font": "sof",
+        "size": "10px",
+        "text": "Learn more" 
+      }
+    }
+  ]
+}
+
                     ]
                   }
                 ]
