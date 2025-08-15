@@ -129,7 +129,9 @@
   function initShowMoreAndLess(lis, lastLiIndex) {
 
     // remove old show more + less in case they exist and we are resizing the viewport
-    const existingShowMoreOrLessButtons = document.querySelectorAll('.show-or-hide-more-button-container')
+    const nearestUl = lis[0].closest('ul')
+    const existingShowMoreOrLessButtons = nearestUl.querySelectorAll('.show-or-hide-more-button-container')  
+    
     existingShowMoreOrLessButtons.forEach(button => {button.remove()})
 
     // insert the button
@@ -137,12 +139,11 @@
     const liButtonContainerShowLess = document.createElement('li')
     const showMoreButton = document.createElement('show-more-variant-button')
     const showLessButton = document.createElement('show-less-variant-button')
-    let debounceTimeout
 
-    const numHidden = lis.length - lastLiIndex
+    const nonButtonLis = Array.from(lis).filter(li => !li.classList.contains('show-or-hide-more-button-container'))
+
+    const numHidden = nonButtonLis.length + 1 - lastLiIndex
     const parentUl = lis[0].parentElement
-
-    console.log(parentUl)
     
     liButtonContainerShowMore.classList.add('show-or-hide-more-button-container')
     liButtonContainerShowMore.appendChild(showMoreButton)
@@ -153,7 +154,11 @@
     liButtonContainerShowLess.classList.add('hidden')
     showLessButton.innerHTML = `Show Less`
 
-    parentUl.insertBefore(liButtonContainerShowMore, lis[lastLiIndex - 1])    
+    if(lis[lastLiIndex - 1].classList.contains('show-or-hide-more-button-container')) {
+      parentUl.insertBefore(liButtonContainerShowMore, lis[lastLiIndex])
+    } else {
+      parentUl.insertBefore(liButtonContainerShowMore, lis[lastLiIndex - 1 ])   
+    }
 
     // hide the remaining swatch images
     
@@ -164,25 +169,17 @@
 
     // append after the rest are hidden
     parentUl.appendChild(liButtonContainerShowLess)
-    // clearTimeout(debounceTimeout)
-    //  debounceTimeout = setTimeout(() => {
-    //   console.log('removing temp opacity after TIME !!!!')
-    //   lis.forEach((li) => { 
-    //     li.classList.remove('temp-opacity-0') 
-    //   })
-    // }, 1000)
+
   }
 
   function markLastInRow(ulSelector, liSelector) {
+
+    document.querySelector('.product-colors.colorway-optimized').style.opacity = '1'
 
     const ul = document.querySelector(ulSelector)
 
     if (!ul) return;
     const lis = ul.querySelectorAll(liSelector)
-
-    // set all the opacities to 1 
-    // lis.forEach((li) => { li.classList.add('temp-opacity-0') })
-    // lis.forEach((li) => { li.classList.remove('hidden')})
 
     let prevOffsetTop = null
     let lastLi = null
@@ -208,13 +205,57 @@
   }
 
   window.addEventListener('DOMContentLoaded', () => {
+    markLastInRow('.custom-variant-list.colors-list', 'li')
     markLastInRow('.custom-variant-list.small-list', 'li')
+    markLastInRow('.custom-variant-list.medium-list', 'li')
+    markLastInRow('.custom-variant-list.medium-short-strap-list', 'li')
+    markLastInRow('.custom-variant-list.large-list', 'li')
+    markLastInRow('.custom-variant-list.large-short-strap-list', 'li')
   })
   
 
+  let resizeTimeout
 
   window.addEventListener('resize', () => {
+    
+    resetSwapperButtons()
+
+    clearTimeout(resizeTimeout)
+    resizeTimeout = setTimeout(() => {
+      markLastInRow('.custom-variant-list.colors-list', 'li')
+      markLastInRow('.custom-variant-list.small-list', 'li')
+      markLastInRow('.custom-variant-list.medium-list', 'li')
+      markLastInRow('.custom-variant-list.medium-short-strap-list', 'li')
+      markLastInRow('.custom-variant-list.large-list', 'li')
+      markLastInRow('.custom-variant-list.large-short-strap-list', 'li')
+    }, 600)
+  })
+
+
+  function resetSwapperButtons() {
+    const lis = document.querySelectorAll('.custom-variant-list.small-list li')
+    const container = document.querySelector('.product-colors.colorway-optimized')
+
+    // hide LI container so it dosnt look weird while resizing
+    container.style.opacity = '0'
+
+    // reset the LIs
+    if(lis.length) {
+      lis.forEach(li => {
+        li.classList.remove('past-last-in-row')
+        li.classList.remove('hidden')
+      })
+    }
+  }
+
+  document.addEventListener('re-initialize-show-more-pdp-variat-swapper', () => {
+    resetSwapperButtons()
+    markLastInRow('.custom-variant-list.colors-list', 'li')
     markLastInRow('.custom-variant-list.small-list', 'li')
+    markLastInRow('.custom-variant-list.medium-list', 'li')
+    markLastInRow('.custom-variant-list.medium-short-strap-list', 'li')
+    markLastInRow('.custom-variant-list.large-list', 'li')
+    markLastInRow('.custom-variant-list.large-short-strap-list', 'li')
   })
 
 </script>

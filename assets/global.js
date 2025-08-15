@@ -1130,6 +1130,9 @@ const productSwatchReload = () => {
         productSwatchReload();
         changeSwiperSlider();
 
+        // For usage in AB variant swapper test. Delete after as it unneeded (unless the B variant wins).
+        document.dispatchEvent(new CustomEvent('re-initialize-show-more-pdp-variat-swapper'))
+
         const swiper = document.getElementById('product__mobile-images');
         const json = JSON.parse(swiper.getAttribute('data-json'));
         const productSwiper = new Swiper(swiper, json);
