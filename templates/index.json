@@ -9,6 +9,72 @@
  */
 {
   "sections": {
+    "image_banner_aLnEec": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_QhDgnx": {
+          "type": "heading",
+          "settings": {
+            "heading": "OUR ORANGE ERA",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "buttons_CWADxx": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "PREORDER NOW",
+            "button_link_1": "https://www.hammitt.com/products/kyle-shoulder-bag-habanero-gold",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QhDgnx",
+        "buttons_CWADxx"
+      ],
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12420_1.jpg",
+        "image_2": "shopify://shop_images/Dune-106-5_cf775d8f-ea55-4c51-b9aa-06230113943c.gif",
+        "image_link": "https://www.hammitt.com/products/kyle-shoulder-bag-habanero-gold",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "homepage_fireworks_pxtfb9": {
       "type": "homepage-fireworks",
       "settings": {
@@ -1053,84 +1119,6 @@
         "custom_class": ""
       }
     },
-    "image_banner_aLnEec": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_QhDgnx": {
-          "type": "heading",
-          "settings": {
-            "heading": "SHINE IN STRATA",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_DnXtUy": {
-          "type": "text",
-          "settings": {
-            "text": "Earthy layers of neutral leather unite in this soft, wearable drop with shiny silver hardware.",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_CWADxx": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/strata",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_QhDgnx",
-        "text_DnXtUy",
-        "buttons_CWADxx"
-      ],
-      "disabled": true,
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Strata-desk_1.jpg",
-        "image_2": "shopify://shop_images/Strata-mob_1.jpg",
-        "image_link": "shopify://collections/strata",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "image_banner_ezVVdn": {
       "type": "image-banner",
       "blocks": {
@@ -1297,6 +1285,7 @@
     }
   },
   "order": [
+    "image_banner_aLnEec",
     "homepage_fireworks_pxtfb9",
     "slider_featured_collection_bTka8m",
     "image_banner_wjLTRm",
@@ -1313,7 +1302,6 @@
     "jr_customer_reviews_kz8t7H",
     "multicolumn_7jnCPC",
     "custom_liquid_NgfUX8",
-    "image_banner_aLnEec",
     "image_banner_ezVVdn",
     "slider_collection_g86HxV",
     "hero_video_banner_RVzeet",
