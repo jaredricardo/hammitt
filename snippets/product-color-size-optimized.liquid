@@ -40,6 +40,12 @@
 
 <style>
 
+  /* opacity 0 until the script has run, or after 3000ms as a fallback */
+  .product-colors.colorway-optimized {
+    opacity: 0;
+  }
+
+
   .custom-variant-list li.last-in-row {
     background-color: #FDF8F5;
   }
@@ -257,6 +263,14 @@
     markLastInRow('.custom-variant-list.large-list', 'li')
     markLastInRow('.custom-variant-list.large-short-strap-list', 'li')
   })
+
+  window.setTimeout(() => {
+    // fallback just in case
+    const container = document.querySelector('.product-colors.colorway-optimized')
+    if(container) {
+      container.style.opacity = '1'
+    }
+  }, 3000)
 
 </script>
 
