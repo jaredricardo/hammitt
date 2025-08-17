@@ -751,8 +751,14 @@
         <small class="rte">
           {% if settings.cart_drawer_msg != blank %}
             {% style %}
-            .drawer__notification{
+            .drawer__notification {
               --cartDrawerMsg: {{ settings.cart_drawer_msg_color | default: '#000' }};
+              margin-bottom: 0 !important;
+            }
+
+            .drawer__notification p {
+              margin: 0;
+              opacity: 0;
             }
             {% endstyle %}
             {{ settings.cart_drawer_msg }}
