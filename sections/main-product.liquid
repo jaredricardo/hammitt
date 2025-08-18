@@ -1259,6 +1259,29 @@
     padding: 0 !important;
   }
   .acs_widget_links {display: none;}
+
+  /* complete the set force a height even before load to prevent layout shift */
+  .pdp-hero-wrap product-recommendations:not(:has(.swiper-initialized)) {
+    min-height: 360px; 
+  }
+
+  @media screen and (max-width: 951px) {
+    .pdp-hero-wrap product-recommendations:not(:has(.swiper-initialized)) {
+      min-height: 320px; 
+    }
+  }
+
+  @media screen and (max-width: 751px) {
+    .pdp-hero-wrap product-recommendations:not(:has(.swiper-initialized)) {
+      min-height: 280px; 
+    }
+  }
+    @media screen and (max-width: 551px) {
+    .pdp-hero-wrap product-recommendations:not(:has(.swiper-initialized)) {
+      min-height: 230px; 
+    }
+  }
+  /* end force height before complete set load */
 </style>
 
 {% comment %} 6076389327032: rise-ai-giftcard {% endcomment %}
