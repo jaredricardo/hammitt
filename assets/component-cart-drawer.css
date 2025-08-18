@@ -93,16 +93,36 @@ cart-drawer > details[open] > summary::before {
   .no-js .cart-drawer {
     height: auto;
   }
-  .drawer__header {
-    padding: 24px;
-  }
 }
 
 .drawer__header {
-  padding:12px;
   text-align: center;
   border-bottom: 1px solid #e8e8e1;
 }
+
+/* 
+  Reset cart paddings. There are multiple instances of CSS classes throughout many files.
+  Instead of editing them all, we will override them here and then add padding to the parent element.
+*/
+.drawer__header,
+.drawer__items,
+.drawer__final {
+  padding: 0 !important;
+}
+
+.drawer__content {
+  padding: 10px;
+}
+
+
+.drawer__content h4 {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+
+
 .drawer__title{
   margin:0;
 }
@@ -130,10 +150,7 @@ cart-drawer > details[open] > summary::before {
 }
 .drawer__items{
   overflow-y:auto;
-  padding:0 20px;
   flex-grow: 1;
-  padding-bottom: 10px;
-
 }
 .drawer__content-items{
   margin:0;
@@ -145,7 +162,7 @@ cart-drawer > details[open] > summary::before {
   display:flex;
   padding-top: 1rem;
   padding-bottom:1rem;
-  margin-bottom:1rem !important;
+  margin-bottom:0rem !important;
   gap:15px;
   border-bottom:1px solid #efefef
 }
@@ -160,13 +177,15 @@ cart-drawer > details[open] > summary::before {
 }
 .drawer_product-info{
   margin:0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+  font-weight: 600;
 }
 .drawer__content-item-info{
   flex-direction:column;
   flex:1 1 0%;
   display:flex;
-  margin-bottom:1rem;
+  margin-bottom:0rem;
   justify-content:space-between
 }
 .drawer__content-item-top{
@@ -182,7 +201,8 @@ cart-drawer > details[open] > summary::before {
   justify-content:space-between;
 }
 .drawer__items span.price.price--end{
-  margin:0
+  margin:0;
+  font-weight: 600;
 }
 .drawer__content-item-price{
   margin-left:1rem
@@ -240,7 +260,6 @@ cart-drawer > details[open] > summary::before {
   border-left:none
 }
 .drawer__final{
-  padding:12px 24px 0px;
   border-top:1px solid #efefef;
   width: 100%;
   background: white;
@@ -641,7 +660,7 @@ gift-box-section .swiper:not(.swiper-initialized) .swiper-slide {
   width: calc(50% - 4px);
   margin-right: 9px;
 }
-.cart-item__name {font-size: 13px;font-weight: 500;    line-height: 1.2;}
+.cart-item__name {font-size: 15px;font-weight: 600;    line-height: 1.2;}
 .product-option.product-properties__option,
 .product-option {font-size: 12px;    margin-top: 0;}
 
