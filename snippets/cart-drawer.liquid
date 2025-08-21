@@ -163,7 +163,9 @@
          </script>
        {% endif %}
      {% endfor %}
-    <h4>Your Cart</h4>
+     {% if cart.item_count > 0 %}
+        <h4>Your Cart</h4>
+     {% endif %}
     <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart.total_price }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
       {% if cart.item_count == 0 %}
       <div class="drawer_empty center">
@@ -733,7 +735,7 @@
 
         <span class="totals__subtotal">{% if adjusted_total_price != cart.total_price %}Amount due today{% else %}{{ 'sections.cart.subtotal' | t }}{% endif %}	:</span>
         <span class="totals__subtotal-value">
-          {{ adjusted_total_price | money_with_currency }}
+          {{ adjusted_total_price | money_without_trailing_zeros }}
         </span>
       </div>
       

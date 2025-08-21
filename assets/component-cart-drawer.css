@@ -137,7 +137,7 @@ cart-drawer > details[open] > summary::before {
   height:20px;
   position: absolute;
   top: 4px;
-  right: 15px;   
+  right: 10px;   
 }
 .drawer__content{
   position:relative;
@@ -164,10 +164,10 @@ cart-drawer > details[open] > summary::before {
   padding-bottom:1rem;
   margin-bottom:0rem !important;
   gap:15px;
-  border-bottom:1px solid #efefef
+  border-bottom: none;
 }
 .drawer__content-item-image{
-  width: 60px;
+  width: 64px;
   text-align: center;
   align-items: center;
   display: flex;
@@ -189,7 +189,8 @@ cart-drawer > details[open] > summary::before {
   flex:1 1 0%;
   display:flex;
   margin-bottom:0rem;
-  justify-content:space-between
+  justify-content:space-between;
+  gap: 0.5rem;
 }
 .drawer__content-item-top{
   display:flex;
@@ -207,6 +208,7 @@ cart-drawer > details[open] > summary::before {
   margin:0;
   font-weight: 600;
   line-height: 1;
+  font-size: 14px;
 }
 .drawer__content-item-price{
   margin-left:1rem
@@ -275,6 +277,7 @@ cart-drawer > details[open] > summary::before {
   align-items:center;
   gap:24px;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .drawer__subtotal h3,.drawer__subtotal p{
@@ -386,7 +389,7 @@ button[aria-disabled="true"] {
   font-weight: 400;
   font-size: 12px;
   line-height: 12px;
-  margin: 7px 0;
+  margin: 10px 0;
   display: grid;
   gap: 0.8rem;
 }                          
@@ -664,7 +667,7 @@ gift-box-section .swiper:not(.swiper-initialized) .swiper-slide {
   width: calc(50% - 4px);
   margin-right: 9px;
 }
-.cart-item__name {font-size: 15px;font-weight: 600;    line-height: 1.2;}
+.cart-item__name {font-size: 14px;font-weight: 600;    line-height: 1.2;}
 .product-option.product-properties__option,
 .product-option {font-size: 12px;    margin-top: 0;}
 
@@ -721,7 +724,6 @@ cart-upsells .upsell__image img {
   object-fit: cover;
 }
 .cart-drawer-btn {
-  text-transform: uppercase;
   height: 53px;
   line-height: 1;
 }
@@ -862,4 +864,19 @@ div#dynamic-checkout-cart {
   justify-content: center;
   line-height: 1.2;
   font-family: Sofia Pro;
+}
+
+.cart-item .quantity__input {
+  padding: 0;
+  width: 17px;
+}
+
+.cart-item .quantity__button {
+  width: 15px;
+}
+
+.totals__subtotal,
+.totals__subtotal-value {
+  font-size: 16px;
+  font-weight: 600;
 }
