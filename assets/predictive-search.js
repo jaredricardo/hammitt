@@ -60,6 +60,8 @@ class PredictiveSearch extends HTMLElement {
         }
     })    
 
+    console.log('//////// ' + searchTerm + ' ////////')
+    console.log(results)
     buildXGenSearchResultsForSearchHeader(results, searchTerm)
 
     //  old get search results method turned off for now

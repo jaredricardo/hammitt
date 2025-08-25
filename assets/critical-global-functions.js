@@ -85,3 +85,17 @@ function formatPrice(price) {
 
 window.buildCompleteTheSetInCart = buildCompleteTheSetInCart
 window.formatPrice = formatPrice
+
+class xGenSearchResult extends HTMLElement {
+  constructor() {
+    super()
+    this.addEventListener('click', this.trackClick)
+  }
+  trackClick() {
+    // alert('clicked')
+    console.log(xg)
+    // xg.track.searchClick({query, queryId, deploymentId, page, item, items, context});
+  } 
+}
+
+customElements.define('x-gen-search-result', xGenSearchResult)

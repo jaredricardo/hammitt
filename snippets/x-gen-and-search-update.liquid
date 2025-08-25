@@ -333,78 +333,82 @@
 </script>
 
 <li data-basic-card-template class="basic-product-card-template--li inactive">
-    <a href="">
-        <div class="card-image">
-            <img src="" alt="">
-        </div>
-        <div class="card-content">
-            <h3 class="product-title"></h3>
-            <h5 class="product-color"></h5>
-        </div>
-    </a>
+    <x-gen-search-result>
+        <a href="">
+            <div class="card-image">
+                <img src="" alt="">
+            </div>
+            <div class="card-content">
+                <h3 class="product-title"></h3>
+                <h5 class="product-color"></h5>
+            </div>
+        </a>
+    </x-gen-search-result>
 </li>
 
 <li data-complex-card-template class="grid__item complex-product-card-template--li inactive">
-    <div class="card-wrapper">
-        <div class="card card--{{ settings.card_style }}  product-card"  style="--ratio-percent: 100%;">
-           {% comment %} kept display none until base.css loads {% endcomment %}
-            <button
-               
-                class="swym-button hammitt-custom swym-add-to-wishlist-view-product product_{{product.id}}"
-                data-with-epi="true"
-                data-swaction="addToWishlist"
-                data-product-id="{{ product.id }}"
-                data-variant-id="{{ product.variants[0].id }}"
-                data-product-url="{{ shop.url }}{{ product.url }}"
-                >
-                {% render 'heart-empty' %}
-                {% render 'heart-full' %}
-            </button>
-            <div class="card__inner ratio">
-                <div class="card__media">
-                    <div class="media media--transparent media--hover-effect">
-                        <img class="motion-reduce fade" src="" alt="">
+     <x-gen-search-result>
+        <div class="card-wrapper">
+            <div class="card card--{{ settings.card_style }}  product-card"  style="--ratio-percent: 100%;">
+            {% comment %} kept display none until base.css loads {% endcomment %}
+                <button
+                
+                    class="swym-button hammitt-custom swym-add-to-wishlist-view-product product_{{product.id}}"
+                    data-with-epi="true"
+                    data-swaction="addToWishlist"
+                    data-product-id="{{ product.id }}"
+                    data-variant-id="{{ product.variants[0].id }}"
+                    data-product-url="{{ shop.url }}{{ product.url }}"
+                    >
+                    {% render 'heart-empty' %}
+                    {% render 'heart-full' %}
+                </button>
+                <div class="card__inner ratio">
+                    <div class="card__media">
+                        <div class="media media--transparent media--hover-effect">
+                            <img class="motion-reduce fade" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="card__content">
+                        <div class="card__information" style="display: none;">
+                            {% comment %} seems to stay empty? {% endcomment %}
+                        </div>
+                        <div class="card__badge top left">
+                            <span class="badge tag-badge badge--top-right"></span>
+                        </div>
+                        <div class="quick-add__wrapper">
+                            <quick-add>
+                                <form class="quick-add__form">
+                                    <small class="label">Add to Bag</small>
+                                    <button data-id="" class="quick-add-btn">Add to Bag</button>
+                                </form>
+                            </quick-add>
+                        </div>
                     </div>
                 </div>
-                <div class="card__content">
-                    <div class="card__information" style="display: none;">
-                        {% comment %} seems to stay empty? {% endcomment %}
-                    </div>
-                    <div class="card__badge top left">
-                        <span class="badge tag-badge badge--top-right"></span>
-                    </div>
-                    <div class="quick-add__wrapper">
-                        <quick-add>
-                            <form class="quick-add__form">
-                                <small class="label">Add to Bag</small>
-                                <button data-id="" class="quick-add-btn">Add to Bag</button>
-                            </form>
-                        </quick-add>
-                    </div>
-                </div>
-            </div>
-            <div class="card__content card__main-content">
-                <div class="card__information">
-                    <h3 class="card__heading h4">
-                        <a href="" class="full-unstyled-link"></a>
-                        <div class="price">
-                            <div class="price__container">
-                                <div class="price__regular">
-                                    <span class="visually-hidden visually-hidden--inline">Regular price</span>
-                                    <span class="price-item price-item--regular price_change">
-                                      {% comment %} price here {% endcomment %}
-                                    </span>
+                <div class="card__content card__main-content">
+                    <div class="card__information">
+                        <h3 class="card__heading h4">
+                            <a href="" class="full-unstyled-link"></a>
+                            <div class="price">
+                                <div class="price__container">
+                                    <div class="price__regular">
+                                        <span class="visually-hidden visually-hidden--inline">Regular price</span>
+                                        <span class="price-item price-item--regular price_change">
+                                        {% comment %} price here {% endcomment %}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
+                        </h3>
+                        <div class="card-information">
+                            <small class="card__seo-text no-seo-tag">
+                                {% comment %} color silhouette {% endcomment %}
+                            </small>        
                         </div>
-                    </h3>
-                    <div class="card-information">
-                        <small class="card__seo-text no-seo-tag">
-                            {% comment %} color silhouette {% endcomment %}
-                        </small>        
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </x-gen-search-result>
 </li>
