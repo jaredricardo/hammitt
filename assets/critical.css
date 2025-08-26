@@ -439,12 +439,18 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   display: block;
 }
 
-.inspired-app-opener svg {
+.inspired-app-opener .exclaimation-icon {
   width: 12px;
   height: 12px; 
 }
 
-.inspired-app-opener svg path {
+.inspired-app-opener .inspired-svg {
+  max-width: 65px;
+  height: auto;
+  margin-left: 0.25rem;
+}
+
+.inspired-app-opener .exclaimation-icon path {
   fill: black;
 }
 
