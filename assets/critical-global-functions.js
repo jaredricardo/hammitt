@@ -92,9 +92,15 @@ class xGenSearchResult extends HTMLElement {
     this.addEventListener('click', this.trackClick)
   }
   trackClick() {
-    // alert('clicked')
-    console.log(xg)
-    // xg.track.searchClick({query, queryId, deploymentId, page, item, items, context});
+
+    const query = this.dataset.query
+    const queryId = this.dataset.queryId
+    const deploymentId = this.dataset.deploymentId
+    const item = this.dataset.item
+  
+    if(!query || !queryId || !deploymentId || !item) return
+
+    xg.track.searchClick({query, queryId, deploymentId, item})
   } 
 }
 
