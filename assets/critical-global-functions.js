@@ -94,6 +94,26 @@ function initInspiredAppClickListener() {
   })
 }
 
+class xGenSearchResult extends HTMLElement {
+  constructor() {
+    super()
+    this.addEventListener('click', this.trackClick)
+  }
+  trackClick() {
+
+    const query = this.dataset.query
+    const queryId = this.dataset.queryId
+    const deploymentId = this.dataset.deploymentId
+    const item = this.dataset.item
+  
+    if(!query || !queryId || !deploymentId || !item) return
+
+    xg.track.searchClick({query, queryId, deploymentId, item})
+  } 
+}
+
+customElements.define('x-gen-search-result', xGenSearchResult)
+
 window.buildCompleteTheSetInCart = buildCompleteTheSetInCart
 window.formatPrice = formatPrice
 window.initInspiredAppClickListener = initInspiredAppClickListener
