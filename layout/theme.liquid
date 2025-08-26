@@ -41,14 +41,12 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
+    <link rel="stylesheet" href="{{ 'critical.css' | asset_url }}">
+    <script src="{{ 'critical-global-functions.js' | asset_url }}" defer></script>
     {% unless is_admin_interface %}
       {% render '__opt-theme-observer' %}
     {% endunless %}
     {% include '__opt-theme-headers' %}
-
-    {% comment %}  {% endcomment %}
-    <script src="{{ 'critical-global-functions.js' | asset_url }}" defer></script>
-
     
     <!-- Global site tag (gtag.js) - Google Ads: AW-965460943 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-965460943" defer></script>
@@ -72,8 +70,6 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
- 
-
 
     {% if product and product.tags contains 'GWP' %}
       <meta http-equiv="refresh" content="0; url={{ shop.url }}">
@@ -376,7 +372,6 @@
 
 </style>
 
-{{ 'critical.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
     {% if template contains 'index' %}
       {% render '__index-css' %}

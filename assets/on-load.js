@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
-
     window.buildCompleteTheSetInCart()
-    window.initInspiredAppClickListener()
+})
 
+window.addEventListener('load', () => {
+    window.initInspiredAppClickListener()
 })

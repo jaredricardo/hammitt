@@ -83,5 +83,17 @@ function formatPrice(price) {
   }).format(price / 100);
 }
 
+function initInspiredAppClickListener() {
+  const inspiredAppOpener = document.querySelector('.inspired-app-opener')
+
+  inspiredAppOpener?.addEventListener('click', () => {
+    const widget = document.querySelector('inspired-floating-widget')
+    const shadowRoot = widget?.shadowRoot
+    if (!shadowRoot) return
+    shadowRoot.querySelector('.inspired-floating').click()
+  })
+}
+
 window.buildCompleteTheSetInCart = buildCompleteTheSetInCart
 window.formatPrice = formatPrice
+window.initInspiredAppClickListener = initInspiredAppClickListener
