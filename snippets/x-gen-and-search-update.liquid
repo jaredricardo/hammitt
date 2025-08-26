@@ -7,6 +7,7 @@
         const recentOrTrendingContainer = document.querySelector('.initial-search-modal-content .recent-or-trending-products ul')
         const recentOrPopularHeader = document.querySelector('.initial-search-modal-content .recent-or-popular-searches h4')
         const recentOrPopularContainer = document.querySelector('.initial-search-modal-content .recent-or-popular-searches ul')
+        const deploymentId = 'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
         let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
         const queryString = window.location.search
         const params = new URLSearchParams(queryString)
@@ -77,17 +78,17 @@
                     formattedProductTitle = `${product.product_title_type} ${product.product_size}`
                 } 
 
-                const simpleProductCard = document.querySelector('[data-basic-card-template]').cloneNode(true)
+                const simpleProductCardNoXGen = document.querySelector('[data-basic-card-template-no-x-gen]').cloneNode(true)
 
-                simpleProductCard.classList.remove('inactive')
+                simpleProductCardNoXGen.classList.remove('inactive')
 
-                simpleProductCard.querySelector('.card-image img').src = product.featured_image
-                simpleProductCard.querySelector('.card-image img').alt = product.title
-                simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
-                simpleProductCard.querySelector('.product-color').innerText = product.product_title_color_descriptor
-                simpleProductCard.querySelector('a').href = `/products/${product.handle}`
+                simpleProductCardNoXGen.querySelector('.card-image img').src = product.featured_image
+                simpleProductCardNoXGen.querySelector('.card-image img').alt = product.title
+                simpleProductCardNoXGen.querySelector('.product-title').innerText = formattedProductTitle
+                simpleProductCardNoXGen.querySelector('.product-color').innerText = product.product_title_color_descriptor
+                simpleProductCardNoXGen.querySelector('a').href = `/products/${product.handle}`
 
-                targetContainer.appendChild(simpleProductCard)
+                targetContainer.appendChild(simpleProductCardNoXGen)
 
             })
         }
@@ -211,7 +212,7 @@
                 query: searchTerm, 
                 options: {
                     collection: 'default', 
-                    deploymentId:'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
+                    deploymentId: deploymentId
                 }
             }
 
@@ -219,8 +220,6 @@
                 searchObj.options['sortBy'] = 'price'
                 searchObj.options['sortOrder'] = sortValue
             }
-
-            // console.log(searchObj)
 
             const results = await window.xg.search.getResults(searchObj) 
 
@@ -299,6 +298,12 @@
                 productCard.querySelector('.card__heading a').innerText = formattedProductTitle
                 productCard.querySelector('.card__badge').innerHTML = tagHTML
 
+                // add data for searchClick method for analytics
+                productCard.querySelector('x-gen-search-result').setAttribute('data-query', searchTerm)
+                productCard.querySelector('x-gen-search-result').setAttribute('data-query-id', results.queryId)
+                productCard.querySelector('x-gen-search-result').setAttribute('data-deployment-id', deploymentId)
+                productCard.querySelector('x-gen-search-result').setAttribute('data-item', result.prod_code)
+
                 // preorder logic
                 if(preorderButtonText) {
                     productCard.querySelector('.quick-add__form button').innerText = `${preorderButtonText}`
@@ -312,7 +317,6 @@
                     productCard.querySelector('.quick-add__form').appendChild(preorderInput)
                 }
                 
-
                 if(useDescriptor) {
                     productCard.querySelector('.card__seo-text').innerText = productColorDescriptor
                 } 
@@ -333,6 +337,20 @@
 </script>
 
 <li data-basic-card-template class="basic-product-card-template--li inactive">
+    <x-gen-search-result>
+        <a href="">
+            <div class="card-image">
+                <img src="" alt="">
+            </div>
+            <div class="card-content">
+                <h3 class="product-title"></h3>
+                <h5 class="product-color"></h5>
+            </div>
+        </a>
+    </x-gen-search-result>
+</li>
+
+<li data-basic-card-template-no-x-gen class="basic-product-card-template--li inactive">
     <a href="">
         <div class="card-image">
             <img src="" alt="">
@@ -345,66 +363,68 @@
 </li>
 
 <li data-complex-card-template class="grid__item complex-product-card-template--li inactive">
-    <div class="card-wrapper">
-        <div class="card card--{{ settings.card_style }}  product-card"  style="--ratio-percent: 100%;">
-           {% comment %} kept display none until base.css loads {% endcomment %}
-            <button
-               
-                class="swym-button hammitt-custom swym-add-to-wishlist-view-product product_{{product.id}}"
-                data-with-epi="true"
-                data-swaction="addToWishlist"
-                data-product-id="{{ product.id }}"
-                data-variant-id="{{ product.variants[0].id }}"
-                data-product-url="{{ shop.url }}{{ product.url }}"
-                >
-                {% render 'heart-empty' %}
-                {% render 'heart-full' %}
-            </button>
-            <div class="card__inner ratio">
-                <div class="card__media">
-                    <div class="media media--transparent media--hover-effect">
-                        <img class="motion-reduce fade" src="" alt="">
+     <x-gen-search-result>
+        <div class="card-wrapper">
+            <div class="card card--{{ settings.card_style }}  product-card"  style="--ratio-percent: 100%;">
+            {% comment %} kept display none until base.css loads {% endcomment %}
+                <button
+                
+                    class="swym-button hammitt-custom swym-add-to-wishlist-view-product product_{{product.id}}"
+                    data-with-epi="true"
+                    data-swaction="addToWishlist"
+                    data-product-id="{{ product.id }}"
+                    data-variant-id="{{ product.variants[0].id }}"
+                    data-product-url="{{ shop.url }}{{ product.url }}"
+                    >
+                    {% render 'heart-empty' %}
+                    {% render 'heart-full' %}
+                </button>
+                <div class="card__inner ratio">
+                    <div class="card__media">
+                        <div class="media media--transparent media--hover-effect">
+                            <img class="motion-reduce fade" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="card__content">
+                        <div class="card__information" style="display: none;">
+                            {% comment %} seems to stay empty? {% endcomment %}
+                        </div>
+                        <div class="card__badge top left">
+                            <span class="badge tag-badge badge--top-right"></span>
+                        </div>
+                        <div class="quick-add__wrapper">
+                            <quick-add>
+                                <form class="quick-add__form">
+                                    <small class="label">Add to Bag</small>
+                                    <button data-id="" class="quick-add-btn">Add to Bag</button>
+                                </form>
+                            </quick-add>
+                        </div>
                     </div>
                 </div>
-                <div class="card__content">
-                    <div class="card__information" style="display: none;">
-                        {% comment %} seems to stay empty? {% endcomment %}
-                    </div>
-                    <div class="card__badge top left">
-                        <span class="badge tag-badge badge--top-right"></span>
-                    </div>
-                    <div class="quick-add__wrapper">
-                        <quick-add>
-                            <form class="quick-add__form">
-                                <small class="label">Add to Bag</small>
-                                <button data-id="" class="quick-add-btn">Add to Bag</button>
-                            </form>
-                        </quick-add>
-                    </div>
-                </div>
-            </div>
-            <div class="card__content card__main-content">
-                <div class="card__information">
-                    <h3 class="card__heading h4">
-                        <a href="" class="full-unstyled-link"></a>
-                        <div class="price">
-                            <div class="price__container">
-                                <div class="price__regular">
-                                    <span class="visually-hidden visually-hidden--inline">Regular price</span>
-                                    <span class="price-item price-item--regular price_change">
-                                      {% comment %} price here {% endcomment %}
-                                    </span>
+                <div class="card__content card__main-content">
+                    <div class="card__information">
+                        <h3 class="card__heading h4">
+                            <a href="" class="full-unstyled-link"></a>
+                            <div class="price">
+                                <div class="price__container">
+                                    <div class="price__regular">
+                                        <span class="visually-hidden visually-hidden--inline">Regular price</span>
+                                        <span class="price-item price-item--regular price_change">
+                                        {% comment %} price here {% endcomment %}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
+                        </h3>
+                        <div class="card-information">
+                            <small class="card__seo-text no-seo-tag">
+                                {% comment %} color silhouette {% endcomment %}
+                            </small>        
                         </div>
-                    </h3>
-                    <div class="card-information">
-                        <small class="card__seo-text no-seo-tag">
-                            {% comment %} color silhouette {% endcomment %}
-                        </small>        
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </x-gen-search-result>
 </li>

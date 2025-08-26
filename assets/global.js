@@ -1137,7 +1137,8 @@ const productSwatchReload = () => {
         const json = JSON.parse(swiper.getAttribute('data-json'));
         const productSwiper = new Swiper(swiper, json);
         
-        history.pushState(null, "", `${productURL}`);
+        // history.pushState(null, "", `${productURL}`);
+        history.replaceState(null, "", `${productURL}`);
       }).finally(() => {
           if(document.querySelector('.swym-button.hammitt-custom')) {
             document.dispatchEvent(new CustomEvent("swym:collections-loaded"))

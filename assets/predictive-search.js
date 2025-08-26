@@ -260,6 +260,7 @@ function buildXGenSearchResultsForSearchHeader(response, searchTerm) {
   const recentOrTrendingHeader = document.querySelector('.initial-search-modal-content .recent-or-trending-products h4')
   const linkToAllQueryResults = document.querySelector('.initial-search-modal-content .rot-header-container a')
   const noResults = document.querySelector('.number-of-x-gen-results')
+  const deploymentId = 'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
 
   // 0 indexed number of product cards to show, if there is a url redirect, we are going to insert a fake cart at the front so need one less. 
   let numProductCardsNeeded = response.urlRedirect ? 2 : 3
@@ -334,7 +335,6 @@ function buildXGenSearchResultsForSearchHeader(response, searchTerm) {
         default:
           finalSizeString = ""
       }
-
       formattedProductTitle = `${productTitleType} ${finalSizeString}`
       useDescriptor = true   
     }
@@ -350,6 +350,13 @@ function buildXGenSearchResultsForSearchHeader(response, searchTerm) {
     }
 
     simpleProductCard.querySelector('a').href = result.product_url
+
+    // add data for searchClick method for analytics
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-query', searchTerm)
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-query-id', response.queryId)
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-deployment-id', deploymentId)
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-item', result.prod_code)
+
     simpleProductCard.classList.remove('inactive')
 
     targetContainer.appendChild(simpleProductCard)

@@ -1,4 +1,9 @@
-/* This file is for CSS that is critical in preventing CLS on page load. Base.css loads after a lot of markup has alredy loaded. */
+/* 
+
+This file is for CSS that is critical in preventing CLS on page load, 
+mainly above the fold and immedietly visible. Base.css loads after a lot of markup has already loaded.
+
+*/
 
 #yotpo-star-rating-highly-rated-topics {
     background: transparent !important;
@@ -412,11 +417,55 @@ fake-details-modal {
   display: flex;
 }
 
+inspired-static-floating,
+inspired-floating-widget {
+  display: none;
+}
+
+.inspired-app-opener {
+  display: none; /* hidden unless the widget has initialized / is on the page */
+  margin-top: 1.75rem !important;
+  background-color: #fcffde;
+  padding: .75rem 0.5rem;
+  width: 100%;
+  font-size: 13px;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  line-height: 1.3;
+}
+
+body:has(inspired-floating-widget) .inspired-app-opener {
+  display: block;
+}
+
+.inspired-app-opener .exclaimation-icon {
+  width: 12px;
+  height: 12px; 
+}
+
+.inspired-app-opener .inspired-svg {
+  max-width: 65px;
+  height: auto;
+  margin-left: 0.25rem;
+}
+
+.inspired-app-opener .exclaimation-icon path {
+  fill: black;
+}
+
+.inspired-app-opener img {
+  max-width: 55px;
+}
+
+
 @media screen and (max-width: 989px) {
   .x-gen-desktop-and-mobile-modal-opener {
     display: none !important;
   }
 }
+
+
 
 @media screen and (max-width: 751px) {
   .search-modal__content.x-gen-search {
