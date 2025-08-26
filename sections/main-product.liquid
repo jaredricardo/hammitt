@@ -710,6 +710,10 @@
               </product-recommendations>
               
               {% when 'product_description' %}
+                {% comment %} if we no longer use inspired app, delete this {% endcomment %}
+                <div class="inspired-app-opener">
+                  Free 5% donation included - at no extra cost <span class="icon-info">{% render 'icon-exclamation' %}</span> Choose your cause after checkout with <img src="https://cdn.shopify.com/s/files/1/0661/5963/files/inspired-logo-small.png?v=1756208735">
+                </div>
                {%- if product.description != blank -%}
                  <div class="product_description new_decs_block">
                  {% assign description =  product.description | split: '<!--split-->' %}
