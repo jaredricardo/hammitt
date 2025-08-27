@@ -41,22 +41,25 @@
             {% endif %}
 
             {% if section.settings.featured_products != empty or section.settings.featured_collection != empty %}
-
-               {% if section.settings.featured_collection != empty %}
-                    {% assign products = section.settings.featured_collection.products %}
-                {% else %}
-                    {% assign products = section.settings.featured_products %}
-                {% endif %} 
-                 
-                <ul class="featured-products-list">
-                    {% for product in products %}
-                        {% assign product = all_products[product] %}
-                        {% if product.available %}
-                            <li>
-                            {% render 'card-product', card_product: product %}
-                            </li>
-                        {% endif %}
-                    {% endfor %}
+                <ul class="featured-products-list">                        
+                  {% if section.settings.featured_collection %}
+                        {% for product in section.settings.featured_collection.products %}
+                            {% if product.available %}
+                                <li>
+                                {% render 'card-product', card_product: product %}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {% for product in section.settings.featured_products %}
+                            {% assign product = all_products[product] %}
+                            {% if product.available %}
+                                <li>
+                                    {% render 'card-product', card_product: product %}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 </ul>
             {% endif %}
         </div>
