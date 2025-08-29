@@ -459,7 +459,7 @@
                     {%- endfor -%}
                   </ul>
                 </div> 
-                <div class="flex align-center space-between drawer__content-item-actions">
+                <div class="flex align-center drawer__content-item-actions">
                   {% unless has_monogram %}
                   <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}" {% if item.id == EEGWPAddOnId %} disabled style="pointer-events: none; visibility: hidden; opacity: 0;"{% endif %}>
                     <button class="quantity__button no-js-hidden" name="minus" type="button">

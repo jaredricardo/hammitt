@@ -167,7 +167,7 @@ cart-drawer > details[open] > summary::before {
   border-bottom: none;
 }
 .drawer__content-item-image{
-  width: 64px;
+  width: 85px;
   text-align: center;
   align-items: center;
   display: flex;
@@ -369,6 +369,7 @@ button[aria-disabled="true"] {
 
 .drawer__content-item-actions{
   /* min-height: 60px; */
+  justify-content: start;
 }
 
 .cart_shipping_notes {
@@ -525,7 +526,7 @@ span.freeRemainShippingMsg,
 } */
 
 .progress-bar {
-  height: var(--progress-bar-size, .7rem);
+  height: 4px;
   border-radius: var(--progress-bar-radius, 3rem);
   background-color: rgba(0,0,0, .075);
   position: relative;
@@ -872,7 +873,7 @@ div#dynamic-checkout-cart {
 }
 
 .cart-item .quantity__button {
-  width: 15px;
+  width: 18px;
 }
 
 .totals__subtotal,
