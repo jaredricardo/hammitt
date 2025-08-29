@@ -4101,6 +4101,25 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   font-size: 14px;
 }
 
+.fake-cart-item-info {
+  display: flex;
+}
+
+.fake-cart-item-info .s1 {
+  width: 70%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+}
+
+.fake-cart-item-info .s2 {
+  width: 30%;
+  text-align: right;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+}
+
 @media screen and (max-width: 768px) {
   .pl-header-text p,
   #pl-returns-plugin a,

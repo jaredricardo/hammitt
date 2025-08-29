@@ -807,8 +807,12 @@ div#dynamic-checkout-cart {
 
 .cart-drawer-gift-note .checkbox-message-area {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  flex-direction: row;
+}
+.cart-drawer-gift-note .checkbox-message-area > div {
+  display: flex;
+  align-items: center;
   gap: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -832,7 +836,7 @@ div#dynamic-checkout-cart {
   background-color: black;
 }
 
-.hammit-gift-message-checkbox {
+.hammit-checkbox-message {
   font-size: 13px;
   display: flex;
   align-items: center;

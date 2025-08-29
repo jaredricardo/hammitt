@@ -267,25 +267,25 @@
             {% for item in cart.items %}
 
             {%- liquid
-            assign is_bundle_item = false
-            if item.properties['_bundle'] == 'true'
-              assign is_bundle_item = true
-            endif
+              assign is_bundle_item = false
+              if item.properties['_bundle'] == 'true'
+                assign is_bundle_item = true
+              endif
 
-            if current_bundle_items contains item.properties['bundle_id']
-              continue
-            endif
+              if current_bundle_items contains item.properties['bundle_id']
+                continue
+              endif
 
-            assign has_monogram = false
-            if item.properties['Monogram Initials'] != blank
-              assign has_monogram = true
-            endif
+              assign has_monogram = false
+              if item.properties['Monogram Initials'] != blank
+                assign has_monogram = true
+              endif
 
-            assign is_gift_note = false
-            if item.title == "Hammitt Gift Receipt"
-               assign is_gift_note = true
-               assign has_gift_note = true
-            endif
+              assign is_gift_note = false
+              if item.title == "Hammitt Gift Receipt"
+                assign is_gift_note = true
+                assign has_gift_note = true
+              endif
 
               ####### new way of assigning product title
 
@@ -295,23 +295,23 @@
 
               #######
 
-            assign is_gwp = false
+              assign is_gwp = false
 
-            if item.id == settings.gwp_product.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-               assign is_gwp = true
-            endif 
+              if item.id == settings.gwp_product.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+                assign is_gwp = true
+              endif 
 
-            if item.id == settings.gwp_product2.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-               assign is_gwp = true
-            endif
+              if item.id == settings.gwp_product2.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+                assign is_gwp = true
+              endif
 
-             if item.id == settings.gwp_product3.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-               assign is_gwp = true
-            endif
+              if item.id == settings.gwp_product3.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+                assign is_gwp = true
+              endif
 
-            if item.title == 'Hammitt GWP' and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-              assign is_gwp = true
-            endif
+              if item.title == 'Hammitt GWP' and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+                assign is_gwp = true
+              endif
 
             -%}
 
@@ -371,7 +371,7 @@
                   <small>(promo excludes tax + shipping)</small>
                 {% endif %}
                 <div> 
-                  <div class="drawer__content-item-tprice">
+                  <div class="drawer__content-item-price">
                      {% if is_gwp %}
                       <p class="cart-item__title" style="margin:0;">{{ product_type }}</p>
                      {% endif %}
@@ -510,70 +510,30 @@
             {% endunless %} <!-- End of OP Hiding Logic -->
             {% endif %}
             {% endfor %}
-
+            <li class="drawer__content-item cart-item fake-cart-item">
+              <div class="drawer__content-item-image">
+                <img src="https://cdn.shopify.com/s/files/1/0661/5963/files/Rectangle_323.png?v=1756486154" alt="Gift Box Image">
+              </div>
+              <div class="drawer__content-item-info">
+                <div class="fake-cart-item-info">
+                    <span class="s1">Complimentary gift box. Included with every order.</span>
+                    <span class="s2" >FREE</span>
+                </div>
+              </div>
+            </li>
           </ul>
           <div class="cart-errors"></div>
           <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
           <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
         </cart-items>
         {% if cart.item_count > 0  %}
-        <gift-box-section>
-          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
-            <h3>{{ content.heading }}</h3>
-          {% endfor %}
-          {%- capture json -%}
-            {
-              "slidesPerView": 1.7,
-              "spaceBetween": 9,
-              "freeMode": true,
-              "mousewheel": false,
-              "loop": false,
-              "effect": "slide",
-              "navigation": {
-                "nextEl": ".swiper-button-next",
-                "prevEl": ".swiper-button-prev"
-              },
-              "breakpoints": {
-                "750": {
-                  "slidesPerView": "1.7",
-                  "spaceBetween": 20
-                },
-                "990": {
-                  "slidesPerView": "1.7",
-                  "spaceBetween": 9
-                }
-              }
-            }
-          {%- endcapture -%}
-          <div class="swiper gift-box--swiper" data-json='{{ json }}'>
-            <button class="btn-expanded" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path stroke="currentColor" d="m16 4-5 5M4 16l5-5M11 4v5h5M9 16v-5H4"></path></svg>
-            </button>
-            <div class="swiper-wrapper">
-              {% for giftBoxFiles in shop.metaobjects.complimentary_gift_box.values %}
-                {% assign fileFormate = giftBoxFiles.files.value %}
-                {% if fileFormate.media_type contains 'video' %}
-                  <div class="swiper-slide">
-                    <div class="gift-box-video">
-                      <video class="video__element" playsinline="" loop="" muted="" preload="auto" autoplay poster="{{ fileFormate.src }}" src="{{ fileFormate.sources[1].url }}" data-video="{{ fileFormate.sources[1].url }}">
-                        <source src="{{ fileFormate.sources[1].url }}" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                {% else %}
-                  <div class="swiper-slide">
-                    <div class="gift-box-image">
-                      <img src="{{ fileFormate | img_url: 'master' }}" alt="{{ fileFormate.alt | default: 'Complimentary gift image' }}">
-                    </div>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
+ 
 
-          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
+
+                 <div>
+                    <input type="checkbox" id="hammitt-box-opt-out-checkbox">
+                    <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
+                  </div>
             <div class="gift-box-content">{{ content.description }}</div>
             {% if settings.enable_hammitt_gift_messaging %}
               <hammitt-gift-note class="cart-drawer-gift-note"
@@ -584,8 +544,10 @@
                 {% endif %}
                 >
                 <div class="checkbox-message-area">
-                  <input type="checkbox" id="hammitt-gift-message-checkbox">
-                  <label for="hammit-gift-message-checkbox" class="hammit-gift-message-checkbox"> {{ settings.hammitt_gift_message }}</label>
+                  <div>
+                    <input type="checkbox" id="hammitt-gift-message-checkbox">
+                    <label for="hammit-gift-message-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_gift_message }}</label>
+                  </div>
                 </div>
                 <div class="hammitt-gift-note-area">
                   <label for="gift-note" class="visually-hidden">Add gift note?</label>
@@ -610,8 +572,8 @@
               </zest-button>
             </div>
             {% endif %}
-          {% endfor %}
-        </gift-box-section>
+     
+    
       {% endif %}
       <cart-upsells class="cart-drawer-upsells" data-upsell-title="{{ first_cart_item.product.title }}" >
         {% if cart.item_count > 0 %}
