@@ -83,5 +83,37 @@ function formatPrice(price) {
   }).format(price / 100);
 }
 
+function initInspiredAppClickListener() {
+  const inspiredAppOpener = document.querySelector('.inspired-app-opener')
+
+  inspiredAppOpener?.addEventListener('click', () => {
+    const widget = document.querySelector('inspired-floating-widget')
+    const shadowRoot = widget?.shadowRoot
+    if (!shadowRoot) return
+    shadowRoot.querySelector('.inspired-floating').click()
+  })
+}
+
+class xGenSearchResult extends HTMLElement {
+  constructor() {
+    super()
+    this.addEventListener('click', this.trackClick)
+  }
+  trackClick() {
+
+    const query = this.dataset.query
+    const queryId = this.dataset.queryId
+    const deploymentId = this.dataset.deploymentId
+    const item = this.dataset.item
+  
+    if(!query || !queryId || !deploymentId || !item) return
+
+    xg.track.searchClick({query, queryId, deploymentId, item})
+  } 
+}
+
+customElements.define('x-gen-search-result', xGenSearchResult)
+
 window.buildCompleteTheSetInCart = buildCompleteTheSetInCart
 window.formatPrice = formatPrice
+window.initInspiredAppClickListener = initInspiredAppClickListener

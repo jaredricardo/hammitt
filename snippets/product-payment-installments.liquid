@@ -1,6 +1,6 @@
 <div class="product__payment-installments align-center center">
   <!-- <span>Pay over time with interest free installments with</span> -->
-  <span>PAY 4 INTEREST-FREE INSTALLMENTS OF {{ product.price | divided_by: 4 | money_without_trailing_zeros }} WITH</span>
+  <span>Pay 4 interest-free installments of {{ product.price | divided_by: 4 | money_without_trailing_zeros }} with</span>
     <a class="affirm-site-modal" data-page-type="banner" style="cursor: pointer!important;">{%- render 'icon-affirm' -%}</a>
     <span>or </span>
     <a class="afterpay-site-modal">{%- render 'icon-afterpay' -%}</a>

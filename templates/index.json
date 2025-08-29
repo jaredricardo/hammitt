@@ -9,10 +9,124 @@
  */
 {
   "sections": {
+    "homepage_fireworks_pxtfb9": {
+      "type": "homepage-fireworks",
+      "settings": {
+        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gldrz0\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gldrz0\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "custom_classes": ""
+      }
+    },
+    "slider_featured_collection_bTka8m": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "MEET CHERRYWOOD",
+        "heading_align": "center",
+        "heading_color": "#000000",
+        "collection": "cherrywood",
+        "max_products": 20,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 29,
+        "mobile_padding_bottom": 0
+      }
+    },
     "image_banner_aLnEec": {
       "type": "image-banner",
       "blocks": {
         "heading_QhDgnx": {
+          "type": "heading",
+          "settings": {
+            "heading": "INSIDE THE TOM",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "buttons_CWADxx": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/tom-zip",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QhDgnx",
+        "buttons_CWADxx"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/tom-banner.gif",
+        "image_2": "shopify://shop_images/tom-mob.gif",
+        "image_link": "shopify://collections/tom-zip",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_yNH9iW": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "tom-zip",
+        "max_products": 5,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
+    "image_banner_WmVyHn": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_mhqndA": {
           "type": "heading",
           "settings": {
             "heading": "OUR ORANGE ERA",
@@ -21,7 +135,7 @@
             "heading_size_desktop": 36
           }
         },
-        "buttons_CWADxx": {
+        "buttons_q6Gpey": {
           "type": "buttons",
           "settings": {
             "button_label_1": "PREORDER NOW",
@@ -31,8 +145,8 @@
         }
       },
       "block_order": [
-        "heading_QhDgnx",
-        "buttons_CWADxx"
+        "heading_mhqndA",
+        "buttons_q6Gpey"
       ],
       "settings": {
         "custom_classes": "",
@@ -75,7 +189,7 @@
         "custom_class": ""
       }
     },
-    "slider_collection_4M6fyN": {
+    "slider_collection_xmma6G": {
       "type": "slider-collection",
       "name": "Slider Collection",
       "settings": {
@@ -93,32 +207,6 @@
         "padding_bottom": 36,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36
-      }
-    },
-    "homepage_fireworks_pxtfb9": {
-      "type": "homepage-fireworks",
-      "settings": {
-        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gldrz0\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gldrz0\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "custom_classes": ""
-      }
-    },
-    "slider_featured_collection_bTka8m": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "MEET CHERRYWOOD",
-        "heading_align": "center",
-        "heading_color": "#000000",
-        "collection": "cherrywood",
-        "max_products": 20,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 29,
-        "mobile_padding_bottom": 0
       }
     },
     "image_banner_wjLTRm": {
@@ -169,8 +257,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/kyle-all-desktop.gif",
-        "image_2": "shopify://shop_images/kyle-all-mobile.gif",
+        "image": "shopify://shop_images/kyle-all-desktop-no-ht.gif",
+        "image_2": "shopify://shop_images/kyle-all-mobile-no-hightio.gif",
         "image_link": "shopify://collections/best-selling-bags",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -736,7 +824,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/High-Top-50_1.jpg",
+            "image": "shopify://shop_images/charles-hightop.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -1305,10 +1393,12 @@
     }
   },
   "order": [
-    "image_banner_aLnEec",
-    "slider_collection_4M6fyN",
     "homepage_fireworks_pxtfb9",
     "slider_featured_collection_bTka8m",
+    "image_banner_aLnEec",
+    "slider_collection_yNH9iW",
+    "image_banner_WmVyHn",
+    "slider_collection_xmma6G",
     "image_banner_wjLTRm",
     "slider_collection_WbqGTG",
     "image_banner_3FKmDP",
