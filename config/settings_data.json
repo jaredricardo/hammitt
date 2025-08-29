@@ -89,6 +89,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_3BakDf": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Free Hat Holder with orders $425+",
+              "color_scheme": "accent-1",
+              "link": "shopify://collections/best-selling-bags"
+            }
+          },
           "announcement_CwR3it": {
             "type": "announcement",
             "settings": {
@@ -107,6 +116,7 @@
           }
         },
         "block_order": [
+          "announcement_3BakDf",
           "announcement_CwR3it",
           "announcement_UdnEaT"
         ],
