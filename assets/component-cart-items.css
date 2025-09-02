@@ -108,7 +108,7 @@
   font-weight: 400;
 }
 
-.product-option {
+.pr.cart-item cart-remove-button .product-option {
   font-size: 1.4rem;
   /* word-break: break-all; */
   line-height: calc(1 + 0.5 / var(--font-body-scale));
@@ -118,13 +118,7 @@
   display: flex;
   margin-left: 1rem;
   width: max-content;
-}
-
-@media screen and (min-width: 750px) and (max-width: 989px) {
-  .cart-item cart-remove-button {
-    /* width: 4.5rem;
-    height: 4.5rem; */
-  }
+  margin-top: 0;
 }
 
 cart-remove-button .button {
@@ -162,6 +156,8 @@ cart-remove-button .icon-remove {
   right: auto;
   bottom: 0;
   padding: 0;
+  margin-left: 2rem;
+  height: 4.5rem;
 }
 
 @media screen and (min-width: 750px) {
