@@ -556,6 +556,10 @@ if (!waitForShadowRoot()) {
           <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
           <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
         </cart-items>
+        <div class="multiple-gifts-section">
+          <span>{% render 'icon-gifts' %}<p>Buying multiple gifts? Ship to different addresses at checkout.</p></span>
+          <p>If you’d like to add gift wrap, you can add as many as you need below and simply select it for each address at check out.</p>
+        </div>
         {% if cart.item_count > 0  %}
           <div class="cart-drawer-gift-box-opt-out">
             <input type="checkbox" id="hammitt-box-opt-out-checkbox">

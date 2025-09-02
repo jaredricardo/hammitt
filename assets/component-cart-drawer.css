@@ -120,6 +120,7 @@ cart-drawer > details[open] > summary::before {
   margin-top: 8px;
   margin-bottom: 0;
   font-weight: 600;
+  padding: 0px 10px;
 }
 
 
@@ -168,6 +169,7 @@ cart-drawer > details[open] > summary::before {
 }
 .drawer__content-item-image{
   width: 63px;
+  height: 63px;
   text-align: center;
   align-items: center;
   display: flex;
@@ -190,7 +192,7 @@ cart-drawer > details[open] > summary::before {
   display:flex;
   margin-bottom:0rem;
   justify-content:space-between;
-  gap: 0.5rem;
+  gap: 0.15rem;
 }
 .drawer__content-item-top{
   display:flex;
@@ -904,4 +906,43 @@ div#dynamic-checkout-cart {
 
 .remove-button-container {
   width: max-content;
+}
+
+.multiple-gifts-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFAFA;
+  border-radius: 10px;
+  padding: 1.25rem 0;
+  margin: 1rem 0;
+}
+
+.multiple-gifts-section span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.multiple-gifts-section p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.multiple-gifts-section span p {
+  font-weight: 600;
+  color: black;
+  font-size: 11px;
+}
+
+.multiple-gifts-section p:not(span p) {
+  font-size: 11px;
+  font-weight: 400;
+  color: #676767;
+  max-width: 85%;
+  margin: 0 auto;
 }

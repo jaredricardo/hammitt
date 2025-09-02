@@ -2035,8 +2035,8 @@ input[type='checkbox'] {
   bottom: var(--inputs-border-width);
   left: var(--inputs-border-width);
   border: 0.1rem solid transparent;
-  border-radius: var(--inputs-radius);
-  box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
+  border-radius: 1px !important;
+  box-shadow: 0 0 0 var(--inputs-border-width) #D3D3D3 !important;
   transition: box-shadow var(--duration-short) ease;
   z-index: 1;
 }
