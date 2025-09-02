@@ -2022,7 +2022,8 @@ input[type='checkbox'] {
   display: flex;
   border-radius: var(--inputs-radius);
   max-width: 75px;
-  min-height: 23px;
+  min-height: 20px !important;
+  padding: 0 2px !important;
 }
 
 .quantity:after {
@@ -3182,7 +3183,7 @@ details-disclosure > details {
 cart-upsells {
   display: block;
   width: 100%;
-  padding-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .overflow-x-scroll {
@@ -4107,8 +4108,8 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 
 .fake-cart-item-info .s1 {
   width: 70%;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 12px;
   line-height: 120%;
 }
 
@@ -4130,5 +4131,4 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   #plx button  {
     font-size: 12px
   }
-
 }

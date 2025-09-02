@@ -30,6 +30,32 @@
 
 -%}
 
+<script>
+// code to adjust shadow DOM styles for order protection. Ideally we remove this in the future when OP allows us to edit the widget within their dashboard customizer
+function waitForShadowRoot() {
+  const orderProtection = document.querySelector(".drawer__final order-protection");
+  if (orderProtection && orderProtection.shadowRoot) {
+    const targetedStack = orderProtection.shadowRoot.querySelector("vertical-stack > bordered-container > horizontal-stack ");
+    if (targetedStack) {
+      targetedStack.style.setProperty("padding", "10px 0");
+      targetedStack.style.setProperty("align-items", "center");
+      return true;
+    }
+  }
+  return false;
+}
+
+if (!waitForShadowRoot()) {
+  const interval = setInterval(() => {
+    if (waitForShadowRoot()) {
+      clearInterval(interval);
+    }
+  }, 100);
+  
+  setTimeout(() => clearInterval(interval), 5000);
+}
+</script>
+
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
   <div class="drawer__content">
@@ -163,6 +189,9 @@
          </script>
        {% endif %}
      {% endfor %}
+     {% if cart.item_count > 0 %}
+        <h4>Your Cart</h4>
+     {% endif %}
     <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart.total_price }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
       {% if cart.item_count == 0 %}
         <div class="drawer_empty center">
@@ -371,7 +400,7 @@
                   <small>(promo excludes tax + shipping)</small>
                 {% endif %}
                 <div> 
-                  <div class="drawer__content-item-price">
+                  <div class="drawer__content-item-and-price">
                      {% if is_gwp %}
                       <p class="cart-item__title" style="margin:0;">{{ product_type }}</p>
                      {% endif %}
@@ -456,7 +485,7 @@
                     {%- endfor -%}
                   </ul>
                 </div> 
-                <div class="flex align-center space-between drawer__content-item-actions">
+                <div class="flex align-center drawer__content-item-actions">
                   {% unless has_monogram %}
                   <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}" {% if item.id == EEGWPAddOnId %} disabled style="pointer-events: none; visibility: hidden; opacity: 0;"{% endif %}>
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
@@ -487,19 +516,20 @@
                   {% else %}
                   <div><span class='visually-hidden'>Monogram</span></div>
                   {% endunless %}
-
-                  <div class="loading-overlay hidden">
-                    <div class="loading-overlay__spinner loading-overlay__spin">
-                      <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                      </svg>
+                  <div class="remove-button-container">
+                    <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
+                      <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                        {% render 'icon-remove' %}
+                      </a>
+                    </cart-remove-button>
+                    <div class="loading-overlay hidden">
+                      <div class="loading-overlay__spinner loading-overlay__spin">
+                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                  <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
-                    <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
-                      {% render 'icon-remove' %}
-                    </a>
-                  </cart-remove-button>
                 </div>
                 {% if is_gift_note %}
                 <label for="gift-note" class="visually-hidden">Add gift note?</label>
@@ -600,11 +630,11 @@
                     "breakpoints": {
                       "750": {
                         "slidesPerView": "2.5",
-                        "spaceBetween": 20
+                        "spaceBetween": 10
                       },
                       "990": {
                         "slidesPerView": "2.8",
-                        "spaceBetween": 9
+                        "spaceBetween": 5
                       }
                     }
                   }
@@ -689,7 +719,7 @@
 
         <span class="totals__subtotal">{% if adjusted_total_price != cart.total_price %}Amount due today{% else %}{{ 'sections.cart.subtotal' | t }}{% endif %}	:</span>
         <span class="totals__subtotal-value">
-          {{ adjusted_total_price | money_with_currency }}
+          {{ adjusted_total_price | money_without_trailing_zeros }}
         </span>
       </div>
       
