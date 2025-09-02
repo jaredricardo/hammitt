@@ -30,6 +30,32 @@
 
 -%}
 
+<script>
+// code to adjust shadow DOM styles for order protection. Ideally we remove this in the future when OP allows us to edit the widget within their dashboard customizer
+function waitForShadowRoot() {
+  const orderProtection = document.querySelector(".drawer__final order-protection");
+  if (orderProtection && orderProtection.shadowRoot) {
+    const targetedStack = orderProtection.shadowRoot.querySelector("vertical-stack > bordered-container > horizontal-stack ");
+    if (targetedStack) {
+      targetedStack.style.setProperty("padding", "10px 0");
+      targetedStack.style.setProperty("align-items", "center");
+      return true;
+    }
+  }
+  return false;
+}
+
+if (!waitForShadowRoot()) {
+  const interval = setInterval(() => {
+    if (waitForShadowRoot()) {
+      clearInterval(interval);
+    }
+  }, 100);
+  
+  setTimeout(() => clearInterval(interval), 5000);
+}
+</script>
+
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
   <div class="drawer__content">
