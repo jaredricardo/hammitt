@@ -808,9 +808,11 @@ div#dynamic-checkout-cart {
 .cart-drawer-gift-note .checkbox-message-area {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
-.cart-drawer-gift-note .checkbox-message-area > div {
+
+.cart-drawer-gift-note .checkbox-message-area > div,
+.cart-drawer-gift-box-opt-out {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -837,7 +839,7 @@ div#dynamic-checkout-cart {
 }
 
 .hammit-checkbox-message {
-  font-size: 13px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
