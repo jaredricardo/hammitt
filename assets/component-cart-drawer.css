@@ -104,23 +104,23 @@ cart-drawer > details[open] > summary::before {
   Reset cart paddings. There are multiple instances of CSS classes throughout many files.
   Instead of editing them all, we will override them here and then add padding to the parent element.
 */
+
 .drawer__header,
-.drawer__items,
-.drawer__final {
+.drawer__header h4,
+.drawer__final,
+.drawer__items {
+  padding: 0 10px !important;
+}
+
+.drawer__items:has(.drawer_empty) {
   padding: 0 !important;
 }
-
-.drawer__content {
-  padding: 10px;
-}
-
 
 .drawer__content h4 {
   margin-top: 8px;
   margin-bottom: 0;
   font-weight: 600;
 }
-
 
 
 .drawer__title{
@@ -410,16 +410,14 @@ button[aria-disabled="true"] {
   height: 100%;
 }
 .multicolumns {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 10px;
-  flex-wrap: wrap;
-  margin: 0 -28px;
-  width: calc(100% + 48px);
+  margin: 0;
+  width: 100%;
 }
-.multicolumns .multicolumns-item {
-  width: calc(50% - 5px);
-  flex: 0 1 calc(50% - 5px);
-}
+
 .multicolumns-image {
   padding-bottom: 100%;
   height: 0;
