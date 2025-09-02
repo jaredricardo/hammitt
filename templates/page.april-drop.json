@@ -251,30 +251,6 @@
     "multicolumn_jfN9fd": {
       "type": "multicolumn",
       "blocks": {
-        "column_aiTLEV": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_769_1.jpg",
-            "title": "<strong>THE PAUL SET</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/paul",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
         "column_eqhaKa": {
           "type": "column",
           "settings": {
@@ -298,11 +274,35 @@
             "cta_top_spacing": 5,
             "cta_bottom_spacing": 5
           }
+        },
+        "column_aiTLEV": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_769_1.jpg",
+            "title": "<strong>THE PAUL SET</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/paul",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
         }
       },
       "block_order": [
-        "column_aiTLEV",
-        "column_eqhaKa"
+        "column_eqhaKa",
+        "column_aiTLEV"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
@@ -402,6 +402,25 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
+      }
+    },
+    "slider_collection_4MBn77": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "belted-suede",
+        "max_products": 30,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_Kfp46Q": {
@@ -592,25 +611,6 @@
         "heading_align": "center",
         "heading_color": "",
         "collection": "olive",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "slider_collection_4MBn77": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "belted-suede",
         "max_products": 30,
         "image_ratio": "adapt",
         "hide_price": false,
