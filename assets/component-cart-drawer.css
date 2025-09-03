@@ -808,6 +808,11 @@ div#dynamic-checkout-cart {
   flex-direction: column;
 }
 
+hammitt-gift-note,
+hammitt-box-opt-out {
+  cursor: pointer;
+}
+
 .hammitt-gift-note-area .note-area-container {
   position: relative;
 }
@@ -904,6 +909,11 @@ div#dynamic-checkout-cart {
   display: none;
 }
 
+#hammitt-box-opt-out-checkbox {
+  accent-color: black;
+  pointer-events: none;
+}
+
 .remove-button-container {
   width: max-content;
 }
@@ -943,6 +953,8 @@ div#dynamic-checkout-cart {
   font-size: 11px;
   font-weight: 400;
   color: #676767;
-  max-width: 85%;
+  max-width: 87%;
   margin: 0 auto;
 }
+
+

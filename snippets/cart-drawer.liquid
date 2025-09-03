@@ -561,10 +561,12 @@ if (!waitForShadowRoot()) {
           <p>If you’d like to add gift wrap, you can add as many as you need below and simply select it for each address at check out.</p>
         </div>
         {% if cart.item_count > 0  %}
-          <div class="cart-drawer-gift-box-opt-out">
-            <input type="checkbox" id="hammitt-box-opt-out-checkbox">
-            <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
-          </div>
+          {% if settings.enable_hammitt_box_opt_out %}
+            <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
+              <input type="checkbox" id="hammitt-box-opt-out-checkbox">
+              <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
+            </hammitt-box-opt-out>
+          {% endif %}
           <div class="gift-box-content">{{ content.description }}</div>
           {% if settings.enable_hammitt_gift_messaging %}
             <hammitt-gift-note class="cart-drawer-gift-note"
@@ -731,6 +733,9 @@ if (!waitForShadowRoot()) {
         <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
           {% if settings.enable_hammitt_gift_messaging %}
             <input id="hammitt-gift-message-form-input" type="hidden" name="attributes[Gift Note]" value="">
+          {% endif %}
+          {% if settings.enable_hammitt_box_opt_out %}
+            <input id="hammitt-box-opt-out-form-input" type="hidden" name="attributes[opt_out_of_gift_box]" value="false">
           {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>
