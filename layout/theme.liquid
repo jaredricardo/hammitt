@@ -479,7 +479,12 @@
     {% endif %}
     {% if settings.enable_hammitt_box_opt_out %}
       <script>
-        window.addEventListener('DOMContentLoaded', () => {          
+        window.addEventListener('DOMContentLoaded', () => {    
+
+          document.addEventListener('cart:updated', (event) => {
+            console.log('CART WAS UPDATED AHHHHH!!!!')
+          })
+        
           class hammittBoxOptOut extends HTMLElement {
             constructor() {
               super()

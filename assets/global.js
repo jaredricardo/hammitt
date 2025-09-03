@@ -1402,7 +1402,7 @@ function checkOrderProtection() {
         const toUpdate = [
           {
             section: "cart-drawer",
-            elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp"]
+            elements: [".cart-announcement-bar",".drawer__items",".drawer__final .drawer__subtotal",".cart_shipping_notes",".jr-temp-single-gwp"]
           },
           {
             section: "cart-icon-bubble",
