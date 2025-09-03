@@ -282,7 +282,7 @@ if (!waitForShadowRoot()) {
       {%- for item in cart.items -%}
         {% assign qty = qty | plus:item.quantity %}
       {%- endfor -%}
-      <div class="drawer__items-inner">
+      <div class="drawer__items-inner" {% if cart.item_count == 0 %} style="display: none;" {% endif %}>
         <cart-items>
           <div class="loading-overlay hidden">
             <div class="loading-overlay__spinner">

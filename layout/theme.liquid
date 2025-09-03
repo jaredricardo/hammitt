@@ -480,34 +480,41 @@
     {% if settings.enable_hammitt_box_opt_out %}
       <script>
         window.addEventListener('DOMContentLoaded', () => {    
-
+          // Kind of lazy way to persist the data when the cart updates, but better than refactoring the ajax cart update
           document.addEventListener('cart:updated', (event) => {
-            console.log('CART WAS UPDATED AHHHHH!!!!')
+            if(document.querySelector('#hammitt-box-opt-out-form-input')) {
+              if(localStorage.getItem('hammitt-box-opt-out')) {
+                const storageVal = localStorage.getItem('hammitt-box-opt-out')
+                const optedOut = storageVal === 'true'
+                document.querySelector('#hammitt-box-opt-out-form-input').value = optedOut
+              }
+            }
           })
         
           class hammittBoxOptOut extends HTMLElement {
             constructor() {
-              super()
+            super()
 
-                this.addEventListener('click', (e) => {
-                  e.preventDefault()
-                  const isChecked = this.querySelector('#hammitt-box-opt-out-checkbox').checked
-                  const inputCheckValue = document.querySelector('#hammitt-box-opt-out-form-input')
-                  localStorage.setItem('hammitt-box-opt-out', !isChecked)
+              this.addEventListener('click', (e) => {
+                e.preventDefault()
+                const isChecked = this.querySelector('#hammitt-box-opt-out-checkbox').checked
+                const inputCheckValue = document.querySelector('#hammitt-box-opt-out-form-input')
+                localStorage.setItem('hammitt-box-opt-out', !isChecked)
 
-                  this.querySelector('#hammitt-box-opt-out-checkbox').checked = !isChecked
-                  document.querySelector('#hammitt-box-opt-out-form-input').value = !isChecked
-                  
-                })
+                this.querySelector('#hammitt-box-opt-out-checkbox').checked = !isChecked
+                document.querySelector('#hammitt-box-opt-out-form-input').value = !isChecked
+                
+              })
 
-                if(localStorage.getItem('hammitt-box-opt-out')) {
-                  const storageVal = localStorage.getItem('hammitt-box-opt-out')
-                  const optedOut = storageVal === 'true'
-                  this.querySelector('#hammitt-box-opt-out-checkbox').checked = optedOut
+              if(localStorage.getItem('hammitt-box-opt-out')) {
+                const storageVal = localStorage.getItem('hammitt-box-opt-out')
+                const optedOut = storageVal === 'true'
+                this.querySelector('#hammitt-box-opt-out-checkbox').checked = optedOut
+                if(document.querySelector('#hammitt-box-opt-out-form-input')) {
                   document.querySelector('#hammitt-box-opt-out-form-input').value = optedOut
                 }
-
               }
+            }
           }
           customElements.define('hammitt-box-opt-out', hammittBoxOptOut)  
         })
