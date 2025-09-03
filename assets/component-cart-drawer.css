@@ -573,6 +573,7 @@ gift-box-section {
   margin: 0;
   width: 100%;
   border: none !important;
+  margin-bottom: 1.5rem;
 }
 .gift-box-image,
 .gift-box-video {
@@ -919,7 +920,8 @@ hammitt-box-opt-out {
 }
 
 .multiple-gifts-section {
-  display: flex;
+  /* display: flex; */
+  display: none; 
   flex-direction: column;
   gap: 0.25rem;
   text-align: center;
