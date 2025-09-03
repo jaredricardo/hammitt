@@ -406,10 +406,9 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-
+    {% comment %} both of the following script files should put in a js.liquid file and taken out of theme.liquid {% endcomment %}
     {% if settings.enable_hammitt_gift_messaging %}
       <script>
-        // this should be moved to its own file
         window.addEventListener('DOMContentLoaded', () => {
           class hammittGiftNote extends HTMLElement {
             constructor() {
@@ -476,7 +475,49 @@
           }
           customElements.define('hammitt-gift-note', hammittGiftNote)  
         })
-      
+      </script>
+    {% endif %}
+    {% if settings.enable_hammitt_box_opt_out %}
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {    
+          // Kind of lazy way to persist the data when the cart updates, but better than refactoring the ajax cart update
+          document.addEventListener('cart:updated', (event) => {
+            if(document.querySelector('#hammitt-box-opt-out-form-input')) {
+              if(localStorage.getItem('hammitt-box-opt-out')) {
+                const storageVal = localStorage.getItem('hammitt-box-opt-out')
+                const optedOut = storageVal === 'true'
+                document.querySelector('#hammitt-box-opt-out-form-input').value = optedOut
+              }
+            }
+          })
+        
+          class hammittBoxOptOut extends HTMLElement {
+            constructor() {
+            super()
+
+              this.addEventListener('click', (e) => {
+                e.preventDefault()
+                const isChecked = this.querySelector('#hammitt-box-opt-out-checkbox').checked
+                const inputCheckValue = document.querySelector('#hammitt-box-opt-out-form-input')
+                localStorage.setItem('hammitt-box-opt-out', !isChecked)
+
+                this.querySelector('#hammitt-box-opt-out-checkbox').checked = !isChecked
+                document.querySelector('#hammitt-box-opt-out-form-input').value = !isChecked
+                
+              })
+
+              if(localStorage.getItem('hammitt-box-opt-out')) {
+                const storageVal = localStorage.getItem('hammitt-box-opt-out')
+                const optedOut = storageVal === 'true'
+                this.querySelector('#hammitt-box-opt-out-checkbox').checked = optedOut
+                if(document.querySelector('#hammitt-box-opt-out-form-input')) {
+                  document.querySelector('#hammitt-box-opt-out-form-input').value = optedOut
+                }
+              }
+            }
+          }
+          customElements.define('hammitt-box-opt-out', hammittBoxOptOut)  
+        })
       </script>
     {% endif %}
     <script

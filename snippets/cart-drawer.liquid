@@ -30,6 +30,32 @@
 
 -%}
 
+<script>
+// code to adjust shadow DOM styles for order protection. Ideally we remove this in the future when OP allows us to edit the widget within their dashboard customizer
+function waitForShadowRoot() {
+  const orderProtection = document.querySelector(".drawer__final order-protection");
+  if (orderProtection && orderProtection.shadowRoot) {
+    const targetedStack = orderProtection.shadowRoot.querySelector("vertical-stack > bordered-container > horizontal-stack ");
+    if (targetedStack) {
+      targetedStack.style.setProperty("padding", "10px 0");
+      targetedStack.style.setProperty("align-items", "center");
+      return true;
+    }
+  }
+  return false;
+}
+
+if (!waitForShadowRoot()) {
+  const interval = setInterval(() => {
+    if (waitForShadowRoot()) {
+      clearInterval(interval);
+    }
+  }, 100);
+  
+  setTimeout(() => clearInterval(interval), 5000);
+}
+</script>
+
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
   <div class="drawer__content">
@@ -163,97 +189,100 @@
          </script>
        {% endif %}
      {% endfor %}
+     {% if cart.item_count > 0 %}
+        <h4>Your Cart</h4>
+     {% endif %}
     <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart.total_price }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
       {% if cart.item_count == 0 %}
-      <div class="drawer_empty center">
-        <div class="appear-animation appear-delay-{{ appear_delay }}">
-          <div class="flex-wrapper">
-            <div class="buttons_wrapper">
-              {% for btn in shop.metaobjects.empty_cart_buttons.values %}
-                {% assign i = forloop.index %}
-                {% if btn.button_label != blank %}
-                  <style>
-                    .btn--Solid.button_item_{{ i }} {
-                      background-color: {{ btn.background_color }};
-                      color: {{ btn.text_color }};
-                      border: 1px solid {{ btn.background_color }};
-                    }
-                    .btn--Solid.button_item_{{ i }}:hover {
-                      background-color: {{ btn.text_color }};
-                      color: {{ btn.background_color }};
-                      border: 1px solid {{ btn.background_color }};
-                    }
-                    .btn--Outline.button_item_{{ i }} {
-                      background-color: transparent !important;
-                      border: 1px solid {{ btn.background_color }};
-                      color: {{ btn.text_color }};
-                    }
-                    </style>
-
-                  <a href="{{ btn.button_link }}" class="button btn--{{ btn.button_style }} button_item_{{ i }}">{{ btn.button_label }}</a>
-                {% endif %}
-              {% endfor %}
-            </div>
-            <div class="multicolumns">
-              {% for column in shop.metaobjects.empty_multi_column.values %}
-                {% if column.image %}
-                  {% assign index = forloop.index %}
-                  <div class="multicolumns-item">
+        <div class="drawer_empty center">
+          <div class="appear-animation appear-delay-{{ appear_delay }}">
+            <div class="flex-wrapper">
+              <div class="buttons_wrapper">
+                {% for btn in shop.metaobjects.empty_cart_buttons.values %}
+                  {% assign i = forloop.index %}
+                  {% if btn.button_label != blank %}
                     <style>
-                      .multicolumnsLink--{{ index }} .multicolumns-content .overlayMulticolumns{
-                        background-color: {{ column.overlay_color }};
-                        opacity: {{ column.content_overlay }};
+                      .btn--Solid.button_item_{{ i }} {
+                        background-color: {{ btn.background_color }};
+                        color: {{ btn.text_color }};
+                        border: 1px solid {{ btn.background_color }};
                       }
-                    </style>
-                    <a href="{{ column.link }}" class="multicolumns-link multicolumnsLink--{{ index }}">
-                      {% assign image_height = column.image.width | divided_by: column.image.aspect_ratio %}
-                      {%- liquid
-                        assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'                      
-                        assign stacked_sizes = '(min-width: 750px) 50vw, 100vw'
+                      .btn--Solid.button_item_{{ i }}:hover {
+                        background-color: {{ btn.text_color }};
+                        color: {{ btn.background_color }};
+                        border: 1px solid {{ btn.background_color }};
+                      }
+                      .btn--Outline.button_item_{{ i }} {
+                        background-color: transparent !important;
+                        border: 1px solid {{ btn.background_color }};
+                        color: {{ btn.text_color }};
+                      }
+                      </style>
 
-                        assign fetch_priority = 'auto'
-                        if section.index == 1
-                          assign fetch_priority = 'high'
-                        endif
-                      -%}
-                      {% if column.image != blank %}
-                        <div class="multicolumns-image">
-                          {{
-                            column.image
-                            | image_url: width: 3840
-                            | image_tag:
-                              width: column.image.width,
-                              height: image_height,
-                              class: image_class,
-                              sizes: sizes,
-                              widths: widths,
-                              fetchpriority: fetch_priority
-                          }}
+                    <a href="{{ btn.button_link }}" class="button btn--{{ btn.button_style }} button_item_{{ i }}">{{ btn.button_label }}</a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <div class="multicolumns">
+                {% for column in shop.metaobjects.empty_multi_column.values %}
+                  {% if column.image %}
+                    {% assign index = forloop.index %}
+                    <div class="multicolumns-item">
+                      <style>
+                       .multicolumnsLink--{{ index }} .multicolumns-content .overlayMulticolumns{
+                          background-color: {{ column.overlay_color }};
+                          opacity: {{ column.content_overlay }};
+                        }
+                      </style>
+                      <a href="{{ column.link }}" class="multicolumns-link multicolumnsLink--{{ index }}">
+                        {% assign image_height = column.image.width | divided_by: column.image.aspect_ratio %}
+                        {%- liquid
+                          assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'                      
+                          assign stacked_sizes = '(min-width: 750px) 50vw, 100vw'
+
+                          assign fetch_priority = 'auto'
+                          if section.index == 1
+                            assign fetch_priority = 'high'
+                          endif
+                        -%}
+                        {% if column.image != blank %}
+                          <div class="multicolumns-image">
+                            {{
+                              column.image
+                              | image_url: width: 3840
+                              | image_tag:
+                                width: column.image.width,
+                                height: image_height,
+                                class: image_class,
+                                sizes: sizes,
+                                widths: widths,
+                                fetchpriority: fetch_priority
+                            }}
+                          </div>
+                        {% endif %}
+                        <div class="multicolumns-content">
+                          <div class="overlayMulticolumns"></div>
+                          <div class="multicolumns-text">
+                            <h3 class="multicolumns-title {% if column.subheading != blank %} pb-0 {% endif %}" style="font-size: {{ column.text_size }}px;color: {{ column.text_color }};">{{ column.heading }}</h3>
+                            {% if column.subheading != blank %}
+                              <p class="multicolumns--subheading" style="font-size: {{ column.subheading_text_size }}px;color: {{ column.subheading_text_color }};">{{ column.subheading }}</p>
+                            {% endif %}
+                          </div>
                         </div>
-                      {% endif %}
-                      <div class="multicolumns-content">
-                        <div class="overlayMulticolumns"></div>
-                        <div class="multicolumns-text">
-                          <h3 class="multicolumns-title {% if column.subheading != blank %} pb-0 {% endif %}" style="font-size: {{ column.text_size }}px;color: {{ column.text_color }};">{{ column.heading }}</h3>
-                          {% if column.subheading != blank %}
-                            <p class="multicolumns--subheading" style="font-size: {{ column.subheading_text_size }}px;color: {{ column.subheading_text_color }};">{{ column.subheading }}</p>
-                          {% endif %}
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                {% endif %}
-              {% endfor %}
+                      </a>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
             </div>
           </div>
         </div>
-      </div>
       {% endif %}
       {% assign qty = 0 %}
       {%- for item in cart.items -%}
         {% assign qty = qty | plus:item.quantity %}
       {%- endfor -%}
-      <div class="drawer__items-inner">
+      <div class="drawer__items-inner" {% if cart.item_count == 0 %} style="display: none;" {% endif %}>
         <cart-items>
           <div class="loading-overlay hidden">
             <div class="loading-overlay__spinner">
@@ -267,25 +296,25 @@
             {% for item in cart.items %}
 
             {%- liquid
-            assign is_bundle_item = false
-            if item.properties['_bundle'] == 'true'
-              assign is_bundle_item = true
-            endif
+              assign is_bundle_item = false
+              if item.properties['_bundle'] == 'true'
+                assign is_bundle_item = true
+              endif
 
-            if current_bundle_items contains item.properties['bundle_id']
-              continue
-            endif
+              if current_bundle_items contains item.properties['bundle_id']
+                continue
+              endif
 
-            assign has_monogram = false
-            if item.properties['Monogram Initials'] != blank
-              assign has_monogram = true
-            endif
+              assign has_monogram = false
+              if item.properties['Monogram Initials'] != blank
+                assign has_monogram = true
+              endif
 
-            assign is_gift_note = false
-            if item.title == "Hammitt Gift Receipt"
-               assign is_gift_note = true
-               assign has_gift_note = true
-            endif
+              assign is_gift_note = false
+              if item.title == "Hammitt Gift Receipt"
+                assign is_gift_note = true
+                assign has_gift_note = true
+              endif
 
               ####### new way of assigning product title
 
@@ -295,23 +324,23 @@
 
               #######
 
-            assign is_gwp = false
+              assign is_gwp = false
 
-            if item.id == settings.gwp_product.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-               assign is_gwp = true
-            endif 
+              if item.id == settings.gwp_product.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+                assign is_gwp = true
+              endif 
 
-            if item.id == settings.gwp_product2.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-               assign is_gwp = true
-            endif
+              if item.id == settings.gwp_product2.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+                assign is_gwp = true
+              endif
 
-             if item.id == settings.gwp_product3.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-               assign is_gwp = true
-            endif
+              if item.id == settings.gwp_product3.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+                assign is_gwp = true
+              endif
 
-            if item.title == 'Hammitt GWP' and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-              assign is_gwp = true
-            endif
+              if item.title == 'Hammitt GWP' and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
+                assign is_gwp = true
+              endif
 
             -%}
 
@@ -371,7 +400,7 @@
                   <small>(promo excludes tax + shipping)</small>
                 {% endif %}
                 <div> 
-                  <div class="drawer__content-item-tprice">
+                  <div class="drawer__content-item-and-price">
                      {% if is_gwp %}
                       <p class="cart-item__title" style="margin:0;">{{ product_type }}</p>
                      {% endif %}
@@ -456,7 +485,7 @@
                     {%- endfor -%}
                   </ul>
                 </div> 
-                <div class="flex align-center space-between drawer__content-item-actions">
+                <div class="flex align-center drawer__content-item-actions">
                   {% unless has_monogram %}
                   <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}" {% if item.id == EEGWPAddOnId %} disabled style="pointer-events: none; visibility: hidden; opacity: 0;"{% endif %}>
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
@@ -487,19 +516,20 @@
                   {% else %}
                   <div><span class='visually-hidden'>Monogram</span></div>
                   {% endunless %}
-
-                  <div class="loading-overlay hidden">
-                    <div class="loading-overlay__spinner loading-overlay__spin">
-                      <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                      </svg>
+                  <div class="remove-button-container">
+                    <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
+                      <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                        {% render 'icon-remove' %}
+                      </a>
+                    </cart-remove-button>
+                    <div class="loading-overlay hidden">
+                      <div class="loading-overlay__spinner loading-overlay__spin">
+                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                  <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
-                    <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
-                      {% render 'icon-remove' %}
-                    </a>
-                  </cart-remove-button>
                 </div>
                 {% if is_gift_note %}
                 <label for="gift-note" class="visually-hidden">Add gift note?</label>
@@ -510,13 +540,22 @@
             {% endunless %} <!-- End of OP Hiding Logic -->
             {% endif %}
             {% endfor %}
-
+            <li class="drawer__content-item cart-item fake-cart-item">
+              <div class="drawer__content-item-image">
+                <img src="https://cdn.shopify.com/s/files/1/0661/5963/files/Rectangle_323.png?v=1756486154" alt="Gift Box Image">
+              </div>
+              <div class="drawer__content-item-info">
+                <div class="fake-cart-item-info">
+                    <span class="s1">Complimentary gift box. Included with every order.</span>
+                    <span class="s2" >FREE</span>
+                </div>
+              </div>
+            </li>
           </ul>
           <div class="cart-errors"></div>
           <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
           <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
         </cart-items>
-        {% if cart.item_count > 0  %}
         <gift-box-section>
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
             <h3>{{ content.heading }}</h3>
@@ -575,29 +614,6 @@
 
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
             <div class="gift-box-content">{{ content.description }}</div>
-            {% if settings.enable_hammitt_gift_messaging %}
-              <hammitt-gift-note class="cart-drawer-gift-note"
-                {% if cart.attributes['Gift Note'] %}
-                  data-server-has-note="true"
-                  {% else %}
-                  data-server-has-note="false"
-                {% endif %}
-                >
-                <div class="checkbox-message-area">
-                  <input type="checkbox" id="hammitt-gift-message-checkbox">
-                  <label for="hammit-gift-message-checkbox" class="hammit-gift-message-checkbox"> {{ settings.hammitt_gift_message }}</label>
-                </div>
-                <div class="hammitt-gift-note-area">
-                  <label for="gift-note" class="visually-hidden">Add gift note?</label>
-                  <div class="note-area-container">
-                    <textarea maxlength="500" placeholder="Enter your gift note here" name="note" id="gift-note-text-area"></textarea>
-                    <span id="gift-note-char-limit">0/500</span>
-                  </div>  
-                  <button type="button" id="gift-note-save-button">save</button>
-                  {% comment %} <div id="hidden-existing-cart-attribute">current cart att: {{ cart.attributes['Gift Note'] }}</div> {% endcomment %}
-                </div>
-              </hammitt-gift-note>
-            {% endif %}
             {% if settings.giftBox_enabled %}
             <div class="cart__gift--notes">
               <input id="cart__gift--check" class="cart__gift__input" type="checkbox">
@@ -612,7 +628,56 @@
             {% endif %}
           {% endfor %}
         </gift-box-section>
-      {% endif %}
+        <div class="multiple-gifts-section">
+          <span>{% render 'icon-gifts' %}<p>Buying multiple gifts? Ship to different addresses at checkout.</p></span>
+          <p>If you’d like to add gift wrap, you can add as many as you need below and simply select it for each address at check out.</p>
+        </div>
+        {% if cart.item_count > 0  %}
+          {% if settings.enable_hammitt_box_opt_out %}
+            <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
+              <input type="checkbox" id="hammitt-box-opt-out-checkbox">
+              <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
+            </hammitt-box-opt-out>
+          {% endif %}
+          <div class="gift-box-content">{{ content.description }}</div>
+          {% if settings.enable_hammitt_gift_messaging %}
+            <hammitt-gift-note class="cart-drawer-gift-note"
+              {% if cart.attributes['Gift Note'] %}
+                data-server-has-note="true"
+                {% else %}
+                data-server-has-note="false"
+              {% endif %}
+              >
+              <div class="checkbox-message-area">
+                <div>
+                  <input type="checkbox" id="hammitt-gift-message-checkbox">
+                  <label for="hammit-gift-message-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_gift_message }}</label>
+                </div>
+              </div>
+              <div class="hammitt-gift-note-area">
+                <label for="gift-note" class="visually-hidden">Add gift note?</label>
+                <div class="note-area-container">
+                  <textarea maxlength="500" placeholder="Enter your gift note here" name="note" id="gift-note-text-area"></textarea>
+                  <span id="gift-note-char-limit">0/500</span>
+                </div>  
+                <button type="button" id="gift-note-save-button">save</button>
+                {% comment %} <div id="hidden-existing-cart-attribute">current cart att: {{ cart.attributes['Gift Note'] }}</div> {% endcomment %}
+              </div>
+            </hammitt-gift-note>
+          {% endif %}
+          {% if settings.giftBox_enabled %}
+            <div class="cart__gift--notes">
+              <input id="cart__gift--check" class="cart__gift__input" type="checkbox">
+              <label for="cart__gift--check">{{ content.checkbox_content }}</label>
+              <zest-button 
+                shop-id="{{ shop.permanent_domain }}"
+                variant="outline"
+                border-width="1px" 
+                border-color="black">
+              </zest-button>
+            </div>
+          {% endif %}
+        {% endif %}
       <cart-upsells class="cart-drawer-upsells" data-upsell-title="{{ first_cart_item.product.title }}" >
         {% if cart.item_count > 0 %}
           <div class="tab-item__upsell">
@@ -643,11 +708,11 @@
                     "breakpoints": {
                       "750": {
                         "slidesPerView": "2.5",
-                        "spaceBetween": 20
+                        "spaceBetween": 10
                       },
                       "990": {
                         "slidesPerView": "2.8",
-                        "spaceBetween": 9
+                        "spaceBetween": 5
                       }
                     }
                   }
@@ -732,7 +797,7 @@
 
         <span class="totals__subtotal">{% if adjusted_total_price != cart.total_price %}Amount due today{% else %}{{ 'sections.cart.subtotal' | t }}{% endif %}	:</span>
         <span class="totals__subtotal-value">
-          {{ adjusted_total_price | money_with_currency }}
+          {{ adjusted_total_price | money_without_trailing_zeros }}
         </span>
       </div>
       
@@ -740,6 +805,9 @@
         <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
           {% if settings.enable_hammitt_gift_messaging %}
             <input id="hammitt-gift-message-form-input" type="hidden" name="attributes[Gift Note]" value="">
+          {% endif %}
+          {% if settings.enable_hammitt_box_opt_out %}
+            <input id="hammitt-box-opt-out-form-input" type="hidden" name="attributes[opt_out_of_gift_box]" value="false">
           {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>

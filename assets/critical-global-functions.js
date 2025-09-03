@@ -1,12 +1,12 @@
 async function buildCompleteTheSetInCart() {
 
-  const cartItems = document.querySelectorAll('cart-items .cart-item')
+  const cartItems = document.querySelectorAll('cart-items .cart-item:not(.fake-cart-item)')
   let completeTheSetProducts, referenceProductId = null
 
   if (!cartItems) return
 
   for (const cartItem of cartItems) {
-    const json = JSON.parse(cartItem.dataset.json);
+    const json = JSON.parse(cartItem.dataset.json)
     const productRecommendationFetchUrl = `${window.Shopify.routes.root}recommendations/products.json?product_id=${json.product_id}&limit=6&intent=complementary`
     const response = await fetch(productRecommendationFetchUrl)
     const data = await response.json()
