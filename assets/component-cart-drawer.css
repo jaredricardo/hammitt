@@ -906,6 +906,11 @@ hammitt-box-opt-out {
   font-weight: 600;
 }
 
+.fake-cart-item {
+  /* hidden for now */
+  display: none !important;
+}
+
 .drawer__content:has(#hammitt-box-opt-out-checkbox:checked) .fake-cart-item {
   display: none;
 }
