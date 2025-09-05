@@ -159,7 +159,8 @@ cart-drawer > details[open] > summary::before {
   margin:0;
   padding:0
 }
-.drawer__content-items .drawer__content-item{
+.drawer__content-items .drawer__content-item,
+.drawer__content-item {
   display:flex;
   padding-top: 1rem;
   padding-bottom:1rem;
@@ -864,6 +865,10 @@ hammitt-box-opt-out {
   margin-bottom: 5px;
 }
 
+.cart-drawer-gift-box-opt-out {
+  margin: 0 !important;
+}
+
 .checkbox-message-area #hammitt-gift-message-checkbox {
   accent-color: black;
 }
@@ -889,6 +894,7 @@ hammitt-box-opt-out {
   justify-content: center;
   line-height: 1.2;
   font-family: Sofia Pro;
+  cursor: pointer;
 }
 
 .cart-item .quantity__input {
@@ -908,11 +914,11 @@ hammitt-box-opt-out {
 
 .fake-cart-item {
   /* hidden for now */
-  display: none !important;
+  /* display: none !important; */
 }
 
 .drawer__content:has(#hammitt-box-opt-out-checkbox:checked) .fake-cart-item {
-  display: none;
+  /* display: none; */
 }
 
 #hammitt-box-opt-out-checkbox {
@@ -925,8 +931,7 @@ hammitt-box-opt-out {
 }
 
 .multiple-gifts-section {
-  /* display: flex; */
-  display: none; 
+  display: flex;
   flex-direction: column;
   gap: 0.25rem;
   text-align: center;

@@ -30,32 +30,6 @@
 
 -%}
 
-<script>
-// code to adjust shadow DOM styles for order protection. Ideally we remove this in the future when OP allows us to edit the widget within their dashboard customizer
-function waitForShadowRoot() {
-  const orderProtection = document.querySelector(".drawer__final order-protection");
-  if (orderProtection && orderProtection.shadowRoot) {
-    const targetedStack = orderProtection.shadowRoot.querySelector("vertical-stack > bordered-container > horizontal-stack ");
-    if (targetedStack) {
-      targetedStack.style.setProperty("padding", "10px 0");
-      targetedStack.style.setProperty("align-items", "center");
-      return true;
-    }
-  }
-  return false;
-}
-
-if (!waitForShadowRoot()) {
-  const interval = setInterval(() => {
-    if (waitForShadowRoot()) {
-      clearInterval(interval);
-    }
-  }, 100);
-  
-  setTimeout(() => clearInterval(interval), 5000);
-}
-</script>
-
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
   <div class="drawer__content">
@@ -540,23 +514,35 @@ if (!waitForShadowRoot()) {
             {% endunless %} <!-- End of OP Hiding Logic -->
             {% endif %}
             {% endfor %}
-            <li class="drawer__content-item cart-item fake-cart-item">
-              <div class="drawer__content-item-image">
-                <img src="https://cdn.shopify.com/s/files/1/0661/5963/files/Rectangle_323.png?v=1756486154" alt="Gift Box Image">
-              </div>
-              <div class="drawer__content-item-info">
-                <div class="fake-cart-item-info">
-                    <span class="s1">Complimentary gift box. Included with every order.</span>
-                    <span class="s2" >FREE</span>
+            {% if settings.enable_hammitt_box_opt_out %}
+              <li class="drawer__content-item cart-item fake-cart-item">
+                <div class="drawer__content-item-image">
+                  <img src="https://cdn.shopify.com/s/files/1/0661/5963/files/Rectangle_323.png?v=1756486154" alt="Gift Box Image">
                 </div>
-              </div>
-            </li>
+                <div class="drawer__content-item-info">
+                  <div class="fake-cart-item-info">
+                    <div class="top-info">
+                      <span class="s1">{{ settings.fake_cart_item_title }}</span>
+                      <span class="s2">FREE</span>
+                    </div>
+                    {% if settings.enable_hammitt_box_opt_out %}
+                      <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
+                        <input type="checkbox" id="hammitt-box-opt-out-checkbox">
+                        <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
+                      </hammitt-box-opt-out>
+                    {% endif %}
+                  </div>
+                </div>
+              </li>
+            {% endif %}
           </ul>
           <div class="cart-errors"></div>
           <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
           <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
         </cart-items>
-        <gift-box-section>
+        {% comment %}
+        not using at the moment
+         <gift-box-section>
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
             <h3>{{ content.heading }}</h3>
           {% endfor %}
@@ -628,17 +614,34 @@ if (!waitForShadowRoot()) {
             {% endif %}
           {% endfor %}
         </gift-box-section>
+         {% endcomment %}
         <div class="multiple-gifts-section">
           <span>{% render 'icon-gifts' %}<p>Buying multiple gifts? Ship to different addresses at checkout.</p></span>
           <p>If you’d like to add gift wrap, you can add as many as you need below and simply select it for each address at check out.</p>
         </div>
+        {% if settings.enable_gift_wrap_upsell and settings.gift_wrap_upsell_product != blank %}
+          {% assign upsell_product = settings.gift_wrap_upsell_product %}
+          <gift-wrap-upsell>
+            <div class="drawer__content-item">
+              <div class="drawer__content-item-image">
+                <img src="{{ upsell_product.featured_image | image_url: width: 200 }}" alt="Upsell Gift Wrap Image">
+              </div>
+              <div class="fake-cart-item-info">
+                <div class="top-info">
+                  <span class="s1">{{ settings.gift_wrap_upsell_title }}</span>
+                  <span class="s2">{{ upsell_product.price | money_without_trailing_zeros }}</span>
+                </div>
+                {% if null %}
+                  <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
+                    <input type="checkbox" id="hammitt-box-opt-out-checkbox">
+                    <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
+                  </hammitt-box-opt-out>
+                {% endif %}
+              </div>
+            </div>
+          </gift-wrap-upsell>
+        {% endif %}
         {% if cart.item_count > 0  %}
-          {% if settings.enable_hammitt_box_opt_out %}
-            <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
-              <input type="checkbox" id="hammitt-box-opt-out-checkbox">
-              <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
-            </hammitt-box-opt-out>
-          {% endif %}
           <div class="gift-box-content">{{ content.description }}</div>
           {% if settings.enable_hammitt_gift_messaging %}
             <hammitt-gift-note class="cart-drawer-gift-note"
@@ -791,7 +794,6 @@ if (!waitForShadowRoot()) {
           <label for="add-gift-receipt">Gift Receipt + Note</label>
         </gift-note>
       </div> -->
-      <order-protection style="line-height:1.2"></order-protection>
       <div class="drawer__subtotal">
         {% assign adjusted_total_price = cart.total_price %}
 

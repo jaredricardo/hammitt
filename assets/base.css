@@ -4104,6 +4104,17 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 
 .fake-cart-item-info {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.fake-cart-item-info .top-info {
+  display: flex;
+}
+
+#hammitt-box-opt-out-checkbox {
+  margin-left: 0 !important;
 }
 
 .fake-cart-item-info .s1 {
