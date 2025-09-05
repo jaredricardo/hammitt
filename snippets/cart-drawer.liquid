@@ -621,24 +621,18 @@
         </div>
         {% if settings.enable_gift_wrap_upsell and settings.gift_wrap_upsell_product != blank %}
           {% assign upsell_product = settings.gift_wrap_upsell_product %}
-          <gift-wrap-upsell>
-            <div class="drawer__content-item">
+          <gift-wrap-upsell class="drawer__content-item">
+
               <div class="drawer__content-item-image">
                 <img src="{{ upsell_product.featured_image | image_url: width: 200 }}" alt="Upsell Gift Wrap Image">
               </div>
-              <div class="fake-cart-item-info">
+              <div class="fake-cart-item-info drawer__content-item-info">
                 <div class="top-info">
                   <span class="s1">{{ settings.gift_wrap_upsell_title }}</span>
                   <span class="s2">{{ upsell_product.price | money_without_trailing_zeros }}</span>
                 </div>
-                {% if null %}
-                  <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
-                    <input type="checkbox" id="hammitt-box-opt-out-checkbox">
-                    <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
-                  </hammitt-box-opt-out>
-                {% endif %}
               </div>
-            </div>
+    
           </gift-wrap-upsell>
         {% endif %}
         {% if cart.item_count > 0  %}
