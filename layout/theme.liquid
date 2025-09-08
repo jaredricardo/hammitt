@@ -406,11 +406,12 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    {% comment %} both of the following script files should put in a js.liquid file and taken out of theme.liquid {% endcomment %}
+    
+    {% comment %} all 3 of the following script files should put in a js.liquid file and taken out of theme.liquid {% endcomment %}
     {% if settings.enable_hammitt_gift_messaging %}
       <script>
         window.addEventListener('DOMContentLoaded', () => {
-          class hammittGiftNote extends HTMLElement {
+          class HammittGiftNote extends HTMLElement {
             constructor() {
               super()
 
@@ -473,7 +474,7 @@
 
               }
           }
-          customElements.define('hammitt-gift-note', hammittGiftNote)  
+          customElements.define('hammitt-gift-note', HammittGiftNote)  
         })
       </script>
     {% endif %}
@@ -491,7 +492,7 @@
             }
           })
         
-          class hammittBoxOptOut extends HTMLElement {
+          class HammittBoxOptOut extends HTMLElement {
             constructor() {
             super()
 
@@ -516,10 +517,90 @@
               }
             }
           }
-          customElements.define('hammitt-box-opt-out', hammittBoxOptOut)  
+          customElements.define('hammitt-box-opt-out', HammittBoxOptOut)  
         })
       </script>
     {% endif %}
+    {% if settings.enable_gift_wrap_upsell and settings.gift_wrap_upsell_product != blank %}
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          class HammittGiftWrapUpsell extends HTMLElement {
+            constructor() {
+              super()
+              this.querySelector('button.add-to-cart-button').addEventListener('click', () =>{
+                console.log('clicked atc button')
+                const id = {{ settings.gift_wrap_upsell_product.selected_or_first_available_variant.id | json }}
+                const quickAddObj = {
+                  items: [
+                    {
+                      id: id,
+                      quantity: 1
+                    }
+                  ]
+                }
+                // this will get reset by the AJAX cart update when the item is added, so no need to
+                // reset it after inside this function
+                this.style.opacity = '0.5'
+                this.style.pointerEvents = 'none'
+                addToCart(quickAddObj)
+              })
+            }
+          }
+          customElements.define('hammitt-gift-wrap-upsell', HammittGiftWrapUpsell)
+        })
+      </script>
+    {% endif %}
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const button = document.getElementById('zest-multi-checkout-button')
+        async function updateButtonStatus() {
+          return fetch('/cart.js')
+            .then(response => response.json())
+            .then(cart => {
+              if (button) {
+                button.disabled = false;
+                button.title = '';
+              }
+
+              const hasGiftCards = cart.items.some(item => {
+                return item.gift_card || /\b(?:gift[ _-]?card)\b/gi.test(item.product_type);
+              });
+
+              const hasSubscriptions = cart.items.some(item => {
+                return item.selling_plan_allocation;
+              });
+
+              const errorTarget = hasGiftCards && hasSubscriptions ? "gift cards and subscriptions" : hasGiftCards ? "gift cards" : hasSubscriptions ? "subscriptions" : null;
+
+              if (errorTarget) {
+                if (button) {
+                  button.disabled = true;
+                  button.title = `We're sorry — ${errorTarget} aren't eligible for this feature.`;
+                }
+                return null;
+              }
+
+              return cart.token
+            })
+            .catch(error => {
+              console.error('Error fetching cart:', error);
+              return null
+            });
+        }
+
+        button.addEventListener('click', async function() {
+          const eligibleCartTokenResponse = await updateButtonStatus();
+
+          if (eligibleCartTokenResponse) {
+            window.location.href = `https://${Shopify.shop}/apps/zest/start-multi-ship/${eligibleCartTokenResponse}`;
+          }
+        });
+
+        if (button) {
+          updateButtonStatus();
+        }
+      })
+    </script>
     <script
       {%- if template contains 'index' or template contains 'collection' or template contains 'product' -%}
         type="noscript-s" data-
