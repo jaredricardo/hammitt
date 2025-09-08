@@ -631,6 +631,11 @@
                   <span class="s1">{{ settings.gift_wrap_upsell_title }}</span>
                   <span class="s2">{{ upsell_product.price | money_without_trailing_zeros }}</span>
                 </div>
+                <div class="bottom-buttons">
+                  {% for item in cart.items %}
+                    {% comment %} {% if cart.item %} {% endcomment %}
+                  {% endfor %}
+                </div>
               </div>
     
           </gift-wrap-upsell>
@@ -807,9 +812,11 @@
           {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>
-        {% comment %}          
-          <a href="/checkout" class="button button--full-width">Checkout</a>
-        {% endcomment %}
+                
+        <button class="button button--full-width">
+          checkout for multiple recipients
+        </button>
+        
       </div>
       <div class="drawer__notification">
         <small class="rte">
