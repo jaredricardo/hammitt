@@ -4103,10 +4103,11 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 }
 
 .fake-cart-item-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+    width: 100%;
 }
 
 .fake-cart-item-info .top-info {
@@ -4127,7 +4128,7 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 .fake-cart-item-info .s2 {
   width: 30%;
   text-align: right;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   line-height: 120%;
 }

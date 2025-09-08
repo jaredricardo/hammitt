@@ -622,34 +622,57 @@
           <p>If you’d like to add gift wrap, you can add as many as you need below and simply select it for each address at check out.</p>
         </div>
         {% if settings.enable_gift_wrap_upsell and settings.gift_wrap_upsell_product != blank %}
-          <hammitt-gift-wrap-upsell class="drawer__content-item">
+          <hammitt-gift-wrap-upsell class="drawer__content-item cart-item">
               <div class="drawer__content-item-image">
                 <img src="{{ gift_wrap_upsell_product.featured_image | image_url: width: 200 }}" alt="Upsell Gift Wrap Image">
               </div>
-              <div class="fake-cart-item-info drawer__content-item-info">
+              <div class="fake-cart-item-info">
                 <div class="top-info">
                   <span class="s1">{{ settings.gift_wrap_upsell_title }}</span>
-                  <span class="s2">{{ upsell_product.price | money_without_trailing_zeros }}</span>
+                  <span class="s2">{{ gift_wrap_upsell_product.price | money_without_trailing_zeros }}</span>
                 </div>
-                <div class="bottom-buttons">
-                                       
-                  <button class="add-to-cart-button" type="button">
-                    Add
-                  </button>
+                <div class="bottom-buttons flex align-center drawer__content-item-actions">          
+                  {% assign gift_wrap_in_cart = false %}
                   {% for item in cart.items %}
-                    {% assign gift_wrap_in_cart = false %}
                     {% if item.variant.id == gift_wrap_upsell_product.selected_or_first_available_variant.id %}
                       {% assign gift_wrap_in_cart = true %}
+                      <quantity-input class="quantity {% unless gift_wrap_in_cart %} hidden {% endunless %}" max="20">
+                        <button class="quantity__button no-js-hidden" name="minus">
+                          {% render 'icon-minus' %}
+                        </button>
+                        <input class="quantity__input"
+                          type="number"
+                          name="updates[]"
+                          value="{{ item.quantity }}"
+                          min="0"
+                          {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}
+                          max="{{ item.variant.inventory_quantity }}"
+                          {% endunless %}
+                          aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                        >
+                        <button name="plus" class="quantity__button no-js-hidden">
+                          {% render 'icon-plus' %}
+                        </button>
+                      </quantity-input>
+                      <div class="remove-button-container">
+                        <button class="remove-button"> 
+                            {% render 'icon-remove' %}
+                        </button>
+                        <div class="loading-overlay hidden">
+                          <div class="loading-overlay__spinner loading-overlay__spin">
+                            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
                     {% endif %}
                   {% endfor %}
-                  {% if gift_wrap_in_cart %}
-                    {% else %}
-                     
+                  {% unless gift_wrap_in_cart %}
                     <button class="add-to-cart-button" type="button">
                       Add
                     </button>
-                 
-                  {% endif %}
+                  {% endunless %}
                 </div>
               </div>
     

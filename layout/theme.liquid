@@ -527,23 +527,32 @@
           class HammittGiftWrapUpsell extends HTMLElement {
             constructor() {
               super()
-              this.querySelector('button.add-to-cart-button').addEventListener('click', () =>{
-                console.log('clicked atc button')
-                const id = {{ settings.gift_wrap_upsell_product.selected_or_first_available_variant.id | json }}
-                const quickAddObj = {
-                  items: [
-                    {
-                      id: id,
-                      quantity: 1
-                    }
-                  ]
-                }
-                // this will get reset by the AJAX cart update when the item is added, so no need to
-                // reset it after inside this function
-                this.style.opacity = '0.5'
-                this.style.pointerEvents = 'none'
-                addToCart(quickAddObj)
+              this.id = {{ settings.gift_wrap_upsell_product.selected_or_first_available_variant.id | json }}
+              this.querySelector('button.add-to-cart-button')?.addEventListener('click', () =>{
+                this.addToCart()
               })
+              this.querySelector('button.remove-button')?.addEventListener('click', (e) => {
+                e.preventDefault()
+                this.removeFromCart()
+              })
+            }
+            addToCart() {
+              const quickAddObj = {
+                items: [
+                  {
+                    id: this.id,
+                    quantity: 1
+                  }
+                ]
+              }
+              // this will get reset by the AJAX cart update when the item is added, so no need to
+              // reset it after inside this function
+              this.style.opacity = '0.5'
+              this.style.pointerEvents = 'none'
+              addToCart(quickAddObj)
+            }
+            removeFromCart() {
+              console.log('removing from cart')
             }
           }
           customElements.define('hammitt-gift-wrap-upsell', HammittGiftWrapUpsell)
