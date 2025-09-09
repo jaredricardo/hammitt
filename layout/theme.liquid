@@ -527,13 +527,22 @@
           class HammittGiftWrapUpsell extends HTMLElement {
             constructor() {
               super()
-              this.id = {{ settings.gift_wrap_upsell_product.selected_or_first_available_variant.id | json }}
+              this.id = parseInt({{ settings.gift_wrap_upsell_product.selected_or_first_available_variant.id | json }})
+              this.currentQuantity = parseInt(this.querySelector('.quantity__input')?.value) || 0
               this.querySelector('button.add-to-cart-button')?.addEventListener('click', () =>{
                 this.addToCart()
               })
               this.querySelector('button.remove-button')?.addEventListener('click', (e) => {
                 e.preventDefault()
-                this.removeFromCart()
+                this.updateQuantity(0)
+              })
+              this.querySelector('quantity-input button:has(.icon-plus)')?.addEventListener('click', (e) => {
+                e.preventDefault()
+                this.addToCart()
+              })
+              this.querySelector('quantity-input button:has(.icon-minus)')?.addEventListener('click', (e) => {
+                e.preventDefault()
+                this.updateQuantity(this.currentQuantity - 1)
               })
             }
             addToCart() {
@@ -545,15 +554,72 @@
                   }
                 ]
               }
-              // this will get reset by the AJAX cart update when the item is added, so no need to
-              // reset it after inside this function
+              // gets reset by the AJAX cart update when the item is added, so no need to reset it after inside this function
               this.style.opacity = '0.5'
               this.style.pointerEvents = 'none'
               addToCart(quickAddObj)
             }
-            removeFromCart() {
-              console.log('removing from cart')
-            }
+            updateQuantity(quantity) {
+
+              // gets reset by the AJAX cart update when the item is added, so no need to reset it after inside this function
+              this.style.opacity = '0.5'
+              this.style.pointerEvents = 'none'
+
+              // below update code taken directly from cart.js 
+              
+              const body = JSON.stringify({
+                id: this.id,
+                quantity,
+                sections: "cart-drawer,cart-icon-bubble"
+              }); 
+
+              fetch(`${routes.cart_change_url}`, {...fetchConfig(), ...{ body }})
+                  .then((response) => {
+                    return response.text();
+                  })
+                .then((state) => {
+                  const parsedState = JSON.parse(state);
+                  this.classList.toggle('is-empty', parsedState.item_count === 0);
+                  const cartFooter = document.querySelector('#main-cart-footer');
+                  if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
+
+                  cartUpdate(parsedState);
+                  
+                  this.updateLiveRegions(line, parsedState.item_count);
+                  const lineItem =  this.querySelector(`.CartItem-${line}`);
+                  if (lineItem && lineItem.querySelector(`[name="${name}"]`)) lineItem.querySelector(`[name="${name}"]`).focus();
+                  
+                  this.disableLoading(line);
+                  
+                  setTimeout(function() {
+                    if(document.querySelector('.cart-drawer-btn') != null) {
+                      document.querySelector('.cart-drawer-btn').disabled = false;  
+                    }
+                    
+                    if(document.querySelector('.cart__checkout-button') != null) {
+                      document.querySelector('.cart__checkout-button').disabled = false;  
+                    }
+                  }, 1000)
+                  var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
+                  .then(response => response.json())
+                  .then(data => 
+                    {
+                      document.dispatchEvent(
+                        new CustomEvent('cart:updated', {
+                          detail: {
+                            cart: data,
+                          },
+                        })
+                      );
+                    }
+                  );
+                }).catch((e) => {
+                  const errorMessage = this.querySelector('.cart-errors');
+                  if (errorMessage) errorMessage.textContent = window.cartStrings.error;
+                  this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
+                  this.disableLoading(line);
+                });
+              }
           }
           customElements.define('hammitt-gift-wrap-upsell', HammittGiftWrapUpsell)
         })
