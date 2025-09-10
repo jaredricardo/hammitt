@@ -24,13 +24,13 @@
 .collection-hero__title + .collection-hero__description {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-size: 1.6rem;
+  font-size: 12px;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
 }
 
 @media screen and (min-width: 750px) {
   .collection-hero__title + .collection-hero__description {
-    font-size: 1.8rem;
+    font-size: 14px;
   }
 
   .collection-hero__description {
