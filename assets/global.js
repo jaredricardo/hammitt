@@ -1140,6 +1140,7 @@ const productSwatchReload = () => {
           if(document.querySelector('.swym-button.hammitt-custom')) {
             document.dispatchEvent(new CustomEvent("swym:collections-loaded"))
           }
+          window.initImgModelHeight()
       });
     });
   });
