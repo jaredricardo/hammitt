@@ -289,19 +289,19 @@
     "multicolumn_dk43Jb": {
       "type": "multicolumn",
       "blocks": {
-        "column_HVrcMh": {
+        "column_33FLWB": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_754_3.jpg",
+            "image": "shopify://shop_images/Belted-Suede-111_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "Olive",
-            "link": "shopify://collections/olive",
-            "cta_color": "#ffffff",
+            "link_label": "Belted Suede",
+            "link": "shopify://collections/belted-suede",
+            "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
             "cta_font_size": 18,
@@ -337,6 +337,30 @@
             "cta_bottom_spacing": 10
           }
         },
+        "column_HVrcMh": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_754_3.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Olive",
+            "link": "shopify://collections/olive",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
         "column_4rgMeQ": {
           "type": "column",
           "settings": {
@@ -360,38 +384,13 @@
             "cta_top_spacing": 5,
             "cta_bottom_spacing": 5
           }
-        },
-        "column_33FLWB": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_755_2.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Moto",
-            "link": "shopify://collections/moto",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
         }
       },
       "block_order": [
-        "column_HVrcMh",
+        "column_33FLWB",
         "column_p9EKmq",
-        "column_4rgMeQ",
-        "column_33FLWB"
+        "column_HVrcMh",
+        "column_4rgMeQ"
       ],
       "settings": {
         "title": "Shop New Arrivals",
@@ -404,7 +403,7 @@
         "image_ratio": "square",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "columns_gap": 2,
         "row_gap": 2,
         "mobile_columns_gap": 2,
@@ -416,9 +415,9 @@
         "button_link": "",
         "color_scheme": "background-1",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": false,
+        "swipe_on_mobile": true,
+        "enable_peek": true,
+        "show_mobile_slider": true,
         "padding_top": 20,
         "padding_bottom": 0,
         "padding_top_mobile": 20,
