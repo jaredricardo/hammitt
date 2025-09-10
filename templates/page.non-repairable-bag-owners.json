@@ -53,7 +53,6 @@
     },
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "heading_html_tag": "h1",
         "hide_title": true,
@@ -83,11 +82,55 @@
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
+    },
+    "rich_text_jny3Cc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RxitMP": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_V3YFqY": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Effective Date :</strong>9/1/2025<br/><strong>Company:</strong> Hammitt, Inc.</p><p>This Non-Repairable Bag Ownership and Resale Policy (“Policy”) sets forth the terms and conditions governing the transfer of ownership when a customer accepts a replacement product or discount code in exchange for a non-repairable Hammitt product.</p><h3><strong>1. Definition of Non-Repairable</strong></h3><p>For purposes of this Policy, a “non-repairable” bag is defined as any Hammitt product that, in Hammitt’s sole and exclusive discretion, cannot reasonably be restored to its original condition under Hammitt’s repair or warranty standards. Hammitt’s determination of non-repairable status shall be final and binding.</p><h3><strong>2. Transfer of Ownership</strong></h3><p>By accepting a replacement bag or discount code, the customer expressly and irrevocably transfers ownership of the non-repairable bag to Hammitt. This transfer of ownership is effective immediately upon the customer’s acceptance of Hammitt’s offer, regardless of whether the non-repairable bag has been physically returned or received by Hammitt.</p><h3><strong>3. Hammitt’s Rights</strong></h3><p>Upon transfer of ownership, Hammitt shall obtain full, exclusive, and unrestricted rights to the non-repairable bag. Hammitt may, at its sole discretion, resell, refurbish, donate, recycle, repurpose, or otherwise use the bag for any lawful purpose. Hammitt is under no obligation to disclose the manner in which the bag is utilized.</p><h3><strong>4. Waiver of Claims</strong></h3><p>The customer hereby expressly waives and releases any and all rights, claims, or interests in connection with the non-repairable bag. This waiver includes, but is not limited to:</p><ul><li>Any claim for the return of the bag</li><li>Any claim to financial value associated with the bag</li><li>Any entitlement to proceeds, revenue, or benefit derived from Hammitt’s resale, reuse, or other disposition of the bag</li></ul><p>Once ownership has been transferred, the customer shall have no further claims related to the non-repairable bag.</p><p><strong>5. Customer Acknowledgement: </strong>As a condition of receiving a replacement bag or discount code, the customer must provide explicit acknowledgment of this Policy, either through written confirmation, electronic signature, or by checking an acknowledgment box in Hammitt’s returns/repairs portal. By accepting a replacement bag or discount code, the customer agrees to transfer ownership of the non-repairable bag to Hammitt. The replacement bag or discount code will be provided after Hammitt has possession or  receives the bag. Until Hammitt receives the bag, the customer bears the risk of loss or damage during shipping or transit.<br/><br/></p>"
+          }
+        },
+        "button_FMD6LQ": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RxitMP",
+        "text_V3YFqY",
+        "button_FMD6LQ"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
     }
   },
   "order": [
     "rich_text_TVxR8H",
     "main",
-    "slider_collection_w9UPnP"
+    "slider_collection_w9UPnP",
+    "rich_text_jny3Cc"
   ]
 }
