@@ -94,6 +94,22 @@ function initInspiredAppClickListener() {
   })
 }
 
+function initImgModelHeight() {
+  const desktopImgContainer = document.querySelector('li.grid__item:has(img[alt*="Model height"])')
+  const mobileImgContainer = document.querySelector('#product__mobile-images .swiper-slide:has(img[alt*="Model height"]) .media')
+  let contentDesktop
+  let contentMobile
+
+  if(desktopImgContainer) {
+    contentDesktop = desktopImgContainer.querySelector('img').getAttribute('alt')
+    desktopImgContainer.style.setProperty("--content", `"${contentDesktop}"`);
+  }
+  if(mobileImgContainer) {
+    contentMobile = mobileImgContainer.querySelector('img').getAttribute('alt')
+    mobileImgContainer.style.setProperty("--content", `"${contentMobile}"`);
+  }
+}
+
 class xGenSearchResult extends HTMLElement {
   constructor() {
     super()
@@ -117,3 +133,4 @@ customElements.define('x-gen-search-result', xGenSearchResult)
 window.buildCompleteTheSetInCart = buildCompleteTheSetInCart
 window.formatPrice = formatPrice
 window.initInspiredAppClickListener = initInspiredAppClickListener
+window.initImgModelHeight = initImgModelHeight

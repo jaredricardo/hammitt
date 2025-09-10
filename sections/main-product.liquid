@@ -199,26 +199,6 @@
   }
 
 </style>
-{% comment %} model height alt image script {% endcomment %}
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-
-    const desktopImgContainer = document.querySelector('li.grid__item:has(img[alt*="Model height"])')
-    const mobileImgContainer = document.querySelector('#product__mobile-images .swiper-slide:has(img[alt*="Model height"]) .media')
-    let contentDesktop
-    let contentMobile
-  
-    if(desktopImgContainer) {
-      contentDesktop = desktopImgContainer.querySelector('img').getAttribute('alt')
-      desktopImgContainer.style.setProperty("--content", `"${contentDesktop}"`);
-    }
-    if(mobileImgContainer) {
-      contentMobile = mobileImgContainer.querySelector('img').getAttribute('alt')
-      mobileImgContainer.style.setProperty("--content", `"${contentMobile}"`);
-    }
-   
-  })
-</script>
 
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}
@@ -1298,6 +1278,8 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", (event) => {
+
+  window.initImgModelHeight()
   class ProductModal extends ModalDialog {
     constructor() {
       super();
