@@ -101,6 +101,8 @@
     assign formatted_size_string = product_size | downcase | strip
 
     case formatted_size_string 
+      when 'mini'
+        assign product_size_abbreviated = 'mini'
       when 'small'  
         assign product_size_abbreviated = 'sml'
       when 'medium'
