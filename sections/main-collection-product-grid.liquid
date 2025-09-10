@@ -80,7 +80,6 @@
 .seo-description-container .description-container {
   height: 0;
   transition: height 0.3s ease-in-out;
-  overflow: hidden;
   max-width: 50%;
 }
 
@@ -90,7 +89,7 @@
 }
 .seo-description-container h2 {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 16px;
   text-align: left;
   margin: 1rem 0;
 }
@@ -99,7 +98,7 @@
 .seo-description-container .description-container div {
   text-align: left !important; 
   margin: 0;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.2;
   font-family: var(--font-body-family) !important;
@@ -406,11 +405,7 @@
     {%- endpaginate -%}
     {% unless collection.description == blank%}
       <div class="seo-description-container page-width small-full-width">
-        <button>
-          Collection Details
-          <span class="open">{% render 'icon-plus' %}</span>
-          <span class="close">{% render 'icon-minus' %}</span>
-        </button>
+        <h2>{{ collection.title }}</h2>
         <div class="description-container">
           <p>{{ collection.description }}</p>
         </div>
@@ -431,6 +426,8 @@
     })
 
     function openSeoDescription() { 
+
+    return
 
       const descriptionContainer = document.querySelector('.seo-description-container .description-container')
       const neededHeight = descriptionContainer.scrollHeight
