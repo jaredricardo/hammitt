@@ -617,7 +617,7 @@ template-{{ template.name -}}
 {%- if template.suffix %} template-{{ template.suffix | replace: '.', ' ' | truncatewords: 1, '' | handle -}}{%- endif -%}
 {%- endcapture -%}
   
-  <body class="gradient {{ bodyClass }}">
+  <body class="gradient {{ bodyClass }}" {% if template contains 'product' %} data-current-page-product-id="{{ product.id }}" {% endif %}>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>

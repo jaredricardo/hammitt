@@ -3,36 +3,29 @@ class RecentlyViewed extends HTMLElement {
   
   constructor() {
     super();
-    this.cookie = false;
-    this.cookieName = '_rv';
-    this.cookieExpiration = 365;
+    this.storageKey = '_rv';
     this.max = 10;
-    this.maxCookieSize = 4096; // 4KB cookie limit
     this.init();
     this.recordRecentlyViewed();
   }
   
-  setCookie(value) {
-    let date = new Date();
-    date.setTime(date.getTime() + (this.cookieExpiration * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = this.cookieName + "=" + value + "; " + expires + "; path=/";
+  setStorage(value) {
+    localStorage.setItem(this.storageKey, value);
   }
   
-  getCookie() {
-    var re = new RegExp('_rv' + "=([^;]+)");
-    var value = re.exec(document.cookie);
-    var cookie = (value != null) ? unescape(value[1]) : false;
-    this.cookie = JSON.parse(cookie);
-    return cookie;
+  getStorage() {
+    const value = localStorage.getItem(this.storageKey);
+    this.storage = value ? JSON.parse(value) : false;
+    return value;
   }
-  getCookieSize(name, value) {
+
+  getStorageSize(name, value) {
+    // localStorage size is much larger, but you can still check if needed
     const encodedValue = encodeURIComponent(value);
-    return name.length + encodedValue.length + 1; // Plus 1 for the '=' sign
+    return name.length + encodedValue.length + 1;
   }
 
   recordRecentlyViewed() {
-
     const productObj = {
       id: window.productJSON.id,
       title: window.productJSON.title,
@@ -43,46 +36,45 @@ class RecentlyViewed extends HTMLElement {
       product_title_color_descriptor: window.productJSON.product_title_color_descriptor,
       product_size: window.productJSON.product_size
     };
-    if(!this.cookie) {
-      this.cookie = [];
-      this.cookie.push(productObj);
-      this.setCookie(JSON.stringify(this.cookie));
+    if(!this.storage) {
+      this.storage = [];
+      this.storage.push(productObj);
+      this.setStorage(JSON.stringify(this.storage));
     } else {
       let productInArray = false;
-      this.cookie.forEach(product => {
+      this.storage.forEach(product => {
         if(product.id === window.productJSON.id) {
           productInArray = true;
         }
       });
       if(productInArray) return true;
       
-      if(this.cookie.length >= this.max) {
-        this.cookie.shift();
+      if(this.storage.length >= this.max) {
+        this.storage.shift();
       }
-      this.cookie.push(productObj);
-      const cookieSize = this.getCookieSize('_rv', JSON.stringify(this.cookie));
+      this.storage.push(productObj);
+      // localStorage size is much larger, but you can still check if needed
+      // const storageSize = this.getStorageSize('_rv', JSON.stringify(this.storage));
+      // if (storageSize > 5000000) { // ~5MB
+      //   console.log("localStorage size exceeds the 5MB limit!");
+      //   this.storage.shift();
+      // }
 
-      if (cookieSize > this.maxCookieSize) {
-        console.log("Cookie size exceeds the 4KB limit!");
-        this.cookie.shift();
-        // return false; // Cookie exceeds size limit
-      }
-
-      this.setCookie(JSON.stringify(this.cookie));
+      this.setStorage(JSON.stringify(this.storage));
     }
   }
   
   init() {
-    const cookieJson = JSON.parse(this.getCookie());
+    const storageJson = JSON.parse(this.getStorage());
 
-    if (!cookieJson || cookieJson.length === 0) {
+    if (!storageJson || storageJson.length === 0) {
       const rvpElement = document.querySelector('.recently-product-grid');
       if (rvpElement) {
         rvpElement.style.display = 'none';
       }
       return;
     }
-    const reversedArr = [...cookieJson].reverse();
+    const reversedArr = [...storageJson].reverse();
 
     reversedArr.forEach(product => {
       // Don't show Current Product 
@@ -93,16 +85,11 @@ class RecentlyViewed extends HTMLElement {
       if(product.id === EE_GWP.item) return true; 
 
       if (product.product_tags && product.product_tags.includes("shareholder")) {
-        let shareholderLoginCookie = document.cookie.split('; ')
-          .find(row => row.startsWith('shareholder_login='));
-
-        if (!shareholderLoginCookie) {
-            console.log("No Shareholder Cookie");
+        let shareholderLogin = localStorage.getItem('shareholder_login');
+        if (!shareholderLogin) {
+            console.log("No Shareholder Storage");
             return;
         }
-
-        let shareholderLogin = shareholderLoginCookie.split('=')[1];
-    
         // If shareholder_login is not "true", skip this product
         if (shareholderLogin !== "true") {
           return;
