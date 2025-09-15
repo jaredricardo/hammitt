@@ -620,53 +620,66 @@
     {% endif %}
     <script>
       window.addEventListener('DOMContentLoaded', () => {
-        const button = document.getElementById('zest-multi-checkout-button')
-        async function updateButtonStatus() {
-          return fetch('/cart.js')
-            .then(response => response.json())
-            .then(cart => {
-              if (button) {
-                button.disabled = false;
-                button.title = '';
+        class ZestMultiCheckoutButton extends HTMLElement {
+          constructor() {
+            super();
+            this.button = this; 
+          }
+
+          connectedCallback() {
+            this.button.disabled = true;
+            this.button.title = 'Checking cart...';
+
+            this.updateButtonStatus();
+
+            this.button.addEventListener('click', async () => {
+              const eligibleCartTokenResponse = await this.updateButtonStatus();
+              if (eligibleCartTokenResponse) {
+                window.location.href = `https://${Shopify.shop}/apps/zest/start-multi-ship/${eligibleCartTokenResponse}`;
               }
+            });
+          }
 
-              const hasGiftCards = cart.items.some(item => {
-                return item.gift_card || /\b(?:gift[ _-]?card)\b/gi.test(item.product_type);
-              });
+          async updateButtonStatus() {
+            try {
+              const response = await fetch('/cart.js');
+              const cart = await response.json();
 
-              const hasSubscriptions = cart.items.some(item => {
-                return item.selling_plan_allocation;
-              });
+              this.button.disabled = false;
+              this.button.title = '';
 
-              const errorTarget = hasGiftCards && hasSubscriptions ? "gift cards and subscriptions" : hasGiftCards ? "gift cards" : hasSubscriptions ? "subscriptions" : null;
+              const hasGiftCards = cart.items.some(item =>
+                item.gift_card || /\b(?:gift[ _-]?card)\b/gi.test(item.product_type)
+              );
+
+              const hasSubscriptions = cart.items.some(item =>
+                item.selling_plan_allocation
+              );
+
+              const errorTarget =
+                hasGiftCards && hasSubscriptions
+                  ? "gift cards and subscriptions"
+                  : hasGiftCards
+                  ? "gift cards"
+                  : hasSubscriptions
+                  ? "subscriptions"
+                  : null;
 
               if (errorTarget) {
-                if (button) {
-                  button.disabled = true;
-                  button.title = `We're sorry — ${errorTarget} aren't eligible for this feature.`;
-                }
+                this.button.disabled = true;
+                this.button.title = `We're sorry — ${errorTarget} aren't eligible for this feature.`;
                 return null;
               }
 
-              return cart.token
-            })
-            .catch(error => {
+              return cart.token;
+            } catch (error) {
               console.error('Error fetching cart:', error);
-              return null
-            });
-        }
-
-        button.addEventListener('click', async function() {
-          const eligibleCartTokenResponse = await updateButtonStatus();
-
-          if (eligibleCartTokenResponse) {
-            window.location.href = `https://${Shopify.shop}/apps/zest/start-multi-ship/${eligibleCartTokenResponse}`;
+              return null;
+            }
           }
-        });
-
-        if (button) {
-          updateButtonStatus();
         }
+
+        customElements.define('zest-multi-checkout-button', ZestMultiCheckoutButton);
       })
     </script>
     <script
