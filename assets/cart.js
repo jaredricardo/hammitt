@@ -261,51 +261,51 @@ class CartItems extends HTMLElement {
     });     
 
     fetch(`${routes.cart_change_url}`, {...fetchConfig(), ...{ body }})
-    .then((response) => {
-      return response.text();
-    })
-    .then((state) => {
-      const parsedState = JSON.parse(state);
-      this.classList.toggle('is-empty', parsedState.item_count === 0);
-      const cartFooter = document.querySelector('#main-cart-footer');
-      if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
+        .then((response) => {
+          return response.text();
+        })
+      .then((state) => {
+        const parsedState = JSON.parse(state);
+        this.classList.toggle('is-empty', parsedState.item_count === 0);
+        const cartFooter = document.querySelector('#main-cart-footer');
+        if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
 
-      cartUpdate(parsedState);
-      
-      this.updateLiveRegions(line, parsedState.item_count);
-      const lineItem =  this.querySelector(`.CartItem-${line}`);
-      if (lineItem && lineItem.querySelector(`[name="${name}"]`)) lineItem.querySelector(`[name="${name}"]`).focus();
-      
-      this.disableLoading(line);
-      
-      setTimeout(function() {
-        if(document.querySelector('.cart-drawer-btn') != null) {
-          document.querySelector('.cart-drawer-btn').disabled = false;  
-        }
+        cartUpdate(parsedState);
         
-        if(document.querySelector('.cart__checkout-button') != null) {
-          document.querySelector('.cart__checkout-button').disabled = false;  
-        }
-      }, 1000)
-      var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
-      .then(response => response.json())
-      .then(data => 
-        {
-          document.dispatchEvent(
-            new CustomEvent('cart:updated', {
-              detail: {
-                cart: data,
-              },
-            })
-          );
-        }
-      );
-    }).catch((e) => {
-      this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
-      this.querySelector('.cart-errors').textContent = window.cartStrings.error;
-      this.disableLoading(line);
-    });
-  }
+        this.updateLiveRegions(line, parsedState.item_count);
+        const lineItem =  this.querySelector(`.CartItem-${line}`);
+        if (lineItem && lineItem.querySelector(`[name="${name}"]`)) lineItem.querySelector(`[name="${name}"]`).focus();
+        
+        this.disableLoading(line);
+        
+        setTimeout(function() {
+          if(document.querySelector('.cart-drawer-btn') != null) {
+            document.querySelector('.cart-drawer-btn').disabled = false;  
+          }
+          
+          if(document.querySelector('.cart__checkout-button') != null) {
+            document.querySelector('.cart__checkout-button').disabled = false;  
+          }
+        }, 1000)
+        var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
+        .then(response => response.json())
+        .then(data => 
+          {
+            document.dispatchEvent(
+              new CustomEvent('cart:updated', {
+                detail: {
+                  cart: data,
+                },
+              })
+            );
+          }
+        );
+      }).catch((e) => {
+        this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
+        this.querySelector('.cart-errors').textContent = window.cartStrings.error;
+        this.disableLoading(line);
+      });
+    }
 
   updateLiveRegions(line, itemCount) {
     

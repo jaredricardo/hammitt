@@ -28,6 +28,8 @@
     assign isCurrent = true
   endif
 
+  assign gift_wrap_upsell_product = all_products[settings.gift_wrap_upsell_product]
+
 -%}
 
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
@@ -350,7 +352,7 @@
             {% else %}
 
             {% unless item.product.title == 'Order Protection' %} <!-- Beginning of OP Hiding Logic -->
-            <li class="drawer__content-item cart-item CartItem-{{ item.index | plus: 1 }} appear-animation appear-delay-{{ appear_delay }} {%  if is_gift_note %}cart-item__drawer-note{% endif %} {%  if is_gwp %}cart-item__gwp{%  endif %}" 
+            <li class="drawer__content-item cart-item CartItem-{{ item.index | plus: 1 }} appear-animation appear-delay-{{ appear_delay }} {%  if is_gift_note %}cart-item__drawer-note{% endif %} {%  if is_gwp %}cart-item__gwp {% endif %} {% if item.variant.id == gift_wrap_upsell_product.selected_or_first_available_variant.id %} hidden {% endif %}" 
                 data-line="{{ forloop.index }}" 
                 data-json='{{ item | json | escape }}' 
                 data-variant-id="{{ item.variant.id }}"
@@ -514,23 +516,35 @@
             {% endunless %} <!-- End of OP Hiding Logic -->
             {% endif %}
             {% endfor %}
-            <li class="drawer__content-item cart-item fake-cart-item">
-              <div class="drawer__content-item-image">
-                <img src="https://cdn.shopify.com/s/files/1/0661/5963/files/Rectangle_323.png?v=1756486154" alt="Gift Box Image">
-              </div>
-              <div class="drawer__content-item-info">
-                <div class="fake-cart-item-info">
-                    <span class="s1">Complimentary gift box. Included with every order.</span>
-                    <span class="s2" >FREE</span>
+            {% if settings.enable_hammitt_box_opt_out %}
+              <li class="drawer__content-item cart-item fake-cart-item">
+                <div class="drawer__content-item-image">
+                  <img src="https://cdn.shopify.com/s/files/1/0661/5963/files/Rectangle_323.png?v=1756486154" alt="Gift Box Image">
                 </div>
-              </div>
-            </li>
+                <div class="drawer__content-item-info">
+                  <div class="fake-cart-item-info">
+                    <div class="top-info">
+                      <span class="s1">{{ settings.fake_cart_item_title }}</span>
+                      <span class="s2">FREE</span>
+                    </div>
+                    {% if settings.enable_hammitt_box_opt_out %}
+                      <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
+                        <input type="checkbox" id="hammitt-box-opt-out-checkbox">
+                        <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
+                      </hammitt-box-opt-out>
+                    {% endif %}
+                  </div>
+                </div>
+              </li>
+            {% endif %}
           </ul>
           <div class="cart-errors"></div>
           <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
           <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
         </cart-items>
-        <gift-box-section>
+        {% comment %}
+        not using at the moment
+         <gift-box-section>
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
             <h3>{{ content.heading }}</h3>
           {% endfor %}
@@ -602,17 +616,71 @@
             {% endif %}
           {% endfor %}
         </gift-box-section>
+         {% endcomment %}
         <div class="multiple-gifts-section">
           <span>{% render 'icon-gifts' %}<p>Buying multiple gifts? Ship to different addresses at checkout.</p></span>
           <p>If you’d like to add gift wrap, you can add as many as you need below and simply select it for each address at check out.</p>
         </div>
+        {% if settings.enable_gift_wrap_upsell and settings.gift_wrap_upsell_product != blank %}
+          <hammitt-gift-wrap-upsell class="drawer__content-item cart-item">
+              <div class="drawer__content-item-image">
+                <img src="{{ gift_wrap_upsell_product.featured_image | image_url: width: 200 }}" alt="Upsell Gift Wrap Image">
+              </div>
+              <div class="fake-cart-item-info">
+                <div class="top-info">
+                  <span class="s1">{{ settings.gift_wrap_upsell_title }}</span>
+                  <span class="s2">{{ gift_wrap_upsell_product.price | money_without_trailing_zeros }}</span>
+                </div>
+                <div class="bottom-buttons flex align-center drawer__content-item-actions">          
+                  {% assign gift_wrap_in_cart = false %}
+                  {% for item in cart.items %}
+                    {% if item.variant.id == gift_wrap_upsell_product.selected_or_first_available_variant.id %}
+                      {% assign gift_wrap_in_cart = true %}
+                      <quantity-input class="quantity {% unless gift_wrap_in_cart %} hidden {% endunless %}" max="20">
+                        <button class="quantity__button no-js-hidden" name="minus">
+                          {% render 'icon-minus' %}
+                        </button>
+                        <input class="quantity__input"
+                          type="number"
+                          name="updates[]"
+                          value="{{ item.quantity }}"
+                          min="0"
+                          {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}
+                          max="{{ item.variant.inventory_quantity }}"
+                          {% endunless %}
+                          aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                        >
+                        <button name="plus" class="quantity__button no-js-hidden">
+                          {% render 'icon-plus' %}
+                        </button>
+                      </quantity-input>
+                      <div class="remove-button-container">
+                        <div class="cart-remove-button-not-component">
+                          <button class="remove-button"> 
+                            {% render 'icon-remove' %}
+                          </button>
+                        </div>
+                        <div class="loading-overlay hidden">
+                          <div class="loading-overlay__spinner loading-overlay__spin">
+                            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                  {% unless gift_wrap_in_cart %}
+                    <button class="add-to-cart-button" type="button">
+                      Add
+                    </button>
+                  {% endunless %}
+                </div>
+              </div>
+    
+          </hammitt-gift-wrap-upsell>
+        {% endif %}
         {% if cart.item_count > 0  %}
-          {% if settings.enable_hammitt_box_opt_out %}
-            <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
-              <input type="checkbox" id="hammitt-box-opt-out-checkbox">
-              <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
-            </hammitt-box-opt-out>
-          {% endif %}
           <div class="gift-box-content">{{ content.description }}</div>
           {% if settings.enable_hammitt_gift_messaging %}
             <hammitt-gift-note class="cart-drawer-gift-note"
@@ -784,9 +852,11 @@
           {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>
-        {% comment %}          
-          <a href="/checkout" class="button button--full-width">Checkout</a>
-        {% endcomment %}
+                
+        <zest-multi-checkout-button class="button button--full-width cart-drawer-btn" style="margin-top: 0.5rem;">
+          checkout for multiple recipients
+        </zest-multi-checkout-button>
+
       </div>
       <div class="drawer__notification">
         <small class="rte">
