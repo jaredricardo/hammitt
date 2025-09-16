@@ -746,6 +746,10 @@
                                   {{ settings.pdp_care_raffia }}
                                 {% elsif stripped_material == 'woven leather' %}
                                   {{ settings.pdp_care_weaves_fabrics }}
+                                {% elsif stripped_material == 'pewter' %}
+                                  {{ settings.pdp_care_pewter }}
+                                {% elsif stripped_material == 'acrylic' %}
+                                  {{ settings.pdp_care_acrylic }}
                                 {% endif %}
                               {% else %}
                                 {{ inner_block.settings.content }}
