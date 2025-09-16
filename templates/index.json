@@ -245,6 +245,7 @@
         "text_aPEBHM",
         "buttons_4MgHGH"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -290,6 +291,30 @@
       "type": "multicolumn",
       "blocks": {
         "column_33FLWB": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Hammitt_Soiree-Clutch-Blush_6A.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "New in: Soiree Clutch",
+            "link": "shopify://products/soiree-clutch-clutch-soiree-clutch-carrera-blush-brushed-gold",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_CE4Y86": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -340,6 +365,7 @@
       },
       "block_order": [
         "column_33FLWB",
+        "column_CE4Y86",
         "column_p9EKmq"
       ],
       "settings": {
@@ -353,7 +379,7 @@
         "image_ratio": "square",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 2,
+        "columns_desktop": 3,
         "columns_gap": 2,
         "row_gap": 2,
         "mobile_columns_gap": 2,
