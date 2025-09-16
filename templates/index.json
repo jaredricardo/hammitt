@@ -9,6 +9,13 @@
  */
 {
   "sections": {
+    "homepage_fireworks_pxtfb9": {
+      "type": "homepage-fireworks",
+      "settings": {
+        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gYx2W2\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gYx2W2\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "custom_classes": ""
+      }
+    },
     "image_banner_m4Uy48": {
       "type": "image-banner",
       "blocks": {
@@ -45,6 +52,7 @@
         "text_GkKg4L",
         "buttons_4dNUAN"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -60,84 +68,6 @@
         "image": "shopify://shop_images/paukl-mini-desktop.gif",
         "image_2": "shopify://shop_images/mobile-paul-mini.gif",
         "image_link": "shopify://products/paul-mini-bag-charm-ruby-calf-hair-brushed-gold",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "image_banner_ezVVdn": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_r84kmd": {
-          "type": "heading",
-          "settings": {
-            "heading": "ESPRESSO YOURSELF",
-            "heading_size_mobile": 26,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_4EKEHN": {
-          "type": "text",
-          "settings": {
-            "text": "Re-energize your everyday routine with a rich, easy-to-style bag in a new brown hue.",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_h3eaz3": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/espresso",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_r84kmd",
-        "text_4EKEHN",
-        "buttons_h3eaz3"
-      ],
-      "disabled": true,
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/desktop-espresso.gif",
-        "image_2": "shopify://shop_images/mobile-espresso.gif",
-        "image_link": "shopify://collections/espresso",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -184,11 +114,80 @@
         "mobile_padding_bottom": 36
       }
     },
-    "homepage_fireworks_pxtfb9": {
-      "type": "homepage-fireworks",
+    "image_banner_ezVVdn": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_r84kmd": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE KYLE",
+            "heading_size_mobile": 26,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_4EKEHN": {
+          "type": "text",
+          "settings": {
+            "text": "Most loved bags.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_h3eaz3": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/kyle",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_r84kmd",
+        "text_4EKEHN",
+        "buttons_h3eaz3"
+      ],
       "settings": {
-        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oAKkp7\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"oAKkp7\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "custom_classes": ""
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/kyle-GIF.gif",
+        "image_link": "shopify://collections/kyle",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
       }
     },
     "slider_featured_collection_bTka8m": {
@@ -216,7 +215,7 @@
         "heading_mDGK7a": {
           "type": "heading",
           "settings": {
-            "heading": "Belted Suede",
+            "heading": "New in: Soiree Clutch",
             "heading_size_mobile": 26,
             "heading_size_tablet": 20,
             "heading_size_desktop": 36
@@ -225,7 +224,7 @@
         "text_aPEBHM": {
           "type": "text",
           "settings": {
-            "text": "Featuring Italian suede and sleek gunmetal belted detailing",
+            "text": "Introducing our very first acrylic clutch. As seen on Emmy Award winner Katherine LaNasa.",
             "text_style": "body",
             "text_size_mobile": 13,
             "text_size_tablet": 14,
@@ -235,8 +234,8 @@
         "buttons_4MgHGH": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/belted-suede",
+            "button_label_1": "PRE-ORDER",
+            "button_link_1": "shopify://products/soiree-clutch-carrara-black-brushed-gold",
             "button_style_secondary_1": false
           }
         }
@@ -246,7 +245,6 @@
         "text_aPEBHM",
         "buttons_4MgHGH"
       ],
-      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -259,12 +257,12 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Belted-Suede-29-1.jpg",
-        "image_2": "shopify://shop_images/Rectangle_754_2.jpg",
-        "image_link": "shopify://collections/belted-suede",
+        "image": "shopify://shop_images/Group_12487.jpg",
+        "image_2": "shopify://shop_images/Group_12488.jpg",
+        "image_link": "shopify://products/soiree-clutch-clutch-soiree-clutch-carrera-blush-brushed-gold",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
-        "desktop_content_position": "middle-left-more",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
@@ -345,7 +343,7 @@
         "column_p9EKmq"
       ],
       "settings": {
-        "title": "",
+        "title": "NEW IN",
         "title_color": "#000000",
         "heading_size": "h1",
         "paragraph": "",
@@ -1484,10 +1482,10 @@
     }
   },
   "order": [
-    "image_banner_m4Uy48",
-    "image_banner_ezVVdn",
-    "slider_collection_RWT74t",
     "homepage_fireworks_pxtfb9",
+    "image_banner_m4Uy48",
+    "slider_collection_RWT74t",
+    "image_banner_ezVVdn",
     "slider_featured_collection_bTka8m",
     "image_banner_t8y8dy",
     "multicolumn_dk43Jb",
