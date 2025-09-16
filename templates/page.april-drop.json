@@ -21,32 +21,6 @@
         "padding_bottom_mobile": 0
       }
     },
-    "rich_text_iqnFxr": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_C4HPJN": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h1",
-            "heading": "SEPTEMBER DROP",
-            "heading_size": "h0"
-          }
-        }
-      },
-      "block_order": [
-        "heading_C4HPJN"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "custom_classes": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
-    },
     "custom_liquid_XzDcrj": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
@@ -58,6 +32,39 @@
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36,
         "custom_class": ""
+      }
+    },
+    "rich_text_iqnFxr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_C4HPJN": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h1",
+            "heading": "THE SEPTEMBER DROP",
+            "heading_size": "h0"
+          }
+        },
+        "text_WYe34B": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our biggest monthly drop of the year has arrived.<br/>From limited edition details to three new silhouette families, there's a piece for every Fall moment.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_C4HPJN",
+        "text_WYe34B"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
     },
     "image_banner_UkirJg": {
@@ -1264,8 +1271,8 @@
   },
   "order": [
     "main",
-    "rich_text_iqnFxr",
     "custom_liquid_XzDcrj",
+    "rich_text_iqnFxr",
     "image_banner_UkirJg",
     "slider_collection_4MBn77",
     "multicolumn_Kfp46Q",
