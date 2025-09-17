@@ -29,6 +29,17 @@
   endif
 
 -%}
+<style>
+
+  {% for product in settings.collection_to_hide_opt_out.products %}
+
+    .drawer__content:has(.item-variant-id--{{ product.selected_or_first_available_variant.id }}) hammitt-box-opt-out {
+      display: none !important;
+    }
+    
+  {% endfor %}
+
+</style>
 
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
@@ -350,7 +361,7 @@
             {% else %}
 
             {% unless item.product.title == 'Order Protection' %} <!-- Beginning of OP Hiding Logic -->
-            <li class="drawer__content-item cart-item CartItem-{{ item.index | plus: 1 }} appear-animation appear-delay-{{ appear_delay }} {%  if is_gift_note %}cart-item__drawer-note{% endif %} {%  if is_gwp %}cart-item__gwp{%  endif %}" 
+            <li class="drawer__content-item cart-item item-variant-id--{{ item.variant.id }} CartItem-{{ item.index | plus: 1 }} appear-animation appear-delay-{{ appear_delay }} {%  if is_gift_note %}cart-item__drawer-note{% endif %} {%  if is_gwp %}cart-item__gwp{%  endif %}" 
                 data-line="{{ forloop.index }}" 
                 data-json='{{ item | json | escape }}' 
                 data-variant-id="{{ item.variant.id }}"
