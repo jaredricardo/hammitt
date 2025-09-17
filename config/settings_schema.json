@@ -1255,7 +1255,7 @@
     ]
   },
   {
-    "name": "Cart shipping messages",
+    "name": "Cart Settings",
     "settings": [
       {
         "type": "header",
@@ -1285,6 +1285,12 @@
         "id": "hammitt_box_opt_out_message", 
         "label": "Box Opt Out Message",
         "default": "🌱 I’ll pass on the box! Please send my item in a dust bag only."
+      },
+      {
+        "type": "collection",
+        "id": "collection_to_hide_opt_out",
+        "label": "Collection to hide box opt out",
+        "info": "Collection that contains products that will HIDE the box opt out checkbox when a product is in cart"
       },
       {
         "type": "header",
