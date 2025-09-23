@@ -465,6 +465,9 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   }
 }
 
+.shopify-app-block:has([aria-label="0 out 5 stars rating in total 0 reviews. Jump to reviews."]) {
+  display: none !important;
+}
 
 
 @media screen and (max-width: 751px) {
