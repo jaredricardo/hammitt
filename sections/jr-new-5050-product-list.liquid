@@ -1,0 +1,213 @@
+{% style %}
+
+    [data-section-id="{{ section.id }}"] {
+        background-color: {{ section.settings.background_color }};
+    }
+
+    [data-section-id="{{ section.id }}"] h2 {
+        color: {{ section.settings.header_text_color }};
+    }
+
+    .section-{{ section.id }}-padding{
+        padding-top: {{section.settings.mobile_padding_top}}px;
+        padding-bottom: {{section.settings.mobile_padding_bottom}}px;
+    }
+    #shopify-section-{{section.id}} .section-header h2.section-title{
+        color: {{section.settings.heading_color}}
+    }
+    @media screen and (min-width: 750px) {
+        .section-{{ section.id }}-padding{
+        padding-top: {{section.settings.padding_top}}px;
+        padding-bottom: {{section.settings.padding_bottom}}px;
+        }
+    }
+
+
+{% endstyle %}
+
+{%- capture json -%}
+  {
+    "slidesPerView": 1,
+    "spaceBetween": 20,
+    "freeMode": true,
+    "mousewheel": false,
+    "loop": false,
+    "scrollbar": {
+      "el": "#shopify-section-{{ section.id }} .swiper-scrollbar",
+      "draggable": true
+    },
+    "effect": "slide",
+    "navigation": {
+      "nextEl": ".swiper-button-next",
+      "prevEl": ".swiper-button-prev"
+    },
+    "breakpoints": {
+      "0": {
+        "slidesPerView": "1.4",
+        "spaceBetween": 10
+      },
+      "750": {
+        "slidesPerView": "2",
+        "spaceBetween": 10
+      },
+      "990": {
+        "slidesPerView": "4",
+        "spaceBetween": 35
+      }
+    }
+  }
+{%- endcapture -%}
+  
+
+<div class="section-wrap section-{{ section.id }}-padding" data-section-id="{{ section.id }}">
+    <div class="jr-new-5050-product-list page-width" id="shopify-section-{{ section.id }}">
+        {% if section.settings.title != blank %}
+            <h2 class="h1 section-title center">{{ section.settings.title }}</h2>
+        {% endif %}
+        <div class="columns">
+            <div class="col">
+                {% if section.settings.product_list != empty %}
+                    <div class="swiper mobile" data-json='{{ json }}'>
+                        <div class="swiper-wrapper">
+                            {% for product in section.settings.product_list limit: 6 %}
+                                {% if product.available %}
+                                    <div id="block-{{ product.id }}" class="swiper-slide">
+                                        {% render 'card-product', card_product: product %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                    <div class="desktop">
+                        {% for product in section.settings.product_list limit: 6 %}
+                            {% if product.available %}
+                                {% render 'card-product', card_product: product %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col">
+                <img src="{{ section.settings.image | image_url: width: '1000' }}" alt="Hammitt Section Image">
+                {% if section.settings.button_link != blank %}
+                    <a href="{{ section.settings.button_link }}" class="button abs" style="background-color: {{ section.settings.button_background_color }}; color: {{ section.settings.button_text_color }};">{{ section.settings.button_text }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
+
+{% schema %}
+    {
+        "name": "JR Product List & Image",
+        "presets": [
+            {
+                "name": "JR Product List & Image"
+            }
+        ],
+        "settings": [
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background Color",
+                "default": "#ffffff"
+            },
+            {
+                "type": "color",
+                "id": "header_text_color",
+                "label": "Header Text Color",
+                "default": "#000000"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Best Sellers"
+            },
+            {
+                "type": "product_list",
+                "id": "product_list",
+                "label": "Product List"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "url",
+                "id": "button_link",
+                "label": "Button Link",
+                "info": "No link for no button to appear"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "Shop Now"
+            },
+            {
+                "type": "color",
+                "id": "button_text_color",
+                "label": "Button Text Color",
+                "default": "#FFFFFF"
+            },
+            {
+                "type": "color",
+                "id": "button_background_color",
+                "label": "Button Background Color",
+                "default": "#000000"
+            },
+            {
+                "type": "header",
+                "content": "Section padding"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "t:sections.all.padding.padding_top",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "t:sections.all.padding.padding_bottom",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "mobile_padding_top",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Mobile top padding",
+                "default": 36
+            },
+            {
+                "type": "range",
+                "id": "mobile_padding_bottom",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "label": "Mobile bottom padding",
+                "default": 36
+            }
+        ],
+        "blocks": []
+    }
+{% endschema %}
