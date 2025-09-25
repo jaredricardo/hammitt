@@ -9,6 +9,111 @@
  */
 {
   "sections": {
+    "homepage_fireworks_pxtfb9": {
+      "type": "homepage-fireworks",
+      "settings": {
+        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"o30MP3\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"o30MP3\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
+        "custom_classes": ""
+      }
+    },
+    "image_banner_m4Uy48": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_R4KpKT": {
+          "type": "heading",
+          "settings": {
+            "heading": "CUTEST BAG EVER",
+            "heading_size_mobile": 26,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_GkKg4L": {
+          "type": "text",
+          "settings": {
+            "text": "Our latest celeb favorite is available for preorder. Meet Paul Mini, as loved by Gracie Hunt + Lizzy Greene.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_4dNUAN": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "PREORDER NOW",
+            "button_link_1": "shopify://products/paul-mini-bag-charm-ruby-calf-hair-brushed-gold",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_R4KpKT",
+        "text_GkKg4L",
+        "buttons_4dNUAN"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/paukl-mini-desktop.gif",
+        "image_2": "shopify://shop_images/mobile-paul-mini.gif",
+        "image_link": "shopify://products/paul-mini-bag-charm-ruby-calf-hair-brushed-gold",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_RWT74t": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "MEET MEREDITH",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "meredith",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
     "image_banner_ezVVdn": {
       "type": "image-banner",
       "blocks": {
@@ -103,111 +208,6 @@
         "padding_bottom": 20,
         "mobile_padding_top": 29,
         "mobile_padding_bottom": 0
-      }
-    },
-    "homepage_fireworks_pxtfb9": {
-      "type": "homepage-fireworks",
-      "settings": {
-        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gYx2W2\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"gYx2W2\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "custom_classes": ""
-      }
-    },
-    "image_banner_m4Uy48": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_R4KpKT": {
-          "type": "heading",
-          "settings": {
-            "heading": "CUTEST BAG EVER",
-            "heading_size_mobile": 26,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_GkKg4L": {
-          "type": "text",
-          "settings": {
-            "text": "Our latest celeb favorite is available for preorder. Meet Paul Mini, as loved by Gracie Hunt + Lizzy Greene.",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_4dNUAN": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "PREORDER NOW",
-            "button_link_1": "shopify://products/paul-mini-bag-charm-ruby-calf-hair-brushed-gold",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_R4KpKT",
-        "text_GkKg4L",
-        "buttons_4dNUAN"
-      ],
-      "disabled": true,
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/paukl-mini-desktop.gif",
-        "image_2": "shopify://shop_images/mobile-paul-mini.gif",
-        "image_link": "shopify://products/paul-mini-bag-charm-ruby-calf-hair-brushed-gold",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_RWT74t": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "New Elle Work Carry",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "for-the-office",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
       }
     },
     "image_banner_t8y8dy": {
@@ -1530,11 +1530,11 @@
     }
   },
   "order": [
-    "image_banner_ezVVdn",
-    "slider_featured_collection_bTka8m",
     "homepage_fireworks_pxtfb9",
     "image_banner_m4Uy48",
     "slider_collection_RWT74t",
+    "image_banner_ezVVdn",
+    "slider_featured_collection_bTka8m",
     "image_banner_t8y8dy",
     "multicolumn_dk43Jb",
     "slider_collection_FHqMyi",
