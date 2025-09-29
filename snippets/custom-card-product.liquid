@@ -25,12 +25,9 @@
 {%- endcapture -%}
 
 {%- liquid 
-assign seo_tag = false
+assign seo_tag = product.metafields.custom.product_title_seo_tag
 assign isBadgeProduct = false 
 for tag in card_product.tags 
-  if tag contains 'seo:'
-    assign seo_tag = tag | remove: 'seo:'
-  endif
 
   if tag == 'tag: Final Sale' or tag == 'tag: final sale' or tag == 'tag: final sale'
     assign isBadgeProduct = true 
@@ -168,7 +165,7 @@ endfor
           </h3>
           <div class="card-information">
             {% if seo_tag %}
-            <small class="card__seo-text">{{ seo_tag }}</small>
+              <small class="card__seo-text">{{ seo_tag }}</small>
             {% endif %}
             
             {%- if show_vendor -%}

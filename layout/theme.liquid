@@ -83,11 +83,41 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+   
+    {% liquid 
+
+      if request.page_type == "product"
+
+        # PDP page title formatting / logic
+
+        assign final_pdp_title = page_title
+        assign silhoutte  = product.metafields.custom.product_title_type 
+        assign size = product.metafields.hammitt.size 
+        assign seo_tag = product.metafields.custom.product_title_seo_tag
+
+        if silhoutte != blank and size != blank
+          assign final_pdp_title = silhoutte | append: ' ' | append: size 
+          if seo_tag
+              assign final_pdp_title = final_pdp_title | append: ' | ' | append: seo_tag | append: ' | ' | append: shop.name
+            else 
+              assign final_pdp_title = final_pdp_title | append: ' | ' | append: shop.name
+          endif
+        endif
+      endif
+    -%}
+
+
+ 
+
     <title>
-      {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {% if request.page_type == "product" %}
+          {{ final_pdp_title }}
+        {% else %}
+          {{ page_title }}
+          {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+          {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+          {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {% endif %}
     </title>
 
     {% if page_description %}

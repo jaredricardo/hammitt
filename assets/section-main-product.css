@@ -1824,7 +1824,6 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
   z-index: 10;
 }
 
-
 .special-care-tooltip-content .button {
   min-width: auto;
   max-width: max-content;
@@ -1833,6 +1832,7 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
 .variant-picker-group-wrapper:not(:has(li.current-swatch)) .special-care-tooltip {
   display: none !important;
 }
+
 
 @media screen and (max-width: 989px) {
   .pdp-hero-section .product__title:has(.only-x-left-container) {
@@ -1845,7 +1845,7 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
   .mobile-pdp-info .top-text-wrapper {
     flex-direction: column;
     align-items: start;
-    gap: 10px;
+    gap: 0px;
   }
   .top-text-wrapper.desktop {
     display: none;
@@ -1860,5 +1860,8 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
 @media screen and (max-width: 501px) {
   .special-care-tooltip-content {
     left: -70%;
+  }
+  .shopify-block:has(.yotpo-widget-instance) {
+    margin: 0 !important;
   }
 }
