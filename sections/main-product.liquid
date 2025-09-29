@@ -121,7 +121,7 @@
 
   assign core_colors = linklists.colors-core.links | map: 'title' | join: ','
   assign limited_colors = linklists.colors-limited-edition.links | map: 'title' | join: ','
-  assign seo_tag = false
+  assign seo_tag = product.metafields.custom.product_title_seo_tag
   assign product_collapsible_not_set = true
 
   assign on_special_leather = false
@@ -150,9 +150,7 @@
   
   for tag in product.tags 
   	assign tag_handle = tag | handle
-    if tag contains 'seo:' 
-      assign seo_tag = tag | remove: 'seo:'
-    endif
+
     if tag_handle == 'final-sale'
       assign final_sale = true
     endif
@@ -606,8 +604,8 @@
             <p class="pdp_color small-hide" style="margin-top: 0px;">{{ product_color }}</p>   
             <div class="top-text-wrapper desktop">   
               {% if seo_tag %}
-                  <h1 class="hidden">{{ seo_tag }}</h1>
-                  <h2 class="product__title h0">{{ formatted_product_title }}</h2>
+                  <h1 class="product__title h0">{{ formatted_product_title }}</h1>
+                  <h2 class="hidden">{{ seo_tag }}</h2>
                 {% else %}
                   <h1 class="product__title h0 small-hide title-4">
                     {{ formatted_product_title }}

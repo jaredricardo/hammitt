@@ -24,17 +24,13 @@
 {%- endcapture -%}
 
 {%- liquid 
-  assign seo_tag = false
+  assign seo_tag = product.metafields.custom.product_title_seo_tag
   assign isBadgeProduct = false 
   for tag in card_product.tags 
-    if tag contains 'seo:'
-      assign seo_tag = tag | remove: 'seo:'
-    endif
     if tag == 'tag: Final Sale' or tag == 'tag: final sale' or tag == 'tag: final sale'
       assign isBadgeProduct = true 
     endif
   endfor 
-  assign seo_tag = false
 
   ####### new way of assigning product title
 
