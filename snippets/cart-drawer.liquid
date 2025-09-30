@@ -599,18 +599,6 @@
 
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
             <div class="gift-box-content">{{ content.description }}</div>
-            {% if settings.giftBox_enabled %}
-            <div class="cart__gift--notes">
-              <input id="cart__gift--check" class="cart__gift__input" type="checkbox">
-              <label for="cart__gift--check">{{ content.checkbox_content }}</label>
-              <zest-button 
-                shop-id="{{ shop.permanent_domain }}"
-                variant="outline"
-                border-width="1px" 
-                border-color="black">
-              </zest-button>
-            </div>
-            {% endif %}
           {% endfor %}
         </gift-box-section>
         <div class="multiple-gifts-section">
@@ -754,11 +742,6 @@
       </div>
     </div>
     
-    {% if settings.cart_shipping_msg != blank %}
-      <div class="cart_shipping_notes text-center" {% if cart.item_count == 0 %} style="display: none;" {% endif %}>
-        {{ settings.cart_shipping_msg }}
-      </div>
-    {% endif %}
     <div class="drawer__final appear-animation appear-delay-{{ appear_delay }} {% if cart.item_count == 0 %} drawerEmptyState {% endif %}">
       {%- liquid
          assign has_gift_note = false
@@ -795,9 +778,11 @@
           {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>
-        {% comment %}          
-          <a href="/checkout" class="button button--full-width">Checkout</a>
-        {% endcomment %}
+        {% if settings.zest_multi_checkout_enabled %}
+          <zest-multi-checkout-button class="button button--full-width cart-drawer-btn" style="margin-top: 0.5rem;">
+            Checkout for multiple recipients
+          </zest-multi-checkout-button>
+        {% endif %}
       </div>
       <div class="drawer__notification">
         <small class="rte">

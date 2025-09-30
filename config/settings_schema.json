@@ -1294,21 +1294,20 @@
       },
       {
         "type": "header",
-        "content": "Zest Gift Messaging",
-        "info": "Below is Zest gift messaging settings."
+        "content": "Zest",
+        "info": "Zest Settings"
       },
       {
         "type": "checkbox",
-        "id": "giftBox_enabled",
-        "default": false,
-        "label": "Giftbox enabled"
+        "id": "zest_multi_checkout_enabled",
+        "label": "Enable Zest Multi Checkout",
+        "default": false
       },
       {
-        "id": "cart_shipping_msg",
-        "type": "richtext",
-        "label": "Text"
+        "type": "header",
+        "content": "Free Shipping + Cart mMssage",
+        "info": "Free Shipping Settings"
       },
-
       {
         "type": "textarea",
         "id": "freeShippingThreshold",
