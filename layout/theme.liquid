@@ -694,6 +694,73 @@ template-{{ template.name -}}
       ></script>
     {%- endif -%}
 
+    {% if settings.zest_multi_checkout_enabled %}
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          class ZestMultiCheckoutButton extends HTMLElement {
+            constructor() {
+              super();
+              this.button = this; 
+            }
+
+            connectedCallback() {
+              this.button.disabled = true;
+              this.button.title = 'Checking cart...';
+
+              this.updateButtonStatus();
+
+              this.button.addEventListener('click', async () => {
+                const eligibleCartTokenResponse = await this.updateButtonStatus();
+                if (eligibleCartTokenResponse) {
+                  window.location.href = `https://${Shopify.shop}/apps/zest/start-multi-ship/${eligibleCartTokenResponse}`;
+                }
+              });
+            }
+
+            async updateButtonStatus() {
+              try {
+                const response = await fetch('/cart.js');
+                const cart = await response.json();
+
+                this.button.disabled = false;
+                this.button.title = '';
+
+                const hasGiftCards = cart.items.some(item =>
+                  item.gift_card || /\b(?:gift[ _-]?card)\b/gi.test(item.product_type)
+                );
+
+                const hasSubscriptions = cart.items.some(item =>
+                  item.selling_plan_allocation
+                );
+
+                const errorTarget =
+                  hasGiftCards && hasSubscriptions
+                    ? "gift cards and subscriptions"
+                    : hasGiftCards
+                    ? "gift cards"
+                    : hasSubscriptions
+                    ? "subscriptions"
+                    : null;
+
+                if (errorTarget) {
+                  this.button.disabled = true;
+                  this.button.title = `We're sorry — ${errorTarget} aren't eligible for this feature.`;
+                  return null;
+                }
+
+                return cart.token;
+              } catch (error) {
+                console.error('Error fetching cart:', error);
+                return null;
+              }
+            }
+          }
+
+          customElements.define('zest-multi-checkout-button', ZestMultiCheckoutButton);
+        })
+      </script>
+    {% endif %}
+
     {%- comment -%}
     <link
       rel="stylesheet"
