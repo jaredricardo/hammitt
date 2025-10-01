@@ -1,0 +1,59 @@
+{% style %}
+
+    [data-section-id="{{ section.id }}"] {
+        background-color: {{ section.settings.background_color }};
+    }
+
+    [data-section-id="{{ section.id }}"] h1,
+    [data-section-id="{{ section.id }}"] h2,
+    [data-section-id="{{ section.id }}"] h3,
+    [data-section-id="{{ section.id }}"] h4,
+    [data-section-id="{{ section.id }}"] h5,
+    [data-section-id="{{ section.id }}"] h6,
+    [data-section-id="{{ section.id }}"] p,
+    [data-section-id="{{ section.id }}"] span,
+    [data-section-id="{{ section.id }}"] a {
+
+        color: {{ section.settings.text_color }};
+    }
+
+
+
+{% endstyle %}
+
+
+<div class="section-wrap section-{{ section.id }}-padding" data-section-id="{{ section.id }}">
+    <div class="countdown-timer-banner page-width" id="shopify-section-{{ section.id }}">
+        <p>test</p>
+    </div>
+</div>
+
+<script>
+
+</script>
+
+{% schema %}
+    {
+        "name": "Countdown Timer Banner",
+        "presets": [
+            {
+                "name": "Countdown Timer Banner"
+            }
+        ],
+        "settings": [
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background Color",
+                "default": "#ffffff"
+            },
+            {
+                "type": "color",
+                "id": "text_color",
+                "label": "Section Text Color",
+                "default": "#000000"
+            }
+        ],
+        "blocks": []
+    }
+{% endschema %}
