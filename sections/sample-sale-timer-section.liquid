@@ -12,23 +12,230 @@
     [data-section-id="{{ section.id }}"] h6,
     [data-section-id="{{ section.id }}"] p,
     [data-section-id="{{ section.id }}"] span,
-    [data-section-id="{{ section.id }}"] a {
-
+    [data-section-id="{{ section.id }}"] div {
         color: {{ section.settings.text_color }};
+        margin: 0;
     }
 
-
-
 {% endstyle %}
+
+<style>
+
+    .countdown-timer-banner {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .countdown-timer-banner h2,
+    .countdown-timer-banner p  {
+        margin-bottom: 2rem;
+    }
+
+    .countdown-timer-banner h2 {
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .countdown-timer-banner p {
+        font-size: 16px;
+        max-width: 400px;
+    }
+
+    .countdown-timer-banner .label {
+        font-size: 16px;
+        color: #8E8E8E;
+        font-weight: 600;
+    }
+
+    .countdown-timer-banner div {
+        line-height: 1;
+        max-height: max-content;
+    }
+
+     .countdown-timer-banner .countdown-number {
+        font-size: 140px;
+        color: #EEA100;
+        text-shadow:  0 4px 10px rgba(0, 0, 0, 0.25);
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        min-width: 190px;
+        position: relative;
+     }
+
+     .countdown-timer-banner .countdown-number.semi-colon-after::after {
+        content: ":";
+        font-size: 140px;
+        color: #EEA100;
+        text-shadow:  0 4px 10px rgba(0, 0, 0, 0.25);
+        font-weight: 500;
+        margin-left: 10px;  
+        margin-right: 10px;
+     }
+
+    .countdown-timer-banner .countdown-number.semi-colon-after.hide-after::after {
+       opacity: 0;
+    }
+
+    .countdown-timer-banner a {
+        font-size: 16px;
+        color: black !important;
+        background-color: #D7D7D7;
+    }
+
+    .countdown-timer-banner-content {
+        position: relative;
+        z-index: 1;
+        max-width: 1440px; 
+        margin: 0 auto;
+        padding: 3% 6%;
+    }
+
+    .countdown-content-container {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(2, auto);
+        row-gap: 5px;
+        min-width: 812px; /* prevent layout shift when numbers change */
+        margin-top: 2rem !important;
+        margin-bottom: 4rem !important;
+    }
+
+     .countdown-content-container .label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     }
+
+    .countdown-timer-banner img {
+        max-width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    {% if section.settings.bg_image != blank %}
+        .countdown-timer-banner {
+            aspect-ratio: {{ section.settings.bg_image.width }} / {{ section.settings.bg_image.height }};
+        }
+        
+    {% endif %}
+
+    {% if section.settings.bg_image_mobile != blank %}
+
+        .countdown-timer-banner .mobile-bg-image {
+            display: none;
+        }
+
+        @media screen and (max-width: 761px) {
+            .countdown-timer-banner {
+                aspect-ratio: {{ section.settings.bg_image_mobile.width }} / {{ section.settings.bg_image_mobile.height }};
+            }
+            .countdown-timer-banner .mobile-bg-image {
+                display: block;
+            }
+            .countdown-timer-banner .desktop-bg-image {
+                display: none;
+            }
+        }
+
+
+    {% endif %}
+
+</style>
 
 
 <div class="section-wrap section-{{ section.id }}-padding" data-section-id="{{ section.id }}">
     <div class="countdown-timer-banner page-width" id="shopify-section-{{ section.id }}">
-        <p>test</p>
+        <div class="countdown-timer-banner-content">
+            {% if section.settings.heading != blank %}
+                <h2>{{ section.settings.heading }}</h2>
+            {% endif %}
+            {% if section.settings.subheading != blank %}
+                <p>{{ section.settings.subheading }}</p>
+            {% endif %}
+            <div class="countdown-content-container">
+                <div class="days-number countdown-number semi-colon-after">
+                    00
+                </div>
+                <div class="hours-number countdown-number semi-colon-after">
+                    00
+                </div>
+                <div class="minutes-number countdown-number semi-colon-after">
+                    00
+                </div>
+                <div class="seconds-number countdown-number hide-after semi-colon-after">
+                    00
+                </div>
+                <div class="days-label label">Days</div>
+                <div class="hours-label label">Hours</div>
+                <div class="minutes-label label">Minutes</div>
+                <div class="seconds-label label">Seconds</div>
+            </div>
+            {% if section.settings.button_link != blank %}
+                <a href="{{ section.settings.button_link }}" class="button white">{{ section.settings.button_text }}</a>
+            {% endif %}
+            {% if section.settings.time_up_html != blank %}
+                <div class="time-up-html hidden">
+                    {{ section.settings.time_up_html }}
+                </div>
+            {% endif %}
+        </div>
+        {% if section.settings.bg_image != blank %}
+            <img src="{{ section.settings.bg_image | image_url: width: '2160px' }}" alt="Hammitt Desktop Background" class="desktop-bg-image">
+        {% endif %}
+        {% if section.settings.bg_image_mobile != blank %}
+            <img src="{{ section.settings.bg_image_mobile | image_url: width: '1080px' }}" alt="Hammitt Mobile Background" class="mobile-bg-image">
+        {% endif %}
     </div>
 </div>
 
 <script>
+
+    window.addEventListener('DOMContentLoaded', () => {
+
+        const cd_year   = {{ section.settings.year }}
+        const cd_month  = {{ section.settings.month }} - 1 // JS months are 0-based
+        const cd_day    = {{ section.settings.day }}
+        const cd_hour   = {{ section.settings.hour }}
+        const cd_minute = {{ section.settings.minute }}
+
+        const targetUTCDate = new Date(Date.UTC(
+            cd_year,
+            cd_month,
+            cd_day,
+            cd_hour + 8, // Convert PST hour to UTC
+            cd_minute,
+            0,
+            0
+        ))
+
+        const countDownDate = targetUTCDate.getTime()
+
+        const startTimer = setInterval(function() {
+            const now = new Date().getTime()
+            const distance = countDownDate - now
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+            document.querySelector('[data-section-id="{{ section.id }}"] .days-number').innerHTML = days.toString().padStart(2, '0')
+            document.querySelector('[data-section-id="{{ section.id }}"] .hours-number').innerHTML = hours.toString().padStart(2, '0')
+            document.querySelector('[data-section-id="{{ section.id }}"] .minutes-number').innerHTML = minutes.toString().padStart(2, '0')
+            document.querySelector('[data-section-id="{{ section.id }}"] .seconds-number').innerHTML = seconds.toString().padStart(2, '0')
+
+            if (distance < 0) {
+                clearInterval(startTimer)
+                document.querySelector('[data-section-id="{{ section.id }}"] .time-up-html').classList.remove('hidden')
+            }
+        }, 1000)
+    })
 
 </script>
 
@@ -52,6 +259,77 @@
                 "id": "text_color",
                 "label": "Section Text Color",
                 "default": "#000000"
+            },
+            {
+                "type": "image_picker",
+                "id": "bg_image",
+                "label": "Background Image (desktop, optional)" 
+            },
+            {
+                "type": "image_picker",
+                "id": "bg_image_mobile",
+                "label": "Background Image (mobile, optional)"
+            },
+            {
+                "type": "header",
+                "content": "Content Settings"
+            },
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "The sample sale is here!"
+            },
+            {
+                "type": "textarea",
+                "id": "subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "RSVP HERE"
+            },
+            {
+                "type": "url",
+                "id": "button_link",
+                "label": "Button Link"
+            },
+            {
+                "type": "header",
+                "content": "Timer Settings"
+            },
+            {
+                "type": "number",
+                "id": "year",
+                "label": "Countdown Year"
+            },
+            {
+                "type": "number",
+                "id": "month",
+                "label": "Countdown Month"
+            },
+            {
+                "type": "number",
+                "id": "day",
+                "label": "Countdown Day"
+            },
+            {
+                "type": "number",
+                "id": "hour",
+                "label": "Countdown Hour"
+            },
+            {
+                "type": "number",
+                "id": "minute",
+                "label": "Countdown Minute"
+            },
+            {
+                "type": "html",
+                "id": "time_up_html",
+                "label": "Time Up HTML",
+                "default": "<p>The sale is live! </p>"
             }
         ],
         "blocks": []
