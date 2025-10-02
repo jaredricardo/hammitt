@@ -96,6 +96,14 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_FXEKkw": {
+            "type": "announcement",
+            "settings": {
+              "text": "Our Kyle Habanero restock is HERE!",
+              "color_scheme": "accent-1",
+              "link": "shopify://products/kyle-shoulder-bag-habanero-gold"
+            }
+          },
           "announcement_CwR3it": {
             "type": "announcement",
             "settings": {
@@ -114,6 +122,7 @@
           }
         },
         "block_order": [
+          "announcement_FXEKkw",
           "announcement_CwR3it",
           "announcement_UdnEaT"
         ],
