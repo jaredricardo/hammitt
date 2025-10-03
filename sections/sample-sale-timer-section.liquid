@@ -117,7 +117,7 @@
         margin-top: 0.5rem;
      }
 
-    .countdown-timer-banner img {
+    .countdown-timer-banner video {
         max-width: 100%;
         position: absolute;
         left: 0;
@@ -127,14 +127,14 @@
         z-index: 0;
     }
 
-    {% if section.settings.bg_image != blank %}
+    {% if section.settings.bg_video != blank %}
         .countdown-timer-banner {
-            aspect-ratio: {{ section.settings.bg_image.width }} / {{ section.settings.bg_image.height }};
+            aspect-ratio: {{ section.settings.bg_video.aspect_ratio }};
         }
         
     {% endif %}
 
-    {% if section.settings.bg_image_mobile != blank %}
+    {% if section.settings.bg_video_mobile != blank %}
 
         .countdown-timer-banner .mobile-bg-image {
             display: none;
@@ -142,7 +142,7 @@
 
         @media screen and (max-width: 861px) {
             .countdown-timer-banner {
-                aspect-ratio: {{ section.settings.bg_image_mobile.width }} / {{ section.settings.bg_image_mobile.height }};
+                aspect-ratio: {{ section.settings.bg_video_mobile.aspect_ratio }};
             }
             .countdown-timer-banner .mobile-bg-image {
                 display: block;
@@ -250,11 +250,11 @@
                 <a href="{{ section.settings.button_link }}" class="button countdown-link-out-button white">{{ section.settings.button_text }}</a>
             {% endif %}
         </div>
-        {% if section.settings.bg_image != blank %}
-            <img src="{{ section.settings.bg_image | image_url: width: '2160px' }}" alt="Hammitt Desktop Background" class="desktop-bg-image">
+        {% if section.settings.bg_video != blank %}
+            {{ section.settings.bg_video | video_tag: autoplay:true, playsinline:true, loop:true, muted:true, class: "desktop-bg-image" }}
         {% endif %}
-        {% if section.settings.bg_image_mobile != blank %}
-            <img src="{{ section.settings.bg_image_mobile | image_url: width: '1080px' }}" alt="Hammitt Mobile Background" class="mobile-bg-image">
+        {% if section.settings.bg_video_mobile != blank %}
+            {{ section.settings.bg_video_mobile | video_tag: autoplay:true, playsinline:true, loop:true, muted:true, class: "mobile-bg-image" }}
         {% endif %}
     </div>
 </div>
@@ -346,14 +346,14 @@
                 "default": "#000000"
             },
             {
-                "type": "image_picker",
-                "id": "bg_image",
-                "label": "Background Image (desktop, optional)" 
+                "type": "video",
+                "id": "bg_video",
+                "label": "Background Video (desktop)" 
             },
             {
-                "type": "image_picker",
-                "id": "bg_image_mobile",
-                "label": "Background Image (mobile, optional)"
+                "type": "video",
+                "id": "bg_video_mobile",
+                "label": "Background Video (mobile, optional)"
             },
             {
                 "type": "header",
