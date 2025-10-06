@@ -22,6 +22,15 @@
     top: 0;
     z-index: 3;
   }
+  {% for block in section.blocks %}
+    .announcement-bar.block--{{ block.id }} p {
+      color: {{ block.settings.text_color }} !important;
+    }
+
+    .announcement-bar.block--{{ block.id }} {
+      background-color: {{ block.settings.background_color }} !important;
+    }
+  {% endfor %}
 </style>
 {% endif %}
 <div class="swiper announcement-slider" data-json='{{ json }}'>
@@ -30,19 +39,19 @@
     <!-- Slides -->
     {% for block in section.blocks %}
     <div class="swiper-slide">
-    <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
-      {%- if block.settings.text != blank -%}
-        {%- if block.settings.link != blank -%}
-        <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
-          {%- endif -%}
-          <p class="announcement-bar__message">
-            {{ block.settings.text | escape }}
-          </p>
+      <div class="announcement-bar block--{{ block.id }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.text != blank -%}
           {%- if block.settings.link != blank -%}
-        </a>
+          <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
+            {%- endif -%}
+            <p class="announcement-bar__message">
+              {{ block.settings.text | escape }}
+            </p>
+            {%- if block.settings.link != blank -%}
+          </a>
+          {%- endif -%}
         {%- endif -%}
-      {%- endif -%}
-    </div>
+      </div>
     </div>
     {% endfor %}
   </div>
@@ -86,32 +95,16 @@
           "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
         },
         {
-          "type": "select",
-          "id": "color_scheme",
-          "options": [
-            {
-              "value": "background-1",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.options__1.label"
-            },
-            {
-              "value": "background-2",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.options__2.label"
-            },
-            {
-              "value": "inverse",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.options__3.label"
-            },
-            {
-              "value": "accent-1",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.options__4.label"
-            },
-            {
-              "value": "accent-2",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.options__5.label"
-            }
-          ],
-          "default": "accent-1",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.color_scheme.label"
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background Color",
+          "default": "#000000"
         },
         {
           "type": "url",
