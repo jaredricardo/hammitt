@@ -15,9 +15,18 @@
         assign is_only_a_few_left_tag = false
         assign has_top_gift_tag = false
         assign has_limited_edition_tag = false
+        assign has_coming_soon_tag = false
+        assign has_best_seller_tag = false
         assign badge_tag = ''
+        
 
-        if product.available == false
+        if product.tags contains 'coming-soon'
+            assign has_coming_soon_tag = true
+            assign special_tag_assigned = true
+            assign badge_tag = 'Coming Soon'
+        endif
+
+        if product.available == false and special_tag_assigned == false
             assign special_tag_assigned = true
         endif
 
@@ -27,15 +36,26 @@
             assign badge_tag = settings.only_a_few_left_text
         endif
 
-        if product.tags contains 'new-arrival' and special_tag_assigned == false
+        if product.tags contains 'best-seller' and special_tag_assigned == false
             assign special_tag_assigned = true
-            assign badge_tag = 'New Arrival'
+            assign has_best_seller_tag = true
+            assign badge_tag = 'Best Seller'
         endif
 
         if product.tags contains 'limited-release' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign has_limited_edition_tag = true
             assign badge_tag = 'Limited Release'
+        endif
+
+        if product.tags contains 'celebrity-fav' and special_tag_assigned == false
+            assign special_tag_assigned = true
+            assign badge_tag = 'Celebrity Fave'
+        endif
+
+        if product.tags contains 'new-arrival' and special_tag_assigned == false
+            assign special_tag_assigned = true
+            assign badge_tag = 'New Arrival'
         endif
 
         unless special_tag_assigned
@@ -70,7 +90,11 @@
     {% endif %}
   
     {% if special_tag_assigned or product_tag_assigned %}
-        {% if product.available == false %}
+        {% if has_coming_soon_tag == true %}
+            <span class="badge tag-badge badge--top-right">
+                {{ badge_tag }}
+            </span>
+        {% elsif product.available == false %}
             <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">
                 Sold Out
             </span>
@@ -78,6 +102,10 @@
             <span class="badge red-badge">
                 {% render 'icon-timer' %}
                 {{ settings.only_a_few_left_text }}
+            </span>
+        {% elsif has_best_seller_tag == true %}
+            <span class="badge">
+                {{ badge_tag }}
             </span>
         {% elsif has_limited_edition_tag == true %}
             <span class="badge gray-badge">
