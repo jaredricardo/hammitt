@@ -9,31 +9,74 @@
  */
 {
   "sections": {
-    "sample_sale_timer_section_eNrWFm": {
-      "type": "sample-sale-timer-section",
-      "name": "Countdown Timer Banner",
+    "image_banner_t8y8dy": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_mDGK7a": {
+          "type": "heading",
+          "settings": {
+            "heading": "MUSIC TO YOUR EARS",
+            "heading_size_mobile": 26,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "buttons_4MgHGH": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/habanero",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_mDGK7a",
+        "buttons_4MgHGH"
+      ],
       "settings": {
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "bg_video": "shopify://files/videos/desktop-sample-sale-banner-2.mp4",
-        "bg_video_mobile": "shopify://files/videos/mobile-sample-sale-banner-2.mp4",
-        "heading": "NOT OUR FIRST RODEO",
-        "subheading": "Join us in Manhattan Beach to shop archived styles at exclusive local prices. Saturday 11/8 | 9 AM to 1 PM PST",
-        "button_text": "RSVP HERE",
-        "button_link": "/",
-        "year": 2025,
-        "month": 11,
-        "day": 8,
-        "hour": 9,
-        "minute": 0,
-        "time_up_header_replace": "Missed Us In-Person?",
-        "time_up_subheader_replace": "Don’t Worry — The Online Sample Sale Is Live!",
-        "time_up_button_text_replace": "Shop Online Sale"
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/00000Group_12499.jpg",
+        "image_2": "shopify://shop_images/Group_12496_1.jpg",
+        "image_link": "shopify://collections/habanero",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
       }
     },
     "homepage_fireworks_pxtfb9": {
       "type": "homepage-fireworks",
-      "disabled": true,
       "settings": {
         "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"o30MP3\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"o30MP3\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
         "custom_classes": ""
@@ -41,7 +84,6 @@
     },
     "slider_collection_RWT74t": {
       "type": "slider-collection",
-      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "MEET MEREDITH",
@@ -54,6 +96,33 @@
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
+    "jr_new_5050_product_list_zy3tkK": {
+      "type": "jr-new-5050-product-list",
+      "name": "JR Product List & Image",
+      "settings": {
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
+        "title": "THE MOST-LOVED KYLE",
+        "product_list": [
+          "kyle-shoulder-bag-habanero-gold",
+          "kyle-shoulder-bag-superbloom-pink-gold",
+          "kyle-shoulder-bag-cherrywood-pebble-brushed-gold",
+          "kyle-med-moto-black-gunmetal",
+          "kyle-med-shoulder-bag-belted-suede-gunmetal",
+          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "kyle-shoulder-bag-espresso-pebble-silver"
+        ],
+        "image": "shopify://shop_images/kyle-new-banner.gif",
+        "button_link": "shopify://collections/kyle",
+        "button_text": "Shop Now",
+        "button_text_color": "#000000",
+        "button_background_color": "#ffffff",
         "padding_top": 36,
         "padding_bottom": 36,
         "mobile_padding_top": 36,
@@ -141,7 +210,6 @@
         "column_33FLWB",
         "column_p9EKmq"
       ],
-      "disabled": true,
       "settings": {
         "title": "SHOP NEW ARRIVALS",
         "title_color": "#000000",
@@ -177,7 +245,6 @@
     },
     "slider_collection_FHqMyi": {
       "type": "slider-collection",
-      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "",
@@ -190,33 +257,6 @@
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
-    "jr_new_5050_product_list_zy3tkK": {
-      "type": "jr-new-5050-product-list",
-      "disabled": true,
-      "name": "JR Product List & Image",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "THE MOST-LOVED KYLE",
-        "product_list": [
-          "kyle-med-moto-black-gunmetal",
-          "kyle-med-shoulder-bag-belted-suede-gunmetal",
-          "kyle-shoulder-bag-cherrywood-pebble-brushed-gold",
-          "kyle-shoulder-bag-espresso-pebble-silver",
-          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
-          "kyle-shoulder-bag-limestone-silver"
-        ],
-        "image": "shopify://shop_images/kyle-GIF_72644f3d-5d4b-4c33-8b71-fb45268f9432.gif",
-        "button_link": "shopify://collections/kyle",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
         "padding_top": 36,
         "padding_bottom": 36,
         "mobile_padding_top": 36,
@@ -241,84 +281,6 @@
         "padding_bottom": 20,
         "mobile_padding_top": 29,
         "mobile_padding_bottom": 0
-      }
-    },
-    "image_banner_t8y8dy": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_mDGK7a": {
-          "type": "heading",
-          "settings": {
-            "heading": "New in: Soiree Clutch",
-            "heading_size_mobile": 26,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_aPEBHM": {
-          "type": "text",
-          "settings": {
-            "text": "Introducing our very first acrylic clutch. As seen on Emmy Award winner Katherine LaNasa.",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_4MgHGH": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "PRE-ORDER",
-            "button_link_1": "shopify://products/soiree-clutch-carrara-black-brushed-gold",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_mDGK7a",
-        "text_aPEBHM",
-        "buttons_4MgHGH"
-      ],
-      "disabled": true,
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12487.jpg",
-        "image_2": "shopify://shop_images/Group_12488.jpg",
-        "image_link": "shopify://products/soiree-clutch-clutch-soiree-clutch-carrera-blush-brushed-gold",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
       }
     },
     "multicolumn_R6jqfi": {
@@ -402,7 +364,6 @@
         "column_rgXNiy",
         "column_XxJGmC"
       ],
-      "disabled": true,
       "settings": {
         "title": "OUR LATEST AND GREATEST",
         "title_color": "#000000",
@@ -517,7 +478,6 @@
         "column_NJGNTK",
         "column_VUtACU"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "#000000",
@@ -553,7 +513,6 @@
     },
     "slider_collection_yNH9iW": {
       "type": "slider-collection",
-      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "SHOP BESTSELLERS",
@@ -653,7 +612,6 @@
         "column_y8DLwQ",
         "column_99tNVJ"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "#000000",
@@ -689,7 +647,6 @@
     },
     "slider_collection_WbqGTG": {
       "type": "slider-collection",
-      "disabled": true,
       "settings": {
         "title": "SHOP NEUTRALS FOR FALL",
         "heading_align": "center",
@@ -788,7 +745,6 @@
         "column_QfdHyP",
         "column_GUqj3U"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "#000000",
@@ -977,7 +933,6 @@
         "text_jaTa9g",
         "text_bCUrwx"
       ],
-      "disabled": true,
       "custom_css": [
         "@media screen and (max-width: 768px) {scrolling-text {padding: 20px 0; } .announcement--icon {width: 100px; }}"
       ],
@@ -1367,7 +1322,6 @@
         "column_EEU3Vd",
         "column_Rt4rC6"
       ],
-      "disabled": true,
       "settings": {
         "title": "SHOP BY COLOR",
         "title_color": "",
@@ -1489,7 +1443,6 @@
         "customer_review_WKMm3A",
         "customer_review_6dyahc"
       ],
-      "disabled": true,
       "settings": {
         "background_color": "#ffffff",
         "text_color": "#000000",
@@ -1511,7 +1464,6 @@
     },
     "homepage_instagram_RrcAhY": {
       "type": "homepage-instagram",
-      "disabled": true,
       "settings": {
         "enabled_slider": false,
         "feed_id": "hammitt_2",
@@ -1683,14 +1635,13 @@
     }
   },
   "order": [
-    "sample_sale_timer_section_eNrWFm",
+    "image_banner_t8y8dy",
     "homepage_fireworks_pxtfb9",
     "slider_collection_RWT74t",
+    "jr_new_5050_product_list_zy3tkK",
     "multicolumn_dk43Jb",
     "slider_collection_FHqMyi",
-    "jr_new_5050_product_list_zy3tkK",
     "slider_featured_collection_bTka8m",
-    "image_banner_t8y8dy",
     "multicolumn_R6jqfi",
     "multicolumn_zgBMdw",
     "slider_collection_yNH9iW",

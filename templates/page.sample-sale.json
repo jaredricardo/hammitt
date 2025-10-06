@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_html_tag": "h1",
+        "hide_title": true,
+        "width": "page-width--narrow",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "sample_sale_timer_section_EJLeaf": {
+      "type": "sample-sale-timer-section",
+      "name": "Countdown Timer Banner",
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "bg_video": "shopify://files/videos/desktop-sample-sale-banner-2.mp4",
+        "bg_video_mobile": "shopify://files/videos/mobile-sample-sale-banner-2.mp4",
+        "heading": "NOT OUR FIRST RODEO",
+        "subheading": "Join us in Manhattan Beach to shop archived styles at exclusive local prices. Saturday 11/8 | 9 AM to 1 PM PST",
+        "button_text": "RSVP HERE",
+        "button_link": "/",
+        "year": 2025,
+        "month": 11,
+        "day": 8,
+        "hour": 9,
+        "minute": 0,
+        "time_up_header_replace": "Missed Us In-Person?",
+        "time_up_subheader_replace": "Don’t Worry — The Online Sample Sale Is Live!",
+        "time_up_button_text_replace": "Shop Online Sale"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sample_sale_timer_section_EJLeaf"
+  ]
+}
