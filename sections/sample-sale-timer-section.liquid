@@ -1,0 +1,434 @@
+{% style %}
+
+    [data-section-id="{{ section.id }}"] {
+        background-color: {{ section.settings.background_color }};
+    }
+
+    [data-section-id="{{ section.id }}"] h1,
+    [data-section-id="{{ section.id }}"] h2,
+    [data-section-id="{{ section.id }}"] h3,
+    [data-section-id="{{ section.id }}"] h4,
+    [data-section-id="{{ section.id }}"] h5,
+    [data-section-id="{{ section.id }}"] h6,
+    [data-section-id="{{ section.id }}"] p,
+    [data-section-id="{{ section.id }}"] span,
+    [data-section-id="{{ section.id }}"] div {
+        color: {{ section.settings.text_color }};
+        margin: 0;
+    }
+
+{% endstyle %}
+
+<style>
+
+    .countdown-timer-banner {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .countdown-timer-banner h2,
+    .countdown-timer-banner p  {
+        margin-bottom: 2rem;
+    }
+
+    .countdown-timer-banner h2 {
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .countdown-timer-banner p {
+        font-size: 16px;
+    }
+
+    .countdown-timer-banner .label {
+        font-size: 16px;
+        color: #8E8E8E;
+        font-weight: 600;
+        margin-right: 50px;
+    }
+
+    .countdown-timer-banner div {
+        line-height: 1;
+        max-height: max-content;
+    }
+
+    .countdown-timer-banner .countdown-number {
+        font-size: 140px;
+        color: #EEA100;
+        text-shadow:  0 4px 10px rgba(0, 0, 0, 0.25);
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        /* min-width: 210px; */
+        position: relative;
+     }
+
+    .countdown-timer-banner .countdown-number.semi-colon-after::after {
+        content: ":";
+        font-size: 140px;
+        color: #EEA100;
+        text-shadow:  0 4px 10px rgba(0, 0, 0, 0.25);
+        font-weight: 500;
+        margin-left: 20px;  
+        margin-right: 10px;
+     }
+
+    .countdown-timer-banner .countdown-number.semi-colon-after.hide-after::after {
+       opacity: 0;
+    }
+
+    .countdown-timer-banner a {
+        font-size: 16px;
+        color: black !important;
+        background-color: #EEA100 !important;
+    }
+
+    .countdown-timer-banner-content {
+        position: relative;
+        z-index: 1;
+        max-width: 1440px; 
+        margin: 0 auto;
+        padding: 3% 4.5%;
+        opacity: 0;
+        transition: 500ms ease;
+    }
+
+    .countdown-timer-banner-content.loaded {
+        opacity: 1;
+    }
+
+    .countdown-content-container {
+        display: flex;
+        row-gap: 5px;
+        min-width: 812px; /* prevent layout shift when numbers change */
+        margin-top: 2rem !important;
+        margin-bottom: 3rem !important;
+    }
+
+    .countdown-content-container .num-container {
+        width: 225px;
+    }
+
+     .countdown-content-container .label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+     }
+
+    .countdown-timer-banner video {
+        max-width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    {% if section.settings.bg_video != blank %}
+        .countdown-timer-banner {
+            aspect-ratio: {{ section.settings.bg_video.aspect_ratio }};
+        }
+        
+    {% endif %}
+
+    {% if section.settings.bg_video_mobile != blank %}
+
+        .countdown-timer-banner .mobile-bg-image {
+            display: none;
+        }
+
+        @media screen and (max-width: 861px) {
+            .countdown-timer-banner {
+                aspect-ratio: {{ section.settings.bg_video_mobile.aspect_ratio }};
+            }
+            .countdown-timer-banner .mobile-bg-image {
+                display: block;
+            }
+            .countdown-timer-banner .desktop-bg-image {
+                display: none;
+            }
+        }
+
+
+    {% endif %}
+
+    @media screen and (max-width: 861px) {
+        .countdown-timer-banner-content .countdown-content-container {
+            min-width: auto;
+            margin-left: 5% !important;
+            justify-content: center;
+        }
+        .countdown-timer-banner {
+            align-items: start;
+            justify-content: center;
+        }
+        .countdown-timer-banner-content {
+            padding: 6% 0;
+            text-align: center;
+            max-width: 100%;
+        }
+        .countdown-timer-banner-content.timer-gone {
+            padding-top: 25%;
+        }
+        .countdown-timer-banner h2 {
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+        .countdown-timer-banner p {
+            font-size: 14px;
+            line-height: 1.4;
+            font-size: 13px;
+            margin-top: 0.25rem;
+        }
+        .countdown-timer-banner .countdown-number {
+            justify-content: space-around;
+        }
+        .countdown-timer-banner .countdown-number,
+        .countdown-timer-banner .countdown-number.semi-colon-after::after {
+            font-size: 48px;
+        }
+        .countdown-timer-banner .countdown-number.semi-colon-after::after {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .countdown-content-container .num-container  {
+            width: 90px;
+        }
+        .countdown-timer-banner .label {
+            margin-right: 20px;
+            font-size: 10px;
+        }
+        .countdown-timer-banner a {
+            max-width: 
+        }
+    }
+
+</style>
+
+
+<div class="section-wrap section-{{ section.id }}-padding" data-section-id="{{ section.id }}">
+    <div class="countdown-timer-banner page-width" id="shopify-section-{{ section.id }}">
+        <div class="countdown-timer-banner-content">
+            {% if section.settings.heading != blank %}
+                <h2>{{ section.settings.heading }}</h2>
+            {% endif %}
+            {% if section.settings.subheading != blank %}
+                <p class="subheader">{{ section.settings.subheading }}</p>
+            {% endif %}
+            <p class="countdown-with-us">Count down with us!</p>
+            <div class="countdown-content-container">
+                <div class="num-container">
+                    <div class="days-number countdown-number semi-colon-after">
+                        00
+                    </div>
+                    <div class="days-label label">Days</div>
+                </div>
+                <div class="num-container">
+                    <div class="hours-number countdown-number semi-colon-after">
+                        00
+                    </div>
+                    <div class="hours-label label">Hours</div>
+                </div>
+
+                <div class="num-container">
+                    <div class="minutes-number countdown-number semi-colon-after">
+                        00
+                    </div>
+                    <div class="minutes-label label">Minutes</div>
+                </div>
+                <div class="num-container">
+                    <div class="seconds-number countdown-number hide-after semi-colon-after">
+                        00
+                    </div>
+                    <div class="seconds-label label">Seconds</div>
+                </div>
+            </div>
+            {% if section.settings.button_link != blank %}
+                <a href="{{ section.settings.button_link }}" class="button countdown-link-out-button white">{{ section.settings.button_text }}</a>
+            {% endif %}
+        </div>
+        {% if section.settings.bg_video != blank %}
+            {{ section.settings.bg_video | video_tag: autoplay:true, playsinline:true, loop:true, muted:true, class: "desktop-bg-image" }}
+        {% endif %}
+        {% if section.settings.bg_video_mobile != blank %}
+            {{ section.settings.bg_video_mobile | video_tag: autoplay:true, playsinline:true, loop:true, muted:true, class: "mobile-bg-image" }}
+        {% endif %}
+    </div>
+</div>
+
+<script>
+
+    window.addEventListener('DOMContentLoaded', () => {
+
+        const cd_year   = {{ section.settings.year }}
+        const cd_month  = {{ section.settings.month }} - 1 // JS months are 0-based
+        const cd_day    = {{ section.settings.day }}
+        const cd_hour   = {{ section.settings.hour }}
+        const cd_minute = {{ section.settings.minute }}
+
+        // replace text
+
+        const timeUpHeaderReplace = "{{ section.settings.time_up_header_replace }}"
+        const timeUpSubheaderReplace = "{{ section.settings.time_up_subheader_replace }}"
+        const timeUpButtonTextReplace = "{{ section.settings.time_up_button_text_replace }}"
+
+        const targetUTCDate = new Date(Date.UTC(
+            cd_year,
+            cd_month,
+            cd_day,
+            cd_hour + 8, // Convert PST hour to UTC
+            cd_minute,
+            0,
+            0
+        ))
+
+        const countDownDate = targetUTCDate.getTime()
+
+        const startTimer = setInterval(function() {
+            const now = new Date().getTime()
+            const distance = countDownDate - now
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+            document.querySelector('[data-section-id="{{ section.id }}"] .days-number').innerHTML = days.toString().padStart(2, '0')
+            document.querySelector('[data-section-id="{{ section.id }}"] .hours-number').innerHTML = hours.toString().padStart(2, '0')
+            document.querySelector('[data-section-id="{{ section.id }}"] .minutes-number').innerHTML = minutes.toString().padStart(2, '0')
+            document.querySelector('[data-section-id="{{ section.id }}"] .seconds-number').innerHTML = seconds.toString().padStart(2, '0')
+            document.querySelector('[data-section-id="{{ section.id }}"] .countdown-timer-banner-content').classList.add('loaded')
+
+            if (distance < 0) {
+                clearInterval(startTimer)
+
+                document.querySelector('[data-section-id="{{ section.id }}"] .countdown-content-container').classList.add('hidden')
+                document.querySelector('[data-section-id="{{ section.id }}"] .countdown-with-us').classList.add('hidden')
+                document.querySelector('[data-section-id="{{ section.id }}"] .countdown-timer-banner-content').classList.add('timer-gone')
+
+                {% if section.settings.heading != blank %}
+                document.querySelector('[data-section-id="{{ section.id }}"] h2').innerHTML = timeUpHeaderReplace
+                {% endif %}
+                {% if section.settings.subheading != blank %}
+                    document.querySelector('[data-section-id="{{ section.id }}"] .subheader').innerHTML = timeUpSubheaderReplace
+                {% endif %}
+                {% if section.settings.button_link != blank %}
+                    document.querySelector('[data-section-id="{{ section.id }}"] .countdown-link-out-button').innerHTML = timeUpButtonTextReplace
+                {% endif %}
+            }
+        }, 1000)
+    })
+
+</script>
+
+{% schema %}
+    {
+        "name": "Countdown Timer Banner",
+        "presets": [
+            {
+                "name": "Countdown Timer Banner"
+            }
+        ],
+        "settings": [
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background Color",
+                "default": "#ffffff"
+            },
+            {
+                "type": "color",
+                "id": "text_color",
+                "label": "Section Text Color",
+                "default": "#000000"
+            },
+            {
+                "type": "video",
+                "id": "bg_video",
+                "label": "Background Video (desktop)" 
+            },
+            {
+                "type": "video",
+                "id": "bg_video_mobile",
+                "label": "Background Video (mobile, optional)"
+            },
+            {
+                "type": "header",
+                "content": "Content Settings"
+            },
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "The sample sale is here!"
+            },
+            {
+                "type": "textarea",
+                "id": "subheading",
+                "label": "Subheading"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "RSVP HERE"
+            },
+            {
+                "type": "url",
+                "id": "button_link",
+                "label": "Button Link"
+            },
+            {
+                "type": "header",
+                "content": "Timer Settings"
+            },
+            {
+                "type": "number",
+                "id": "year",
+                "label": "Countdown Year"
+            },
+            {
+                "type": "number",
+                "id": "month",
+                "label": "Countdown Month"
+            },
+            {
+                "type": "number",
+                "id": "day",
+                "label": "Countdown Day"
+            },
+            {
+                "type": "number",
+                "id": "hour",
+                "label": "Countdown Hour"
+            },
+            {
+                "type": "number",
+                "id": "minute",
+                "label": "Countdown Minute"
+            },
+            {
+                "type": "text",
+                "id": "time_up_header_replace",
+                "label": "Time Up Header Replace Text",
+                "default": "Missed Us In-Person?"
+            },
+            {
+                "type": "text",
+                "id": "time_up_subheader_replace",
+                "label": "Time Up Subheader Replace Text",
+                "default": "Don’t Worry — The Online Sample Sale Is Live!"
+            },
+            {
+                "type": "text",
+                "id": "time_up_button_text_replace",
+                "label": "Time Up Button Text Replace",
+                "default": "Shop Online Sale"
+            }
+        ],
+        "blocks": []
+    }
+{% endschema %}
