@@ -139,6 +139,7 @@
               {% if isCurrent %}style="outline: 1px solid black;"{% endif %} 
               class="swatch_image-a"
               data-test-size="{{ product.images.size }}"
+              data-full-product-json="{{ product | json }}"
               >
               {% if product.featured_image %}
                 {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
@@ -206,7 +207,9 @@
                 data-product-title="{{ product.title }}" 
                 data-sku="{{ product.selected_or_first_available_variant.sku }}"
                 data-product-img="{{ product.featured_image | img_url: 'medium' }}"
-                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
+                data-full-product-json="{{ product | json }}"
+              >
                 {% if product.featured_image %}
                   {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
                 {% endif %}
@@ -273,7 +276,9 @@
                 data-product-title="{{ product.title }}" 
                 data-sku="{{ product.selected_or_first_available_variant.sku }}"
                 data-product-img="{{ product.featured_image | img_url: 'medium' }}"
-                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
+                data-full-product-json="{{ product | json }}"
+              >
                 {% if product.featured_image %}
                   {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
                 {% endif %}
@@ -346,7 +351,9 @@
                 data-product-title="{{ product.title }}" 
                 data-sku="{{ product.selected_or_first_available_variant.sku }}"
                 data-product-img="{{ product.featured_image | img_url: 'medium' }}"
-                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
+                data-full-product-json="{{ product | json }}"  
+              >
                 {% if product.featured_image %}
                   {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
                 {% endif %}
@@ -418,7 +425,9 @@
                 data-product-title="{{ product.title }}" 
                 data-sku="{{ product.selected_or_first_available_variant.sku }}"
                 data-product-img="{{ product.featured_image | img_url: 'medium' }}"
-                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
+                data-full-product-json="{{ product | json }}"
+              >
                 {% if product.featured_image %}
                   {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
                 {% endif %}
@@ -486,7 +495,9 @@
                 data-product-title="{{ product.title }}" 
                 data-sku="{{ product.selected_or_first_available_variant.sku }}"
                 data-product-img="{{ product.featured_image | img_url: 'medium' }}"
-                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
+                data-full-product-json="{{ product | json }}"
+              >
                 {% if product.featured_image %}
                   {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
                 {% endif %}
@@ -554,7 +565,9 @@
                 data-product-title="{{ product.title }}" 
                 data-sku="{{ product.selected_or_first_available_variant.sku }}"
                 data-product-img="{{ product.featured_image | img_url: 'medium' }}"
-                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a">
+                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
+                data-full-product-json="{{ product | json }}"
+              >
                 {% if product.featured_image %}
                   {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
                 {% endif %}

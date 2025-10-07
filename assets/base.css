@@ -4138,3 +4138,36 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
     font-size: 12px
   }
 }
+
+
+.jr-recently-viewed-grid .grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.recently-viewed-card {
+  position: relative;
+}
+
+.recently-viewed-card img {
+  width: 100%;
+}
+
+.recently-viewed-card button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+@media screen and (max-width: 861px) {
+  .jr-recently-viewed-grid .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}

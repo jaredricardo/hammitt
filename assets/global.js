@@ -1073,6 +1073,21 @@ const totalColors = () => {
 totalColors();
 
 
+function recordRecentlyViewed(data) {
+  console.log('????????')
+  console.log(data)
+  return
+  const recentlyViewed = JSON.parse(localStorage.getItem('_rv')) || []
+
+  if(!recentlyViewed.length) {
+    localStorage.setItem('_rv', JSON.stringify([data]))
+  } else {
+    const updatedProducts = [...recentlyViewed, data]
+    localStorage.setItem('_rv', JSON.stringify(updatedProducts))
+  }
+}
+
+
 const productCardHovers = () => {
   if(!window.enableCardSwatches) return;
   const productCards = document.querySelectorAll('.product-card');
@@ -1110,7 +1125,7 @@ const productSwatchReload = () => {
 
       fetch(productURL)
       .then(response => response.text())
-      .then(data => {
+      .then(data => { 
         var parser = new DOMParser();
         var doc = parser.parseFromString(data,'text/html');
         elementsToUpdate.forEach(el => {
@@ -1129,6 +1144,7 @@ const productSwatchReload = () => {
         productRecommendations();
         productSwatchReload();
         changeSwiperSlider();
+        recordRecentlyViewed()
 
         const swiper = document.getElementById('product__mobile-images');
         const json = JSON.parse(swiper.getAttribute('data-json'));
