@@ -1074,6 +1074,7 @@ totalColors();
 
 
 function recordRecentlyViewed(data) {
+  
   const LIMIT = 50
   const recentlyViewed = JSON.parse(localStorage.getItem('_rv')) || []
 
@@ -1088,6 +1089,7 @@ function recordRecentlyViewed(data) {
     updatedProducts.shift()
   }
 
+  window.setRecentlyViewedNavBubbleCount()
   localStorage.setItem('_rv', JSON.stringify(updatedProducts))
 }
 

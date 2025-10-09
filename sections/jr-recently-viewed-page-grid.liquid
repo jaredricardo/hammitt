@@ -1,15 +1,5 @@
 {% style %}
 
-    [data-section-id="{{ section.id }}"] {
-        background-color: {{ section.settings.background_color }};
-    }
-
-    [data-section-id="{{ section.id }}"] h3,
-    [data-section-id="{{ section.id }}"] p,
-    [data-section-id="{{ section.id }}"] h5 {
-        color: {{ section.settings.text_color }};
-    }
-
 {% endstyle %}
 
 <div data-section-id="{{ section.id }}">
@@ -24,7 +14,7 @@
 </div>
 
 <script>
-    window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
 
         const recentlyViewedProducts = JSON.parse(localStorage.getItem('_rv')) || []
         const sectionContainer = document.querySelector('.jr-recently-viewed-grid')
@@ -39,7 +29,7 @@
         recentlyViewedProducts.forEach((product) => {
             const cardHTML = `
                 <div class="recently-viewed-card">
-                    <button data-id-to-remove="${product.id}">REMOVE</button>
+                    <button data-id-to-remove="${product.id}">{% render 'icon-close' %}</button>
                     <a href="/products/${product.handle}">
                         <img src="${product.featured_image}" alt="Recently Viewed Product">
                         <div class="info-container">

@@ -722,11 +722,16 @@
             {% endif %}
           </a>
         {%- endif -%}
-        {% comment %} remember to change this to a shopify inserted link and not a hardcoded link, else it will cause problems in the futre {% endcomment %}
         <a href="{{ section.settings.wishlist_page }}" class="nav-wishlist-button">
           {% render 'heart-empty-thick'  %}
           <span style="display:none;" class="heart-count"></span>
         </a>
+        {% if section.settings.recently_viewed_page %}
+          <a class="recently-viewed-button" href="{{ section.settings.recently_viewed_page }}">
+            {% render 'icon-clock' %}
+            <span class="recently-viewed-count hidden"></span>
+          </a>
+        {% endif %}
         <cart-drawer data-breakpoint="all"{% if template.name == "cart" %} style="pointer-events: none;"{% endif %}>
           <details id="Details-cart-drawer-container" class="cart-drawer-container">
             <summary  class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
@@ -1033,6 +1038,11 @@
         "type": "url",
         "id": "wishlist_page",
         "label": "Wishlist Link Page"
+      },
+      {
+        "type": "url",
+        "id": "recently_viewed_page",
+        "label": "Recently Viewed Link Page (leave blank to disable)"
       },
       {
         "type": "checkbox",

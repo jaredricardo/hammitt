@@ -4152,6 +4152,49 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 
 .recently-viewed-card img {
   width: 100%;
+  vertical-align: bottom;
+}
+
+.recently-viewed-card a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-decoration: none;
+}
+
+.recently-viewed-card .info-container {
+  text-align: center;
+}
+
+.recently-viewed-card .info-container .price-title {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.recently-viewed-card .info-container h3,
+.recently-viewed-card .info-container p {
+  margin: 0.5rem 0;
+  color: black;
+}
+
+.jr-recently-viewed-grid h1 {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.recently-viewed-card .info-container h3 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.recently-viewed-card .info-container p {
+  font-size: 12px;
+  margin-top: 0 !important;
 }
 
 .recently-viewed-card button {
@@ -4169,5 +4212,17 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   .jr-recently-viewed-grid .grid-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+  }
+  .recently-viewed-card .info-container h3 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .recently-viewed-card a {
+    gap: 1rem;
+  }
+  .jr-recently-viewed-grid h1 {
+    font-size: 18px;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
   }
 }

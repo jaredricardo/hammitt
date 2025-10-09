@@ -85,6 +85,7 @@ function formatPrice(price) {
   }).format(price / 100);
 }
 
+// this needs to be converted into a web component later, as th event listener is being lost when the ajax call reloads the pdp buybox section
 function initInspiredAppClickListener() {
   const inspiredAppOpener = document.querySelector('.inspired-app-opener')
 
@@ -112,6 +113,26 @@ function initImgModelHeight() {
   }
 }
 
+function setRecentlyViewedNavBubbleCount() {
+  
+  const recentlyViewedButton = document.querySelector('.recently-viewed-button')
+  const recentlyViewedCount = recentlyViewedButton?.querySelector('.recently-viewed-count')
+
+  if (!recentlyViewedButton || !recentlyViewedCount) return
+
+  const currentCount = JSON.parse(localStorage.getItem('_rv')).length || 0
+
+  if(currentCount === 0) {
+    recentlyViewedCount.classList.add('hidden')
+    recentlyViewedCount.innerText = '0'
+    return
+  }
+
+  recentlyViewedCount.classList.remove('hidden')
+  recentlyViewedCount.innerText = currentCount
+
+}
+
 class xGenSearchResult extends HTMLElement {
   constructor() {
     super()
@@ -137,3 +158,4 @@ window.buildCompleteTheSetInCart = buildCompleteTheSetInCart
 window.formatPrice = formatPrice
 window.initInspiredAppClickListener = initInspiredAppClickListener
 window.initImgModelHeight = initImgModelHeight
+window.setRecentlyViewedNavBubbleCount = setRecentlyViewedNavBubbleCount
