@@ -100,7 +100,6 @@
             "type": "announcement",
             "settings": {
               "text": "Our Kyle Habanero restock is HERE!",
-              "color_scheme": "accent-1",
               "link": "shopify://products/kyle-shoulder-bag-habanero-gold"
             }
           },
@@ -108,7 +107,6 @@
             "type": "announcement",
             "settings": {
               "text": "Free Shipping on All Orders",
-              "color_scheme": "accent-1",
               "link": "shopify://collections/best-selling-bags"
             }
           },
@@ -116,7 +114,6 @@
             "type": "announcement",
             "settings": {
               "text": "Order Protection is now available at checkout.",
-              "color_scheme": "accent-1",
               "link": "shopify://collections/new-arrivals"
             }
           }
@@ -944,8 +941,9 @@
               "type": "announcement",
               "settings": {
                 "text": "Welcome to our store",
-                "color_scheme": "background-1",
-                "link": ""
+                "link": "",
+                "text_color": "#ffffff",
+                "background_color": "#000000"
               }
             }
           },

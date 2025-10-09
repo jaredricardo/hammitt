@@ -28,12 +28,7 @@
 
         const recentlyViewedProducts = JSON.parse(localStorage.getItem('_rv')) || []
         const sectionContainer = document.querySelector('.jr-recently-viewed-grid')
-        const gridContainer = document.querySelector('.jr-recently-viewed-grid .grid-container')      
-
-
-        console.log('///////')
-        console.log(recentlyViewedProducts)
-       
+        const gridContainer = document.querySelector('.jr-recently-viewed-grid .grid-container')             
 
         if(!recentlyViewedProducts.length) {
             sectionContainer.querySelector('h3').classList.remove('hidden')
