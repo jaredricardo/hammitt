@@ -95,7 +95,7 @@
         "text_rkKPf9": {
           "type": "text",
           "settings": {
-            "text": "<p>Whether you’re treating yourself or sending a present, we believe you deserve an unparalleled experience. Complete with a polished white gift box and the option to add a note.</p>"
+            "text": "<p>Whether you’re treating yourself or sending a present, we believe you deserve an unparalleled experience. Complete with a polished white gift box and the option to add a note.</p><p></p><p>We offer the following gifting options.Please select your preferences on your cart.</p>"
           }
         }
       },
@@ -226,6 +226,30 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
+      }
+    },
+    "rich_text_76MmRA": {
+      "type": "rich-text",
+      "blocks": {
+        "text_VBJxCe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether you’re treating yourself or sending a gift, we believe every delivery should feel special. Most of our items arrive in our signature polished white box, with the option to include a personal note—or choose a lighter touch without the box. Plus, you can easily ship to multiple addresses at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_VBJxCe"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
     },
     "hero_video_banner_dDjDR3": {
@@ -674,6 +698,7 @@
     "image_banner_bkPemt",
     "rich_text_mt46Nb",
     "multicolumn_9WwWAH",
+    "rich_text_76MmRA",
     "hero_video_banner_dDjDR3",
     "image_banner_wJJVVA",
     "multicolumn_ew4Ejz",
