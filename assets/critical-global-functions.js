@@ -73,7 +73,6 @@ async function buildCompleteTheSetInCart() {
 
   const swiper = new Swiper('.complete-the-set', swiperJson)
   swiper.init()
-
 }
 
 function formatPrice(price) {
@@ -119,6 +118,7 @@ function setRecentlyViewedNav(refreshingStorage = true) {
   const recentlyViewedCount = recentlyViewedButton?.querySelector('.recently-viewed-count')
   const recentlyViewedNav = document.querySelector('.recently-viewed-nav')
   const recentlyViewedNavList = recentlyViewedNav?.querySelector('.recently-viewed-products-list')
+  const mobileCloseButton = recentlyViewedNav?.querySelector('#rv-close')
 
   if (!recentlyViewedButton || !recentlyViewedCount || !recentlyViewedNav) return
 
@@ -135,7 +135,7 @@ function setRecentlyViewedNav(refreshingStorage = true) {
   // set up nav
 
   storage.forEach((product, i) =>{
-    if(i >= 5) return
+    if(i >= 6) return
     recentlyViewedNavList.innerHTML += `
       <li>
         <div class="recently-viewed-card">
@@ -163,6 +163,10 @@ function setRecentlyViewedNav(refreshingStorage = true) {
       recentlyViewedNav.classList.remove('hidden')
     })
     recentlyViewedNav.addEventListener('mouseleave', () => {
+      recentlyViewedNav.classList.add('hidden')
+    })
+    mobileCloseButton?.addEventListener('click', (e) => {
+      e.preventDefault()
       recentlyViewedNav.classList.add('hidden')
     })
   }

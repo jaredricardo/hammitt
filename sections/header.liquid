@@ -734,7 +734,11 @@
           <div class="recently-viewed-nav hidden">
             <div class="page-width" style="margin: 0;">
               <div class="row">
+                <button id="rv-close" class="mobile">
+                  {% render 'icon-close' %}
+                </button>
                 <h3 class="rv-title">Recently Viewed</h3>
+                <a class="recently-viewed-page-linkout mobile" href="{{ section.settings.recently_viewed_page }}">View All</a>
               </div>
               <div class="row">
                 <ul class="recently-viewed-products-list"></ul>

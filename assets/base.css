@@ -4191,7 +4191,7 @@ sticky-header .recently-viewed-card a {
 }
 
 .recently-viewed-card .info-container h3 {
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 22px;
@@ -4240,7 +4240,7 @@ ul.recently-viewed-products-list {
   left: 0;
   left: 0;
   background-color: white;
-  width: 80%;
+  width: 85%;
   gap: 1.5rem;
 }
 
@@ -4256,7 +4256,7 @@ ul.recently-viewed-products-list li {
   padding-bottom: 3rem;
 }
 
-.recently-viewed-nav .row:has(.recently-viewed-products-list) .recently-viewed-page-linkout {
+.recently-viewed-nav .recently-viewed-page-linkout {
   color: #000;
   text-align: center;
   font-size: 14px;
@@ -4266,13 +4266,43 @@ ul.recently-viewed-products-list li {
   text-transform: uppercase;
 }
 
+.recently-viewed-nav .row:has(#rv-close) {
+  display: flex;
+  align-items: center;
+}
+
+#rv-close {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-right: 1.5rem;
+}
+
+#rv-close.mobile {
+  display: none;
+}
+
+#rv-close.mobile svg {
+  width: 14px;
+  height: 14px;
+}
+
+.recently-viewed-page-linkout.desktop {
+  display: block;
+}
+
+.recently-viewed-page-linkout.mobile {
+  display: none;
+  margin-left: auto;
+}
+
 @media screen and (max-width: 861px) {
   .jr-recently-viewed-grid .grid-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
   .recently-viewed-card .info-container h3 {
-    font-size: 14px;
     line-height: 20px;
   }
   .recently-viewed-card a {
@@ -4296,7 +4326,7 @@ ul.recently-viewed-products-list li {
     justify-content: center;
   }
   ul.recently-viewed-products-list li {
-    max-width: auto;
+    max-width: 100%;
     gap: 2rem;
   }
   .recently-viewed-nav {
@@ -4305,6 +4335,21 @@ ul.recently-viewed-products-list li {
     max-height: 95vh;
     overflow: scroll;
     padding-bottom: 3rem;
+  }
+  .recently-viewed-nav .rv-title {
+    font-size: 16px;
+  }
+  #rv-close.mobile {
+    display: block;
+  }
+  .recently-viewed-page-linkout.mobile{
+    display: block;
+  }
+  .recently-viewed-page-linkout.desktop {
+    display: none;
+  }
+  .recently-viewed-nav .recently-viewed-page-linkout {
+    font-size: 12px;
   }
 }
 
