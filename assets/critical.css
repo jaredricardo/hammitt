@@ -610,29 +610,32 @@ body:has(inspired-floating-widget) .inspired-app-opener {
 /* wishlist nav items + recently viewed */
 
 a.nav-wishlist-button,
-a.recently-viewed-button {
+button.recently-viewed-button {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 5px;
   align-self: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 a.nav-wishlist-button svg {
   width: 20px;
 
 }
-a.recently-viewed-button svg {
+button.recently-viewed-button svg {
   width: 18px;
   height: 18px;
 }
 
-a.recently-viewed-button {
+button.recently-viewed-button {
   position: relative;
 }
 
-a.recently-viewed-button .recently-viewed-count {
+button.recently-viewed-button .recently-viewed-count {
   position: absolute;
   display: flex;
   justify-content: center;

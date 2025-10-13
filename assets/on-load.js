@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     window.buildCompleteTheSetInCart()
-    window.setRecentlyViewedNavBubbleCount()
+    window.setRecentlyViewedNav(false)
 })
 
 window.addEventListener('load', () => {

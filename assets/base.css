@@ -4164,6 +4164,10 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   text-decoration: none;
 }
 
+sticky-header .recently-viewed-card a {
+  gap: 1rem;
+}
+
 .recently-viewed-card .info-container {
   text-align: center;
 }
@@ -4178,6 +4182,7 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 .recently-viewed-card .info-container p {
   margin: 0.5rem 0;
   color: black;
+  line-height: 1.3;
 }
 
 .jr-recently-viewed-grid h1 {
@@ -4207,6 +4212,59 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   cursor: pointer;
   z-index: 1;
 }
+.recently-viewed-nav {
+  position: absolute;
+  top: 5rem;
+  width: 100vw;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.recently-viewed-nav .rv-title {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 100%; /* 20px */
+  text-transform: uppercase;
+}
+
+ul.recently-viewed-products-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  left: 0;
+  background-color: white;
+  width: 80%;
+  gap: 1.5rem;
+}
+
+ul.recently-viewed-products-list li {
+  flex: 1;
+  max-width: 160px;
+}
+
+.recently-viewed-nav .row:has(.recently-viewed-products-list) {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  padding-bottom: 3rem;
+}
+
+.recently-viewed-nav .row:has(.recently-viewed-products-list) .recently-viewed-page-linkout {
+  color: #000;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+  text-transform: uppercase;
+}
 
 @media screen and (max-width: 861px) {
   .jr-recently-viewed-grid .grid-container {
@@ -4225,4 +4283,28 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
     margin-top: 3rem;
     margin-bottom: 2rem;
   }
+  ul.recently-viewed-products-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+  }
+  .recently-viewed-page-linkout.desktop {
+    display: none;
+  }
+  .recently-viewed-nav .row:has(.recently-viewed-products-list) {
+    justify-content: center;
+  }
+  ul.recently-viewed-products-list li {
+    max-width: auto;
+    gap: 2rem;
+  }
+  .recently-viewed-nav {
+    z-index: 2;
+    top: 0;
+    max-height: 95vh;
+    overflow: scroll;
+    padding-bottom: 3rem;
+  }
 }
+

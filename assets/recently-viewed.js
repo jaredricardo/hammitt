@@ -66,7 +66,7 @@ class RecentlyViewed extends HTMLElement {
       if(this.storage.length >= this.max) {
         this.storage.shift();
       }
-      window.setRecentlyViewedNavBubbleCount()
+      window.setRecentlyViewedNav()
       this.storage.push(productObj);
       // localStorage size is much larger, but you can still check if needed
       // const storageSize = this.getStorageSize('_rv', JSON.stringify(this.storage));

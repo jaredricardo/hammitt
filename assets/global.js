@@ -1089,7 +1089,7 @@ function recordRecentlyViewed(data) {
     updatedProducts.shift()
   }
 
-  window.setRecentlyViewedNavBubbleCount()
+  window.setRecentlyViewedNav()
   localStorage.setItem('_rv', JSON.stringify(updatedProducts))
 }
 

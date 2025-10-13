@@ -113,19 +113,58 @@ function initImgModelHeight() {
   }
 }
 
-function setRecentlyViewedNavBubbleCount() {
+function setRecentlyViewedNav(refreshingStorage = true) {
   
   const recentlyViewedButton = document.querySelector('.recently-viewed-button')
   const recentlyViewedCount = recentlyViewedButton?.querySelector('.recently-viewed-count')
+  const recentlyViewedNav = document.querySelector('.recently-viewed-nav')
+  const recentlyViewedNavList = recentlyViewedNav?.querySelector('.recently-viewed-products-list')
 
-  if (!recentlyViewedButton || !recentlyViewedCount) return
+  if (!recentlyViewedButton || !recentlyViewedCount || !recentlyViewedNav) return
 
-  const currentCount = JSON.parse(localStorage.getItem('_rv')).length || 0
+  const storage = JSON.parse(localStorage.getItem('_rv'))
+  const currentCount = storage.length || 0
 
   if(currentCount === 0) {
     recentlyViewedCount.classList.add('hidden')
     recentlyViewedCount.innerText = '0'
+    // set state of nav 
     return
+  }
+
+  // set up nav
+
+  storage.forEach((product, i) =>{
+    if(i >= 5) return
+    recentlyViewedNavList.innerHTML += `
+      <li>
+        <div class="recently-viewed-card">
+            <a href="/products/${product.handle}">
+              <img src="${product.featured_image}" alt="Recently Viewed Product">
+              <div class="info-container">
+                <div class="price-title">
+                  <h3 class="product-title">${product.product_title_type}</h3>
+                  <h3 class="product-price">${window.formatPrice(product.price)}</h3>
+                </div>
+                <p class="color-descriptor">${product.product_title_color_descriptor}</p>
+              </div>
+            </a>
+        </div>
+      </li>`
+  })
+
+  // needed to add this check as when the function is called on storage update, it was adding multiple event listeners
+  if(!refreshingStorage) {
+    recentlyViewedButton.addEventListener('click', (e) => {
+      e.preventDefault()
+      recentlyViewedNav.classList.remove('hidden')
+    })
+    recentlyViewedButton.addEventListener('mouseenter', () => {
+      recentlyViewedNav.classList.remove('hidden')
+    })
+    recentlyViewedNav.addEventListener('mouseleave', () => {
+      recentlyViewedNav.classList.add('hidden')
+    })
   }
 
   recentlyViewedCount.classList.remove('hidden')
@@ -158,4 +197,4 @@ window.buildCompleteTheSetInCart = buildCompleteTheSetInCart
 window.formatPrice = formatPrice
 window.initInspiredAppClickListener = initInspiredAppClickListener
 window.initImgModelHeight = initImgModelHeight
-window.setRecentlyViewedNavBubbleCount = setRecentlyViewedNavBubbleCount
+window.setRecentlyViewedNav = setRecentlyViewedNav
