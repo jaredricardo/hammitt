@@ -76,12 +76,13 @@ async function buildCompleteTheSetInCart() {
 }
 
 function formatPrice(price) {
+  if(!price) return ''
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
     minimumFractionDigits: 0,
     maximumFractionDigits: 0
-  }).format(price / 100);
+  }).format(price / 100)
 }
 
 // this needs to be converted into a web component later, as th event listener is being lost when the ajax call reloads the pdp buybox section
