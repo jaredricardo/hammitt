@@ -613,9 +613,27 @@
             </hammitt-box-opt-out>
           {% endif %}
           {% if settings.enable_hammitt_gifting_drawer %}
-            <hammit-gifting-drawer>
-              {{ settings.hammitt_gifting_drawer_message }}
-            </hammit-gifting-drawer>
+            <hammitt-gifting-options-drawer-trigger>
+              {{ settings.hammitt_gifting_drawer_message }} 
+              <button id="open-btn">{{ settings.hammitt_gifting_trigger_btn_text }}</button>
+            </hammitt-gifting-options-drawer-trigger>
+
+            <hammitt-gifting-options-drawer>
+              <div class="header-area">
+                <button id="close-btn">
+                  {% render 'icon-chevron-right' %}
+                </button>
+                <button id="save-btn">Save</button>
+              </div>
+              {% if settings.hammitt_gifting_drawer_header_text %}
+                <p>{{ settings.hammitt_gifting_drawer_header_text }}</p>
+              {% endif %}
+              <div class="broken-out-line-items">
+                {% for item in cart.items %}
+                  {{ item.title }}
+                {% endfor %}
+              </div>
+            </hammitt-gifting-options-drawer>
           {% endif %}
           <div class="gift-box-content">{{ content.description }}</div>
           {% if settings.enable_hammitt_gift_messaging %}

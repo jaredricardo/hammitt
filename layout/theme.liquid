@@ -356,7 +356,7 @@
          }      
     {% endstyle %}
 
-<style>  
+  <style>  
     /* temporaily hiding hearts on product rec cards until the product recomendation bug for swym wishlist is fixed. For some reason they dont trigger swym's functions on click */
     body main product-recommendations button.swym-add-to-wishlist-view-product.hammitt-custom {
       display: none !important;
@@ -401,6 +401,11 @@
   {% endif %}
 
 </style>
+
+{% if settings.enable_hammitt_gifting_drawer %}
+  {{ 'gifting-options-drawer.css' | asset_url | stylesheet_tag }}
+  {{ 'gifting-options-drawer.js' | asset_url | script_tag }}
+{% endif %}
 
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
     {% if template contains 'index' %}
