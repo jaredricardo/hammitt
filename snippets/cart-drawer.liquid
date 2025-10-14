@@ -612,6 +612,11 @@
               <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
             </hammitt-box-opt-out>
           {% endif %}
+          {% if settings.enable_hammitt_gifting_drawer %}
+            <hammit-gifting-drawer>
+              {{ settings.hammitt_gifting_drawer_message }}
+            </hammit-gifting-drawer>
+          {% endif %}
           <div class="gift-box-content">{{ content.description }}</div>
           {% if settings.enable_hammitt_gift_messaging %}
             <hammitt-gift-note class="cart-drawer-gift-note"
