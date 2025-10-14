@@ -54,10 +54,10 @@ class PredictiveSearch extends HTMLElement {
 
     const results = await xg.search.getResults({
       query: searchTerm, 
-        options: {
-          collection: 'default', 
-          deploymentId:'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
-        }
+      options: {
+        collection: 'default', 
+        deploymentId:'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
+      }
     })    
 
     buildXGenSearchResultsForSearchHeader(results, searchTerm)
