@@ -20,7 +20,7 @@
 <script>
 window.addEventListener('DOMContentLoaded', () => {
 
-        const recentlyViewedProducts = JSON.parse(localStorage.getItem('_rv')) || []
+        const recentlyViewedProducts = JSON.parse(localStorage.getItem('_rv')).reverse() || []
         const sectionContainer = document.querySelector('.jr-recently-viewed-grid')
         const gridContainer = document.querySelector('.jr-recently-viewed-grid .grid-container')             
 

@@ -76,7 +76,7 @@ async function buildCompleteTheSetInCart() {
 }
 
 function formatPrice(price) {
-  if(!price) return ''
+  if(!price) return ''  
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -133,11 +133,18 @@ function setRecentlyViewedNav(refreshingStorage = true) {
     return
   }
 
+  storage.reverse() // to show the most recent first
+
   // set up nav
 
-  storage.forEach((product, i) =>{
+  const targetUl = document.querySelector('.recently-viewed-nav .recently-viewed-products-list')
+  const targetLis = document.querySelectorAll('.recently-viewed-nav .recently-viewed-products-list li')
+
+  targetLis?.forEach((el) => el.remove())
+
+  storage.forEach((product, i) =>{    
     if(i >= 6) return
-    recentlyViewedNavList.innerHTML += `
+    targetUl.innerHTML += `
       <li>
         <div class="recently-viewed-card">
             <a href="/products/${product.handle}">
@@ -151,7 +158,8 @@ function setRecentlyViewedNav(refreshingStorage = true) {
               </div>
             </a>
         </div>
-      </li>`
+      </li>
+    `
   })
 
   // needed to add this check as when the function is called on storage update, it was adding multiple event listeners
