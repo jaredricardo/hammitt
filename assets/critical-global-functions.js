@@ -73,16 +73,19 @@ async function buildCompleteTheSetInCart() {
 
   const swiper = new Swiper('.complete-the-set', swiperJson)
   swiper.init()
-
 }
 
 function formatPrice(price) {
+  if(!price) return ''  
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-  }).format(price / 100);
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(price / 100)
 }
 
+// this needs to be converted into a web component later, as th event listener is being lost when the ajax call reloads the pdp buybox section
 function initInspiredAppClickListener() {
   const inspiredAppOpener = document.querySelector('.inspired-app-opener')
 
@@ -108,6 +111,78 @@ function initImgModelHeight() {
     contentMobile = mobileImgContainer.querySelector('img').getAttribute('alt')
     mobileImgContainer.style.setProperty("--content", `"${contentMobile}"`);
   }
+}
+
+function setRecentlyViewedNav(refreshingStorage = true) {
+  
+  const recentlyViewedButton = document.querySelector('.recently-viewed-button')
+  const recentlyViewedCount = recentlyViewedButton?.querySelector('.recently-viewed-count')
+  const recentlyViewedNav = document.querySelector('.recently-viewed-nav')
+  const recentlyViewedNavList = recentlyViewedNav?.querySelector('.recently-viewed-products-list')
+  const mobileCloseButton = recentlyViewedNav?.querySelector('#rv-close')
+
+  if (!recentlyViewedButton || !recentlyViewedCount || !recentlyViewedNav) return
+
+  const storage = JSON.parse(localStorage.getItem('_rv'))
+  const currentCount = storage.length || 0
+
+  if(currentCount === 0) {
+    recentlyViewedCount.classList.add('hidden')
+    recentlyViewedCount.innerText = '0'
+    // set state of nav 
+    return
+  }
+
+  storage.reverse() // to show the most recent first
+
+  // set up nav
+
+  const targetUl = document.querySelector('.recently-viewed-nav .recently-viewed-products-list')
+  const targetLis = document.querySelectorAll('.recently-viewed-nav .recently-viewed-products-list li')
+
+  targetLis?.forEach((el) => el.remove())
+
+  storage.forEach((product, i) =>{    
+    if(i >= 6) return
+    targetUl.innerHTML += `
+      <li>
+        <div class="recently-viewed-card">
+            <a href="/products/${product.handle}">
+              <img src="${product.featured_image}" alt="Recently Viewed Product">
+              <div class="info-container">
+                <div class="price-title">
+                  <h3 class="product-title">${product.product_title_type}</h3>
+                  <h3 class="product-price">${window.formatPrice(product.price)}</h3>
+                </div>
+                <p class="color-descriptor">${product.product_title_color_descriptor}</p>
+              </div>
+            </a>
+        </div>
+      </li>
+    `
+  })
+
+  // needed to add this check as when the function is called on storage update, it was adding multiple event listeners
+  if(!refreshingStorage) {
+    recentlyViewedButton.addEventListener('click', (e) => {
+      e.preventDefault()
+      recentlyViewedNav.classList.remove('hidden')
+    })
+    recentlyViewedButton.addEventListener('mouseenter', () => {
+      recentlyViewedNav.classList.remove('hidden')
+    })
+    recentlyViewedNav.addEventListener('mouseleave', () => {
+      recentlyViewedNav.classList.add('hidden')
+    })
+    mobileCloseButton?.addEventListener('click', (e) => {
+      e.preventDefault()
+      recentlyViewedNav.classList.add('hidden')
+    })
+  }
+
+  recentlyViewedCount.classList.remove('hidden')
+  recentlyViewedCount.innerText = currentCount
+
 }
 
 class xGenSearchResult extends HTMLElement {
@@ -140,3 +215,4 @@ window.buildCompleteTheSetInCart = buildCompleteTheSetInCart
 window.formatPrice = formatPrice
 window.initInspiredAppClickListener = initInspiredAppClickListener
 window.initImgModelHeight = initImgModelHeight
+window.setRecentlyViewedNav = setRecentlyViewedNav

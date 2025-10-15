@@ -272,6 +272,7 @@
           "menu_mobile": "mobile-menu",
           "menu_under_visual_menu": "visual-nav-drop-downs",
           "wishlist_page": "shopify://pages/my-wishlist",
+          "recently_viewed_page": "shopify://pages/recently-viewed",
           "show_line_separator": false,
           "transparent_homepage": false,
           "invert_colors": true,
@@ -949,8 +950,9 @@
               "type": "announcement",
               "settings": {
                 "text": "Welcome to our store",
-                "color_scheme": "background-1",
-                "link": ""
+                "link": "",
+                "text_color": "#ffffff",
+                "background_color": "#000000"
               }
             }
           },

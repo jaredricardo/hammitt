@@ -1073,6 +1073,27 @@ const totalColors = () => {
 totalColors();
 
 
+function recordRecentlyViewed(data) {
+  
+  const LIMIT = 50
+  const recentlyViewed = JSON.parse(localStorage.getItem('_rv')) || []
+
+  // Prevent duplicates
+  if (recentlyViewed.find(item => item.id === data.id)) return
+
+  // Add new item
+  const updatedProducts = [...recentlyViewed, data]
+
+  // Remove oldest if over limit
+  if (updatedProducts.length > LIMIT) {
+    updatedProducts.shift()
+  }
+
+  window.setRecentlyViewedNav()
+  localStorage.setItem('_rv', JSON.stringify(updatedProducts))
+}
+
+
 const productCardHovers = () => {
   if(!window.enableCardSwatches) return;
   const productCards = document.querySelectorAll('.product-card');
@@ -1096,6 +1117,13 @@ const productSwatchReload = () => {
       const productSKU = event.currentTarget.getAttribute('data-sku');
       const productTitle = event.currentTarget.getAttribute('data-product-title');
       const productImage = event.currentTarget.getAttribute('data-product-img');
+      const recentlyViewedJson = card.dataset.recentlyViewedProductJson ? JSON.parse(card.dataset.recentlyViewedProductJson) : null
+
+      // record recetly viewed json
+
+      if (recentlyViewedJson) {
+        recordRecentlyViewed(recentlyViewedJson)
+      }
       
       if(event.currentTarget.closest('.customSwatch') != null) {
         event.currentTarget.closest('.customSwatch').classList.add('btn--loading');  
@@ -1110,7 +1138,7 @@ const productSwatchReload = () => {
 
       fetch(productURL)
       .then(response => response.text())
-      .then(data => {
+      .then(data => { 
         var parser = new DOMParser();
         var doc = parser.parseFromString(data,'text/html');
         elementsToUpdate.forEach(el => {

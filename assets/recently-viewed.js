@@ -1,10 +1,23 @@
-/* eslint-disable */
+// /* eslint-disable */
+
+// to check local storage size
+// var _lsTotal = 0,
+//     _xLen, _x;
+// for (_x in localStorage) {
+//     if (!localStorage.hasOwnProperty(_x)) {
+//         continue;
+//     }
+//     _xLen = ((localStorage[_x].length + _x.length) * 2);
+//     _lsTotal += _xLen;
+//     console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB")
+// };
+// console.log("Total ========================= " + (_lsTotal / 1024).toFixed(2) + " KB");
 class RecentlyViewed extends HTMLElement {
   
   constructor() {
     super();
     this.storageKey = '_rv';
-    this.max = 10;
+    this.max = 50;
     this.init();
     this.recordRecentlyViewed();
   }
@@ -34,7 +47,8 @@ class RecentlyViewed extends HTMLElement {
       product_tags: window.productJSON.tags,
       product_title_type: window.productJSON.product_title_type,
       product_title_color_descriptor: window.productJSON.product_title_color_descriptor,
-      product_size: window.productJSON.product_size
+      product_size: window.productJSON.product_size,
+      price: window.productJSON.price
     };
     if(!this.storage) {
       this.storage = [];
@@ -52,6 +66,7 @@ class RecentlyViewed extends HTMLElement {
       if(this.storage.length >= this.max) {
         this.storage.shift();
       }
+      window.setRecentlyViewedNav()
       this.storage.push(productObj);
       // localStorage size is much larger, but you can still check if needed
       // const storageSize = this.getStorageSize('_rv', JSON.stringify(this.storage));

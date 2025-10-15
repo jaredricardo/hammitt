@@ -246,39 +246,6 @@ details[open].menu-opening > .menu-drawer__submenu {
   padding: 1.3rem 1.25rem;
 }
 
-/* wishlist nav item */
-
-a.nav-wishlist-button {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 5px;
-  align-self: center;
-}
-
-a.nav-wishlist-button svg {
-  width: 20px;
-  height: 20px;
-}
-
-a.nav-wishlist-button .heart-count {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 10px;
-  height: 13px;
-  width: 13px;
-  top: 0px;
-  right: 0px;
-  background-color: black;
-  color: white;
-  z-index: 2;
-  border-radius: 50px;
-  padding-top: 1px;
-}
-
 /* JR visual nav */
 
 .menu-drawer__navigation-container:has(.visual-ab) .menu-drawer__navigation {
