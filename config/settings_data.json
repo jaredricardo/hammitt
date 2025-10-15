@@ -59,6 +59,7 @@
     "enable_card_swatches": false,
     "enable_hammitt_gift_messaging": false,
     "hammitt_gift_message": "A gift? Add a typed gift note letting them know you sent it.",
+    "hammitt_box_opt_out_message": "🌱 I'll pass on the box! Please send my item(s) in a dust bag only.",
     "collection_to_hide_opt_out": "box-opt-out-hide-checkbox-products",
     "zest_multi_checkout_enabled": true,
     "freeShippingThreshold": "1",
@@ -98,10 +99,11 @@
         "blocks": {
           "announcement_FXEKkw": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Our Kyle Habanero restock is HERE!",
               "text_color": "#ffffff",
-              "background_color": "#000000",
+              "background_color": "#d3311b",
               "link": "shopify://products/kyle-shoulder-bag-habanero-gold"
             }
           },
@@ -140,7 +142,7 @@
             "settings": {
               "nav_link": "shopify://collections/new-arrivals",
               "title": "New In",
-              "nav_image": "shopify://shop_images/mobile-nav-meredith_mini-b.jpg"
+              "nav_image": "shopify://shop_images/charm-with-habanero-kyle_1.jpg"
             }
           },
           "visual_menu_item_KWAJ7F": {
@@ -593,7 +595,7 @@
           "image_gY6exJ": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/kyle-haba_1.jpg",
+              "image": "shopify://shop_images/IMG_5489_2.jpg",
               "image_ratio": "portrait",
               "image_caption": "New Arrivals",
               "image_link": "shopify://collections/new-arrivals"

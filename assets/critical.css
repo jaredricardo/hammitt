@@ -580,6 +580,10 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   padding: 0 !important;
 }
 
+.card__seo-text.has-seo-tag {
+  display: none;
+}
+
 @media screen and (max-width: 971px) {
   .jr-new-5050-product-list .mobile {
     display: block;

@@ -60,8 +60,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_1075_1.jpg",
-        "image_2": "shopify://shop_images/Group_1076.jpg",
+        "image": "shopify://shop_images/fb32be0a-8219-47d7-936c-fcf0a403de1e-_1_1.png",
+        "image_2": "shopify://shop_images/fb32be0a-8219-47d7-936c-fcf0a403de1e-_1_1.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "medium",
@@ -95,7 +95,7 @@
         "text_rkKPf9": {
           "type": "text",
           "settings": {
-            "text": "<p>Whether you’re treating yourself or sending a present, we believe you deserve an unparalleled experience. Complete with a polished white gift box and the option to add a note.</p>"
+            "text": "<p>Whether you’re treating yourself or sending a present, we believe you deserve an unparalleled experience. Complete with a polished white gift box and the option to add a note.</p><p>We offer the following gifting options.Please select your preferences on your cart.</p>"
           }
         }
       },
@@ -113,8 +113,145 @@
         "padding_bottom_mobile": 36
       }
     },
+    "multicolumn_9WwWAH": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_WjnaBL": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": true,
+            "title": "Multiple Recipients.",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 16,
+            "text": "<p>Ship your order to multiple addresses.</p>",
+            "link_label": "",
+            "link": "shopify://collections/best-selling-bags",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_3nUDkz": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": true,
+            "title": "Dust Bag Only",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 16,
+            "text": "<p>Choose to receive your item(s) in a dust bag only. </p>",
+            "link_label": "",
+            "link": "shopify://collections/best-selling-bags",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_qBDg3r": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": true,
+            "title": "Gift Note",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 16,
+            "text": "<p>Customize amessage that will be printed on their packing slip.</p>",
+            "link_label": "",
+            "link": "shopify://collections/new-arrivals",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_WjnaBL",
+        "column_3nUDkz",
+        "column_qBDg3r"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "#000000",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": false,
+        "removed_section_padding": false,
+        "columns_desktop": 3,
+        "columns_gap": 2,
+        "row_gap": 2,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "overlay_type",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_76MmRA": {
+      "type": "rich-text",
+      "blocks": {
+        "text_VBJxCe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether you’re treating yourself or sending a gift, we believe every delivery should feel special. Most of our items arrive in our signature polished white box, with the option to include a personal note—or choose a lighter touch without the box. Plus, you can easily ship to multiple addresses at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_VBJxCe"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "hero_video_banner_dDjDR3": {
       "type": "hero-video-banner",
+      "disabled": true,
       "name": "Hero Video Banner",
       "settings": {
         "video_height": "auto",
@@ -229,97 +366,6 @@
         "padding_bottom": 32,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
-    },
-    "multicolumn_9WwWAH": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_WjnaBL": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_572_1.jpg",
-            "title": "SHOP BESTSELLERS",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/best-selling-bags",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_qBDg3r": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_573_1.jpg",
-            "title": "SHOP NEW IN",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/new-arrivals",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_WjnaBL",
-        "column_qBDg3r"
-      ],
-      "disabled": true,
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": true,
-        "removed_section_padding": true,
-        "columns_desktop": 2,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
         "custom_class": ""
       }
     },
@@ -642,17 +688,208 @@
         "padding_bottom_mobile": 36,
         "custom_class": ""
       }
+    },
+    "value_props_HryChW": {
+      "type": "value-props",
+      "blocks": {
+        "column_HJNGyd": {
+          "type": "column",
+          "settings": {
+            "svg_image": "",
+            "icon_image": "shopify://shop_images/Group_548_1.png",
+            "title": "Free Shipping on All Orders",
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_HJNGyd"
+      ],
+      "name": "Value Props",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "paragraph": "",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": ""
+      }
+    },
+    "value_props_THwXLM": {
+      "type": "value-props",
+      "blocks": {
+        "column_WQVXp3": {
+          "type": "column",
+          "settings": {
+            "svg_image": "",
+            "icon_image": "shopify://shop_images/Group_549_1.png",
+            "title": "Protect Your Order with Package Insurance",
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_WQVXp3"
+      ],
+      "name": "Value Props",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "paragraph": "",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": ""
+      }
+    },
+    "value_props_X6NKPh": {
+      "type": "value-props",
+      "blocks": {
+        "column_VmqLty": {
+          "type": "column",
+          "settings": {
+            "svg_image": "",
+            "icon_image": "shopify://shop_images/Group_549-_1_1.png",
+            "title": "Quality Products that Last",
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_VmqLty"
+      ],
+      "name": "Value Props",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "paragraph": "",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": ""
+      }
+    },
+    "value_props_HwpQnp": {
+      "type": "value-props",
+      "blocks": {
+        "column_j4n8Vf": {
+          "type": "column",
+          "settings": {
+            "svg_image": "",
+            "icon_image": "shopify://shop_images/0-Group_549-_1_1.png",
+            "title": "Celebrity Approved",
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_j4n8Vf"
+      ],
+      "name": "Value Props",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "paragraph": "",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": ""
+      }
+    },
+    "value_props_KmJgTw": {
+      "type": "value-props",
+      "blocks": {
+        "column_EKmNFE": {
+          "type": "column",
+          "settings": {
+            "svg_image": "",
+            "icon_image": "shopify://shop_images/Group_549-_1_1_caea8f8b-6c2a-4f86-8446-112359ee42df.png",
+            "title": "Buy Now, Pay Later Options",
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_EKmNFE"
+      ],
+      "name": "Value Props",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "paragraph": "",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "main",
     "image_banner_bkPemt",
     "rich_text_mt46Nb",
+    "multicolumn_9WwWAH",
+    "rich_text_76MmRA",
     "hero_video_banner_dDjDR3",
     "image_banner_wJJVVA",
-    "multicolumn_9WwWAH",
     "multicolumn_ew4Ejz",
     "multicolumn_wngqhj",
-    "multicolumn_3jNtQx"
+    "multicolumn_3jNtQx",
+    "value_props_HryChW",
+    "value_props_THwXLM",
+    "value_props_X6NKPh",
+    "value_props_HwpQnp",
+    "value_props_KmJgTw"
   ]
 }

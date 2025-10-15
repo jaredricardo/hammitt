@@ -200,7 +200,12 @@ class xGenSearchResult extends HTMLElement {
     if(!query || !queryId || !deploymentId || !item) return
 
     xg.track.pageView({ locale: "en_US"})
-    xg.track.searchClick({query, queryId, deploymentId, item})
+    xg.track.searchClick({
+      query, 
+      queryId, 
+      deploymentId, 
+      item,
+      locale: "en_US"})
   } 
 }
 

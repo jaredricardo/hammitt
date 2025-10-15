@@ -3816,11 +3816,11 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 }
 
 .jr-featured-products-and-image .col:nth-of-type(1) {
-  width: 35%;
+  min-width: 35%;
 }
 
 .jr-featured-products-and-image .col:nth-of-type(2) {
-  width: 65%;
+  min-width: 65%;
   display: flex;
   flex-direction: column;
   justify-content: center;
