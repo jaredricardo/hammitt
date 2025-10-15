@@ -722,12 +722,12 @@
             {% endif %}
           </a>
         {%- endif -%}
-        <a href="{{ section.settings.wishlist_page }}" class="nav-wishlist-button">
+        <a href="{{ section.settings.wishlist_page }}" class="nav-wishlist-button current-ab-a">
           {% render 'heart-empty-thick'  %}
           <span style="display:none;" class="heart-count"></span>
         </a>
         {% if section.settings.recently_viewed_page %}
-          <button class="recently-viewed-button">
+          <button class="recently-viewed-button current-ab-b">
             {% render 'icon-clock' %}
             <span class="recently-viewed-count hidden"></span>
           </button>
