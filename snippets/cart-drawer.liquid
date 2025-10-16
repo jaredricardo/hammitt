@@ -614,25 +614,114 @@
           {% endif %}
           {% if settings.enable_hammitt_gifting_drawer %}
             <hammitt-gifting-options-drawer-trigger>
-              {{ settings.hammitt_gifting_drawer_message }} 
+              <p>{{ settings.hammitt_gifting_drawer_message }}</p>
               <button id="open-btn">{{ settings.hammitt_gifting_trigger_btn_text }}</button>
             </hammitt-gifting-options-drawer-trigger>
 
             <hammitt-gifting-options-drawer>
               <div class="header-area">
                 <button id="close-btn">
-                  {% render 'icon-chevron-right' %}
+                  {% render 'icon-chevron-left' %}
                 </button>
                 <button id="save-btn">Save</button>
               </div>
               {% if settings.hammitt_gifting_drawer_header_text %}
                 <p>{{ settings.hammitt_gifting_drawer_header_text }}</p>
               {% endif %}
-              <div class="broken-out-line-items">
+              <ul class="broken-out-line-items">
                 {% for item in cart.items %}
-                  {{ item.title }}
+
+                  {% liquid 
+
+                    # new way of assigning product title. This logic is duplicated in many places. 
+                    # Wonder if there is a good way of centralizing it?
+                  
+                    assign product = item.product
+
+                    assign product_type = product.metafields.custom.product_title_type
+                    assign product_color = product.metafields.custom.product_title_color_descriptor
+                    assign product_size = product.metafields.hammitt.size.value
+                    assign product_size_abbreviated = null
+                    assign formatted_size_string = null
+                    assign formatted_product_title = product_type
+
+                    if product_size 
+
+                      assign formatted_size_string = product_size | downcase | strip
+
+                      case formatted_size_string 
+                        when 'mini'
+                          assign product_size_abbreviated = 'mini'
+                        when 'small'  
+                          assign product_size_abbreviated = 'sml'
+                        when 'medium'
+                          assign product_size_abbreviated = 'med'
+                        when 'large'
+                          assign product_size_abbreviated = 'lrg'
+                      endcase
+
+                      assign formatted_product_title = formatted_product_title | append: ' ' | append: product_size_abbreviated
+
+                    endif
+
+                    assign _line_item_box_opt_out = false
+                    assign _line_item_gift_note = false
+
+                    for property in item.properties
+                      if property.first == 'line_item_box_opt_out'
+                        assign _line_item_box_opt_out = true
+                      endif
+                      if property.first == 'line_item_gift_note'
+                        assign _line_item_gift_note = property.last
+                      endif
+                    endfor
+                  
+                  -%}
+
+                  {% comment %} 
+                  
+                    <input type="hidden" name="properties[line_item_box_opt_out]" value="test opt out line item"> 
+                    <input type="hidden" name="properties[line_item_gift_note]" value="test gift note line item">
+
+                  {% endcomment %}
+
+                  <script>
+                    console.log('//////')
+                    console.log({{ item | json }})
+                    console.log({{ item.properties | json }})
+                    window.addEventListener('click',(e) => {
+                      console.log(e.target)
+                    })
+                  </script>
+
+                  <li class="broken-out-line-item" data-variant-id="{{ item.variant.id }}">
+                    <div class="col">
+                      <img class="product-image" src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title }}">
+                    </div>
+                    <div class="col broken-out-line-item-info-container">
+                      <h5> {{ product_type }} {% if product_size %} {{ product_size_abbreviated }} {% endif %}</h5>
+                      {% if product_color %}
+                        <h5> {{ product_color }} </h5>
+                      {% endif %}
+                
+                      <div class="checkbox-container">                      
+                        <input type="checkbox" id="no-box" {% if _line_item_box_opt_out == true %} checked {% endif %}>
+                        <label for="no-box">Dust bag only, no box.</label>
+                      </div>
+
+                      <div class="checkbox-container">  
+                        <input type="checkbox" id="line-item-hand-written-note" {% if _line_item_gift_note != false %} checked {% endif %}>
+                        <label for="line-item-hand-written-note">Add Ribbon + Handwritten Note for $5</label>  
+                      </div>
+
+                      {% if _line_item_box_opt_out != false %}
+                          
+                      {% endif %}
+
+                    </div>
+                  </li>
                 {% endfor %}
-              </div>
+              </ul>
             </hammitt-gifting-options-drawer>
           {% endif %}
           <div class="gift-box-content">{{ content.description }}</div>

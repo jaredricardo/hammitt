@@ -7,8 +7,101 @@ hammitt-gifting-options-drawer {
     top: 0;
     right: -100%;
     transition: 0.3s ease-in-out;
+    padding: 10px;
+}
+
+hammitt-gifting-options-drawer .header-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+hammitt-gifting-options-drawer #close-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px 5px 5px 0px;
+}
+
+hammitt-gifting-options-drawer #close-btn svg {
+    height: 15px;
 }
 
 hammitt-gifting-options-drawer.active {
     right: 0;
+}
+
+hammitt-gifting-options-drawer-trigger {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 1.5rem;
+}
+
+hammitt-gifting-options-drawer-trigger button {
+    padding: .25rem 1.25rem;
+    border: none;
+    background: black;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+}
+
+hammitt-gifting-options-drawer p,
+hammitt-gifting-options-drawer-trigger p,
+hammitt-gifting-options-drawer .checkbox-container label,
+hammitt-gifting-options-drawer h5  {
+    font-size: 14px;
+    margin: 0;
+    line-height: 130%;
+    font-weight: 400;
+    font-family: sofia pro;
+}
+
+hammitt-gifting-options-drawer .broken-out-line-items {
+    margin: 2rem 0 0 0;
+    list-style: none;
+    padding: 0;
+}
+
+hammitt-gifting-options-drawer  .broken-out-line-items li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+hammitt-gifting-options-drawer .broken-out-line-items li img {
+    width: 90px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+hammitt-gifting-options-drawer h5 {
+    color: #4D4D4D;
+}
+
+hammitt-gifting-options-drawer .broken-out-line-item-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: start;
+}
+
+hammitt-gifting-options-drawer .checkbox-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+hammitt-gifting-options-drawer .checkbox-container input[type="checkbox"] {
+    margin: 0;
+    accent-color: black;
+    height: 13px;
+    width: 13px;
+    cursor: pointer;
 }
