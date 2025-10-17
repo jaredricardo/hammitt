@@ -613,6 +613,7 @@
             </hammitt-box-opt-out>
           {% endif %}
           {% if settings.enable_hammitt_gifting_drawer %}
+
             <hammitt-gifting-options-drawer-trigger>
               <p>{{ settings.hammitt_gifting_drawer_message }}</p>
               <button id="open-btn">{{ settings.hammitt_gifting_trigger_btn_text }}</button>
@@ -689,37 +690,45 @@
                     console.log('//////')
                     console.log({{ item | json }})
                     console.log({{ item.properties | json }})
-                    window.addEventListener('click',(e) => {
-                      console.log(e.target)
-                    })
                   </script>
+                  {% for i in (1..item.quantity) %}
+                    <li class="broken-out-line-item" data-variant-id="{{ item.variant.id }}">
+                      <hammitt-gifting-broken-out-line-item>
+                        <div class="col">
+                          <img class="product-image" src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title }}">
+                        </div>
+                        <div class="col broken-out-line-item-info-container">
+                          <h5> {{ product_type }} {% if product_size %} {{ product_size_abbreviated }} {% endif %}</h5>
+                          {% if product_color %}
+                            <h5> {{ product_color }} </h5>
+                          {% endif %}
+                    
+                          <div class="checkbox-container">                      
+                            <input type="checkbox" id="no-box" name="gifting-option" {% if _line_item_box_opt_out == true %} checked {% endif %}>
+                            <label for="no-box">Dust bag only, no box.</label>
+                          </div>
 
-                  <li class="broken-out-line-item" data-variant-id="{{ item.variant.id }}">
-                    <div class="col">
-                      <img class="product-image" src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title }}">
-                    </div>
-                    <div class="col broken-out-line-item-info-container">
-                      <h5> {{ product_type }} {% if product_size %} {{ product_size_abbreviated }} {% endif %}</h5>
-                      {% if product_color %}
-                        <h5> {{ product_color }} </h5>
-                      {% endif %}
-                
-                      <div class="checkbox-container">                      
-                        <input type="checkbox" id="no-box" {% if _line_item_box_opt_out == true %} checked {% endif %}>
-                        <label for="no-box">Dust bag only, no box.</label>
-                      </div>
+                          <div class="checkbox-container">  
+                            <input type="checkbox" id="line-item-hand-written-note" name="gifting-option" {% if _line_item_gift_note != false %} checked {% endif %}>
+                            <label for="line-item-hand-written-note">Add Ribbon + Handwritten Note for $5</label>  
+                          </div>
 
-                      <div class="checkbox-container">  
-                        <input type="checkbox" id="line-item-hand-written-note" {% if _line_item_gift_note != false %} checked {% endif %}>
-                        <label for="line-item-hand-written-note">Add Ribbon + Handwritten Note for $5</label>  
-                      </div>
+                          <line-level-hammitt-gift-note class="cart-drawer-gift-note line-level" >
+                            <div class="hammitt-gift-note-area">
+                              <label for="gift-note" class="visually-hidden">Add gift note?</label>
+                              <div class="note-area-container">
+                                <textarea maxlength="500" placeholder="Enter your gift note here" name="note" id="gift-note-text-area"></textarea>
+                                <span id="gift-note-char-limit">0/500</span>
+                              </div>  
+                              <button type="button" id="gift-note-save-button">save</button>
+                              {% comment %} <div id="hidden-existing-cart-attribute">current cart att: {{ cart.attributes['Gift Note'] }}</div> {% endcomment %}
+                            </div>
+                          </line-level-hammitt-gift-note>
 
-                      {% if _line_item_box_opt_out != false %}
-                          
-                      {% endif %}
-
-                    </div>
-                  </li>
+                        </div>
+                      </hammitt-gifting-broken-out-line-item>
+                    </li>
+                  {% endfor %}
                 {% endfor %}
               </ul>
             </hammitt-gifting-options-drawer>

@@ -62,15 +62,18 @@ hammitt-gifting-options-drawer h5  {
 }
 
 hammitt-gifting-options-drawer .broken-out-line-items {
-    margin: 2rem 0 0 0;
+    margin: 2rem 0 0;
     list-style: none;
     padding: 0;
+    max-height: 85vh;
+    overflow: auto;
+    padding-bottom: 2rem;
 }
 
-hammitt-gifting-options-drawer  .broken-out-line-items li {
+hammitt-gifting-options-drawer  hammitt-gifting-broken-out-line-item {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     gap: 2rem;
 }
 
@@ -89,6 +92,7 @@ hammitt-gifting-options-drawer .broken-out-line-item-info-container {
     flex-direction: column;
     gap: 0.5rem;
     align-items: start;
+    width: 100%;
 }
 
 hammitt-gifting-options-drawer .checkbox-container {
@@ -104,4 +108,15 @@ hammitt-gifting-options-drawer .checkbox-container input[type="checkbox"] {
     height: 13px;
     width: 13px;
     cursor: pointer;
+}
+
+.broken-out-line-item:has(#line-item-hand-written-note:checked) .hammitt-gift-note-area {
+    display: flex;  
+}
+
+.broken-out-line-item:has(#no-box:checked) #line-item-hand-written-note,
+.broken-out-line-item:has(#no-box:checked) label[for="line-item-hand-written-note"],
+.broken-out-line-item:has(#line-item-hand-written-note:checked) #no-box,
+.broken-out-line-item:has(#line-item-hand-written-note:checked) label[for="no-box"] {
+    opacity: 0.4;
 }
