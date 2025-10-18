@@ -29,13 +29,13 @@ window.addEventListener('DOMContentLoaded', () => {
     class HammittGiftingBrokenOutLineItem extends HTMLElement {
         constructor() {
             super()
-            this.querySelector('#no-box').addEventListener('change', this.handleLineItemBoxChange)
-            this.querySelector('#line-item-hand-written-note').addEventListener('change', this.handleLineItemGiftNoteChange)
+            this.querySelector('.no-box').addEventListener('change', this.handleLineItemBoxChange)
+            this.querySelector('.line-item-hand-written-note').addEventListener('change', this.handleLineItemGiftNoteChange)
         }
 
         handleLineItemBoxChange() {
             const optOutOfBox = this.checked
-            const giftNoteCheckbox = this.closest('.broken-out-line-item').querySelector('#line-item-hand-written-note')
+            const giftNoteCheckbox = this.closest('.broken-out-line-item').querySelector('.line-item-hand-written-note')
             if(optOutOfBox) {
                 giftNoteCheckbox.checked = false
             }
@@ -43,15 +43,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
         handleLineItemGiftNoteChange() {
             const giftNoteChecked = this.checked
-            const boxOptOut = this.closest('.broken-out-line-item').querySelector('#no-box')
+            const boxOptOut = this.closest('.broken-out-line-item').querySelector('.no-box')
             if(giftNoteChecked) {
                 boxOptOut.checked = false
             }
         }
-
     }
+
+    class HammittLineLevelGiftNote extends HTMLElement {
+        constructor() {
+            super()
+
+            // this.giftNoteValue = document.querySelector('input#hammitt-gift-message-form-input')
+            // this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
+            // this.saveButton = document.querySelector('#gift-note-save-button')
+            // this.giftNoteCharLimit = document.querySelector('span#gift-note-char-limit')
+            // this.giftNoteCheckbox = document.querySelector('input#hammitt-gift-message-checkbox')
+            // this.textAreaPlaceholder = this.giftNoteTextArea.placeholder
+            // this.giftNoteInitData = document.querySelector('.cart-drawer-gift-note')
+            // this.currentNote = ''
+        }
+    }
+
     customElements.define('hammitt-gifting-options-drawer-trigger', HammittGiftingOptionsDrawerTrigger)
     customElements.define('hammitt-gifting-options-drawer', HammittGiftingOptionsDrawer)
     customElements.define('hammitt-gifting-broken-out-line-item', HammittGiftingBrokenOutLineItem)
-
+    customElements.define('hammitt-line-level-gift-note', HammittLineLevelGiftNote)
 })

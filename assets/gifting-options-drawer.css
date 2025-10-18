@@ -110,13 +110,28 @@ hammitt-gifting-options-drawer .checkbox-container input[type="checkbox"] {
     cursor: pointer;
 }
 
-.broken-out-line-item:has(#line-item-hand-written-note:checked) .hammitt-gift-note-area {
+.broken-out-line-item:has(.line-item-hand-written-note:checked) .hammitt-gift-note-area {
     display: flex;  
 }
 
-.broken-out-line-item:has(#no-box:checked) #line-item-hand-written-note,
-.broken-out-line-item:has(#no-box:checked) label[for="line-item-hand-written-note"],
-.broken-out-line-item:has(#line-item-hand-written-note:checked) #no-box,
-.broken-out-line-item:has(#line-item-hand-written-note:checked) label[for="no-box"] {
+/* .broken-out-line-item:has(.no-box:checked) label[for="line-item-hand-written-note"],
+.broken-out-line-item:has(.line-item-hand-written-note:checked) label[for="no-box"] {
     opacity: 0.4;
+} */
+
+/* 
+.broken-out-line-item:has(#line-item-hand-written-note:checked) #no-box
+.broken-out-line-item:has(#no-box:checked) line-item-hand-written-note
+*/
+
+
+hammitt-gifting-options-drawer #save-btn {
+    color: #000;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: 1.5px solid black;
+    background-color: #fff;
+    padding: 3px 6px;
+    margin-left: auto;
+    cursor: pointer;
 }
