@@ -612,7 +612,7 @@
               <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
             </hammitt-box-opt-out>
           {% endif %}
-          {% if settings.enable_hammitt_gifting_drawer %}
+          {% if settings.enable_hammitt_gifting_drawer and settings.hammitt_gift_wrap_product != blank %}
 
             <hammitt-gifting-options-drawer-trigger>
               <p>{{ settings.hammitt_gifting_drawer_message }}</p>
@@ -699,7 +699,7 @@
                         opacity: 0.4;
                       }
                     {% endstyle %}
-                    <li class="broken-out-line-item" data-variant-id="{{ item.variant.id }}">
+                    <li class="broken-out-line-item" data-line-key="{{ item.key }}">
                       <hammitt-gifting-broken-out-line-item>
                         <div class="col">
                           <img class="product-image" src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title }}">
@@ -724,7 +724,7 @@
                             <div class="hammitt-gift-note-area">
                               <div class="note-area-container">
                                 <textarea maxlength="500" placeholder="Enter your gift note here" name="note" class="line-item-gift-note-text-area"></textarea>
-                                <span id="gift-note-char-limit">0/500</span>
+                                <span class="gift-note-char-limit">0/500</span>
                               </div>  
                             </div>
                           </hammitt-line-level-gift-note>

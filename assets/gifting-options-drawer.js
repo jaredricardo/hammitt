@@ -20,9 +20,46 @@ window.addEventListener('DOMContentLoaded', () => {
         constructor() {
             super()
             this.querySelector('#close-btn').addEventListener('click', this.closeGiftingDrawer)
+            this.querySelector('#save-btn').addEventListener('click', this.saveGiftingOptions)
         }
         closeGiftingDrawer(){
             document.querySelector('hammitt-gifting-options-drawer')?.classList.remove('active')
+        }
+        saveGiftingOptions() {
+            console.log('Saving gifting options...')
+            const brokenOutLineItems = document.querySelectorAll('hammitt-gifting-options-drawer .broken-out-line-item')
+            let updateObject = {}
+            let arr = []
+            brokenOutLineItems.forEach((item) => {
+                if(item.querySelector('.no-box').checked) {
+                    const lineKey = item.dataset.lineKey 
+                    arr.push({
+                        id: lineKey,
+                        quantity: 1,
+                        properties: {
+                            'gift_box_opt_out': true
+                        }
+                    })
+                }
+            })
+            updateObject['items'] = arr
+            console.log(updateObject)
+            fetch(window.Shopify.routes.root + 'cart/update.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updateObject)
+            })
+            .then(response => {
+                if(response.ok) {
+                    console.log('SUCCESS')
+                }
+                return response.json()
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            })
         }
     }
 
@@ -54,14 +91,20 @@ window.addEventListener('DOMContentLoaded', () => {
         constructor() {
             super()
 
-            // this.giftNoteValue = document.querySelector('input#hammitt-gift-message-form-input')
-            // this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
-            // this.saveButton = document.querySelector('#gift-note-save-button')
-            // this.giftNoteCharLimit = document.querySelector('span#gift-note-char-limit')
-            // this.giftNoteCheckbox = document.querySelector('input#hammitt-gift-message-checkbox')
-            // this.textAreaPlaceholder = this.giftNoteTextArea.placeholder
-            // this.giftNoteInitData = document.querySelector('.cart-drawer-gift-note')
-            // this.currentNote = ''
+            this.textArea = this.querySelector('.line-item-gift-note-text-area')
+            this.charLimitDisplay = this.querySelector('.gift-note-char-limit')
+            this.textAreaPlaceHolder = this.textArea.placeholder
+            console.log(this.textAreaPlaceHolder)
+            this.textArea.addEventListener('input', this.handleGiftNoteTextAreaChange)
+        }
+        handleGiftNoteTextAreaChange = (e) => {
+            if(e.target.value.length >= 500) {
+                this.charLimitDisplay.innerText = `500/500`
+                return
+            } else {
+                this.charLimitDisplay.innerText = `${e.target.value.length}/500`
+            }
+            console.log(e.target.value)
         }
     }
 
