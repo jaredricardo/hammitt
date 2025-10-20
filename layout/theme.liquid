@@ -96,7 +96,13 @@
         assign seo_tag = product.metafields.custom.product_title_seo_tag
 
         if silhoutte != blank and size != blank
-          assign final_pdp_title = silhoutte | append: ' ' | append: size 
+          # for some reason even when the size field is empty, it returns an integer of 1. So we check if size is equal to 1 to determine if it's blank or not.
+          # If we don't do this, the page title then has a 1 in it.
+          if size == 1
+            assign final_pdp_title = silhoutte
+          else 
+            assign final_pdp_title = silhoutte | append: ' ' | append: size 
+          endif
           if seo_tag
               assign final_pdp_title = final_pdp_title | append: ' | ' | append: seo_tag | append: ' | ' | append: shop.name
             else 
@@ -104,10 +110,7 @@
           endif
         endif
       endif
-    -%}
-
-
- 
+    -%} 
 
     <title>
       {% if request.page_type == "product" %}
