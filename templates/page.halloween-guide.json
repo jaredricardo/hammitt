@@ -9,6 +9,64 @@
  */
 {
   "sections": {
+    "image_banner_kUBFRM": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_GcgWVV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Halloween Drop",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        }
+      },
+      "block_order": [
+        "heading_GcgWVV"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_1037_1.jpg",
+        "image_2": "shopify://shop_images/Rectangle_774_1.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -232,6 +290,7 @@
     }
   },
   "order": [
+    "image_banner_kUBFRM",
     "main",
     "image_with_text_navigator_3mM6rF",
     "featured_products_and_image_N7DjDd",
