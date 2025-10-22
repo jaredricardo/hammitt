@@ -97,6 +97,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_UdnEaT": {
+            "type": "announcement",
+            "settings": {
+              "text": "The Halloween Drop Has Arrived",
+              "text_color": "#ffffff",
+              "background_color": "#4e4e4e",
+              "link": "shopify://pages/halloween-drop"
+            }
+          },
           "announcement_FXEKkw": {
             "type": "announcement",
             "settings": {
@@ -123,23 +132,13 @@
               "background_color": "#000000",
               "link": "shopify://collections/best-selling-bags"
             }
-          },
-          "announcement_UdnEaT": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "Order Protection is now available at checkout.",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://collections/new-arrivals"
-            }
           }
         },
         "block_order": [
+          "announcement_UdnEaT",
           "announcement_FXEKkw",
           "announcement_LaqVmP",
-          "announcement_CwR3it",
-          "announcement_UdnEaT"
+          "announcement_CwR3it"
         ],
         "custom_css": [],
         "settings": {}
