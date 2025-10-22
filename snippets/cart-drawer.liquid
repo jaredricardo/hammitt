@@ -629,6 +629,11 @@
               {% if settings.hammitt_gifting_drawer_header_text %}
                 <p>{{ settings.hammitt_gifting_drawer_header_text }}</p>
               {% endif %}
+
+              <script>
+                console.log('///////////')
+                console.log({{ cart.items | json }})
+              </script>
               <ul class="broken-out-line-items">
                 {% for item in cart.items %}
 
@@ -665,32 +670,47 @@
 
                     endif
 
-                    assign _line_item_box_opt_out = false
-                    assign _line_item_gift_note = false
+                    assign line_item_box_opt_out = false
+                    assign line_item_gift_note = false
 
                     for property in item.properties
+
+                      # for check boxes
                       if property.first == 'line_item_box_opt_out'
-                        assign _line_item_box_opt_out = true
+                        assign line_item_box_opt_out = true
                       endif
                       if property.first == 'line_item_gift_note'
-                        assign _line_item_gift_note = property.last
+                        assign line_item_gift_note = property.last 
                       endif
+
                     endfor
-                  
+
+
+                    assign pre_existing_properties_keys = false
+                    assign pre_existing_properties_values = false
+
+                    if item.properties != empty
+                      assign pre_existing_properties_keys = ''
+                      assign pre_existing_properties_values = ''
+                      for property in item.properties
+                        if property.first == 'line_item_box_opt_out' or property.first == 'line_item_gift_note'
+                          continue
+                        endif
+                        assign pre_existing_properties_keys = pre_existing_properties_keys | append: property.first | append: ','
+                        assign pre_existing_properties_values = pre_existing_properties_values | append: property.last | append: ','
+                      endfor
+                    endif
+
                   -%}
+
+           
 
                   {% comment %} 
                   
-                    <input type="hidden" name="properties[line_item_box_opt_out]" value="test opt out line item"> 
+                    <input type="hidden" name="properties[line_item_gift_box_opt_out]" value="test opt out line item"> 
                     <input type="hidden" name="properties[line_item_gift_note]" value="test gift note line item">
 
                   {% endcomment %}
-
-                  <script>
-                    console.log('//////')
-                    console.log({{ item | json }})
-                    console.log({{ item.properties | json }})
-                  </script>
 
                   {% for i in (1..item.quantity) %}
                     {% style %}
@@ -699,7 +719,14 @@
                         opacity: 0.4;
                       }
                     {% endstyle %}
-                    <li class="broken-out-line-item" data-line-key="{{ item.key }}">
+                    <li class="broken-out-line-item" 
+                      data-vid="{{ item.variant_id }}" 
+                      data-line-key="{{ item.key }}" 
+                      data-full-quantity="{{ item.quantity }}" 
+                      data-pre-existing-properties-keys="{{ pre_existing_properties_keys }}"
+                      data-pre-existing-properties-values="{{ pre_existing_properties_values }}"
+                      {% if line_item_box_opt_out == true or line_item_gift_note != false %} data-gifting-modified="true" {% else %} data-gifting-modified="false" {% endif %}
+                    >
                       <hammitt-gifting-broken-out-line-item>
                         <div class="col">
                           <img class="product-image" src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title }}">
@@ -711,20 +738,27 @@
                           {% endif %}
                     
                           <div class="checkbox-container">                      
-                            <input type="checkbox" class="no-box" id="no-box--{{ item.key }}--{{ i }}" name="gifting-option" {% if _line_item_box_opt_out == true %} checked {% endif %}>
+                            <input type="checkbox" class="no-box" id="no-box--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_box_opt_out == true %} checked {% endif %}>
                             <label for="no-box--{{ item.key }}--{{ i }}">Dust bag only, no box.</label>
                           </div>
 
                           <div class="checkbox-container">  
-                            <input type="checkbox" class="line-item-hand-written-note" id="line-item-hand-written-note--{{ item.key }}--{{ i }}" name="gifting-option" {% if _line_item_gift_note != false %} checked {% endif %}>
+                            <input type="checkbox" class="line-item-hand-written-note" id="line-item-hand-written-note--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_gift_note != false %} checked {% endif %}>
                             <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}">Add Ribbon + Handwritten Note for $5</label>  
                           </div>
 
-                          <hammitt-line-level-gift-note class="cart-drawer-gift-note line-level" >
+                          <hammitt-line-level-gift-note class="cart-drawer-gift-note line-level">
                             <div class="hammitt-gift-note-area">
                               <div class="note-area-container">
-                                <textarea maxlength="500" placeholder="Enter your gift note here" name="note" class="line-item-gift-note-text-area"></textarea>
-                                <span class="gift-note-char-limit">0/500</span>
+                                <textarea maxlength="500" placeholder="Enter your gift note here" name="note" class="line-item-gift-note-text-area" {% if line_item_gift_note != false %} value="{{ line_item_gift_note }}" {% endif %}>{% if line_item_gift_note != false %}{{ line_item_gift_note }}{% endif %}</textarea>
+                                <span class="gift-note-char-limit">
+                                  {% if line_item_gift_note != false %}
+                                    {{ line_item_gift_note | size }}
+                                   {% else %}
+                                    0
+                                  {% endif %}
+                                  /500
+                                </span>
                               </div>  
                             </div>
                           </hammitt-line-level-gift-note>

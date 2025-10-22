@@ -26,36 +26,137 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('hammitt-gifting-options-drawer')?.classList.remove('active')
         }
         saveGiftingOptions() {
-            console.log('Saving gifting options...')
             const brokenOutLineItems = document.querySelectorAll('hammitt-gifting-options-drawer .broken-out-line-item')
-            let updateObject = {}
-            let arr = []
+            const saveBtn = document.querySelector('hammitt-gifting-options-drawer #save-btn')
+            let updates = {}
+            let postUpdateFormData = {
+                items: []
+            }
+
+            saveBtn.disabled = true
+            saveBtn.innerText = 'Saving...'
+
+            /*  
+
+                Steps to save gifting options at line item level:
+            
+                1. loop through gifting options and check how many of a single variant are modified 
+                2. decrement variant by the number of modified variants
+                3. use add.js to add the same variant to cart with the modified properties
+                4. refresh cart drawer to reflect changes
+
+            */
+         
             brokenOutLineItems.forEach((item) => {
-                if(item.querySelector('.no-box').checked) {
-                    const lineKey = item.dataset.lineKey 
-                    arr.push({
-                        id: lineKey,
-                        quantity: 1,
-                        properties: {
-                            'gift_box_opt_out': true
-                        }
+                /* 
+                
+                    I couldn't find an easy way to include the json for the existing properties. 
+                    The properties object comes in as an array with first value being the key
+                    and th second value being the value. This made it difficult to parse through
+                    and re-create the object to include in the new line item. Instead, I am
+                    capturing the keys and values separately in data attributes and creating the JSON
+                    for it below.
+                */
+
+                const preExistingProperties = item.dataset.preExistingPropertiesKeys
+                const preExistingPropertiesValues = item.dataset.preExistingPropertiesValues
+                let consolidatedExistingProperties = null
+
+                // must check false as string since data attributes return strings
+                if(preExistingProperties != 'false' && preExistingPropertiesValues != 'false') {
+                    const keysArray = preExistingProperties.split(',').filter(key => key !== '')
+                    const valuesArray = preExistingPropertiesValues.split(',').filter(value => value !== '')
+                    consolidatedExistingProperties = {}
+                    keysArray.forEach((key, index) => {
+                        consolidatedExistingProperties[key] = valuesArray[index]
                     })
                 }
+                   
+                if(item.querySelector('.no-box').checked || item.querySelector('.line-item-hand-written-note').checked || item.dataset.giftingModified === "true") {
+                    // create object to decrement existing variant by the number of modified items
+                    const lineKey = item.dataset.lineKey
+                    const variantFromLineKey = parseInt(item.dataset.vid)
+                    const fullQuantity = parseInt(item.dataset.fullQuantity)
+                    if(!updates[lineKey]) {
+                        updates[lineKey] = fullQuantity - 1 
+                    } else {
+                        updates[lineKey] = updates[lineKey] - 1
+                    }
+                    // create object to add new line items with modified properties
+                    if(item.querySelector('.no-box').checked) {
+                        if(postUpdateFormData.items.find((i) => i.id === lineKey)){
+                            postUpdateFormData.items.find((i) => i.id === lineKey).quantity += 1
+                        } else {
+                            postUpdateFormData.items.push({
+                                id: variantFromLineKey,
+                                quantity: 1,
+                                properties: {
+                                    'line_item_box_opt_out': true
+                                }
+                            })
+                        }
+                    } else if(item.querySelector('.line-item-hand-written-note').checked) {
+                        const giftNote = item.querySelector('.line-item-gift-note-text-area').value
+                        postUpdateFormData.items.push({
+                            id: variantFromLineKey,
+                            quantity: 1,
+                            properties: {
+                                'line_item_gift_note': giftNote
+                            }
+                        })
+                    } else if (item.dataset.giftingModified === "true") {
+                        postUpdateFormData.items.push({
+                            id: variantFromLineKey,
+                            quantity: 1,
+                            properties: {}
+                        })
+                    }
+                    // merge in any pre-existing properties
+                    if(consolidatedExistingProperties) {
+                        const currentItemIndex = postUpdateFormData.items.length -1
+                        postUpdateFormData.items[currentItemIndex].properties = {
+                            ...postUpdateFormData.items[currentItemIndex].properties,
+                            ...consolidatedExistingProperties
+                        }
+                    }
+                }
             })
-            updateObject['items'] = arr
-            console.log(updateObject)
+
+            console.log(postUpdateFormData)
+
+            // add setions to update so cart updates properly
+            postUpdateFormData.sections = "cart-drawer,cart-icon-bubble,main-cart-items"
+
+            // use change.js to decrement existing line items via the updates object
+      
             fetch(window.Shopify.routes.root + 'cart/update.js', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(updateObject)
+                body: JSON.stringify({updates})
             })
             .then(response => {
                 if(response.ok) {
-                    console.log('SUCCESS')
+                    console.log('SUCCESS, update.js')
+                    fetch(window.Shopify.routes.root + 'cart/add.js', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(postUpdateFormData)
+                    })
+                    .then(addResponse => {
+                        if(addResponse.ok) {
+                            console.log('SUCCESS, add.js')
+                            saveBtn.innerText = 'Saved'
+                        }
+                        return addResponse.json()
+                    })
+                    .then((json) => {
+                        cartUpdate(json)
+                    })
                 }
-                return response.json()
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -94,7 +195,6 @@ window.addEventListener('DOMContentLoaded', () => {
             this.textArea = this.querySelector('.line-item-gift-note-text-area')
             this.charLimitDisplay = this.querySelector('.gift-note-char-limit')
             this.textAreaPlaceHolder = this.textArea.placeholder
-            console.log(this.textAreaPlaceHolder)
             this.textArea.addEventListener('input', this.handleGiftNoteTextAreaChange)
         }
         handleGiftNoteTextAreaChange = (e) => {
@@ -104,7 +204,6 @@ window.addEventListener('DOMContentLoaded', () => {
             } else {
                 this.charLimitDisplay.innerText = `${e.target.value.length}/500`
             }
-            console.log(e.target.value)
         }
     }
 
