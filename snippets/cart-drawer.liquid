@@ -619,7 +619,7 @@
               <button id="open-btn">{{ settings.hammitt_gifting_trigger_btn_text }}</button>
             </hammitt-gifting-options-drawer-trigger>
 
-            <hammitt-gifting-options-drawer>
+            <hammitt-gifting-options-drawer data-gift-note-vid="{{ settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id }}" data-gift-box-vid="{{ settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id }}">
               <div class="header-area">
                 <button id="close-btn">
                   {% render 'icon-chevron-left' %}
@@ -636,6 +636,10 @@
               </script>
               <ul class="broken-out-line-items">
                 {% for item in cart.items %}
+
+                  {% if item.product.selected_or_first_available_variant.id == settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id %}
+                    {% continue %}
+                  {% endif %}
 
                   {% liquid 
 

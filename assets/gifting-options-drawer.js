@@ -28,6 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
         saveGiftingOptions() {
             const brokenOutLineItems = document.querySelectorAll('hammitt-gifting-options-drawer .broken-out-line-item')
             const saveBtn = document.querySelector('hammitt-gifting-options-drawer #save-btn')
+            const giftNoteVid = document.querySelector('hammitt-gifting-options-drawer').dataset.giftNoteVid
             let updates = {}
             let postUpdateFormData = {
                 items: []
@@ -36,6 +37,8 @@ window.addEventListener('DOMContentLoaded', () => {
             saveBtn.disabled = true
             saveBtn.innerText = 'Saving...'
 
+
+            console.log(giftNoteVid)
             /*  
 
                 Steps to save gifting options at line item level:
@@ -61,6 +64,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 const preExistingProperties = item.dataset.preExistingPropertiesKeys
                 const preExistingPropertiesValues = item.dataset.preExistingPropertiesValues
                 let consolidatedExistingProperties = null
+                let numberOfGiftNotesToAdd = 0
 
                 // must check false as string since data attributes return strings
                 if(preExistingProperties != 'false' && preExistingPropertiesValues != 'false') {
@@ -77,11 +81,16 @@ window.addEventListener('DOMContentLoaded', () => {
                     const lineKey = item.dataset.lineKey
                     const variantFromLineKey = parseInt(item.dataset.vid)
                     const fullQuantity = parseInt(item.dataset.fullQuantity)
+
                     if(!updates[lineKey]) {
                         updates[lineKey] = fullQuantity - 1 
                     } else {
                         updates[lineKey] = updates[lineKey] - 1
                     }
+
+                    // remove all gift wrap 
+                    updates[giftNoteVid] = 0
+
                     // create object to add new line items with modified properties
                     if(item.querySelector('.no-box').checked) {
                         if(postUpdateFormData.items.find((i) => i.id === lineKey)){
@@ -104,6 +113,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                 'line_item_gift_note': giftNote
                             }
                         })
+                        numberOfGiftNotesToAdd++
                     } else if (item.dataset.giftingModified === "true") {
                         postUpdateFormData.items.push({
                             id: variantFromLineKey,
@@ -119,9 +129,17 @@ window.addEventListener('DOMContentLoaded', () => {
                             ...consolidatedExistingProperties
                         }
                     }
+                    if(numberOfGiftNotesToAdd > 0) {
+                        // add gift wrap items for each gift note added
+                        postUpdateFormData.items.push({
+                            id: parseInt(giftNoteVid),
+                            quantity: numberOfGiftNotesToAdd
+                        })
+                    }
                 }
             })
 
+            console.log(updates)
             console.log(postUpdateFormData)
 
             // add setions to update so cart updates properly
