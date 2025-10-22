@@ -21,8 +21,86 @@
         "padding_bottom_mobile": 0
       }
     },
+    "image_banner_EHKJJe": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hUURNK": {
+          "type": "heading",
+          "settings": {
+            "heading": "FALL INTO STYLE",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_GdTb9d": {
+          "type": "text",
+          "settings": {
+            "text": "Cherry On Top: Meet a new trio of styles in bestselling Cherrywood leather - all here to sweeten your Fall lineup.",
+            "text_style": "body",
+            "text_size_mobile": 12,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_LQeNrY": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/cherrywood",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hUURNK",
+        "text_GdTb9d",
+        "buttons_LQeNrY"
+      ],
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/cherryw00d-banner_2.jpg",
+        "image_2": "shopify://shop_images/cherryw00d-banner_1.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "custom_liquid_XzDcrj": {
       "type": "custom-liquid",
+      "disabled": true,
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
         "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5x6Eax\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5x6Eax\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
@@ -56,6 +134,7 @@
         "heading_C4HPJN",
         "text_WYe34B"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_classes": "",
@@ -1092,85 +1171,9 @@
         "mobile_padding_bottom": 0
       }
     },
-    "image_banner_EHKJJe": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_hUURNK": {
-          "type": "heading",
-          "settings": {
-            "heading": "PACK IT",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_GdTb9d": {
-          "type": "text",
-          "settings": {
-            "text": "Our original Hunter Backpack is back - this sleek day backpack is an easy work bag for your essentials when you want to look polished. Pair with the Powers pouch for easy packability.",
-            "text_style": "body",
-            "text_size_mobile": 12,
-            "text_size_tablet": 14,
-            "text_size_desktop": 15
-          }
-        },
-        "buttons_LQeNrY": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/hunter-lrg-1",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_hUURNK",
-        "text_GdTb9d",
-        "buttons_LQeNrY"
-      ],
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Rectangle_689_1.jpg",
-        "image_2": "shopify://shop_images/Rectangle_690_1.jpg",
-        "image_link": "",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 40,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "slider_collection_tU7qnA": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -1350,6 +1353,7 @@
   },
   "order": [
     "main",
+    "image_banner_EHKJJe",
     "custom_liquid_XzDcrj",
     "rich_text_iqnFxr",
     "multicolumn_NHk9TT",
@@ -1370,7 +1374,6 @@
     "slider_collection_ppJpUU",
     "image_banner_tgKCXT",
     "slider_collection_RXmtTL",
-    "image_banner_EHKJJe",
     "slider_collection_tU7qnA",
     "multicolumn_8JmVkC",
     "slider_collection_Rfqf3c"
