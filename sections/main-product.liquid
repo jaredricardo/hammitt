@@ -748,6 +748,12 @@
                                   {{ settings.pdp_care_pewter }}
                                 {% elsif stripped_material == 'acrylic' %}
                                   {{ settings.pdp_care_acrylic }}
+                                {% else %}
+                                  {{ inner_block.settings.content }}
+                                  {{ inner_block.settings.page.content }}
+                                  {% if inner_block.settings.split_content %}
+                                    {{ product_description[inner_block.settings.split_index] }}
+                                  {% endif %}
                                 {% endif %}
                               {% else %}
                                 {{ inner_block.settings.content }}
