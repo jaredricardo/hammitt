@@ -16,9 +16,15 @@
     <div class="jr-featured-products-and-image page-width">
         <div class="col">
             {% if section.settings.image != blank %}
-                <div class="img-container">
-                    {{ section.settings.image | image_url: width: 1200 | image_tag }}
-                </div>
+                {% if section.settings.image_link != blank %}
+                    <a href="{{ section.settings.image_link }}" class="img-container">
+                        {{ section.settings.image | image_url: width: 1200 | image_tag }}
+                    </a>
+                {% else %}
+                    <div class="img-container">
+                        {{ section.settings.image | image_url: width: 1200 | image_tag }}
+                    </div>
+                {% endif %}
             {% endif %}
             {% if section.settings.header != blank or section.settings.subheader != blank %}
                 <div class="container mobile">
@@ -97,6 +103,11 @@
                 "id": "image",
                 "label": "Featured Image"
             },
+            {
+                "type": "url",
+                "id": "image_link",
+                "label": "Image Link (optional)"
+            },  
             {
                 "type": "text",
                 "id": "header",
