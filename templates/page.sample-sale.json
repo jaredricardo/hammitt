@@ -139,12 +139,128 @@
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36
       }
+    },
+    "multicolumn_Uk7B9j": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_KtPPMb": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Hammitt_Kyle_Lrg-Black-BG-Red_Zip_6A_1.jpg",
+            "title": "<strong>Shop New Arrivals</strong>",
+            "b_title_color": "#000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/new-arrivals",
+            "cta_color": "#fff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_iXmUbM": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_68.jpg",
+            "title": "<strong>Shop Bestsellers</strong>",
+            "b_title_color": "#000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/best-selling-bags",
+            "cta_color": "#fff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_T6Vk3E": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Frame_12575_1.jpg",
+            "title": "<strong>Shop Limited-Drop </strong>",
+            "b_title_color": "#000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://products/kyle-bronze-gold",
+            "cta_color": "#fff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_KtPPMb",
+        "column_iXmUbM",
+        "column_T6Vk3E"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Shop While You Wait",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": false,
+        "removed_section_padding": false,
+        "columns_desktop": 3,
+        "columns_gap": 2,
+        "row_gap": 2,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "bottom",
+        "background_style": "none",
+        "button_label": "Shop All",
+        "button_link": "shopify://collections/view-all",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "main",
     "sample_sale_timer_section_EJLeaf",
     "image_with_text_9kWKf6",
-    "rich_text_f38cMJ"
+    "rich_text_f38cMJ",
+    "multicolumn_Uk7B9j"
   ]
 }
