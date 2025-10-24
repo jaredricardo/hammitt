@@ -134,11 +134,11 @@
       
 
          :root {
-           --font-body-family: 'sof', Helvetica, sans-serif;
+           --font-body-family: {{ settings.type_body_font.family }};
            --font-body-style: {{ settings.type_body_font.style }};
            --font-body-weight: normal;
 
-           --font-heading-family:  'sof', Helvetica, sans-serif;
+           --font-heading-family: 'Adobe Carlson';
            --font-heading-style: {{ settings.type_header_font.style }}; 
            --font-heading-weight: normal;
 
@@ -249,18 +249,7 @@
            --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
            --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
          }
-
-      :root body.template-index #MainContent {
-         --font-body-family: 'Sofia Pro', Helvetica, sans-serif;
-         --font-heading-family:  'Sofia Pro', Helvetica, sans-serif;
-        }
-        :root body.template-product #MainContent {
-         --font-body-family: 'Sofia Pro', Helvetica, sans-serif;
-         --font-heading-family:  'Sofia Pro', Helvetica, sans-serif;
-        }
-
-       
-       
+                
          *,
          *::before,
          *::after {
@@ -285,10 +274,6 @@
            font-style: var(--font-body-style);
            font-weight: var(--font-body-weight);
          }
-        body.template-index #MainContent,
-        body.template-product #MainContent{
-          font-family:'Sofia Pro', Helvetica, sans-serif
-        }
 
          @media screen and (min-width: 750px) {
            body {
