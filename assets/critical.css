@@ -5,6 +5,67 @@ mainly above the fold and immedietly visible. Base.css loads after a lot of mark
 
 */
 
+
+h1,
+.h1 {
+  font-size: 42px !important;
+  font-family: 'Adobe Carlson Italic' !important;
+}
+
+h1.carlson-pro,
+.h1.carlson-pro {
+  font-family: 'Adobe Carlson Pro' !important;
+}
+
+h2,
+.h2 {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 32px !important;
+}
+
+h2.carlson-pro,
+.h2.carlson-pro {
+  font-family: 'Adobe Carlson Pro' !important;
+}
+
+h3,
+.h3 {
+  font-size: 28px !important;
+  font-family: "Nunito Sans", sans-serif !important;
+}
+
+h4,
+.h4 {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 20px !important; 
+}
+
+
+@media only screen and (max-width: 750px) {
+  h1,
+  .h1 {
+    font-size: 30px !important;
+  }
+  h2,
+  .h2 {
+    font-size: 22px !important;
+  }
+  h2.carlson-pro,
+  .h2.carlson-pro {
+    font-size: 20px !important;
+  }
+  h3,
+  .h3  {
+    font-size: 18px !important;
+  },
+  h4,
+  .h4 {
+    font-size: 16px !important;
+  }
+}
+
+
+
 #yotpo-star-rating-highly-rated-topics {
     background: transparent !important;
     padding: 1rem 0 !important;

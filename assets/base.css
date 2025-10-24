@@ -429,7 +429,7 @@ body,
   margin-top: 0;
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -450,30 +450,33 @@ h5,
 
 .h0 {
   font-size: calc(var(--font-heading-scale) * 3rem);
-}
+} */
 
 @media only screen and (min-width: 750px) {
   .h0 {
     font-size: calc(var(--font-heading-scale) * 3.7rem);
   }
 }
-
+/* 
 h1,
 .h1 {
-  font-size: calc(var(--font-heading-scale) * 2.5rem);
-}
-
-@media only screen and (min-width: 750px) {
-  h1,
-  .h1 {
-    font-size: calc(var(--font-heading-scale) * 2.5rem);
-  }
+  font-size: 42px !important;
+  font-family: 'Adobe Carlson Italic';
 }
 
 h2,
 .h2 {
   font-size: calc(var(--font-heading-scale) * 2rem);
 }
+
+@media only screen and (min-width: 750px) {
+  h1,
+  .h1 {
+    font-size: 30px;
+  }
+}
+
+
 
 @media only screen and (min-width: 750px) {
   h2,
@@ -518,7 +521,7 @@ h6,
   color: rgb(var(--color-foreground));
   margin-block-start: 1.67em;
   margin-block-end: 1.67em;
-}
+} */
 
 blockquote {
   font-style: italic;
@@ -2858,7 +2861,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 
 
 .mega-menu h5,.mega-menu .h5 {
-  font-weight: bold;
+  font-weight: 400;
 }
 .mega-menu a {
   line-height: 1.5;
