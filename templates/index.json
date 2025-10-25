@@ -109,6 +109,9 @@
     },
     "jr_new_5050_product_list_zy3tkK": {
       "type": "jr-new-5050-product-list",
+      "custom_css": [
+        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
+      ],
       "name": "JR Product List & Image",
       "settings": {
         "background_color": "#ffffff",
