@@ -40,27 +40,59 @@ h4,
   font-size: 20px !important; 
 }
 
+h5,
+.h5 { 
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 18px !important;
+}
+
+h6,
+.h6
+ {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+}
+
+p {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+}
+
 
 @media only screen and (max-width: 750px) {
-  h1,
-  .h1 {
+  /* cheap way of adding greater specificity */
+  body h1,
+  body .h1 {
     font-size: 30px !important;
   }
-  h2,
-  .h2 {
+  body h2,
+  body .h2 {
     font-size: 22px !important;
   }
-  h2.carlson-pro,
-  .h2.carlson-pro {
+  body h2.carlson-pro,
+  body .h2.carlson-pro {
     font-size: 20px !important;
   }
-  h3,
-  .h3  {
+  body h3,
+  body .h3  {
     font-size: 18px !important;
-  },
-  h4,
-  .h4 {
+  }
+  body h4,
+  body .h4 {
     font-size: 16px !important;
+  }
+  body h5,
+  body .h5 {
+    font-size: 15px !important;
+  }
+  body h6,
+  body .h6 {
+    font-size: 14px !important;
+  }
+  body p {
+    font-size: 12px !important;
   }
 }
 
@@ -146,20 +178,20 @@ h4,
 }
 
 .jr-customer-reviews .review-content h3 {
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 500;
   line-height: 22px;
+  margin: 0.5rem 0;
 }
 
 .jr-customer-reviews .review-content p {
   font-weight: 400;
-  font-size: 14px;
   line-height: 120%;
+  margin: 0.25rem 0;
 }
 
 .jr-customer-reviews .review-content h5 {
   font-weight: 500;
-  font-size: 14px;
+  margin: 0.5rem 0;
 }
 
 .jr-customer-reviews .swiper-scrollbar {
@@ -172,12 +204,10 @@ h4,
 
 @media screen and (max-width: 768px) {
   .jr-customer-reviews .review-content h3 {
-    font-size: 14px;
     line-height: 18px;
   }
 
   .jr-customer-reviews .review-content p {
-    font-size: 12px;
     line-height: 14px;
     max-width: 85%;
     margin: 0 auto important!;
