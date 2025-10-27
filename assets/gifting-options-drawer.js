@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             saveBtn.disabled = true
             saveBtn.innerText = 'Saving...'
-
+            document.querySelector('hammitt-gifting-options-drawer .loading-spinner-container .spinner')?.classList.add('active')
 
             console.log(giftNoteVid)
             /*  
@@ -185,19 +185,38 @@ window.addEventListener('DOMContentLoaded', () => {
     class HammittGiftingBrokenOutLineItem extends HTMLElement {
         constructor() {
             super()
-            this.querySelector('.no-box').addEventListener('change', this.handleLineItemBoxChange)
-            this.querySelector('.line-item-hand-written-note').addEventListener('change', this.handleLineItemGiftNoteChange)
+            this.querySelector('.no-box').addEventListener('change', this.handleLineItemNoBoxClick)
+            this.querySelector('.line-item-hand-written-note').addEventListener('change', this.handleLineItemGiftNoteClick)
+            this.querySelector('.default-box').addEventListener('change', this.handleLineItemDefaultBoxClick)
         }
 
-        handleLineItemBoxChange() {
+        handleLineItemDefaultBoxClick() {
+            const defaultBoxChecked = this.checked
+            const boxOptOut = this.closest('.broken-out-line-item').querySelector('.no-box')
+            if(defaultBoxChecked) {
+                boxOptOut.checked = false
+            }
+            if(!defaultBoxChecked && !boxOptOut.checked) {
+                this.checked = true
+            }
+        }
+        
+        handleLineItemNoBoxClick() {
             const optOutOfBox = this.checked
             const giftNoteCheckbox = this.closest('.broken-out-line-item').querySelector('.line-item-hand-written-note')
+            const defaultBoxCheckbox = this.closest('.broken-out-line-item').querySelector('.default-box')
+            const defaultBoxCheckboxChecked = this.closest('.broken-out-line-item').querySelector('.default-box').checked
+           
             if(optOutOfBox) {
                 giftNoteCheckbox.checked = false
+                defaultBoxCheckbox.checked = false
+            }
+            if(!optOutOfBox && !defaultBoxCheckboxChecked) {
+                defaultBoxCheckbox.checked = true
             }
         }
 
-        handleLineItemGiftNoteChange() {
+        handleLineItemGiftNoteClick() {
             const giftNoteChecked = this.checked
             const boxOptOut = this.closest('.broken-out-line-item').querySelector('.no-box')
             if(giftNoteChecked) {

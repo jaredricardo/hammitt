@@ -301,6 +301,12 @@
                 assign has_gift_note = true
               endif
 
+              assign noLink = false
+
+              if item.product.selected_or_first_available_variant.id == settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id
+                assign noLink = true
+              endif
+
               ####### new way of assigning product title
 
               assign product_type =  item.product.metafields.custom.product_title_type
@@ -326,6 +332,22 @@
               if item.title == 'Hammitt GWP' and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
                 assign is_gwp = true
               endif
+
+              assign opted_out_of_box = false
+              assign has_line_level_gift_note = false
+
+              for property in item.properties
+
+                # for check boxes
+                if property.first == 'line_item_box_opt_out'
+                  assign opted_out_of_box = true
+                endif
+                if property.first == 'line_item_gift_note'
+                  assign has_line_level_gift_note = true
+                endif
+
+              endfor
+            
 
             -%}
 
@@ -386,15 +408,13 @@
                 {% endif %}
                 <div> 
                   <div class="drawer__content-item-and-price">
-                     {% if is_gwp %}
+                     {% if is_gwp or noLink %}
                       <p class="cart-item__title" style="margin:0;">{{ product_type }}</p>
                      {% endif %}
-                    {%  unless is_gwp %}
-                      {% if item.variant_id contains isHiddenItem %} wow {% endif %}
-                       
+                    {%  unless is_gwp or noLink %}                 
                       <a {% unless item.variant_id contains isHiddenItem %}href="{{ item.url }}"{% endunless %} class="cart-item__name break">
-                      <span class="cart-item__title">{{ product_type }}</span>
-                    </a> 
+                        <span class="cart-item__title">{{ product_type }}</span>
+                      </a> 
                     {% endunless %}
                     <div class="drawer__content-item-price"> 
                       <div class="cart-item__price-wrapper">
@@ -470,52 +490,64 @@
                     {%- endfor -%}
                   </ul>
                 </div> 
-                <div class="flex align-center drawer__content-item-actions">
-                  {% unless has_monogram %}
-                  <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}" {% if item.id == EEGWPAddOnId %} disabled style="pointer-events: none; visibility: hidden; opacity: 0;"{% endif %}>
-                    <button class="quantity__button no-js-hidden" name="minus" type="button">
-                      <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
-                      {% render 'icon-minus' %}
-                    </button>
-                    <input class="quantity__input"
-                           type="number"
-                           name="updates[]"
-                           value="{{ item.quantity }}"
-                           min="0"
-                           {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}
-                           max="{{ item.variant.inventory_quantity }}"
-                           {% endunless %}
-                           aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                           id="CartDrawer__Quantity-{{ item.index | plus: 1 }}"
-                           data-index="{{ item.index | plus: 1 }}"
-                          >
-                    <button
-                      class="quantity__button no-js-hidden" 
-                      name="plus" 
-                      type="button"
-                    >
-                      <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
-                      {% render 'icon-plus' %}
-                    </button>
-                  </quantity-input>
-                  {% else %}
-                  <div><span class='visually-hidden'>Monogram</span></div>
-                  {% endunless %}
-                  <div class="remove-button-container">
-                    <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
-                      <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
-                        {% render 'icon-remove' %}
-                      </a>
-                    </cart-remove-button>
-                    <div class="loading-overlay hidden">
-                      <div class="loading-overlay__spinner loading-overlay__spin">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                        </svg>
+                  {% unless item.variant_id == settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id %}
+                    <div class="flex align-center drawer__content-item-actions">
+                      {% unless has_monogram %}
+                      <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}" {% if item.id == EEGWPAddOnId %} disabled style="pointer-events: none; visibility: hidden; opacity: 0;"{% endif %}>
+                        <button class="quantity__button no-js-hidden" name="minus" type="button">
+                          <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
+                          {% render 'icon-minus' %}
+                        </button>
+                        <input class="quantity__input"
+                              type="number"
+                              name="updates[]"
+                              value="{{ item.quantity }}"
+                              min="0"
+                              {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}
+                              max="{{ item.variant.inventory_quantity }}"
+                              {% endunless %}
+                              aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                              id="CartDrawer__Quantity-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
+                              >
+                        <button
+                          class="quantity__button no-js-hidden" 
+                          name="plus" 
+                          type="button"
+                        >
+                          <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
+                          {% render 'icon-plus' %}
+                        </button>
+                      </quantity-input>
+
+                      {% if settings.enable_hammitt_gifting_drawer and settings.hammitt_gift_wrap_product != blank %}
+                        {% if opted_out_of_box == true %}
+                          <span class="gifting-options-icon">🚫📦</span>
+                        {% endif %}
+                        {% if has_line_level_gift_note == true %}
+                          <span class="gifting-options-icon">🎁</span>
+                        {% endif %}
+                      {% endif %}
+                      
+                      {% else %}
+                      <div><span class='visually-hidden'>Monogram</span></div>
+                      {% endunless %}
+                      <div class="remove-button-container">
+                        <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
+                          <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                            {% render 'icon-remove' %}
+                          </a>
+                        </cart-remove-button>
+                        <div class="loading-overlay hidden">
+                          <div class="loading-overlay__spinner loading-overlay__spin">
+                            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                            </svg>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  {% endunless %}
                 {% if is_gift_note %}
                 <label for="gift-note" class="visually-hidden">Add gift note?</label>
                 <textarea placeholder="Add gift note?" name="note" id="gift-note">{{ cart.attributes['Gift Note'] }}</textarea>
@@ -741,6 +773,10 @@
                             <h5> {{ product_color }} </h5>
                           {% endif %}
                     
+                          <div class="checkbox-container">
+                            <input type="checkbox" class="default-box" id="complimentary--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_box_opt_out == false and line_item_gift_note == false %} checked {% endif %}>
+                            <label for="complimentary--{{ item.key }}--{{ i }}">Complimentary box + dust bag</label>
+                          </div>
                           <div class="checkbox-container">                      
                             <input type="checkbox" class="no-box" id="no-box--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_box_opt_out == true %} checked {% endif %}>
                             <label for="no-box--{{ item.key }}--{{ i }}">Dust bag only, no box.</label>
@@ -773,6 +809,12 @@
                   {% endfor %}
                 {% endfor %}
               </ul>
+              <div class="loading-spinner-container">
+                <div class="loading-spinner-container-inner-bg"></div>
+                <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                </svg>
+              </div>
             </hammitt-gifting-options-drawer>
           {% endif %}
           <div class="gift-box-content">{{ content.description }}</div>
