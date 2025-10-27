@@ -17,9 +17,11 @@
         assign has_limited_edition_tag = false
         assign has_coming_soon_tag = false
         assign has_best_seller_tag = false
+        assign has_final_sale_tag = false
         assign badge_tag = ''
-        
 
+
+        
         if product.tags contains 'coming-soon'
             assign has_coming_soon_tag = true
             assign special_tag_assigned = true
@@ -28,6 +30,12 @@
 
         if product.available == false and special_tag_assigned == false
             assign special_tag_assigned = true
+        endif
+
+        if product.tags contains 'final sale' or product.tags contains 'sample sale'
+            assign has_final_sale_tag = true
+            assign special_tag_assigned = true
+            assign badge_tag = 'Sale'
         endif
 
         if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available and special_tag_assigned == false

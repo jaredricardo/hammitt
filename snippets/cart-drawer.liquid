@@ -428,6 +428,11 @@
                     {% if settings.gwp_product.selected_or_first_available_variant.id == item.id %}
                       {% comment %} <p style="margin: 8px 0 0 0; font-size: 12px; font-weight: 600; line-height: 1.3;">Heads up: Our TLC kit can be used on all pebbled leathers. Wondering if the cleaner inside is right for your bag? Email wecare@hammitt.com</p> {% endcomment %}
                     {% endif %}
+
+                    {% if item.product.tags contains 'sample sale' or item.product.tags contains 'final sale' %}
+                      <span style="color:#C74141; font-size: 11px; margin-top: 5px; margin-bottom: 3px;"> Final Sale</span>
+                    {% endif %}
+
                     {% if has_monogram %}
                       <div class="monogram product-option">
                         <div class="drawer__content-item-info"> 
@@ -686,6 +691,10 @@
                     assign product_size_abbreviated = null
                     assign formatted_size_string = null
                     assign formatted_product_title = product_type
+                    assign pre_existing_properties_keys = false
+                    assign pre_existing_properties_values = false
+                    assign excluded_from_gifting = false
+                    assign is_final_sale = false
 
                     if product_size 
 
@@ -721,10 +730,6 @@
 
                     endfor
 
-
-                    assign pre_existing_properties_keys = false
-                    assign pre_existing_properties_values = false
-
                     if item.properties != empty
                       assign pre_existing_properties_keys = ''
                       assign pre_existing_properties_values = ''
@@ -736,6 +741,13 @@
                         assign pre_existing_properties_values = pre_existing_properties_values | append: property.last | append: ','
                       endfor
                     endif
+
+                    if product.tags contains 'final sale' or product.tags contains 'sample sale'
+                      assign excluded_from_gifting = true
+                      assign is_final_sale = true
+                    endif
+
+                    # write logic to exlcude from gifting for items that dont come in a box 
 
                   -%}
 
@@ -761,6 +773,7 @@
                       data-full-quantity="{{ item.quantity }}" 
                       data-pre-existing-properties-keys="{{ pre_existing_properties_keys }}"
                       data-pre-existing-properties-values="{{ pre_existing_properties_values }}"
+                      data-excluded-from-gifting="{{ excluded_from_gifting }}"
                       {% if line_item_box_opt_out == true or line_item_gift_note != false %} data-gifting-modified="true" {% else %} data-gifting-modified="false" {% endif %}
                     >
                       <hammitt-gifting-broken-out-line-item>
@@ -772,20 +785,29 @@
                           {% if product_color %}
                             <h5> {{ product_color }} </h5>
                           {% endif %}
-                    
-                          <div class="checkbox-container">
-                            <input type="checkbox" class="default-box" id="complimentary--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_box_opt_out == false and line_item_gift_note == false %} checked {% endif %}>
-                            <label for="complimentary--{{ item.key }}--{{ i }}">Complimentary box + dust bag</label>
-                          </div>
-                          <div class="checkbox-container">                      
-                            <input type="checkbox" class="no-box" id="no-box--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_box_opt_out == true %} checked {% endif %}>
-                            <label for="no-box--{{ item.key }}--{{ i }}">Dust bag only, no box.</label>
-                          </div>
 
-                          <div class="checkbox-container">  
-                            <input type="checkbox" class="line-item-hand-written-note" id="line-item-hand-written-note--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_gift_note != false %} checked {% endif %}>
-                            <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}">Add Ribbon + Handwritten Note for $5</label>  
-                          </div>
+                          {% if excluded_from_gifting == true %}
+                             <div class="excluded-container">
+                              {% if is_final_sale == true %}
+                                <span style="color: #C74141;">Final Sale</span>
+                                <span class="db-only">Shipped in dust bags only. No gift wrap available.</span>
+                              {% endif %}
+                             </div>
+                            {% else %}
+                              <div class="checkbox-container">
+                                <input type="checkbox" class="default-box" id="complimentary--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_box_opt_out == false %} checked {% endif %}>
+                                <label for="complimentary--{{ item.key }}--{{ i }}">Complimentary box + dust bag</label>
+                              </div>
+                              <div class="checkbox-container">                      
+                                <input type="checkbox" class="no-box" id="no-box--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_box_opt_out == true %} checked {% endif %}>
+                                <label for="no-box--{{ item.key }}--{{ i }}">Dust bag only, no box.</label>
+                              </div>
+
+                              <div class="checkbox-container">  
+                                <input type="checkbox" class="line-item-hand-written-note" id="line-item-hand-written-note--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_gift_note != false %} checked {% endif %}>
+                                <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}">Add Ribbon + Handwritten Note for $5</label>  
+                              </div>
+                          {% endif %}
 
                           <hammitt-line-level-gift-note class="cart-drawer-gift-note line-level">
                             <div class="hammitt-gift-note-area">

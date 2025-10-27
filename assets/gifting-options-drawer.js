@@ -38,7 +38,6 @@ window.addEventListener('DOMContentLoaded', () => {
             saveBtn.innerText = 'Saving...'
             document.querySelector('hammitt-gifting-options-drawer .loading-spinner-container .spinner')?.classList.add('active')
 
-            console.log(giftNoteVid)
             /*  
 
                 Steps to save gifting options at line item level:
@@ -51,6 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
             */
          
             brokenOutLineItems.forEach((item) => {
+
                 /* 
                 
                     I couldn't find an easy way to include the json for the existing properties. 
@@ -60,6 +60,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     capturing the keys and values separately in data attributes and creating the JSON
                     for it below.
                 */
+
+                if(item.dataset.excludedFromGifting === 'true' ) return
 
                 const preExistingProperties = item.dataset.preExistingPropertiesKeys
                 const preExistingPropertiesValues = item.dataset.preExistingPropertiesValues
@@ -185,9 +187,9 @@ window.addEventListener('DOMContentLoaded', () => {
     class HammittGiftingBrokenOutLineItem extends HTMLElement {
         constructor() {
             super()
-            this.querySelector('.no-box').addEventListener('change', this.handleLineItemNoBoxClick)
-            this.querySelector('.line-item-hand-written-note').addEventListener('change', this.handleLineItemGiftNoteClick)
-            this.querySelector('.default-box').addEventListener('change', this.handleLineItemDefaultBoxClick)
+            this.querySelector('.no-box')?.addEventListener('change', this.handleLineItemNoBoxClick)
+            this.querySelector('.line-item-hand-written-note')?.addEventListener('change', this.handleLineItemGiftNoteClick)
+            this.querySelector('.default-box')?.addEventListener('change', this.handleLineItemDefaultBoxClick)
         }
 
         handleLineItemDefaultBoxClick() {
@@ -219,8 +221,10 @@ window.addEventListener('DOMContentLoaded', () => {
         handleLineItemGiftNoteClick() {
             const giftNoteChecked = this.checked
             const boxOptOut = this.closest('.broken-out-line-item').querySelector('.no-box')
+            const defaultBoxCheckbox = this.closest('.broken-out-line-item').querySelector('.default-box')
             if(giftNoteChecked) {
                 boxOptOut.checked = false
+                defaultBoxCheckbox.checked = true
             }
         }
     }
