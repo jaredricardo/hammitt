@@ -705,17 +705,18 @@
                   {% endfor %}
                  </div>
                   {% if block.settings.show_gifting_tooltip %}
-                    <gifting-tooltip-container>
-                      {% render 'icon-gift-box' %}
-                      <div class="heading-container">
-                        {{ block.settings.gifting_tooltip_heading }}
-                        <span class="learn-more">
-                          Learn more.
-                          <div class="gifting-tooltip-content">{{ block.settings.gifting_tooltip_content }}</div>
-                        </span>
-                      </div>
-                  
-                    </gifting-tooltip-container>
+                    {% unless product.tags contains 'sample sale' or product.tags contains 'final sale' %}
+                      <gifting-tooltip-container>
+                        {% render 'icon-gift-box' %}
+                        <div class="heading-container">
+                          {{ block.settings.gifting_tooltip_heading }}
+                          <span class="learn-more">
+                            Learn more.
+                            <div class="gifting-tooltip-content">{{ block.settings.gifting_tooltip_content }}</div>
+                          </span>
+                        </div>
+                      </gifting-tooltip-container>
+                    {% endunless %}
                   {% endif %}
                 {% endif %}
             {%- when 'product_collapsible' -%}
