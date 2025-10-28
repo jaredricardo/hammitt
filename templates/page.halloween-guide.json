@@ -94,18 +94,18 @@
     "image_with_text_navigator_3mM6rF": {
       "type": "image-with-text-navigator",
       "blocks": {
-        "navigator_AYa9WG": {
-          "type": "navigator",
-          "settings": {
-            "title": "The Night",
-            "href": "black"
-          }
-        },
         "navigator_6QYWA8": {
           "type": "navigator",
           "settings": {
             "title": "The Elegant Red",
             "href": "Cherrywood"
+          }
+        },
+        "navigator_AYa9WG": {
+          "type": "navigator",
+          "settings": {
+            "title": "The Night",
+            "href": "black"
           }
         },
         "navigator_Jk8e9j": {
@@ -152,8 +152,8 @@
         }
       },
       "block_order": [
-        "navigator_AYa9WG",
         "navigator_6QYWA8",
+        "navigator_AYa9WG",
         "navigator_Jk8e9j",
         "navigator_wWrw67",
         "navigator_jbKDtp",
@@ -165,6 +165,21 @@
       "settings": {
         "background_color": "#ffffff",
         "enable_scroll_to_top": false
+      }
+    },
+    "featured_products_and_image_t3Xgqi": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Cherrywood",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Rectangle_1521.jpg",
+        "image_link": "shopify://collections/red-1",
+        "header": "The Elegant Red",
+        "subheader": "A bold red that exudes confidence and allure. Smooth, rich, and full of warmth — made for the magic of fall evenings.",
+        "featured_products": [],
+        "featured_collection": "red-1"
       }
     },
     "featured_products_and_image_N7DjDd": {
@@ -242,21 +257,6 @@
         "featured_collection": "olive"
       }
     },
-    "featured_products_and_image_t3Xgqi": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "Cherrywood",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/Rectangle_1521.jpg",
-        "image_link": "shopify://collections/red-1",
-        "header": "The Elegant Red",
-        "subheader": "A bold red that exudes confidence and allure. Smooth, rich, and full of warmth — made for the magic of fall evenings.",
-        "featured_products": [],
-        "featured_collection": "red-1"
-      }
-    },
     "featured_products_and_image_UTxwwj": {
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
@@ -292,8 +292,8 @@
     "main",
     "image_banner_kUBFRM",
     "image_with_text_navigator_3mM6rF",
-    "featured_products_and_image_N7DjDd",
     "featured_products_and_image_t3Xgqi",
+    "featured_products_and_image_N7DjDd",
     "featured_products_and_image_p4nBgw",
     "featured_products_and_image_URXAyE",
     "featured_products_and_image_n7xGzC",
