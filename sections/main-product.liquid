@@ -709,9 +709,12 @@
                       {% render 'icon-gift-box' %}
                       <div class="heading-container">
                         {{ block.settings.gifting_tooltip_heading }}
-                        <span class="learn-more">Learn more.</span>
+                        <span class="learn-more">
+                          Learn more.
+                          <div class="gifting-tooltip-content">{{ block.settings.gifting_tooltip_content }}</div>
+                        </span>
                       </div>
-                      <div class="gifting-tooltip-content">{{ block.settings.gifting_tooltip_content }}</div>
+                  
                     </gifting-tooltip-container>
                   {% endif %}
                 {% endif %}

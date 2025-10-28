@@ -287,7 +287,8 @@ class CartItems extends HTMLElement {
           document.querySelector('.cart__checkout-button').disabled = false;  
         }
       }, 1000)
-      var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
+
+      fetch(window.Shopify.routes.root + 'cart.js')
       .then(response => response.json())
       .then(data => 
         {

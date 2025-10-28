@@ -140,8 +140,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
             })
 
-            console.log(updates)
-            console.log(postUpdateFormData)
 
             // add setions to update so cart updates properly
             postUpdateFormData.sections = "cart-drawer,cart-icon-bubble,main-cart-items"
@@ -157,7 +155,6 @@ window.addEventListener('DOMContentLoaded', () => {
             })
             .then(response => {
                 if(response.ok) {
-                    console.log('SUCCESS, update.js')
                     fetch(window.Shopify.routes.root + 'cart/add.js', {
                         method: 'POST',
                         headers: {
@@ -167,7 +164,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     })
                     .then(addResponse => {
                         if(addResponse.ok) {
-                            console.log('SUCCESS, add.js')
                             saveBtn.innerText = 'Saved'
                         }
                         return addResponse.json()
@@ -250,8 +246,8 @@ window.addEventListener('DOMContentLoaded', () => {
     class GiftingTooltipContainer extends HTMLElement {
         constructor() {
             super()
-            this.addEventListener('mouseenter', this.open)
-            this.addEventListener('mouseleave', this.close)
+            this.querySelector('.learn-more')?.addEventListener('mouseenter', this.open)
+            this.querySelector('.learn-more')?.addEventListener('mouseleave', this.close)
             this.querySelector('.close-btn')?.addEventListener('click', this.close)
         }
         open() {
