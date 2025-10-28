@@ -742,12 +742,14 @@
                       endfor
                     endif
 
-                    if product.tags contains 'final sale' or product.tags contains 'sample sale'
+                    if item.product.tags contains 'final sale' or item.product.tags contains 'sample sale' 
                       assign excluded_from_gifting = true
                       assign is_final_sale = true
                     endif
 
-                    # write logic to exlcude from gifting for items that dont come in a box 
+                    if item.product.tags contains 'excluded-from-gifting'
+                      assign excluded_from_gifting = true
+                    endif
 
                   -%}
 
@@ -789,9 +791,9 @@
                           {% if excluded_from_gifting == true %}
                              <div class="excluded-container">
                               {% if is_final_sale == true %}
-                                <span style="color: #C74141;">Final Sale</span>
-                                <span class="db-only">Shipped in dust bags only. No gift wrap available.</span>
+                                <span style="color: #C74141; font-size: 11px;">Final Sale</span>
                               {% endif %}
+                              <span class="db-only">Shipped in dust bags only. Gifting options unavailable.<span>
                              </div>
                             {% else %}
                               <div class="checkbox-container">
