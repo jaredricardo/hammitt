@@ -1587,7 +1587,7 @@ const cartUpdate = (json = false) => {
             if(item.id === giftWrapProductVid) {
               totalGiftWrapsCurrentlyInCart += item.quantity
             }
-            if(item.properties && item.properties['line_item_gift_note'] !== undefined) {
+            if(item.properties && item.properties['_line_item_gift_note'] !== undefined) {
               totalItemsWithGiftWrapPropertyInCart += item.quantity
             }
           })
