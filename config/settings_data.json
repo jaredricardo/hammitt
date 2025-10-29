@@ -127,7 +127,7 @@
           "announcement_CwR3it": {
             "type": "announcement",
             "settings": {
-              "text": "Free Standard Shipping on All Orders",
+              "text": "Free Shipping on All Orders",
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "shopify://collections/best-selling-bags"
@@ -146,6 +146,14 @@
       "header": {
         "type": "header",
         "blocks": {
+          "visual_menu_item_He8yDn": {
+            "type": "visual-menu-item",
+            "settings": {
+              "nav_link": "shopify://pages/hammitt-gifting",
+              "title": "Gifts",
+              "nav_image": "shopify://shop_images/IMG_3193_30.jpg"
+            }
+          },
           "visual_menu_item_R797MM": {
             "type": "visual-menu-item",
             "settings": {
@@ -168,14 +176,6 @@
               "nav_link": "shopify://collections/kyle",
               "title": "Kyle",
               "nav_image": "shopify://shop_images/IMG_3193_37.jpg"
-            }
-          },
-          "visual_menu_item_He8yDn": {
-            "type": "visual-menu-item",
-            "settings": {
-              "nav_link": "shopify://collections/trending",
-              "title": "Top Trending",
-              "nav_image": "shopify://shop_images/IMG_3193_30.jpg"
             }
           },
           "visual_menu_item_RG36DA": {
@@ -207,7 +207,7 @@
             "settings": {
               "nav_link": "https://www.hammitt.com/pages/celebrity-hammitt-bags",
               "title": "As Seen On",
-              "nav_image": "shopify://shop_images/Group_1246_58e88a1a-581e-40bc-a332-82d248d822f2.jpg"
+              "nav_image": "shopify://shop_images/Group_12507_22fed141-21a7-4ade-a268-36f632292524.jpg"
             }
           },
           "visual_menu_item_BGKFjn": {
@@ -223,14 +223,14 @@
             "settings": {
               "nav_link": "shopify://collections/accessories-view-all",
               "title": "Accessories",
-              "nav_image": "shopify://shop_images/Dune-106_8_1.jpg"
+              "nav_image": "shopify://shop_images/Group_12506.jpg"
             }
           },
           "popular_search_QfKWpn": {
             "type": "popular-search",
             "name": "Crossbody ",
             "settings": {
-              "search_term": "Crossbody"
+              "search_term": "Gifts"
             }
           },
           "popular_search_yjeaJJ": {
@@ -256,10 +256,10 @@
           }
         },
         "block_order": [
+          "visual_menu_item_He8yDn",
           "visual_menu_item_R797MM",
           "visual_menu_item_KWAJ7F",
           "visual_menu_item_PmYb6N",
-          "visual_menu_item_He8yDn",
           "visual_menu_item_RG36DA",
           "visual_menu_item_f4DzN9",
           "visual_menu_item_dbDRDJ",
@@ -282,7 +282,7 @@
           "menu_under_visual_menu": "visual-nav-drop-downs",
           "wishlist_page": "shopify://pages/my-wishlist",
           "recently_viewed_page": "",
-          "show_line_separator": true,
+          "show_line_separator": false,
           "transparent_homepage": false,
           "invert_colors": true,
           "enable_sticky_header": true,

@@ -62,8 +62,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_1037_1.jpg",
-        "image_2": "shopify://shop_images/Rectangle_774_1.jpg",
+        "image": "shopify://shop_images/Group_12490.jpg",
+        "image_2": "shopify://shop_images/Group_12490-1.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -94,6 +94,13 @@
     "image_with_text_navigator_3mM6rF": {
       "type": "image-with-text-navigator",
       "blocks": {
+        "navigator_6QYWA8": {
+          "type": "navigator",
+          "settings": {
+            "title": "The Elegant Red",
+            "href": "Cherrywood"
+          }
+        },
         "navigator_AYa9WG": {
           "type": "navigator",
           "settings": {
@@ -129,13 +136,6 @@
             "href": "Olive"
           }
         },
-        "navigator_6QYWA8": {
-          "type": "navigator",
-          "settings": {
-            "title": "The Deep Red",
-            "href": "Cherrywood"
-          }
-        },
         "navigator_pqR6pn": {
           "type": "navigator",
           "settings": {
@@ -152,12 +152,12 @@
         }
       },
       "block_order": [
+        "navigator_6QYWA8",
         "navigator_AYa9WG",
         "navigator_Jk8e9j",
         "navigator_wWrw67",
         "navigator_jbKDtp",
         "navigator_e4mkCP",
-        "navigator_6QYWA8",
         "navigator_pqR6pn",
         "navigator_wCdxAF"
       ],
@@ -165,6 +165,21 @@
       "settings": {
         "background_color": "#ffffff",
         "enable_scroll_to_top": false
+      }
+    },
+    "featured_products_and_image_t3Xgqi": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Cherrywood",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Rectangle_1521.jpg",
+        "image_link": "shopify://collections/red-1",
+        "header": "The Elegant Red",
+        "subheader": "A bold red that exudes confidence and allure. Smooth, rich, and full of warmth — made for the magic of fall evenings.",
+        "featured_products": [],
+        "featured_collection": "red-1"
       }
     },
     "featured_products_and_image_N7DjDd": {
@@ -175,6 +190,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/IMG_5489-1_2.jpg",
+        "image_link": "shopify://collections/black",
         "header": "The Night",
         "subheader": "Bold, timeless, and effortlessly cool. The shade that never hides in the shadows — it owns them.",
         "featured_products": [],
@@ -189,6 +205,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/IMG_5489_3.jpg",
+        "image_link": "shopify://collections/metallic",
         "header": "Metallic Magic",
         "subheader": "Gold, bronze, or silver — every shimmer turns heads. Add a touch of luxe to your look with metallic tones made for the spotlight.",
         "featured_products": [],
@@ -203,6 +220,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/IMG_5489-3.jpg",
+        "image_link": "shopify://collections/habanero",
         "header": "The Heat",
         "subheader": "Spicy tones that bring Halloween’s fiery spirit to life. From bold crimson to burnt orange, these colors don’t play it safe.",
         "featured_products": [],
@@ -217,6 +235,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/IMG_5489-2_2.jpg",
+        "image_link": "shopify://collections/gunmetal",
         "header": "The Edge",
         "subheader": "Sleek, moody, and effortlessly elevated. Gunmetal details redefine understated power — because subtle can still slay.",
         "featured_products": [],
@@ -231,24 +250,11 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/Kyle-Blk-BG-Red-Zip-Both-199_29_1.jpg",
+        "image_link": "shopify://collections/olive",
         "header": "Into the Wild",
         "subheader": "Nature’s favorite neutral gets a spooky-season twist. Deep, grounded, and ready to pair with anything — no tricks, just timeless style.",
         "featured_products": [],
         "featured_collection": "olive"
-      }
-    },
-    "featured_products_and_image_t3Xgqi": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "Cherrywood",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/Rectangle_2_2.jpg",
-        "header": "The Deep Red",
-        "subheader": "Rich, smooth, and seductive. Cherrywood brings warmth and depth — the perfect companion for crisp fall nights.",
-        "featured_products": [],
-        "featured_collection": "cherrywood"
       }
     },
     "featured_products_and_image_UTxwwj": {
@@ -259,6 +265,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/Rectangle_398.jpg",
+        "image_link": "shopify://collections/espresso",
         "header": "Midnight Roast",
         "subheader": "Deep brown tones brewed for sophistication. Warm, bold, and perfectly balanced — like your favorite fall indulgence.",
         "featured_products": [],
@@ -273,6 +280,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/Rectangle_401_5d5fb3dd-a606-497c-98e2-af28aba60ee4.jpg",
+        "image_link": "shopify://collections/halloween-neutral",
         "header": "Autumn Grounded",
         "subheader": "The season’s most versatile hue. Earthy and refined, brown is your go-to for effortless fall layering.",
         "featured_products": [],
@@ -284,12 +292,12 @@
     "main",
     "image_banner_kUBFRM",
     "image_with_text_navigator_3mM6rF",
+    "featured_products_and_image_t3Xgqi",
     "featured_products_and_image_N7DjDd",
     "featured_products_and_image_p4nBgw",
     "featured_products_and_image_URXAyE",
     "featured_products_and_image_n7xGzC",
     "featured_products_and_image_Em4iNp",
-    "featured_products_and_image_t3Xgqi",
     "featured_products_and_image_UTxwwj",
     "featured_products_and_image_EJQ8cC"
   ]
