@@ -408,7 +408,6 @@ a.product__text {
   word-break: break-word;
   line-height: normal;
   font-weight: normal;
-  text-transform: uppercase;
   margin-bottom: 0;
 }
 
@@ -1525,7 +1524,8 @@ input.iStock-notify-btn {
 
 
 .pdp-hero-section .pdp-info-col .custom-variant-title{font-size:13px;font-size: 13px;line-height:1.125;display: flex;gap: 7px;margin-bottom:10px; align-items: center;}
-.pdp-hero-section .pdp-info-col .custom-variant-title span{display:inline-block;padding-top:2px;}
+.pdp-hero-section .pdp-info-col .custom-variant-title span{display:inline-block;padding-top:2px; text-transform:lowercase;}
+.pdp-hero-section .pdp-info-col .custom-variant-title span:first-letter{text-transform:uppercase;}  
 .pdp-hero-section .pdp-info-col .custom-variant-title strong{font-size:16px;}
 .pdp-hero-section .product-form{margin:0px;}
 .pdp-hero-section .product-form .product-form__buttons{max-width:100%;}
@@ -1541,7 +1541,7 @@ input.iStock-notify-btn {
 .pdp-hero-section .product__media-wrapper  slider-component{display:none;}
 
 
-.pdp-hero-section .flexbox{display:flex;flex-wrap:wrap;}
+.pdp-hero-section .flexbox{display:flex;flex-wrap:wrap;justify-content: space-between; width: 100%;}
 .pdp-hero-section .iconsblock-wrap{column-gap:10px;row-gap:10px;padding:13px 10px;}
 .pdp-hero-section .iconsblock-wrap .col{width:100%;max-width:calc(50% - 10px / 2);position:relative;overflow:hidden;}
 .pdp-hero-section .iconsblock-wrap .collink{display: block;width: 100%;position: absolute;top: 0;z-index: 1;height: 100%;} 
@@ -1637,11 +1637,21 @@ body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg{f
   color:var(--color-text);
   border: 2px solid #D9D9D9;
 }
+
+.mobile-pdp-info {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .mobile-pdp-info {
+    display: flex;
+  }
+}
 @media only screen and (max-width:749px){
   .pdp-hero-section .pdp-hero-wrap{padding:0px;}
   .pdp-hero-section .small-page-width{padding-left:10px;padding-right:10px;}
   .pdp-hero-section .pdp-info-col .product__title{font-size:30px;}
-  .pdp-hero-section .mobile-pdp-info .mobile-block-wrap{align-items:start;justify-content: space-between;}
+  .pdp-hero-section .mobile-pdp-info .mobile-block-wrap{align-items:start;justify-content: space-between; width: 100%;}
   .pdp-hero-section .mobile-pdp-info .mobile-price .product__price-wrapper{margin:0px;}
   .pdp-hero-section .pdp-info-col #RR_PR_Widget_Wrapper{margin:0px;}
   .pdp-hero-section .pdp-info-col .custom-variant-title strong{font-size:12px;}

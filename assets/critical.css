@@ -12,8 +12,9 @@ a,
 .card__badge,
 .list-menu__item > span {
   font-family: "Nunito Sans", sans-serif !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
   font-wight: 500;
+  letter-spacing: 0.05em !important;
 }
 
 
@@ -84,6 +85,49 @@ p {
   line-height: 1.25 !important;
 }
 
+.carlson-semibold {
+  font-family: 'Adobe Carlson SemiBold' !important;
+}
+
+/* overwritting some font stuff with more specificity */
+
+.card__heading a,
+.card__heading .price {
+  font-family: 'Adobe Carlson SemiBold' !important;
+  font-size: 15px !important;
+  text-transform: Capitalize !important;
+}
+
+product-recommendations .card__heading a,
+.seo-description-container h2,
+product-recommendations .card__heading .price {
+  font-size: 14px !important;
+}
+
+strong,
+.main-nav-item span,
+minty-fresh-filters li a {
+  font-weight: 600 !important; 
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 14px !important;
+  letter-spacing: 0.03em !important;
+}
+
+.main-nav-item span {
+  text-transform: lowercase !important;
+  text-transform: capitalize !important;
+}
+
+.complete-the-set-text {
+  font-size: 13px !important; 
+  font-weight: 600;
+  font-family: "Nunito Sans", sans-serif !important;
+}
+
+.jr-featured-products-and-image h2 {
+  font-family: Adobe Carlson Italic !important;
+  font-size: 18px !important;
+}
 
 @media only screen and (max-width: 750px) {
   /* cheap way of adding greater specificity */
@@ -128,8 +172,24 @@ p {
     font-size: 13px !important;
     font-weight: 500;
   }
+  /* Specificity overrides */
+  .card__heading a,
+  .card__heading .price {
+    font-family: 'Adobe Carlson SemiBold' !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+  }
+  product-recommendations .card__heading a,
+  product-recommendations .card__heading .price  {
+    font-size: 12px !important;
+  }
+  .jr-featured-products-and-image h2 {
+    font-size: 13px;
+  }
+  .cart-drawer-btn {
+    font
+  }
 }
-
 
 
 #yotpo-star-rating-highly-rated-topics {
@@ -148,30 +208,43 @@ p {
 .shopify-section:has(fw-player) > div > div,
 .shopify-section:has(fw-player) .fwmobile,
 .shopify-section:has(fw-player) .fwdesktop  {
-    min-height: 100%;
-    height: 100%;
+  min-height: 100%;
+  height: 100%;
 }
 
 .shopify-section:has(fw-player) fw-player {
-    height: 100%;
+  height: 100%;
 }
 
 .menu-drawer__navigation .menu-drawer__menu.list-menu.text-menu {
-    display: none;
+  display: none;
 }
 .menu-drawer__menu.list-menu.visual-menu.visual-ab {
-    display: grid !important;
+  display: grid !important;
 }
 .beneath-visual-menu.visual-ab {
-    display: block !important;
+  display: block !important;
+}
+
+.pdp-hero-section .pdp-info-col .custom-variant-title span {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Nunito Sans", sans-serif !important;
 }
 
 @media screen and (max-width: 768px) {
-    .shopify-section:has(fw-player) {
-        height: 55vh;
-    }
+  .shopify-section:has(fw-player) {
+    height: 55vh;
+  }
+  .pdp-hero-section .pdp-info-col .custom-variant-title span {
+    font-size: 12px;
+  }
 }
 
+.yotpo-product-points-inner-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
 
 /* jr review section */
 
@@ -229,11 +302,11 @@ p {
 }
 
 .jr-customer-reviews .swiper-scrollbar {
-    height: 4px;
+  height: 4px;
 }
 
 .jr-customer-reviews .swiper-scrollbar-drag {
-    display: block !important;
+  display: block !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -564,6 +637,11 @@ inspired-floating-widget {
   line-height: 1.3;
 }
 
+.inspired-app-opener .icon-info {
+  display: inline-block;
+  width: max-content;
+}
+
 body:has(inspired-floating-widget) .inspired-app-opener {
   display: block;
 }
@@ -577,6 +655,7 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   max-width: 65px;
   height: auto;
   margin-left: 0.25rem;
+  display: inline;
 }
 
 .inspired-app-opener .exclaimation-icon path {
@@ -802,10 +881,12 @@ a.nav-wishlist-button .heart-count {
   padding-top: 1px;
 }
 
+.desktop-pdp-price {
+  display: flex;
+}
 
-/* delete when test is over depending on winner */
-
-body .current-ab-a,
-body .current-ab-b {
-  display: none;
+@media screen and (max-width: 990px) {
+  .desktop-pdp-price {
+    display: none;
+  }
 }

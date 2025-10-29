@@ -66,7 +66,7 @@
    
     %}
       
-    <strong data-empty-div class="drawer__title h2 display-block  {% if cart.item_count == 0 %}  drawer_heading {% else %} hidden {% endif %}">Your cart is currently empty</strong>
+    <strong data-empty-div class="drawer__title h7 display-block  {% if cart.item_count == 0 %}  drawer_heading {% else %} hidden {% endif %}">Your cart is currently empty</strong>
     {% if settings.gwp_enabled %}
       {% comment %} temporary solution for a single GWP, needs to be expanded to work with animation as well as multiple GWPS {% endcomment %}
       <style>
@@ -111,13 +111,13 @@
         </div>
         {% comment %} as a bandaid, below is visually hidden for now as it was causing javascript errors without it {% endcomment %}
       <free-shipping-goal style="display: none !important;" data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h6 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
-        <span class="free-shipping-goal__label free-shipping-goal__label--success">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
+        <span class="free-shipping-goal__label free-shipping-goal__label--success h7">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
         <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!</span>
         <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
       </free-shipping-goal>
       {% else %}
         <free-shipping-goal data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h6 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
-          <span class="free-shipping-goal__label free-shipping-goal__label--success">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
+          <span class="free-shipping-goal__label free-shipping-goal__label--success h7">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
           <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!</span>
           <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
         </free-shipping-goal>
@@ -175,7 +175,7 @@
        {% endif %}
      {% endfor %}
      {% if cart.item_count > 0 %}
-        <h4 class="h5">Your Cart</h4>
+        <h4 class="h7">Your Cart</h4>
      {% endif %}
     <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart.total_price }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
       {% if cart.item_count == 0 %}
@@ -248,7 +248,7 @@
                         <div class="multicolumns-content">
                           <div class="overlayMulticolumns"></div>
                           <div class="multicolumns-text">
-                            <h3 class="multicolumns-title {% if column.subheading != blank %} pb-0 {% endif %}" style="font-size: {{ column.text_size }}px;color: {{ column.text_color }};">{{ column.heading }}</h3>
+                            <h4 class="multicolumns-title h7 {% if column.subheading != blank %} pb-0 {% endif %}" style="color: {{ column.text_color }};">{{ column.heading }}</h4>
                             {% if column.subheading != blank %}
                               <p class="multicolumns--subheading" style="font-size: {{ column.subheading_text_size }}px;color: {{ column.subheading_text_color }};">{{ column.subheading }}</p>
                             {% endif %}
@@ -403,7 +403,7 @@
                     </div> 
                   </div> 
                   <div class="drawer_product-info"> 
-                    <span class="product-option"><strong class="pink">{{ product_color }}</strong></span>
+                    <span class="product-option">{{ product_color }}</span>
                     {% comment %} needs to be deleted after red TLC promo {% endcomment %}
                     {% if settings.gwp_product.selected_or_first_available_variant.id == item.id %}
                       {% comment %} <p style="margin: 8px 0 0 0; font-size: 12px; font-weight: 600; line-height: 1.3;">Heads up: Our TLC kit can be used on all pebbled leathers. Wondering if the cleaner inside is right for your bag? Email wecare@hammitt.com</p> {% endcomment %}
@@ -543,7 +543,7 @@
         </cart-items>
         <gift-box-section>
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
-            <h4 class="h6">{{ content.heading }}</h4>
+            <h4 class="h7">{{ content.heading }}</h4>
           {% endfor %}
           {%- capture json -%}
             {
@@ -657,7 +657,7 @@
             <ul>
               {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
                   {% assign cartCollection = collections[cartUpsell.collection] %}
-                  <li class="tab-item upsell-index-{{ forloop.index}} {% if forloop.first %} active {% endif %}"><a href="#" data-href="{{ cartCollection.handle }}" data-heading="{{ cartUpsell.heading }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
+                  <li class="tab-item upsell-index-{{ forloop.index}} {% if forloop.first %} active {% endif %}"><a href="#" style="font-size: 12px;" data-href="{{ cartCollection.handle }}" data-heading="{{ cartUpsell.heading }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
               {% endfor %}
             </ul>
           </div>

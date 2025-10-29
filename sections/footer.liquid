@@ -90,14 +90,14 @@
                 {%- when 'custom_section' -%}
                   <div class="custom-section-footer">
                     {% if block.settings.heading != blank %}
-                      <h2>{{ block.settings.heading }}</h2>
+                      <h4>{{ block.settings.heading }}</h4>
                     {% endif %}
                 
                     {% if block.settings.footer_image != blank %}
                       <a href="{{ block.settings.footer_image_link | default: '#' }}" target="_blank">
                         <img src="{{ block.settings.footer_image | img_url: '300x' }}" loading="lazy" alt="Footer Image">
                         {% if block.settings.footer_paragraph != blank %}
-                          <p class="custom-section-footer-paragraph">{{ block.settings.footer_paragraph }}</p>
+                          <h6 >{{ block.settings.footer_paragraph }}</h6>
                         {% endif %}
                       </a>
                     {% endif %}

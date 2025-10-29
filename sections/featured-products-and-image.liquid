@@ -26,7 +26,7 @@
                         <h2>{{ section.settings.header }}</h2>
                     {% endif %}
                     {% if section.settings.subheader != blank %}
-                        <h3>{{ section.settings.subheader }}</h3>
+                        <h3 class="h7">{{ section.settings.subheader }}</h3>
                     {% endif %}
                 </div>
             {% endif %}
@@ -37,7 +37,7 @@
                 <h2 class="desktop">{{ section.settings.header }}</h2>
             {% endif %}
             {% if section.settings.subheader != blank %}
-                <h3 class="desktop">{{ section.settings.subheader }}</h3>
+                <h3 class="desktop h7">{{ section.settings.subheader }}</h3>
             {% endif %}
 
             {% if section.settings.featured_products != blank or section.settings.featured_collection != blank %}
