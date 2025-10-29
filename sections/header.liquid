@@ -673,8 +673,8 @@
                             </div>
                             <div class="card-content">
                               {% if product.metafields.custom.product_title_type and product.metafields.hammitt.size and product.metafields.product_title_color_descriptor %}
-                                <h3 class="product-title">{{ product.metafields.custom.product_title_type }} {{ product.metafields.hammitt.size }}</h3>
-                                <h5 class="product-color">{{ product.metafields.custom.product_title_color_descriptor }}</h5>
+                                <h5 class="product-title h6">{{ product.metafields.custom.product_title_type }} {{ product.metafields.hammitt.size }}</h5>
+                                <h6 class="product-color h7">{{ product.metafields.custom.product_title_color_descriptor }}</h6>
                               {% else %}
                                 <h3>{{ product.title }}</h3>
                               {% endif %}

@@ -64,7 +64,7 @@ Later with Affirm</span></a>
                 
                 <div class="mega-menu--column__menu dropdown_column__menu--block-{{ block.id }}">
                   {% if block.settings.show_heading %}
-                  <strong class="display-block h5 menu__margin-custom">{{ linklists[block.settings.menu].title | upcase }}</strong>
+                  <strong style="font-size: 14px; letter-spacing: 0.03em" class="display-block menu__margin-custom">{{ linklists[block.settings.menu].title | upcase }}</strong>
                   {% endif %}
                   {% if linklists[block.settings.menu] != empty and block.settings.submenu_reference == 'menu' %}
                   <ul class="list-unstyled">

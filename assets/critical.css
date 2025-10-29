@@ -5,6 +5,217 @@ mainly above the fold and immedietly visible. Base.css loads after a lot of mark
 
 */
 
+a,
+.button,
+.button--primary,
+.button--secondary,
+.card__badge,
+.list-menu__item > span {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 14px !important;
+  font-wight: 500;
+  letter-spacing: 0.05em !important;
+}
+
+
+h1,
+.h1 {
+  font-size: 42px !important;
+  font-family: 'Adobe Carlson Italic' !important;
+  margin: 0;
+}
+
+h1.carlson-pro,
+.h1.carlson-pro {
+  font-family: 'Adobe Carlson Pro' !important;
+}
+
+h2,
+.h2 {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 32px !important;
+  margin: 0;
+}
+
+h2.carlson-pro,
+.h2.carlson-pro {
+  font-family: 'Adobe Carlson Pro' !important;
+}
+
+h3,
+.h3 {
+  font-size: 28px !important;
+  font-family: "Nunito Sans", sans-serif !important;
+  margin: 0;
+}
+
+h4,
+.h4 {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 20px !important; 
+  margin: 0;
+}
+
+h5,
+.h5 { 
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 18px !important;
+  margin: 0;
+}
+
+h6,
+.h6
+ {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+  margin: 0;
+}
+
+.h7 {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+  margin: 0;
+}
+
+p {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+}
+
+.carlson-semibold {
+  font-family: 'Adobe Carlson SemiBold' !important;
+}
+
+/* overwritting some font stuff with more specificity */
+
+.card__heading a,
+.card__heading .price {
+  font-family: 'Adobe Carlson SemiBold' !important;
+  font-size: 15px !important;
+  text-transform: Capitalize !important;
+}
+
+product-recommendations .card__heading a,
+.seo-description-container h2,
+product-recommendations .card__heading .price {
+  font-size: 14px !important;
+}
+
+strong,
+.main-nav-item span,
+minty-fresh-filters li a,
+.footer__blocks-wrapper .footer-header-button {
+  font-weight: 600 !important; 
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 14px !important;
+  letter-spacing: 0.03em !important;
+}
+
+.footer__blocks-wrapper .footer-block__details-content li a {
+  letter-spacing: 0 !important;
+}
+
+.main-nav-item span {
+  text-transform: lowercase !important;
+  text-transform: capitalize !important;
+}
+
+.complete-the-set-text {
+  font-size: 13px !important; 
+  font-weight: 600;
+  font-family: "Nunito Sans", sans-serif !important;
+}
+
+.jr-featured-products-and-image h2 {
+  font-family: Adobe Carlson Italic !important;
+  font-size: 18px !important;
+}
+
+#dropahint_wrapper #dropahint-cta img {
+  display: none !important;
+}
+
+.pdp-hero-wrap .product_description p,
+.pdp-hero-wrap .product_description span,
+.pdp-hero-wrap .product_description li {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 12px !important;
+}
+
+.pdp-hero-wrap .product_description ul {
+  margin: 0.75rem 0 !important;
+  padding-left: 1.25rem !important;
+}
+.pdp-hero-wrap .product_description li {
+  list-style-type: disc !important; 
+}
+
+@media only screen and (max-width: 750px) {
+  /* cheap way of adding greater specificity */
+  body h1,
+  body .h1 {
+    font-size: 30px !important;
+  }
+  body h2,
+  body .h2 {
+    font-size: 22px !important;
+  }
+  body h2.carlson-pro,
+  body .h2.carlson-pro {
+    font-size: 20px !important;
+  }
+  body h3,
+  body .h3  {
+    font-size: 18px !important;
+  }
+  body h4,
+  body .h4 {
+    font-size: 16px !important;
+  }
+  body h5,
+  body .h5 {
+    font-size: 15px !important;
+  }
+  body h6,
+  body .h6 {
+    font-size: 14px !important;
+  }
+  body p,
+  body .h7  {
+    font-size: 12px !important;
+  }
+  body a,
+  body .button,
+  body .button--primary,
+  body .button--secondary,
+  body .card__badge {
+    font-family: "Nunito Sans", sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 500;
+  }
+  /* Specificity overrides */
+  .card__heading a,
+  .card__heading .price {
+    font-family: 'Adobe Carlson SemiBold' !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+  }
+  product-recommendations .card__heading a,
+  product-recommendations .card__heading .price  {
+    font-size: 12px !important;
+  }
+  .jr-featured-products-and-image h2 {
+    font-size: 13px;
+  }
+  .cart-drawer-btn {
+    font
+  }
+}
+
+
 #yotpo-star-rating-highly-rated-topics {
     background: transparent !important;
     padding: 1rem 0 !important;
@@ -21,30 +232,46 @@ mainly above the fold and immedietly visible. Base.css loads after a lot of mark
 .shopify-section:has(fw-player) > div > div,
 .shopify-section:has(fw-player) .fwmobile,
 .shopify-section:has(fw-player) .fwdesktop  {
-    min-height: 100%;
-    height: 100%;
+  min-height: 100%;
+  height: 100%;
 }
 
 .shopify-section:has(fw-player) fw-player {
-    height: 100%;
+  height: 100%;
 }
 
 .menu-drawer__navigation .menu-drawer__menu.list-menu.text-menu {
-    display: none;
+  display: none;
 }
 .menu-drawer__menu.list-menu.visual-menu.visual-ab {
-    display: grid !important;
+  display: grid !important;
 }
 .beneath-visual-menu.visual-ab {
-    display: block !important;
+  display: block !important;
+}
+
+.pdp-hero-section .pdp-info-col .custom-variant-title span {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Nunito Sans", sans-serif !important;
 }
 
 @media screen and (max-width: 768px) {
-    .shopify-section:has(fw-player) {
-        height: 55vh;
-    }
+  .shopify-section:has(fw-player) {
+    height: 55vh;
+  }
+  .pdp-hero-section .pdp-info-col .custom-variant-title span {
+    font-size: 12px;
+  }
 }
 
+.yotpo-product-points-inner-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 12px;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
 
 /* jr review section */
 
@@ -85,38 +312,36 @@ mainly above the fold and immedietly visible. Base.css loads after a lot of mark
 }
 
 .jr-customer-reviews .review-content h3 {
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 500;
   line-height: 22px;
+  margin: 0.5rem 0;
 }
 
 .jr-customer-reviews .review-content p {
   font-weight: 400;
-  font-size: 14px;
   line-height: 120%;
+  margin: 0.25rem 0;
 }
 
 .jr-customer-reviews .review-content h5 {
   font-weight: 500;
-  font-size: 14px;
+  margin: 0.5rem 0;
 }
 
 .jr-customer-reviews .swiper-scrollbar {
-    height: 4px;
+  height: 4px;
 }
 
 .jr-customer-reviews .swiper-scrollbar-drag {
-    display: block !important;
+  display: block !important;
 }
 
 @media screen and (max-width: 768px) {
   .jr-customer-reviews .review-content h3 {
-    font-size: 14px;
     line-height: 18px;
   }
 
   .jr-customer-reviews .review-content p {
-    font-size: 12px;
     line-height: 14px;
     max-width: 85%;
     margin: 0 auto important!;
@@ -382,6 +607,10 @@ mainly above the fold and immedietly visible. Base.css loads after a lot of mark
   align-items: center;
 }
 
+x-gen-search-result h3 {
+  font-weight: 400;
+}
+
 .main-search-grid:has(#ProductGridContainerXGen) [role="status"],
 .main-search-grid:has(.x-gen-no-results) minty-fresh-filters {
   display: none;
@@ -428,11 +657,16 @@ inspired-floating-widget {
   background-color: #fcffde;
   padding: .75rem 0.5rem;
   width: 100%;
-  font-size: 13px;
+  font-size: 12px;
   cursor: pointer;
   align-items: center;
   text-align: center;
   line-height: 1.3;
+}
+
+.inspired-app-opener .icon-info {
+  display: inline-block;
+  width: max-content;
 }
 
 body:has(inspired-floating-widget) .inspired-app-opener {
@@ -448,6 +682,7 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   max-width: 65px;
   height: auto;
   margin-left: 0.25rem;
+  display: inline;
 }
 
 .inspired-app-opener .exclaimation-icon path {
@@ -673,10 +908,16 @@ a.nav-wishlist-button .heart-count {
   padding-top: 1px;
 }
 
+.desktop-pdp-price {
+  display: flex;
+}
 
-/* delete when test is over depending on winner */
+@media screen and (max-width: 990px) {
+  .desktop-pdp-price {
+    display: none;
+  }
+}
 
-body .current-ab-a,
-body .current-ab-b {
-  display: none;
+.section.pdp-hero-section {
+  margin-top: 1rem;
 }

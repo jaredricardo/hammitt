@@ -115,7 +115,7 @@ class RecentlyViewed extends HTMLElement {
       el.classList.add('recently-viewed__item','grid__item' , 'swiper-slide');
       el.innerHTML = `<div class="media">
         <img data-src="${product.featured_image}" width="100%" alt="${product.title}" /></div>
-        <h4>${product.title}</h4>
+        <h5>${product.title}</h5>
         <a href="/products/${product.handle}" class="link--fill-parent"><span class="visually-hidden">${product.title}</span></a>`;
       this.querySelector('.swiper-wrapper').appendChild(el);
       lazyImages();

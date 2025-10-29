@@ -10,7 +10,6 @@
       font-size: {{ section.settings.font_size_mobile }}px;
       color: {{ section.settings.title_color }};
       font-weight: {{ section.settings.title_font_weight }};
-      font-weight: 600 !important;
       margin: 0 0 1rem 0 !important;
       text-align: left !important;
       width: 100%;
@@ -169,7 +168,7 @@
       {% if section.settings.show_collection_title or section.settings.show_collection_description %}
         <div class="collection-hero__text-wrapper{% if section.settings.make_full_width %} collection-hero__text-space{% endif %}{% unless section.settings.show_collection_image and collection.image %} no-collection_banner{% else %} y-collection_banner{% endunless %}">
           {% if section.settings.show_collection_title %}
-            <h1 class="collection-hero__title collection-title">
+            <h1 class="h1 collection-hero__title collection-title">
               <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
               {{- collection.title | escape -}}
             </h1>

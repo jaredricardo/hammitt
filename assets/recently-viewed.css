@@ -25,6 +25,13 @@ recently-viewed {
   .pdp-rv-section h2.section-title{font-size:28px;}
 }
 
+.recently-viewed__item.grid__item h5 {
+  text-align: center;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
 @media only screen and (max-width:749px){
   .pdp-rv-section h2.section-title{font-size:23px;margin:0px;}
   .pdp-rv-section .page-width{padding-left:10px;padding-right:10px;}

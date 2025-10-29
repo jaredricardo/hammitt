@@ -77,8 +77,8 @@
             <div class="footer-block {% if block.type == 'link_list' %} footer-block--menu{% endif %} footer-block__{{ block.type }} {%  if block.settings.heading == 'Help' %}footer-block__details-content-help{% endif %}" {{ block.shopify_attributes }}>
               <div class="footer-block__inner footer-block__inner--{{ block.type }}">
               {%- if block.settings.heading != blank and block.type != 'custom_section' -%}
-                <strong class="h4 display-block footer-block__heading">
-                  <button class="button--inline" id="footer-heading__{{ block.settings.heading | handle }}" aria-controls="footer-block__{{ block.settings.heading | handle }}" aria-expanded="false">{{- block.settings.heading | escape -}}</button>
+                <strong class="display-block footer-block__heading">
+                  <button class="button--inline footer-header-button" id="footer-heading__{{ block.settings.heading | handle }}" aria-controls="footer-block__{{ block.settings.heading | handle }}" aria-expanded="false">{{- block.settings.heading | escape -}}</button>
                 </strong>
               {%- endif -%}
 
@@ -90,14 +90,14 @@
                 {%- when 'custom_section' -%}
                   <div class="custom-section-footer">
                     {% if block.settings.heading != blank %}
-                      <h2>{{ block.settings.heading }}</h2>
+                      <h6>{{ block.settings.heading }}</h6>
                     {% endif %}
                 
                     {% if block.settings.footer_image != blank %}
                       <a href="{{ block.settings.footer_image_link | default: '#' }}" target="_blank">
                         <img src="{{ block.settings.footer_image | img_url: '300x' }}" loading="lazy" alt="Footer Image">
                         {% if block.settings.footer_paragraph != blank %}
-                          <p class="custom-section-footer-paragraph">{{ block.settings.footer_paragraph }}</p>
+                          <h6 class="h7">{{ block.settings.footer_paragraph }}</h6>
                         {% endif %}
                       </a>
                     {% endif %}
