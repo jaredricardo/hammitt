@@ -148,6 +148,18 @@
 
     {{ content_for_header }}
 
+
+    {% if request.page_type == "cart" %}
+      <style>
+        body {
+          opacity: 0;
+        }
+      </style>
+      <script>
+        window.location.href = "/"
+      </script>
+    {% endif %}
+
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
