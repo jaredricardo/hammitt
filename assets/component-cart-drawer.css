@@ -708,6 +708,12 @@ cart-upsells .tab-item__upsell ul li.tab-item.active a {
   font-weight: 600;
 }
 
+cart-upsells .tab-item__upsell ul li.tab-item a,
+cart-upsells .tab-item__upsell ul li.tab-item.active a,
+cart-upsells .upsell__title {
+  letter-spacing: 0 !important;
+}
+
 cart-upsells .tab-item__upsell ul li.tab-item a {
   font-weight: 500;
 }

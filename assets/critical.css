@@ -106,11 +106,16 @@ product-recommendations .card__heading .price {
 
 strong,
 .main-nav-item span,
-minty-fresh-filters li a {
+minty-fresh-filters li a,
+.footer__blocks-wrapper .footer-header-button {
   font-weight: 600 !important; 
   font-family: "Nunito Sans", sans-serif !important;
   font-size: 14px !important;
   letter-spacing: 0.03em !important;
+}
+
+.footer__blocks-wrapper .footer-block__details-content li a {
+  letter-spacing: 0 !important;
 }
 
 .main-nav-item span {
@@ -127,6 +132,25 @@ minty-fresh-filters li a {
 .jr-featured-products-and-image h2 {
   font-family: Adobe Carlson Italic !important;
   font-size: 18px !important;
+}
+
+#dropahint_wrapper #dropahint-cta img {
+  display: none !important;
+}
+
+.pdp-hero-wrap .product_description p,
+.pdp-hero-wrap .product_description span,
+.pdp-hero-wrap .product_description li {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 12px !important;
+}
+
+.pdp-hero-wrap .product_description ul {
+  margin: 0.75rem 0 !important;
+  padding-left: 1.25rem !important;
+}
+.pdp-hero-wrap .product_description li {
+  list-style-type: disc !important; 
 }
 
 @media only screen and (max-width: 750px) {
@@ -244,6 +268,9 @@ minty-fresh-filters li a {
 .yotpo-product-points-inner-wrapper {
   display: flex;
   gap: 0.5rem;
+  font-size: 12px;
+  justify-content: center;
+  margin-top: 0.5rem;
 }
 
 /* jr review section */
@@ -630,7 +657,7 @@ inspired-floating-widget {
   background-color: #fcffde;
   padding: .75rem 0.5rem;
   width: 100%;
-  font-size: 13px;
+  font-size: 12px;
   cursor: pointer;
   align-items: center;
   text-align: center;
@@ -889,4 +916,8 @@ a.nav-wishlist-button .heart-count {
   .desktop-pdp-price {
     display: none;
   }
+}
+
+.section.pdp-hero-section {
+  margin-top: 1rem;
 }
