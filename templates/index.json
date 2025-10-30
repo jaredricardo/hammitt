@@ -109,6 +109,36 @@
         "mobile_padding_bottom": 0
       }
     },
+    "jr_new_5050_product_list_zy3tkK": {
+      "type": "jr-new-5050-product-list",
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
+      ],
+      "name": "JR Product List & Image",
+      "settings": {
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
+        "title": "The Halloween Drop",
+        "product_list": [
+          "kyle-shoulder-bag-black-brushed-gold-red-zip",
+          "vince-floral-charm-bag-charm-black-brushed-gold",
+          "metal-chain-shoulder-strap-straps-brushed-gold",
+          "syd-pouch-accessory-gala-gold-gold",
+          "vince-floral-charm-bag-charm-gala-gold-gold",
+          "metal-chain-shoulder-strap-straps-antique-gold"
+        ],
+        "image": "shopify://shop_images/Rectangle_785.jpg",
+        "button_link": "shopify://pages/halloween-drop",
+        "button_text": "Shop Now",
+        "button_text_color": "#000000",
+        "button_background_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
     "image_banner_XUgrYF": {
       "type": "image-banner",
       "blocks": {
@@ -207,11 +237,8 @@
         "mobile_padding_bottom": 36
       }
     },
-    "jr_new_5050_product_list_zy3tkK": {
+    "jr_new_5050_product_list_e7kVYJ": {
       "type": "jr-new-5050-product-list",
-      "custom_css": [
-        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
-      ],
       "name": "JR Product List & Image",
       "settings": {
         "background_color": "#ffffff",
@@ -1577,9 +1604,10 @@
   "order": [
     "image_banner_ezVVdn",
     "slider_featured_collection_bTka8m",
+    "jr_new_5050_product_list_zy3tkK",
     "image_banner_XUgrYF",
     "slider_collection_FHqMyi",
-    "jr_new_5050_product_list_zy3tkK",
+    "jr_new_5050_product_list_e7kVYJ",
     "image_banner_m4Uy48",
     "slider_collection_rf9mQd",
     "image_banner_t8y8dy",
