@@ -39,13 +39,12 @@
         height: auto;
     }
 
-    .wishlist-container .wishlist-card h3 {
+    .wishlist-container .wishlist-card h5 {
         margin: 2rem 0 0 0;
-        font-weight: 700;
-        font-size: 15px;
-        line-height: 22px;
+        font-weight: 500;
         letter-spacing: 0%;
         text-align: center;
+        color: black;
     }
 
     .wl-text-container {
@@ -61,8 +60,7 @@
     }
 
     .wl-text-container h1 {
-        font-weight: 700;
-        font-size: 27px;
+        font-weight: 500;
         line-height: 34px;
         letter-spacing: 0%;
 
@@ -74,7 +72,6 @@
 
     .wl-text-container h2 {
         font-weight: 700;
-        font-size: 15px;
         line-height: 22px;
         letter-spacing: 0%;
         margin-top: 2rem;
@@ -90,17 +87,13 @@
         .wl-text-container {
             margin: 2.5rem auto;
         }
-        .wishlist-container .wishlist-card h3 {
-            font-size: 12px;
-            line-height: 14px;
+        .wishlist-container .wishlist-card h5 {
             margin: 1rem 0 0 0;
         }
         .wl-text-container h1 {
-            font-size: 16px;
             line-height: 34px;
         }
         .wl-text-container h2  {
-            font-size: 12px;
             line-height: 18px;
             margin-top: 1rem;
         }
@@ -113,9 +106,9 @@
       <div class="wl-text-container">
         <h1>
             {% if customer %}
-                {{ customer.first_name | upcase }}'S
+                {{ customer.first_name }}'S
             {% endif %}
-            WISHLIST
+            Wishlist
         </h1>
         {% unless customer %}
             <h2>{{ section.settings.content }}</h2>

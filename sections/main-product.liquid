@@ -281,7 +281,7 @@
 {%- if breadcrumb_data != blank -%}
 <div class="breadcrumb-block">
  <div class="page-width">
-    <ul class="breadcrumb-linklist flexbox">
+    <ul class="breadcrumb-linklist">
       <li><a href="/">Home</a></li>
       {{ breadcrumb_data }}
     </ul>
@@ -505,16 +505,16 @@
     <div data-product-id="{{ product.id }}" class="product__info-wrapper pdp-info-col grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
       <div id="ProductInfo-{{ section.id }}" class="small-page-width product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
 
-          <div class="mobile-pdp-info medium-hide medium-up-hide">
+          <div class="mobile-pdp-info">
             <div class="flexbox mobile-block-wrap">
               <div class="col left-col">
                 <p class="pdp_color" style="margin-top: 0px;">{{ product_color }}</p>     
                 <div class="top-text-wrapper">
-                  <h2 class="product__title h0 title-2">
+                  <h2 class="product__title h1 title-2">
                     {{ formatted_product_title }}
                   </h2>
                   {% if product_color %}
-                    <h3>{{ product_color }}</h3>
+                    <h3 style="font-size:13px !important; font-weight: 600; ">{{ product_color }}</h3>
                   {% endif %}
                   {% if product.metafields.custom.back_in_stock_one_liner %}
                     <div class="back-in-stock-one-liner-container">
@@ -605,14 +605,14 @@
             <div class="top-text-wrapper desktop">   
               {% if seo_tag %}
                   <h1 class="product__title h0">{{ formatted_product_title }}</h1>
-                  <h2 class="hidden">{{ seo_tag }}</h2>
+                  <h2 class="hidden h3">{{ seo_tag }}</h2>
                 {% else %}
                   <h1 class="product__title h0 small-hide title-4">
                     {{ formatted_product_title }}
                   </h1>
               {% endif %}
               {% if product_color %}
-                <h3>{{ product_color }}</h3>
+                <h3 class="h4">{{ product_color }}</h3>
               {% endif %}
 
               {% if product.metafields.custom.back_in_stock_one_liner %}
@@ -630,7 +630,7 @@
             </div>      
 
           {%- when 'price' -%}
-            <div class="no-js-hidden product__price-wrapper flex small-hide variant_price" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+            <div class="no-js-hidden product__price-wrapper desktop-pdp-price variant_price" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large' -%}
               <!-- start_production_section_review_snippet_seciton -->
               <div id="pwr-snippets">
@@ -662,7 +662,7 @@
                   <aside aria-label="Complimentary products" {{ block.shopify_attributes }}{% if block.settings.make_collapsible_row %} class="product__accordion accordion"{% endif %}>
                     <div class="complimentary-products__container">
                       <div class="summary__title">
-                          <h3 class="h4 accordion__title">Complete the set</h3>
+                        <h4 class="complete-the-set-text">Complete the set</h4>
                       </div>
                       <div class="swiper" data-json='{{ complimentary_slider }}'>
                         <div id="Slider-{{ block.id }}" class="complimentary-products__inner swiper-wrapper">
@@ -744,7 +744,7 @@
                           <details id="Details-{{ inner_block.id }}-{{ section.id }}" {% if blockHeading == "description" %} open {% endif %} {% if open_material %} open {% endif %}>
                             <summary>
                               <div class="summary__title">
-                                <strong class="h4 accordion__title 2555">
+                                <strong class="h7">
                                   {{ inner_block.settings.heading | default: inner_block.settings.page.title }}
                                 </strong>
                               </div>
@@ -762,6 +762,12 @@
                                   {{ settings.pdp_care_pewter }}
                                 {% elsif stripped_material == 'acrylic' %}
                                   {{ settings.pdp_care_acrylic }}
+                                {% else %}
+                                  {{ inner_block.settings.content }}
+                                  {{ inner_block.settings.page.content }}
+                                  {% if inner_block.settings.split_content %}
+                                    {{ product_description[inner_block.settings.split_index] }}
+                                  {% endif %}
                                 {% endif %}
                               {% else %}
                                 {{ inner_block.settings.content }}

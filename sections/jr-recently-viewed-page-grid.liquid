@@ -1,0 +1,83 @@
+{% style %}
+/* If we're on this page, we don't need to see the desktop nav */
+.recently-viewed-button {
+    display: none !important;
+}
+
+{% endstyle %}
+
+<div data-section-id="{{ section.id }}">
+    <div class="jr-recently-viewed-grid page-width">
+        <h1 class="h0">Recently Viewed</h1>
+        <h3 class="hidden" style="text-align: center;">No products have been viewed yet...</h3>
+      
+        <div class="grid-container">
+            <img class="spinner" src="{{ 'Spinner-2.gif' | asset_url }}" style="width:48px;height:48px;" alt="Loading...">
+        </div>
+    </div>
+</div>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+
+        const recentlyViewedProducts = JSON.parse(localStorage.getItem('_rv')).reverse() || []
+        const sectionContainer = document.querySelector('.jr-recently-viewed-grid')
+        const gridContainer = document.querySelector('.jr-recently-viewed-grid .grid-container')             
+
+        if(!recentlyViewedProducts.length) {
+            sectionContainer.querySelector('h3').classList.remove('hidden')
+            gridContainer.querySelector('.spinner').style.display = 'none'
+            return
+        } 
+
+        recentlyViewedProducts.forEach((product) => {
+            const cardHTML = `
+                <div class="recently-viewed-card">
+                    <button data-id-to-remove="${product.id}">{% render 'icon-close' %}</button>
+                    <a href="/products/${product.handle}">
+                        <img src="${product.featured_image}" alt="Recently Viewed Product">
+                        <div class="info-container">
+                            <div class="price-title">
+                                <h3 class="product-title">${product.product_title_type}</h3>
+                                <h3 class="product-price">${window.formatPrice(product.price)}</h3>
+                            </div>
+                            <p class="color-descriptor">${product.product_title_color_descriptor}</p>
+                        </div>
+                    </a>
+                </div>
+            `
+            gridContainer.insertAdjacentHTML('beforeend', cardHTML)
+        })
+
+        document.querySelectorAll('.recently-viewed-card button').forEach((button, index) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault()
+                const idToRemove = button.getAttribute('data-id-to-remove')
+                const currentlyStored = JSON.parse(localStorage.getItem('_rv')) || []
+                const updatedProducts = currentlyStored.filter(product => product.id.toString() !== idToRemove)
+                document.querySelector(`[data-id-to-remove="${idToRemove}"]`).parentElement.remove()
+                localStorage.setItem('_rv', JSON.stringify(updatedProducts))
+                if(!updatedProducts.length) {
+                    sectionContainer.querySelector('h3').classList.remove('hidden')
+                }
+            })
+        })
+
+        gridContainer.querySelector('.spinner').style.display = 'none'
+
+
+    })
+</script>
+
+{% schema %}
+    {
+        "name": "JR Recently Viewed Grid",
+        "presets": [
+            {
+                "name": "JR Recently Viewed Grid"
+            }
+        ],
+        "settings": [],
+        "blocks": []
+    }
+{% endschema %}

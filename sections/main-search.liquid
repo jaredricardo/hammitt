@@ -129,9 +129,9 @@
 <div class="template-search main-search-grid {% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
   <div class="template-search__header page-width center">
     {%- if search.performed -%}
-      <h1 class="h2">{{ 'templates.search.title' | t }}</h1>
+      <h1>{{ 'templates.search.title' | t }}</h1>
     {%- else -%}
-      <h1 class="h2">{{ 'general.search.search' | t }}</h1>
+      <h1>{{ 'general.search.search' | t }}</h1>
     {%- endif -%}
     <div class="template-search__search">
       {%- if settings.predictive_search_enabled -%}

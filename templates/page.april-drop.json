@@ -21,50 +21,277 @@
         "padding_bottom_mobile": 0
       }
     },
-    "custom_liquid_XzDcrj": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5x6Eax\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"5x6Eax\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "rich_text_iqnFxr": {
-      "type": "rich-text",
+    "image_banner_EHKJJe": {
+      "type": "image-banner",
       "blocks": {
-        "heading_C4HPJN": {
+        "heading_hUURNK": {
           "type": "heading",
           "settings": {
-            "heading_html_tag": "h1",
-            "heading": "THE SEPTEMBER DROP",
-            "heading_size": "h0"
+            "heading": "FALL INTO STYLE",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
           }
         },
-        "text_WYe34B": {
+        "text_GdTb9d": {
           "type": "text",
           "settings": {
-            "text": "<p>Our biggest monthly drop of the year has arrived.</p>"
+            "text": "Cherry On Top: Meet a new trio of styles in bestselling Cherrywood leather - all here to sweeten your Fall lineup.",
+            "text_style": "body",
+            "text_size_mobile": 12,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_LQeNrY": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/cherrywood",
+            "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
-        "heading_C4HPJN",
-        "text_WYe34B"
+        "heading_hUURNK",
+        "text_GdTb9d",
+        "buttons_LQeNrY"
       ],
-      "name": "t:sections.rich-text.presets.name",
+      "name": "Cherrywood",
       "settings": {
         "custom_classes": "",
-        "color_scheme": "background-1",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/cherryw00d-banner_2.jpg",
+        "image_2": "shopify://shop_images/cherryw00d-banner_1.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
         "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_j4fmV8": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "cherrywood",
+        "max_products": 30,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
         "padding_top": 20,
         "padding_bottom": 20,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_UbHLgh": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_PJjjwm": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Halloween drop has arrived",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_YA8DKM": {
+          "type": "text",
+          "settings": {
+            "text": "Limited-edition hues and hauntingly sleek finishes, just in time for the season.",
+            "text_style": "body",
+            "text_size_mobile": 12,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_ipkfrz": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://pages/halloween-drop",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_PJjjwm",
+        "text_YA8DKM",
+        "buttons_ipkfrz"
+      ],
+      "name": "Halloween",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12490.jpg",
+        "image_2": "shopify://shop_images/Group_12490-1.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
+    },
+    "image_banner_adV7Gg": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hPq6eH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Kyle Lrg is here!",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_fzf96n": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Your seasonal dose of wearable color.",
+            "text_style": "body",
+            "text_size_mobile": 12,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_cLqYLV": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/kyle",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hPq6eH",
+        "text_fzf96n",
+        "buttons_cLqYLV"
+      ],
+      "name": "Kyle Lrg",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12499_af61f821-dc98-47f9-8faa-df54541a21c9.jpg",
+        "image_2": "shopify://shop_images/Hammitt_Kyle_Lrg-Black-BG-Red_Zip_6A_1.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_DGH99R": {
+      "type": "slider-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "kyle",
+        "max_products": 30,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_NHk9TT": {
@@ -507,103 +734,6 @@
         "heading_align": "center",
         "heading_color": "",
         "collection": "olive",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "image_banner_adV7Gg": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_hPq6eH": {
-          "type": "heading",
-          "settings": {
-            "heading": "New & Selling Fast: Cherrywood",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_fzf96n": {
-          "type": "text",
-          "settings": {
-            "text": "Your seasonal dose of wearable color.",
-            "text_style": "body",
-            "text_size_mobile": 12,
-            "text_size_tablet": 14,
-            "text_size_desktop": 15
-          }
-        },
-        "buttons_cLqYLV": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/cherrywood",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_hPq6eH",
-        "text_fzf96n",
-        "buttons_cLqYLV"
-      ],
-      "name": "Cherrywood",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/august-drop-cherrywood-desk.jpg",
-        "image_2": "shopify://shop_images/Rectangle_600_1.jpg",
-        "image_link": "",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_j4fmV8": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "cherrywood",
         "max_products": 30,
         "image_ratio": "adapt",
         "hide_price": false,
@@ -1092,85 +1222,9 @@
         "mobile_padding_bottom": 0
       }
     },
-    "image_banner_EHKJJe": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_hUURNK": {
-          "type": "heading",
-          "settings": {
-            "heading": "PACK IT",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_GdTb9d": {
-          "type": "text",
-          "settings": {
-            "text": "Our original Hunter Backpack is back - this sleek day backpack is an easy work bag for your essentials when you want to look polished. Pair with the Powers pouch for easy packability.",
-            "text_style": "body",
-            "text_size_mobile": 12,
-            "text_size_tablet": 14,
-            "text_size_desktop": 15
-          }
-        },
-        "buttons_LQeNrY": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/hunter-lrg-1",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_hUURNK",
-        "text_GdTb9d",
-        "buttons_LQeNrY"
-      ],
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Rectangle_689_1.jpg",
-        "image_2": "shopify://shop_images/Rectangle_690_1.jpg",
-        "image_link": "",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 40,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "slider_collection_tU7qnA": {
       "type": "slider-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_align": "center",
@@ -1350,8 +1404,11 @@
   },
   "order": [
     "main",
-    "custom_liquid_XzDcrj",
-    "rich_text_iqnFxr",
+    "image_banner_EHKJJe",
+    "slider_collection_j4fmV8",
+    "image_banner_UbHLgh",
+    "image_banner_adV7Gg",
+    "slider_collection_DGH99R",
     "multicolumn_NHk9TT",
     "multicolumn_ykHyWe",
     "image_banner_UkirJg",
@@ -1359,8 +1416,6 @@
     "image_banner_frcydf",
     "image_banner_T4AyfG",
     "slider_collection_6AVaah",
-    "image_banner_adV7Gg",
-    "slider_collection_j4fmV8",
     "image_banner_cmTRyK",
     "slider_collection_A9qKLq",
     "image_banner_zY8pjw",
@@ -1370,7 +1425,6 @@
     "slider_collection_ppJpUU",
     "image_banner_tgKCXT",
     "slider_collection_RXmtTL",
-    "image_banner_EHKJJe",
     "slider_collection_tU7qnA",
     "multicolumn_8JmVkC",
     "slider_collection_Rfqf3c"

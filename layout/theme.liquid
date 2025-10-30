@@ -60,10 +60,17 @@
 
     {% render 'swym-custom-javascript' %}
 
+    {% comment %} comment font stuff {% endcomment %}
     <link rel="preload" href="{{ 'SofiaProLight.woff2' | asset_url   }}" as="font" type="font/woff2" crossorigin="anonymous" >
     <link rel="preload" href="{{ 'SofiaProLight.woff' | asset_url   }}" as="font" type="font/woff" crossorigin="anonymous" >
     <link rel="preload" href="{{ 'SofiaProMedium.woff2' | asset_url   }}" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="{{ 'SofiaProMedium.woff' | asset_url   }}" as="font" type="font/woff" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    {% comment  %} end font stuff {% endcomment %}
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
@@ -96,7 +103,13 @@
         assign seo_tag = product.metafields.custom.product_title_seo_tag
 
         if silhoutte != blank and size != blank
-          assign final_pdp_title = silhoutte | append: ' ' | append: size 
+          # for some reason even when the size field is empty, it returns an integer of 1. So we check if size is equal to 1 to determine if it's blank or not.
+          # If we don't do this, the page title then has a 1 in it.
+          if size == 1
+            assign final_pdp_title = silhoutte
+          else 
+            assign final_pdp_title = silhoutte | append: ' ' | append: size 
+          endif
           if seo_tag
               assign final_pdp_title = final_pdp_title | append: ' | ' | append: seo_tag | append: ' | ' | append: shop.name
             else 
@@ -104,10 +117,7 @@
           endif
         endif
       endif
-    -%}
-
-
- 
+    -%} 
 
     <title>
       {% if request.page_type == "product" %}
@@ -137,6 +147,18 @@
     <script src="{{ 'on-load.js' | asset_url }}" defer></script>
 
     {{ content_for_header }}
+
+
+    {% if request.page_type == "cart" %}
+      <style>
+        body {
+          opacity: 0;
+        }
+      </style>
+      <script>
+        window.location.href = "/"
+      </script>
+    {% endif %}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -173,35 +195,19 @@
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
-       @font-face {
-         font-family:'sof';
-      src:url({{ 'SofiaProLight.woff2' | asset_url }}) format("woff2"),
-       	  url({{ 'SofiaProLight.woff' | asset_url }}) format("woff");
-         font-weight:normal;
-         font-display:swap;
-       }
 
-       @font-face {
-         font-family:'sof';
-         src:url({{ 'SofiaProMedium.woff2' | asset_url }}) format("woff2"),
-             url({{ 'SofiaProMedium.woff' | asset_url }}) format("woff");
-         font-weight:bold;
-         font-display:swap;
-       }
-
-      {%- render 'fonts' -%}
+        {%- render 'fonts' -%}
       
-
          :root {
-           --font-body-family: 'sof', Helvetica, sans-serif;
+           --font-body-family: {{ settings.type_body_font.family }};
            --font-body-style: {{ settings.type_body_font.style }};
            --font-body-weight: normal;
 
-           --font-heading-family:  'sof', Helvetica, sans-serif;
+           --font-heading-family: 'Adobe Carlson';
            --font-heading-style: {{ settings.type_header_font.style }}; 
            --font-heading-weight: normal;
 
-           --semi-bold-family: 'Sofia Pro Semi', Helvetica, sans-serif;
+           --semi-bold-family: {{ settings.type_header_font.family }};
            --semi-bold-weight: 600;
            
 
@@ -309,17 +315,6 @@
            --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
          }
 
-        :root body.template-index #MainContent {
-         --font-body-family: 'Sofia Pro', Helvetica, sans-serif;
-         --font-heading-family:  'Sofia Pro', Helvetica, sans-serif;
-        }
-        :root body.template-product #MainContent {
-         --font-body-family: 'Sofia Pro', Helvetica, sans-serif;
-         --font-heading-family:  'Sofia Pro', Helvetica, sans-serif;
-        }
-
-       
-       
          *,
          *::before,
          *::after {
@@ -344,10 +339,6 @@
            font-style: var(--font-body-style);
            font-weight: var(--font-body-weight);
          }
-        body.template-index #MainContent,
-        body.template-product #MainContent{
-          font-family:'Sofia Pro', Helvetica, sans-serif
-        }
 
          @media screen and (min-width: 750px) {
            body {
@@ -440,6 +431,16 @@
       if (Shopify.designMode) {
         document.documentElement.classList.add('shopify-design-mode');
       }
+    </script>
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        script.id = 'minty-onsite-script';
+        script.src = 'https://cdn.addshoppers.com/minty/shopify-onsite/executeminty.js';
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+      })();
     </script>
     {% comment %} both of the following script files should put in a js.liquid file and taken out of theme.liquid {% endcomment %}
     {% if settings.enable_hammitt_gift_messaging %}

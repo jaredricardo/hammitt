@@ -236,8 +236,14 @@
   white-space: nowrap;
 }
 
-.multicolumn-title + .multicolumn-paragraph {
-  margin-bottom: 3.3rem;
+.multicolumn-title {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width:749px){
+  .multicolumn-title {
+    margin-bottom: 12px;
+  }
 }
 
 
@@ -257,12 +263,13 @@
 
 .multicolumn.home-imagetext-block{padding-left:20px;padding-right:20px;}
 .multicolumn.home-imagetext-block.background-none .multicolumn-card__image-wrapper + .multicolumn-card__info{padding:10px 0px 0px;}
-.behind-design-section .multicolumn-title{font-size:32px;margin:0px 0px 10px;line-height:1.25;}
+.behind-design-section .multicolumn-title{font-size:32px;margin:0px 0px 20px;line-height:1.25;}
 /* .behind-design-section .multicolumn-title{font-size:32px;font-weight:600;margin:0px 0px 10px;line-height:1.25;} */
 .behind-design-section a.ab-link{margin: 0;padding: 0 !important;font-weight:500;line-height: 1;}
 .behind-design-section a.ab-link span.btn-text{display: inline-block;position: relative;z-index: 2;}
 .behind-design-section a.ab-link span.btn-text:hover{text-decoration:underline;text-underline-offset:2px;}
 .behind-design-section .multicolumn-card__info{padding:10px 0px 0px;}
+
 
 .ee-multicolumn .removed_section_padding .multicolumn-list:not(.slider){padding:0px;}
 
@@ -275,7 +282,7 @@
   .multicolumn.home-imagetext-block{padding-left:10px;padding-right:10px;}
   .multicolumn.home-imagetext-block.background-none .multicolumn-card__image-wrapper+.multicolumn-card__info{padding-top:5px;}
   .multicolumn-list__item{margin:0px;}
-  .behind-design-section .multicolumn-title{font-size:28px;}
+  .behind-design-section .multicolumn-title{font-size:28px; margin-bottom: 12px;}
 }
 @media screen and (max-width:749px){
   
