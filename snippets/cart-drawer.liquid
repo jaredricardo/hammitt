@@ -525,7 +525,7 @@
                         </button>
                       </quantity-input>
 
-                      {% if settings.enable_hammitt_gifting_drawer and settings.hammitt_gift_wrap_product != blank %}
+                      {% if settings.enable_hammitt_gifting_drawer %}
                         {% if opted_out_of_box == true %}
                           <span class="gifting-options-icon">🚫📦</span>
                         {% endif %}
@@ -649,7 +649,7 @@
               <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
             </hammitt-box-opt-out>
           {% endif %}
-          {% if settings.enable_hammitt_gifting_drawer and settings.hammitt_gift_wrap_product != blank %}
+          {% if settings.enable_hammitt_gifting_drawer %}
 
             <hammitt-gifting-options-drawer-trigger>
               <p>{{ settings.hammitt_gifting_drawer_message }}</p>
@@ -804,11 +804,12 @@
                                 <input type="checkbox" class="no-box" id="no-box--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_box_opt_out == true %} checked {% endif %}>
                                 <label for="no-box--{{ item.key }}--{{ i }}">Dust bag only, no box.</label>
                               </div>
-
-                              <div class="checkbox-container">  
-                                <input type="checkbox" class="line-item-hand-written-note" id="line-item-hand-written-note--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_gift_note != false %} checked {% endif %}>
-                                <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}">Add Ribbon + Handwritten Note for $5</label>  
-                              </div>
+                              {% if settings.hammitt_gift_wrap_product.available %}
+                                <div class="checkbox-container">  
+                                  <input type="checkbox" class="line-item-hand-written-note" id="line-item-hand-written-note--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_gift_note != false %} checked {% endif %}>
+                                  <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}">Add Ribbon + Handwritten Note for $5</label>  
+                                </div>
+                              {% endif %}
                           {% endif %}
 
                           <hammitt-line-level-gift-note class="cart-drawer-gift-note line-level">

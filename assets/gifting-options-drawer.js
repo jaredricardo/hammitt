@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     })
                 }
                    
-                if(item.querySelector('.no-box').checked || item.querySelector('.line-item-hand-written-note').checked || item.dataset.giftingModified === "true") {
+                if(item.querySelector('.no-box')?.checked || item.querySelector('.line-item-hand-written-note')?.checked || item.dataset.giftingModified === "true") {
                     // create object to decrement existing variant by the number of modified items
                     const lineKey = item.dataset.lineKey
                     const variantFromLineKey = parseInt(item.dataset.vid)
@@ -105,7 +105,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                 }
                             })
                         }
-                    } else if(item.querySelector('.line-item-hand-written-note').checked) {
+                    } else if(item.querySelector('.line-item-hand-written-note')?.checked) {
                         const giftNote = item.querySelector('.line-item-gift-note-text-area').value
                         postUpdateFormData.items.push({
                             id: variantFromLineKey,
@@ -205,7 +205,9 @@ window.addEventListener('DOMContentLoaded', () => {
             const defaultBoxCheckboxChecked = this.closest('.broken-out-line-item').querySelector('.default-box').checked
            
             if(optOutOfBox) {
-                giftNoteCheckbox.checked = false
+                if(giftNoteCheckbox) {
+                    giftNoteCheckbox.checked = false
+                }
                 defaultBoxCheckbox.checked = false
             }
             if(!optOutOfBox && !defaultBoxCheckboxChecked) {

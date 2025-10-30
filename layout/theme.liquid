@@ -402,7 +402,7 @@
 
 </style>
 
-{% if settings.enable_hammitt_gifting_drawer and settings.hammitt_gift_wrap_product != blank %}
+{% if settings.enable_hammitt_gifting_drawer %}
   {{ 'gifting-options-drawer.css' | asset_url | stylesheet_tag }}
   {{ 'gifting-options-drawer.js' | asset_url | script_tag }}
 {% endif %}
