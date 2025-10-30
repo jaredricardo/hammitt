@@ -522,10 +522,28 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "ca12ef536bc4551840b3": {
+      "type": "apps",
+      "blocks": {
+        "94a9cf82-f073-4d0a-a48e-28c674cc4038": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "94a9cf82-f073-4d0a-a48e-28c674cc4038"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
+    "ca12ef536bc4551840b3",
     "d49c7ac08b47f4904c8c",
     "pdp-video-section",
     "custom_liquid_jiGdDY",
