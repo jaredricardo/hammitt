@@ -498,10 +498,28 @@
         "mobile_padding_top": 40,
         "mobile_padding_bottom": 40
       }
+    },
+    "d49c7ac08b47f4904c8c": {
+      "type": "apps",
+      "blocks": {
+        "43712a4b-9f2c-4672-9f33-d50b8a5c1be7": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "43712a4b-9f2c-4672-9f33-d50b8a5c1be7"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
+    "d49c7ac08b47f4904c8c",
     "pdp-video-section",
     "custom_liquid_jiGdDY",
     "928b18aaf91cc2f853c4",
