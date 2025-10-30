@@ -101,7 +101,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                 id: variantFromLineKey,
                                 quantity: 1,
                                 properties: {
-                                    'line_item_box_opt_out': true
+                                    '_line_item_box_opt_out': true
                                 }
                             })
                         }
@@ -111,7 +111,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             id: variantFromLineKey,
                             quantity: 1,
                             properties: {
-                                'line_item_gift_note': giftNote
+                                '_line_item_gift_note': giftNote
                             }
                         })
                         numberOfGiftNotesToAdd++

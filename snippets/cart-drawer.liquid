@@ -339,10 +339,10 @@
               for property in item.properties
 
                 # for check boxes
-                if property.first == 'line_item_box_opt_out'
+                if property.first == '_line_item_box_opt_out'
                   assign opted_out_of_box = true
                 endif
-                if property.first == 'line_item_gift_note'
+                if property.first == '_line_item_gift_note'
                   assign has_line_level_gift_note = true
                 endif
 
@@ -667,10 +667,6 @@
                 <p>{{ settings.hammitt_gifting_drawer_header_text }}</p>
               {% endif %}
 
-              <script>
-                console.log('///////////')
-                console.log({{ cart.items | json }})
-              </script>
               <ul class="broken-out-line-items">
                 {% for item in cart.items %}
 
@@ -721,10 +717,10 @@
                     for property in item.properties
 
                       # for check boxes
-                      if property.first == 'line_item_box_opt_out'
+                      if property.first == '_line_item_box_opt_out'
                         assign line_item_box_opt_out = true
                       endif
-                      if property.first == 'line_item_gift_note'
+                      if property.first == '_line_item_gift_note'
                         assign line_item_gift_note = property.last 
                       endif
 
@@ -734,7 +730,7 @@
                       assign pre_existing_properties_keys = ''
                       assign pre_existing_properties_values = ''
                       for property in item.properties
-                        if property.first == 'line_item_box_opt_out' or property.first == 'line_item_gift_note'
+                        if property.first == '_line_item_box_opt_out' or property.first == '_line_item_gift_note'
                           continue
                         endif
                         assign pre_existing_properties_keys = pre_existing_properties_keys | append: property.first | append: ','
