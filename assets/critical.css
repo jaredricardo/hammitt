@@ -921,3 +921,21 @@ a.nav-wishlist-button .heart-count {
 .section.pdp-hero-section {
   margin-top: 1rem;
 }
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+@media screen and (max-width: 749px) {
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}

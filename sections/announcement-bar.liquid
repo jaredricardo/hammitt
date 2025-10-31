@@ -32,8 +32,129 @@
     }
   {% endfor %}
 </style>
+
+<style>
+.announcement-slider.countdown-enabled {
+  position: relative;
+  height: 75px;
+}
+
+.announcement-slider .countdown-timer-container {
+  position: absolute;
+  right: 1rem;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: {{ section.settings.countdown_bar_background_color }};
+  transition: 300ms ease-in-out;
+}
+
+.announcement-slider .countdown-timer-container #close-countdown-bar {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.5rem;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  z-index: 5;
+}
+
+.announcement-slider .countdown-timer-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} 
+
+.announcement-slider .main-timer-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.announcement-slider .main-timer-row h5 {
+  color: {{ section.settings.countdown_bar_text_color }};
+}
+.announcement-slider .main-timer-row .col {
+  flex: 1;
+}
+
+.announcement-slider .timer-area {
+  display: flex
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
 {% endif %}
-<div class="swiper announcement-slider" data-json='{{ json }}'>
+<div class="swiper announcement-slider {% if section.settings.enable_countdown_bar %} countdown-enabled {% endif %}" data-json='{{ json }}' data-section-id="{{ section.id }}">
+  {% if section.settings.enable_countdown_bar %}
+    <div class="countdown-timer-container page-width">
+      <button id="close-countdown-bar" aria-label="Close Countdown Bar">
+        {% render 'icon-close' %}
+      </button>
+      <div class="countdown-timer-inner">
+        {% if section.settings.countdown_bar_text %}
+          <h5 class="mobile-row mobile-only">{{ section.settings.countdown_bar_text }}</h5>
+        {% endif %}
+        <div class="main-timer-row">
+          <div class="col">
+            <h5>{{ section.settings.countdown_bar_text }}</h5>
+          </div>
+          <div class="col timer-area">
+
+            <div class="days-container">
+              <div class="row">
+                <span>0</span>
+                <span>3</span>
+              </div>
+              <div class="row">DAYS</div>
+            </div>
+
+            <div class="hours-container">
+              <div class="row">
+                <span>1</span>
+                <span>2</span>
+              </div>
+              <div class="row">HRS</div>
+            </div>
+
+            <div class="minutes-container">
+              <div class="row">
+                <span>4</span>
+                <span>2</span>
+              </div>
+              <div class="row">MINS</div>
+            </div>
+
+            <div class="secs-container">
+              <div class="row">
+                <span>5</span>
+                <span>9</span>
+              </div>
+              <div class="row">SECS</div>
+            </div>
+            
+          </div>
+          <div class="col">
+            {% if section.settings.countdown_timer_button_link != blank and section.settings.enable_klaviyo_button_opener == false %}
+              <a href="{{ section.settings.countdown_timer_button_link }}">{{ section.settings.countdown_timer_button_text }}</a>
+            {% endif %}
+            {% if section.settings.enable_klaviyo_button_opener %}
+              <button class="klaviyo-popup-opener">{{ section.settings.countdown_timer_button_text }}</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
@@ -82,6 +203,104 @@
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Countdown Announcement Bar Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_countdown_bar",
+      "label": "Enable Countdown Bar",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "countdown_bar_background_color",
+      "label": "Countdown Bar Background Color",
+      "default": "#000000"
+    },
+      {
+      "type": "color",
+      "id": "countdown_bar_text_color",
+      "label": "Countdown Bar Text Color",
+      "info": "Applies to the text next to the timer, as well as the timer labels",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "countdown_timer_text_color",
+      "label": "Countdown Timer Text Color",
+      "info": "Applies to the numbers in the timer boxes.",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "countdown_timer_button_bg_color",
+      "label": "Countdown Timer Button Background Color",
+      "info": "Also applies to the background color of the timer number boxes.",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "countdown_timer_button_text_color",
+      "label": "Countdown Timer Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "countdown_bar_text",
+      "label": "Countdown Bar Text",
+      "default": "Something Big Is Coming..."
+    },
+    {
+      "type": "text",
+      "id": "countdown_timer_button_text",
+      "label": "Countdown Timer Button Text",
+      "default": "Get An Alert"
+    },
+    {
+      "type": "url",
+      "id": "countdown_timer_button_link",
+      "label": "Countdown Timer Button Link",
+      "default": "/"
+    },
+    {
+      "type": "checkbox", 
+      "id": "enable_klaviyo_button_opener",
+      "label": "Enable Klaviyo Popup on Countdown Button Click",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Timer Settings"
+    },
+    {
+      "type": "number",
+      "id": "year",
+      "label": "Countdown Year"
+    },
+    {
+      "type": "number",
+      "id": "month",
+      "label": "Countdown Month"
+    },
+    {
+      "type": "number",
+      "id": "day",
+      "label": "Countdown Day"
+    },
+    {
+      "type": "number",
+      "id": "hour",
+      "label": "Countdown Hour"
+    },
+    {
+      "type": "number",
+      "id": "minute",
+      "label": "Countdown Minute"
+    }
+  ],
   "max_blocks": 12,
   "blocks": [
     {
