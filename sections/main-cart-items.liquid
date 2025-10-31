@@ -89,6 +89,12 @@
                   if item.title == 'Hammitt GWP' and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
                     assign is_gwp = true
                   endif
+
+                  assign noLink = false
+                  
+                  if item.product.selected_or_first_available_variant.id == settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id 
+                    assign noLink = true
+                  endif
                 %}
                 
                 {% unless item.product.title == 'Order Protection' %} <!-- Beginning of OP Hiding Logic -->
@@ -96,7 +102,7 @@
                   <td class="cart-item__media">
                     {% if item.image %}
                       <a
-                        {% unless item.variant_id == EEGWPAddOnId or item.variant_id == MonogramAddOnId %}
+                        {% unless item.variant_id == EEGWPAddOnId or item.variant_id == MonogramAddOnId or noLink %}
                           href="{{ item.url }}"
                         {% endunless %} 
                         class="cart-item__link-custom" aria-hidden="true" tabindex="-1">
@@ -117,13 +123,12 @@
                     {%- if section.settings.show_vendor -%}
                       <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                     {%- endif -%}
-                    <a 
-                      {% unless item.variant_id == EEGWPAddOnId or item.variant_id == MonogramAddOnId %}
-                        href="{{ item.url }}" 
-                      {% endunless %}
-                      class="cart-item__name h7 break">{{ item.product.title | escape }}
-                    </a>
-
+                    {% if noLink or item.variant_id == EEGWPAddOnId or item.variant_id == MonogramAddOnId %}
+                        <span class="cart-item__name h7 break">{{ item.product.title | escape }}</span>
+                      {% else %}
+                        <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
+                    {% endif %}
+                    
                     {%- if item.original_price != item.final_price -%}
                       <div class="cart-item__discounted-prices">
                         <span class="visually-hidden">
@@ -256,7 +261,7 @@
                     </div>
                   </td>
 
-                  <td class="cart-item__quantity">
+                  <td class="cart-item__quantity" data-test-1="{{ item.product.selected_or_first_available_variant.id }}" {% if noLink %} style="opacity:0; pointer-events:none;" {% endif %}>
                     <div class="cart-item__quantity-wrapper">
                       {% if item.variant_id == EEGWPAddOnId or item.variant_id == MonogramAddOnId or has_monogram %}
                         <span class="qty_hide-item">{{ item.quantity }}</span>

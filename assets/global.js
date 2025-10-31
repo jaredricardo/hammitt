@@ -1595,10 +1595,48 @@ const cartUpdate = (json = false) => {
 
     cartUpsellSwiper();
 
-    var cartContents = fetch(window.Shopify.routes.root + 'cart.js')
-    .then(response => response.json())
-    .then(data => 
-      {
+   fetch(window.Shopify.routes.root + 'cart.js')
+    .then(response =>
+      response.json(),
+    )
+    .then(data => {
+        // check if gifting drawer is active
+        const giftingOptionsActive = document.querySelector('hammitt-gifting-options-drawer') != null
+
+        if(giftingOptionsActive) {
+
+          const giftWrapProductVid = parseInt(document.querySelector('hammitt-gifting-options-drawer').getAttribute('data-gift-note-vid'))
+          const { items } = data
+
+          let totalGiftWrapsCurrentlyInCart = 0
+          let totalItemsWithGiftWrapPropertyInCart = 0
+
+          items.forEach((item) => {
+            if(item.id === giftWrapProductVid) {
+              totalGiftWrapsCurrentlyInCart += item.quantity
+            }
+            if(item.properties && item.properties['_line_item_gift_note'] !== undefined) {
+              totalItemsWithGiftWrapPropertyInCart += item.quantity
+            }
+          })
+
+          if(totalItemsWithGiftWrapPropertyInCart != totalGiftWrapsCurrentlyInCart) {
+
+            let updatesObj = {
+              updates: {},
+              sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+            }
+
+            updatesObj.updates[giftWrapProductVid] = totalItemsWithGiftWrapPropertyInCart
+            updateCart({
+              url: '/cart/update.js',
+              data: JSON.stringify(updatesObj)
+            })
+            return
+          }
+          
+        }
+
         if(parseFloat((document.querySelector(`free-shipping-goal`).dataset.minimumAmount) * 100) < data.items_subtotal_price) {
           document.querySelector(`free-shipping-goal`).classList.add('free-shipping-goal--done');
         }

@@ -1265,13 +1265,13 @@
       {
         "type": "checkbox",
         "id": "enable_hammitt_box_opt_out",
-        "label": "Enable Hammitt Box Opt Out",
+        "label": "Enable Hammitt Box Opt Out (cart level)",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "enable_hammitt_gift_messaging",
-        "label": "Enable Hammitt Gift Messaging",
+        "label": "Enable Hammitt Gift Messaging (cart level)",
         "default": true
       },
       {
@@ -1305,7 +1305,7 @@
       },
       {
         "type": "header",
-        "content": "Free Shipping + Cart mMssage",
+        "content": "Free Shipping + Cart message",
         "info": "Free Shipping Settings"
       },
       {
@@ -1327,6 +1327,40 @@
         "type": "color",
         "label": "Text color",
         "default": "#000000"
+      },
+      {
+        "type": "header",
+        "content": "Hammitt Gifting Drawer Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_hammitt_gifting_drawer",
+        "label": "Enable Hammitt Gifting Drawer",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "hammitt_gifting_drawer_message",
+        "label": "Gifting Drawer Message",
+        "default": "🎁 Sending as a gift? See our gifting options."
+      },
+      {
+        "type": "product",
+        "id": "hammitt_gift_wrap_product",
+        "label": "Hammitt Gift Wrap Product",
+        "info": "Select the Hammitt Gift Wrap product to be automatically added to cart (and visually hidden) when hand written note / gift wrap option is selected. NOTE: The gifting drawer will not appear if no product is selected. This is to prevent javascript errors."
+      },
+      {
+        "type": "text",
+        "id": "hammitt_gifting_trigger_btn_text",
+        "label": "Gifting Trigger Button Text",
+        "default": "Gift It"
+      },
+      {
+        "type": "textarea",
+        "id": "hammitt_gifting_drawer_header_text",
+        "label": "Gifting Drawer Header Text",
+        "default": "Complimentary gift boxes are available with most items. Please let us know if you want to add a ribbon and note to it or prefer a dust bag only."
       }
     ]
   },

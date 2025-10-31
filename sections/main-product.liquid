@@ -704,7 +704,21 @@
                     {{ description }}
                   {% endfor %}
                  </div>
-                 {% endif %}
+                  {% if block.settings.show_gifting_tooltip %}
+                    {% unless product.tags contains 'sample sale' or product.tags contains 'final sale' %}
+                      <gifting-tooltip-container>
+                        {% render 'icon-gift-box' %}
+                        <div class="heading-container">
+                          {{ block.settings.gifting_tooltip_heading }}
+                          <span class="learn-more">
+                            Learn more.
+                            <div class="gifting-tooltip-content">{{ block.settings.gifting_tooltip_content }}</div>
+                          </span>
+                        </div>
+                      </gifting-tooltip-container>
+                    {% endunless %}
+                  {% endif %}
+                {% endif %}
             {%- when 'product_collapsible' -%}
               {% if product_collapsible_not_set == true %}
 
@@ -1640,7 +1654,7 @@
     {
     "type": "monogram_btn",
     "name": "Monogram button",
-    "limit": 1,
+    "limit": 1
     },
     {
       "type": "buy_buttons",
@@ -1669,7 +1683,26 @@
     {
       "type": "product_description",
       "name": "Product Description",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_gifting_tooltip",
+          "label": "Show gifting tooltip",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "gifting_tooltip_heading",
+          "label": "Gifting tooltip heading",
+          "default": "Complimentary Hammitt gift box for this bag."
+        },
+        {
+          "type": "liquid",
+          "id": "gifting_tooltip_content",
+          "label": "Gifting tooltip content (liquid/html)"
+        }
+      ]
     },
     {
       "type": "product_collapsible",
