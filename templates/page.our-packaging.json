@@ -232,6 +232,16 @@
     "value_props_qYKE7x": {
       "type": "value-props",
       "blocks": {
+        "column_PnhYAz": {
+          "type": "column",
+          "settings": {
+            "svg_image": "",
+            "icon_image": "shopify://shop_images/wrap_1.jpg",
+            "title": "Gift Wrap & Hand Written Note",
+            "text": "<p>Add a personal touch with gift wrap and a custom message.</p>",
+            "link": ""
+          }
+        },
         "column_mbUgPP": {
           "type": "column",
           "settings": {
@@ -251,22 +261,12 @@
             "text": "<p>Go minimal. Choose to receive your item in a dust bag only.</p>",
             "link": ""
           }
-        },
-        "column_PnhYAz": {
-          "type": "column",
-          "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/wrap_1.jpg",
-            "title": "Gift Wrap & Hand Written Note",
-            "text": "<p>Add a personal touch with gift wrap and a custom message.</p>",
-            "link": ""
-          }
         }
       },
       "block_order": [
+        "column_PnhYAz",
         "column_mbUgPP",
-        "column_6ekFPt",
-        "column_PnhYAz"
+        "column_6ekFPt"
       ],
       "name": "Value Props",
       "settings": {
