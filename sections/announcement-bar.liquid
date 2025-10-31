@@ -38,7 +38,6 @@
   position: relative;
   height: 75px;
 }
-
 .announcement-slider .countdown-timer-container {
   position: absolute;
   right: 1rem;
@@ -51,14 +50,28 @@
   transition: 300ms ease-in-out;
 }
 
+.announcement-slider .countdown-timer-container.closed {
+  transform: translateY(-150%);
+}
+
 .announcement-slider .countdown-timer-container #close-countdown-bar {
   position: absolute;
-  top: 0.25rem;
-  right: 0.5rem;
   cursor: pointer;
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
+  right: 1rem;
+  top: 1rem;
   z-index: 5;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.announcement-slider .countdown-timer-container #close-countdown-bar svg {
+  width: 100%;
+  height: 100%;
+}
+.announcement-slider .countdown-timer-container #close-countdown-bar path {
+  fill: {{ section.settings.countdown_bar_text_color }};
 }
 
 .announcement-slider .countdown-timer-inner {
@@ -79,7 +92,7 @@
   width: 100%;
 }
 
-.announcement-slider .main-timer-row h5 {
+.announcement-slider h6 {
   color: {{ section.settings.countdown_bar_text_color }};
 }
 .announcement-slider .main-timer-row .col {
@@ -87,63 +100,194 @@
 }
 
 .announcement-slider .timer-area {
-  display: flex
+  display: flex;
   justify-content: center;
   align-items: center;
+  color: {{ section.settings.countdown_timer_text_color }};
+  gap: 1rem;
 }
+
+.announcement-slider .timer-area .row {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.announcement-slider .timer-area .timer-digit {
+  background-color: {{ section.settings.countdown_timer_button_bg_color }};
+  color: {{ section.settings.countdown_timer_text_color }};
+  padding: 10px;
+  border-radius: 5px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.announcement-slider .timer-area .time-label {
+  color: {{ section.settings.countdown_bar_text_color }};
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  line-height: 1;
+}
+
+.announcement-slider .link-col {
+  display: flex;
+  justify-content: end;
+}
+
+.announcement-slider .link-col a,
+.announcement-slider .link-col .klaviyo-popup-opener {
+  color: {{ section.settings.countdown_timer_button_text_color }};
+  background-color: {{ section.settings.countdown_timer_button_bg_color }};
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 16px;
+  font-weight: 700;
+}
+
+#shopify-section-header {
+  transition: 300ms ease-in-out;
+}
+
+@media screen and (max-width:751px) {
+  .announcement-slider.countdown-enabled {
+    height: 102px;
+  }
+}
+
 </style>
 
 {% endif %}
+
+{% if section.settings.enable_countdown_bar %}
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+
+      const closeBtn = document.querySelector('#close-countdown-bar')
+      const announcementSlider = document.querySelector('.announcement-slider')
+      const countdownBar = document.querySelector('.announcement-slider .countdown-timer-container')
+      const countdownYear = {{ section.settings.year }}
+      const countdownMonth = {{ section.settings.month }}
+      const countdownDay = {{ section.settings.day }}
+      const countdownHour = {{ section.settings.hour }}
+      const countdownMinute = {{ section.settings.minute }};
+      const countdownDate = new Date(countdownYear, countdownMonth - 1, countdownDay, countdownHour, countdownMinute).getTime()
+
+      const daysContainer = document.querySelector('.days-container .row:first-child')
+      const hoursContainer = document.querySelector('.hours-container .row:first-child')
+      const minutesContainer = document.querySelector('.minutes-container .row:first-child')
+      const secsContainer = document.querySelector('.secs-container .row:first-child')
+
+      closeBtn.addEventListener('click', () => {
+        announcementSlider.style.height = 'auto'
+        countdownBar.classList.add('closed')
+        const announcementHeight = announcementSlider.offsetHeight + 'px'
+        setTimeout(() => {
+          document.querySelector('#shopify-section-header').style.setProperty('--announcement-sticky', announcementHeight)
+        })
+      })
+
+      function updateCountdown() {
+        const now = new Date().getTime()
+        const distance = countdownDate - now;
+
+        if (distance < 0) {
+          clearInterval(countdownInterval)
+          // Set all digits to 00
+          document.querySelector('.days-container .first-digit').innerHTML = '0'
+          document.querySelector('.days-container .second-digit').innerHTML = '0'
+          document.querySelector('.hours-container .first-digit').innerHTML = '0'
+          document.querySelector('.hours-container .second-digit').innerHTML = '0'
+          document.querySelector('.minutes-container .first-digit').innerHTML = '0'
+          document.querySelector('.minutes-container .second-digit').innerHTML = '0'
+          document.querySelector('.secs-container .first-digit').innerHTML = '0'
+          document.querySelector('.secs-container .second-digit').innerHTML = '0'
+          return
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+        // Update individual digits
+        const daysStr = String(days).padStart(2, '0')
+        const hoursStr = String(hours).padStart(2, '0')
+        const minutesStr = String(minutes).padStart(2, '0')
+        const secondsStr = String(seconds).padStart(2, '0')
+
+        // Days
+        document.querySelector('.days-container .first-digit').innerHTML = daysStr[0]
+        document.querySelector('.days-container .second-digit').innerHTML = daysStr[1]
+
+        // Hours
+        document.querySelector('.hours-container .first-digit').innerHTML = hoursStr[0]
+        document.querySelector('.hours-container .second-digit').innerHTML = hoursStr[1]
+
+        // Minutes
+        document.querySelector('.minutes-container .first-digit').innerHTML = minutesStr[0]
+        document.querySelector('.minutes-container .second-digit').innerHTML = minutesStr[1]
+
+        // Seconds
+        document.querySelector('.secs-container .first-digit').innerHTML = secondsStr[0]
+        document.querySelector('.secs-container .second-digit').innerHTML = secondsStr[1]
+      }
+
+      const countdownInterval = setInterval(updateCountdown, 1000)
+      updateCountdown()
+    })
+  </script>
+{% endif %}
 <div class="swiper announcement-slider {% if section.settings.enable_countdown_bar %} countdown-enabled {% endif %}" data-json='{{ json }}' data-section-id="{{ section.id }}">
   {% if section.settings.enable_countdown_bar %}
-    <div class="countdown-timer-container page-width">
+    <div class="countdown-timer-container">
       <button id="close-countdown-bar" aria-label="Close Countdown Bar">
         {% render 'icon-close' %}
       </button>
-      <div class="countdown-timer-inner">
+      <div class="countdown-timer-inner page-width">
         {% if section.settings.countdown_bar_text %}
-          <h5 class="mobile-row mobile-only">{{ section.settings.countdown_bar_text }}</h5>
+          <h6 class="mobile-row mobile-only">{{ section.settings.countdown_bar_text }}</h6>
         {% endif %}
         <div class="main-timer-row">
-          <div class="col">
-            <h5>{{ section.settings.countdown_bar_text }}</h5>
+          <div class="col desktop-only">
+            <h6>{{ section.settings.countdown_bar_text }}</h6>
           </div>
           <div class="col timer-area">
 
             <div class="days-container">
               <div class="row">
-                <span>0</span>
-                <span>3</span>
+                <span class="timer-digit first-digit">0</span>
+                <span class="timer-digit second-digit">3</span>
               </div>
-              <div class="row">DAYS</div>
+              <div class="row time-label">DAYS</div>
             </div>
 
             <div class="hours-container">
               <div class="row">
-                <span>1</span>
-                <span>2</span>
+                <span class="timer-digit first-digit">1</span>
+                <span class="timer-digit second-digit">2</span>
               </div>
-              <div class="row">HRS</div>
+              <div class="row time-label">HRS</div>
             </div>
 
             <div class="minutes-container">
               <div class="row">
-                <span>4</span>
-                <span>2</span>
+                <span class="timer-digit first-digit">4</span>
+                <span class="timer-digit second-digit">2</span>
               </div>
-              <div class="row">MINS</div>
+              <div class="row time-label">MINS</div>
             </div>
 
             <div class="secs-container">
               <div class="row">
-                <span>5</span>
-                <span>9</span>
+                <span class="timer-digit first-digit">5</span>
+                <span class="timer-digit second-digit">9</span>
               </div>
-              <div class="row">SECS</div>
+              <div class="row time-label">SECS</div>
             </div>
             
           </div>
-          <div class="col">
+          <div class="col link-col">
             {% if section.settings.countdown_timer_button_link != blank and section.settings.enable_klaviyo_button_opener == false %}
               <a href="{{ section.settings.countdown_timer_button_link }}">{{ section.settings.countdown_timer_button_text }}</a>
             {% endif %}
@@ -230,7 +374,7 @@
     {
       "type": "color",
       "id": "countdown_timer_text_color",
-      "label": "Countdown Timer Text Color",
+      "label": "Countdown Timer Digit Text Color",
       "info": "Applies to the numbers in the timer boxes.",
       "default": "#ffffff"
     },
@@ -239,7 +383,7 @@
       "id": "countdown_timer_button_bg_color",
       "label": "Countdown Timer Button Background Color",
       "info": "Also applies to the background color of the timer number boxes.",
-      "default": "#000000"
+      "default": "#FFFFFF"
     },
     {
       "type": "color",
