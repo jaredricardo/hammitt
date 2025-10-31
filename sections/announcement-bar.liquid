@@ -32,134 +32,185 @@
     }
   {% endfor %}
 </style>
-
-<style>
-.announcement-slider.countdown-enabled {
-  position: relative;
-  height: 75px;
-}
-.announcement-slider .countdown-timer-container {
-  position: absolute;
-  right: 1rem;
-  z-index: 4;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: {{ section.settings.countdown_bar_background_color }};
-  transition: 300ms ease-in-out;
-}
-
-.announcement-slider .countdown-timer-container.closed {
-  transform: translateY(-150%);
-}
-
-.announcement-slider .countdown-timer-container #close-countdown-bar {
-  position: absolute;
-  cursor: pointer;
-  width: 15px;
-  height: 15px;
-  right: 1rem;
-  top: 1rem;
-  z-index: 5;
-  background: transparent;
-  border: none;
-  padding: 0;
-}
-.announcement-slider .countdown-timer-container #close-countdown-bar svg {
-  width: 100%;
-  height: 100%;
-}
-.announcement-slider .countdown-timer-container #close-countdown-bar path {
-  fill: {{ section.settings.countdown_bar_text_color }};
-}
-
-.announcement-slider .countdown-timer-inner {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} 
-
-.announcement-slider .main-timer-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-
-.announcement-slider h6 {
-  color: {{ section.settings.countdown_bar_text_color }};
-}
-.announcement-slider .main-timer-row .col {
-  flex: 1;
-}
-
-.announcement-slider .timer-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: {{ section.settings.countdown_timer_text_color }};
-  gap: 1rem;
-}
-
-.announcement-slider .timer-area .row {
-  display: flex;
-  justify-content: center;
-  gap: 0.4rem;
-}
-
-.announcement-slider .timer-area .timer-digit {
-  background-color: {{ section.settings.countdown_timer_button_bg_color }};
-  color: {{ section.settings.countdown_timer_text_color }};
-  padding: 10px;
-  border-radius: 5px;
-  line-height: 1;
-  font-weight: 700;
-}
-
-.announcement-slider .timer-area .time-label {
-  color: {{ section.settings.countdown_bar_text_color }};
-  font-size: 11px;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  line-height: 1;
-}
-
-.announcement-slider .link-col {
-  display: flex;
-  justify-content: end;
-}
-
-.announcement-slider .link-col a,
-.announcement-slider .link-col .klaviyo-popup-opener {
-  color: {{ section.settings.countdown_timer_button_text_color }};
-  background-color: {{ section.settings.countdown_timer_button_bg_color }};
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 8px 16px;
-  font-weight: 700;
-}
-
-#shopify-section-header {
-  transition: 300ms ease-in-out;
-}
-
-@media screen and (max-width:751px) {
-  .announcement-slider.countdown-enabled {
-    height: 102px;
-  }
-}
-
-</style>
-
 {% endif %}
 
 {% if section.settings.enable_countdown_bar %}
+  <style>
+  .announcement-slider.countdown-enabled {
+    position: relative;
+    height: 75px;
+  }
+  .announcement-slider .countdown-timer-container {
+    position: absolute;
+    right: 1rem;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: {{ section.settings.countdown_bar_background_color }};
+    transition: 300ms ease-in-out;
+  }
+
+  .announcement-slider .countdown-timer-container.closed {
+    transform: translateY(-150%);
+  }
+
+  .announcement-slider .countdown-timer-container #close-countdown-bar {
+    position: absolute;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    right: 1rem;
+    top: 1rem;
+    z-index: 5;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .announcement-slider .countdown-timer-container #close-countdown-bar svg {
+    width: 100%;
+    height: 100%;
+  }
+  .announcement-slider .countdown-timer-container #close-countdown-bar path {
+    fill: {{ section.settings.countdown_bar_text_color }};
+  }
+
+  .announcement-slider .countdown-timer-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } 
+
+  .announcement-slider .main-timer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: max-content;
+    width: 100%;
+  }
+
+  .announcement-slider h6 {
+    color: {{ section.settings.countdown_bar_text_color }};
+    margin: 0;
+    font-weight: 600;
+  }
+  .announcement-slider .main-timer-row .col {
+    flex: 1;
+  }
+
+  .announcement-slider .timer-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: {{ section.settings.countdown_timer_text_color }};
+  }
+
+  .announcement-slider .timer-area .timer-seperator {
+    color: {{ section.settings.countdown_bar_text_color }};
+    font-size: 21px;
+    font-weight: bold;
+    margin: 0 0.75rem;
+    line-height: 1;
+    margin-bottom: 17px;
+  } 
+
+  .announcement-slider .timer-area .row {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .announcement-slider .timer-area .timer-digit {
+    background-color: {{ section.settings.countdown_timer_button_bg_color }};
+    color: {{ section.settings.countdown_timer_button_bg_color }};
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 1;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 300ms;
+  }
+
+  .announcement-slider .timer-area.active .timer-digit {
+    color: {{ section.settings.countdown_timer_text_color }};
+  }
+
+  .announcement-slider .timer-area .time-label {
+    color: {{ section.settings.countdown_bar_text_color }};
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    line-height: 1;
+  }
+
+  .announcement-slider .link-col {
+    display: flex;
+    justify-content: end;
+  }
+
+  .announcement-slider .link-col a,
+  .announcement-slider .link-col .klaviyo-popup-opener {
+    color: {{ section.settings.countdown_timer_button_text_color }};
+    background-color: {{ section.settings.countdown_timer_button_bg_color }};
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.02rem !important;
+    border: none;
+    cursor: pointer;
+  }
+
+  #shopify-section-header {
+    transition: 300ms ease-in-out;
+  }
+
+  @media screen and (max-width:751px) {
+    .announcement-slider.countdown-enabled {
+      height: 92px;
+    }
+    .announcement-slider .countdown-timer-inner {
+      gap: 1rem;
+    }
+    .announcement-slider .timer-area .timer-digit {
+      padding: 7px;
+      font-size: 12px;
+    }
+    .announcement-slider .link-col a,
+    .announcement-slider .link-col .klaviyo-popup-opener  {
+      width: max-content;
+      padding: 8px;
+      font-size: 12px !important;
+    }
+    .announcement-slider .main-timer-row .col {
+      flex: none;
+      align-items: start;
+    }
+    .announcement-slider .main-timer-row {
+      align-items: start;
+    }
+    .announcement-slider .timer-area .timer-seperator {
+      margin: 0 0.35rem;
+      line-height: 1;
+      margin-bottom: 0;
+      margin-top: 5px;
+    }
+    .announcement-slider .timer-area .time-label  {
+      margin-top: 0.75rem;
+    }
+    .announcement-slider .countdown-timer-container #close-countdown-bar {
+      font-size: 13px;
+    }
+  }
+
+  </style>
+
   <script>
     window.addEventListener('DOMContentLoaded', () => {
 
@@ -170,8 +221,22 @@
       const countdownMonth = {{ section.settings.month }}
       const countdownDay = {{ section.settings.day }}
       const countdownHour = {{ section.settings.hour }}
-      const countdownMinute = {{ section.settings.minute }};
-      const countdownDate = new Date(countdownYear, countdownMonth - 1, countdownDay, countdownHour, countdownMinute).getTime()
+      const countdownMinute = {{ section.settings.minute }}
+      
+      // Convert PT time to UTC for accurate countdown
+      // PT is UTC-8 (PST) or UTC-7 (PDT during daylight saving time)
+      // For November 2025, it would be PST (UTC-8)
+      const targetUTCDate = new Date(Date.UTC(
+        countdownYear,
+        countdownMonth - 1,
+        countdownDay,
+        countdownHour + 8, // Add 8 hours to convert PST to UTC
+        countdownMinute,
+        0,
+        0
+      ));
+      
+      const countdownDate = targetUTCDate.getTime()
 
       const daysContainer = document.querySelector('.days-container .row:first-child')
       const hoursContainer = document.querySelector('.hours-container .row:first-child')
@@ -179,17 +244,32 @@
       const secsContainer = document.querySelector('.secs-container .row:first-child')
 
       closeBtn.addEventListener('click', () => {
-        announcementSlider.style.height = 'auto'
         countdownBar.classList.add('closed')
-        const announcementHeight = announcementSlider.offsetHeight + 'px'
         setTimeout(() => {
+          announcementSlider.style.height = 'auto'
+          const announcementHeight = announcementSlider.offsetHeight + 'px'
           document.querySelector('#shopify-section-header').style.setProperty('--announcement-sticky', announcementHeight)
-        })
+        }, 600)
       })
+      {% if section.settings.enable_klaviyo_button_opener %}
+        const klaviyoButton = document.querySelector('.announcement-slider .klaviyo-popup-opener')
+        klaviyoButton.addEventListener('click', (e) => {
+          e.preventDefault()
+          console.log('clicked...')
+          window._klOnsite = window._klOnsite || []
+          window._klOnsite.push(['openForm', 'VACENj'])
+        })
+      {% endif %}
 
       function updateCountdown() {
+
         const now = new Date().getTime()
-        const distance = countdownDate - now;
+        const distance = countdownDate - now
+        const timerArea = document.querySelector('.announcement-slider .timer-area')
+
+        if (!timerArea.classList.contains('active')) {
+          timerArea.classList.add('active')
+        }
 
         if (distance < 0) {
           clearInterval(countdownInterval)
@@ -238,6 +318,11 @@
     })
   </script>
 {% endif %}
+
+{% if section.settings.enable_klaviyo_button_opener %}
+  {% comment %} <div class="klaviyo-form-VACENj"></div> {% endcomment %}
+{% endif %}
+
 <div class="swiper announcement-slider {% if section.settings.enable_countdown_bar %} countdown-enabled {% endif %}" data-json='{{ json }}' data-section-id="{{ section.id }}">
   {% if section.settings.enable_countdown_bar %}
     <div class="countdown-timer-container">
@@ -257,31 +342,31 @@
             <div class="days-container">
               <div class="row">
                 <span class="timer-digit first-digit">0</span>
-                <span class="timer-digit second-digit">3</span>
+                <span class="timer-digit second-digit">0</span>
               </div>
               <div class="row time-label">DAYS</div>
             </div>
-
+            <span class="timer-seperator">:</span>
             <div class="hours-container">
               <div class="row">
-                <span class="timer-digit first-digit">1</span>
-                <span class="timer-digit second-digit">2</span>
+                <span class="timer-digit first-digit">0</span>
+                <span class="timer-digit second-digit">0</span>
               </div>
               <div class="row time-label">HRS</div>
             </div>
-
+            <span class="timer-seperator">:</span>
             <div class="minutes-container">
               <div class="row">
-                <span class="timer-digit first-digit">4</span>
-                <span class="timer-digit second-digit">2</span>
+                <span class="timer-digit first-digit">0</span>
+                <span class="timer-digit second-digit">0</span>
               </div>
               <div class="row time-label">MINS</div>
             </div>
-
+            <span class="timer-seperator">:</span>
             <div class="secs-container">
               <div class="row">
-                <span class="timer-digit first-digit">5</span>
-                <span class="timer-digit second-digit">9</span>
+                <span class="timer-digit first-digit">0</span>
+                <span class="timer-digit second-digit">0</span>
               </div>
               <div class="row time-label">SECS</div>
             </div>
@@ -417,7 +502,7 @@
     },
     {
       "type": "header",
-      "content": "Timer Settings"
+      "content": "Timer Settings (Pacific Time Zone)"
     },
     {
       "type": "number",
@@ -437,7 +522,7 @@
     {
       "type": "number",
       "id": "hour",
-      "label": "Countdown Hour"
+      "label": "Countdown Hour (military time)"
     },
     {
       "type": "number",
