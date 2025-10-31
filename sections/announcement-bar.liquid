@@ -33,7 +33,357 @@
   {% endfor %}
 </style>
 {% endif %}
-<div class="swiper announcement-slider" data-json='{{ json }}'>
+
+{% if section.settings.enable_countdown_bar %}
+  <style>
+  .announcement-slider.countdown-enabled {
+    position: relative;
+    height: 75px;
+  }
+  .announcement-slider .countdown-timer-container {
+    position: absolute;
+    right: 1rem;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: {{ section.settings.countdown_bar_background_color }};
+    transition: 300ms ease-in-out;
+  }
+
+  .announcement-slider .countdown-timer-container.closed {
+    transform: translateY(-150%);
+  }
+
+  .announcement-slider .countdown-timer-container #close-countdown-bar {
+    position: absolute;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    right: 1rem;
+    top: 1rem;
+    z-index: 5;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .announcement-slider .countdown-timer-container #close-countdown-bar svg {
+    width: 100%;
+    height: 100%;
+  }
+  .announcement-slider .countdown-timer-container #close-countdown-bar path {
+    fill: {{ section.settings.countdown_bar_text_color }};
+  }
+
+  .announcement-slider .countdown-timer-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } 
+
+  .announcement-slider .main-timer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: max-content;
+    width: 100%;
+  }
+
+  .announcement-slider h6 {
+    color: {{ section.settings.countdown_bar_text_color }};
+    margin: 0;
+    font-weight: 600;
+  }
+  .announcement-slider .main-timer-row .col {
+    flex: 1;
+  }
+
+  .announcement-slider .timer-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: {{ section.settings.countdown_timer_text_color }};
+  }
+
+  .announcement-slider .timer-area .timer-seperator {
+    color: {{ section.settings.countdown_bar_text_color }};
+    font-size: 21px;
+    font-weight: bold;
+    margin: 0 0.75rem;
+    line-height: 1;
+    margin-bottom: 17px;
+  } 
+
+  .announcement-slider .timer-area .row {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .announcement-slider .timer-area .timer-digit {
+    background-color: {{ section.settings.countdown_timer_button_bg_color }};
+    color: {{ section.settings.countdown_timer_button_bg_color }};
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 1;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 300ms;
+  }
+
+  .announcement-slider .timer-area.active .timer-digit {
+    color: {{ section.settings.countdown_timer_text_color }};
+  }
+
+  .announcement-slider .timer-area .time-label {
+    color: {{ section.settings.countdown_bar_text_color }};
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    line-height: 1;
+  }
+
+  .announcement-slider .link-col {
+    display: flex;
+    justify-content: end;
+  }
+
+  .announcement-slider .link-col a,
+  .announcement-slider .link-col .klaviyo-popup-opener {
+    color: {{ section.settings.countdown_timer_button_text_color }};
+    background-color: {{ section.settings.countdown_timer_button_bg_color }};
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.02rem !important;
+    border: none;
+    cursor: pointer;
+  }
+
+  #shopify-section-header {
+    transition: 300ms ease-in-out;
+  }
+
+  @media screen and (max-width:751px) {
+    .announcement-slider.countdown-enabled {
+      height: 92px;
+    }
+    .announcement-slider .countdown-timer-inner {
+      gap: 1rem;
+    }
+    .announcement-slider .timer-area .timer-digit {
+      padding: 7px;
+      font-size: 12px;
+    }
+    .announcement-slider .link-col a,
+    .announcement-slider .link-col .klaviyo-popup-opener  {
+      width: max-content;
+      padding: 8px;
+      font-size: 12px !important;
+    }
+    .announcement-slider .main-timer-row .col {
+      flex: none;
+      align-items: start;
+    }
+    .announcement-slider .main-timer-row {
+      align-items: start;
+    }
+    .announcement-slider .timer-area .timer-seperator {
+      margin: 0 0.35rem;
+      line-height: 1;
+      margin-bottom: 0;
+      margin-top: 5px;
+    }
+    .announcement-slider .timer-area .time-label  {
+      margin-top: 0.75rem;
+    }
+    .announcement-slider .countdown-timer-container #close-countdown-bar {
+      font-size: 13px;
+    }
+  }
+
+  </style>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+
+      const closeBtn = document.querySelector('#close-countdown-bar')
+      const announcementSlider = document.querySelector('.announcement-slider')
+      const countdownBar = document.querySelector('.announcement-slider .countdown-timer-container')
+      const countdownYear = {{ section.settings.year }}
+      const countdownMonth = {{ section.settings.month }}
+      const countdownDay = {{ section.settings.day }}
+      const countdownHour = {{ section.settings.hour }}
+      const countdownMinute = {{ section.settings.minute }}
+      
+      // Convert PT time to UTC for accurate countdown
+      // PT is UTC-8 (PST) or UTC-7 (PDT during daylight saving time)
+      // For November 2025, it would be PST (UTC-8)
+      const targetUTCDate = new Date(Date.UTC(
+        countdownYear,
+        countdownMonth - 1,
+        countdownDay,
+        countdownHour + 8, // Add 8 hours to convert PST to UTC
+        countdownMinute,
+        0,
+        0
+      ));
+      
+      const countdownDate = targetUTCDate.getTime()
+
+      const daysContainer = document.querySelector('.days-container .row:first-child')
+      const hoursContainer = document.querySelector('.hours-container .row:first-child')
+      const minutesContainer = document.querySelector('.minutes-container .row:first-child')
+      const secsContainer = document.querySelector('.secs-container .row:first-child')
+
+      closeBtn.addEventListener('click', () => {
+        countdownBar.classList.add('closed')
+        setTimeout(() => {
+          announcementSlider.style.height = 'auto'
+          const announcementHeight = announcementSlider.offsetHeight + 'px'
+          document.querySelector('#shopify-section-header').style.setProperty('--announcement-sticky', announcementHeight)
+        }, 600)
+      })
+      {% if section.settings.enable_klaviyo_button_opener %}
+        const klaviyoButton = document.querySelector('.announcement-slider .klaviyo-popup-opener')
+        klaviyoButton.addEventListener('click', (e) => {
+          e.preventDefault()
+          console.log('clicked...')
+          window._klOnsite = window._klOnsite || []
+          window._klOnsite.push(['openForm', 'VACENj'])
+        })
+      {% endif %}
+
+      function updateCountdown() {
+
+        const now = new Date().getTime()
+        const distance = countdownDate - now
+        const timerArea = document.querySelector('.announcement-slider .timer-area')
+
+        if (!timerArea.classList.contains('active')) {
+          timerArea.classList.add('active')
+        }
+
+        if (distance < 0) {
+          clearInterval(countdownInterval)
+          // Set all digits to 00
+          document.querySelector('.days-container .first-digit').innerHTML = '0'
+          document.querySelector('.days-container .second-digit').innerHTML = '0'
+          document.querySelector('.hours-container .first-digit').innerHTML = '0'
+          document.querySelector('.hours-container .second-digit').innerHTML = '0'
+          document.querySelector('.minutes-container .first-digit').innerHTML = '0'
+          document.querySelector('.minutes-container .second-digit').innerHTML = '0'
+          document.querySelector('.secs-container .first-digit').innerHTML = '0'
+          document.querySelector('.secs-container .second-digit').innerHTML = '0'
+          return
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+        // Update individual digits
+        const daysStr = String(days).padStart(2, '0')
+        const hoursStr = String(hours).padStart(2, '0')
+        const minutesStr = String(minutes).padStart(2, '0')
+        const secondsStr = String(seconds).padStart(2, '0')
+
+        // Days
+        document.querySelector('.days-container .first-digit').innerHTML = daysStr[0]
+        document.querySelector('.days-container .second-digit').innerHTML = daysStr[1]
+
+        // Hours
+        document.querySelector('.hours-container .first-digit').innerHTML = hoursStr[0]
+        document.querySelector('.hours-container .second-digit').innerHTML = hoursStr[1]
+
+        // Minutes
+        document.querySelector('.minutes-container .first-digit').innerHTML = minutesStr[0]
+        document.querySelector('.minutes-container .second-digit').innerHTML = minutesStr[1]
+
+        // Seconds
+        document.querySelector('.secs-container .first-digit').innerHTML = secondsStr[0]
+        document.querySelector('.secs-container .second-digit').innerHTML = secondsStr[1]
+      }
+
+      const countdownInterval = setInterval(updateCountdown, 1000)
+      updateCountdown()
+    })
+  </script>
+{% endif %}
+
+{% if section.settings.enable_klaviyo_button_opener %}
+  {% comment %} <div class="klaviyo-form-VACENj"></div> {% endcomment %}
+{% endif %}
+
+<div class="swiper announcement-slider {% if section.settings.enable_countdown_bar %} countdown-enabled {% endif %}" data-json='{{ json }}' data-section-id="{{ section.id }}">
+  {% if section.settings.enable_countdown_bar %}
+    <div class="countdown-timer-container">
+      <button id="close-countdown-bar" aria-label="Close Countdown Bar">
+        {% render 'icon-close' %}
+      </button>
+      <div class="countdown-timer-inner page-width">
+        {% if section.settings.countdown_bar_text %}
+          <h6 class="mobile-row mobile-only">{{ section.settings.countdown_bar_text }}</h6>
+        {% endif %}
+        <div class="main-timer-row">
+          <div class="col desktop-only">
+            <h6>{{ section.settings.countdown_bar_text }}</h6>
+          </div>
+          <div class="col timer-area">
+
+            <div class="days-container">
+              <div class="row">
+                <span class="timer-digit first-digit">0</span>
+                <span class="timer-digit second-digit">0</span>
+              </div>
+              <div class="row time-label">DAYS</div>
+            </div>
+            <span class="timer-seperator">:</span>
+            <div class="hours-container">
+              <div class="row">
+                <span class="timer-digit first-digit">0</span>
+                <span class="timer-digit second-digit">0</span>
+              </div>
+              <div class="row time-label">HRS</div>
+            </div>
+            <span class="timer-seperator">:</span>
+            <div class="minutes-container">
+              <div class="row">
+                <span class="timer-digit first-digit">0</span>
+                <span class="timer-digit second-digit">0</span>
+              </div>
+              <div class="row time-label">MINS</div>
+            </div>
+            <span class="timer-seperator">:</span>
+            <div class="secs-container">
+              <div class="row">
+                <span class="timer-digit first-digit">0</span>
+                <span class="timer-digit second-digit">0</span>
+              </div>
+              <div class="row time-label">SECS</div>
+            </div>
+            
+          </div>
+          <div class="col link-col">
+            {% if section.settings.countdown_timer_button_link != blank and section.settings.enable_klaviyo_button_opener == false %}
+              <a href="{{ section.settings.countdown_timer_button_link }}">{{ section.settings.countdown_timer_button_text }}</a>
+            {% endif %}
+            {% if section.settings.enable_klaviyo_button_opener %}
+              <button class="klaviyo-popup-opener">{{ section.settings.countdown_timer_button_text }}</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
@@ -82,6 +432,104 @@
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Countdown Announcement Bar Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_countdown_bar",
+      "label": "Enable Countdown Bar",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "countdown_bar_background_color",
+      "label": "Countdown Bar Background Color",
+      "default": "#000000"
+    },
+      {
+      "type": "color",
+      "id": "countdown_bar_text_color",
+      "label": "Countdown Bar Text Color",
+      "info": "Applies to the text next to the timer, as well as the timer labels",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "countdown_timer_text_color",
+      "label": "Countdown Timer Digit Text Color",
+      "info": "Applies to the numbers in the timer boxes.",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "countdown_timer_button_bg_color",
+      "label": "Countdown Timer Button Background Color",
+      "info": "Also applies to the background color of the timer number boxes.",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "countdown_timer_button_text_color",
+      "label": "Countdown Timer Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "countdown_bar_text",
+      "label": "Countdown Bar Text",
+      "default": "Something Big Is Coming..."
+    },
+    {
+      "type": "text",
+      "id": "countdown_timer_button_text",
+      "label": "Countdown Timer Button Text",
+      "default": "Get An Alert"
+    },
+    {
+      "type": "url",
+      "id": "countdown_timer_button_link",
+      "label": "Countdown Timer Button Link",
+      "default": "/"
+    },
+    {
+      "type": "checkbox", 
+      "id": "enable_klaviyo_button_opener",
+      "label": "Enable Klaviyo Popup on Countdown Button Click",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Timer Settings (Pacific Time Zone)"
+    },
+    {
+      "type": "number",
+      "id": "year",
+      "label": "Countdown Year"
+    },
+    {
+      "type": "number",
+      "id": "month",
+      "label": "Countdown Month"
+    },
+    {
+      "type": "number",
+      "id": "day",
+      "label": "Countdown Day"
+    },
+    {
+      "type": "number",
+      "id": "hour",
+      "label": "Countdown Hour (military time)"
+    },
+    {
+      "type": "number",
+      "id": "minute",
+      "label": "Countdown Minute"
+    }
+  ],
   "max_blocks": 12,
   "blocks": [
     {
