@@ -178,7 +178,7 @@
                           {% endif %}
                           {% assign isBadgeProductProperties = false %}
                           {% for tag in item.product.tags %}
-                            {% if tag == 'tag: Final Sale' or tag == 'tag: final sale' or tag == 'tag: final sale' %}
+                            {% if tag == 'no-returns' %}
                               {% if item.product.metafields.custom.badge_properties %}
                                 {% assign isBadgeProductProperties = true %}
                               {% endif %}

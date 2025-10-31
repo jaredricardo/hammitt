@@ -104,6 +104,10 @@
             <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">
                 Sold Out
             </span>
+        {% elsif has_final_sale_tag %}
+            <span class="badge red-badge">
+                {{ badge_tag }}
+            </span>
         {% elsif is_only_a_few_left_tag == true %}
             <span class="badge red-badge">
                 {% render 'icon-timer' %}

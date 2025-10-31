@@ -27,7 +27,7 @@
   assign seo_tag = product.metafields.custom.product_title_seo_tag
   assign isBadgeProduct = false 
   for tag in card_product.tags 
-    if tag == 'tag: Final Sale' or tag == 'tag: final sale' or tag == 'tag: final sale'
+    if tag == 'no-returns'
       assign isBadgeProduct = true 
     endif
   endfor 
