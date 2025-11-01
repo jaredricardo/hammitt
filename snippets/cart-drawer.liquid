@@ -578,78 +578,7 @@
           <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
           <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
         </cart-items>
-        <gift-box-section>
-          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
-            <h4 class="h7">{{ content.heading }}</h4>
-          {% endfor %}
-          {%- capture json -%}
-            {
-              "slidesPerView": 1.7,
-              "spaceBetween": 9,
-              "freeMode": true,
-              "mousewheel": false,
-              "loop": false,
-              "effect": "slide",
-              "navigation": {
-                "nextEl": ".swiper-button-next",
-                "prevEl": ".swiper-button-prev"
-              },
-              "breakpoints": {
-                "750": {
-                  "slidesPerView": "1.7",
-                  "spaceBetween": 20
-                },
-                "990": {
-                  "slidesPerView": "1.7",
-                  "spaceBetween": 9
-                }
-              }
-            }
-          {%- endcapture -%}
-          <div class="swiper gift-box--swiper" data-json='{{ json }}'>
-            <button class="btn-expanded" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path stroke="currentColor" d="m16 4-5 5M4 16l5-5M11 4v5h5M9 16v-5H4"></path></svg>
-            </button>
-            <div class="swiper-wrapper">
-              {% for giftBoxFiles in shop.metaobjects.complimentary_gift_box.values %}
-                {% assign fileFormate = giftBoxFiles.files.value %}
-                {% if fileFormate.media_type contains 'video' %}
-                  <div class="swiper-slide">
-                    <div class="gift-box-video">
-                      <video class="video__element" playsinline="" loop="" muted="" preload="auto" autoplay poster="{{ fileFormate.src }}" src="{{ fileFormate.sources[1].url }}" data-video="{{ fileFormate.sources[1].url }}">
-                        <source src="{{ fileFormate.sources[1].url }}" type="video/mp4">
-                      </video>
-                    </div>
-                  </div>
-                {% else %}
-                  <div class="swiper-slide">
-                    <div class="gift-box-image">
-                      <img src="{{ fileFormate | img_url: 'master' }}" alt="{{ fileFormate.alt | default: 'Complimentary gift image' }}">
-                    </div>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-
-          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
-            <div class="gift-box-content">{{ content.description }}</div>
-          {% endfor %}
-        </gift-box-section>
-        <div class="multiple-gifts-section">
-          <span>{% render 'icon-gifts' %}<p>Buying multiple gifts? Ship to different addresses at checkout.</p></span>
-          <p>If you’d like to add gift wrap, you can add as many as you need below and simply select it for each address at check out.</p>
-        </div>
-        {% if cart.item_count > 0  %}
-          {% if settings.enable_hammitt_box_opt_out %}
-            <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
-              <input type="checkbox" id="hammitt-box-opt-out-checkbox">
-              <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
-            </hammitt-box-opt-out>
-          {% endif %}
-          {% if settings.enable_hammitt_gifting_drawer %}
+        {% if settings.enable_hammitt_gifting_drawer %}
 
             <hammitt-gifting-options-drawer-trigger>
               <p>{{ settings.hammitt_gifting_drawer_message }}</p>
@@ -837,6 +766,77 @@
                 </svg>
               </div>
             </hammitt-gifting-options-drawer>
+        {% endif %}
+        <gift-box-section>
+          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
+            <h4 class="h7">{{ content.heading }}</h4>
+          {% endfor %}
+          {%- capture json -%}
+            {
+              "slidesPerView": 1.7,
+              "spaceBetween": 9,
+              "freeMode": true,
+              "mousewheel": false,
+              "loop": false,
+              "effect": "slide",
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              },
+              "breakpoints": {
+                "750": {
+                  "slidesPerView": "1.7",
+                  "spaceBetween": 20
+                },
+                "990": {
+                  "slidesPerView": "1.7",
+                  "spaceBetween": 9
+                }
+              }
+            }
+          {%- endcapture -%}
+          <div class="swiper gift-box--swiper" data-json='{{ json }}'>
+            <button class="btn-expanded" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path stroke="currentColor" d="m16 4-5 5M4 16l5-5M11 4v5h5M9 16v-5H4"></path></svg>
+            </button>
+            <div class="swiper-wrapper">
+              {% for giftBoxFiles in shop.metaobjects.complimentary_gift_box.values %}
+                {% assign fileFormate = giftBoxFiles.files.value %}
+                {% if fileFormate.media_type contains 'video' %}
+                  <div class="swiper-slide">
+                    <div class="gift-box-video">
+                      <video class="video__element" playsinline="" loop="" muted="" preload="auto" autoplay poster="{{ fileFormate.src }}" src="{{ fileFormate.sources[1].url }}" data-video="{{ fileFormate.sources[1].url }}">
+                        <source src="{{ fileFormate.sources[1].url }}" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="swiper-slide">
+                    <div class="gift-box-image">
+                      <img src="{{ fileFormate | img_url: 'master' }}" alt="{{ fileFormate.alt | default: 'Complimentary gift image' }}">
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
+            <div class="gift-box-content">{{ content.description }}</div>
+          {% endfor %}
+        </gift-box-section>
+        <div class="multiple-gifts-section">
+          <span>{% render 'icon-gifts' %}<p>Buying multiple gifts? Ship to different addresses at checkout.</p></span>
+          <p>If you’d like to add gift wrap, you can add as many as you need below and simply select it for each address at check out.</p>
+        </div>
+        {% if cart.item_count > 0  %}
+          {% if settings.enable_hammitt_box_opt_out %}
+            <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
+              <input type="checkbox" id="hammitt-box-opt-out-checkbox">
+              <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
+            </hammitt-box-opt-out>
           {% endif %}
           <div class="gift-box-content">{{ content.description }}</div>
           {% if settings.enable_hammitt_gift_messaging %}

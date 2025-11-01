@@ -1260,7 +1260,7 @@
       {
         "type": "header",
         "content": "Native Hammit Gift Messaging",
-        "info": "Below is Hammitt's native built gift messaging settings."
+        "info": "Below is Hammitt's native built gift messaging settings. THIS IS THE CART LEVEL, NOT LINE LEVEL OPT OUT."
       },
       {
         "type": "checkbox",
@@ -1336,6 +1336,7 @@
         "type": "checkbox",
         "id": "enable_hammitt_gifting_drawer",
         "label": "Enable Hammitt Gifting Drawer",
+        "info": "Enables the gifting drawer in the cart, which are LINE LEVEL gifting options. Do not enable both at once, and in fact, we should consider sunsetting the cart level gifting options in favor of line level.",
         "default": false
       },
       {
