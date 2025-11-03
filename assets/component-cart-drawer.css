@@ -834,6 +834,12 @@ hammitt-box-opt-out {
   border-radius: 2px;
 }
 
+@media screen and (max-width: 751px) {
+  .hammitt-gift-note-area textarea {
+    font-size: 16px !important;
+  }
+}
+
 .hammitt-gift-note-area #gift-note-char-limit,
 .gift-note-char-limit {
   position: absolute;
