@@ -114,6 +114,12 @@ hammitt-gifting-options-drawer .broken-out-line-items {
     padding-bottom: 2rem;
 }
 
+@media screen and (max-width: 751px) {
+    hammitt-gifting-options-drawer .broken-out-line-items {
+        padding-bottom: 15rem;
+    }
+}
+
 hammitt-gifting-options-drawer  hammitt-gifting-broken-out-line-item {
     display: flex;
     flex-direction: row;
