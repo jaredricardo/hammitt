@@ -404,7 +404,6 @@ class CartDrawer extends MenuDrawer {
 
   onCloseButtonClick(event) {
     const detailsElement = event.currentTarget.closest('details');
-    console.log('CartDrawer onCloseButtonClick()');
     this.closeMenuDrawer(event);
     event.preventDefault();
   }
