@@ -21,6 +21,56 @@
         "padding_bottom_mobile": 0
       }
     },
+    "hero_video_banner_jh3xne": {
+      "type": "hero-video-banner",
+      "name": "Hero Video Banner",
+      "settings": {
+        "video_height": "450px",
+        "video_height_mobile": "auto",
+        "full_width": true,
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/text-to-video-b7b5c658.mp4",
+        "video_url": "",
+        "description": "",
+        "video_overlay": 0,
+        "video_overlay_color": "#000",
+        "video_overlay_cb": true,
+        "content_position_align": "center_left",
+        "content_text_align": "center",
+        "content_text_align_mobile": "center",
+        "content_padding_tb": 50,
+        "content_padding_rl": 40,
+        "heading": "",
+        "video_title_size": 20,
+        "video_title_size_mobile": 20,
+        "video_title_color": "#fff",
+        "video_title_color_mobile": "#000",
+        "video_text": "Unbox Something Unforgettable",
+        "content_size": 30,
+        "content_size_mobile": 26,
+        "content_color": "#000000",
+        "content_color_mobile": "#000",
+        "content_space_top": 4,
+        "content_space_bottom": 12,
+        "content_space_top_mob": 4,
+        "content_space_bottom_mob": 12,
+        "cta_text": "",
+        "cta_url": "",
+        "cta_font_size": 12,
+        "cta_font_size_mobile": 16,
+        "cta_text_decoration": "none",
+        "cta_color": "#000",
+        "cta_color_mobile": "#fff",
+        "cta_bg_color": "#fff",
+        "cta_bg_color_mobile": "#000",
+        "cta_width": 120,
+        "cta_width_mobile": 110,
+        "cta_top_bottom": 0,
+        "cta_top_bottom_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
     "image_banner_bkPemt": {
       "type": "image-banner",
       "blocks": {
@@ -37,6 +87,7 @@
       "block_order": [
         "heading_6yBxEe"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -554,6 +605,7 @@
   },
   "order": [
     "main",
+    "hero_video_banner_jh3xne",
     "image_banner_bkPemt",
     "rich_text_mt46Nb",
     "value_props_qYKE7x",
