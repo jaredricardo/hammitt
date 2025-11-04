@@ -765,8 +765,8 @@
           "settings": {
             "svg_image": "",
             "icon_image": "shopify://shop_images/note_1.jpg",
-            "title": "Personalized Notes",
-            "text": "",
+            "title": "",
+            "text": "<p><strong>Personalized Notes</strong></p>",
             "link": ""
           }
         },
@@ -775,8 +775,8 @@
           "settings": {
             "svg_image": "",
             "icon_image": "shopify://shop_images/wrap_1.jpg",
-            "title": "Bespoke Boxes + Bows",
-            "text": "",
+            "title": "",
+            "text": "<p><strong>Bespoke Boxes + Bows</strong></p>",
             "link": ""
           }
         },
@@ -785,8 +785,28 @@
           "settings": {
             "svg_image": "",
             "icon_image": "shopify://shop_images/warranty_1.jpg",
-            "title": "Order Protection",
-            "text": "",
+            "title": "",
+            "text": "<p><strong>Order Protection</strong></p>",
+            "link": ""
+          }
+        },
+        "column_RFacgG": {
+          "type": "column",
+          "settings": {
+            "svg_image": "",
+            "icon_image": "shopify://shop_images/warranty_1.jpg",
+            "title": "",
+            "text": "<p><strong>Ship To Multiple Recipients</strong></p>",
+            "link": ""
+          }
+        },
+        "column_jm3XE4": {
+          "type": "column",
+          "settings": {
+            "svg_image": "",
+            "icon_image": "shopify://shop_images/drop_1.jpg",
+            "title": "",
+            "text": "<p><strong>Drop A Hint</strong></p>",
             "link": ""
           }
         }
@@ -794,7 +814,9 @@
       "block_order": [
         "column_DQBQa7",
         "column_q3mDP4",
-        "column_RXqiyw"
+        "column_RXqiyw",
+        "column_RFacgG",
+        "column_jm3XE4"
       ],
       "name": "Value Props",
       "settings": {
@@ -804,7 +826,7 @@
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
-        "column_alignment": "left",
+        "column_alignment": "center",
         "background_style": "primary",
         "button_label": "Button label",
         "button_link": "",
@@ -813,6 +835,145 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36,
+        "custom_class": ""
+      }
+    },
+    "multicolumn_BYFj4t": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_6PrLVw": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_784_1.jpg",
+            "title": "<strong>Jenna Ortega</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 18,
+            "b_title_font_mobile": 14,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/jenna-ortegas-hammitt-picks",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_JCdiw8": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Frame_788.jpg",
+            "title": "<strong>Olivia munn</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 18,
+            "b_title_font_mobile": 14,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/olivia-munn",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_R9njnw": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_434.jpg",
+            "title": "<strong>Lola Tung</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 18,
+            "b_title_font_mobile": 14,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/lola-tung",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_rkiYBN": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_435.jpg",
+            "title": "<strong>Barbara Palvin</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 18,
+            "b_title_font_mobile": 14,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/barbara-palvin",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_6PrLVw",
+        "column_JCdiw8",
+        "column_R9njnw",
+        "column_rkiYBN"
+      ],
+      "settings": {
+        "title": "Influencer and Celebrity Favorites",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "square",
+        "image_padding": false,
+        "removed_section_padding": false,
+        "columns_desktop": 4,
+        "columns_gap": 20,
+        "row_gap": 1,
+        "mobile_columns_gap": 5,
+        "mobile_row_gap": 10,
+        "column_alignment": "center",
+        "text_position": "bottom",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
+        "padding_top": 34,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 0,
         "custom_class": ""
       }
     },
@@ -885,145 +1046,6 @@
         "padding_bottom": 0,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 0
-      }
-    },
-    "multicolumn_BYFj4t": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_6PrLVw": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_765.jpg",
-            "title": "<strong>CLUTCHES</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/satchel-shoulder-bag",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_R9njnw": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Elle-Work-Carry-Black-BG-Red-Zip_6A.jpg",
-            "title": "<strong>WORK BAGS</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/for-the-office",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_rkiYBN": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_1247.jpg",
-            "title": "<strong>TOTE</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/tote",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_JCdiw8": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/MB-charm.jpg",
-            "title": "<strong>ACCESSORIES</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/summer-accessories",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_6PrLVw",
-        "column_R9njnw",
-        "column_rkiYBN",
-        "column_JCdiw8"
-      ],
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h2",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": false,
-        "columns_desktop": 4,
-        "columns_gap": 20,
-        "row_gap": 1,
-        "mobile_columns_gap": 5,
-        "mobile_row_gap": 10,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
       }
     },
     "slider_collection_DBxcaE": {
@@ -1794,9 +1816,9 @@
     "multicolumn_4HmxhC",
     "multicolumn_CXLKgq",
     "value_props_qYKcD4",
+    "multicolumn_BYFj4t",
     "slider_collection_y3eNmL",
     "image_with_text_JgEBga",
-    "multicolumn_BYFj4t",
     "slider_collection_DBxcaE",
     "multicolumn_PTMEAP",
     "image_with_text_mreJHp",
