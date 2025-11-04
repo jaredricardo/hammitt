@@ -315,6 +315,14 @@ fieldset.product-form__input .form__label {
   height: 45px !important; 
 }
 
+#dropahint-cta a {
+  height: 45px; 
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .no-js .product-form__submit.button--secondary {
   --color-button: var(--color-base-accent-1);
   --color-button-text: var(--color-base-solid-button-labels);
