@@ -1121,9 +1121,6 @@
                                 {{ 'products.product.add_to_cart' | t }}
                               {% endif %}
                             {%- else -%}
-                              {% if product.tags contains 'retired' %}
-                                SOLD OUT
-                              {% endif %}
                               {{ 'products.product.sold_out' | t }}
                             {%- endif -%}
                           </span>
@@ -1144,7 +1141,7 @@
                         {% if product.tags contains "retired" %} disabled {% endif %}
                         >
                         {% if product.tags contains 'retired' %}
-                          SOLD OUT
+                          {{ 'products.product.sold_out' | t }}
                         {% elsif product.metafields.custom.restock_date_text %}
                             {{ 'Notify me | ' | append: product.metafields.custom.restock_date_text  }} 
                           {% else %}
