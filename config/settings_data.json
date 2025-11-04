@@ -101,15 +101,6 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
-          "announcement_UdnEaT": {
-            "type": "announcement",
-            "settings": {
-              "text": "New! Chocolate Diamond Suede",
-              "text_color": "#ffffff",
-              "background_color": "#582b1c",
-              "link": "shopify://collections/chocolate-diamond-suede"
-            }
-          },
           "announcement_hUHyfX": {
             "type": "announcement",
             "settings": {
@@ -117,6 +108,15 @@
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "https://www.eventbrite.com/e/hammitt-sample-sale-its-not-our-first-rodeo-tickets-1797244359259?aff=oddtdtcreator"
+            }
+          },
+          "announcement_UdnEaT": {
+            "type": "announcement",
+            "settings": {
+              "text": "New! Chocolate Diamond Suede",
+              "text_color": "#ffffff",
+              "background_color": "#582b1c",
+              "link": "shopify://collections/chocolate-diamond-suede"
             }
           },
           "announcement_CwR3it": {
@@ -130,8 +130,8 @@
           }
         },
         "block_order": [
-          "announcement_UdnEaT",
           "announcement_hUHyfX",
+          "announcement_UdnEaT",
           "announcement_CwR3it"
         ],
         "custom_css": [],
