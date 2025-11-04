@@ -836,11 +836,6 @@
           "custom_css": ""
         }
       },
-      "8421569037452459303": {
-        "type": "shopify://apps/xgen-ai/blocks/xgen-scripts/0faa3e62-37f5-4cdf-80aa-dfb5fac9fabc",
-        "disabled": false,
-        "settings": {}
-      },
       "2786716548061469553": {
         "type": "shopify://apps/axon/blocks/app-embed/baa0f014-62ea-462f-a8aa-a94befb1cbad",
         "disabled": false,
@@ -850,6 +845,13 @@
         "type": "shopify://apps/inspired/blocks/embed/fa3c52e7-4cb4-46b5-b13b-fbc0a673c78b",
         "disabled": false,
         "settings": {}
+      },
+      "8421569037452459303": {
+        "type": "shopify://apps/xgen-ai/blocks/xgen-scripts/0faa3e62-37f5-4cdf-80aa-dfb5fac9fabc",
+        "disabled": true,
+        "settings": {
+          "enable_execute_scripts": false
+        }
       }
     }
   },
