@@ -255,7 +255,7 @@
         "text_QhWqib",
         "buttons_LttDfk"
       ],
-      "name": "Hero Banner",
+      "name": "Box",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -821,7 +821,7 @@
       "name": "Value Props",
       "settings": {
         "title": "Our Gifting Experience",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "paragraph": "",
         "image_width": "full",
         "image_ratio": "adapt",
@@ -995,7 +995,7 @@
         "swipe_on_mobile": true,
         "enable_peek": true,
         "show_mobile_slider": true,
-        "padding_top": 34,
+        "padding_top": 50,
         "padding_bottom": 0,
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 0,
@@ -1141,831 +1141,81 @@
         "custom_class": ""
       }
     },
-    "slider_collection_y3eNmL": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "Kyle: Most Loved Bag",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "kyle",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
-    "image_with_text_JgEBga": {
-      "type": "image-with-text",
+    "image_banner_cccREi": {
+      "type": "image-banner",
       "blocks": {
-        "heading_CnGeYy": {
+        "heading_YkQkAU": {
           "type": "heading",
           "settings": {
-            "heading": "As Seen On",
-            "heading_size": "h1"
+            "heading": "Let Them Pic",
+            "heading_size_mobile": 20,
+            "heading_size_tablet": 30,
+            "heading_size_desktop": 40
           }
         },
-        "text_PC9xjM": {
+        "text_Dbdgt7": {
           "type": "text",
           "settings": {
-            "text": "<p>From red carpets to everyday errands—discover the handbags making headlines on your favorite celebrities.</p>",
-            "text_style": "body"
+            "text": "Send A Digital Gift Card Instantly",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 16
           }
         },
-        "button_wTkHPj": {
-          "type": "button",
+        "buttons_iCriPk": {
+          "type": "buttons",
           "settings": {
-            "button_label": "SHOP NOW",
-            "button_link": "shopify://pages/celebrity-hammitt-bags",
-            "button_style_secondary": false
+            "button_label_1": "Shop Digital E-Gift Card",
+            "button_link_1": "https://www.hammitt.com/products/rise-ai-giftcard",
+            "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
-        "heading_CnGeYy",
-        "text_PC9xjM",
-        "button_wTkHPj"
+        "heading_YkQkAU",
+        "text_Dbdgt7",
+        "buttons_iCriPk"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "e-gift card",
       "settings": {
-        "id_for_scroll_navigator": "",
-        "image": "shopify://shop_images/celeb-banner-_2.gif",
-        "height": "adapt",
-        "desktop_image_width": "large",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "color_background": "",
-        "show_color_background": false,
-        "color_background_height": 50,
-        "padding_top": 36,
-        "padding_bottom": 0,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 0
-      }
-    },
-    "slider_collection_DBxcaE": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "Our New Arrivals",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
-    "multicolumn_PTMEAP": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_GHGmmr": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Kyle-Med-Mahogany-Pebble-BG-Red-Zip-1.jpg",
-            "title": "<strong>KYLE</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/kyle",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 100,
-            "cta_width_desktop": 150,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_hbYbBJ": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Elle-Work-Carry-Black-BG-Red-Zip_1A_5f1c102b-50e1-44c1-8584-c0743df06aad.jpg",
-            "title": "<strong>ELLE</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/elle-work-carry",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_dwLCUw": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Tim-Med-Cherrywood-Pebble-BG_1.jpg",
-            "title": "<strong>TIM</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/tim",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 100,
-            "cta_width_desktop": 150,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_F7haFD": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_VIP-Med-Espresso-Pebble-S_1A.jpg",
-            "title": "<strong>VIP</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/vip",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 100,
-            "cta_width_desktop": 150,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_DJBFwk": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/0002_Hammitt_Tom-Zip-Olive-BG_1A.jpg",
-            "title": "<strong>TOM</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/tom-zip",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 161,
-            "cta_width_desktop": 175,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_6YzEiC": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Charles-Crossbody-Lrg-Limestone-S_1A.jpg",
-            "title": "<strong>CHARLES</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/charles-crossbody",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 100,
-            "cta_width_desktop": 150,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_GHGmmr",
-        "column_hbYbBJ",
-        "column_dwLCUw",
-        "column_F7haFD",
-        "column_DJBFwk",
-        "column_6YzEiC"
-      ],
-      "settings": {
-        "title": "Most Loved Collections",
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
         "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 6,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 1,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": false,
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Rectangle_428_1.jpg",
+        "image_2": "shopify://shop_images/Rectangle_427.jpg",
+        "image_link": "shopify://pages/the-hammitt-box",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
         "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_bottom": 12,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "image_with_text_mreJHp": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_dAwDGw": {
-          "type": "heading",
-          "settings": {
-            "heading": "Take Our Quiz",
-            "heading_size": "h1"
-          }
-        },
-        "text_iDAypd": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Find the perfect style for your lifestyle and personality!</p>",
-            "text_style": "body"
-          }
-        },
-        "button_RPteLL": {
-          "type": "button",
-          "settings": {
-            "button_label": "START NOW",
-            "button_link": "shopify://pages/quiz",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_dAwDGw",
-        "text_iDAypd",
-        "button_RPteLL"
-      ],
-      "settings": {
-        "id_for_scroll_navigator": "",
-        "image": "shopify://shop_images/IMG_3193_31.jpg",
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "color_background": "",
-        "show_color_background": false,
-        "color_background_height": 50,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 0
-      }
-    },
-    "multicolumn_MHKEVA": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_iKEapX": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Kyle-Blk-BG-Red-Zip-Both-199_29.jpg",
-            "title": "<strong>BLACK</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 16,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/black",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_qHjEdW": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/1-Elle-Es-C.jpg",
-            "title": "<strong>BROWN</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 16,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/brown",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_hXg7mq": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Meredith-Med-Dune-280_1.jpg",
-            "title": "<strong>FALL NEUTRALS</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 16,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/fall-neutrals",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_CWyhhV": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Olive_Collection_Banner_7d2d0ffe-6612-4f79-9bf6-de8d88c88e3b.jpg",
-            "title": "<strong>GREEN</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 16,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/olive",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_qjjp6B": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_765.jpg",
-            "title": "<strong>RED</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 16,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/red-1",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_6iUy7h": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_926.jpg",
-            "title": "<strong>CLEAR</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 16,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/clear-bags",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_iKEapX",
-        "column_qHjEdW",
-        "column_hXg7mq",
-        "column_CWyhhV",
-        "column_qjjp6B",
-        "column_6iUy7h"
-      ],
-      "settings": {
-        "title": "Shop By Color",
-        "title_color": "",
-        "heading_size": "h2",
-        "paragraph": "",
-        "paragraph_color": "#ffffff",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "portrait",
-        "image_padding": false,
-        "removed_section_padding": false,
-        "columns_desktop": 6,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "enable_peek": true,
-        "show_mobile_slider": true,
-        "padding_top": 0,
-        "padding_bottom": 60,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "multicolumn_W3KHwQ": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_rBze3g": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Kyle-Med-Mahogany-0078-2_1.jpg",
-            "title": "<strong>SHOP ALL</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/view-all",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 100,
-            "cta_width_desktop": 150,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_C8B4Ty": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Paul-Mini-BG-Red-Zip_6.jpg",
-            "title": "<strong>SHOP NEW ARRIVALS</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/new-arrivals",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 161,
-            "cta_width_desktop": 175,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_UiiV3Y": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/CHARLES-MED_Espresso-Pebble-20.jpg",
-            "title": "<strong>SHOP MOST LOVED</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/best-selling-bags",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_rBze3g",
-        "column_C8B4Ty",
-        "column_UiiV3Y"
-      ],
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h2",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 3,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 0,
-        "padding_bottom": 36,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "value_props_iRGRjp": {
-      "type": "value-props",
-      "blocks": {
-        "column_CMadU3": {
-          "type": "column",
-          "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/Group_196.png",
-            "title": "Human Customer care",
-            "text": "",
-            "link": ""
-          }
-        },
-        "column_xYN369": {
-          "type": "column",
-          "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/Group_548.png",
-            "title": "Affirm & AfterPay",
-            "text": "",
-            "link": ""
-          }
-        },
-        "column_P6eLpk": {
-          "type": "column",
-          "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/Group_549.png",
-            "title": "Free Shipping",
-            "text": "",
-            "link": ""
-          }
-        },
-        "column_q4bAQx": {
-          "type": "column",
-          "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/Vector.png",
-            "title": "Gift Boxready",
-            "text": "",
-            "link": ""
-          }
-        },
-        "column_H8ikE7": {
-          "type": "column",
-          "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/Group_57.png",
-            "title": "Styling service",
-            "text": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_CMadU3",
-        "column_xYN369",
-        "column_P6eLpk",
-        "column_q4bAQx",
-        "column_H8ikE7"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "paragraph": "",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 6,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 80,
-        "padding_bottom": 60,
-        "custom_class": ""
-      }
-    },
-    "multicolumn_GLkzy8": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_gqJkci": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_614_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "OUR SIGNATURE BAGS",
-            "link": "shopify://pages/studded-leather-bags-rivets",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_6TQ4CX": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_613_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "AS SEEN IN",
-            "link": "shopify://pages/in-the-press",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 100,
-            "cta_width_desktop": 150,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_tcpTQJ": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_615_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "THE HAMMITT BOX",
-            "link": "shopify://pages/the-hammitt-box",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_gqJkci",
-        "column_6TQ4CX",
-        "column_tcpTQJ"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h2",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 3,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "enable_peek": true,
-        "show_mobile_slider": true,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
         "custom_class": ""
       }
     }
@@ -1982,14 +1232,6 @@
     "value_props_qYKcD4",
     "multicolumn_BYFj4t",
     "multicolumn_BB4haK",
-    "slider_collection_y3eNmL",
-    "image_with_text_JgEBga",
-    "slider_collection_DBxcaE",
-    "multicolumn_PTMEAP",
-    "image_with_text_mreJHp",
-    "multicolumn_MHKEVA",
-    "multicolumn_W3KHwQ",
-    "value_props_iRGRjp",
-    "multicolumn_GLkzy8"
+    "image_banner_cccREi"
   ]
 }
