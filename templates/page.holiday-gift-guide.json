@@ -27,27 +27,17 @@
         "heading_Vzgbb7": {
           "type": "heading",
           "settings": {
-            "heading": "Welcome To Hammitt",
+            "heading": "The 2025 Gift Guide",
             "heading_size_mobile": 30,
             "heading_size_tablet": 20,
             "heading_size_desktop": 55
           }
-        },
-        "text_TKEhyN": {
-          "type": "text",
-          "settings": {
-            "text": "New to our brand? Start here.",
-            "text_style": "body",
-            "text_size_mobile": 18,
-            "text_size_tablet": 18,
-            "text_size_desktop": 18
-          }
         }
       },
       "block_order": [
-        "heading_Vzgbb7",
-        "text_TKEhyN"
+        "heading_Vzgbb7"
       ],
+      "name": "Hero Banner",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -60,12 +50,12 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Belted-Suede-29-1.jpg",
-        "image_2": "shopify://shop_images/Belted-Suede-mob.gif",
+        "image": "shopify://shop_images/Rectangle_426.jpg",
+        "image_2": "shopify://shop_images/Rectangle_406.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-left",
+        "desktop_content_position": "middle-right",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
@@ -83,29 +73,150 @@
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
         "padding_top": 0,
-        "padding_bottom": 60,
+        "padding_bottom": 12,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
       }
     },
-    "slider_collection_KhBtXH": {
-      "type": "slider-collection",
+    "multicolumn_WVCLFJ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_xniFjm": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_787_1.jpg",
+            "title": "<strong>Under $175</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 18,
+            "b_title_font_mobile": 14,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/satchel-shoulder-bag",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_ebwyaF": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_788_2.jpg",
+            "title": "<strong>Under $300</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 22,
+            "b_title_font_mobile": 14,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/for-the-office",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_gxYzpw": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_789_1.jpg",
+            "title": "<strong>$300+</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 22,
+            "b_title_font_mobile": 14,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/tote",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_qyVcfa": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Group_125804.jpg",
+            "title": "<strong>Little Treats</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 22,
+            "b_title_font_mobile": 14,
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/summer-accessories",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_xniFjm",
+        "column_ebwyaF",
+        "column_gxYzpw",
+        "column_qyVcfa"
+      ],
+      "name": "Price",
       "settings": {
-        "title": "Our Bestsellers",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "best-selling-bags",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
+        "title": "",
+        "title_color": "",
+        "heading_size": "h2",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "square",
+        "image_padding": false,
+        "removed_section_padding": false,
+        "columns_desktop": 4,
+        "columns_gap": 20,
+        "row_gap": 1,
+        "mobile_columns_gap": 5,
+        "mobile_row_gap": 10,
+        "column_alignment": "center",
+        "text_position": "bottom",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
       }
     },
     "slider_collection_y3eNmL": {
@@ -613,74 +724,6 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
-      }
-    },
-    "collection_list_ic6Hrd": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_hVbmxD": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "kyle",
-            "image": "shopify://shop_images/Hammitt_Kyle-Black-BG-R-Zip_1A-B.jpg",
-            "title": "KYLE"
-          }
-        },
-        "featured_collection_iC3UQF": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "tom-zip",
-            "title": "TOM"
-          }
-        },
-        "featured_collection_XcfidQ": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "charles",
-            "image": "shopify://shop_images/Hammitt_Charles-Black-BG-R-Zip_1A.jpg",
-            "title": "CHARLES"
-          }
-        },
-        "featured_collection_PApUKd": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "vip",
-            "title": "VIP"
-          }
-        },
-        "featured_collection_98AUXa": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "loop-110-north",
-            "image": "shopify://shop_images/Hammitt_110-North-Black-BG_1A_27173ccd-9ce6-47c1-958d-6439b8dddb90.jpg",
-            "title": "210"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_hVbmxD",
-        "featured_collection_iC3UQF",
-        "featured_collection_XcfidQ",
-        "featured_collection_PApUKd",
-        "featured_collection_98AUXa"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "Most Loved Collections",
-        "heading_size": "h1",
-        "image_ratio": "adapt",
-        "columns_desktop": 5,
-        "columns_gap": 20,
-        "row_gap": 1,
-        "mobile_columns_gap": 10,
-        "mobile_row_gap": 2,
-        "color_scheme": "background-1",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "removed_section_padding": true,
-        "padding_top": 30,
-        "padding_bottom": 36
       }
     },
     "image_with_text_mreJHp": {
@@ -1236,14 +1279,13 @@
   "order": [
     "main",
     "image_banner_MMGtjM",
-    "slider_collection_KhBtXH",
+    "multicolumn_WVCLFJ",
     "slider_collection_y3eNmL",
     "image_with_text_JgEBga",
     "multicolumn_4HmxhC",
     "multicolumn_BYFj4t",
     "slider_collection_DBxcaE",
     "multicolumn_PTMEAP",
-    "collection_list_ic6Hrd",
     "image_with_text_mreJHp",
     "multicolumn_MHKEVA",
     "multicolumn_W3KHwQ",
