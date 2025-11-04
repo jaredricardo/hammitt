@@ -308,10 +308,24 @@ fieldset.product-form__input .form__label {
   max-width: 25rem;
 }
 
-.product-form__submit {
+.product-form__submit,
+#dropahint-cta {
   margin-bottom: 1rem;
   text-transform: uppercase;
+  height: 45px !important; 
 }
+
+#dropahint-cta a {
+  height: 45px; 
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.buybutton-block .product-form__buttons button {
+  height: 45px !important;  
+}
+
 
 .no-js .product-form__submit.button--secondary {
   --color-button: var(--color-base-accent-1);

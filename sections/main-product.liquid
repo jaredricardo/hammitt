@@ -1106,6 +1106,9 @@
                   <div class="product-form__buttons">
                     {% if product.selected_or_first_available_variant.available %}
                       <button
+                        {% if product.tags contains "retired" %}
+                          disabled
+                        {% endif %}
                         type="submit"
                         name="add"
                         class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
@@ -1128,8 +1131,18 @@
                           </div>
                       </button>
                     {% else %}
-                      <button type="button" style="text-transform: uppercase;" data-variant-id="{{ product.selected_or_first_available_variant.id }}" data-title="{{ product.title }}" data-variant-title="{{ product.selected_or_first_available_variant.title | prepend:" " }}" class="{% if product.selected_or_first_available_variant.available %}hidden{% endif %} button button--full-width button--primary klaviyo_button_product">
-                        {% if product.metafields.custom.restock_date_text %}
+                      <button 
+                        type="button" 
+                        style="text-transform: uppercase;" 
+                        data-variant-id="{{ product.selected_or_first_available_variant.id }}" 
+                        data-title="{{ product.title }}" 
+                        data-variant-title="{{ product.selected_or_first_available_variant.title | prepend:" " }}" 
+                        class="{% if product.selected_or_first_available_variant.available %}hidden{% endif %} button button--full-width button--primary klaviyo_button_product"
+                        {% if product.tags contains "retired" %} disabled {% endif %}
+                        >
+                        {% if product.tags contains 'retired' %}
+                          {{ 'products.product.sold_out' | t }}
+                        {% elsif product.metafields.custom.restock_date_text %}
                             {{ 'Notify me | ' | append: product.metafields.custom.restock_date_text  }} 
                           {% else %}
                             {{ 'Notify me when available' }}
