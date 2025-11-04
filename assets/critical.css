@@ -85,6 +85,13 @@ p {
   line-height: 1.25 !important;
 }
 
+.p-large {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+  font-weight: 500;
+}
+
 .carlson-semibold {
   font-family: 'Adobe Carlson SemiBold' !important;
 }
@@ -131,7 +138,7 @@ minty-fresh-filters li a,
 
 .jr-featured-products-and-image h2 {
   font-family: Adobe Carlson Italic !important;
-  font-size: 18px !important;
+  font-size: 28px !important;
 }
 
 #dropahint_wrapper #dropahint-cta img {
@@ -140,7 +147,8 @@ minty-fresh-filters li a,
 
 .pdp-hero-wrap .product_description p,
 .pdp-hero-wrap .product_description span,
-.pdp-hero-wrap .product_description li {
+.pdp-hero-wrap .product_description li,
+.pdp-hero-wrap .product-collapse-container .accordion__content li {
   font-family: "Nunito Sans", sans-serif !important;
   font-size: 15px !important;
 }
@@ -196,6 +204,9 @@ minty-fresh-filters li a,
     font-size: 13px !important;
     font-weight: 500;
   }
+  body .p-large {
+    font-size: 13px !important;
+  }
   /* Specificity overrides */
   .card__heading a,
   .card__heading .price {
@@ -208,10 +219,11 @@ minty-fresh-filters li a,
     font-size: 12px !important;
   }
   .jr-featured-products-and-image h2 {
-    font-size: 13px;
+    font-size: 20px !important;
   }
-  .cart-drawer-btn {
-    font
+  .pdp-hero-wrap .product-collapse-container .accordion__content li {
+    font-family: "Nunito Sans", sans-serif !important;
+    font-size: 13px !important;
   }
 }
 
