@@ -23,6 +23,7 @@ h1,
   font-size: 42px !important;
   font-family: 'Adobe Carlson Italic' !important;
   margin: 0;
+  font-weight: 500;
 }
 
 h1.carlson-pro,
@@ -85,11 +86,12 @@ p {
   line-height: 1.25 !important;
 }
 
-.p-large {
+.p-large,
+.body p {
   font-family: "Nunito Sans", sans-serif !important;
   font-size: 15px !important;
-  line-height: 1.4 !important;
-  font-weight: 500;
+  line-height: 1.25 !important;
+  font-weight: 400;
 }
 
 .carlson-semibold {
@@ -148,7 +150,8 @@ minty-fresh-filters li a,
 .pdp-hero-wrap .product_description p,
 .pdp-hero-wrap .product_description span,
 .pdp-hero-wrap .product_description li,
-.pdp-hero-wrap .product-collapse-container .accordion__content li {
+.pdp-hero-wrap .product-collapse-container .accordion__content li,
+.pdp-hero-wrap .product-collapse-container .accordion__content p {
   font-family: "Nunito Sans", sans-serif !important;
   font-size: 15px !important;
 }
@@ -204,7 +207,8 @@ minty-fresh-filters li a,
     font-size: 13px !important;
     font-weight: 500;
   }
-  body .p-large {
+  body .p-large,
+  body .body p {
     font-size: 13px !important;
   }
   /* Specificity overrides */
@@ -221,7 +225,8 @@ minty-fresh-filters li a,
   .jr-featured-products-and-image h2 {
     font-size: 20px !important;
   }
-  .pdp-hero-wrap .product-collapse-container .accordion__content li {
+  .pdp-hero-wrap .product-collapse-container .accordion__content li,
+  .pdp-hero-wrap .product-collapse-container .accordion__content p {
     font-family: "Nunito Sans", sans-serif !important;
     font-size: 13px !important;
   }
