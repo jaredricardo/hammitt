@@ -206,6 +206,7 @@
     },
     "hero_video_banner_jh3xne": {
       "type": "hero-video-banner",
+      "disabled": true,
       "name": "Hero Video Banner",
       "settings": {
         "video_height": "auto",
@@ -626,6 +627,23 @@
         "padding_bottom_mobile": 36,
         "custom_class": ""
       }
+    },
+    "custom_video_a4qHxW": {
+      "type": "custom-video",
+      "name": "Custom video",
+      "settings": {
+        "heading": "",
+        "title_color": "",
+        "heading_size": "h2",
+        "subheading": "",
+        "subtitle_color": "",
+        "video": "shopify://files/videos/1104(1).mov",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
     }
   },
   "order": [
@@ -638,6 +656,7 @@
     "multicolumn_9WwWAH",
     "rich_text_76MmRA",
     "multicolumn_ew4Ejz",
-    "multicolumn_3jNtQx"
+    "multicolumn_3jNtQx",
+    "custom_video_a4qHxW"
   ]
 }
