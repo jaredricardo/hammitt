@@ -132,31 +132,31 @@
     {%- case block.type -%}
       {%- when 'heading' -%}
         #shopify-section-{{ section.id }} .banner__heading{
-          font-size: {{ block.settings.heading_size_desktop }}px;
+          font-size: {{ block.settings.heading_size_desktop }}px !important;
         }
         @media screen and (max-width: 750px){
           #shopify-section-{{ section.id }} .banner__heading{
-            font-size: {{ block.settings.heading_size_mobile }}px;
+            font-size: {{ block.settings.heading_size_mobile }}px !important;
           }
         }
         @media screen and (min-width: 750px) and (max-width: 1200px){
           #shopify-section-{{ section.id }} .banner__heading{
-            font-size: {{ block.settings.heading_size_tablet }}px;
+            font-size: {{ block.settings.heading_size_tablet }}px !important;
           }
         }
       
       {%- when 'text' -%}
         #shopify-section-{{ section.id }} .banner__text{
-          font-size: {{ block.settings.text_size_desktop }}px;
+          font-size: {{ block.settings.text_size_desktop }}px !important;
         }
         @media screen and (max-width: 750px){
           #shopify-section-{{ section.id }} .banner__text{
-            font-size: {{ block.settings.text_size_mobile }}px;
+            font-size: {{ block.settings.text_size_mobile }}px !important;
           }
         }
         @media screen and (min-width: 750px) and (max-width: 1200px){
           #shopify-section-{{ section.id }} .banner__text{
-            font-size: {{ block.settings.text_size_tablet }}px;
+            font-size: {{ block.settings.text_size_tablet }}px !important;
           }
         }
     {%- endcase -%}
