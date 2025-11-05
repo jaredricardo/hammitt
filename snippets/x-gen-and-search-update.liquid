@@ -15,7 +15,7 @@
 
         const authStore = new window.XGenSdkCore.LocalCookieAuthStore({
             cookieOptions: {
-                domain: '.hammit.com'
+                domain: '.hammitt.com'
             }
         })
 
@@ -27,9 +27,6 @@
             locale: 'en_US',
             authStore
         })
-
-        console.log('?????')
-        console.log(authStore)
 
         if(recentOrTrendingContainer) {
             buildRecentlyViewedProductsInSearch(recentOrTrendingContainer)
