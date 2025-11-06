@@ -9,6 +9,27 @@
  */
 {
   "sections": {
+    "home-hero-section": {
+      "type": "home-hero-section",
+      "settings": {
+        "media_type": "video",
+        "video": "shopify://files/videos/1106 (1).mov",
+        "text_align": "center",
+        "text_vertical_align": "bottom",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "bottom",
+        "text_horizontal_align_mobile": "center",
+        "title": "RAFFIA SEASON",
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "#ffffff",
+        "button": "SHOP NOW",
+        "link": "shopify://collections/raffia",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffffff"
+      }
+    },
     "image_banner_ezVVdn": {
       "type": "image-banner",
       "blocks": {
@@ -1574,32 +1595,10 @@
         "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
       }
-    },
-    "home-hero-section": {
-      "type": "home-hero-section",
-      "disabled": true,
-      "settings": {
-        "media_type": "video",
-        "video": "shopify://files/videos/Untitled design.mp4",
-        "mobile_video": "shopify://files/videos/mob-w.mp4",
-        "text_align": "center",
-        "text_vertical_align": "bottom",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "bottom",
-        "text_horizontal_align_mobile": "center",
-        "title": "RAFFIA SEASON",
-        "title_color": "#ffffff",
-        "description": "",
-        "description_color": "#ffffff",
-        "button": "SHOP NOW",
-        "link": "shopify://collections/raffia",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff"
-      }
     }
   },
   "order": [
+    "home-hero-section",
     "image_banner_ezVVdn",
     "slider_featured_collection_bTka8m",
     "jr_new_5050_product_list_zy3tkK",
@@ -1622,7 +1621,6 @@
     "multicolumn_7jnCPC",
     "jr_customer_reviews_kz8t7H",
     "custom_liquid_NgfUX8",
-    "homepage_instagram_RrcAhY",
-    "home-hero-section"
+    "homepage_instagram_RrcAhY"
   ]
 }
