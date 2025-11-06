@@ -52,19 +52,17 @@ class PredictiveSearch extends HTMLElement {
       document.querySelector('.initial-search-modal-content .recent-or-trending-products ul').appendChild(tempLi)
     }
 
-    console.log('clearing xgen cookies before search to try and prevent 401')
+    const xgenCookies = ['xgen_session', 'xgen_token', 'xgen_user']
+    const lastFlushDate = localStorage.getItem('dateOfLastXGenCookieFlush')
 
-    const xgenCookies = ['xgen_session', 'xgen_token', 'xgen_user'];
-    xgenCookies.forEach(cookieName => {
-      // Clear for current path
-      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
-      // Clear for domain
-      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.hammitt.com;`
-      // Clear for root domain
-      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=hammitt.com;`
-    })
-
-
+    if (!lastFlushDate) {
+      xgenCookies.forEach(cookieName => {
+        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.hammitt.com;`
+        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=hammitt.com;`
+      })
+      localStorage.setItem('dateOfLastXGenCookieFlush', new Date().toISOString())
+    } 
 
     const results = await xg.search.getResults({
       query: searchTerm, 

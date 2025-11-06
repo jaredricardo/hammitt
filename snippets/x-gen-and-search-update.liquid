@@ -230,15 +230,16 @@
             }
 
             const xgenCookies = ['xgen_session', 'xgen_token', 'xgen_user']
+            const lastFlushDate = localStorage.getItem('dateOfLastXGenCookieFlush')
 
+            if (!lastFlushDate) {
             xgenCookies.forEach(cookieName => {
-                // Clear for current path
                 document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
-                // Clear for domain
                 document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.hammitt.com;`
-                // Clear for root domain
                 document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=hammitt.com;`
             })
+                localStorage.setItem('dateOfLastXGenCookieFlush', new Date().toISOString())
+            } 
 
             const results = await window.xg.search.getResults(searchObj) 
 
