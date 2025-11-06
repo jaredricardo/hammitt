@@ -229,6 +229,17 @@
                 searchObj.options['sortOrder'] = sortValue
             }
 
+            const xgenCookies = ['xgen_session', 'xgen_token', 'xgen_user']
+
+            xgenCookies.forEach(cookieName => {
+                // Clear for current path
+                document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+                // Clear for domain
+                document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.hammitt.com;`
+                // Clear for root domain
+                document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=hammitt.com;`
+            })
+
             const results = await window.xg.search.getResults(searchObj) 
 
             if(results.urlRedirect) {
