@@ -133,12 +133,31 @@
             const only_a_few_left_text = {{ settings.only_a_few_left_text | json }}
 
             // build html returns 
+
+            if(tags.includes('coming-soon')) {
+                return `
+                        <span class="badge tag-badge badge--coming-soon badge--top-right color-{{ settings.sale_badge_color_scheme }}">
+                            Coming Soon
+                        </span>
+                    `
+            }
+
             if (product.available === false) {
                 return `
                         <span class="badge tag-badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">
                             Sold Out
                         </span>
                     `
+            }
+
+            if(tags.includes('final-sale') || tags.includes('sample sale')) {
+                if(product.price > product.sale_price) {
+                    return `
+                            <span class="badge red-badge">
+                                Sale
+                             </span>
+                        `
+                }
             }
 
             if (product.quantity <= only_a_few_left_threshold && product.available) {
@@ -150,6 +169,30 @@
                             ${only_a_few_left_text}
                         </span>
                     `
+            }
+
+            if(tags.includes('best-seller')) {
+                return `
+                    <span class="badge tag-badge badge--best-seller badge--top-right">
+                        Best Seller
+                    </span>
+                `
+            }
+
+            if(tags.includes('limited-release')) {
+                return `
+                    <span class="badge gray-badge badge--limited-release badge--top-right">
+                        Limited Release
+                    </span>
+                `
+            }
+
+            if(tags.includes('celebrity-fav')) {
+                return `
+                    <span class="badge tag-badge badge--celebrity-fav badge--top-right">
+                        Celebrity Fave
+                    </span>
+                `
             }
 
             if(tags.includes('new arrival') || tags.includes('tag: new arrival')) {
@@ -260,7 +303,7 @@
             } 
 
             results.items.forEach((result) => {
-
+            
                 const productCard = document.querySelector('[data-complex-card-template]').cloneNode(true)
                 let formattedProductTitle = result.prod_name
                 let productSize = result.metafields?.hammitt?.size || ''
@@ -341,7 +384,16 @@
                     productCard.querySelector('.card__seo-text').innerText = productColorDescriptor
                 } 
 
+                if(result.price > result.sale_price) {
+                    productCard.querySelector('.price__sale .price-item--sale').innerHTML = `${result.currency_symbol}${result.sale_price}`
+                    productCard.querySelector('.price__sale').classList.add('visible')
+                    productCard.querySelector('.price__regular .price-item--regular').classList.add('line-through')
+                } else {
+                    productCard.querySelector('.price__sale').remove()
+                }
+
                 productCard.querySelector('.price__regular .price-item--regular').innerHTML = `${result.currency_symbol}${result.price}`
+
 
                 productCard.classList.remove('inactive')
                 targetContainer.appendChild(productCard)
@@ -434,6 +486,12 @@
                                         {% comment %} price here {% endcomment %}
                                         </span>
                                     </div>
+                                    <div class="price__sale">
+                                        <span class="visually-hidden visually-hidden--inline">Sale price</span>
+                                        <span class="price-item price-item--sale price-item--last">
+                                        {% comment %} Sale price here {% endcomment %}
+                                        </span>
+                                    </div>  
                                 </div>
                             </div>
                         </h3>

@@ -30,7 +30,7 @@
             assign special_tag_assigned = true
         endif
 
-        if product.tags contains 'final sale' or product.tags contains 'sample sale'
+        if product.tags contains 'final sale' or product.tags contains 'sample sale' and product.compare_at_price > product.price 
             assign has_final_sale_tag = true
             assign special_tag_assigned = true
             assign badge_tag = 'Sale'
