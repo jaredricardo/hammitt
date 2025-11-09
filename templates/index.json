@@ -9,8 +9,87 @@
  */
 {
   "sections": {
+    "image_banner_KncYKJ": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_DGbwgt": {
+          "type": "heading",
+          "settings": {
+            "heading": "40% OFF",
+            "heading_size_mobile": 40,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_NxVM4P": {
+          "type": "text",
+          "settings": {
+            "text": "Archive style",
+            "text_style": "body",
+            "text_size_mobile": 16,
+            "text_size_tablet": 22,
+            "text_size_desktop": 30
+          }
+        },
+        "buttons_9mgykG": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://pages/online-sample-sale",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_DGbwgt",
+        "text_NxVM4P",
+        "buttons_9mgykG"
+      ],
+      "name": "Kyle ",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Screenshot-2025-11-06-at-3.01.22_PM_1.jpg",
+        "image_2": "shopify://shop_images/Screenshot-2025-11-06-at-3.01.22_PM_1-1.jpg",
+        "image_link": "shopify://pages/online-sample-sale",
+        "image_overlay_opacity": 20,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": false,
+        "full_width": true,
+        "cta_color_scheme": "light",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "home-hero-section": {
       "type": "home-hero-section",
+      "disabled": true,
       "settings": {
         "media_type": "video",
         "video": "shopify://files/videos/1106 (1).mov",
@@ -62,6 +141,7 @@
         "text_XkxBRA",
         "button_E3Rk76"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_classes": "",
@@ -77,7 +157,7 @@
       "type": "slider-collection",
       "name": "Product Widget - Sale",
       "settings": {
-        "title": "",
+        "title": "Shop Sale by Style and Category",
         "heading_align": "center",
         "heading_color": "",
         "collection": "sample-sale-2025",
@@ -692,290 +772,6 @@
         "padding_bottom": 0,
         "padding_top_mobile": 2,
         "padding_bottom_mobile": 16,
-        "custom_class": "behind-design-section"
-      }
-    },
-    "jr_new_5050_product_list_JWe869": {
-      "type": "jr-new-5050-product-list",
-      "disabled": true,
-      "name": "Kyle",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "Most Beloved Kyle",
-        "product_list": [
-          "kyle-chocolate-diamond-suede-antique-gold",
-          "kyle-shoulder-bag-cherrywood-pebble-brushed-gold",
-          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
-          "kyle-shoulder-bag-espresso-pebble-silver",
-          "kyle-med-shoulder-bag-belted-suede-gunmetal",
-          "kyle-shoulder-bag-olive-brushed-gold"
-        ],
-        "image": "shopify://shop_images/Rectangle_785.jpg",
-        "button_link": "shopify://collections/kyle",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
-    "multicolumn_dk43Jb": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_CE4Y86": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Invitation-Clutch-Black-lifestylejpg.jpg",
-            "title": "Invitation Clutch",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://products/invitation-clutch-med-black-brushed-gold",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_p9EKmq": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_68.jpg",
-            "title": "<strong>Meredith</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/meredith",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 10
-          }
-        },
-        "column_Q8d4U9": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_770.jpg",
-            "title": "<strong>Elle</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/elle-work-carry",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_33FLWB": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/daniel-moto-hp-2.jpg",
-            "title": "<strong>Moto</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/moto",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_CE4Y86",
-        "column_p9EKmq",
-        "column_Q8d4U9",
-        "column_33FLWB"
-      ],
-      "disabled": true,
-      "name": "Column: New Arrivals ",
-      "settings": {
-        "title": "",
-        "title_color": "#000000",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 3,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": false,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 0,
-        "custom_class": "behind-design-section"
-      }
-    },
-    "multicolumn_R6jqfi": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_rgXNiy": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Paul-Mini-Espresso-S_6_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Paul Mini",
-            "link": "shopify://products/paul-mini-bag-charm-espresso-press-silver",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_XxJGmC": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/tom-belted-hp_ddd0cb01-19df-4973-8377-6387317b62b8.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Belted Suede",
-            "link": "shopify://collections/belted-suede",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_YPehzt": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_67_e27f5781-7b32-4860-907d-4a929c60c61b.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Espresso",
-            "link": "shopify://collections/espresso",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_rgXNiy",
-        "column_XxJGmC",
-        "column_YPehzt"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "title_color": "#000000",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 3,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "enable_peek": true,
-        "show_mobile_slider": true,
-        "padding_top": 2,
-        "padding_bottom": 0,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 0,
         "custom_class": "behind-design-section"
       }
     },
@@ -1660,6 +1456,7 @@
     }
   },
   "order": [
+    "image_banner_KncYKJ",
     "home-hero-section",
     "rich_text_7hfqjB",
     "slider_collection_aKWPXT",
@@ -1673,9 +1470,6 @@
     "jr_new_5050_product_list_zy3tkK",
     "multicolumn_Fbdf7n",
     "multicolumn_cbEMzp",
-    "jr_new_5050_product_list_JWe869",
-    "multicolumn_dk43Jb",
-    "multicolumn_R6jqfi",
     "slider_collection_rf9mQd",
     "multicolumn_96PRBE",
     "image_banner_higWbJ",
