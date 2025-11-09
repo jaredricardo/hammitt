@@ -305,7 +305,7 @@
               {% comment %} MERCH BOX LOGIC / HANDLING {% endcomment %}
 
               {% comment %} MERCH BOX ONE {% endcomment %}
-              {% unless filters_are_active %}
+              {% unless filters_are_active or paginate.current_page > 1 %}
                 {% if merch_box_one and merch_box_one.enable_merch_box %}
 
                   {% if merch_box_one.number_of_columns == 1 and merch_box_one.position_in_grid == forloop.index %}
