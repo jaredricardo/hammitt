@@ -9,10 +9,53 @@
  */
 {
   "sections": {
-    "image_banner_XUgrYF": {
+    "home-hero-section": {
+      "type": "home-hero-section",
+      "disabled": true,
+      "settings": {
+        "media_type": "video",
+        "video": "shopify://files/videos/SS-hp.mp4",
+        "text_align": "center",
+        "text_vertical_align": "bottom",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "bottom",
+        "text_horizontal_align_mobile": "center",
+        "title": "",
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "#ffffff",
+        "button": "",
+        "link": "shopify://pages/online-sample-sale",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffffff"
+      }
+    },
+    "slider_collection_aKWPXT": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Product Widget - Sale",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "sample-sale-2025",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
+    "image_banner_yVpKNR": {
       "type": "image-banner",
       "blocks": {
-        "heading_eVRcC9": {
+        "heading_TKgY94": {
           "type": "heading",
           "settings": {
             "heading": "New Kyles are Here",
@@ -21,7 +64,7 @@
             "heading_size_desktop": 36
           }
         },
-        "text_K8bMaw": {
+        "text_R9WpiV": {
           "type": "text",
           "settings": {
             "text": "Available now in luxe textures including velvet, suede, and jacquard.",
@@ -31,7 +74,7 @@
             "text_size_desktop": 14
           }
         },
-        "buttons_VpU8E8": {
+        "buttons_ReHFtA": {
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
@@ -41,9 +84,9 @@
         }
       },
       "block_order": [
-        "heading_eVRcC9",
-        "text_K8bMaw",
-        "buttons_VpU8E8"
+        "heading_TKgY94",
+        "text_R9WpiV",
+        "buttons_ReHFtA"
       ],
       "name": "Kyle ",
       "settings": {
@@ -636,85 +679,6 @@
         "padding_bottom": 36,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36
-      }
-    },
-    "image_banner_m4Uy48": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_R4KpKT": {
-          "type": "heading",
-          "settings": {
-            "heading": "Cherry On Top",
-            "heading_size_mobile": 26,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_GkKg4L": {
-          "type": "text",
-          "settings": {
-            "text": "Meet a new trio of styles in bestselling Cherrywood leather - all here to sweeten your Fall lineup.",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_4dNUAN": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/cherrywood",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_R4KpKT",
-        "text_GkKg4L",
-        "buttons_4dNUAN"
-      ],
-      "disabled": true,
-      "name": "Cherrywood ",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/cherryw00d-banner_2.jpg",
-        "image_2": "shopify://shop_images/cherryw00d-banner_1.jpg",
-        "image_link": "shopify://collections/cherrywood",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
       }
     },
     "multicolumn_dk43Jb": {
@@ -1652,33 +1616,12 @@
         "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
       }
-    },
-    "home-hero-section": {
-      "type": "home-hero-section",
-      "disabled": true,
-      "settings": {
-        "media_type": "video",
-        "video": "shopify://files/videos/Untitled design.mp4",
-        "mobile_video": "shopify://files/videos/mob-w.mp4",
-        "text_align": "center",
-        "text_vertical_align": "bottom",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "bottom",
-        "text_horizontal_align_mobile": "center",
-        "title": "RAFFIA SEASON",
-        "title_color": "#ffffff",
-        "description": "",
-        "description_color": "#ffffff",
-        "button": "SHOP NOW",
-        "link": "shopify://collections/raffia",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff"
-      }
     }
   },
   "order": [
-    "image_banner_XUgrYF",
+    "home-hero-section",
+    "slider_collection_aKWPXT",
+    "image_banner_yVpKNR",
     "slider_collection_FHqMyi",
     "image_banner_ezVVdn",
     "slider_featured_collection_bTka8m",
@@ -1689,7 +1632,6 @@
     "multicolumn_Fbdf7n",
     "multicolumn_cbEMzp",
     "jr_new_5050_product_list_JWe869",
-    "image_banner_m4Uy48",
     "multicolumn_dk43Jb",
     "multicolumn_R6jqfi",
     "slider_collection_rf9mQd",
@@ -1700,7 +1642,6 @@
     "jr_customer_reviews_kz8t7H",
     "homepage_fireworks_pxtfb9",
     "custom_liquid_NgfUX8",
-    "homepage_instagram_RrcAhY",
-    "home-hero-section"
+    "homepage_instagram_RrcAhY"
   ]
 }
