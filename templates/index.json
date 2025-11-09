@@ -30,6 +30,49 @@
         "button_bg_color": "#000000"
       }
     },
+    "rich_text_7hfqjB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4CVzXf": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "Shop Sale by Style and Category",
+            "heading_size": "h1"
+          }
+        },
+        "text_XkxBRA": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": ""
+          }
+        },
+        "button_E3Rk76": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP SALE",
+            "button_link": "shopify://pages/online-sample-sale",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_4CVzXf",
+        "text_XkxBRA",
+        "button_E3Rk76"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "slider_collection_aKWPXT": {
       "type": "slider-collection",
       "name": "Product Widget - Sale",
@@ -1618,6 +1661,7 @@
   },
   "order": [
     "home-hero-section",
+    "rich_text_7hfqjB",
     "slider_collection_aKWPXT",
     "image_banner_yVpKNR",
     "slider_collection_FHqMyi",
