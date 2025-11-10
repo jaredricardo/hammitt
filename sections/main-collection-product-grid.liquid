@@ -386,7 +386,7 @@
                 {% endif %}
               {% endunless %}
 
-              <li class="grid__item" data-test="{{ initial_iterable_products_per_page }}" data-test-2="{{ final_products_per_page }}" data-test-3="{{ paginate.current_page }}">
+              <li class="grid__item">
                 {% render 'card-product',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
