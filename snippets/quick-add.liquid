@@ -8,6 +8,9 @@
         {% assign badgeProperties = product.metafields.custom.badge_properties | split: ':' %}
         <input class="badgeProperties__field" type="hidden" name="{{ badgeProperties[0] }}" value="{{ badgeProperties[1] }}">
       {% endif %}
+      {% if product.tags contains 'final sale' or product.tags contains 'sample sale' %}
+        <input class="badgeProperties__field" type="hidden" name="Sample Sale" value="Final Sale">
+      {% endif %}
       {% if product.title == "Gift Card" and request.path contains '/search' %}
         <a class="gift-card-atc-container" href="{{ product.url }}">
           <small class="label gift-card-atc">{{ 'products.product.add_to_cart' | t }}</small>

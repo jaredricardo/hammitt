@@ -303,7 +303,7 @@
             } 
 
             results.items.forEach((result) => {
-            
+
                 const productCard = document.querySelector('[data-complex-card-template]').cloneNode(true)
                 let formattedProductTitle = result.prod_name
                 let productSize = result.metafields?.hammitt?.size || ''
@@ -379,6 +379,28 @@
                     preorderInput.classList.add('preorder__field')
                     productCard.querySelector('.quick-add__form').appendChild(preorderInput)
                 }
+
+                // build certain needed properties off certain tags
+                if(result.product_types.includes('final sale') || result.product_types.includes('sample sale')) {
+                    const finalSaleInput = document.createElement('input')
+                    finalSaleInput.setAttribute('type', 'hidden')
+                    finalSaleInput.setAttribute('name', 'Sample Sale')
+                    finalSaleInput.setAttribute('value', 'Final Sale')
+
+                    /* 
+                    
+                    The below badge property class is needed because whoever wrote the original quick add ATC code decided to only 
+                    grab properties if they had a few specific class names. Instead of just writing a generic "extra property"
+                    identifier and programatically building the property object for the product to be added to cart, the quick add only 
+                    does this when the "preorder__field" or "badgeProperties__field" exist as classes on the input element. This should
+                    be updated to be completely programatic in the future. See global.js QuickAdd class, specifically the addItem 
+                    method to see what I am talking about.
+
+                    */
+
+                    finalSaleInput.classList.add('badgeProperties__field')
+                    productCard.querySelector('.quick-add__form').appendChild(finalSaleInput)
+                }
                 
                 if(useDescriptor) {
                     productCard.querySelector('.card__seo-text').innerText = productColorDescriptor
@@ -437,10 +459,10 @@
 <li data-complex-card-template class="grid__item complex-product-card-template--li inactive">
      <x-gen-search-result>
         <div class="card-wrapper">
+            {% render 'icon-spinner' %}
             <div class="card card--{{ settings.card_style }}  product-card"  style="--ratio-percent: 100%;">
             {% comment %} kept display none until base.css loads {% endcomment %}
                 <button
-                
                     class="swym-button hammitt-custom swym-add-to-wishlist-view-product product_{{product.id}}"
                     data-with-epi="true"
                     data-swaction="addToWishlist"

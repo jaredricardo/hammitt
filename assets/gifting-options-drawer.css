@@ -189,7 +189,12 @@ hammitt-gifting-options-drawer #save-btn {
     padding: 3px 6px;
     margin-left: auto;
     cursor: pointer;
-    transition: 200ms ease;
+    transition: 300ms ease;
+}
+
+hammitt-gifting-options-drawer #save-btn[disabled] {
+    opacity: 0;
+    pointer-events: none;
 }
 
 hammitt-gifting-options-drawer #save-btn.saved,

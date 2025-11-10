@@ -476,6 +476,7 @@
                           {% endif %}
                         {% endfor %}
                       {% if property.first.first == "_" %}{% continue %}{% endif %}
+                      {% if property.first == "Sample Sale" %}{% continue %}{% endif %}
                       {% unless property.first == "tn_enabled" %}
                         <div class="product-option product-option--{{ property.first | handle }} {% if isBadgeProductProperties %} product-properties__option {% endif %}">                      
                           <dt>{{ property.first }}:</dt>
@@ -544,11 +545,7 @@
                           </a>
                         </cart-remove-button>
                         <div class="loading-overlay hidden">
-                          <div class="loading-overlay__spinner loading-overlay__spin">
-                            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                            </svg>
-                          </div>
+                          {% render 'icon-spinner' %}
                         </div>
                       </div>
                     </div>
@@ -590,7 +587,7 @@
                 <button id="close-btn">
                   {% render 'icon-chevron-left' %}
                 </button>
-                <button id="save-btn">Save</button>
+                <button id="save-btn" disabled>Save</button>
               </div>
               {% if settings.hammitt_gifting_drawer_header_text %}
                 <p>{{ settings.hammitt_gifting_drawer_header_text }}</p>

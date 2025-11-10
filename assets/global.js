@@ -406,7 +406,7 @@ class MenuDrawer extends HTMLElement {
   }
 
   closeMenuDrawer(event, elementToFocus = false) {
-    // console.log('closeMenuDrawer', event);
+
     if (event === undefined) {
       return;
     }
@@ -840,12 +840,19 @@ class QuickAdd extends HTMLElement {
   }  
   async addItem(event) {
     event.preventDefault();
-    const target = event.target;
-    const itemId = target.getAttribute('data-id');
+
+    const target = event.target
+    const itemId = target.getAttribute('data-id')
+    const closestSpinner = this.closest('.card-wrapper').querySelector('.loading-overlay__spinner')
 
     const quickAddElement = target.closest("quick-add");
     const isPreOrderInput = quickAddElement ? quickAddElement.querySelector(".preorder__field") : null;
     const isBadgeInput = quickAddElement ? quickAddElement.querySelector(".badgeProperties__field") : null;
+
+    if(closestSpinner) {
+      closestSpinner.classList.add('active');
+    }
+
     if (target.classList.contains("iday-promotion__product") && EE_GWP.available) {
       const addOnId = EE_GWP.item;
       try {
@@ -861,12 +868,12 @@ class QuickAdd extends HTMLElement {
             quantity: 1,
             ...(isPreOrderInput && {
                 properties: {
-                    [isPreOrderInput.name]: isPreOrderInput.value
+                  [isPreOrderInput.name]: isPreOrderInput.value
                 }
             }),
             ...(isBadgeInput && {
               properties: {
-                  [isBadgeInput.name]: isBadgeInput.value
+                [isBadgeInput.name]: isBadgeInput.value
               }
             })
         }]
@@ -1600,7 +1607,7 @@ const cartUpdate = (json = false) => {
       response.json(),
     )
     .then(data => {
-        // check if gifting drawer is active
+        // check if gifting drawer is active, update to the correct number of gift wraps in cart given the number of line items with gift notes
         const giftingOptionsActive = document.querySelector('hammitt-gifting-options-drawer') != null
 
         if(giftingOptionsActive) {
@@ -1636,6 +1643,10 @@ const cartUpdate = (json = false) => {
           }
           
         }
+        // remove all product card spinner
+        document.querySelectorAll('.card-wrapper .loading-overlay__spinner.active').forEach(spinner => {
+          spinner.classList.remove('active')
+        });
 
         if(parseFloat((document.querySelector(`free-shipping-goal`).dataset.minimumAmount) * 100) < data.items_subtotal_price) {
           document.querySelector(`free-shipping-goal`).classList.add('free-shipping-goal--done');
