@@ -78,6 +78,7 @@
     endif
   -%}
   <div class="card-wrapper" id="{{ card_product.id }}" data-current-page="{{ currentPage }}">
+    {% render 'icon-spinner' %}
     <div class="card
       card--{{ settings.card_style }}
       product-card

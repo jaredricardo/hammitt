@@ -1101,6 +1101,9 @@
                     {% assign badgeProperties = product.metafields.custom.badge_properties | split: ':' %}
                     <input type="hidden" name="properties[{{ badgeProperties[0] }}]" value="{{ badgeProperties[1] }}">
                   {% endif %}
+                  {% if product.tags contains 'final sale' or product.tags contains 'sample sale' %}
+                    <input class="badgeProperties__field" type="hidden" name="Sample Sale" value="Final Sale">
+                  {% endif %}
 
                   {% comment %} Duplicated and hide Add to Bag CTA to prevent conflict with Trynow CTA for EE GWP promotional products {% endcomment %}
                   <div class="product-form__buttons">

@@ -1,5 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
 
+    document.addEventListener('cartDrawerClosed', () => {
+        document.querySelector('hammitt-gifting-options-drawer')?.classList.remove('active')
+    })
+
     /*  
         For some reason, cart loads significantly later than the rest of the dom (previous devs did something funky with it),
         so we need to wait for DOM content to load before accessing elements inside the cart drawer.
@@ -20,6 +24,27 @@ window.addEventListener('DOMContentLoaded', () => {
             super()
             this.querySelector('#close-btn').addEventListener('click', this.closeGiftingDrawer)
             this.querySelector('#save-btn').addEventListener('click', this.saveGiftingOptions)
+
+            // Save buttons starts in a disabled state, as some products are final sale and cannot be gifted and
+            // will throw an error if a user tries to save gifting options for them, so we only enable the 
+            // button when a user makes a change to a gifting eligible product    
+
+            this.querySelectorAll('hammitt-gifting-broken-out-line-item input').forEach((input) => {
+                input.addEventListener('change', this.enableSaveButton)
+            })
+
+            // Similarly, all the textareas are not real inputs, so we must listen for a change event
+            // on them and enable the save button when a user types in one. Note we are not comparing old gift note
+            // state to new here, we are simply turning it and assuming they've made a change if they type anything.
+
+            this.querySelectorAll('hammitt-line-level-gift-note .line-item-gift-note-text-area').forEach((textarea) => {
+                textarea.addEventListener('input', this.enableSaveButton)
+            })
+        }
+
+        enableSaveButton() {
+            const saveBtn = document.querySelector('hammitt-gifting-options-drawer #save-btn')
+            saveBtn.disabled = false
         }
         closeGiftingDrawer(){
             document.querySelector('hammitt-gifting-options-drawer')?.classList.remove('active')

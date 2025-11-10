@@ -42,15 +42,12 @@ class CartRemoveButton extends HTMLElement {
     const idAddOnProperty = idAddOnPropertyElement?.innerHTML.trim();
 
     if (idOptionProperty) {
-      console.log("MONOGRAM");
       this.handleMonogramFromCartPage(event, idOptionProperty, key, cartItems);
     } else if (idAddOnProperty === "AddOnPromotion") {
-      console.log("ADDON PROMOTION");
       this.updateCartItems({ [key]: 0 }, true);
     } else if (idPromotionProperty === "IDPromotion") {
       this.handleGWPFromCartPage(key, cartItems);
     } else {
-      console.log("PLAIN");
       this.updateCartItems({ [key]: 0 }, true);
     }
   }
@@ -75,10 +72,8 @@ class CartRemoveButton extends HTMLElement {
     const idAddOnProperty = idAddOnPropertyElement?.innerHTML.trim();
 
     if (idOptionProperty) {
-      console.log("MONOGRAM");
       this.handleMonogramFromCartDrawer(idOptionProperty, cartItems);
     } else if (idAddOnProperty === "AddOnPromotion") {
-      console.log("ADDON PROMOTION"); 
       cartItems.updateQuantity(this.getAttribute("data-key"), 0, undefined, undefined, true);
     } else if (idPromotionProperty === "IDPromotion") {
       this.handleGWPFromCartDrawer(cartItems);
@@ -92,15 +87,12 @@ class CartRemoveButton extends HTMLElement {
     const itemKey = this.getAttribute("data-key");
 
     if (itemsCount >= 2) {
-      console.log("ID PROMOTION >= 2");
       cartItems.updateQuantity(itemKey, 0, undefined, undefined, true);
     } else if (itemsCount === 1) {
-      console.log("ID PROMOTION 1");
       cartItems.updateQuantity(itemKey, 0, undefined, undefined, true);
 
       const idAddOnProperty = cartItems.querySelector("cart-items .id-addon_property");
       if (idAddOnProperty) {
-        console.log("ADDON");
         document.addEventListener("itemRemovedFromCartDrawer", handleAddOnRemoved);
 
         function handleAddOnRemoved() {
@@ -117,14 +109,11 @@ class CartRemoveButton extends HTMLElement {
   handleGWPFromCartPage(key, cartItems) {
     const itemsCount = cartItems.querySelectorAll(".cart-page-items .id-promotion_property").length;
     if (itemsCount >= 2) {
-      console.log("ID PROMOTION >= 2");
       this.updateCartItems({ [key]: 0 }, true);
     } else if (itemsCount === 1) {
-      console.log("ID PROMOTION 1");
       const idAddOnProperty = cartItems.querySelector(".cart-page-items .id-addon_property");
 
       if (idAddOnProperty) {
-        console.log("ADDON");
         const addOnKey = String(idAddOnProperty.closest(".cart-item").getAttribute("data-key"));
         let updates = {
           [addOnKey]: 0,
@@ -132,7 +121,6 @@ class CartRemoveButton extends HTMLElement {
         };
         this.updateCartItems(updates, true);
       } else {
-        console.log("ONLY");
         this.updateCartItems({ [key]: 0 }, true);
       }
     }
@@ -153,7 +141,6 @@ class CartRemoveButton extends HTMLElement {
     let updates = { [key]: 0 };
 
     if (isMonogramAddOn) {
-      console.log("MONO");
       const idOptionAddOnProperty = isMonogramAddOn.innerHTML.trim();
 
       mainAddOn.forEach((addon) => {
@@ -176,7 +163,6 @@ class CartRemoveButton extends HTMLElement {
     if (isMatched) {
       this.updateCartItems(updates, true);
     } else {
-      console.log("ONLY");
       this.updateCartItems(updates, true);
     }
   }
@@ -220,7 +206,6 @@ class CartRemoveButton extends HTMLElement {
         return response.json();
       })
       .then(data => {
-        console.log("(updateCartItems)", updates, data);
         if (reload)
           window.location.reload()
       })
@@ -385,7 +370,6 @@ class CartDrawer extends MenuDrawer {
     super();
   }
   renderContents(parsedState) {
-    console.log('CartDrawer renderContents()');
       this.cartItemKey = parsedState.key;
       this.getSectionsToRender().forEach((section => {
         if(section.id == 'cart-drawer') {
@@ -545,11 +529,9 @@ class GiftNoteToggle extends HTMLElement {
     this.init();
 
     if(!this.giftNoteInput) {
-      console.log('no gift note input');
       return;
     }
     this.giftNoteInput.addEventListener('keyup', this.debounce(() => {
-      console.log(this.giftNoteInput.value);
       let noteData = {
          attributes: {
            'Gift Note': this.giftNoteInput.value
@@ -618,7 +600,6 @@ class GiftNoteToggle extends HTMLElement {
       });
   }
   toggleGiftNote() {
-    console.log('toggleGiftNote');
     const qty = event.target.checked ? 1 : 0;
     const itemObj = {
       items: [
@@ -655,9 +636,6 @@ class FreeShippingGoal extends HTMLElement {
   }
 
   updateShippingGloal(amount) {
-    // console.log('amount=======>', amount);
-    
-
     this.cartTotal = amount / 100;
     this.goalLeft = this.goal - this.cartTotal;
     this.goalDone = this.goalLeft <= 0;

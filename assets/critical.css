@@ -959,6 +959,24 @@ a.nav-wishlist-button .heart-count {
 .desktop-only {
   display: block;
 }
+.card-wrapper .loading-overlay__spinner.loading-overlay__spin {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 50px;
+}
+
+.card-wrapper .loading-overlay__spinner.loading-overlay__spin.active {
+  display: flex;
+}
+
+.card-wrapper:has(.loading-overlay__spinner.loading-overlay__spin.active) .product-card {
+  opacity: 0.6;
+  pointer-events: none;
+}
 
 @media screen and (max-width: 749px) {
   .mobile-only {

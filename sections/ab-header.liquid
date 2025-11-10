@@ -759,7 +759,6 @@
   
       {% comment %} Close Cart Drawer  {% endcomment %}
       document.querySelector('.drawer__close').addEventListener('click', function() {
-        console.log("Clicked", this.closest('#Details-cart-drawer-container'))
         if (!jsWNWLoad) {
           document.querySelector('#Details-cart-drawer-container').removeAttribute('open');
         }
