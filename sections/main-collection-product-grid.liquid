@@ -193,12 +193,16 @@
   assign merch_box_one_columns = 0
   assign merch_box_two_columns = 0
 
-  if merch_box_one and merch_box_one.enable_merch_box
-    assign merch_box_one_columns = merch_box_one.number_of_columns
-  endif 
+  if paginate.current_page == 1
 
-  if merch_box_two and merch_box_two.enable_merch_box
-    assign merch_box_two_columns = merch_box_two.number_of_columns
+    if merch_box_one and merch_box_one.enable_merch_box
+      assign merch_box_one_columns = merch_box_one.number_of_columns
+    endif 
+
+    if merch_box_two and merch_box_two.enable_merch_box
+      assign merch_box_two_columns = merch_box_two.number_of_columns
+    endif
+
   endif
 
   assign initial_iterable_products_per_page = section.settings.products_per_page
@@ -305,7 +309,7 @@
               {% comment %} MERCH BOX LOGIC / HANDLING {% endcomment %}
 
               {% comment %} MERCH BOX ONE {% endcomment %}
-              {% unless filters_are_active %}
+              {% unless filters_are_active or paginate.current_page > 1 %}
                 {% if merch_box_one and merch_box_one.enable_merch_box %}
 
                   {% if merch_box_one.number_of_columns == 1 and merch_box_one.position_in_grid == forloop.index %}
@@ -382,7 +386,7 @@
                 {% endif %}
               {% endunless %}
 
-              <li class="grid__item">
+              <li class="grid__item" data-test="{{ initial_iterable_products_per_page }}" data-test-2="{{ final_products_per_page }}" data-test-3="{{ paginate.current_page }}">
                 {% render 'card-product',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
