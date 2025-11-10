@@ -749,7 +749,7 @@
         {% endif %}
         <cart-drawer data-breakpoint="all"{% if template.name == "cart" %} style="pointer-events: none;"{% endif %}>
           <details id="Details-cart-drawer-container" class="cart-drawer-container">
-            <summary  class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
+            <summary  class="header__icon header__icon--menu header__icon--summary link focus-inset cart-drawer-underlay-close" aria-label="{{ 'sections.header.menu' | t }}">
               <div id="cart-icon-bubble">
                 {% render 'icon-cart' %}
                 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
@@ -893,7 +893,6 @@
 
     {% comment %} Close Cart Drawer  {% endcomment %}
     document.querySelector('.drawer__close').addEventListener('click', function() {
-      console.log("Clicked", this.closest('#Details-cart-drawer-container'))
       if (!jsWNWLoad) {
         document.querySelector('#Details-cart-drawer-container').removeAttribute('open');
       }

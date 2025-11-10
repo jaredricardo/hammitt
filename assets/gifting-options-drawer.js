@@ -1,6 +1,8 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-    document.addEventListener('cartDrawerClosed', () => {
+    const underlayClose = document.querySelector('.cart-drawer-underlay-close')
+
+    underlayClose?.addEventListener('click', () => {
         document.querySelector('hammitt-gifting-options-drawer')?.classList.remove('active')
     })
 

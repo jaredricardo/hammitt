@@ -407,8 +407,6 @@ class MenuDrawer extends HTMLElement {
 
   closeMenuDrawer(event, elementToFocus = false) {
 
-    document.dispatchEvent(new CustomEvent('cartDrawerClosed'));
-
     if (event === undefined) {
       return;
     }
