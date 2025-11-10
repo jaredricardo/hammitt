@@ -9,85 +9,6 @@
  */
 {
   "sections": {
-    "image_banner_KncYKJ": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_DGbwgt": {
-          "type": "heading",
-          "settings": {
-            "heading": "40% OFF",
-            "heading_size_mobile": 58,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 80
-          }
-        },
-        "text_NxVM4P": {
-          "type": "text",
-          "settings": {
-            "text": "Archived styles",
-            "text_style": "body",
-            "text_size_mobile": 20,
-            "text_size_tablet": 22,
-            "text_size_desktop": 30
-          }
-        },
-        "buttons_9mgykG": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://pages/online-sample-sale",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_DGbwgt",
-        "text_NxVM4P",
-        "buttons_9mgykG"
-      ],
-      "disabled": true,
-      "name": "Sale",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Screenshot-2025-11-06-at-3.01.22_PM_1.jpg",
-        "image_2": "shopify://shop_images/Screenshot-2025-11-06-at-3.01.22_PM_1-1.jpg",
-        "image_link": "shopify://pages/online-sample-sale",
-        "image_overlay_opacity": 20,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "light",
-        "show_text_below": false,
-        "full_width": true,
-        "cta_color_scheme": "light",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 32,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "home-hero-section": {
       "type": "home-hero-section",
       "custom_css": [
@@ -115,50 +36,6 @@
         "button_bg_color": "#ffffff"
       }
     },
-    "rich_text_7hfqjB": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_4CVzXf": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "Shop Sale by Style and Category",
-            "heading_size": "h1"
-          }
-        },
-        "text_XkxBRA": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": ""
-          }
-        },
-        "button_E3Rk76": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP SALE",
-            "button_link": "shopify://pages/online-sample-sale",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_4CVzXf",
-        "text_XkxBRA",
-        "button_E3Rk76"
-      ],
-      "disabled": true,
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "custom_classes": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
-    },
     "slider_collection_aKWPXT": {
       "type": "slider-collection",
       "name": "Product Widget - Sale",
@@ -177,6 +54,145 @@
         "padding_bottom": 36,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36
+      }
+    },
+    "multicolumn_7jnCPC": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_cGkap4": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Group_12547.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "<strong>Shop Sale Under $200</strong>",
+            "link": "shopify://collections/sample-sale-under-200",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_YXrVq9": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Group_12548.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "<strong>Shop Sale Under 5200</strong>",
+            "link": "shopify://collections/sample-sale-under-500",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_DnK7iL": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Group_12550.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "<strong>Shop Small Gifts Sale </strong>",
+            "link": "shopify://collections/sample-sale-small-accessories",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_EEU3Vd": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Group_12549.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "<strong>Shop All Sale </strong>",
+            "link": "shopify://collections/sample-sale-2025",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_cGkap4",
+        "column_YXrVq9",
+        "column_DnK7iL",
+        "column_EEU3Vd"
+      ],
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "portrait",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 4,
+        "columns_gap": 1,
+        "row_gap": 1,
+        "mobile_columns_gap": 1,
+        "mobile_row_gap": 1,
+        "column_alignment": "center",
+        "text_position": "bottom",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "enable_peek": true,
+        "show_mobile_slider": true,
+        "padding_top": 10,
+        "padding_bottom": 36,
+        "padding_top_mobile": 10,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
       }
     },
     "image_banner_yVpKNR": {
@@ -993,10 +1009,10 @@
         "custom_class": "behind-design-section"
       }
     },
-    "multicolumn_7jnCPC": {
+    "multicolumn_FmaKEp": {
       "type": "multicolumn",
       "blocks": {
-        "column_cGkap4": {
+        "column_ABLfVE": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -1020,7 +1036,7 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_YXrVq9": {
+        "column_CAPFXw": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -1044,7 +1060,7 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_DnK7iL": {
+        "column_8MxtDV": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -1068,7 +1084,7 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_WwgVah": {
+        "column_EDDjd9": {
           "type": "column",
           "disabled": true,
           "settings": {
@@ -1093,7 +1109,7 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_8UgcPd": {
+        "column_eqfkMw": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -1117,7 +1133,7 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_EEU3Vd": {
+        "column_TzW8NU": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -1141,7 +1157,7 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_Rt4rC6": {
+        "column_E79wmx": {
           "type": "column",
           "disabled": true,
           "settings": {
@@ -1168,13 +1184,13 @@
         }
       },
       "block_order": [
-        "column_cGkap4",
-        "column_YXrVq9",
-        "column_DnK7iL",
-        "column_WwgVah",
-        "column_8UgcPd",
-        "column_EEU3Vd",
-        "column_Rt4rC6"
+        "column_ABLfVE",
+        "column_CAPFXw",
+        "column_8MxtDV",
+        "column_EDDjd9",
+        "column_eqfkMw",
+        "column_TzW8NU",
+        "column_E79wmx"
       ],
       "settings": {
         "title": "Shop By Color",
@@ -1462,10 +1478,9 @@
     }
   },
   "order": [
-    "image_banner_KncYKJ",
     "home-hero-section",
-    "rich_text_7hfqjB",
     "slider_collection_aKWPXT",
+    "multicolumn_7jnCPC",
     "image_banner_yVpKNR",
     "slider_collection_FHqMyi",
     "image_banner_ezVVdn",
@@ -1479,7 +1494,7 @@
     "multicolumn_cbEMzp",
     "slider_collection_rf9mQd",
     "multicolumn_96PRBE",
-    "multicolumn_7jnCPC",
+    "multicolumn_FmaKEp",
     "jr_scrolling_text_QzMT7i",
     "jr_customer_reviews_kz8t7H",
     "homepage_fireworks_pxtfb9",
