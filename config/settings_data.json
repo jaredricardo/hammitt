@@ -101,6 +101,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_KLNUwm": {
+            "type": "announcement",
+            "settings": {
+              "text": "Welcome to our store",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": ""
+            }
+          },
           "announcement_hUHyfX": {
             "type": "announcement",
             "settings": {
@@ -140,6 +149,7 @@
           }
         },
         "block_order": [
+          "announcement_KLNUwm",
           "announcement_hUHyfX",
           "announcement_XLNUCh",
           "announcement_UdnEaT",
@@ -159,7 +169,7 @@
           "enable_klaviyo_button_opener": false,
           "year": 2025,
           "month": 11,
-          "day": 15,
+          "day": 16,
           "hour": 23,
           "minute": 59
         }
