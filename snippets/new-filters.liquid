@@ -265,10 +265,12 @@
         padding-bottom: 0.5rem;
     }
 
-        minty-fresh-filter-drawer .filter-area-wrap:has([data-label="Sale"]) {
-            display: flex;
-            gap: 1rem;
-        }
+    minty-fresh-filter-drawer .filter-area-wrap:has([data-label="Sale"]) {
+        display: flex;
+        gap: 1rem;
+        flex-direction: row-reverse;
+        justify-content: start;
+    }
 
     minty-fresh-filter-drawer .filter-area .label {
         margin-bottom: 0.5rem;
