@@ -265,6 +265,11 @@
         padding-bottom: 0.5rem;
     }
 
+        minty-fresh-filter-drawer .filter-area-wrap:has([data-label="Sale"]) {
+            display: flex;
+            gap: 1rem;
+        }
+
     minty-fresh-filter-drawer .filter-area .label {
         margin-bottom: 0.5rem;
     }
@@ -310,7 +315,6 @@
         text-decoration: none;
         transition: all 0.2s ease-in-out;
     }
-
 
     minty-fresh-filter-drawer #apply:hover {
         color: white;
@@ -680,8 +684,14 @@
                         {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                             <div class="filter-area">
                                 <div class="filter-area-wrap">
-                                    <span class="label">{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
+                                    <span class="label" data-label="{{ filter.label }}">{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
                                     {% case filter.type %}
+                                        {% when 'boolean' %}
+                                            {% for value in filter.values %}
+                                            <minty-fresh-filter-input>
+                                                <input type="checkbox" {% if value.active %} checked {% endif %} name="{{ value.param_name }}" value="{{ value.value }}" >
+                                            </minty-fresh-filter-input>
+                                            {% endfor %}
                                         {% when 'list' %}
                                             {% for value in filter.values %}
                                                 <minty-fresh-filter-input>
