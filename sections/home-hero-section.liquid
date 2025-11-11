@@ -9,7 +9,7 @@
     {%- endif -%}
   </div>
   {%- elsif section.settings.media_type == 'video' -%}
-    <div class="section-image flexbox" style="--desktop-image-height:{{ 1 | divided_by: section.settings.video.preview_image.aspect_ratio | times: 100}}%;--mobile-image-height:{{ 1 | divided_by: section.settings.mobile_video.preview_image.aspect_ratio | times: 100}}%;">
+    <div class="section-image flexbox" style="--desktop-image-height:{{ 1 | divided_by: section.settings.video.preview_image.aspect_ratio | times: 100}}%;--mobile-image-height:{{ 1 | divided_by: section.settings.video.preview_image.aspect_ratio | times: 100}}%;">
       <video loop muted playsinline autoplay{% if section.settings.mobile_video != blank %} class="small-hide"{% endif %} >
         <source src="{{ section.settings.video.sources[1].url }}" type="video/mp4">
       </video>
