@@ -25,28 +25,17 @@
     "image_banner_xgwdR9": {
       "type": "image-banner",
       "blocks": {
-        "text_Y3mK4c": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "text_style": "body",
-            "text_size_mobile": 26,
-            "text_size_tablet": 30,
-            "text_size_desktop": 60
-          }
-        },
         "heading_6C6QCb": {
           "type": "heading",
           "settings": {
             "heading": "Repair Center",
             "heading_size_mobile": 26,
-            "heading_size_tablet": 28,
+            "heading_size_tablet": 32,
             "heading_size_desktop": 60
           }
         }
       },
       "block_order": [
-        "text_Y3mK4c",
         "heading_6C6QCb"
       ],
       "settings": {
@@ -65,7 +54,7 @@
         "image_2": "shopify://shop_images/Rectangle_8.jpg",
         "image_link": "",
         "image_overlay_opacity": 10,
-        "image_height": "small",
+        "image_height": "adapt",
         "desktop_content_position": "middle-left",
         "desktop_content_alignment": "left",
         "color_scheme": "light",
@@ -88,6 +77,50 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
+      }
+    },
+    "image_with_text_JyQNxy": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_G6BtUD": {
+          "type": "text",
+          "settings": {
+            "text": "<h4><strong>Here's what we cover </strong></h4><ul><li>D-Rings</li><li>O-Rings</li><li>Broken Straps</li><li>Defective Magnets</li><li>Zipper Pulls</li><li></li></ul><h4><strong>Here's what we can't fix and don't cover </strong></h4><ul><li>Torn or Stained Lining</li><li>Stained Leather</li><li>Zipper Tape</li><li>Normal Wear + Tear</li><li>Cleaning</li><li>Refurbishment</li></ul>",
+            "text_style": "body"
+          }
+        },
+        "caption_mm4jbY": {
+          "type": "caption",
+          "settings": {
+            "caption": "*Please note, in select cases, we may no longer be able to replace materials on bags from seasons far past. In this case, our team will assess your unique request and offer an alternative replacement option.",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "text_G6BtUD",
+        "caption_mm4jbY"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/Group_1013_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
     },
     "multicolumn_wngqhj": {
@@ -146,6 +179,7 @@
         "column_9LghBD",
         "column_qFmQti"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "#000000",
@@ -192,6 +226,7 @@
       "block_order": [
         "text_DyGHgw"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "color_scheme": "background-1",
@@ -209,13 +244,13 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_397.jpg",
+            "image": "shopify://shop_images/Rectangle_400_1.jpg",
             "title": "<strong>PURCHASED FROM HAMMITT </strong>",
             "b_title_color": "#000000",
-            "b_title_font_desktop": 14,
-            "b_title_font_mobile": 12,
-            "text": "<h4>Hammitt store</h4><h4>Hammitt.com</h4><p>  </p>",
-            "link_label": "SUBMIT A REQUEST",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 16,
+            "text": "<h6><strong>Hammitt store</strong></h6><h6><strong>Hammitt.com</strong></h6>",
+            "link_label": "Submit A Request",
             "link": "https://hammitt.returnlogic.com/",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -233,13 +268,13 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/crossbody_f0df18ff-7d04-47a2-81c3-95752cd2c48c.png",
+            "image": "shopify://shop_images/Rectangle_401_2.jpg",
             "title": "<strong>PURCHASED / GIFTED ELSEWHERE</strong>",
             "b_title_color": "#000000",
-            "b_title_font_desktop": 14,
-            "b_title_font_mobile": 12,
-            "text": "<h4>It was a gift</h4><h4>Department store</h4><h4>Boutique</h4>",
-            "link_label": "SUBMIT A REQUEST",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 16,
+            "text": "<h6><strong>It was a gift</strong></h6><h6><strong>Department store Or Boutique</strong></h6>",
+            "link_label": "Submit A Request",
             "link": "https://hammitt.returnlogic.com/warranty/info",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -259,14 +294,14 @@
         "column_kKFrCa"
       ],
       "settings": {
-        "title": "HOW TO SUBMIT A REQUEST",
+        "title": "How To Submit A Request",
         "title_color": "",
         "heading_size": "h1",
         "paragraph": "",
         "paragraph_color": "",
         "larger_text": false,
         "image_width": "full",
-        "image_ratio": "circle",
+        "image_ratio": "adapt",
         "image_padding": true,
         "removed_section_padding": false,
         "columns_desktop": 2,
@@ -413,6 +448,7 @@
   "order": [
     "main",
     "image_banner_xgwdR9",
+    "image_with_text_JyQNxy",
     "multicolumn_wngqhj",
     "rich_text_khMUeA",
     "multicolumn_ffXgYG",
