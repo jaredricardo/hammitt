@@ -87,34 +87,6 @@
         "custom_class": ""
       }
     },
-    "home-hero-section": {
-      "type": "home-hero-section",
-      "disabled": true,
-      "custom_css": [
-        ".home-hero-section .section-image video,.home-hero-section .section-image img {object-fit: cover;}",
-        ".home-hero-section .section-image {aspect-ratio: 22/10;}",
-        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: inherit; }}"
-      ],
-      "settings": {
-        "media_type": "video",
-        "video": "shopify://files/videos/2SS2025.mp4",
-        "text_align": "center",
-        "text_vertical_align": "bottom",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "bottom",
-        "text_horizontal_align_mobile": "center",
-        "title": "",
-        "title_color": "#ffffff",
-        "description": "",
-        "description_color": "#ffffff",
-        "button": "SHOP NOW",
-        "button_enable": false,
-        "link": "shopify://collections/sample-sale-2025",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff"
-      }
-    },
     "multicolumn_7jnCPC": {
       "type": "multicolumn",
       "blocks": {
@@ -278,27 +250,6 @@
         "button_text_color": "#000000",
         "button_background_color": "#ffffff",
         "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
-    "slider_collection_FHqMyi": {
-      "type": "slider-collection",
-      "disabled": true,
-      "name": "Product Widget - Kyle",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "kyle",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 0,
         "padding_bottom": 36,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36
@@ -507,26 +458,6 @@
         "custom_class": "behind-design-section"
       }
     },
-    "slider_collection_aKWPXT": {
-      "type": "slider-collection",
-      "name": "Product Widget - New",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
     "image_banner_ezVVdn": {
       "type": "image-banner",
       "blocks": {
@@ -604,27 +535,6 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
-      }
-    },
-    "slider_featured_collection_bTka8m": {
-      "type": "slider-collection",
-      "disabled": true,
-      "name": "Product Widget - Diamond Suede ",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "#000000",
-        "collection": "chocolate-diamond-suede",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 29,
-        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_zgBMdw": {
@@ -737,96 +647,6 @@
         "padding_top": 2,
         "padding_bottom": 0,
         "padding_top_mobile": 24,
-        "padding_bottom_mobile": 0,
-        "custom_class": "behind-design-section"
-      }
-    },
-    "multicolumn_xTwnHJ": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_E4pz7D": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_787.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Meredith",
-            "link": "shopify://collections/meredith",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_WLGFap": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_785_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Soiree Clutch",
-            "link": "shopify://products/soiree-clutch-carrara-black-brushed-gold",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 10
-          }
-        }
-      },
-      "block_order": [
-        "column_E4pz7D",
-        "column_WLGFap"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "title_color": "#000000",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 2,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "enable_peek": true,
-        "show_mobile_slider": true,
-        "padding_top": 2,
-        "padding_bottom": 0,
-        "padding_top_mobile": 2,
         "padding_bottom_mobile": 0,
         "custom_class": "behind-design-section"
       }
@@ -1502,17 +1322,32 @@
         "custom_classes": ""
       }
     },
-    "custom_liquid_NgfUX8": {
-      "type": "custom-liquid",
+    "home-hero-section": {
+      "type": "home-hero-section",
       "disabled": true,
+      "custom_css": [
+        ".home-hero-section .section-image video,.home-hero-section .section-image img {object-fit: cover;}",
+        ".home-hero-section .section-image {aspect-ratio: 22/10;}",
+        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: inherit; }}"
+      ],
       "settings": {
-        "custom_liquid": "<style>\n          div.storyblock {\n          }\n          div.embed {\n          }\n          @media screen and (min-width: 600px) {\n           div.storyblock {\n            display: none;\n           }\n          }\n           @media screen and (max-width: 600px) {\n           div.embed {\n            display: none;\n           }\n          }\n  :root {\n    --fw-thumbnail-font-size: 14px;\n}\n\n    </style>\n\n<div class=\"storyblock\">\n        <fw-storyblock\n             channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n          branding=\"false\"\n          autoplay=\"true\"\n        ></fw-storyblock>\n    </div>\n     <div class=\"embed\">\n       <fw-embed-feed\n                channel=\"hammitt223858521\"\n      playlist=\"5ndXKj\"\n             mode=\"row\"\n             open_in=\"default\"\n             max_videos=\"0\"\n             placement=\"middle\"\n             branding=\"false\"\n      captions=\"false\"\n\n             player_placement=\"bottom-right\"\n        ></fw-embed-feed>\n    </div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 20,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
+        "media_type": "video",
+        "video": "shopify://files/videos/2SS2025.mp4",
+        "text_align": "center",
+        "text_vertical_align": "bottom",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "bottom",
+        "text_horizontal_align_mobile": "center",
+        "title": "",
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "#ffffff",
+        "button": "SHOP NOW",
+        "button_enable": false,
+        "link": "shopify://collections/sample-sale-2025",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffffff"
       }
     },
     "homepage_instagram_RrcAhY": {
@@ -1533,18 +1368,13 @@
   },
   "order": [
     "image_banner_yVpKNR",
-    "home-hero-section",
     "multicolumn_7jnCPC",
     "jr_new_5050_product_list_zy3tkK",
-    "slider_collection_FHqMyi",
     "multicolumn_Fbdf7n",
     "multicolumn_cbEMzp",
-    "slider_collection_aKWPXT",
     "image_banner_ezVVdn",
-    "slider_featured_collection_bTka8m",
-    "multicolumn_zgBMdw",
-    "multicolumn_xTwnHJ",
     "slider_collection_RWT74t",
+    "multicolumn_zgBMdw",
     "image_banner_higWbJ",
     "slider_collection_rf9mQd",
     "multicolumn_96PRBE",
@@ -1552,7 +1382,7 @@
     "jr_scrolling_text_QzMT7i",
     "jr_customer_reviews_kz8t7H",
     "homepage_fireworks_pxtfb9",
-    "custom_liquid_NgfUX8",
+    "home-hero-section",
     "homepage_instagram_RrcAhY"
   ]
 }
