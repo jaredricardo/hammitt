@@ -52,18 +52,6 @@ class PredictiveSearch extends HTMLElement {
       document.querySelector('.initial-search-modal-content .recent-or-trending-products ul').appendChild(tempLi)
     }
 
-    const xgenCookies = ['xgen_session', 'xgen_token', 'xgen_user']
-    const lastFlushDate = localStorage.getItem('dateOfLastXGenCookieFlush')
-
-    if (!lastFlushDate) {
-      xgenCookies.forEach(cookieName => {
-        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
-        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.hammitt.com;`
-        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=hammitt.com;`
-      })
-      localStorage.setItem('dateOfLastXGenCookieFlush', new Date().toISOString())
-    } 
-
     const results = await xg.search.getResults({
       query: searchTerm, 
       options: {
