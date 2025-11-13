@@ -1077,6 +1077,13 @@
               {%- render 'product-monogram' -%}
           {% endif %}
           {%- when 'buy_buttons' -%}
+
+            {% if product.tags contains 'Final Sale' %}
+              <p style="margin-bottom: 15px; font-weight: 600;">
+                <span style="color: red;">Final sale:</span> This item can not be exchanged or returned. Valid while supplies last. All sales final.
+              </p>
+            {% endif %}
+
             {%- render 'product-payment-installments' -%}
             <div class="buybutton-block" {{ block.shopify_attributes }}>
               <product-form class="product-form">
