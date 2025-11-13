@@ -222,7 +222,7 @@
         "padding_top": 10,
         "padding_bottom": 36,
         "padding_top_mobile": 10,
-        "padding_bottom_mobile": 36,
+        "padding_bottom_mobile": 0,
         "custom_class": ""
       }
     },
@@ -231,7 +231,7 @@
       "custom_css": [
         "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
       ],
-      "name": "Kyle",
+      "name": "Special Events",
       "settings": {
         "background_color": "#ffffff",
         "header_text_color": "#000000",
@@ -537,6 +537,26 @@
         "custom_class": ""
       }
     },
+    "slider_collection_RWT74t": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
     "multicolumn_zgBMdw": {
       "type": "multicolumn",
       "blocks": {
@@ -651,46 +671,26 @@
         "custom_class": "behind-design-section"
       }
     },
-    "slider_collection_RWT74t": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
     "image_banner_higWbJ": {
       "type": "image-banner",
       "blocks": {
         "heading_NnWUy4": {
           "type": "heading",
           "settings": {
-            "heading": "Holiday Gift Guide",
-            "heading_size_mobile": 26,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
+            "heading": "40% Off",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 70
           }
         },
         "text_3yGXaV": {
           "type": "text",
           "settings": {
-            "text": "Unwrap the perfect gifts for everyone on your nice list.",
+            "text": "Archived Style",
             "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
+            "text_size_mobile": 14,
+            "text_size_tablet": 16,
+            "text_size_desktop": 20
           }
         },
         "buttons_AX9QKR": {
@@ -720,17 +720,17 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Rectangle_436_ff80fc7d-84d0-4f00-9b2e-9ff1c5c9b58e.jpg",
-        "image_2": "shopify://shop_images/Rectangle_406.jpg",
-        "image_link": "shopify://pages/holiday-gift-guide",
+        "image": "shopify://shop_images/Screenshot-2025-11-06-at-3.01.22_PM_2.jpg",
+        "image_2": "shopify://shop_images/Screenshot-2025-11-06-at-3.01.22_PM_2.jpg",
+        "image_link": "shopify://collections/sample-sale-2025",
         "image_overlay_opacity": 20,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
+        "color_scheme_mobile": "light",
+        "show_text_below": false,
         "full_width": true,
         "cta_color_scheme": "dark",
         "custom_content_spacing": false,
@@ -744,7 +744,7 @@
         "content_padding_right_mobile": 0,
         "padding_top": 12,
         "padding_bottom": 12,
-        "padding_top_mobile": 0,
+        "padding_top_mobile": 20,
         "padding_bottom_mobile": 0,
         "custom_class": ""
       }
