@@ -1259,41 +1259,6 @@
     "settings": [
       {
         "type": "header",
-        "content": "Native Hammit Gift Messaging",
-        "info": "Below is Hammitt's native built gift messaging settings. THIS IS THE CART LEVEL, NOT LINE LEVEL OPT OUT."
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_hammitt_box_opt_out",
-        "label": "Enable Hammitt Box Opt Out (cart level)",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_hammitt_gift_messaging",
-        "label": "Enable Hammitt Gift Messaging (cart level)",
-        "default": true
-      },
-      {
-        "type": "textarea",
-        "id": "hammitt_gift_message", 
-        "label": "Gift checkbox label",
-        "default": "Sending this as a Gift? Add a gift note here."
-      },
-      {
-        "type": "textarea",
-        "id": "hammitt_box_opt_out_message", 
-        "label": "Box Opt Out Message",
-        "default": "🌱 I’ll pass on the box! Please send my item in a dust bag only."
-      },
-      {
-        "type": "collection",
-        "id": "collection_to_hide_opt_out",
-        "label": "Collection to hide box opt out",
-        "info": "Collection that contains products that will HIDE the box opt out checkbox when a product is in cart"
-      },
-      {
-        "type": "header",
         "content": "Zest",
         "info": "Zest Settings"
       },
