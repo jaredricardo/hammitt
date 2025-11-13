@@ -57,11 +57,6 @@
     "enable_quick_add": true,
     "enable_total_colors": false,
     "enable_card_swatches": false,
-    "enable_hammitt_box_opt_out": false,
-    "enable_hammitt_gift_messaging": false,
-    "hammitt_gift_message": "A gift? Add a typed gift note letting them know you sent it.",
-    "hammitt_box_opt_out_message": "🌱 I'll pass on the box! Please send my item(s) in a dust bag only.",
-    "collection_to_hide_opt_out": "box-opt-out-hide-checkbox-products",
     "zest_multi_checkout_enabled": true,
     "freeShippingThreshold": "1",
     "cart_drawer_msg": "<p>Free shipping. Taxes calculated at checkout.</p>",
@@ -91,6 +86,11 @@
       "charles-crossbody-lrg-belt-bag-black-brushed-gold-red-zip",
       "charles-crossbody-crossbody-black-brushed-gold-red-zip"
     ],
+    "enable_hammitt_box_opt_out": false,
+    "enable_hammitt_gift_messaging": false,
+    "hammitt_gift_message": "A gift? Add a typed gift note letting them know you sent it.",
+    "hammitt_box_opt_out_message": "🌱 I'll pass on the box! Please send my item(s) in a dust bag only.",
+    "collection_to_hide_opt_out": "box-opt-out-hide-checkbox-products",
     "cart_shipping_msg": "",
     "pdp_care_acrylics": "<p>Please note, this acrylic material is delicate and should be carried with care.</p>",
     "tn_cart_widget_link": "",
@@ -112,7 +112,6 @@
           },
           "announcement_XLNUCh": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "text": "Holiday Gift Guide",
               "text_color": "#ffffff",
