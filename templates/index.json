@@ -9,8 +9,87 @@
  */
 {
   "sections": {
+    "image_banner_yVpKNR": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_TKgY94": {
+          "type": "heading",
+          "settings": {
+            "heading": "Holiday Gift Guide",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_R9WpiV": {
+          "type": "text",
+          "settings": {
+            "text": "We’re here as your full-service gifting suite,\nfrom boxes and bows to handwritten notes.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_ReHFtA": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://pages/holiday-gift-guide",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TKgY94",
+        "text_R9WpiV",
+        "buttons_ReHFtA"
+      ],
+      "name": "gift Guide",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group-12568.gif",
+        "image_2": "shopify://shop_images/mobile0gg0hp.gif",
+        "image_link": "shopify://pages/holiday-gift-guide",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "home-hero-section": {
       "type": "home-hero-section",
+      "disabled": true,
       "custom_css": [
         ".home-hero-section .section-image video,.home-hero-section .section-image img {object-fit: cover;}",
         ".home-hero-section .section-image {aspect-ratio: 22/10;}",
@@ -38,6 +117,7 @@
     },
     "slider_collection_aKWPXT": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Product Widget - Sale",
       "settings": {
         "title": "",
@@ -63,14 +143,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12547.jpg",
+            "image": "shopify://shop_images/Rectangle_880.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "<strong>Shop Sale Under $200</strong>",
-            "link": "shopify://collections/sample-sale-under-200",
+            "link_label": "<strong>For The Socialite </strong>",
+            "link": "shopify://collections/for-the-socialite",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -87,14 +167,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12548.jpg",
+            "image": "shopify://shop_images/Rectangle_430_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "<strong>Shop Sale Under 5200</strong>",
-            "link": "shopify://collections/sample-sale-under-500",
+            "link_label": "<strong>For The Sports & Music Fan</strong>",
+            "link": "shopify://collections/sports-and-music-events",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -111,14 +191,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12550.jpg",
+            "image": "shopify://shop_images/Rectangle_428_1_17b45f95-e692-413f-adb4-0542979e2c70.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "<strong>Shop Small Gifts Sale </strong>",
-            "link": "shopify://collections/sample-sale-small-accessories",
+            "link_label": "<strong>For The Traveler</strong>",
+            "link": "shopify://collections/travel-gifting",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -135,14 +215,14 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12549.jpg",
+            "image": "shopify://shop_images/Rectangle_414_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "<strong>Shop All Sale </strong>",
-            "link": "shopify://collections/sample-sale-2025",
+            "link_label": "<strong>Stocking Stuffers</strong>",
+            "link": "shopify://collections/stocking-stuffers",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -195,86 +275,38 @@
         "custom_class": ""
       }
     },
-    "image_banner_yVpKNR": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_TKgY94": {
-          "type": "heading",
-          "settings": {
-            "heading": "New Kyles are Here",
-            "heading_size_mobile": 26,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_R9WpiV": {
-          "type": "text",
-          "settings": {
-            "text": "Available now in luxe textures including velvet, suede, and jacquard.",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_ReHFtA": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/kyle",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_TKgY94",
-        "text_R9WpiV",
-        "buttons_ReHFtA"
+    "jr_new_5050_product_list_zy3tkK": {
+      "type": "jr-new-5050-product-list",
+      "custom_css": [
+        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
       ],
-      "name": "Kyle ",
+      "name": "Kyle",
       "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group-12512.gif",
-        "image_2": "shopify://shop_images/000_Group-12512-copy.gif",
-        "image_link": "",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 32,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
+        "title": "Special Events",
+        "product_list": [
+          "kyle-chocolate-diamond-suede-antique-gold",
+          "kyle-shoulder-bag-cherrywood-pebble-brushed-gold",
+          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "kyle-shoulder-bag-espresso-pebble-silver",
+          "kyle-med-shoulder-bag-belted-suede-gunmetal",
+          "kyle-shoulder-bag-olive-brushed-gold"
+        ],
+        "image": "shopify://shop_images/Rectangle_421_1.jpg",
+        "button_link": "shopify://collections/kyle",
+        "button_text": "Shop Now",
+        "button_text_color": "#000000",
+        "button_background_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
       }
     },
     "slider_collection_FHqMyi": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Product Widget - Kyle",
       "settings": {
         "title": "",
@@ -569,26 +601,6 @@
         "mobile_padding_bottom": 0
       }
     },
-    "slider_collection_RWT74t": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
     "multicolumn_zgBMdw": {
       "type": "multicolumn",
       "blocks": {
@@ -767,6 +779,26 @@
         "custom_class": "behind-design-section"
       }
     },
+    "slider_collection_RWT74t": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
     "image_banner_higWbJ": {
       "type": "image-banner",
       "blocks": {
@@ -843,36 +875,6 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
-      }
-    },
-    "jr_new_5050_product_list_zy3tkK": {
-      "type": "jr-new-5050-product-list",
-      "disabled": true,
-      "custom_css": [
-        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
-      ],
-      "name": "Kyle",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "Most Beloved Kyle",
-        "product_list": [
-          "kyle-chocolate-diamond-suede-antique-gold",
-          "kyle-shoulder-bag-cherrywood-pebble-brushed-gold",
-          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
-          "kyle-shoulder-bag-espresso-pebble-silver",
-          "kyle-med-shoulder-bag-belted-suede-gunmetal",
-          "kyle-shoulder-bag-olive-brushed-gold"
-        ],
-        "image": "shopify://shop_images/Rectangle_785.jpg",
-        "button_link": "shopify://collections/kyle",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
       }
     },
     "slider_collection_rf9mQd": {
@@ -1478,10 +1480,11 @@
     }
   },
   "order": [
+    "image_banner_yVpKNR",
     "home-hero-section",
     "slider_collection_aKWPXT",
     "multicolumn_7jnCPC",
-    "image_banner_yVpKNR",
+    "jr_new_5050_product_list_zy3tkK",
     "slider_collection_FHqMyi",
     "multicolumn_Fbdf7n",
     "multicolumn_cbEMzp",
@@ -1491,7 +1494,6 @@
     "multicolumn_xTwnHJ",
     "slider_collection_RWT74t",
     "image_banner_higWbJ",
-    "jr_new_5050_product_list_zy3tkK",
     "slider_collection_rf9mQd",
     "multicolumn_96PRBE",
     "multicolumn_FmaKEp",
