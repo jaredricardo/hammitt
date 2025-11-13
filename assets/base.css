@@ -3981,6 +3981,10 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   flex: 3;
 }
 
+.initial-search-modal-content .recent-or-popular-searches h4 {
+  margin-bottom: 2rem;
+}
+
 .initial-search-modal-content .recent-or-trending-products ul,
 .initial-search-modal-content .recent-or-popular-searches ul {
   display: flex;
@@ -4013,7 +4017,6 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  margin: 0 0 2rem 0;
 }
 
 .basic-product-card-template--li img {
@@ -4045,9 +4048,6 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
 }
 
 @media screen and (max-width: 768px) {
-  .initial-search-modal-content h4 {
-    margin: 0 0 1rem;
-  }
   #yotpo-reviews-main-widget .yotpo-bottom-line {
     flex-direction: column;
     gap: 2rem;

@@ -29,17 +29,6 @@
   endif
 
 -%}
-<style>
-
-  {% for product in settings.collection_to_hide_opt_out.products %}
-
-    .drawer__content:has(.item-variant-id--{{ product.selected_or_first_available_variant.id }}) hammitt-box-opt-out {
-      display: none !important;
-    }
-    
-  {% endfor %}
-
-</style>
 
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
@@ -829,38 +818,7 @@
           <p>If you’d like to add gift wrap, you can add as many as you need below and simply select it for each address at check out.</p>
         </div>
         {% if cart.item_count > 0  %}
-          {% if settings.enable_hammitt_box_opt_out %}
-            <hammitt-box-opt-out class="cart-drawer-gift-box-opt-out">
-              <input type="checkbox" id="hammitt-box-opt-out-checkbox">
-              <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_box_opt_out_message }}</label>
-            </hammitt-box-opt-out>
-          {% endif %}
           <div class="gift-box-content">{{ content.description }}</div>
-          {% if settings.enable_hammitt_gift_messaging %}
-            <hammitt-gift-note class="cart-drawer-gift-note"
-              {% if cart.attributes['Gift Note'] %}
-                data-server-has-note="true"
-                {% else %}
-                data-server-has-note="false"
-              {% endif %}
-              >
-              <div class="checkbox-message-area">
-                <div>
-                  <input type="checkbox" id="hammitt-gift-message-checkbox">
-                  <label for="hammit-gift-message-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_gift_message }}</label>
-                </div>
-              </div>
-              <div class="hammitt-gift-note-area">
-                <label for="gift-note" class="visually-hidden">Add gift note?</label>
-                <div class="note-area-container">
-                  <textarea maxlength="500" placeholder="Enter your gift note here" name="note" id="gift-note-text-area"></textarea>
-                  <span id="gift-note-char-limit">0/500</span>
-                </div>  
-                <button type="button" id="gift-note-save-button">save</button>
-                {% comment %} <div id="hidden-existing-cart-attribute">current cart att: {{ cart.attributes['Gift Note'] }}</div> {% endcomment %}
-              </div>
-            </hammitt-gift-note>
-          {% endif %}
           {% if settings.giftBox_enabled %}
             <div class="cart__gift--notes">
               <input id="cart__gift--check" class="cart__gift__input" type="checkbox">
@@ -993,12 +951,6 @@
       
       <div class="drawer__buttons">
         <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
-          {% if settings.enable_hammitt_gift_messaging %}
-            <input id="hammitt-gift-message-form-input" type="hidden" name="attributes[Gift Note]" value="">
-          {% endif %}
-          {% if settings.enable_hammitt_box_opt_out %}
-            <input id="hammitt-box-opt-out-form-input" type="hidden" name="attributes[opt_out_of_gift_box]" value="false">
-          {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>
         {% if settings.zest_multi_checkout_enabled %}

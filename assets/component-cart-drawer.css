@@ -818,10 +818,7 @@ div#dynamic-checkout-cart {
   flex-direction: column;
 }
 
-hammitt-gift-note,
-hammitt-box-opt-out {
-  cursor: pointer;
-}
+
 
 .hammitt-gift-note-area .note-area-container {
   position: relative;
@@ -872,15 +869,6 @@ hammitt-box-opt-out {
   align-items: start;
 }
 
-.cart-drawer-gift-note .checkbox-message-area > div,
-.cart-drawer-gift-box-opt-out {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
 .checkbox-message-area #hammitt-gift-message-checkbox {
   accent-color: black;
 }
@@ -926,15 +914,6 @@ hammitt-box-opt-out {
 .fake-cart-item {
   /* hidden for now */
   display: none !important;
-}
-
-.drawer__content:has(#hammitt-box-opt-out-checkbox:checked) .fake-cart-item {
-  display: none;
-}
-
-#hammitt-box-opt-out-checkbox {
-  accent-color: black;
-  pointer-events: none;
 }
 
 .remove-button-container {
