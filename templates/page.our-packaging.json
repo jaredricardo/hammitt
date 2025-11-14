@@ -32,10 +32,22 @@
             "heading_size_tablet": 40,
             "heading_size_desktop": 70
           }
+        },
+        "text_PmXdTf": {
+          "type": "text",
+          "settings": {
+            "text": "Whether you’re treating yourself or sending a gift, we believe every delivery should feel special.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 16
+          }
         }
       },
       "block_order": [
-        "heading_6yBxEe"
+        "heading_6yBxEe",
+        "text_PmXdTf"
       ],
       "settings": {
         "custom_classes": "",
@@ -78,30 +90,6 @@
         "custom_class": ""
       }
     },
-    "rich_text_mt46Nb": {
-      "type": "rich-text",
-      "blocks": {
-        "text_rkKPf9": {
-          "type": "text",
-          "settings": {
-            "text": "<h4><strong>Whether you’re treating yourself or sending a gift, we believe every delivery should feel special. </strong></h4><h4><strong>Most of our items arrive in our signature polished white box, with the option to include a personal note—or choose a lighter touch without the box. Plus, you can easily ship to multiple addresses at checkout.</strong></h4><h4><strong>We offer the following gifting options. Please select your preferences on your cart.</strong></h4>"
-          }
-        }
-      },
-      "block_order": [
-        "text_rkKPf9"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "custom_classes": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
-    },
     "image_with_text_Gknadc": {
       "type": "image-with-text",
       "blocks": {
@@ -130,7 +118,7 @@
         "image": "shopify://shop_images/Group_1220.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
-        "layout": "text_first",
+        "layout": "image_first",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
@@ -148,24 +136,24 @@
     "image_with_text_6wAJip": {
       "type": "image-with-text",
       "blocks": {
-        "text_xwGmat": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Add a personal touch with gift wrap and a custom message for extra $5. </p>",
-            "text_style": "body"
-          }
-        },
         "heading_Kjzymj": {
           "type": "heading",
           "settings": {
             "heading": "Gift Wrap & Hand Written Note",
             "heading_size": "h1"
           }
+        },
+        "text_xwGmat": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Add a touch of holiday magic to your gift for  $5. </p><p>Your item will arrive wrapped in festive ribbon, creating a beautifully elevated presentation perfect for the season. To make it even more special, include a personalized handwritten message. Ideal for heartfelt wishes, joyful greetings, or a simple ‘thinking of you.’ It’s an effortless way to turn any purchase into a truly memorable holiday moment.</p>",
+            "text_style": "body"
+          }
         }
       },
       "block_order": [
-        "text_xwGmat",
-        "heading_Kjzymj"
+        "heading_Kjzymj",
+        "text_xwGmat"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -173,7 +161,7 @@
         "image": "shopify://shop_images/fwdjqihd_-Group-12581-_1_f60d5130-1b6f-4f41-8941-3ebbaa1d2517.gif",
         "height": "adapt",
         "desktop_image_width": "medium",
-        "layout": "image_first",
+        "layout": "text_first",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "center",
         "content_layout": "no-overlap",
@@ -692,7 +680,6 @@
   "order": [
     "main",
     "image_banner_bkPemt",
-    "rich_text_mt46Nb",
     "image_with_text_Gknadc",
     "image_with_text_6wAJip",
     "custom_video_a4qHxW",
