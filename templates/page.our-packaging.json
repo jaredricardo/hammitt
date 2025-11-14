@@ -148,24 +148,24 @@
     "image_with_text_6wAJip": {
       "type": "image-with-text",
       "blocks": {
-        "heading_Kjzymj": {
-          "type": "heading",
-          "settings": {
-            "heading": "Gift Wrap & Hand Written Note",
-            "heading_size": "h1"
-          }
-        },
         "text_xwGmat": {
           "type": "text",
           "settings": {
             "text": "<p>Add a personal touch with gift wrap and a custom message for extra $5. </p>",
             "text_style": "body"
           }
+        },
+        "heading_Kjzymj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gift Wrap & Hand Written Note",
+            "heading_size": "h1"
+          }
         }
       },
       "block_order": [
-        "heading_Kjzymj",
-        "text_xwGmat"
+        "text_xwGmat",
+        "heading_Kjzymj"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
