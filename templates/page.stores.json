@@ -25,6 +25,7 @@
           "type": "text",
           "settings": {
             "text": "Welcome to Hammitt Heaven. \nOur team can’t wait to see you at our flagship California stores.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 18,
             "text_size_tablet": 18,
@@ -74,6 +75,76 @@
         "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_banner_tMji4f": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_cK4BaJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Holiday Pop-Up Coming to Century City",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_TBMmGP": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_area_html_swap": "<b>Nov 21 - Dec 28 </b> <br>Get ready LA! <br>Hammitt is bringing the season’s sparkle in person. Shop gifts, seasonal favorites, and special surprises soon.<br>",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        }
+      },
+      "block_order": [
+        "heading_cK4BaJ",
+        "text_TBMmGP"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Untitled_1920_x_600_px_1.gif",
+        "image_2": "shopify://shop_images/Untitled_design_9.gif",
+        "image_link": "shopify://pages/holiday-gift-guide",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
         "custom_class": ""
       }
     },
@@ -251,6 +322,7 @@
   },
   "order": [
     "1654018969fd2b0c8b",
+    "image_banner_tMji4f",
     "1658438551344f72bd",
     "main",
     "16540189729cdeba5f",
