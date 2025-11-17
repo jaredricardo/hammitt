@@ -960,7 +960,7 @@ a.nav-wishlist-button .heart-count {
   display: block;
 }
 .card-wrapper .loading-overlay__spinner.loading-overlay__spin {
-  display: none;
+  display: none; /* AB tested out of this, the simple gray out performs better */
   position: absolute;
   top: 40%;
   left: 50%;
@@ -969,14 +969,11 @@ a.nav-wishlist-button .heart-count {
   width: 50px;
 }
 
-.card-wrapper .loading-overlay__spinner.loading-overlay__spin.active {
-  display: flex;
-}
-
 .card-wrapper:has(.loading-overlay__spinner.loading-overlay__spin.active) .product-card {
   opacity: 0.6;
   pointer-events: none;
 }
+
 
 @media screen and (max-width: 749px) {
   .mobile-only {

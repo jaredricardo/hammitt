@@ -191,20 +191,12 @@
 
   # calculate number of products to show per page in order for there to be no gap due to the merch box spacings
 
-  assign merch_box_one_columns = 0
-  assign merch_box_two_columns = 0
+  if merch_box_one and merch_box_one.enable_merch_box
+    assign merch_box_one_columns = merch_box_one.number_of_columns
+  endif 
 
-  # null == first page 
-  if paginate.current_page == null
-
-    if merch_box_one and merch_box_one.enable_merch_box
-      assign merch_box_one_columns = merch_box_one.number_of_columns
-    endif 
-
-    if merch_box_two and merch_box_two.enable_merch_box
-      assign merch_box_two_columns = merch_box_two.number_of_columns
-    endif
-
+  if merch_box_two and merch_box_two.enable_merch_box
+    assign merch_box_two_columns = merch_box_two.number_of_columns
   endif
 
   assign initial_iterable_products_per_page = section.settings.products_per_page
@@ -212,14 +204,14 @@
 
 -%}
 
-<script>
+{% comment %} <script>
   console.log('????????????')
   console.log({{ paginate.current_page | json }})
   console.log({{ merch_box_one_columns | json }})
   console.log({{ merch_box_two_columns | json }})
   console.log({{ initial_iterable_products_per_page | json }})
   console.log({{ final_products_per_page | json }})
-</script>
+</script> {% endcomment %}
 
 <div class="section-{{ section.id }}-padding col-wrap">
   {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
@@ -281,7 +273,7 @@
               grid--{{ section.settings.columns_desktop }}-col-desktop
             {% endif %}">
 
-            {%- for product in collection.products limit: final_products_per_page -%}
+            {%- for product in collection.products -%}
               {% assign outter_loop_index = forloop.index %}
               {% comment %} Only show exclusive collection products if customer has shareholder tag and seo hidden is 1 {% endcomment %}
               {% if isShareholder == false and product.metafields.seo.hidden == 1  %} 
