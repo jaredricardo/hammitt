@@ -27,23 +27,82 @@
         "heading_8JWNPD": {
           "type": "heading",
           "settings": {
+            "heading": "'Tis The Season",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_8JWNPD"
+      ],
+      "name": "choco",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Rectangle_796_88ed0df6-e7b9-4bcf-b841-8581b8225cbe.jpg",
+        "image_2": "shopify://shop_images/Rectangle_795.jpg",
+        "image_link": "shopify://pages/holiday-gift-guide",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left-more",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_banner_iUmzDQ": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_J63Vmz": {
+          "type": "heading",
+          "settings": {
             "heading": "Meet Chocolate Suede",
             "heading_size_mobile": 25,
             "heading_size_tablet": 20,
             "heading_size_desktop": 36
           }
         },
-        "text_UKjWgm": {
+        "text_xUadKV": {
           "type": "text",
           "settings": {
             "text": "Sweeten every look with this ultra-luxe drop, featuring antique gold hardware and a rich, chocolate suede.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 12,
             "text_size_tablet": 14,
             "text_size_desktop": 15
           }
         },
-        "buttons_RNzC9f": {
+        "buttons_Le4zCE": {
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
@@ -53,9 +112,9 @@
         }
       },
       "block_order": [
-        "heading_8JWNPD",
-        "text_UKjWgm",
-        "buttons_RNzC9f"
+        "heading_J63Vmz",
+        "text_xUadKV",
+        "buttons_Le4zCE"
       ],
       "name": "choco",
       "settings": {
@@ -225,6 +284,7 @@
           "type": "text",
           "settings": {
             "text": "A brand-new take on our logo,\npresented atop a playful hardware droplet.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 12,
             "text_size_tablet": 14,
@@ -433,6 +493,7 @@
           "type": "text",
           "settings": {
             "text": "Timeless shimmer, totally unexpected.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 12,
             "text_size_tablet": 14,
@@ -647,6 +708,7 @@
           "type": "text",
           "settings": {
             "text": "The perfect match with our iconic red zip.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 12,
             "text_size_tablet": 14,
@@ -745,6 +807,7 @@
           "type": "text",
           "settings": {
             "text": "All your bestselling favorites are here to sweeten your fall lineup.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 12,
             "text_size_tablet": 14,
@@ -971,6 +1034,7 @@
   "order": [
     "main",
     "image_banner_tgKCXT",
+    "image_banner_iUmzDQ",
     "slider_collection_j4fmV8",
     "multicolumn_DfgaLB",
     "image_banner_UkirJg",
