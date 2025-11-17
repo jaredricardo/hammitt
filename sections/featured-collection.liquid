@@ -68,6 +68,7 @@
             endfor
           %}
 
+
         <div id="block-{{ product.id }}" class="featured-carousel__item">
           {%- render 'card-product', 
              card_product: product, 
@@ -162,30 +163,24 @@
       "default": "center",
       "label": "Header alignment"
     },
-	{
+    {
       "type": "richtext",
       "id": "paragraph",
  	  "label":"Paragraph",
 	  "default":"<p>Meh enamel pin officia copper mug, chicharrones shabby chic XOXO quis ullamco organic. Bespoke scenester church-key squid. Jianbing cronut id, shoreditch meditation consectetur commodo polaroid PBR&B ugh.</p>"
     },
-	{
+    {
       "type": "checkbox",
       "id": "full_width",
  	  "label":"Make section full width",
       "default": false
     },
-	{
+    {
       "type": "checkbox",
       "id": "stagger",
  	  "label":"Stagger",
       "default": false
     },
-	{
-	  "type":"collection",
-	  "id":"collection",
-	  "label":"Use a collection?",
-	  "info":"If this is used it will override blocks"
-	},
 	{
       "type": "range",
       "id": "max_products",

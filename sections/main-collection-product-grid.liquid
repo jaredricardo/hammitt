@@ -180,6 +180,7 @@
 
   assign merch_box_one = collection.metafields.custom.merch_box.value
   assign merch_box_two = collection.metafields.custom.merch_box_two.value
+  assign additional_merch_boxes = collection.metafields.custom.additional_merch_boxes.value
   assign filters_are_active = false
 
   for filter in collection.filters
@@ -382,6 +383,18 @@
                     {% endif %}
                     
                   {% endif %}
+
+                {% endif %}
+              {% endunless %}
+
+              {% comment %} Additional Merch Boxes {% endcomment %}
+              {% unless additional_merch_boxes == blank or filters_are_active %}
+                  <script>
+                    console.log('//////')
+                    console.log({{ additional_merch_boxes | json }})
+                  </script>
+                {% if paginate.current_page > 1 %}
+                  {% comment %}  {% endcomment %}
 
                 {% endif %}
               {% endunless %}
