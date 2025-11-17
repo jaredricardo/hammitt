@@ -26,6 +26,7 @@
     assign content_x_position = obj.content_x_position | default: 'center'
     assign text_alignment = obj.text_alignment | default: 'center'
     assign index = forloop.index0 | default: 0
+    assign page_to_appear_on = obj.page_to_appear_on | default: 1
     
 -%}
 

@@ -702,7 +702,20 @@
                                                         <span class="color-box" data-value="{{ value.value }}"></span>
                                                     {% endif %}
                                                     <div>
-                                                        <span class="color-swatch">{{ value.value }}</span>
+                                                        <span class="color-swatch">
+                                                            {% comment %}
+                                                        
+                                                                For some reason, the filter type for 'availability' is 'list'. This means if
+                                                                I want to change the label / text for 'In Stock', I have to do it here by 
+                                                                conditioning on string '1' for 'In Stock' = TRUE
+                                                             
+                                                            {% endcomment %}
+                                                            {% if value.value == '1' %}
+                                                                    In Stock
+                                                                {% else %}
+                                                                    {{ value.value }}
+                                                            {% endif %}
+                                                        </span>
                                                         <span class="available-options">({{ value.count }})</span>
                                                     </div>
                                                 </minty-fresh-filter-input>

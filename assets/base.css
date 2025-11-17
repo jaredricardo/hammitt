@@ -4363,3 +4363,8 @@ ul.recently-viewed-products-list li {
   margin: 0.75rem 0;
   font-weight: 500;
 }
+
+minty-fresh-filter-input:has([name="filter.v.availability"][value="0"]),
+.filter-area-wrap [data-label="In Stock"] {
+  display: none;
+}

@@ -180,6 +180,7 @@
 
   assign merch_box_one = collection.metafields.custom.merch_box.value
   assign merch_box_two = collection.metafields.custom.merch_box_two.value
+  assign additional_merch_boxes = collection.metafields.custom.additional_merch_boxes.value
   assign filters_are_active = false
 
   for filter in collection.filters
@@ -190,25 +191,27 @@
 
   # calculate number of products to show per page in order for there to be no gap due to the merch box spacings
 
-  assign merch_box_one_columns = 0
-  assign merch_box_two_columns = 0
+  if merch_box_one and merch_box_one.enable_merch_box
+    assign merch_box_one_columns = merch_box_one.number_of_columns
+  endif 
 
-  if paginate.current_page == 1
-
-    if merch_box_one and merch_box_one.enable_merch_box
-      assign merch_box_one_columns = merch_box_one.number_of_columns
-    endif 
-
-    if merch_box_two and merch_box_two.enable_merch_box
-      assign merch_box_two_columns = merch_box_two.number_of_columns
-    endif
-
+  if merch_box_two and merch_box_two.enable_merch_box
+    assign merch_box_two_columns = merch_box_two.number_of_columns
   endif
 
   assign initial_iterable_products_per_page = section.settings.products_per_page
   assign final_products_per_page = initial_iterable_products_per_page | minus: merch_box_one_columns | minus: merch_box_two_columns
 
 -%}
+
+{% comment %} <script>
+  console.log('????????????')
+  console.log({{ paginate.current_page | json }})
+  console.log({{ merch_box_one_columns | json }})
+  console.log({{ merch_box_two_columns | json }})
+  console.log({{ initial_iterable_products_per_page | json }})
+  console.log({{ final_products_per_page | json }})
+</script> {% endcomment %}
 
 <div class="section-{{ section.id }}-padding col-wrap">
   {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
@@ -271,6 +274,7 @@
             {% endif %}">
 
             {%- for product in collection.products -%}
+              {% assign outter_loop_index = forloop.index %}
               {% comment %} Only show exclusive collection products if customer has shareholder tag and seo hidden is 1 {% endcomment %}
               {% if isShareholder == false and product.metafields.seo.hidden == 1  %} 
                 {% continue %}
@@ -383,6 +387,44 @@
                     
                   {% endif %}
 
+                {% endif %}
+              {% endunless %}
+
+              {% comment %} Additional Merch Boxes {% endcomment %}
+              {% unless additional_merch_boxes == blank or filters_are_active %}
+                {% if paginate.current_page > 1 %}
+                  {% for additional_merch_box in additional_merch_boxes %}
+                    {% if additional_merch_box.page_to_appear_on == paginate.current_page %}
+
+                      {% if additional_merch_box.number_of_columns == 1 and additional_merch_box.position_in_grid == outter_loop_index %}
+                        <li class="grid__item">
+                          {% render 'merch-box', obj: additional_merch_box, index: forloop.index %}
+                        </li>
+                      {% endif %}
+
+                      {% if additional_merch_box.number_of_columns == 2 %}
+
+                        {% assign nearest_odd_number = additional_merch_box.position_in_grid %}
+                        {% assign mod = nearest_odd_number | modulo: 2 %}
+                        {% assign is_even = false %}
+
+                        {% if mod == 0 %}
+                          {% assign is_even = true %}
+                        {% endif %}
+
+                        {% if is_even  %}
+                          {% assign nearest_odd_number = nearest_odd_number | minus: 1 %}
+                        {% endif %}
+
+                        {% if nearest_odd_number == outter_loop_index %}
+                          <li class="grid__item">
+                            {% render 'merch-box', obj: additional_merch_box, index: forloop.index %}
+                          </li>
+                        {% endif %}
+                      {% endif %}
+
+                    {% endif %}
+                  {% endfor %}
                 {% endif %}
               {% endunless %}
 
