@@ -29,9 +29,9 @@
           "type": "heading",
           "settings": {
             "heading": "The End",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 60
           }
         },
         "text_bnbJXy": {
@@ -98,6 +98,146 @@
         "padding_top": 0,
         "padding_bottom": 0,
         "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
+    "multicolumn_cdmLXp": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_DKKQRj": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_785_3.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "<strong>Holiday Gift Guide </strong>",
+            "link": "shopify://pages/holiday-gift-guide",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_Dt7k6e": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_421_2.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "<strong>Bestsellers</strong>",
+            "link": "shopify://collections/best-selling-bags",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_PA743P": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_423_1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "<strong>New In</strong>",
+            "link": "shopify://collections/new-arrivals",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_jwt4np": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_424_1.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "<strong>Trending </strong>",
+            "link": "shopify://collections/trending",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_DKKQRj",
+        "column_Dt7k6e",
+        "column_PA743P",
+        "column_jwt4np"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "square",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 4,
+        "columns_gap": 2,
+        "row_gap": 2,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "bottom",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
+        "padding_top": 20,
+        "padding_bottom": 36,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 36,
         "custom_class": ""
       }
@@ -889,6 +1029,7 @@
   "order": [
     "main",
     "image_banner_ki7m7t",
+    "multicolumn_cdmLXp",
     "hero_video_banner_aFEbEY",
     "image_banner_3wGbz9",
     "image_with_text_navigator_LYMLkH",
