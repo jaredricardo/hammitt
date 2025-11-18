@@ -91,6 +91,76 @@
         "custom_class": ""
       }
     },
+    "image_banner_LaMyYX": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_KkBJDE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Chili Red",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 50
+          }
+        },
+        "text_JBgqYy": {
+          "type": "text",
+          "settings": {
+            "text": "Wow everyone at your next holiday party with holly, jolly red - and a little hint of spice.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        }
+      },
+      "block_order": [
+        "heading_KkBJDE",
+        "text_JBgqYy"
+      ],
+      "name": "chili",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12588_1.jpg",
+        "image_2": "shopify://shop_images/Rectangle_913.jpg",
+        "image_link": "shopify://collections/chili-red",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "multicolumn_cFaYcM": {
       "type": "multicolumn",
       "blocks": {
@@ -147,6 +217,7 @@
         "column_9zPBEg",
         "column_TW6rxg"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "",
@@ -183,12 +254,102 @@
     },
     "slider_collection_zpLGhF": {
       "type": "slider-collection",
-      "name": "New in",
+      "name": "chili widget",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "new-arrivals",
+        "collection": "chili-red",
+        "max_products": 30,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_NhEjAF": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_pQgF77": {
+          "type": "heading",
+          "settings": {
+            "heading": "Espresso",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 50
+          }
+        },
+        "text_kPcf9Y": {
+          "type": "text",
+          "settings": {
+            "text": "Rich brown hues were already this season's biggest trend. Now, we've upped the ante, with freshly brewed woven detailing that's oversized and effortlessly chic.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        }
+      },
+      "block_order": [
+        "heading_pQgF77",
+        "text_kPcf9Y"
+      ],
+      "name": "espresso",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12589.jpg",
+        "image_2": "shopify://shop_images/Group_12590.jpg",
+        "image_link": "shopify://collections/chili-red",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_R6jBwz": {
+      "type": "slider-collection",
+      "name": "espresso widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "espresso",
         "max_products": 30,
         "image_ratio": "adapt",
         "hide_price": false,
@@ -1156,8 +1317,11 @@
   "order": [
     "main",
     "image_banner_tgKCXT",
+    "image_banner_LaMyYX",
     "multicolumn_cFaYcM",
     "slider_collection_zpLGhF",
+    "image_banner_NhEjAF",
+    "slider_collection_R6jBwz",
     "image_banner_iUmzDQ",
     "slider_collection_j4fmV8",
     "image_banner_FaLEai",
