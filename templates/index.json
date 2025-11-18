@@ -9,6 +9,33 @@
  */
 {
   "sections": {
+    "home-hero-section": {
+      "type": "home-hero-section",
+      "custom_css": [
+        ".home-hero-section .section-image video,.home-hero-section .section-image img {object-fit: cover;}",
+        ".home-hero-section .section-image {aspect-ratio: 22/10;}",
+        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: inherit; }}"
+      ],
+      "settings": {
+        "media_type": "video",
+        "video": "shopify://files/videos/Holiday-16x9.mov",
+        "text_align": "center",
+        "text_vertical_align": "center",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "center",
+        "text_horizontal_align_mobile": "center",
+        "title": "Holiday Collection",
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "#ffffff",
+        "button": "SHOP NOW",
+        "button_enable": true,
+        "link": "shopify://collections/new-arrivals",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffffff"
+      }
+    },
     "image_banner_yVpKNR": {
       "type": "image-banner",
       "blocks": {
@@ -46,6 +73,7 @@
         "text_R9WpiV",
         "buttons_ReHFtA"
       ],
+      "disabled": true,
       "name": "gift Guide",
       "settings": {
         "custom_classes": "",
@@ -1246,34 +1274,6 @@
         "custom_classes": ""
       }
     },
-    "home-hero-section": {
-      "type": "home-hero-section",
-      "disabled": true,
-      "custom_css": [
-        ".home-hero-section .section-image video,.home-hero-section .section-image img {object-fit: cover;}",
-        ".home-hero-section .section-image {aspect-ratio: 22/10;}",
-        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: inherit; }}"
-      ],
-      "settings": {
-        "media_type": "video",
-        "video": "shopify://files/videos/2SS2025.mp4",
-        "text_align": "center",
-        "text_vertical_align": "bottom",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "bottom",
-        "text_horizontal_align_mobile": "center",
-        "title": "",
-        "title_color": "#ffffff",
-        "description": "",
-        "description_color": "#ffffff",
-        "button": "SHOP NOW",
-        "button_enable": false,
-        "link": "shopify://collections/sample-sale-2025",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff"
-      }
-    },
     "homepage_instagram_RrcAhY": {
       "type": "homepage-instagram",
       "settings": {
@@ -1291,6 +1291,7 @@
     }
   },
   "order": [
+    "home-hero-section",
     "image_banner_yVpKNR",
     "multicolumn_7jnCPC",
     "jr_new_5050_product_list_zy3tkK",
@@ -1305,7 +1306,6 @@
     "jr_scrolling_text_QzMT7i",
     "jr_customer_reviews_kz8t7H",
     "homepage_fireworks_pxtfb9",
-    "home-hero-section",
     "homepage_instagram_RrcAhY"
   ]
 }
