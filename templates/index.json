@@ -36,6 +36,169 @@
         "button_bg_color": "#ffffff"
       }
     },
+    "slider_collection_RWT74t": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
+    "multicolumn_Fbdf7n": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_UyfTNT": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_806_e82751f8-03ae-4749-b935-2546b7adfaf1.jpg",
+            "title": "",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Calf Hair",
+            "link": "shopify://collections/invitation-clutch",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
+        "column_B8dHVB": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_913.jpg",
+            "title": "",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Chili Red",
+            "link": "shopify://collections/chili-red",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
+        "column_wjLVLn": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_912.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Espresso",
+            "link": "shopify://collections/espresso",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_UyfTNT",
+        "column_B8dHVB",
+        "column_wjLVLn"
+      ],
+      "settings": {
+        "title": "Shop New Arrivals",
+        "title_color": "#000000",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "square",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 3,
+        "columns_gap": 2,
+        "row_gap": 2,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "overlay_type",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "enable_peek": true,
+        "show_mobile_slider": true,
+        "padding_top": 2,
+        "padding_bottom": 0,
+        "padding_top_mobile": 2,
+        "padding_bottom_mobile": 0,
+        "custom_class": "behind-design-section"
+      }
+    },
+    "jr_new_5050_product_list_zy3tkK": {
+      "type": "jr-new-5050-product-list",
+      "custom_css": [
+        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
+      ],
+      "name": "Special Events",
+      "settings": {
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
+        "title": "Special Events",
+        "product_list": [
+          "kyle-shoulder-bag-chili-red-gold",
+          "paul-mini-bag-charm-espresso-press-silver",
+          "invitation-clutch-med-monarch-velvet-antique-gold",
+          "soiree-clutch-carrara-black-brushed-gold",
+          "charlotte-sml-sundance-shearling-brushed-gold",
+          "daniel-crossbody-clutch-zebra-brushed-gold"
+        ],
+        "image": "shopify://shop_images/SpecialEvents-banner.gif",
+        "button_link": "shopify://collections/special-events",
+        "button_text": "Shop Now",
+        "button_text_color": "#000000",
+        "button_background_color": "#ffffff",
+        "padding_top": 20,
+        "padding_bottom": 36,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 36
+      }
+    },
     "image_banner_yVpKNR": {
       "type": "image-banner",
       "blocks": {
@@ -255,124 +418,6 @@
         "custom_class": ""
       }
     },
-    "jr_new_5050_product_list_zy3tkK": {
-      "type": "jr-new-5050-product-list",
-      "custom_css": [
-        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
-      ],
-      "name": "Special Events",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "Special Events",
-        "product_list": [
-          "invitation-clutch-clutch-falling-rivets-gold",
-          "kyle-midnight-marquise-gunmetal",
-          "paul-mini-black-press-bg-red-zip",
-          "invitation-clutch-med-black-brushed-gold",
-          "kyle-monarch-velvet-antique-gold",
-          "soiree-clutch-clutch-soiree-clutch-carrera-blush-brushed-gold"
-        ],
-        "image": "shopify://shop_images/SpecialEvents-banner.gif",
-        "button_link": "shopify://collections/special-events",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 0,
-        "padding_bottom": 36,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 36
-      }
-    },
-    "multicolumn_Fbdf7n": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_UyfTNT": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_810.jpg",
-            "title": "",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Invitation Clutch",
-            "link": "shopify://collections/invitation-clutch",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 10
-          }
-        },
-        "column_wjLVLn": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_805.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Revival",
-            "link": "shopify://collections/revival",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_UyfTNT",
-        "column_wjLVLn"
-      ],
-      "settings": {
-        "title": "Shop New Arrivals",
-        "title_color": "#000000",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 2,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "enable_peek": true,
-        "show_mobile_slider": true,
-        "padding_top": 2,
-        "padding_bottom": 0,
-        "padding_top_mobile": 2,
-        "padding_bottom_mobile": 0,
-        "custom_class": "behind-design-section"
-      }
-    },
     "multicolumn_cbEMzp": {
       "type": "multicolumn",
       "blocks": {
@@ -565,26 +610,6 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
-      }
-    },
-    "slider_collection_RWT74t": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
       }
     },
     "multicolumn_zgBMdw": {
@@ -1292,13 +1317,13 @@
   },
   "order": [
     "home-hero-section",
+    "slider_collection_RWT74t",
+    "multicolumn_Fbdf7n",
+    "jr_new_5050_product_list_zy3tkK",
     "image_banner_yVpKNR",
     "multicolumn_7jnCPC",
-    "jr_new_5050_product_list_zy3tkK",
-    "multicolumn_Fbdf7n",
     "multicolumn_cbEMzp",
     "image_banner_ezVVdn",
-    "slider_collection_RWT74t",
     "multicolumn_zgBMdw",
     "slider_collection_rf9mQd",
     "multicolumn_96PRBE",
