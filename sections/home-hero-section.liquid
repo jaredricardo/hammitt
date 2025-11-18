@@ -26,7 +26,21 @@
     {% endif %}
     <div class="content-wrap">
       {%- if section.settings.title != blank -%}
-        <h2>{{ section.settings.title }}</h2>
+
+        {% if section.settings.make_h1 %}
+            <h1>
+          {% else %}
+            <h2>
+        {% endif %}
+
+          {{ section.settings.title }}
+
+        {% if section.settings.make_h1 %}
+            </h1>
+          {% else %}
+            </h2>
+        {% endif %}
+
       {%- endif -%}
       {%- if section.settings.description != blank -%}
         <p>{{ section.settings.description }}</p>
@@ -42,11 +56,24 @@
 {%- endif -%}
 
 {%- style -%}
-  #shopify-section-{{section.id}} .section-content h2{color:{{section.settings.title_color}};}
-  #shopify-section-{{section.id}} .section-content p{color:{{section.settings.description_color}};}
+  #shopify-section-{{section.id}} .section-content h1,
+  #shopify-section-{{section.id}} .section-content h2 {
+    color:{{section.settings.title_color}};
+    font-size: {{section.settings.desktop_font_size}}px !important;
+  }
+  #shopify-section-{{section.id}} .section-content p{
+    color:{{section.settings.description_color}};
+  }
   :root #shopify-section-{{section.id}} .section-content .section-button{
     --color-button-text: {{section.settings.button_text_color.red}}, {{section.settings.button_text_color.green}}, {{section.settings.button_text_color.blue}};
     --color-button: {{section.settings.button_bg_color.red}}, {{section.settings.button_bg_color.green}}, {{section.settings.button_bg_color.blue}};
+  }
+
+  @media screen and (max-width: 769px) {
+    #shopify-section-{{section.id}} .section-content h1,
+    #shopify-section-{{section.id}} .section-content h2 {
+      font-size: {{section.settings.mobile_font_size}}px !important;
+    }
   }
 {%- endstyle -%}
 {% schema %}
@@ -215,6 +242,25 @@
         "type": "text",
         "id": "title",
         "label": "Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "make_h1",
+        "default": true,
+        "label": "Make title an H1 for SEO and fonts",
+        "info": "Only one h1 should be used per page for SEO purposes. Enable this only if this is the main hero section of the given page"
+      },
+      {
+        "type": "number",
+        "id": "desktop_font_size",
+        "label": "Desktop font size (px)",
+        "default": 42
+      },
+      {
+        "type": "number",
+        "id": "mobile_font_size",
+        "label": "Mobile font size (px)",
+        "default": 30
       },
       {
         "type": "color",

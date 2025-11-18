@@ -7,11 +7,15 @@ window.addEventListener('DOMContentLoaded', () => {
     // who had viewed the right combination of products that caused the issue
     window.document.cookie = '_rv=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
 
-    // Clear X-Gen cookies on load if not already
+    // Clear X-Gen cookies on load if not already and not on search page
     const xgenCookies = ['xgen_session', 'xgen_token', 'xgen_user']
     const lastFlushDate = localStorage.getItem('dateOfLastXGenCookieFlush')
+    const isSearchPage = window.location.href.includes('/search?')
+    const nov17MidnightPST = new Date(Date.UTC(2025, 10, 17, 8, 0, 0)).getTime()
+    const shouldFlush = !lastFlushDate || new Date(lastFlushDate).getTime() < nov17MidnightPST
 
-    if (!lastFlushDate) {
+    if (!isSearchPage && shouldFlush) {
+        console.log('Clearing XGen cookies')
         const commonPaths = [
             '/',
             '/products/',
@@ -38,10 +42,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 })
             })
         })
-
         localStorage.setItem('dateOfLastXGenCookieFlush', new Date().toISOString());
-    }
-
+    } 
 })
 
 window.addEventListener('load', () => {
