@@ -38,6 +38,7 @@
           "type": "text",
           "settings": {
             "text": "Luxury you carry daily deserves care that lasts a lifetime. From signature soft leathers to handcrafted details, your Hammitt deserves the best. Here's everything you need to know to keep your favorite bag looking effortlessly iconic.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 13,
             "text_size_tablet": 14,
@@ -493,6 +494,7 @@
           "type": "text",
           "settings": {
             "text": "Your Hammitt bag is created to turn heads and stand the test of time. With a little love and routine care, it’ll stay with you for every adventure—and only get better with age.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 13,
             "text_size_tablet": 15,
@@ -688,8 +690,7 @@
             "item_products": [
               "leather-spot-cleaner-leather-care-none",
               "leather-laundry-leather-protectant-lrg",
-              "the-clean-up-kit",
-              "hammitt-leather-laundry-lrg-supplies"
+              "the-clean-up-kit"
             ],
             "css_class": "black-text"
           }
@@ -713,6 +714,16 @@
             "item_products": [],
             "css_class": "black-text"
           }
+        },
+        "care_guide_item_g8zRpN": {
+          "type": "care-guide-item",
+          "settings": {
+            "item_bg_image": "shopify://shop_images/acrylic_1178_1.jpg",
+            "item_title": "SHERALING",
+            "item_description": "<p>With shearling, the wool side of the material can often pick up debris and dirt. Remove smaller to larger pieces with a pair of tweezers to avoid tangling the wool.<br/>Store your shearling items in something that allows them to breathe. Never store in plastic containers or bags, as this can trap moisture within the material. Do not store in direct lighting or in high temperatures, as this will cause the shearling the fade and dry out which can potentially lead to cracking.</p>",
+            "item_products": [],
+            "css_class": "black-text"
+          }
         }
       },
       "block_order": [
@@ -727,7 +738,8 @@
         "care_guide_item_cgwCjp",
         "care_guide_item_X3wyXQ",
         "care_guide_item_LdQRVe",
-        "care_guide_item_3z7g6a"
+        "care_guide_item_3z7g6a",
+        "care_guide_item_g8zRpN"
       ],
       "custom_css": [
         ".black-text p {color: black !important;}",
@@ -753,6 +765,7 @@
           "type": "text",
           "settings": {
             "text": "Own It, Love It, Care for It.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 14,
             "text_size_tablet": 16,
