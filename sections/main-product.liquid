@@ -751,6 +751,14 @@
                               {% render 'icon-caret' %}
                             </summary>
                             <div class="accordion__content rte" id="ProductAccordion-{{ inner_block.id }}-{{ section.id }}" {{ stripped_material }} {{ stripped_leather }}>
+                              {% comment %} 
+                            
+                                when I first built this they told me it would be a one time thing 😭 
+                                They've since requested to add more materials. I would have built
+                                this more dynamically if I had known.Sorry to whoever find this in the future.
+
+                              {% endcomment %}
+
                               {% if accordion_data_att == "care" %}
                                 {% if stripped_material == 'suede' %}
                                   {{ settings.pdp_care_suede }}
@@ -769,6 +777,7 @@
                                     {{ product_description[inner_block.settings.split_index] }}
                                   {% endif %}
                                 {% endif %}
+                                <p>Please see our <a href="https://www.hammitt.com/pages/hammitt-leather-care" title="Care Page">Care Page</a> for care instructions.</p>
                               {% else %}
                                 {{ inner_block.settings.content }}
                                 {{ inner_block.settings.page.content }}
