@@ -174,7 +174,7 @@
                   <div class="rte">{{ block.settings.text }}</div>
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
-                  <a class="link ab-link animate-arrow link--cover-content cta-text--{{ block.settings.cta_column_alignment }}" {% if block.settings.link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.link }}"{% endif %}>
+                  <a class="link ab-link animate-arrow link--cover-content cta-text--{{ block.settings.cta_column_alignment }}" {% if block.settings.link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.link }}"{% endif %} style="margin-top: {{ block.settings.link_margin_top }}px;">
                     <span class="btn-text">{{ block.settings.link_label }}</span>
                     {% unless block.settings.hide_arrows == true %}
                       <span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span>
@@ -625,6 +625,12 @@
           "type": "inline_richtext",
           "id": "link_label",
           "label": "Label"
+        },
+        {
+          "type": "number",
+          "id": "link_margin_top",
+          "label": "Margin top",
+          "default": 20
         },
         {
           "type": "url",
