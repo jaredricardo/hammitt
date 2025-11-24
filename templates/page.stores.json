@@ -78,6 +78,49 @@
         "custom_class": ""
       }
     },
+    "image_with_text_CjptFr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_khCWHL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Holiday Pop-Up Coming to Century City",
+            "heading_size": "h1"
+          }
+        },
+        "text_MKR7d6": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Nov 21 - Dec 28 The Holiday Village, Westfield Century City </strong><br/></p><p>Shop gifts, seasonal favorites, and special surprises soon.<br/></p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_khCWHL",
+        "text_MKR7d6"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/century-image_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "image_banner_tMji4f": {
       "type": "image-banner",
       "blocks": {
@@ -106,6 +149,7 @@
         "heading_cK4BaJ",
         "text_TBMmGP"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "custom_classes": "",
@@ -162,6 +206,7 @@
             "b_title_font_mobile": 18,
             "text": "<p><a href=\"https://goo.gl/maps/tVo69oq77zYkJLfo7\" target=\"_blank\" title=\"227 Manhattan Beach Blvd, Manhattan Beach, CA 90266\"><span style=\"text-decoration:underline\">227 Manhattan Beach Blvd, Manhattan Beach</span></a></p><p><a href=\"tel:3109551023\" title=\"Call (310) 955-1023\">(310) 955-1023 </a></p><p></p><p><em>Monday-Saturday: 10am-7pm <br/>Sunday: 10am-7pm</em><br/></p>",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -186,6 +231,7 @@
             "b_title_font_mobile": 18,
             "text": "<p><a href=\"https://www.google.com/maps/place/7841+Girard+Ave,+La+Jolla,+CA+92037/@32.8459313,-117.276292,17z/data=!3m1!4b1!4m5!3m4!1s0x80dc03fb5c018995:0xf6a77ed3408e2696!8m2!3d32.8459313!4d-117.2741033\"><span style=\"text-decoration:underline\">7841 Girard Ave, La Jolla, CA 92037</span></a></p><p><a href=\"tel:8582470011\" title=\"Call (858) 247-0011\">(858) 247-0011</a></p><p><em>Monday-Saturday: 10am-6pm <br/>Sunday: 10am-5pm</em></p>",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -322,6 +368,7 @@
   },
   "order": [
     "1654018969fd2b0c8b",
+    "image_with_text_CjptFr",
     "image_banner_tMji4f",
     "1658438551344f72bd",
     "main",
