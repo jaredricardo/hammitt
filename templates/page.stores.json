@@ -127,29 +127,25 @@
         "heading_cK4BaJ": {
           "type": "heading",
           "settings": {
-            "heading": "Holiday Pop-Up Coming to Century City",
+            "heading": "Holiday Gift Shop",
             "heading_size_mobile": 25,
             "heading_size_tablet": 20,
             "heading_size_desktop": 36
           }
         },
-        "text_TBMmGP": {
-          "type": "text",
+        "buttons_D9iMmn": {
+          "type": "buttons",
           "settings": {
-            "text": "",
-            "text_area_html_swap": "<b>Nov 21 - Dec 28 at Westfield Century City </b> <br>Get ready LA! Hammitt is bringing the season’s sparkle in person. Shop gifts, seasonal favorites, and special surprises soon.<br>",
-            "text_style": "body",
-            "text_size_mobile": 18,
-            "text_size_tablet": 18,
-            "text_size_desktop": 18
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://pages/holiday-gift-guide",
+            "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
         "heading_cK4BaJ",
-        "text_TBMmGP"
+        "buttons_D9iMmn"
       ],
-      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "custom_classes": "",
@@ -368,8 +364,8 @@
   },
   "order": [
     "1654018969fd2b0c8b",
-    "image_with_text_CjptFr",
     "image_banner_tMji4f",
+    "image_with_text_CjptFr",
     "1658438551344f72bd",
     "main",
     "16540189729cdeba5f",
