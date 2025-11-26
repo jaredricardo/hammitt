@@ -1512,6 +1512,11 @@
     "name": "Free multi Gift Select",
     "settings": [
       {
+        "type": "header",
+        "content": "IMPORTANT",
+        "info": "It is important to note that if these items are usually full price, an automatic discount needs to be created in the shopify admin in order for these products to actually receive a $0.00 price at checkout."
+      },
+      {
         "type": "checkbox",
         "id": "enable_free_multi_gift_select", 
         "label": "Enable Free multi Gift Select",
@@ -1520,7 +1525,8 @@
       {
         "type": "number",
         "id": "free_multi_gift_select_threshold_price",
-        "label": "Free multi Gift Select Threshold Price"
+        "label": "Free multi Gift Select Threshold Price",
+        "default": 300
       },
       {
         "type": "header",

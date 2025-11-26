@@ -28,7 +28,27 @@
     assign isCurrent = true
   endif
 
+  if settings.enable_free_multi_gift_select == true
+
+    assign has_reached_threshold = false
+    assign converted_threshold_price = settings.free_multi_gift_select_threshold_price | times: 100
+
+    if cart.total_price >= converted_threshold_price
+      assign has_reached_threshold = true
+    endif
+
+  endif
+
 -%}
+
+<script>
+  console.log('///////')
+  console.log({{ cart.total_price | json }})
+  console.log({{ converted_threshold_price | json}})
+  console.log({{ has_reached_threshold | json}})
+  console.log({{ settings.enable_free_multi_gift_select | json}})
+  console.log('///////')
+</script>
 
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
@@ -832,7 +852,7 @@
             </div>
           {% endif %}
         {% endif %}
-      <cart-upsells class="cart-drawer-upsells" data-upsell-title="{{ first_cart_item.product.title }}" >
+      <cart-upsells class="cart-drawer-upsells tttttt {% if settings.enable_free_multi_gift_select and has_reached_threshold %} hidden {% endif %}" data-upsell-title="{{ first_cart_item.product.title }}" >
         {% if cart.item_count > 0 %}
           <div class="tab-item__upsell">
             <ul>
@@ -918,9 +938,15 @@
             {% endfor %}
           </div>
         {% endif %}
-        </cart-upsells>
+      </cart-upsells>
 
       </div>
+      {% if settings.enable_free_multi_gift_select and has_reached_threshold %} 
+        <free-multi-gift-select>
+          
+
+        </free-multi-gift-select>
+      {% endif %}
     </div>
     
     <div class="drawer__final appear-animation appear-delay-{{ appear_delay }} {% if cart.item_count == 0 %} drawerEmptyState {% endif %}">
