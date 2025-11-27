@@ -674,22 +674,6 @@ template-{{ template.name -}}
       </script>
     {% endif %}
     {% comment %} should be moved into a js file {% endcomment %}
-    {% if settings.free_multi_gift_select_enabled %}
-      <script>
-        window.addEventListener('DOMContentLoaded', () => {
-          class FreeMultiGiftSelect extends HTMLElement {
-            constructor() {
-              super()
-  
-            }
-
-         
-          }
-
-          customElements.define('free-multi-gift-select', FreeMultiGiftSelect)
-        })
-      </script>
-    {% endif %}  
 
     {%- comment -%}
     <link
