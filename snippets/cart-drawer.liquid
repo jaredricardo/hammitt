@@ -308,13 +308,14 @@
         {% comment %} as a bandaid, below is visually hidden for now as it was causing javascript errors without it {% endcomment %}
       <free-shipping-goal style="display: none !important;" data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h6 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
         <span class="free-shipping-goal__label free-shipping-goal__label--success h7">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
-        <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!</span>
+        <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!!</span>
         <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
       </free-shipping-goal>
       {% else %}
         <free-shipping-goal data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h6 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
           <span class="free-shipping-goal__label free-shipping-goal__label--success h7">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
-          <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!</span>
+          {% comment %} needs to be returned to "more to reach free shipping!" after BFCM {% endcomment %}
+          <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach a Free Syd Pouch!</span>
           <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
         </free-shipping-goal>
     {% endif %}
