@@ -9,6 +9,86 @@
  */
 {
   "sections": {
+    "image_banner_QgBhXy": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_UMkDM6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet the Exclusive Shelley Clutch",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_GmaQrY": {
+          "type": "text",
+          "settings": {
+            "text": "Shop now before it sells out. Plus, enjoy a free Syd Pouch with ANY purchase of $395 or more, while supplies last.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_Pjr4WK": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_UMkDM6",
+        "text_GmaQrY",
+        "buttons_Pjr4WK"
+      ],
+      "disabled": true,
+      "name": "Shelly + GWP",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/desktop-BF.gif",
+        "image_2": "shopify://shop_images/mobile-Group-12648.gif",
+        "image_link": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "home-hero-section": {
       "type": "home-hero-section",
       "custom_css": [
@@ -562,86 +642,6 @@
         "padding_top_mobile": 2,
         "padding_bottom_mobile": 2,
         "custom_class": "behind-design-section"
-      }
-    },
-    "image_banner_ezVVdn": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_r84kmd": {
-          "type": "heading",
-          "settings": {
-            "heading": "Meet Chocolate Diamond Suede",
-            "heading_size_mobile": 26,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_4EKEHN": {
-          "type": "text",
-          "settings": {
-            "text": "Unwrap a New Treat",
-            "text_area_html_swap": "",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_h3eaz3": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/chocolate-diamond-suede",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_r84kmd",
-        "text_4EKEHN",
-        "buttons_h3eaz3"
-      ],
-      "disabled": true,
-      "name": "Diamond Suede ",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/desktop-diamond-suede.gif",
-        "image_2": "shopify://shop_images/mobile-diamond-suede.gif",
-        "image_link": "shopify://collections/chocolate-diamond-suede",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 32,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
       }
     },
     "multicolumn_zgBMdw": {
@@ -1361,6 +1361,7 @@
     }
   },
   "order": [
+    "image_banner_QgBhXy",
     "home-hero-section",
     "slider_collection_RWT74t",
     "multicolumn_Fbdf7n",
@@ -1369,7 +1370,6 @@
     "multicolumn_7jnCPC",
     "slider_collection_j9FVfr",
     "multicolumn_cbEMzp",
-    "image_banner_ezVVdn",
     "multicolumn_zgBMdw",
     "slider_collection_rf9mQd",
     "multicolumn_96PRBE",
