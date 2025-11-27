@@ -37,18 +37,104 @@
       assign has_reached_threshold = true
     endif
 
+    if settings.free_multi_gift_select_product_1 != blank
+      assign free_multi_gift_product_1 = all_products[settings.free_multi_gift_select_product_1]
+    endif
+    if settings.free_multi_gift_select_product_2 != blank
+      assign free_multi_gift_product_2 = all_products[settings.free_multi_gift_select_product_2]
+    endif
+    if settings.free_multi_gift_select_product_3 != blank
+      assign free_multi_gift_product_3 = all_products[settings.free_multi_gift_select_product_3]
+    endif
+
   endif
 
 -%}
 
-<script>
-  console.log('///////')
-  console.log({{ cart.total_price | json }})
-  console.log({{ converted_threshold_price | json}})
-  console.log({{ has_reached_threshold | json}})
-  console.log({{ settings.enable_free_multi_gift_select | json}})
-  console.log('///////')
-</script>
+
+{% if settings.enable_free_multi_gift_select %}
+  <style>
+    free-multi-gift-select {
+      display: block;
+      padding: 1rem 0 2rem 0;
+    }
+    .free-multi-gift-select-container {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+    .free-multi-gift-select-container free-multi-gift-select-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 120px;
+      position: relative;
+    }
+    .free-multi-gift-select-container .free-multi-gift-select-item-image {
+      aspect-ratio: 1 / 1;
+      position: relative;
+    }
+    .free-multi-gift-select-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .free-multi-gift-select-container .green {
+      color: #1E9907;
+      margin: 0;
+    }
+
+    .free-multi-gift-select-button {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      transition: opacity 0.2s;
+    }
+
+    .free-multi-gift-select-button:hover {
+      opacity: 0.8;
+    }
+
+    /* Checkbox styling */
+    free-multi-gift-select-item input[type="checkbox"] {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid #000;
+      border-radius: 3px;
+      background: transparent;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      z-index: 2;
+    }
+
+    free-multi-gift-select-item input[type="checkbox"]:checked {
+      background: #000;
+    }
+
+    free-multi-gift-select-item input[type="checkbox"]:checked::after {
+      content: "";
+      display: block;
+      width: 7px;
+      height: 7px;
+      background: #fff;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      border-radius: 1px;
+    }
+  </style>
+{% endif %}
+
 
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
@@ -773,7 +859,7 @@
               </div>
             </hammitt-gifting-options-drawer>
         {% endif %}
-        <gift-box-section>
+        <gift-box-section class="{% if settings.enable_free_multi_gift_select and has_reached_threshold %} hidden {% endif %}">
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
             <h4 class="h7">{{ content.heading }}</h4>
           {% endfor %}
@@ -801,7 +887,7 @@
               }
             }
           {%- endcapture -%}
-          <div class="swiper gift-box--swiper" data-json='{{ json }}'>
+          <div class="swiper gift-box--swiper" data-json='{{ json }}' >
             <button class="btn-expanded" type="button">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path stroke="currentColor" d="m16 4-5 5M4 16l5-5M11 4v5h5M9 16v-5H4"></path></svg>
             </button>
@@ -852,101 +938,139 @@
             </div>
           {% endif %}
         {% endif %}
-      <cart-upsells class="cart-drawer-upsells tttttt {% if settings.enable_free_multi_gift_select and has_reached_threshold %} hidden {% endif %}" data-upsell-title="{{ first_cart_item.product.title }}" >
-        {% if cart.item_count > 0 %}
-          <div class="tab-item__upsell">
-            <ul>
+        <cart-upsells class="cart-drawer-upsells {% if settings.enable_free_multi_gift_select and has_reached_threshold %} hidden {% endif %}" data-upsell-title="{{ first_cart_item.product.title }}" >
+          {% if cart.item_count > 0 %}
+            <div class="tab-item__upsell">
+              <ul>
+                {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
+                    {% assign cartCollection = collections[cartUpsell.collection] %}
+                    <li class="tab-item upsell-index-{{ forloop.index}} {% if forloop.first %} active {% endif %}"><a href="#" style="font-size: 12px;" data-href="{{ cartCollection.handle }}" data-heading="{{ cartUpsell.heading }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="tab-content">
               {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
-                  {% assign cartCollection = collections[cartUpsell.collection] %}
-                  <li class="tab-item upsell-index-{{ forloop.index}} {% if forloop.first %} active {% endif %}"><a href="#" style="font-size: 12px;" data-href="{{ cartCollection.handle }}" data-heading="{{ cartUpsell.heading }}">{{ cartUpsell.heading | default: cartCollection.title }}</a></li>  
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="tab-content">
-            {% for cartUpsell in shop.metaobjects.cart_upsell.values %}
 
-              {% assign cartCollection = collections[cartUpsell.collection] %}
+                {% assign cartCollection = collections[cartUpsell.collection] %}
 
-                {%- capture swiperJson -%}
-                  {
-                    "slidesPerView": 2.5,
-                    "spaceBetween": 9,
-                    "freeMode": false,
-                    "mousewheel": false,
-                    "loop": false,
-                    "effect": "slide",
-                    "scrollbar": {
-                      "el": ".upsell-swiper-scrollbar--{{ cartCollection.handle }}",
-                      "draggable": true
-                    },
-                    "breakpoints": {
-                      "750": {
-                        "slidesPerView": "2.5",
-                        "spaceBetween": 10
+                  {%- capture swiperJson -%}
+                    {
+                      "slidesPerView": 2.5,
+                      "spaceBetween": 9,
+                      "freeMode": false,
+                      "mousewheel": false,
+                      "loop": false,
+                      "effect": "slide",
+                      "scrollbar": {
+                        "el": ".upsell-swiper-scrollbar--{{ cartCollection.handle }}",
+                        "draggable": true
                       },
-                      "990": {
-                        "slidesPerView": "2.8",
-                        "spaceBetween": 5
+                      "breakpoints": {
+                        "750": {
+                          "slidesPerView": "2.5",
+                          "spaceBetween": 10
+                        },
+                        "990": {
+                          "slidesPerView": "2.8",
+                          "spaceBetween": 5
+                        }
                       }
                     }
-                  }
-                {%- endcapture -%}
+                  {%- endcapture -%}
 
-                <div class="swiper {% if forloop.first %} shown {% else %} hidden {% endif %}" data-json='{{- swiperJson -}}' data-target={{ cartCollection.handle }} data-heading-target="{{ cartUpsell.heading }}">
-                  <div class="horizontal-scroller__upsell swiper-wrapper">
-                    {% liquid
-                        assign cart_ids = cart.items | map: 'product_id' | uniq | join: ','
-                        assign found = 0
-                        assign max = 5
-                      %}
-                      
+                  <div class="swiper {% if forloop.first %} shown {% else %} hidden {% endif %}" data-json='{{- swiperJson -}}' data-target={{ cartCollection.handle }} data-heading-target="{{ cartUpsell.heading }}">
+                    <div class="horizontal-scroller__upsell swiper-wrapper">
                       {% liquid
-                        assign isShareholder = false
-                        for tag in customer.tags
-                          if tag == 'shareholder'
-                            assign isShareholder = true
-                          endif
+                          assign cart_ids = cart.items | map: 'product_id' | uniq | join: ','
+                          assign found = 0
+                          assign max = 5
+                        %}
+                        
+                        {% liquid
+                          assign isShareholder = false
+                          for tag in customer.tags
+                            if tag == 'shareholder'
+                              assign isShareholder = true
+                            endif
+                          endfor
+                        %}
+                        
+                        {% liquid 
+                          for product in cartCollection.products limit: 20
+                            if isShareholder == false and product.metafields.seo.hidden == 1
+                              continue
+                            endif
+                          
+                            if product.metafields.custom.hide_product_all_customers == 1
+                              continue
+                            endif
+                          
+                            if cart_ids contains product.id 
+                              continue
+                            endif
+                            if product.available != true
+                              continue
+                            endif 
+                            assign found = found | plus: 1
+                            render 'upsell-item', product: product
                         endfor
                       %}
-                      
-                      {% liquid 
-                        for product in cartCollection.products limit: 20
-                          if isShareholder == false and product.metafields.seo.hidden == 1
-                            continue
-                          endif
-                        
-                          if product.metafields.custom.hide_product_all_customers == 1
-                            continue
-                          endif
-                        
-                          if cart_ids contains product.id 
-                            continue
-                          endif
-                          if product.available != true
-                            continue
-                          endif 
-                          assign found = found | plus: 1
-                          render 'upsell-item', product: product
-                      endfor
-                    %}
-                    {% if found == 0 %}
-                      <p>No Products found</p>
-                    {% endif %}
+                      {% if found == 0 %}
+                        <p>No Products found</p>
+                      {% endif %}
+                    </div>
+                    <div class="swiper-scrollbar upsell-swiper-scrollbar--{{ cartCollection.handle }}"></div>
                   </div>
-                  <div class="swiper-scrollbar upsell-swiper-scrollbar--{{ cartCollection.handle }}"></div>
-                </div>
-            {% endfor %}
-          </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </cart-upsells>
+        {% if settings.enable_free_multi_gift_select and has_reached_threshold %} 
+          <free-multi-gift-select>
+            {% if settings.free_multi_gift_select_text != blank %}
+              <h6 style="font-weight: 500; margin: 10px 0;">{{ settings.free_multi_gift_select_text }}</h6>
+            {% endif %}
+            <div class="free-multi-gift-select-container">
+              {% if free_multi_gift_product_1 %}
+                <free-multi-gift-select-item data-variant-id="{{ settings.free_multi_gift_select_product_1.selected_or_first_available_variant.id }}">
+                  <input type="checkbox" id="gift-select-1" />
+                  <button type="button" class="free-multi-gift-select-button">
+                    <div class="free-multi-gift-select-item-image">
+                      {{ free_multi_gift_product_1.featured_image | image_url: width: 400 | image_tag }} 
+                    </div>
+                    <p>{{ free_multi_gift_product_1.title }}</p>
+                    <p class="green">Free</p>
+                  </button>
+                </free-multi-gift-select-item>
+              {% endif %}
+              {% if free_multi_gift_product_2 %}
+                <free-multi-gift-select-item data-variant-id="{{ settings.free_multi_gift_select_product_2.selected_or_first_available_variant.id }}">
+                  <input type="checkbox" id="gift-select-2" />
+                  <button type="button" class="free-multi-gift-select-button">
+                    <div class="free-multi-gift-select-item-image">
+                      {{ free_multi_gift_product_2.featured_image | image_url: width: 400 | image_tag }}
+                    </div>
+                    <p>{{ free_multi_gift_product_2.title }}</p>
+                    <p class="green">Free</p>
+                  </button>
+                </free-multi-gift-select-item>
+              {% endif %}
+              {% if free_multi_gift_product_3 %}
+                <free-multi-gift-select-item data-variant-id="{{ settings.free_multi_gift_select_product_3.selected_or_first_available_variant.id }}">
+                  <input type="checkbox" id="gift-select-3" />
+                  <button type="button" class="free-multi-gift-select-button">
+                    <div class="free-multi-gift-select-item-image">
+                      {{ free_multi_gift_product_3.featured_image | image_url: width: 400 | image_tag }}
+                    </div>
+                    <p>{{ free_multi_gift_product_3.title }}</p>
+                    <p class="green">Free</p>
+                  </button>
+                </free-multi-gift-select-item>
+              {% endif %}
+            </div>
+          </free-multi-gift-select>
         {% endif %}
-      </cart-upsells>
-
       </div>
-      {% if settings.enable_free_multi_gift_select and has_reached_threshold %} 
-        <free-multi-gift-select>
-          
-
-        </free-multi-gift-select>
-      {% endif %}
     </div>
     
     <div class="drawer__final appear-animation appear-delay-{{ appear_delay }} {% if cart.item_count == 0 %} drawerEmptyState {% endif %}">
