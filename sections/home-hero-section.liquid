@@ -25,6 +25,9 @@
       <a href="{{ section.settings.link }}" class="banner-link"></a>  
     {% endif %}
     <div class="content-wrap">
+      {% if section.settings.subtitle != blank -%}
+        <h4>{{ section.settings.subtitle }}</h4>
+      {%- endif -%}
       {%- if section.settings.title != blank -%}
 
         {% if section.settings.make_h1 %}
@@ -41,9 +44,6 @@
             </h2>
         {% endif %}
 
-      {%- endif -%}
-      {% if section.settings.subtitle != blank -%}
-        <h4>{{ section.settings.subtitle }}</h4>
       {%- endif -%}
       {%- if section.settings.description != blank -%}
         <p>{{ section.settings.description }}</p>
