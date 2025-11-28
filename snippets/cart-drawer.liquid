@@ -323,7 +323,7 @@
           <span id="bfcm-2025-temp" class="free-shipping-goal__label free-shipping-goal__label--success h7">
             {% if settings.enable_free_multi_gift_select %}
                 {% if has_reached_threshold and cart_contains_gift_item == false %}
-                    You can select a free Syd Pouch below. Scroll down!
+                    Your order qualifies for a Free Syd Pouch. Select below.
                   {% else %}
                     You’ve received a Free Syd Pouch!
                 {% endif %}
@@ -336,7 +336,7 @@
           {% comment %} needs to be returned to "more to reach free shipping!" after BFCM, same with above {% endcomment %}
           <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> 
            {% if settings.enable_free_multi_gift_select %} 
-              more to reach a Free Syd Pouch!
+              more for a Free Syd Pouch!
             {% else %}
               more to reach free shipping!
            {% endif %}
