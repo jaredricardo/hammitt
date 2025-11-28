@@ -9,6 +9,86 @@
  */
 {
   "sections": {
+    "image_banner_QgBhXy": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_UMkDM6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet the Exclusive Shelley Clutch",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_GmaQrY": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_area_html_swap": "<b>Black Friday Is Here</b><br>Shop now before it sells out. Plus, enjoy a free Syd Pouch with ANY purchase of $395 or more, while supplies last.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_Pjr4WK": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_UMkDM6",
+        "text_GmaQrY",
+        "buttons_Pjr4WK"
+      ],
+      "disabled": true,
+      "name": "Shelly + GWP",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/desktop-BF.gif",
+        "image_2": "shopify://shop_images/mobile-Group-12648.gif",
+        "image_link": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "home-hero-section": {
       "type": "home-hero-section",
       "custom_css": [
@@ -1301,6 +1381,7 @@
     }
   },
   "order": [
+    "image_banner_QgBhXy",
     "home-hero-section",
     "slider_collection_RWT74t",
     "multicolumn_Fbdf7n",
