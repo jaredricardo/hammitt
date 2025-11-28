@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "heading_html_tag": "h1",
         "hide_title": true,
@@ -49,6 +50,7 @@
         "heading_8JWNPD",
         "text_YDVd3Q"
       ],
+      "disabled": true,
       "name": "choco",
       "settings": {
         "custom_classes": "",
@@ -70,6 +72,85 @@
         "desktop_content_position": "middle-left-more",
         "desktop_content_alignment": "center",
         "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_banner_4D8Ui6": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_gbGpKC": {
+          "type": "heading",
+          "settings": {
+            "heading": "A New Debut: Exclusive Shelley Clutch",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 50
+          }
+        },
+        "text_yiT39Q": {
+          "type": "text",
+          "settings": {
+            "text": "This oversized, structured statement piece is our homage to the graceful curves of seashells and handmade fans.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
+        "buttons_FazKek": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_gbGpKC",
+        "text_yiT39Q",
+        "buttons_FazKek"
+      ],
+      "name": "chili",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12648.jpg",
+        "image_2": "shopify://shop_images/holiday-edit-mobile.jpg",
+        "image_link": "shopify://collections/chili-red",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
         "mobile_content_alignment": "center",
         "color_scheme_mobile": "dark",
         "show_text_below": true,
@@ -134,85 +215,6 @@
         "mobile_video_height": "square",
         "image": "shopify://shop_images/Group_12588_1.jpg",
         "image_2": "shopify://shop_images/Rectangle_913.jpg",
-        "image_link": "shopify://collections/chili-red",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 20,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "image_banner_4D8Ui6": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_gbGpKC": {
-          "type": "heading",
-          "settings": {
-            "heading": "An New Debut: Exclusive Shelley Clutch",
-            "heading_size_mobile": 36,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 50
-          }
-        },
-        "text_yiT39Q": {
-          "type": "text",
-          "settings": {
-            "text": "This oversized, structured statement piece is our homage to the graceful curves of seashells and handmade fans.",
-            "text_area_html_swap": "",
-            "text_style": "body",
-            "text_size_mobile": 18,
-            "text_size_tablet": 18,
-            "text_size_desktop": 18
-          }
-        },
-        "buttons_FazKek": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_gbGpKC",
-        "text_yiT39Q",
-        "buttons_FazKek"
-      ],
-      "name": "chili",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12648.jpg",
-        "image_2": "shopify://shop_images/holiday-edit-mobile.jpg",
         "image_link": "shopify://collections/chili-red",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -1486,8 +1488,8 @@
   "order": [
     "main",
     "image_banner_tgKCXT",
-    "image_banner_LaMyYX",
     "image_banner_4D8Ui6",
+    "image_banner_LaMyYX",
     "slider_collection_zpLGhF",
     "image_banner_NhEjAF",
     "slider_collection_R6jBwz",
