@@ -25,6 +25,9 @@
       <a href="{{ section.settings.link }}" class="banner-link"></a>  
     {% endif %}
     <div class="content-wrap">
+      {% if section.settings.subtitle != blank -%}
+        <h4>{{ section.settings.subtitle }}</h4>
+      {%- endif -%}
       {%- if section.settings.title != blank -%}
 
         {% if section.settings.make_h1 %}
@@ -60,6 +63,10 @@
   #shopify-section-{{section.id}} .section-content h2 {
     color:{{section.settings.title_color}};
     font-size: {{section.settings.desktop_font_size}}px !important;
+  }
+  #shopify-section-{{section.id}} .section-content h4 {
+    color:{{section.settings.title_color}};
+    margin-bottom: 1rem;
   }
   #shopify-section-{{section.id}} .section-content p{
     color:{{section.settings.description_color}};
@@ -249,6 +256,11 @@
         "default": true,
         "label": "Make title an H1 for SEO and fonts",
         "info": "Only one h1 should be used per page for SEO purposes. Enable this only if this is the main hero section of the given page"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
       },
       {
         "type": "number",

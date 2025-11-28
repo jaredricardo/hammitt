@@ -1507,5 +1507,52 @@
         "info": "These products will be shown in the search results when no products match the search query. Only 4 please."
       }
     ]
+  },
+  {
+    "name": "Free multi Gift Select",
+    "settings": [
+      {
+        "type": "header",
+        "content": "IMPORTANT",
+        "info": "It is important to note that if these items are usually full price, an automatic discount needs to be created in the shopify admin in order for these products to actually receive a $0.00 price at checkout."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_free_multi_gift_select", 
+        "label": "Enable Free multi Gift Select",
+        "default": false
+      },
+      {
+        "type": "number",
+        "id": "free_multi_gift_select_threshold_price",
+        "label": "Free multi Gift Select Threshold Price",
+        "default": 300
+      },
+      {
+        "type": "text",
+        "id": "free_multi_gift_select_text",
+        "label": "Free multi Gift Select Text",
+        "default": "Pick your free gift ($95 Value)"
+      },
+      {
+        "type": "header",
+        "content": "Select up to 3 free gifts when you spend the above threshold"
+      },
+      {
+        "type": "product",
+        "id": "free_multi_gift_select_product_1",
+        "label": "Free Gift Select Product 1"
+      },
+      {
+        "type": "product",
+        "id": "free_multi_gift_select_product_2",
+        "label": "Free Gift Select Product 2"
+      },
+      {
+        "type": "product",
+        "id": "free_multi_gift_select_product_3",
+        "label": "Free Gift Select Product 3"
+      }
+    ]
   }
 ]

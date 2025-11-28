@@ -90,8 +90,7 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-   
-    {% liquid 
+    {% liquid
 
       if request.page_type == "product"
 
@@ -607,6 +606,7 @@ template-{{ template.name -}}
       ></script>
     {%- endif -%}
 
+    {% comment %} should be moved into a js file {% endcomment %}
     {% if settings.zest_multi_checkout_enabled %}
       <script>
         window.addEventListener('DOMContentLoaded', () => {
@@ -673,6 +673,7 @@ template-{{ template.name -}}
         })
       </script>
     {% endif %}
+    {% comment %} should be moved into a js file {% endcomment %}
 
     {%- comment -%}
     <link

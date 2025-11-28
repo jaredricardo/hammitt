@@ -94,27 +94,29 @@
       "custom_css": [
         ".home-hero-section .section-image video,.home-hero-section .section-image img {object-fit: cover;}",
         ".home-hero-section .section-image {aspect-ratio: 22/10;}",
-        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: inherit; }}"
+        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: inherit; } .home-hero-section .section-content {position: relative; } p, h1, h2, h4 {color: black !important; } .section-button a {color: white; background-color: black; }}"
       ],
       "settings": {
         "media_type": "video",
-        "video": "shopify://files/videos/Holiday-16x9.mov",
+        "video": "shopify://files/videos/1125(1).mp4",
+        "mobile_video": "shopify://files/videos/1125(1)_f21d33bb-e908-4f96-8c8d-2cb2dfc1c32c.mp4",
         "text_align": "center",
         "text_vertical_align": "center",
-        "text_horizontal_align": "center",
+        "text_horizontal_align": "left",
         "text_align_mobile": "center",
         "text_vertical_align_mobile": "center",
         "text_horizontal_align_mobile": "center",
-        "title": "Holiday Collection",
+        "title": "Meet the Exclusive Shelley Clutch",
         "make_h1": true,
-        "desktop_font_size": 60,
-        "mobile_font_size": 34,
+        "subtitle": "Black Friday Is Here",
+        "desktop_font_size": 40,
+        "mobile_font_size": 30,
         "title_color": "#ffffff",
-        "description": "",
+        "description": "Shop now before it sells out. Plus, enjoy a free Syd Pouch with ANY purchase of $395 or more, while supplies last.",
         "description_color": "#ffffff",
         "button": "SHOP NOW",
         "button_enable": true,
-        "link": "shopify://collections/new-arrivals",
+        "link": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold",
         "button_text_color": "#000000",
         "button_bg_color": "#ffffff"
       }
@@ -143,6 +145,31 @@
       "type": "multicolumn",
       "blocks": {
         "column_UyfTNT": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Shelley-Clutch-Blk-BG-25-182.jpg",
+            "title": "",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Shelly Clutch",
+            "link_margin_top": 20,
+            "link": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
+        "column_bmWmAB": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -220,6 +247,7 @@
       },
       "block_order": [
         "column_UyfTNT",
+        "column_bmWmAB",
         "column_B8dHVB",
         "column_wjLVLn"
       ],
@@ -234,7 +262,7 @@
         "image_ratio": "square",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "columns_gap": 2,
         "row_gap": 2,
         "mobile_columns_gap": 2,
@@ -1336,14 +1364,6 @@
         "stars_image": "shopify://shop_images/Frame_1298.svg"
       }
     },
-    "homepage_fireworks_pxtfb9": {
-      "type": "homepage-fireworks",
-      "disabled": true,
-      "settings": {
-        "fw_code": "<style>\ndiv.fwmobile {\n}\ndiv.fwdesktop {\n}\n@media screen and (min-width: 600px) {\n div.fwmobile {\n   display: none;\n }\n}\n @media screen and (max-width: 600px) {\n div.fwdesktop {\n   display: none;\n }\n}\n</style>\n<div class=\"fwmobile\">\n<fw-player\n     style=\"width:100%;\n             aspect-ratio: 1/1 \"\n     channel=\"hammitt223858521\"\n     playlist=\"o30MP3\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\nplayer_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\n    product_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>\n <div class=\"fwdesktop\">\n   <fw-player\n     style=\"width:100%;\n             aspect-ratio: 16 / 9 \"\n     channel=\"hammitt223858521\"\n     playlist=\"o30MP3\"\n     autoplay=\"true\"\n     player_captions=\"false\"\n     player_fullscreen=\"false\"\n     player_unmute=\"false\"\n     player_more_menu=\"false\"\n     player_minimize=\"false\"\nbranding=\"false\"\nui_player_style=\"classic\"\n   theme=\"light\"\nproduct_click_use_instream_pdp=\"false\"\n>\n</fw-player> </div>",
-        "custom_classes": ""
-      }
-    },
     "homepage_instagram_RrcAhY": {
       "type": "homepage-instagram",
       "settings": {
@@ -1376,7 +1396,6 @@
     "multicolumn_FmaKEp",
     "jr_scrolling_text_QzMT7i",
     "jr_customer_reviews_kz8t7H",
-    "homepage_fireworks_pxtfb9",
     "homepage_instagram_RrcAhY"
   ]
 }

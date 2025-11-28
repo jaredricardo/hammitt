@@ -58,7 +58,7 @@
     "enable_total_colors": false,
     "enable_card_swatches": false,
     "zest_multi_checkout_enabled": true,
-    "freeShippingThreshold": "1",
+    "freeShippingThreshold": "395",
     "cart_drawer_msg": "<p>Free shipping. Taxes calculated at checkout.</p>",
     "enable_hammitt_gifting_drawer": true,
     "hammitt_gift_wrap_product": "gift-wrap",
@@ -86,6 +86,11 @@
       "charles-crossbody-lrg-belt-bag-black-brushed-gold-red-zip",
       "charles-crossbody-crossbody-black-brushed-gold-red-zip"
     ],
+    "enable_free_multi_gift_select": true,
+    "free_multi_gift_select_threshold_price": 395,
+    "free_multi_gift_select_product_1": "syd-pouch-pouch-black-gunmetal",
+    "free_multi_gift_select_product_2": "syd-pouch-pouch-black-brushed-gold-red-zip",
+    "free_multi_gift_select_product_3": "syd-pouch-accessory-gala-gold-gold",
     "enable_hammitt_box_opt_out": false,
     "enable_hammitt_gift_messaging": false,
     "hammitt_gift_message": "A gift? Add a typed gift note letting them know you sent it.",
@@ -104,26 +109,35 @@
           "announcement_XLNUCh": {
             "type": "announcement",
             "settings": {
-              "text": "Holiday Gift Guide",
-              "text_color": "#000000",
-              "background_color": "#d1aa5f",
-              "link": "shopify://pages/holiday-gift-guide"
+              "text": "Black Friday: Free Gift with $395+ Orders",
+              "text_color": "#ffffff",
+              "background_color": "#741e11",
+              "link": "shopify://collections/black-friday-syd-pouch-free-gift-with-395-purchase"
             }
           },
           "announcement_CwR3it": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "text": "Free Shipping on All Orders",
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "shopify://collections/best-selling-bags"
             }
+          },
+          "announcement_a4yGWJ": {
+            "type": "announcement",
+            "settings": {
+              "text": "Limited Drop: Shelley Clutch Black/Brushed Gold",
+              "text_color": "#000000",
+              "background_color": "#d8a950",
+              "link": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold"
+            }
           }
         },
         "block_order": [
           "announcement_XLNUCh",
-          "announcement_CwR3it"
+          "announcement_CwR3it",
+          "announcement_a4yGWJ"
         ],
         "custom_css": [],
         "settings": {
@@ -150,6 +164,14 @@
           "visual_menu_item_He8yDn": {
             "type": "visual-menu-item",
             "settings": {
+              "nav_link": "shopify://collections/black-friday-syd-pouch-free-gift-with-395-purchase",
+              "title": "Free Gift",
+              "nav_image": "shopify://shop_images/mobile-nav.jpg"
+            }
+          },
+          "visual_menu_item_qYkRni": {
+            "type": "visual-menu-item",
+            "settings": {
               "nav_link": "shopify://pages/holiday-gift-guide",
               "title": "Gifting",
               "nav_image": "shopify://shop_images/fwdjqihd_-Group-12581-_1.gif"
@@ -163,20 +185,20 @@
               "nav_image": "shopify://shop_images/Rectangle_809_1.jpg"
             }
           },
-          "visual_menu_item_PmYb6N": {
-            "type": "visual-menu-item",
-            "settings": {
-              "nav_link": "shopify://collections/kyle",
-              "title": "Kyle",
-              "nav_image": "shopify://shop_images/Rectangle803.jpg"
-            }
-          },
           "visual_menu_item_KWAJ7F": {
             "type": "visual-menu-item",
             "settings": {
               "nav_link": "shopify://collections/best-selling-bags",
               "title": "Bestsellers",
               "nav_image": "shopify://shop_images/Rectangle_802.jpg"
+            }
+          },
+          "visual_menu_item_PmYb6N": {
+            "type": "visual-menu-item",
+            "settings": {
+              "nav_link": "shopify://collections/kyle",
+              "title": "Kyle",
+              "nav_image": "shopify://shop_images/Rectangle803.jpg"
             }
           },
           "visual_menu_item_RG36DA": {
@@ -197,6 +219,7 @@
           },
           "visual_menu_item_f4DzN9": {
             "type": "visual-menu-item",
+            "disabled": true,
             "settings": {
               "nav_link": "shopify://collections/travel",
               "title": "Travel",
@@ -274,9 +297,10 @@
         },
         "block_order": [
           "visual_menu_item_He8yDn",
+          "visual_menu_item_qYkRni",
           "visual_menu_item_R797MM",
-          "visual_menu_item_PmYb6N",
           "visual_menu_item_KWAJ7F",
+          "visual_menu_item_PmYb6N",
           "visual_menu_item_RG36DA",
           "visual_menu_item_7RgGWL",
           "visual_menu_item_f4DzN9",
@@ -614,10 +638,10 @@
           "image_gY6exJ": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Rectangle_913.jpg",
+              "image": "shopify://shop_images/mega-nav-3.gif",
               "image_ratio": "portrait",
-              "image_caption": "New In",
-              "image_link": "shopify://collections/new-arrivals"
+              "image_caption": "Black Friday Is Here",
+              "image_link": "shopify://collections/black-friday-syd-pouch-free-gift-with-395-purchase"
             }
           },
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f": {
