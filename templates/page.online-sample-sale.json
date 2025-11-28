@@ -28,13 +28,80 @@
         "heading_FrKqKe": {
           "type": "heading",
           "settings": {
+            "heading": "Free Gift With $395+ Order",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 60
+          }
+        },
+        "buttons_KYk8Ec": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/black-friday-syd-pouch-free-gift-with-395-purchase",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_FrKqKe",
+        "buttons_KYk8Ec"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/gwp-alone-desktop.jpg",
+        "image_2": "shopify://shop_images/gwp-alone-mob.jpg",
+        "image_link": "shopify://collections/black-friday-syd-pouch-free-gift-with-395-purchase",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left-more",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_banner_bXMWWH": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_VxQfz8": {
+          "type": "heading",
+          "settings": {
             "heading": "The End",
             "heading_size_mobile": 36,
             "heading_size_tablet": 40,
             "heading_size_desktop": 60
           }
         },
-        "text_bnbJXy": {
+        "text_3whfrb": {
           "type": "text",
           "settings": {
             "text": "",
@@ -45,7 +112,7 @@
             "text_size_desktop": 18
           }
         },
-        "buttons_W9MMaX": {
+        "buttons_kfxf4B": {
           "type": "buttons",
           "disabled": true,
           "settings": {
@@ -56,9 +123,9 @@
         }
       },
       "block_order": [
-        "heading_FrKqKe",
-        "text_bnbJXy",
-        "buttons_W9MMaX"
+        "heading_VxQfz8",
+        "text_3whfrb",
+        "buttons_kfxf4B"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -134,6 +201,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "<strong>Holiday Gift Guide </strong>",
+            "link_margin_top": 20,
             "link": "shopify://pages/holiday-gift-guide",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -158,6 +226,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "<strong>Bestsellers</strong>",
+            "link_margin_top": 20,
             "link": "shopify://collections/best-selling-bags",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -182,6 +251,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "<strong>New In</strong>",
+            "link_margin_top": 20,
             "link": "shopify://collections/new-arrivals",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -206,6 +276,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "<strong>Trending </strong>",
+            "link_margin_top": 20,
             "link": "shopify://collections/trending",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -773,6 +844,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "shopify://collections/sample-sale-2025",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -797,6 +869,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "shopify://collections/sample-sale-under-200",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -821,6 +894,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "shopify://collections/sample-sale-under-500",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -846,6 +920,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "shopify://collections/sample-sale-small-accessories",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -871,6 +946,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "shopify://collections/sample-sale-going-fast",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -941,6 +1017,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "shopify://collections/sample-sale-going-fast",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -965,6 +1042,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "shopify://collections/treat-yourself",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -989,6 +1067,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "shopify://collections/sample-sale-accessories",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -1047,6 +1126,7 @@
   "order": [
     "main",
     "image_banner_ki7m7t",
+    "image_banner_bXMWWH",
     "17634093850e46f18b",
     "multicolumn_cdmLXp",
     "hero_video_banner_aFEbEY",
