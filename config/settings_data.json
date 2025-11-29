@@ -106,13 +106,13 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
-          "announcement_XLNUCh": {
+          "announcement_a4yGWJ": {
             "type": "announcement",
             "settings": {
-              "text": "Black Friday: Free Gift with $395+ Orders",
-              "text_color": "#ffffff",
-              "background_color": "#741e11",
-              "link": "shopify://collections/black-friday-syd-pouch-free-gift-with-395-purchase"
+              "text": "Limited Drop: Shelley Clutch Black/Brushed Gold",
+              "text_color": "#000000",
+              "background_color": "#d8a950",
+              "link": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold"
             }
           },
           "announcement_CwR3it": {
@@ -124,20 +124,21 @@
               "link": "shopify://collections/best-selling-bags"
             }
           },
-          "announcement_a4yGWJ": {
+          "announcement_XLNUCh": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
-              "text": "Limited Drop: Shelley Clutch Black/Brushed Gold",
-              "text_color": "#000000",
-              "background_color": "#d8a950",
-              "link": "https://www.hammitt.com/products/shelley-clutch-clutch-black-brushed-gold"
+              "text": "Black Friday: Free Gift with $395+ Orders",
+              "text_color": "#ffffff",
+              "background_color": "#741e11",
+              "link": "shopify://collections/black-friday-syd-pouch-free-gift-with-395-purchase"
             }
           }
         },
         "block_order": [
-          "announcement_XLNUCh",
+          "announcement_a4yGWJ",
           "announcement_CwR3it",
-          "announcement_a4yGWJ"
+          "announcement_XLNUCh"
         ],
         "custom_css": [],
         "settings": {
