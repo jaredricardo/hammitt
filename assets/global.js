@@ -1552,7 +1552,16 @@ const cartUpdate = (json = false) => {
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
 
-      if(elOld == null || elNew == null) return
+      console.log('UPDATING ELEMENT')
+      console.log(update.section
+        
+      )
+      if(elOld == null || elNew == null) {
+        console.log('NULL EL OLD AND NEW')
+        console.log(elOld)
+        console.log(elNew)
+        return
+      }
 
       if(element == '.jr-temp-single-gwp') {
         let oldPercent = '0';
