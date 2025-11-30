@@ -1509,6 +1509,60 @@
     ]
   },
   {
+    "name": "Free Gift Wrap",
+    "settings":[
+      {
+        "type": "header",
+        "content": "IMPORTANT:",
+        "info": "This should NOT be activated if we currently have a multi select going on. Additionally, an automatic discount needs to be set up in the admin to make the gift wrap free if this is activated, as this code does not set the product to be free on its own. It is purely visual."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_free_gift_wrap", 
+        "label": "Enable Free Gift Wrap",
+        "default": false
+      },
+      {
+        "type": "product",
+        "id": "free_gift_wrap_product",
+        "label": "Free Gift Wrap Product"
+      },
+      {
+        "type": "number",
+        "id": "free_gift_wrap_threshold_price",
+        "label": "Free Gift Wrap Threshold Price",
+        "info": "Note: the progress bar threshold also needs to be changed in the Cart Settings as well",
+        "default": 300
+      },
+      {
+        "type": "text",
+        "id": "free_gift_wrap_progress_bar_not_reached_text",
+        "label": "Free Gift Wrap Progress Bar Not Reached Text",
+        "info": "The first part of the sentence 'Spend $x' is already in place. Below is for the words that follow",
+        "default": "more receive free gift wrap!"
+      },
+      {
+        "type": "text",
+        "id": "free_gift_wrap_progress_bar_reached_text",
+        "label": "Free Gift Wrap Progress Bar Reached Text",
+        "info": "The first part of the sentence 'Spend $x' is already in place. Below is for the words that follow",
+        "default": "FREE gift wrap unlocked! We'll help you add it below."
+      },
+      {
+        "type": "html",
+        "id": "free_gift_wrap_click_here_text",
+        "label": "Free Gift Wrap Click Here Text",
+        "default": "<p>You've received FREE gift wrap! <u>Click here to add.</u></p>"
+      },
+      {
+        "type": "text",
+        "id": "free_gift_wrap_above_image_text",
+        "label": "Free Gift Wrap Above Image Text",
+        "default": "Today Only: Free Gift Wrap With Your $300+ Order"
+      }
+    ]
+  },
+  {
     "name": "Free multi Gift Select",
     "settings": [
       {
