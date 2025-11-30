@@ -448,14 +448,16 @@
          </script>
        {% endif %}
      {% endfor %}
-     {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
-       <div class="free-gift-wrap-message-html">
-         {{ settings.free_gift_wrap_click_here_text }}
-       </div>
-     {% endif %}
-     {% if cart.item_count > 0 %}
+     <div class="below-progress-bar-container">
+      {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
+        <div class="free-gift-wrap-message-html">
+          {{ settings.free_gift_wrap_click_here_text }}
+        </div>
+      {% endif %}
+      {% if cart.item_count > 0 %}
         <h4 class="h7">Your Cart</h4>
-     {% endif %}
+      {% endif %}
+    </div>
     <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart.total_price }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
       {% if cart.item_count == 0 %}
         <div class="drawer_empty center">

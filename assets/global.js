@@ -1514,7 +1514,7 @@ const cartUpdate = (json = false) => {
   const cartUpdates = [
     {
       section: "cart-drawer",
-      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp", ".drawer__header h4"]
+      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp", ".drawer__header h4", ".below-progress-bar-container"]
     },
     {
       section: "cart-icon-bubble",
@@ -1552,16 +1552,14 @@ const cartUpdate = (json = false) => {
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
 
-      console.log('UPDATING ELEMENT')
-      console.log(update.section
-        
-      )
+
       if(elOld == null || elNew == null) {
         console.log('NULL EL OLD AND NEW')
-        console.log(elOld)
-        console.log(elNew)
         return
       }
+
+      console.log(elOld)
+      console.log(elNew)
 
       if(element == '.jr-temp-single-gwp') {
         let oldPercent = '0';
