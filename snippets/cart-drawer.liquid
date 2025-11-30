@@ -28,11 +28,32 @@
     assign isCurrent = true
   endif
 
+  if settings.enable_free_gift_wrap
+
+    assign has_reached_gift_wrap_threshold = false
+    assign cart_contains_gift_wrap = false
+    assign converted_gift_wrap_threshold_price = settings.free_gift_wrap_threshold_price | times: 100
+    assign gift_wrap_product = all_products[settings.free_gift_wrap_product]
+
+    if cart.total_price > converted_gift_wrap_threshold_price
+
+      assign has_reached_gift_wrap_threshold = true
+
+      for item in cart.items
+        if item.product_id == gift_wrap_product.id
+          assign cart_contains_gift_wrap = true
+        endif
+      endfor
+
+    endif
+
+  endif
+
   if settings.enable_free_multi_gift_select == true
 
     assign has_reached_threshold = false
-    assign converted_threshold_price = settings.free_multi_gift_select_threshold_price | times: 100
     assign cart_contains_gift_item = false
+    assign converted_threshold_price = settings.free_multi_gift_select_threshold_price | times: 100
 
     if settings.free_multi_gift_select_product_1 != blank
       assign free_multi_gift_product_1 = all_products[settings.free_multi_gift_select_product_1]
@@ -66,6 +87,32 @@
   endif
 
 -%}
+
+{% if settings.enable_free_gift_wrap %}
+  <style>
+    .free-gift-wrap-message-html {
+      background-color: #316124;
+      color: white;
+      margin: 0 10px!important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px;
+    }
+    .free-gift-wrap-message-html p {
+      margin: 0;
+    }
+  </style>
+{% endif %}
+
+{% if settings.enable_free_multi_gift_select or settings.enable_free_gift_wrap %}
+  <style>
+    .discounts.list-unstyled {
+      display: none !important;
+    }
+  </style>
+{% endif %}
 
 {% if settings.enable_free_multi_gift_select %}
   <style>
@@ -172,11 +219,9 @@
       border-radius: 50%;
     }
 
-    .discounts.list-unstyled {
-      display: none !important;
-    }
   </style>
 {% endif %}
+
 
 {% if settings.enable_free_multi_gift_select %}
   <script>
@@ -327,16 +372,23 @@
                   {% else %}
                     You’ve received a Free Syd Pouch!
                 {% endif %}
+              {% elsif settings.enable_free_gift_wrap %}
+                {% if has_reached_gift_wrap_threshold and cart_contains_gift_wrap == false %}
+                  {{ settings.free_gift_wrap_progress_bar_reached_text }}
+                {% else %}
+                  You've received Free Gift Wrap!
+                {% endif %}
               {% else %}
                 {% comment %} normal state {% endcomment %}
                 {{ 'sections.cart.free_shipping_message_met' | t }} 
             {% endif %}
     
           </span>
-          {% comment %} needs to be returned to "more to reach free shipping!" after BFCM, same with above {% endcomment %}
           <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> 
            {% if settings.enable_free_multi_gift_select %} 
               more for a Free Syd Pouch!
+            {% elsif settings.enable_free_gift_wrap %}
+              more for Free Gift Wrap!
             {% else %}
               more to reach free shipping!
            {% endif %}
@@ -396,6 +448,11 @@
          </script>
        {% endif %}
      {% endfor %}
+     {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
+       <div class="free-gift-wrap-message-html">
+         {{ settings.free_gift_wrap_click_here_text }}
+       </div>
+     {% endif %}
      {% if cart.item_count > 0 %}
         <h4 class="h7">Your Cart</h4>
      {% endif %}
@@ -805,7 +862,9 @@
         {% if settings.enable_hammitt_gifting_drawer %}
 
             <hammitt-gifting-options-drawer-trigger>
-              <p>{{ settings.hammitt_gifting_drawer_message }}</p>
+              <p>
+                {{ settings.hammitt_gifting_drawer_message }}
+              </p>
               <button id="open-btn">{{ settings.hammitt_gifting_trigger_btn_text }}</button>
             </hammitt-gifting-options-drawer-trigger>
 
@@ -816,9 +875,17 @@
                 </button>
                 <button id="save-btn" disabled>Save</button>
               </div>
-              {% if settings.hammitt_gifting_drawer_header_text %}
-                <p>{{ settings.hammitt_gifting_drawer_header_text }}</p>
+              {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
+                  <p>
+                    <span>You qualify for FREE gift wrap! Click the check box below to confirm your service.</span>
+                    <span style="color: #1E9907">Be sure to check the third box to confirm your complimentary gift wrap.</span>
+                  </p>
+                {% else %}
+                  {% if settings.hammitt_gifting_drawer_header_text %}
+                    <p>{{ settings.hammitt_gifting_drawer_header_text }}</p>
+                  {% endif %}
               {% endif %}
+
 
               <ul class="broken-out-line-items">
                 {% for item in cart.items %}
@@ -956,7 +1023,13 @@
                               {% if settings.hammitt_gift_wrap_product.available %}
                                 <div class="checkbox-container">  
                                   <input type="checkbox" class="line-item-hand-written-note" id="line-item-hand-written-note--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_gift_note != false %} checked {% endif %}>
-                                  <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}">Add Ribbon + Handwritten Note for $5</label>  
+                                  <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}" {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %} style="color: #1E9907" {% endif %}>
+                                    {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
+                                        YES, add my free gift wrap + a handwritten note 🎁
+                                      {% else %}
+                                        Add Ribbon + Handwritten Note for $5
+                                    {% endif %}
+                                  </label>  
                                 </div>
                               {% endif %}
                           {% endif %}
@@ -992,8 +1065,15 @@
             </hammitt-gifting-options-drawer>
         {% endif %}
         <gift-box-section class="{% if settings.enable_free_multi_gift_select and has_reached_threshold and cart_contains_gift_item == false %} hidden {% endif %}">
+          {% comment %} this never should have been a metaobject to loop through, especially if the limit is 1. {% endcomment %}
           {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}
-            <h4 class="h7">{{ content.heading }}</h4>
+            <h4 class="h7">
+              {% if settings.enable_free_gift_wrap %}
+                  {{ settings.free_gift_wrap_above_image_text }}
+                {% else %}
+                  {{ content.heading }}
+              {% endif %}
+            </h4>
           {% endfor %}
           {%- capture json -%}
             {
