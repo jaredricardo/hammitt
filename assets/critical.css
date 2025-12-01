@@ -845,7 +845,7 @@ body:has(inspired-floating-widget) .inspired-app-opener {
     display: none;
   }
   .jr-new-5050-product-list .columns {
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 2rem;
   }
   .jr-new-5050-product-list .swiper-scrollbar {

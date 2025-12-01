@@ -20,6 +20,14 @@
         margin-bottom: 20px
     }
 
+    [data-section-id="{{ section.id }}"] .columns.image-right {
+        flex-direction: row;
+    }
+
+     [data-section-id="{{ section.id }}"] .columns.image-left {
+        flex-direction: row-reverse;
+     }
+
     @media screen and (min-width: 750px) {
         .section-{{ section.id }}-padding{
             padding-top: {{section.settings.padding_top}}px;
@@ -72,7 +80,7 @@
         {% if section.settings.title != blank %}
             <h2 class="h1 section-title center">{{ section.settings.title }}</h2>
         {% endif %}
-        <div class="columns">
+        <div class="columns {{ section.settings.image_alignment_desktop }}">
             <div class="col">
                 {% if section.settings.product_list != empty %}
                     <div class="swiper mobile" data-json='{{ json }}'>
@@ -89,7 +97,7 @@
                     <div class="swiper-scrollbar"></div>
                     <div class="desktop">
                         {% for product in section.settings.product_list limit: 6 %}
-                            {% if product.available %}
+                            {% if product.available and section.settings.allow_sold_out_cards == false %}
                                 {% render 'card-product', card_product: product %}
                             {% endif %}
                         {% endfor %}
@@ -138,6 +146,12 @@
                 "default": "Best Sellers"
             },
             {
+                "type": "checkbox",
+                "id": "allow_sold_out_cards",
+                "label": "Allow sold out product cards to show",
+                "default": false
+            },
+            {
                 "type": "product_list",
                 "id": "product_list",
                 "label": "Product List"
@@ -146,6 +160,21 @@
                 "type": "image_picker",
                 "id": "image",
                 "label": "Image"
+            },
+            {
+                "type": "select",
+                "id": "image_alignment_desktop",
+                "label": "Desktop Image Alignment",
+                "options": [
+                    {
+                        "value": "image-right",
+                        "label": "Image Right"
+                    },
+                   {
+                        "value": "image-left",
+                        "label": "Image Left"
+                    }
+                ]
             },
             {
                 "type": "url",
