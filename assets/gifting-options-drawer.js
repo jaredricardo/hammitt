@@ -21,6 +21,16 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    class HammittGiftingOptionsDrawerElTrigger extends HTMLElement {
+        constructor() {
+            super()
+            this.addEventListener('click', this.openGiftingDrawer)
+        }
+        openGiftingDrawer(){
+            document.querySelector('hammitt-gifting-options-drawer')?.classList.add('active')
+        }
+    }
+
     class HammittGiftingOptionsDrawer extends HTMLElement {
         constructor() {
             super()
@@ -197,6 +207,15 @@ window.addEventListener('DOMContentLoaded', () => {
                     })
                     .then((json) => {
                         cartUpdate(json)
+                        // this is specifically for the free gift wrap, though it should be ok to stay here even when free gift wrap is active. It just forces the progress bar to update.
+                        const parser = new DOMParser()
+                        const doc = parser.parseFromString(json.sections['cart-drawer'], "text/html")
+                        const elOld = document.querySelector('free-shipping-goal')
+                        const elNew = doc.querySelector('free-shipping-goal')
+                        if(elOld == null || elNew == null) return
+                        if(elOld && elNew) {
+                            elOld.outerHTML = elNew.outerHTML
+                        }
                     })
                 }
             })
@@ -292,4 +311,5 @@ window.addEventListener('DOMContentLoaded', () => {
     customElements.define('hammitt-gifting-broken-out-line-item', HammittGiftingBrokenOutLineItem)
     customElements.define('hammitt-line-level-gift-note', HammittLineLevelGiftNote)
     customElements.define('gifting-tooltip-container', GiftingTooltipContainer)
+    customElements.define('hammitt-gifting-options-drawer-el-trigger', HammittGiftingOptionsDrawerElTrigger)
 })
