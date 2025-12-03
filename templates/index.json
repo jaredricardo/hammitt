@@ -126,6 +126,27 @@
     },
     "slider_collection_RWT74t": {
       "type": "slider-collection",
+      "disabled": true,
+      "name": "Variant Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "invitation-clutch",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
+    },
+    "slider_collection_KaWYKx": {
+      "type": "slider-collection",
       "name": "Slider Collection",
       "settings": {
         "title": "",
@@ -1387,6 +1408,7 @@
   },
   "order": [
     "home-hero-section",
+    "slider_collection_KaWYKx",
     "image_banner_QgBhXy",
     "slider_collection_RWT74t",
     "multicolumn_Fbdf7n",
