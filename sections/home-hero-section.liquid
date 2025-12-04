@@ -1,59 +1,68 @@
 {{ 'home-hero-section.css' | asset_url | stylesheet_tag }}
 {%- if section.settings.image  != blank or section.settings.video  != blank  -%}
-<div class="section-wrap">
-  {%- if section.settings.media_type == 'image' -%}
-  <div class="section-image flexbox" style="--desktop-image-height:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;--mobile-image-height:{{ 1 | divided_by: section.settings.mobile_image.aspect_ratio | times: 100}}%;">
-    <img src="{{ section.settings.image | img_url: '1920x' }}" alt="{{ section.settings.image.alt }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"{% if section.settings.mobile_image != blank %} class="small-hide"{% endif %} loading="eager">
-    {%- if section.settings.mobile_image != blank -%}
-      <img src="{{ section.settings.mobile_image | img_url: '1920x' }}" alt="{{ section.settings.mobile_image.alt }}" width="{{ section.settings.mobile_image.width }}" height="{{ section.settings.mobile_image.height }}" class="medium-hide large-up-hide"  loading="eager">
-    {%- endif -%}
-  </div>
-  {%- elsif section.settings.media_type == 'video' -%}
-    <div class="section-image flexbox" style="--desktop-image-height:{{ 1 | divided_by: section.settings.video.preview_image.aspect_ratio | times: 100}}%;--mobile-image-height:{{ 1 | divided_by: section.settings.video.preview_image.aspect_ratio | times: 100}}%;">
-      <video loop muted playsinline autoplay{% if section.settings.mobile_video != blank %} class="small-hide"{% endif %} >
-        <source src="{{ section.settings.video.sources[1].url }}" type="video/mp4">
-      </video>
-      {%- if section.settings.mobile_video != blank -%}
-        <video loop muted playsinline autoplay class="medium-hide large-up-hide">
-          <source src="{{ section.settings.mobile_video.sources[1].url }}" type="video/mp4">
+<div class="section-wrap no-abs">
+  {%- if section.settings.link != blank  -%}
+    <a href="{{ section.settings.link }}" class="banner-link">
+  {% endif %}
+    {%- if section.settings.media_type == 'image' -%}
+    <div class="section-image flexbox ddd" style="--desktop-image-height:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;--mobile-image-height:{{ 1 | divided_by: section.settings.mobile_image.aspect_ratio | times: 100}}%;">
+      <img src="{{ section.settings.image | img_url: '1920x' }}" alt="{{ section.settings.image.alt }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"{% if section.settings.mobile_image != blank %} class="small-hide"{% endif %} loading="eager">
+      {%- if section.settings.mobile_image != blank -%}
+        <img src="{{ section.settings.mobile_image | img_url: '1920x' }}" alt="{{ section.settings.mobile_image.alt }}" width="{{ section.settings.mobile_image.width }}" height="{{ section.settings.mobile_image.height }}" class="medium-hide large-up-hide"  loading="eager">
+      {%- endif -%}
+    </div>
+    {%- elsif section.settings.media_type == 'video' -%}
+      <div class="section-image flexbox dd" style="--desktop-image-height:{{ 1 | divided_by: section.settings.video.preview_image.aspect_ratio | times: 100}}%;--mobile-image-height:{{ 1 | divided_by: section.settings.video.preview_image.aspect_ratio | times: 100}}%;">
+        <video loop muted playsinline autoplay{% if section.settings.mobile_video != blank %} class="small-hide"{% endif %} >
+          <source src="{{ section.settings.video.sources[1].url }}" type="video/mp4">
         </video>
-      {%- endif -%}
-    </div>
-  {%- endif -%}
-  <div class="section-content flexbox text-{{ section.settings.text_align }} text-vertical-{{ section.settings.text_vertical_align }} text-horizontal-{{ section.settings.text_horizontal_align }} mobile-text-{{ section.settings.text_align_mobile }} mobile-text-vertical-{{ section.settings.text_vertical_align_mobile }} mobile-text-horizontal-{{ section.settings.text_horizontal_align_mobile }}">
-    {%- if section.settings.button != blank and section.settings.link != blank  -%}
-      <a href="{{ section.settings.link }}" class="banner-link"></a>  
-    {% endif %}
-    <div class="content-wrap">
-      {% if section.settings.subtitle != blank -%}
-        <h4>{{ section.settings.subtitle }}</h4>
-      {%- endif -%}
-      {%- if section.settings.title != blank -%}
-
-        {% if section.settings.make_h1 %}
-            <h1>
-          {% else %}
-            <h2>
-        {% endif %}
-
-          {{ section.settings.title }}
-
-        {% if section.settings.make_h1 %}
-            </h1>
-          {% else %}
-            </h2>
-        {% endif %}
-
-      {%- endif -%}
-      {%- if section.settings.description != blank -%}
-        <p>{{ section.settings.description }}</p>
-      {%- endif -%}
-      {%- if section.settings.button != blank and section.settings.link != blank and section.settings.button_enable -%}
-      <div class="section-button">
-        <a href="{{ section.settings.link }}" class="button button--primary">{{ section.settings.button }}</a>
+        {%- if section.settings.mobile_video != blank -%}
+          <video loop muted playsinline autoplay class="medium-hide large-up-hide">
+            <source src="{{ section.settings.mobile_video.sources[1].url }}" type="video/mp4">
+          </video>
+        {%- endif -%}
       </div>
-      {%- endif -%}
-    </div>
+    {%- endif -%}
+  {%- if section.settings.link != blank  -%}
+    </a>  
+  {% endif %}
+  <div class="section-content bottom-content flexbox text-{{ section.settings.text_align }} text-vertical-{{ section.settings.text_vertical_align }} text-horizontal-{{ section.settings.text_horizontal_align }} mobile-text-{{ section.settings.text_align_mobile }} mobile-text-vertical-{{ section.settings.text_vertical_align_mobile }} mobile-text-horizontal-{{ section.settings.text_horizontal_align_mobile }}">
+    {%- if section.settings.link != blank  -%}
+      <a href="{{ section.settings.link }}" class="banner-link"> 
+    {% endif %}
+      <div class="content-wrap">
+        {% if section.settings.subtitle != blank -%}
+          <h4>{{ section.settings.subtitle }}</h4>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+
+          {% if section.settings.make_h1 %}
+              <h1>
+            {% else %}
+              <h2>
+          {% endif %}
+
+            {{ section.settings.title }}
+
+          {% if section.settings.make_h1 %}
+              </h1>
+            {% else %}
+              </h2>
+          {% endif %}
+
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p>{{ section.settings.description }}</p>
+        {%- endif -%}
+        {%- if section.settings.button != blank and section.settings.link != blank and section.settings.button_enable -%}
+        <div class="section-button">
+          <a href="{{ section.settings.link }}" class="button button--primary">{{ section.settings.button }}</a>
+        </div>
+        {%- endif -%}
+      </div>
+    {%- if section.settings.link != blank  -%}
+      </a> 
+    {% endif %}
   </div>
 </div>
 {%- endif -%}
