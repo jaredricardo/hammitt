@@ -109,8 +109,18 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_AiYmbA": {
+            "type": "announcement",
+            "settings": {
+              "text": "Free Gift Wrap with $300+ Orders",
+              "text_color": "#ffffff",
+              "background_color": "#9f0012",
+              "link": "shopify://collections/new-arrivals"
+            }
+          },
           "announcement_a4yGWJ": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Limited Drop: Shelley Clutch Black/Brushed Gold",
               "text_color": "#000000",
@@ -120,6 +130,7 @@
           },
           "announcement_CwR3it": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Free Shipping on All Orders",
               "text_color": "#ffffff",
@@ -129,6 +140,7 @@
           }
         },
         "block_order": [
+          "announcement_AiYmbA",
           "announcement_a4yGWJ",
           "announcement_CwR3it"
         ],
@@ -155,6 +167,14 @@
         "type": "header",
         "blocks": {
           "visual_menu_item_R797MM": {
+            "type": "visual-menu-item",
+            "settings": {
+              "nav_link": "shopify://collections/new-arrivals",
+              "title": "Free Gift Wrap",
+              "nav_image": "shopify://shop_images/Rectangle_642.jpg"
+            }
+          },
+          "visual_menu_item_GEwfV7": {
             "type": "visual-menu-item",
             "settings": {
               "nav_link": "shopify://collections/new-arrivals",
@@ -204,6 +224,7 @@
           },
           "visual_menu_item_f4DzN9": {
             "type": "visual-menu-item",
+            "disabled": true,
             "settings": {
               "nav_link": "shopify://collections/travel",
               "title": "Travel",
@@ -281,6 +302,7 @@
         },
         "block_order": [
           "visual_menu_item_R797MM",
+          "visual_menu_item_GEwfV7",
           "visual_menu_item_qYkRni",
           "visual_menu_item_KWAJ7F",
           "visual_menu_item_PmYb6N",
