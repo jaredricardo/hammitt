@@ -92,6 +92,7 @@
         {% render 'special-care-tooltip' %}
       {% endif %}
     </div>
+    
     <ul class="custom-variant-list">
       {% for product in colorway_collection %}
 
@@ -404,6 +405,7 @@
       {% endfor %}
     </ul>
   </div>
+  {% comment %} Medium Short Strap {% endcomment %}
   <div class="variant-picker-group-wrapper">
     <div class="custom-variant-title">
       <span>{{ 'Medium Short Strap:' | upcase }}</span> 
@@ -648,10 +650,170 @@
       {%- endfor -%}
     </ul>
   </div>
+  {% comment %} Shoulder Strap (short){% endcomment %}
+  <div class="variant-picker-group-wrapper">
+      <div class="custom-variant-title">
+        <span>{{ 'Shoulder Strap:' | upcase }}</span> 
+        {% if on_special_leather %}
+          {% render 'special-care-tooltip' %}
+        {% endif %}
+      </div>
+    <ul class="custom-variant-list">
+      {%- for product in colorway_collection -%}
   
-    <script class="hidden" type="application/json" id="data-product-variant-json">
-      {
-        "variant-data": {{ colorway_collection | json }}
-      }
+        {% liquid 
+        
+          assign isCurrent = false
+
+          ####### new way of assigning product title
+
+          assign product_type = product.metafields.custom.product_title_type
+          assign product_color = product.metafields.custom.product_title_color_descriptor
+          assign product_size = product.metafields.hammitt.size.value
+          assign formatted_size_string = null
+          
+          if product_size 
+
+            assign formatted_size_string = product_size | downcase | strip
+
+          endif
+
+          #######
+      
+          unless formatted_size_string == "shoulder strap"
+            continue
+          endunless
+  
+          # Only show exclusive product if customer has shareholder tag and seo hidden is 1 #
+          if isShareholder == false and product.metafields.seo.hidden == 1
+            continue 
+          endif
+  
+          if product.metafields.custom.hide_product_all_customers == 1
+            continue
+          endif
+  
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
+  
+        -%}
+  
+          <li data-tooltip="{{ product_color }}" class="{% if isCurrent %} current-swatch {% endif %}">
+            <div class="image customSwatch">
+              <a 
+                {{ isCurrent }}
+                href="{{ product.url }}" 
+                data-product-title="{{ product.title }}" 
+                data-sku="{{ product.selected_or_first_available_variant.sku }}"
+                data-product-img="{{ product.featured_image | img_url: 'medium' }}"
+                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
+                data-recently-viewed-product-json='{
+                  "id": {{ product.id }},
+                  "title": "{{ product.title | escape }}",
+                  "handle": "{{ product.handle | escape }}",
+                  "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
+                  "product_tags": [{% for tag in product.tags%}"{{ tag | escape }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+                  "product_title_type": "{{ product_type | escape }}",
+                  "product_title_color_descriptor": "{{ product_color | escape }}",
+                  "product_size": "{{ product_size | escape }}",
+                  "price": {{ product.selected_or_first_available_variant.price }}
+                }'
+              >
+                {% if product.featured_image %}
+                  {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
+                {% endif %}
+              </a>
+            </div>
+          </li>
+  
+      {%- endfor -%}
+    </ul>
+  </div>
+  {% comment %} Long Strap {% endcomment %}
+  <div class="variant-picker-group-wrapper">
+      <div class="custom-variant-title">
+        <span>{{ 'Long Strap:' | upcase }}</span> 
+        {% if on_special_leather %}
+          {% render 'special-care-tooltip' %}
+        {% endif %}
+      </div>
+    <ul class="custom-variant-list">
+      {%- for product in colorway_collection -%}
+  
+        {% liquid 
+        
+          assign isCurrent = false
+
+          ####### new way of assigning product title
+
+          assign product_type = product.metafields.custom.product_title_type
+          assign product_color = product.metafields.custom.product_title_color_descriptor
+          assign product_size = product.metafields.hammitt.size.value
+          assign formatted_size_string = null
+          
+          if product_size 
+
+            assign formatted_size_string = product_size | downcase | strip
+
+          endif
+
+          #######
+      
+          unless formatted_size_string == "long strap"
+            continue
+          endunless
+  
+          # Only show exclusive product if customer has shareholder tag and seo hidden is 1 #
+          if isShareholder == false and product.metafields.seo.hidden == 1
+            continue 
+          endif
+  
+          if product.metafields.custom.hide_product_all_customers == 1
+            continue
+          endif
+  
+          if product.handle == top_level_handle
+            assign isCurrent = true
+          endif
+  
+        -%}
+  
+          <li data-tooltip="{{ product_color }}" class="{% if isCurrent %} current-swatch {% endif %}">
+            <div class="image customSwatch">
+              <a 
+                {{ isCurrent }}
+                href="{{ product.url }}" 
+                data-product-title="{{ product.title }}" 
+                data-sku="{{ product.selected_or_first_available_variant.sku }}"
+                data-product-img="{{ product.featured_image | img_url: 'medium' }}"
+                aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
+                data-recently-viewed-product-json='{
+                  "id": {{ product.id }},
+                  "title": "{{ product.title | escape }}",
+                  "handle": "{{ product.handle | escape }}",
+                  "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
+                  "product_tags": [{% for tag in product.tags%}"{{ tag | escape }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+                  "product_title_type": "{{ product_type | escape }}",
+                  "product_title_color_descriptor": "{{ product_color | escape }}",
+                  "product_size": "{{ product_size | escape }}",
+                  "price": {{ product.selected_or_first_available_variant.price }}
+                }'
+              >
+                {% if product.featured_image %}
+                  {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
+                {% endif %}
+              </a>
+            </div>
+          </li>
+  
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <script class="hidden" type="application/json" id="data-product-variant-json">
+    {
+      "variant-data": {{ colorway_collection | json }}
+    }
   </script>
 </div>
