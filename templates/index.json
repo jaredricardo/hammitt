@@ -601,8 +601,30 @@
         "custom_class": ""
       }
     },
+    "jr_new_5050_product_list_LaBwXW": {
+      "type": "jr-new-5050-product-list",
+      "name": "Special Events",
+      "settings": {
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
+        "title": "Shop Bestsellers",
+        "allow_sold_out_cards": false,
+        "product_list": [],
+        "image": "shopify://shop_images/ShopBestsellers.gif",
+        "image_alignment_desktop": "image-left",
+        "button_link": "shopify://collections/special-events",
+        "button_text": "Shop Now",
+        "button_text_color": "#000000",
+        "button_background_color": "#ffffff",
+        "padding_top": 30,
+        "padding_bottom": 36,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 36
+      }
+    },
     "slider_collection_j9FVfr": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "",
@@ -705,6 +727,7 @@
         "column_rDVcK8",
         "column_fpNkW7"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "#000000",
@@ -745,15 +768,40 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Kyle-Revival-25-33d_3.jpg",
+            "image": "shopify://shop_images/4-1-revial.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "Noir Diamond Suede",
+            "link_label": "Revival",
             "link_margin_top": 20,
-            "link": "shopify://collections/noir-diamond-suede",
+            "link": "shopify://collections/revival",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
+        "column_Nihj67": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/4-2-midnight.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Midnight Marquise",
+            "link_margin_top": 20,
+            "link": "shopify://collections/midnight-marquise",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -770,15 +818,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/KyleSmlChiliRed.jpg",
+            "image": "shopify://shop_images/4-3-zebra.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "Chili Red",
+            "link_label": "Zebra",
             "link_margin_top": 20,
-            "link": "shopify://collections/chili-red",
+            "link": "shopify://collections/zebra",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -795,15 +843,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/SundanceShearlingPaulShort2.jpg",
+            "image": "shopify://shop_images/4-4-daimond.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "Sundance Shearling",
+            "link_label": "Chocolate Diamond Suede",
             "link_margin_top": 20,
-            "link": "shopify://collections/sundance-shearling",
+            "link": "shopify://collections/chocolate-diamond-suede",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -819,6 +867,7 @@
       },
       "block_order": [
         "column_VUtACU",
+        "column_Nihj67",
         "column_UeA6fD",
         "column_NJGNTK"
       ],
@@ -833,7 +882,7 @@
         "image_ratio": "square",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "columns_gap": 2,
         "row_gap": 2,
         "mobile_columns_gap": 2,
@@ -859,7 +908,7 @@
       "type": "slider-collection",
       "name": "Product Widget - bestsellers",
       "settings": {
-        "title": "Shop Bestsellers",
+        "title": "",
         "heading_align": "center",
         "heading_color": "",
         "collection": "best-selling-bags",
@@ -959,6 +1008,7 @@
         "column_QfdHyP",
         "column_GUqj3U"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_color": "#000000",
@@ -1424,6 +1474,7 @@
         "customer_review_WKMm3A",
         "customer_review_6dyahc"
       ],
+      "disabled": true,
       "settings": {
         "background_color": "#ffffff",
         "text_color": "#000000",
@@ -1454,6 +1505,7 @@
     "multicolumn_7dmQ3q",
     "image_banner_yVpKNR",
     "multicolumn_7jnCPC",
+    "jr_new_5050_product_list_LaBwXW",
     "slider_collection_j9FVfr",
     "multicolumn_cbEMzp",
     "multicolumn_zgBMdw",
