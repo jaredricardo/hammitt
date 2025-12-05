@@ -603,7 +603,7 @@
     },
     "jr_new_5050_product_list_LaBwXW": {
       "type": "jr-new-5050-product-list",
-      "name": "Special Events",
+      "name": "Bestsellers",
       "settings": {
         "background_color": "#ffffff",
         "header_text_color": "#000000",
@@ -626,6 +626,26 @@
         "padding_top": 30,
         "padding_bottom": 36,
         "mobile_padding_top": 0,
+        "mobile_padding_bottom": 36
+      }
+    },
+    "slider_collection_rf9mQd": {
+      "type": "slider-collection",
+      "name": "Product Widget - bestsellers",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "best-selling-bags",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
         "mobile_padding_bottom": 36
       }
     },
@@ -890,26 +910,6 @@
         "custom_class": "behind-design-section"
       }
     },
-    "slider_collection_rf9mQd": {
-      "type": "slider-collection",
-      "name": "Product Widget - bestsellers",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "best-selling-bags",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
     "multicolumn_FmaKEp": {
       "type": "multicolumn",
       "blocks": {
@@ -990,6 +990,7 @@
         },
         "column_EDDjd9": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "reverse_image_and_text_order": false,
             "image": "shopify://shop_images/clear-color_1.jpg",
@@ -1111,7 +1112,7 @@
         "image_ratio": "portrait",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 6,
+        "columns_desktop": 5,
         "columns_gap": 1,
         "row_gap": 1,
         "mobile_columns_gap": 1,
@@ -1374,9 +1375,9 @@
     "image_banner_yVpKNR",
     "multicolumn_7jnCPC",
     "jr_new_5050_product_list_LaBwXW",
+    "slider_collection_rf9mQd",
     "multicolumn_cbEMzp",
     "multicolumn_zgBMdw",
-    "slider_collection_rf9mQd",
     "multicolumn_FmaKEp",
     "jr_scrolling_text_QzMT7i",
     "jr_customer_reviews_kz8t7H",
