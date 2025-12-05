@@ -603,17 +603,23 @@
     },
     "jr_new_5050_product_list_LaBwXW": {
       "type": "jr-new-5050-product-list",
-      "disabled": true,
       "name": "Special Events",
       "settings": {
         "background_color": "#ffffff",
         "header_text_color": "#000000",
         "title": "Shop Bestsellers",
         "allow_sold_out_cards": false,
-        "product_list": [],
+        "product_list": [
+          "tom-zip-med-zebra-brushed-gold",
+          "meredith-med-chocolate-diamond-suede-antique-gold",
+          "charlotte-sml-noir-diamond-suede-gunmetal",
+          "montana-clutch-sml-calf-hair-gunmetal",
+          "kyle-monarch-velvet-antique-gold",
+          "invitation-clutch-med-midnight-marquise-gunmetal"
+        ],
         "image": "shopify://shop_images/ShopBestsellers.gif",
         "image_alignment_desktop": "image-left",
-        "button_link": "shopify://collections/special-events",
+        "button_link": "shopify://collections/best-selling-bags",
         "button_text": "Shop Now",
         "button_text_color": "#000000",
         "button_background_color": "#ffffff",
