@@ -9,48 +9,6 @@
  */
 {
   "sections": {
-    "rich_text_gzQyQE": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_aabMwd": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "The 2025 Holiday Gift Guide",
-            "heading_size": "h1"
-          }
-        },
-        "text_KCERHy": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Treat yourself - or your nice list - to an indulgent selection of seasonal delights,<br/>from new silhouettes to luxe leathers.Make the moment even more special with elevated gift wrap, from complimentary boxes to bows and handwritten notes, available for just $5 each. </p>"
-          }
-        },
-        "button_RcRMQk": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop All Holiday Gifts",
-            "button_link": "shopify://collections/gifts",
-            "button_style_secondary": true
-          }
-        }
-      },
-      "block_order": [
-        "heading_aabMwd",
-        "text_KCERHy",
-        "button_RcRMQk"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "custom_classes": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 36
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -130,6 +88,48 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
+      }
+    },
+    "rich_text_gzQyQE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_aabMwd": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "The 2025 Holiday Gift Guide",
+            "heading_size": "h1"
+          }
+        },
+        "text_KCERHy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Treat yourself - or your nice list - to an indulgent selection of seasonal delights,<br/>from new silhouettes to luxe leathers.Make the moment even more special with elevated gift wrap, from complimentary boxes to bows and handwritten notes, available for just $5 each. </p>"
+          }
+        },
+        "button_RcRMQk": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop All Holiday Gifts",
+            "button_link": "shopify://collections/gifts",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_aabMwd",
+        "text_KCERHy",
+        "button_RcRMQk"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 36
       }
     },
     "multicolumn_WVCLFJ": {
@@ -232,9 +232,9 @@
         "columns_gap": 2,
         "row_gap": 1,
         "mobile_columns_gap": 0,
-        "mobile_row_gap": 0,
+        "mobile_row_gap": 2,
         "column_alignment": "center",
-        "text_position": "bottom",
+        "text_position": "overlay_type",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
@@ -246,7 +246,7 @@
         "padding_top": 30,
         "padding_bottom": 30,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
+        "padding_bottom_mobile": 30,
         "custom_class": ""
       }
     },
@@ -1386,9 +1386,9 @@
     }
   },
   "order": [
-    "rich_text_gzQyQE",
     "main",
     "image_banner_MMGtjM",
+    "rich_text_gzQyQE",
     "multicolumn_WVCLFJ",
     "slider_collection_CNUHMV",
     "multicolumn_4xLhqx",
