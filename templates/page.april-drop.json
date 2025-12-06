@@ -734,6 +734,26 @@
         "custom_class": ""
       }
     },
+    "slider_collection_gfgVAh": {
+      "type": "slider-collection",
+      "name": "Accessories",
+      "settings": {
+        "title": "Shop New Accessories",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "accessories-view-all",
+        "max_products": 30,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 50,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
     "jr_new_5050_product_list_tEfAdA": {
       "type": "jr-new-5050-product-list",
       "name": "zebra",
@@ -960,98 +980,6 @@
         "mobile_padding_bottom": 0
       }
     },
-    "multicolumn_ykHyWe": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_R738JF": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/SundanceShearlingPaulShort2.jpg",
-            "title": "<strong>Sundance Shearling</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 16,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/sundance-shearling",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_4gtyDU": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_777.jpg",
-            "title": "<strong>Soiree</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 16,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://products/soiree-clutch-clutch-soiree-clutch-carrera-blush-brushed-gold",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_R738JF",
-        "column_4gtyDU"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "portrait",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 2,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": false,
-        "padding_top": 20,
-        "padding_bottom": 5,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 5,
-        "custom_class": ""
-      }
-    },
     "image_banner_UkirJg": {
       "type": "image-banner",
       "blocks": {
@@ -1263,24 +1191,96 @@
         "mobile_padding_bottom": 29
       }
     },
-    "slider_collection_gfgVAh": {
-      "type": "slider-collection",
-      "name": "Accessories",
+    "multicolumn_ykHyWe": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_R738JF": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/SundanceShearlingPaulShort2.jpg",
+            "title": "<strong>Sundance Shearling</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 16,
+            "b_title_font_mobile": 14,
+            "text": "",
+            "link_label": "",
+            "link_margin_top": 20,
+            "link": "shopify://collections/sundance-shearling",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_4gtyDU": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_777.jpg",
+            "title": "<strong>Soiree</strong>",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 16,
+            "b_title_font_mobile": 14,
+            "text": "",
+            "link_label": "",
+            "link_margin_top": 20,
+            "link": "shopify://products/soiree-clutch-clutch-soiree-clutch-carrera-blush-brushed-gold",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#ffffff",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_R738JF",
+        "column_4gtyDU"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Shop New Accessories",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "accessories-view-all",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
+        "title": "",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "portrait",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 2,
+        "columns_gap": 2,
+        "row_gap": 2,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "bottom",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": false,
         "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
+        "padding_bottom": 5,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 5,
+        "custom_class": ""
       }
     },
     "image_banner_EHKJJe": {
@@ -1395,8 +1395,8 @@
     "image_banner_NhEjAF",
     "slider_collection_R6jBwz",
     "multicolumn_DfgaLB",
-    "jr_new_5050_product_list_tEfAdA",
     "slider_collection_gfgVAh",
+    "jr_new_5050_product_list_tEfAdA",
     "image_banner_iUmzDQ",
     "slider_collection_j4fmV8",
     "image_banner_FaLEai",
