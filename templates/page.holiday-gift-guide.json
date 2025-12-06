@@ -1387,30 +1387,6 @@
         "custom_class": ""
       }
     },
-    "rich_text_QBfDap": {
-      "type": "rich-text",
-      "blocks": {
-        "text_aPbadq": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Hammitt: The Perfect Holiday Gift for Everyone on Your List</p><p><em>This holiday season, give a gift they’ll truly love with Hammitt designer handbags and accessories. Crafted with buttery-soft leather, signature rivet detailing, and timeless California style, Hammitt bags make unforgettable luxury gifts for every person on your list.For Her: Surprise your mom, sister, or best friend with a chic Hammitt crossbody or elegant clutch she’ll carry all season long. For the Fashion Lover: Give the trendsetter in your life a statement designer bag that turns heads at every holiday gathering. For Yourself: Treat yourself to the ultimate holiday indulgence—because you deserve something special, too.From everyday handbags to holiday-ready evening bags, Hammitt makes luxury gifting effortless. Shop our Holiday Gift Guide to find thoughtful presents that combine timeless design, premium craftsmanship, and lasting quality.</em></p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_aPbadq"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "custom_classes": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
-    },
     "image_with_text_TCqDkA": {
       "type": "image-with-text",
       "blocks": {
@@ -1449,16 +1425,40 @@
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
-        "mobile_content_alignment": "left",
+        "mobile_content_alignment": "center",
         "color_background": "",
         "show_color_background": false,
         "color_background_height": 50,
         "padding_top": 36,
         "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "rich_text_QBfDap": {
+      "type": "rich-text",
+      "blocks": {
+        "text_aPbadq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hammitt: The Perfect Holiday Gift for Everyone on Your List</p><p><em>This holiday season, give a gift they’ll truly love with Hammitt designer handbags and accessories. Crafted with buttery-soft leather, signature rivet detailing, and timeless California style, Hammitt bags make unforgettable luxury gifts for every person on your list.For Her: Surprise your mom, sister, or best friend with a chic Hammitt crossbody or elegant clutch she’ll carry all season long. For the Fashion Lover: Give the trendsetter in your life a statement designer bag that turns heads at every holiday gathering. For Yourself: Treat yourself to the ultimate holiday indulgence—because you deserve something special, too.From everyday handbags to holiday-ready evening bags, Hammitt makes luxury gifting effortless. Shop our Holiday Gift Guide to find thoughtful presents that combine timeless design, premium craftsmanship, and lasting quality.</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_aPbadq"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36
       }
@@ -1483,7 +1483,7 @@
     "image_banner_nWdjAN",
     "value_props_qYKcD4",
     "image_banner_cccREi",
-    "rich_text_QBfDap",
-    "image_with_text_TCqDkA"
+    "image_with_text_TCqDkA",
+    "rich_text_QBfDap"
   ]
 }
