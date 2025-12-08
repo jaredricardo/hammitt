@@ -80,7 +80,27 @@ productRecommendations();
 
 // ----------Gift box slider-------------
 
+class GiftBoxCartSection extends HTMLElement {
+  constructor() {
+    super()
+  }
+  
+  connectedCallback() {
+    this.addEventListener('click', () => {
+      console.log('clicked gift box section')
+      const giftDrawerTrigger = document.querySelector('hammitt-gifting-options-drawer-trigger #open-btn');
+      if (giftDrawerTrigger) {
+        giftDrawerTrigger.click();
+      }
+    })
+  }
+}
+
+customElements.define('gift-box-section', GiftBoxCartSection)
+
 function giftBoxSlider() {
+  // turning this off for now, and instead opening the gift drawer instead via the class toggle above
+  return
   if (document.querySelector('gift-box-section .swiper') != null && document.querySelector('gift-box-section .swiper') != 'undefined') {
       (function() {
       const swipers = document.querySelectorAll('gift-box-section .swiper');
