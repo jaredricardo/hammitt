@@ -1589,23 +1589,25 @@
         "default": "Pick your free gift ($95 Value)"
       },
       {
+        "type": "text",
+        "id": "free_multi_gift_qualifies_message",
+        "label": "Free multi Gift Qualifies Message",
+        "default": "Your order qualifies for a Free Gift. Select below."
+      },
+      {
+        "type": "text",
+        "id": "free_multi_gift_select_success_message",
+        "label": "Free multi Gift Select Success Message",
+        "default": "You've received your FREE gift!"
+      },
+      {
         "type": "header",
-        "content": "Select up to 3 free gifts when you spend the above threshold"
+        "content": "Free Gift Select Product Collection"
       },
       {
-        "type": "product",
-        "id": "free_multi_gift_select_product_1",
-        "label": "Free Gift Select Product 1"
-      },
-      {
-        "type": "product",
-        "id": "free_multi_gift_select_product_2",
-        "label": "Free Gift Select Product 2"
-      },
-      {
-        "type": "product",
-        "id": "free_multi_gift_select_product_3",
-        "label": "Free Gift Select Product 3"
+        "type": "collection",
+        "id": "free_multi_gift_select_collection",
+        "label": "Free Gift Select Product Collection"
       }
     ]
   }
