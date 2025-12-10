@@ -371,11 +371,11 @@
           </span>
           <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> 
            {% if settings.enable_free_multi_gift_select %} 
-              more for a Free Syd Pouch!
+              more to recieve {{ settings.free_multi_gift_select_product_type_text }}
             {% elsif settings.enable_free_gift_wrap %}
-              more for Free Gift Wrap!
+              more for FREE Gift Wrap!
             {% else %}
-              more to reach free shipping!
+              more to reach FREE shipping!
            {% endif %}
          </span>
           <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>

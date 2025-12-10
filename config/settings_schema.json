@@ -1608,6 +1608,13 @@
         "type": "collection",
         "id": "free_multi_gift_select_collection",
         "label": "Free Gift Select Product Collection"
+      },
+      {
+        "type": "text",
+        "id": "free_multi_gift_select_product_type_text",
+        "label": "Free Gift Select Product Type Text (progress bar)",
+        "info": "This text comes after the 'spend $x.xx more to receive...[product type]' in the progress bar.",
+        "default": "a FREE bag charm"
       }
     ]
   }
