@@ -71,6 +71,13 @@
     "image_with_text_navigator_3mM6rF": {
       "type": "image-with-text-navigator",
       "blocks": {
+        "navigator_pqR6pn": {
+          "type": "navigator",
+          "settings": {
+            "title": "Katherine LaNasa",
+            "href": "katherine-lanasa"
+          }
+        },
         "navigator_AYa9WG": {
           "type": "navigator",
           "settings": {
@@ -113,14 +120,6 @@
             "href": "lizzy-greene"
           }
         },
-        "navigator_pqR6pn": {
-          "type": "navigator",
-          "disabled": true,
-          "settings": {
-            "title": "Katherine LaNasa",
-            "href": "katherine-lanasa"
-          }
-        },
         "navigator_wCdxAF": {
           "type": "navigator",
           "settings": {
@@ -158,13 +157,13 @@
         }
       },
       "block_order": [
+        "navigator_pqR6pn",
         "navigator_AYa9WG",
         "navigator_FNG4kU",
         "navigator_wWrw67",
         "navigator_jbKDtp",
         "navigator_e4mkCP",
         "navigator_6QYWA8",
-        "navigator_pqR6pn",
         "navigator_wCdxAF",
         "navigator_RkrewV",
         "navigator_VXxGFG",
@@ -175,6 +174,29 @@
       "settings": {
         "background_color": "#ffffff",
         "enable_scroll_to_top": false
+      }
+    },
+    "featured_products_and_image_UTxwwj": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "katherine-lanasa",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/IMG_9748_a59712d8-9bde-4833-8067-ba92bd854ac4.jpg",
+        "image_link": "",
+        "header": "An Emmy moment: Katherine LaNasa",
+        "subheader": "Celebrating her first Emmy, Katherine LaNasa carries Hammitt with timeless grace.",
+        "featured_products": [
+          "soiree-clutch-clutch-soiree-clutch-carrera-blush-brushed-gold",
+          "charlotte-sml-cherrywood-pebble-gold",
+          "charlotte-sml-satchel-espresso-pebble-silver",
+          "charlotte-sml-black-gold",
+          "charlotte-med-shoulder-bag-espresso-pebble-silver",
+          "charlotte-med-cherrywood-pebble-gold",
+          "charlotte-med-black-gold"
+        ],
+        "featured_collection": ""
       }
     },
     "featured_products_and_image_N7DjDd": {
@@ -195,6 +217,28 @@
           "kyle-shoulder-bag-black-gunmetal",
           "kyle-lrg-black-gunmetal",
           "tom-zip-med-shoulder-bag-black-gunmetal"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_UkFUfW": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "isla-fisher",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Isla_Fisher_-_Charlotte_Med.jpg",
+        "image_link": "",
+        "header": "Isla Fisher – Press Tour Pick",
+        "subheader": "Classic structure, modern charm, and a Hollywood favorite.",
+        "featured_products": [
+          "charlotte-med-shoulder-bag-espresso-pebble-silver",
+          "charlotte-med-black-gold",
+          "charlotte-med-cherrywood-pebble-gold",
+          "charlotte-sml-black-gold",
+          "charlotte-sml-cherrywood-pebble-gold",
+          "charlotte-sml-satchel-espresso-pebble-silver"
         ],
         "featured_collection": ""
       }
@@ -289,30 +333,6 @@
         "featured_collection": ""
       }
     },
-    "featured_products_and_image_UTxwwj": {
-      "type": "featured-products-and-image",
-      "disabled": true,
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "katherine-lanasa",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/IMG_9748_a59712d8-9bde-4833-8067-ba92bd854ac4.jpg",
-        "image_link": "",
-        "header": "An Emmy moment: Katherine LaNasa",
-        "subheader": "Celebrating her first Emmy, Katherine LaNasa carries Hammitt with timeless grace.",
-        "featured_products": [
-          "soiree-clutch-clutch-soiree-clutch-carrera-blush-brushed-gold",
-          "charlotte-sml-cherrywood-pebble-gold",
-          "charlotte-sml-satchel-espresso-pebble-silver",
-          "charlotte-sml-black-gold",
-          "charlotte-med-shoulder-bag-espresso-pebble-silver",
-          "charlotte-med-cherrywood-pebble-gold",
-          "charlotte-med-black-gold"
-        ],
-        "featured_collection": ""
-      }
-    },
     "featured_products_and_image_EJQ8cC": {
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
@@ -331,28 +351,6 @@
           "charlotte-med-black-gold",
           "charlotte-med-cherrywood-pebble-gold",
           "charlotte-med-shoulder-bag-espresso-pebble-silver"
-        ],
-        "featured_collection": ""
-      }
-    },
-    "featured_products_and_image_UkFUfW": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "isla-fisher",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/Isla_Fisher_-_Charlotte_Med.jpg",
-        "image_link": "",
-        "header": "Isla Fisher – Press Tour Pick",
-        "subheader": "Classic structure, modern charm, and a Hollywood favorite.",
-        "featured_products": [
-          "charlotte-med-shoulder-bag-espresso-pebble-silver",
-          "charlotte-med-black-gold",
-          "charlotte-med-cherrywood-pebble-gold",
-          "charlotte-sml-black-gold",
-          "charlotte-sml-cherrywood-pebble-gold",
-          "charlotte-sml-satchel-espresso-pebble-silver"
         ],
         "featured_collection": ""
       }
@@ -475,13 +473,13 @@
     "main",
     "image_with_text_TWNkJG",
     "image_with_text_navigator_3mM6rF",
+    "featured_products_and_image_UTxwwj",
     "featured_products_and_image_N7DjDd",
     "featured_products_and_image_UkFUfW",
     "featured_products_and_image_URXAyE",
     "featured_products_and_image_n7xGzC",
     "featured_products_and_image_Em4iNp",
     "featured_products_and_image_t3Xgqi",
-    "featured_products_and_image_UTxwwj",
     "featured_products_and_image_EJQ8cC",
     "featured_products_and_image_qcWkYq",
     "featured_products_and_image_d8F4Kg",
