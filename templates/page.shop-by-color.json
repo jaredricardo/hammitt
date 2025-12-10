@@ -28,10 +28,10 @@
         "heading_UxPQrT": {
           "type": "heading",
           "settings": {
-            "heading": "SHOP BY COLOR",
-            "heading_size_mobile": 24,
-            "heading_size_tablet": 30,
-            "heading_size_desktop": 60
+            "heading": "Shop By Color",
+            "heading_size_mobile": 32,
+            "heading_size_tablet": 36,
+            "heading_size_desktop": 72
           }
         }
       },
@@ -106,13 +106,6 @@
             "href": "red"
           }
         },
-        "navigator_gGNNek": {
-          "type": "navigator",
-          "settings": {
-            "title": "Green",
-            "href": "green"
-          }
-        },
         "navigator_9ECwhx": {
           "type": "navigator",
           "settings": {
@@ -120,8 +113,51 @@
             "href": "suede"
           }
         },
+        "navigator_MGWyCE": {
+          "type": "navigator",
+          "settings": {
+            "title": "Velvet",
+            "href": "Velvet"
+          }
+        },
+        "navigator_hy4JGV": {
+          "type": "navigator",
+          "settings": {
+            "title": "Fabric",
+            "href": "Fabric"
+          }
+        },
+        "navigator_Di7zbA": {
+          "type": "navigator",
+          "settings": {
+            "title": "Gold",
+            "href": "Gold"
+          }
+        },
+        "navigator_K8zyjc": {
+          "type": "navigator",
+          "settings": {
+            "title": "Silver ",
+            "href": "Silver "
+          }
+        },
+        "navigator_RYATfy": {
+          "type": "navigator",
+          "settings": {
+            "title": "Gunmetal",
+            "href": "Gunmetal"
+          }
+        },
+        "navigator_gGNNek": {
+          "type": "navigator",
+          "settings": {
+            "title": "Green",
+            "href": "green"
+          }
+        },
         "navigator_QXVfPz": {
           "type": "navigator",
+          "disabled": true,
           "settings": {
             "title": "Clear",
             "href": "clear"
@@ -132,8 +168,13 @@
         "navigator_tDMry4",
         "navigator_cJVxrb",
         "navigator_3wKPKh",
-        "navigator_gGNNek",
         "navigator_9ECwhx",
+        "navigator_MGWyCE",
+        "navigator_hy4JGV",
+        "navigator_Di7zbA",
+        "navigator_K8zyjc",
+        "navigator_RYATfy",
+        "navigator_gGNNek",
         "navigator_QXVfPz"
       ],
       "settings": {
@@ -149,6 +190,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/colo-blk_c384c619-9ba0-491e-af8a-5f60df0864d1.jpg",
+        "image_link": "shopify://collections/black",
         "header": "Black",
         "subheader": "Timeless Sophistication:\nClassic. Confident. Effortlessly cool. Black pieces that go with everything — from workdays to weekends.",
         "featured_products": [],
@@ -163,6 +205,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/colo-brow_741a0275-e76e-4bd3-bb66-1e1c5473a7a4.jpg",
+        "image_link": "shopify://collections/brown",
         "header": "Brown",
         "subheader": "Warm & Grounded:\nInspired by natural tones and everyday ease, brown adds depth and understated luxury to any look.",
         "featured_products": [],
@@ -176,7 +219,8 @@
         "href": "red",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "image": "shopify://shop_images/red-cherrywood_1_1.jpg",
+        "image": "shopify://shop_images/Group_12514.jpg",
+        "image_link": "shopify://collections/red-1",
         "header": "Red & Orange",
         "subheader": "Bold in Every Moment:\nMake a statement with vibrant hues or subdued dark red — the color of passion, power, and unmistakable confidence.",
         "featured_products": [],
@@ -191,22 +235,9 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/green-olive_1_1.jpg",
+        "image_link": "shopify://collections/green",
         "header": "Green",
         "subheader": "Fresh Perspective:\nFrom rich olive to deep forest, green brings balance, vibrance, and a touch of modern edge to your collection.",
-        "featured_products": [],
-        "featured_collection": "green"
-      }
-    },
-    "featured_products_and_image_tPPx73": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "suede",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/colo-raffia_fd4affd6-66cb-4e23-b733-3e73f9703300.jpg",
-        "header": "Suede",
-        "subheader": "Soft Texture, Lasting Impression:\nTactile, timeless, and effortlessly elegant — suede adds dimension and a refined finish to every style.",
         "featured_products": [],
         "featured_collection": "green"
       }
@@ -218,21 +249,99 @@
         "href": "suede",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "image": "shopify://shop_images/colo-brow_6fb70c66-25fb-4ab4-9576-78bf0c687df1.jpg",
+        "image": "shopify://shop_images/shop-color-06.jpg",
+        "image_link": "shopify://collections/suede",
         "header": "Suede",
-        "subheader": "Soft Texture, Lasting Impression:\nTactile, timeless, and effortlessly elegant — suede adds dimension and a refined finish to every style.",
+        "subheader": "Soft Texture, Lasting Impression:\nTactile, timeless, and effortlessly elegant, suede adds dimension and a refined finish to every style.",
         "featured_products": [],
         "featured_collection": "suede"
       }
     },
+    "featured_products_and_image_tPPx73": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Velvet",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/shop-color-01.jpg",
+        "image_link": "shopify://collections/monarch-velvet",
+        "header": "Velvet",
+        "subheader": "Soft to the touch and full of depth. Rich, tactile vibe to every look.",
+        "featured_products": [],
+        "featured_collection": "monarch-velvet"
+      }
+    },
+    "featured_products_and_image_Pe3gA7": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Fabric",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/shop-color-02.jpg",
+        "image_link": "shopify://collections/unique-fabrics",
+        "header": "Fabric",
+        "subheader": "Our fabric styles are all about comfort and versatility. Durable, breathable, and effortlessly cool.",
+        "featured_products": [],
+        "featured_collection": "unique-fabrics"
+      }
+    },
+    "featured_products_and_image_CHeDBF": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Gold",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/colo-raffia_fd4affd6-66cb-4e23-b733-3e73f9703300_1_3.jpg",
+        "image_link": "shopify://collections/gold-collection",
+        "header": "Gold",
+        "subheader": "Gold hardware adds a touch of classic luxury to any bag. It’s the perfect warm-toned accent that elevates your look with a subtle, polished glow.",
+        "featured_products": [],
+        "featured_collection": "gold-collection"
+      }
+    },
+    "featured_products_and_image_bCKGfk": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Silver ",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/colo-raffia_fd4affd6-66cb-4e23-b733-3e73f9703300_1_5.jpg",
+        "image_link": "shopify://collections/silver-collection",
+        "header": "Silver ",
+        "subheader": "Silver hardware offers a sleek, contemporary finish. Clean, minimal, and versatile, it pairs beautifully with both bold and neutral tones.",
+        "featured_products": [],
+        "featured_collection": "silver-collection"
+      }
+    },
+    "featured_products_and_image_LpaWtg": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Gunmetal",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/shop-color-04.jpg",
+        "image_link": "shopify://collections/gunmetal-collection",
+        "header": "Gunmetal",
+        "subheader": "Gunmetal brings a bold, modern edge with its deep, muted shine. It’s the perfect hardware choice for anyone who loves a subtle statement with everyday wearability.",
+        "featured_products": [],
+        "featured_collection": "gunmetal-collection"
+      }
+    },
     "featured_products_and_image_zFkJzh": {
       "type": "featured-products-and-image",
+      "disabled": true,
       "name": "Featured Products + Image",
       "settings": {
         "href": "clear",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/clear-color.jpg",
+        "image_link": "",
         "header": "Clear",
         "subheader": "Modern Transparency:\nSleek and unexpected, clear styles let the details shine. A minimalist statement that feels both fresh and futuristic.",
         "featured_products": [],
@@ -253,6 +362,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Shop Chains",
+            "link_margin_top": 20,
             "link": "shopify://collections/chain-straps",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -277,6 +387,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Shop Charms",
+            "link_margin_top": 20,
             "link": "shopify://collections/bag-charms",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -301,6 +412,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Shop Wallets",
+            "link_margin_top": 20,
             "link": "shopify://collections/wallets",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -427,6 +539,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "UNDER $200",
+            "link_margin_top": 20,
             "link": "shopify://collections/gifts-under-200",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -451,6 +564,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "UNDER $400",
+            "link_margin_top": 20,
             "link": "shopify://collections/gifts-under-400",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -475,6 +589,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "$400 & MORE",
+            "link_margin_top": 20,
             "link": "shopify://collections/gifts-over-400",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -543,6 +658,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Shop Bestsellers",
+            "link_margin_top": 20,
             "link": "shopify://collections/best-selling-bags",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -567,6 +683,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Shop New Arrivals",
+            "link_margin_top": 20,
             "link": "shopify://collections/new-arrivals",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -628,9 +745,13 @@
     "featured_products_and_image_ypGVJ7",
     "featured_products_and_image_dLyba9",
     "featured_products_and_image_6AcR6r",
-    "featured_products_and_image_NMtFda",
-    "featured_products_and_image_tPPx73",
     "featured_products_and_image_DcAEJ4",
+    "featured_products_and_image_tPPx73",
+    "featured_products_and_image_Pe3gA7",
+    "featured_products_and_image_CHeDBF",
+    "featured_products_and_image_bCKGfk",
+    "featured_products_and_image_LpaWtg",
+    "featured_products_and_image_NMtFda",
     "featured_products_and_image_zFkJzh",
     "multicolumn_NAPywa",
     "image_banner_yaK8ix",

@@ -71,6 +71,20 @@
     "image_with_text_navigator_3mM6rF": {
       "type": "image-with-text-navigator",
       "blocks": {
+        "navigator_pqR6pn": {
+          "type": "navigator",
+          "settings": {
+            "title": "Katherine LaNasa",
+            "href": "katherine-lanasa"
+          }
+        },
+        "navigator_6QYWA8": {
+          "type": "navigator",
+          "settings": {
+            "title": "Lizzy Greene",
+            "href": "lizzy-greene"
+          }
+        },
         "navigator_AYa9WG": {
           "type": "navigator",
           "settings": {
@@ -104,21 +118,6 @@
           "settings": {
             "title": "Olivia Munn",
             "href": "olivia-munn"
-          }
-        },
-        "navigator_6QYWA8": {
-          "type": "navigator",
-          "settings": {
-            "title": "Lizzy Greene",
-            "href": "lizzy-greene"
-          }
-        },
-        "navigator_pqR6pn": {
-          "type": "navigator",
-          "disabled": true,
-          "settings": {
-            "title": "Katherine LaNasa",
-            "href": "katherine-lanasa"
           }
         },
         "navigator_wCdxAF": {
@@ -158,13 +157,13 @@
         }
       },
       "block_order": [
+        "navigator_pqR6pn",
+        "navigator_6QYWA8",
         "navigator_AYa9WG",
         "navigator_FNG4kU",
         "navigator_wWrw67",
         "navigator_jbKDtp",
         "navigator_e4mkCP",
-        "navigator_6QYWA8",
-        "navigator_pqR6pn",
         "navigator_wCdxAF",
         "navigator_RkrewV",
         "navigator_VXxGFG",
@@ -177,6 +176,54 @@
         "enable_scroll_to_top": false
       }
     },
+    "featured_products_and_image_UTxwwj": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "katherine-lanasa",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/IMG_9748_a59712d8-9bde-4833-8067-ba92bd854ac4.jpg",
+        "image_link": "shopify://collections/clutch",
+        "header": "An Emmy moment: Katherine LaNasa",
+        "subheader": "Celebrating her first Emmy, Katherine LaNasa carries Hammitt with timeless grace.",
+        "featured_products": [
+          "soiree-clutch-clutch-soiree-clutch-carrera-blush-brushed-gold",
+          "soiree-clutch-carrara-black-brushed-gold",
+          "paul-mini-black-press-bg-red-zip",
+          "paul-mini-bag-charm-espresso-press-silver",
+          "invitation-clutch-clutch-falling-rivets-gold",
+          "invitation-clutch-med-black-brushed-gold",
+          "invitation-clutch-med-midnight-marquise-gunmetal",
+          "invitation-clutch-med-chocolate-diamond-suede-antique-gold",
+          "invitation-clutch-med-monarch-velvet-antique-gold",
+          "invitation-clutch-med-zebra-brushed-gold"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_t3Xgqi": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "lizzy-greene",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/IMG_9372_copy.jpg",
+        "image_link": "shopify://collections/sports-and-music-events",
+        "header": "Lizzy Greene – Red Carpet Glamour",
+        "subheader": "Hammitt Bag Steals the Spotlight on the Red Carpet Premiere.",
+        "featured_products": [
+          "paul-mini-black-press-bg-red-zip",
+          "paul-mini-bag-charm-espresso-press-silver",
+          "montana-pendant-midnight-marquise-gunmetal",
+          "montana-pendant-noir-diamond-suede-gunmetal",
+          "montana-pendant-zebra-brushed-gold",
+          "montana-pendant-chocolate-diamond-suede-antique-gold"
+        ],
+        "featured_collection": ""
+      }
+    },
     "featured_products_and_image_N7DjDd": {
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
@@ -185,7 +232,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/Jenna_Ortega_-_Invitation_Clutch.jpg",
-        "image_link": "",
+        "image_link": "shopify://collections/a-night-out",
         "header": "Jenna Ortega – From Street to Night Out",
         "subheader": "Edgy yet effortless, Jenna turns heads with very stylish moment.",
         "featured_products": [
@@ -199,6 +246,28 @@
         "featured_collection": ""
       }
     },
+    "featured_products_and_image_UkFUfW": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "isla-fisher",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Isla_Fisher_-_Charlotte_Med.jpg",
+        "image_link": "shopify://collections/charlotte",
+        "header": "Isla Fisher – Press Tour Pick",
+        "subheader": "Classic structure, modern charm, and a Hollywood favorite.",
+        "featured_products": [
+          "charlotte-med-shoulder-bag-espresso-pebble-silver",
+          "charlotte-med-black-gold",
+          "charlotte-med-cherrywood-pebble-gold",
+          "charlotte-sml-black-gold",
+          "charlotte-sml-cherrywood-pebble-gold",
+          "charlotte-sml-satchel-espresso-pebble-silver"
+        ],
+        "featured_collection": ""
+      }
+    },
     "featured_products_and_image_URXAyE": {
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
@@ -207,7 +276,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/Rectangle_760.jpg",
-        "image_link": "",
+        "image_link": "shopify://collections/meredith",
         "header": "Barbara Palvin – Confident & approachable",
         "subheader": "As seen in Venice — iconic bags for iconic moments.",
         "featured_products": [
@@ -229,7 +298,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/8Y0A0789_1.jpg",
-        "image_link": "",
+        "image_link": "shopify://collections/unique-fabrics",
         "header": "Lola Tung – From Paris with Style",
         "subheader": "In Paris for The Summer I Turned Pretty finale, Lola Tung completes her look with Hammitt.",
         "featured_products": [
@@ -249,7 +318,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/IMG_8701.jpg",
-        "image_link": "",
+        "image_link": "shopify://collections/meredith",
         "header": "Olivia Munn – Street chic",
         "subheader": "Tansforms street style into a statement of effortless luxury.",
         "featured_products": [
@@ -265,54 +334,6 @@
         "featured_collection": ""
       }
     },
-    "featured_products_and_image_t3Xgqi": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "lizzy-greene",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/IMG_9372_copy.jpg",
-        "image_link": "",
-        "header": "Lizzy Greene – Red Carpet Glamour",
-        "subheader": "Hammitt Bag Steals the Spotlight on the Red Carpet Premiere.",
-        "featured_products": [
-          "paul-mini-black-press-bg-red-zip",
-          "paul-mini-bag-charm-ruby-calf-hair-brushed-gold",
-          "metal-chain-shoulder-strap-straps-brushed-gold",
-          "paul-short-shoulder-bag-black-press-brushed-gold-red-zip",
-          "paul-lrg-shopping-bag-black-press-brushed-gold-red-zip",
-          "paul-lrg-shopping-bag-black-press-gunmetal",
-          "paul-pocket-pouch-black-press-brushed-gold-red-zip",
-          "paul-pocket-pouch-black-press-gunmetal"
-        ],
-        "featured_collection": ""
-      }
-    },
-    "featured_products_and_image_UTxwwj": {
-      "type": "featured-products-and-image",
-      "disabled": true,
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "katherine-lanasa",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/IMG_9748_a59712d8-9bde-4833-8067-ba92bd854ac4.jpg",
-        "image_link": "",
-        "header": "An Emmy moment: Katherine LaNasa",
-        "subheader": "Celebrating her first Emmy, Katherine LaNasa carries Hammitt with timeless grace.",
-        "featured_products": [
-          "soiree-clutch-clutch-soiree-clutch-carrera-blush-brushed-gold",
-          "charlotte-sml-cherrywood-pebble-gold",
-          "charlotte-sml-satchel-espresso-pebble-silver",
-          "charlotte-sml-black-gold",
-          "charlotte-med-shoulder-bag-espresso-pebble-silver",
-          "charlotte-med-cherrywood-pebble-gold",
-          "charlotte-med-black-gold"
-        ],
-        "featured_collection": ""
-      }
-    },
     "featured_products_and_image_EJQ8cC": {
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
@@ -321,7 +342,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/094ECF11-2D8F-4154-8F11-30C450D4DD1B.jpg",
-        "image_link": "",
+        "image_link": "shopify://collections/charlotte",
         "header": " Allison Janney – Press Tour Perfection",
         "subheader": "The award-winning actress was seen carrying our signature silhouette on The Diplomat press tour.",
         "featured_products": [
@@ -335,28 +356,6 @@
         "featured_collection": ""
       }
     },
-    "featured_products_and_image_UkFUfW": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "isla-fisher",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/Isla_Fisher_-_Charlotte_Med.jpg",
-        "image_link": "",
-        "header": "Isla Fisher – Press Tour Pick",
-        "subheader": "Classic structure, modern charm, and a Hollywood favorite.",
-        "featured_products": [
-          "charlotte-med-shoulder-bag-espresso-pebble-silver",
-          "charlotte-med-black-gold",
-          "charlotte-med-cherrywood-pebble-gold",
-          "charlotte-sml-black-gold",
-          "charlotte-sml-cherrywood-pebble-gold",
-          "charlotte-sml-satchel-espresso-pebble-silver"
-        ],
-        "featured_collection": ""
-      }
-    },
     "featured_products_and_image_qcWkYq": {
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
@@ -365,7 +364,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/IMG_5489.png",
-        "image_link": "",
+        "image_link": "shopify://collections/on-the-go",
         "header": "Angelina Jolie – On-the-Go Mom Mode",
         "subheader": "Classic, functional, and always elevated—Angelina keeps it sleek while managing life in motion with a Hammitt tote.",
         "featured_products": [
@@ -387,7 +386,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/IMG_5489-1.png",
-        "image_link": "",
+        "image_link": "shopify://collections/everyday-bags",
         "header": "Abigail Spencer – A Fashion Week Favorite",
         "subheader": "Chic, compact, and camera-ready, Abigail stuns with a Hammitt carry-all, just steps from the runway.",
         "featured_products": [
@@ -408,7 +407,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/IMG_5489-2.png",
-        "image_link": "",
+        "image_link": "shopify://collections/tom-zip",
         "header": "Jamie Chung – Everyday Elegance",
         "subheader": "From errands to casual meetings, Jamie’s laid-back cool proves a Hammitt makes the perfect pop of color.",
         "featured_products": [
@@ -437,15 +436,18 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/IMG_3029_4_1.jpg",
-        "image_link": "",
+        "image_link": "shopify://collections/tim",
         "header": "Vita Sidorkina - Vacation Chic",
         "subheader": "Sun-drenched destinations, effortless style. Discover how Vita Sidorkina brings Hammitt along for every getaway.",
         "featured_products": [
-          "tim-med-shoulder-bag-lime-zest-brushed-silver",
-          "becker-sml-shoulder-bag-ribbon-weave-brushed-gold",
-          "tom-zip-med-shoulder-bag-black-brushed-gold-red-zip",
-          "kyle-shoulder-bag-calla-lily-white-brushed-gold",
-          "tom-zip-med-shoulder-bag-lime-zest-brushed-silver"
+          "tim-med-shoulder-bag-black-brushed-gold",
+          "tim-med-shoulder-bag-black-gunmetal",
+          "tim-med-shoulder-bag-chocolate-diamond-suede-antique-gold",
+          "tim-med-shoulder-bag-espresso-pebble-weave-silver",
+          "tim-med-shoulder-bag-espresso-pebble-silver",
+          "tim-noir-diamond-suede-gunmetal",
+          "tim-med-shoulder-bag-cherrywood-pebble-brushed-gold",
+          "tim-med-shoulder-bag-dune-silver"
         ],
         "featured_collection": ""
       }
@@ -475,13 +477,13 @@
     "main",
     "image_with_text_TWNkJG",
     "image_with_text_navigator_3mM6rF",
+    "featured_products_and_image_UTxwwj",
+    "featured_products_and_image_t3Xgqi",
     "featured_products_and_image_N7DjDd",
     "featured_products_and_image_UkFUfW",
     "featured_products_and_image_URXAyE",
     "featured_products_and_image_n7xGzC",
     "featured_products_and_image_Em4iNp",
-    "featured_products_and_image_t3Xgqi",
-    "featured_products_and_image_UTxwwj",
     "featured_products_and_image_EJQ8cC",
     "featured_products_and_image_qcWkYq",
     "featured_products_and_image_d8F4Kg",
