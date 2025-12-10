@@ -201,12 +201,36 @@
 
   assign initial_iterable_products_per_page = section.settings.products_per_page
   assign final_products_per_page = initial_iterable_products_per_page | minus: merch_box_one_columns | minus: merch_box_two_columns
+  
+  ####### if free gift multi select is active, change some of the UI 
+
+  if settings.enable_free_multi_gift_select == true
+
+    assign has_reached_gift_threshold = false
+    assign cart_contains_gift_item = false
+    assign converted_threshold_price = settings.free_multi_gift_select_threshold_price | times: 100
+
+    if cart.total_price >= converted_threshold_price
+
+      assign has_reached_gift_threshold = true
+
+      # in this instance it is ok to use product_id instead of variant because we dont actually use variants at Hammitt
+      for item in cart.items
+        for product in settings.free_multi_gift_select_collection.products
+          if item.product_id == product.id
+            assign cart_contains_gift_item = true
+          endif
+        endfor
+      endfor
+
+    endif
+  endif
 
 -%}
 
 <script>
-  console.log('????????????')
-  console.log({{ section.settings.enable_gifting_grid | json }})
+  console.log('G------------------------')
+  console.log({{ cart_contains_gift_item | json }})
 </script>
 
 <div class="section-{{ section.id }}-padding col-wrap">
@@ -309,7 +333,7 @@
               {% comment %} MERCH BOX LOGIC / HANDLING {% endcomment %}
 
               {% comment %} MERCH BOX ONE {% endcomment %}
-              {% unless filters_are_active or paginate.current_page > 1 %}
+              {% unless filters_are_active or paginate.current_page > 1 or section.settings.enable_gifting_grid %}
                 {% if merch_box_one and merch_box_one.enable_merch_box %}
 
                   {% if merch_box_one.number_of_columns == 1 and merch_box_one.position_in_grid == forloop.index %}
@@ -387,7 +411,7 @@
               {% endunless %}
 
               {% comment %} Additional Merch Boxes {% endcomment %}
-              {% unless additional_merch_boxes == blank or filters_are_active %}
+              {% unless additional_merch_boxes == blank or filters_are_active or section.settings.enable_gifting_grid %}
                 {% if paginate.current_page > 1 %}
                   {% for additional_merch_box in additional_merch_boxes %}
                     {% if additional_merch_box.page_to_appear_on == paginate.current_page %}
@@ -435,7 +459,11 @@
                   index: forloop.index,
                   isIDayPromotionProduct: IDayPromotionProduct,
                   isPreOrderProduct: isPreOrderProduct,
-                  currentPage: paginate.current_page
+                  currentPage: paginate.current_page,
+                  enable_gifting_card: section.settings.enable_gifting_grid,
+                  has_reached_gift_threshold: has_reached_gift_threshold,
+                  cart_contains_gift_item: cart_contains_gift_item,
+                  converted_threshold_price: converted_threshold_price
                 %}
               </li>
             
@@ -506,6 +534,11 @@
     }
 
   })
+</script>
+
+<script>
+  console.log('????')
+  console.log({{ section.settings.enable_gifting_grid | json }})
 </script>
 
 {% schema %}
