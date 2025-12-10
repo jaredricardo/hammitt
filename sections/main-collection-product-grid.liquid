@@ -204,14 +204,10 @@
 
 -%}
 
-{% comment %} <script>
+<script>
   console.log('????????????')
-  console.log({{ paginate.current_page | json }})
-  console.log({{ merch_box_one_columns | json }})
-  console.log({{ merch_box_two_columns | json }})
-  console.log({{ initial_iterable_products_per_page | json }})
-  console.log({{ final_products_per_page | json }})
-</script> {% endcomment %}
+  console.log({{ section.settings.enable_gifting_grid | json }})
+</script>
 
 <div class="section-{{ section.id }}-padding col-wrap">
   {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
@@ -655,6 +651,13 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_gifting_grid",
+      "default": false,
+      "label": "Enable Gifting Grid Product Carts",
+      "info": "**Should only be used on the gifting collection template"
     }
   ],
   "blocks": [
@@ -682,7 +685,7 @@
           "default": 3
         },
 		{
-          "type": "select",
+      "type": "select",
           "id": "width",
           "label": "Width",
 		  "default":"1x",
