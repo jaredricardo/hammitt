@@ -1192,7 +1192,9 @@ const addToCart = (itemsObj) => {
     itemsObj.sections_url = "/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items";
   }
 
-  fetch('/cart/add.js', {
+  console.log(itemsObj)
+
+  fetch(window.Shopify.routes.root + 'cart/add.js', {
     body: JSON.stringify(itemsObj),
     credentials: 'same-origin',
     headers: {
@@ -1487,6 +1489,7 @@ function updateCart(params) {
   })
   .then(response => response.json())
   .then(function(cart) {
+    console.log('cart update call 2')
     cartUpdate(cart);
     const onCartPage = window.location.href.indexOf('/cart') > -1;
     if(onCartPage) {
@@ -1511,6 +1514,7 @@ checkGWPs(false)
 // });
 
 const cartUpdate = (json = false) => {
+  console.log('CALLING CART UPDATE !!!!!!!!!')
   const cartUpdates = [
     {
       section: "cart-drawer",
@@ -1519,6 +1523,10 @@ const cartUpdate = (json = false) => {
     {
       section: "cart-icon-bubble",
       elements: [".cart-count-bubble"]
+    },
+    {
+      section: "main-collection-product-grid",
+      elements: ['#product-grid']
     }
   ];
 
@@ -1534,7 +1542,6 @@ const cartUpdate = (json = false) => {
       elements: ['#main-cart-footer']
     });
   }
-  
 
   const monogramElement = document.querySelector('#PopupModal-monogram');
   if(monogramElement && monogramElement.hasAttribute('open')) {
@@ -1549,8 +1556,17 @@ const cartUpdate = (json = false) => {
     update.elements.forEach(element => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(json.sections[update.section], "text/html");
+      if(element == "#product-grid") {
+        console.log('/////')
+        console.log(doc)
+      }
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
+
+      // console.log('el old')
+      // console.log(elOld)
+      // console.log('el new')
+      // console.log(elNew)
 
       if(elOld == null || elNew == null) return
 

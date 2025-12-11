@@ -254,7 +254,6 @@ class CartItems extends HTMLElement {
       this.classList.toggle('is-empty', parsedState.item_count === 0);
       const cartFooter = document.querySelector('#main-cart-footer');
       if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
-
       cartUpdate(parsedState);
       
       this.updateLiveRegions(line, parsedState.item_count);
