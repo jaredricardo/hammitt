@@ -40,21 +40,100 @@
         "padding_bottom_mobile": 0
       }
     },
-    "main_collection_product_grid_free_gifts_L9RVfe": {
-      "type": "main-collection-product-grid-free-gifts",
+    "product-grid": {
+      "type": "main-collection-product-grid",
       "blocks": {
-        "collection_filter_link_KktTHW": {
+        "collection_filter_link_eh737q": {
           "type": "collection-filter-link",
           "settings": {
             "collection": "gifts",
             "title": "Gifting"
           }
+        },
+        "collection_filter_link_MHHCt7": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "new-arrivals",
+            "title": "New In"
+          }
+        },
+        "collection_filter_link_gwYa7K": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "best-selling-bags",
+            "title": "Bestsellers"
+          }
+        },
+        "collection_filter_link_GM3dJ9": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "satchel-shoulder-bag",
+            "title": "Shoulder Bags"
+          }
+        },
+        "collection_filter_link_yU8BjT": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "cross-body",
+            "title": "Crossbody Bags"
+          }
+        },
+        "collection_filter_link_djJjwe": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "clutch",
+            "title": "Clutches"
+          }
+        },
+        "collection_filter_link_FB87Lz": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "wallets",
+            "title": "Wallets"
+          }
+        },
+        "collection_filter_link_V7hQaf": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "satchel-shoulder-bag",
+            "title": "Satchels"
+          }
+        },
+        "collection_filter_link_Yq77Rz": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "tote",
+            "title": "Totes"
+          }
+        },
+        "collection_filter_link_AkqQNh": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "backpacks",
+            "title": "Backpacks"
+          }
+        },
+        "collection_filter_link_prpfV4": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "accessories-view-all",
+            "title": "Accessories"
+          }
         }
       },
       "block_order": [
-        "collection_filter_link_KktTHW"
+        "collection_filter_link_eh737q",
+        "collection_filter_link_MHHCt7",
+        "collection_filter_link_gwYa7K",
+        "collection_filter_link_GM3dJ9",
+        "collection_filter_link_yU8BjT",
+        "collection_filter_link_djJjwe",
+        "collection_filter_link_FB87Lz",
+        "collection_filter_link_V7hQaf",
+        "collection_filter_link_Yq77Rz",
+        "collection_filter_link_AkqQNh",
+        "collection_filter_link_prpfV4"
       ],
-      "name": "Product Grid Free Gifts",
       "settings": {
         "use_new_filters": true,
         "products_per_page": 24,
@@ -228,7 +307,7 @@
   },
   "order": [
     "banner",
-    "main_collection_product_grid_free_gifts_L9RVfe",
+    "product-grid",
     "165247887588923b1b",
     "banner-2",
     "grid_collection_custom_BhYtjA"

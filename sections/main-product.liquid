@@ -115,9 +115,7 @@
 
   endif
 
-
   #######
-
 
   assign core_colors = linklists.colors-core.links | map: 'title' | join: ','
   assign limited_colors = linklists.colors-limited-edition.links | map: 'title' | join: ','
@@ -164,6 +162,30 @@
       assign isBadgeProduct = true 
     endif
   endfor
+
+  ### multi select GWP button text logic
+
+  if product.tags contains 'multi-select-gwp' and settings.enable_free_multi_gift_select
+
+    assign has_reached_gift_threshold = false
+    assign cart_contains_gift_item = false
+    assign converted_threshold_price = settings.free_multi_gift_select_threshold_price | times: 100
+
+    if cart.total_price >= converted_threshold_price
+
+      assign has_reached_gift_threshold = true
+
+      # in this instance it is ok to use product_id instead of variant because we dont actually use variants at Hammitt
+      for item in cart.items
+        for product in settings.free_multi_gift_select_collection.products
+          if item.product_id == product.id
+            assign cart_contains_gift_item = true
+          endif
+        endfor
+      endfor
+
+    endif
+  endif
   
 -%}
 
@@ -1137,7 +1159,15 @@
                               {% if isPreOrderProduct and product.metafields.custom.preorder_key%}
                                 {% if product.metafields.custom.preorder_cta_text %} {{ product.metafields.custom.preorder_cta_text }} {% else %} Pre Order {% endif %}
                               {% else %}
-                                {{ 'products.product.add_to_cart' | t }}
+                                  {% if has_reached_gift_threshold == false %}
+                                      Add to Cart or Unlock Free Gift with $395+
+                                    {% elsif has_reached_gift_threshold == true and cart_contains_gift_item == false %}
+                                      You unlocked this Free Gift! Add to Cart
+                                    {% elsif has_reached_gift_threshold == true and cart_contains_gift_item == true %}
+                                      {{ 'products.product.add_to_cart' | t }}
+                                    {% else %}
+                                      {{ 'products.product.add_to_cart' | t }}
+                                  {% endif %}
                               {% endif %}
                             {%- else -%}
                               {{ 'products.product.sold_out' | t }}
@@ -1398,6 +1428,24 @@
     });
   });
 </script>
+
+{% if product.tags contains 'multi-select-gwp' and settings.enable_free_multi_gift_select == true %}
+  <script>
+    document.addEventListener('cart:updated', () => {
+      fetch(window.location.pathname + "?sections={{ section.id }}")
+        .then(res => res.json())
+        .then(data => {
+          const parser = new DOMParser()
+          const doc = parser.parseFromString(data['{{ section.id }}'], 'text/html')
+          const currentButton = document.querySelector('.product-form__buttons button.product-form__submit')  
+          const newButton = doc.querySelector('.product-form__buttons button.product-form__submit')
+          if(!newButton || !currentButton) return
+          currentButton.innerHTML = newButton.innerHTML
+        })
+
+    })
+  </script>
+{% endif %}
   
 <script>
   window.coreColors = {{ core_colors | split: ',' | json }};
