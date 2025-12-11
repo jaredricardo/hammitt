@@ -1160,7 +1160,7 @@
                                 {% if product.metafields.custom.preorder_cta_text %} {{ product.metafields.custom.preorder_cta_text }} {% else %} Pre Order {% endif %}
                               {% else %}
                                   {% if has_reached_gift_threshold == false %}
-                                      Add to Cart or Unlock Free Gift with $395+
+                                      Add to Cart or Unlock free gift with {{ converted_threshold_price | money_without_trailing_zeros }}+
                                     {% elsif has_reached_gift_threshold == true and cart_contains_gift_item == false %}
                                       You unlocked this Free Gift! Add to Cart
                                     {% elsif has_reached_gift_threshold == true and cart_contains_gift_item == true %}
