@@ -630,8 +630,6 @@ class FreeShippingGoal extends HTMLElement {
   connectedCallback() {
     this.updateShippingGloal(Number(this.dataset.cartTotal));
     document.addEventListener('cart:updated', (event) => {
-      console.log('?????????')
-      console.log(event.detail.cart)
       this.updateShippingGloal(event.detail.cart.items_subtotal_price);
     });
   }

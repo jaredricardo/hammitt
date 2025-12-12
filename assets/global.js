@@ -1192,8 +1192,6 @@ const addToCart = (itemsObj) => {
     itemsObj.sections_url = "/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items";
   }
 
-  console.log(itemsObj)
-
   fetch(window.Shopify.routes.root + 'cart/add.js', {
     body: JSON.stringify(itemsObj),
     credentials: 'same-origin',
