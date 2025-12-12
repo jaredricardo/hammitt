@@ -91,11 +91,6 @@
 
 -%}
 
-<script>
-  console.log('?????????')
-  console.log({{ has_reached_threshold | json }})
-</script>
-
 {% if settings.enable_free_gift_wrap %}
   <style>
     .free-gift-wrap-message-html {
@@ -372,7 +367,8 @@
         <progress-bar class="progress-bar" data-value="{{ cart_price_towards_free_gift | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
       </free-shipping-goal>
     {% elsif settings.enable_free_multi_gift_select and settings.free_multi_gift_use_qualifying_tag %}
-      <style>
+      <free-shipping-goal id="using-qualifying-tag">
+       <style>
         #using-qualifying-tag progress-bar:before {
          --scale-x: {{ percentage }}%;
         }
@@ -382,7 +378,6 @@
           }
         {% endif %}
       </style>
-      <free-shipping-goal id="using-qualifying-tag">
         <span class="free-shipping-goal__label h7">
           {% if has_reached_threshold == false %}
            You are {{ settings.free_multi_gift_select_threshold_price | times: 100 | minus: cart_price_towards_free_gift | money_without_trailing_zeros }} away from a FREE gift!

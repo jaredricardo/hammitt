@@ -1527,8 +1527,11 @@ const cartUpdate = (json = false) => {
 
   if (document.querySelector('#using-qualifying-tag')) {
     const cartDrawerSection = cartUpdates.find(section => section.section === "cart-drawer");
-    if (cartDrawerSection && !cartDrawerSection.elements.includes(".drawer__header")) {
-      cartDrawerSection.elements.push(".drawer__header");
+    if (cartDrawerSection && !cartDrawerSection.elements.includes(".drawer__header free-shipping-goal")) {
+      cartDrawerSection.elements.push(".drawer__header free-shipping-goal");
+    }
+     if (cartDrawerSection && !cartDrawerSection.elements.includes(".drawer__header progress-bar")) {
+      cartDrawerSection.elements.push(".drawer__header progress-bar");
     }
   }
 
