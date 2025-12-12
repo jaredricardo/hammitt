@@ -1612,6 +1612,15 @@ const cartUpdate = (json = false) => {
 
     cartUpsellSwiper();
 
+    // force swiper update on gift box section if its in cart
+
+    if(document.querySelector('gift-box-section .swiper.gift-box--swiper') != null) {
+      const carousel = document.querySelector('gift-box-section .swiper.gift-box--swiper');
+      const json = JSON.parse(carousel.getAttribute('data-json'));
+      const swiper = new Swiper(carousel, json)
+      console.log('////// ran swiper init /////')
+    }
+
    fetch(window.Shopify.routes.root + 'cart.js')
     .then(response =>
       response.json(),
