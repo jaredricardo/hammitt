@@ -422,7 +422,7 @@
               {% endunless %}
 
               {% comment %} Additional Merch Boxes {% endcomment %}
-              {% unless additional_merch_boxes == blank or filters_are_active or section.settings.enable_gifting_grid %}
+              {% unless additional_merch_boxes == blank or filters_are_active %}
                 {% if paginate.current_page > 1 %}
                   {% for additional_merch_box in additional_merch_boxes %}
                     {% if additional_merch_box.page_to_appear_on == paginate.current_page %}
