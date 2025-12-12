@@ -42,6 +42,12 @@
             assign badge_tag = settings.only_a_few_left_text
         endif
 
+        if product.tags contains 'Seasonal Favorites 25' and special_tag_assigned == false
+            assign special_tag_assigned = true
+            assign has_seasonal_favorite_tag = true
+            assign badge_tag = 'Seasonal Favorite'
+        endif
+
         if product.tags contains 'best-seller' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign has_best_seller_tag = true
@@ -112,6 +118,11 @@
             <span class="badge red-badge">
                 {% render 'icon-timer' %}
                 {{ settings.only_a_few_left_text }}
+            </span>
+        {% elsif has_seasonal_favorite_tag == true %}
+            <span class="badge red-badge">
+                {% render 'icon-limited-edition' %}
+                {{ badge_tag }}
             </span>
         {% elsif has_best_seller_tag == true %}
             <span class="badge">
