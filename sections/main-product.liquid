@@ -170,8 +170,24 @@
     assign has_reached_gift_threshold = false
     assign cart_contains_gift_item = false
     assign converted_threshold_price = settings.free_multi_gift_select_threshold_price | times: 100
+    assign cart_price_towards_free_gift = cart.total_price
 
-    if cart.total_price >= converted_threshold_price
+    if settings.free_multi_gift_use_qualifying_tag
+
+      assign qualifying_tag = settings.free_multi_gift_qualifying_tag
+      assign cart_price_towards_free_gift = 0
+
+      for item in cart.items
+        if item.product.tags contains qualifying_tag
+          assign cart_price_towards_free_gift = cart_price_towards_free_gift | plus: item.final_line_price
+        endif
+      endfor
+
+      assign cart_price_towards_free_gift = cart_price_towards_free_gift
+
+    endif
+
+    if cart_price_towards_free_gift >= converted_threshold_price
 
       assign has_reached_gift_threshold = true
 
@@ -188,6 +204,12 @@
   endif
   
 -%}
+
+<script>
+  console.log('/////')
+  console.log({{ cart.total_price | json }})
+  console.log({{ cart_price_towards_free_gift | json }})
+</script>
 
 {% comment %} FOR EE GWP  {% endcomment %}
 {% liquid

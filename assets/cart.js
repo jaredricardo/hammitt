@@ -626,15 +626,18 @@ class FreeShippingGoal extends HTMLElement {
     this.progress = this.querySelector('progress-bar');
     this.money_format = window.Shopify.money_format;
   }
-
+ 
   connectedCallback() {
     this.updateShippingGloal(Number(this.dataset.cartTotal));
     document.addEventListener('cart:updated', (event) => {
+      console.log('?????????')
+      console.log(event.detail.cart)
       this.updateShippingGloal(event.detail.cart.items_subtotal_price);
     });
   }
 
   updateShippingGloal(amount) {
+    if(document.querySelector('#using-qualifying-tag')) return
     this.cartTotal = amount / 100;
     this.goalLeft = this.goal - this.cartTotal;
     this.goalDone = this.goalLeft <= 0;

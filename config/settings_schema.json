@@ -1615,6 +1615,24 @@
         "label": "Free Gift Select Product Type Text (progress bar)",
         "info": "This text comes after the 'spend $x.xx more to receive...[product type]' in the progress bar.",
         "default": "a FREE bag charm"
+      },
+      {
+        "type": "header",
+        "content": "Qualifying tag options",
+        "info": "The following tag will qualify products for the free gift, and it will NO LONGER USE the regular cart total."
+      },
+      {
+        "type": "checkbox",
+        "id": "free_multi_gift_use_qualifying_tag", 
+        "label": "Use qualifying tag?",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "free_multi_gift_qualifying_tag",
+        "label": "Qualifying tag",
+        "info": "Products with this tag will qualify for the free gift when added to cart. A running total of only these products will be used to determine eligibility."
+        
       }
     ]
   }

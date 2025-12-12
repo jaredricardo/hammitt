@@ -1489,7 +1489,6 @@ function updateCart(params) {
   })
   .then(response => response.json())
   .then(function(cart) {
-    console.log('cart update call 2')
     cartUpdate(cart);
     const onCartPage = window.location.href.indexOf('/cart') > -1;
     if(onCartPage) {
@@ -1523,12 +1522,15 @@ const cartUpdate = (json = false) => {
     {
       section: "cart-icon-bubble",
       elements: [".cart-count-bubble"]
-    },
-    {
-      section: "main-collection-product-grid",
-      elements: ['#product-grid']
     }
   ];
+
+  if (document.querySelector('#using-qualifying-tag')) {
+    const cartDrawerSection = cartUpdates.find(section => section.section === "cart-drawer");
+    if (cartDrawerSection && !cartDrawerSection.elements.includes(".drawer__header")) {
+      cartDrawerSection.elements.push(".drawer__header");
+    }
+  }
 
   const mainCart = document.querySelector('.cart-main');
 
@@ -1556,18 +1558,9 @@ const cartUpdate = (json = false) => {
     update.elements.forEach(element => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(json.sections[update.section], "text/html");
-      if(element == "#product-grid") {
-        console.log('/////')
-        console.log(doc)
-      }
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
-
-      // console.log('el old')
-      // console.log(elOld)
-      // console.log('el new')
-      // console.log(elNew)
-
+      
       if(elOld == null || elNew == null) return
 
       if(element == '.jr-temp-single-gwp') {

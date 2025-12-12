@@ -3,6 +3,22 @@
 {%- liquid
   assign appear_delay = 1
   assign has_gift_note = false
+  assign cart_price_towards_free_gift = cart.total_price
+
+  if settings.free_multi_gift_use_qualifying_tag
+
+    assign qualifying_tag = settings.free_multi_gift_qualifying_tag
+    assign cart_price_towards_free_gift = 0
+
+    for item in cart.items
+      if item.product.tags contains qualifying_tag
+        assign cart_price_towards_free_gift = cart_price_towards_free_gift | plus: item.final_line_price
+      endif
+    endfor
+
+    assign cart_price_towards_free_gift = cart_price_towards_free_gift
+
+  endif
 
   # EE GWP
   assign EEGWPAddOnId = settings.ee_gwp_product.selected_or_first_available_variant.id
@@ -35,7 +51,7 @@
     assign converted_gift_wrap_threshold_price = settings.free_gift_wrap_threshold_price | times: 100
     assign gift_wrap_product = all_products[settings.free_gift_wrap_product]
 
-    if cart.total_price > converted_gift_wrap_threshold_price
+    if cart_price_towards_free_gift >= converted_gift_wrap_threshold_price
 
       assign has_reached_gift_wrap_threshold = true
 
@@ -55,7 +71,7 @@
     assign cart_contains_gift_item = false
     assign converted_threshold_price = settings.free_multi_gift_select_threshold_price | times: 100
 
-    if cart.total_price >= converted_threshold_price
+    if cart_price_towards_free_gift >= converted_threshold_price
 
       assign has_reached_threshold = true
 
@@ -69,9 +85,16 @@
       endfor
 
     endif
+
+
   endif
 
 -%}
+
+<script>
+  console.log('?????????')
+  console.log({{ has_reached_threshold | json }})
+</script>
 
 {% if settings.enable_free_gift_wrap %}
   <style>
@@ -292,14 +315,14 @@
       else 
 
         assign required_amount = settings.freeShippingThreshold | times: 100
-        assign amount_needed = required_amount | minus: cart.total_price
-        assign percentage = required_amount | minus: cart.total_price | times: 100.0 | divided_by: required_amount | minus: 100 | abs | round | at_most: 100
+        assign amount_needed = required_amount | minus: cart_price_towards_free_gift
+        assign percentage = required_amount | minus: cart_price_towards_free_gift | times: 100.0 | divided_by: required_amount | minus: 100 | abs | round | at_most: 100
 
       endif
    
     %}
       
-    <strong data-empty-div class="drawer__title h7 display-block  {% if cart.item_count == 0 %}  drawer_heading {% else %} hidden {% endif %}">Your cart is currently empty</strong>
+    <strong data-empty-div class="drawer__title h7 display-block {% if cart.item_count == 0 %} drawer_heading {% else %} hidden {% endif %} {% if cart.item_count > 0 %} hidden {% endif %}">Your cart is currently empty</strong>
     {% if settings.gwp_enabled %}
       {% comment %} temporary solution for a single GWP, needs to be expanded to work with animation as well as multiple GWPS {% endcomment %}
       <style>
@@ -317,69 +340,92 @@
         }
         
       </style>
-        <div class="jr-temp-single-gwp">
-          {% if cart.total_price <= required_amount_free_shipping and cart.item_count > 0 %}
-            {% assign percentage = required_amount_free_shipping | minus: cart.total_price | times: 100.0 | divided_by: required_amount_free_shipping | minus: 100 | abs | round | at_most: 100 %}
-            {% assign amount_left = required_amount_free_shipping | minus: cart.total_price  %}
-            <p>Spend <b>{{ amount_left | money_without_trailing_zeros }}</b> more to reach <b>Free Shipping!</b></p>
-            <progress-bar class="progress-bar" data-percentage="{{ percentage }}" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}"></progress-bar>
-          {% endif %}
-          {% if cart.total_price > required_amount_free_shipping and cart.total_price < required_amount_gwp1 %}
-            {% assign percentage = required_amount_gwp1 | minus: cart.total_price | times: 100.0 | divided_by: required_amount_gwp1 | minus: 100 | abs | round | at_most: 100 %}
-            {% assign amount_left = required_amount_gwp1 | minus: cart.total_price  %}
-            <p>You’ve received <b>Free Shipping!</b></p>
-            <p>You are <b>{{ amount_left | money_without_trailing_zeros }}</b> away from a <b>Free {{ settings.gwp_product.title }}</b></p>
-            <progress-bar class="progress-bar" data-percentage="{{ percentage }}" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}"></progress-bar>
-          {% endif %}
-          {% if cart.total_price >= required_amount_gwp1 %}
-            {% assign percentage = '100' %}
-            <p>You've earned <b>Free Shiping</b> and a <b>Free {{ settings.gwp_product.title }}</b></p>
-            <progress-bar style="margin-top: 1rem;" data-percentage="{{ percentage }}" class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}"></progress-bar>
-          {% endif %}
-          <style id="temp-single-psuedo">
-            .jr-temp-single-gwp .progress-bar:before {
-              width: {{ percentage }}% !important;
-            }
-          </style>
-        </div>
+      <div class="jr-temp-single-gwp">
+        {% if cart_price_towards_free_gift <= required_amount_free_shipping and cart.item_count > 0 %}
+          {% assign percentage = required_amount_free_shipping | minus: cart_price_towards_free_gift | times: 100.0 | divided_by: required_amount_free_shipping | minus: 100 | abs | round | at_most: 100 %}
+          {% assign amount_left = required_amount_free_shipping | minus: cart_price_towards_free_gift %}
+          <p>Spend <b>{{ amount_left | money_without_trailing_zeros }}</b> more to reach <b>Free Shipping!</b></p>
+          <progress-bar class="progress-bar" data-percentage="{{ percentage }}" data-value="{{ cart_price_towards_free_gift | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}"></progress-bar>
+        {% endif %}
+        {% if cart_price_towards_free_gift > required_amount_free_shipping and cart_price_towards_free_gift < required_amount_gwp1 %}
+          {% assign percentage = required_amount_gwp1 | minus: cart_price_towards_free_gift | times: 100.0 | divided_by: required_amount_gwp1 | minus: 100 | abs | round | at_most: 100 %}
+          {% assign amount_left = required_amount_gwp1 | minus: cart_price_towards_free_gift %}
+          <p>You’ve received <b>Free Shipping!</b></p>
+          <p>You are <b>{{ amount_left | money_without_trailing_zeros }}</b> away from a <b>Free {{ settings.gwp_product.title }}</b></p>
+          <progress-bar class="progress-bar" data-percentage="{{ percentage }}" data-value="{{ cart_price_towards_free_gift | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}"></progress-bar>
+        {% endif %}
+        {% if cart_price_towards_free_gift >= required_amount_gwp1 %}
+          {% assign percentage = '100' %}
+          <p>You've earned <b>Free Shipping</b> and a <b>Free {{ settings.gwp_product.title }}</b></p>
+          <progress-bar style="margin-top: 1rem;" data-percentage="{{ percentage }}" class="progress-bar" data-value="{{ cart_price_towards_free_gift | divided_by: 100 }}" data-max="{{ settings.required_amount_gwp1 }}"></progress-bar>
+        {% endif %}
+        <style id="temp-single-psuedo">
+          .jr-temp-single-gwp .progress-bar:before {
+            width: {{ percentage }}% !important;
+          }
+        </style>
+      </div>
         {% comment %} as a bandaid, below is visually hidden for now as it was causing javascript errors without it {% endcomment %}
-      <free-shipping-goal style="display: none !important;" data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h6 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
+      <free-shipping-goal style="display: none !important;" data-cart-total="{{ cart_price_towards_free_gift }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h6 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart_price_towards_free_gift %} free-shipping-goal--done {% endif %}">
         <span class="free-shipping-goal__label free-shipping-goal__label--success h7">{{ 'sections.cart.free_shipping_message_met' | t }}</span>
-        <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!!</span>
-        <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
+        <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart_price_towards_free_gift | minus: settings.freeShippingThreshold | money }}</strong> more to reach free shipping!!</span>
+        <progress-bar class="progress-bar" data-value="{{ cart_price_towards_free_gift | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
       </free-shipping-goal>
-      {% else %}
-        <free-shipping-goal data-cart-total="{{ cart.total_price }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h6 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart.total_price %} free-shipping-goal--done {% endif %}">
-          <span id="temp-progress-bar-target" class="free-shipping-goal__label free-shipping-goal__label--success h7">
-            {% if settings.enable_free_multi_gift_select %}
-                {% if has_reached_threshold and cart_contains_gift_item == false %}
-                    {{ settings.free_multi_gift_qualifies_message }}
-                  {% else %}
-                    {{ settings.free_multi_gift_select_success_message }}
-                {% endif %}
-              {% elsif settings.enable_free_gift_wrap %}
-                {% if has_reached_gift_wrap_threshold and cart_contains_gift_wrap == false %}
-                  {{ settings.free_gift_wrap_progress_bar_reached_text }}
+    {% elsif settings.enable_free_multi_gift_select and settings.free_multi_gift_use_qualifying_tag %}
+      <style>
+        #using-qualifying-tag progress-bar:before {
+         --scale-x: {{ percentage }}%;
+        }
+        {% if cart.item_count == 0 %}
+          #using-qualifying-tag {
+            display: none !important;
+          }
+        {% endif %}
+      </style>
+      <free-shipping-goal id="using-qualifying-tag">
+        <span class="free-shipping-goal__label h7">
+          {% if has_reached_threshold == false %}
+           You are {{ settings.free_multi_gift_select_threshold_price | times: 100 | minus: cart_price_towards_free_gift | money_without_trailing_zeros }} away from a FREE gift!
+          {% elsif has_reached_threshold and cart_contains_gift_item == false %}
+            {{ settings.free_multi_gift_qualifies_message }}
+          {% elsif has_reached_threshold and cart_contains_gift_item == true %}
+            {{ settings.free_multi_gift_select_success_message }}
+          {% endif %}
+        </span>
+        <progress-bar class="progress-bar" data-value="{{ cart_price_towards_free_gift | divided_by: 100 }}" data-max="{{ settings.free_multi_gift_select_threshold_price }}" style="--percent: {{ percentage }}%;"></progress-bar>
+      </free-shipping-goal>
+    {% else %}
+      <free-shipping-goal data-cart-total="{{ cart_price_towards_free_gift }}" data-minimum-amount="{{ settings.freeShippingThreshold }}" class="free-shipping-goal drawer__title h6 {% if cart.item_count == 0 %} drawer_heading {% endif %} {% if cart.item_count == 0 %}  hidden {% endif %} {% if required_amount > cart_price_towards_free_gift %} free-shipping-goal--done {% endif %}">
+        <span id="temp-progress-bar-target" class="free-shipping-goal__label free-shipping-goal__label--success h7">
+          {% if settings.enable_free_multi_gift_select %}
+              {% if has_reached_threshold and cart_contains_gift_item == false %}
+                  {{ settings.free_multi_gift_qualifies_message }}
                 {% else %}
-                  You've received Free Gift Wrap!
-                {% endif %}
-              {% else %}
-                {% comment %} normal state {% endcomment %}
-                {{ 'sections.cart.free_shipping_message_met' | t }} 
-            {% endif %}
-    
-          </span>
-          <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart.total_price | minus: settings.freeShippingThreshold | money }}</strong> 
-           {% if settings.enable_free_multi_gift_select %} 
-              more to recieve {{ settings.free_multi_gift_select_product_type_text }}
+                  {{ settings.free_multi_gift_select_success_message }}
+              {% endif %}
             {% elsif settings.enable_free_gift_wrap %}
-              more for FREE Gift Wrap!
+              {% if has_reached_gift_wrap_threshold and cart_contains_gift_wrap == false %}
+                {{ settings.free_gift_wrap_progress_bar_reached_text }}
+              {% else %}
+                You've received Free Gift Wrap!
+              {% endif %}
             {% else %}
-              more to reach FREE shipping!
-           {% endif %}
-         </span>
-          <progress-bar class="progress-bar" data-value="{{ cart.total_price | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
-        </free-shipping-goal>
+              {% comment %} normal state {% endcomment %}
+              {{ 'sections.cart.free_shipping_message_met' | t }} 
+          {% endif %}
+  
+        </span>
+        <span class="free-shipping-goal__label free-shipping-goal__label--default">Spend <strong data-left-to-spend="">{{ cart_price_towards_free_gift | minus: settings.freeShippingThreshold | money }}</strong>
+          {% if settings.enable_free_multi_gift_select %}
+            more to recieve {{ settings.free_multi_gift_select_product_type_text }}
+          {% elsif settings.enable_free_gift_wrap %}
+            more for FREE Gift Wrap!
+          {% else %}
+            more to reach FREE shipping!
+          {% endif %}
+        </span>
+        <progress-bar class="progress-bar" data-value="{{ cart_price_towards_free_gift | divided_by: 100 }}" data-max="{{ settings.freeShippingThreshold }}" style="--percent: {{ percentage }}%;"></progress-bar>
+      </free-shipping-goal>
     {% endif %}
 
     
@@ -390,8 +436,8 @@
       {% else %}
         {% comment %} {{ 'sections.cart.title' | t }} {% endcomment %}
         {%- liquid
-          if shipping_threshold > cart.total_price
-            assign amount_remaining =  shipping_threshold | minus: cart.total_price | money
+          if shipping_threshold > cart_price_towards_free_gift
+            assign amount_remaining =  shipping_threshold | minus: cart_price_towards_free_gift | money
             echo 'sections.cart.free_shipping_message_not_met' | t: amount:amount_remaining | replace: '.00', ''
           else
             echo 'sections.cart.free_shipping_message_met' | t
@@ -443,7 +489,7 @@
         <h4 class="h7">Your Cart</h4>
       {% endif %}
     </div>
-    <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart.total_price }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
+    <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
       {% if cart.item_count == 0 %}
         <div class="drawer_empty center">
           <div class="appear-animation appear-delay-{{ appear_delay }}">
