@@ -254,7 +254,6 @@ class CartItems extends HTMLElement {
       this.classList.toggle('is-empty', parsedState.item_count === 0);
       const cartFooter = document.querySelector('#main-cart-footer');
       if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
-
       cartUpdate(parsedState);
       
       this.updateLiveRegions(line, parsedState.item_count);
@@ -627,7 +626,7 @@ class FreeShippingGoal extends HTMLElement {
     this.progress = this.querySelector('progress-bar');
     this.money_format = window.Shopify.money_format;
   }
-
+ 
   connectedCallback() {
     this.updateShippingGloal(Number(this.dataset.cartTotal));
     document.addEventListener('cart:updated', (event) => {
@@ -636,6 +635,7 @@ class FreeShippingGoal extends HTMLElement {
   }
 
   updateShippingGloal(amount) {
+    if(document.querySelector('#using-qualifying-tag')) return
     this.cartTotal = amount / 100;
     this.goalLeft = this.goal - this.cartTotal;
     this.goalDone = this.goalLeft <= 0;

@@ -8,6 +8,8 @@
     - show_rating: {Boolean} Show the product rating. Default: false
     - extend_height: {Boolean} Card height extends to available container space. Default: true (optional)
     - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+    - enable_gifting_card: {Boolean} Enable gifting card. Default: false (optional)
+    
     Usage:
     {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
@@ -61,8 +63,6 @@
 
     endif
 
-  #######
-
 -%}
 
 {%- if card_product and card_product != empty -%}
@@ -89,7 +89,9 @@
       data-json='{{- json -}}'
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
-    {% render 'swym-hammitt-custom-favorite-button', product:card_product %}
+    {% unless enable_gifting_card %}
+      {% render 'swym-hammitt-custom-favorite-button', product:card_product %}
+    {% endunless %}
       <div class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }}{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
         {%- if card_product.featured_media -%}
           <div class="card__media">
@@ -152,14 +154,23 @@
               </a>
             </h3>
           </div>
-          {% unless hide_tag %}
+          {% unless hide_tag or enable_gifting_card %}
             {% render 'badge-logic', product:card_product, type:'card' %}
           {% endunless %}
           
           {% unless hide_quick_add %}
-          {% if settings.enable_quick_add %}
-            {%- render 'quick-add', product: card_product, isIDayPromotionProduct: isIDayPromotionProduct, isPreOrderProduct: isPreOrderProduct, isBadgeProduct: isBadgeProduct -%}
-          {% endif %}
+            {% if settings.enable_quick_add %}
+              {%- render 'quick-add', 
+                product: card_product, 
+                isIDayPromotionProduct: isIDayPromotionProduct, 
+                isPreOrderProduct: isPreOrderProduct, 
+                isBadgeProduct: isBadgeProduct, 
+                enable_gifting_card: enable_gifting_card, 
+                has_reached_gift_threshold: has_reached_gift_threshold,
+                cart_contains_gift_item: cart_contains_gift_item,
+                converted_threshold_price: converted_threshold_price
+              -%}
+            {% endif %}
           {% endunless %}
         </div>
         
@@ -235,14 +246,15 @@
         {% if settings.enable_total_colors %}
         <div class="total-colors" data-style="{{ formatted_product_title }}" data-color="{{ formatted_product_title }}"><span>+</span></div>
         {% endif %}
-        
-        <div class="card__badge {{ settings.badge_position }}">
-          {%- if card_product.available == false -%}
-            <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' | t }}</span>
-          {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-            <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
-          {%- endif -%}
-        </div>
+        {% unless enable_gifting_card == true %}
+          <div class="card__badge hidden {{ settings.badge_position }}">
+            {%- if card_product.available == false -%}
+              <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">{{ 'products.product.sold_out' | t }}</span>
+            {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+              <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
+            {%- endif -%}
+          </div>
+        {% endunless %}
       </div>
       
       {% if settings.enable_card_swatches %}

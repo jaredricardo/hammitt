@@ -201,19 +201,50 @@
 
   assign initial_iterable_products_per_page = section.settings.products_per_page
   assign final_products_per_page = initial_iterable_products_per_page | minus: merch_box_one_columns | minus: merch_box_two_columns
+  
+  ####### if free gift multi select is active, change some of the UI 
+
+  if settings.enable_free_multi_gift_select == true
+
+    assign has_reached_gift_threshold = false
+    assign cart_contains_gift_item = false
+    assign converted_threshold_price = settings.free_multi_gift_select_threshold_price | times: 100
+    assign cart_price_towards_free_gift = cart.total_price
+
+    if settings.free_multi_gift_use_qualifying_tag
+
+      assign qualifying_tag = settings.free_multi_gift_qualifying_tag
+      assign cart_price_towards_free_gift = 0
+
+      for item in cart.items
+        if item.product.tags contains qualifying_tag
+          assign cart_price_towards_free_gift = cart_price_towards_free_gift | plus: item.final_line_price
+        endif
+      endfor
+
+      assign cart_price_towards_free_gift = cart_price_towards_free_gift
+
+    endif
+
+    if cart_price_towards_free_gift >= converted_threshold_price
+
+      assign has_reached_gift_threshold = true
+
+      # in this instance it is ok to use product_id instead of variant because we dont actually use variants at Hammitt
+      for item in cart.items
+        for product in settings.free_multi_gift_select_collection.products
+          if item.product_id == product.id
+            assign cart_contains_gift_item = true
+          endif
+        endfor
+      endfor
+
+    endif
+  endif
 
 -%}
 
-{% comment %} <script>
-  console.log('????????????')
-  console.log({{ paginate.current_page | json }})
-  console.log({{ merch_box_one_columns | json }})
-  console.log({{ merch_box_two_columns | json }})
-  console.log({{ initial_iterable_products_per_page | json }})
-  console.log({{ final_products_per_page | json }})
-</script> {% endcomment %}
-
-<div class="section-{{ section.id }}-padding col-wrap">
+<div class="section-{{ section.id }}-padding col-wrap" id="product-grid-container">
   {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
     <link data-href="{{ 'component-facets.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
     {% comment %} {{ 'component-facets.css' | asset_url | stylesheet_tag }} {% endcomment %}
@@ -239,7 +270,7 @@
   {%- endif -%}
   
   <div id="ProductGridContainer">
-    {%- paginate collection.products by final_products_per_page -%}
+    {%- paginate collections[collection.handle].products by final_products_per_page -%}
       {%- if collection.products.size == 0 -%}
         <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>
@@ -313,7 +344,7 @@
               {% comment %} MERCH BOX LOGIC / HANDLING {% endcomment %}
 
               {% comment %} MERCH BOX ONE {% endcomment %}
-              {% unless filters_are_active or paginate.current_page > 1 %}
+              {% unless filters_are_active or paginate.current_page > 1 or section.settings.enable_gifting_grid %}
                 {% if merch_box_one and merch_box_one.enable_merch_box %}
 
                   {% if merch_box_one.number_of_columns == 1 and merch_box_one.position_in_grid == forloop.index %}
@@ -391,7 +422,7 @@
               {% endunless %}
 
               {% comment %} Additional Merch Boxes {% endcomment %}
-              {% unless additional_merch_boxes == blank or filters_are_active %}
+              {% unless additional_merch_boxes == blank or filters_are_active or section.settings.enable_gifting_grid %}
                 {% if paginate.current_page > 1 %}
                   {% for additional_merch_box in additional_merch_boxes %}
                     {% if additional_merch_box.page_to_appear_on == paginate.current_page %}
@@ -439,7 +470,11 @@
                   index: forloop.index,
                   isIDayPromotionProduct: IDayPromotionProduct,
                   isPreOrderProduct: isPreOrderProduct,
-                  currentPage: paginate.current_page
+                  currentPage: paginate.current_page,
+                  enable_gifting_card: section.settings.enable_gifting_grid,
+                  has_reached_gift_threshold: has_reached_gift_threshold,
+                  cart_contains_gift_item: cart_contains_gift_item,
+                  converted_threshold_price: converted_threshold_price
                 %}
               </li>
             
@@ -512,10 +547,33 @@
   })
 </script>
 
+{% if section.settings.enable_gifting_grid %}
+  <script>
+    document.addEventListener('cart:updated', () => {
+      fetch(window.location.pathname + "?sections={{ section.id }}")
+        .then(res => res.json())
+        .then(data => {
+          const parser = new DOMParser()
+          const doc = parser.parseFromString(data['{{ section.id }}'], 'text/html')
+          const newProductGrid = doc.querySelector('#product-grid')
+          const currentProductGrid = document.querySelector('#product-grid')    
+          if(!newProductGrid || !currentProductGrid) return
+          currentProductGrid.innerHTML = newProductGrid.innerHTML
+        })
+
+    })
+  </script>
+{% endif %}
+
 {% schema %}
 {
-  "name": "t:sections.main-collection-product-grid.name",
+  "name": "Product Grid",
   "class": "section",
+  "presets": [
+    {
+      "name": "Product Grid"
+    }
+  ],
   "settings": [
     {
       "type": "header",
@@ -554,21 +612,21 @@
       "type": "select",
       "id": "image_ratio",
       "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__1.label"
-        },
-        {
-          "value": "portrait",
-          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__2.label"
-        },
-        {
-          "value": "square",
-          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
-        }
-      ],
-      "default": "adapt",
-      "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+            {
+                "value": "adapt",
+                "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__1.label"
+            },
+            {
+                "value": "portrait",
+                "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__2.label"
+            },
+            {
+                "value": "square",
+                "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
+            }
+        ],
+        "default": "adapt",
+        "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
     },
     {
       "type": "checkbox",
@@ -655,76 +713,83 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_gifting_grid",
+      "default": false,
+      "label": "Enable Gifting Grid Product Carts",
+      "info": "**Should only be used on the gifting collection template"
     }
   ],
   "blocks": [
 	{
-	  "type":"marketing_tile",
-    "name":"Marketing Tile",
-	  "settings": [
-		{
-		  "type":"image_picker",
-		  "id":"image",
-		  "label":"Image"
-		},
-		{
-		  "type":"url",
-		  "id":"link",
-		  "label":"Link"
-		},
-	    {
-          "type": "range",
-          "id": "position",
-          "min": 0,
-          "max": 48,
-          "step": 1,
-          "label": "Position",
-          "default": 3
-        },
-		{
-          "type": "select",
-          "id": "width",
-          "label": "Width",
-		  "default":"1x",
-		  "options": [
-			{ "value":"1x","label":"1x" },
-			{ "value":"2x","label":"2x" }
-		  ]
-        },
-		{
-		  "type":"text",
-		  "id":"title",
-		  "label":"Heading"
-		},
-		{
-		  "type":"richtext",
-		  "id":"paragraph",
-		  "label":"Paragraph"
-		},
-	    {
-		  "type":"text",
-		  "id":"button_text",
-		  "label":"Button text"
-		}
-	  ]
-	},
-  {
-    "type": "collection-filter-link",
-    "name": "Collection Filter Link",
-    "limit": 12,
-    "settings": [
-      {
-        "type":"collection",
-        "id": "collection",
-        "label": "Collection URL"
-      },
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Alternative Collection Title (optional)"
-      }
+	    "type":"marketing_tile",
+        "name":"Marketing Tile",
+        "settings":[
+            {
+                "type":"image_picker",
+                "id":"image",
+                "label":"Image"
+            },
+            {
+                "type":"url",
+                "id":"link",
+                "label":"Link"
+            },
+            {
+                "type": "range",
+                "id": "position",
+                "min": 0,
+                "max": 48,
+                "step": 1,
+                "label": "Position",
+                "default": 3
+            },
+            {
+                "type": "select",
+                "id": "width",
+                "label": "Width",
+                "default":"1x",
+                "options": [
+                    { "value":"1x","label":"1x" },
+                    { "value":"2x","label":"2x" }
+                ]
+            },
+            {
+                "type":"text",
+                "id":"title",
+                "label":"Heading"
+            },
+            {
+                "type":"richtext",
+                "id":"paragraph",
+                "label":"Paragraph"
+            },
+            {
+                "type":"text",
+                "id":"button_text",
+                "label":"Button text"
+            }
+            ]
+            },
+            {
+            "type": "collection-filter-link",
+            "name": "Collection Filter Link",
+            "limit": 12,
+            "settings": [
+                {
+                    "type":"collection",
+                    "id": "collection",
+                    "label": "Collection URL"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Alternative Collection Title (optional)"
+                }
+            ]
+        }
     ]
-    }
-  ]
 }
 {% endschema %}

@@ -1192,7 +1192,7 @@ const addToCart = (itemsObj) => {
     itemsObj.sections_url = "/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items";
   }
 
-  fetch('/cart/add.js', {
+  fetch(window.Shopify.routes.root + 'cart/add.js', {
     body: JSON.stringify(itemsObj),
     credentials: 'same-origin',
     headers: {
@@ -1511,6 +1511,7 @@ checkGWPs(false)
 // });
 
 const cartUpdate = (json = false) => {
+  console.log('CALLING CART UPDATE !!!!!!!!!')
   const cartUpdates = [
     {
       section: "cart-drawer",
@@ -1521,6 +1522,16 @@ const cartUpdate = (json = false) => {
       elements: [".cart-count-bubble"]
     }
   ];
+
+  if (document.querySelector('#using-qualifying-tag')) {
+    const cartDrawerSection = cartUpdates.find(section => section.section === "cart-drawer");
+    if (cartDrawerSection && !cartDrawerSection.elements.includes(".drawer__header free-shipping-goal")) {
+      cartDrawerSection.elements.push(".drawer__header free-shipping-goal");
+    }
+     if (cartDrawerSection && !cartDrawerSection.elements.includes(".drawer__header progress-bar")) {
+      cartDrawerSection.elements.push(".drawer__header progress-bar");
+    }
+  }
 
   const mainCart = document.querySelector('.cart-main');
 
@@ -1534,7 +1545,6 @@ const cartUpdate = (json = false) => {
       elements: ['#main-cart-footer']
     });
   }
-  
 
   const monogramElement = document.querySelector('#PopupModal-monogram');
   if(monogramElement && monogramElement.hasAttribute('open')) {
@@ -1551,7 +1561,7 @@ const cartUpdate = (json = false) => {
       const doc = parser.parseFromString(json.sections[update.section], "text/html");
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
-
+      
       if(elOld == null || elNew == null) return
 
       if(element == '.jr-temp-single-gwp') {
