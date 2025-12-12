@@ -380,7 +380,7 @@
       </style>
         <span class="free-shipping-goal__label h7">
           {% if has_reached_threshold == false %}
-           You are {{ settings.free_multi_gift_select_threshold_price | times: 100 | minus: cart_price_towards_free_gift | money_without_trailing_zeros }} away from a FREE gift!
+           Add {{ settings.free_multi_gift_select_threshold_price | times: 100 | minus: cart_price_towards_free_gift | money_without_trailing_zeros }} of <a style="color: black;" href="/collections/seasonal-favorites">Seasonal Favorites</a> to get a FREE gift!
           {% elsif has_reached_threshold and cart_contains_gift_item == false %}
             {{ settings.free_multi_gift_qualifies_message }}
           {% elsif has_reached_threshold and cart_contains_gift_item == true %}
