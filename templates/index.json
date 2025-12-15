@@ -9,36 +9,71 @@
  */
 {
   "sections": {
-    "home-hero-section": {
-      "type": "home-hero-section",
-      "custom_css": [
-        ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
-        ".home-hero-section .section-image {/* aspect-ratio: 22/10; */}",
-        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: 1/1; } .home-hero-section .section-content {position: relative; } p, h1, h2, h4 {color: black !important; } .section-button a {color: white; background-color: black; }}"
+    "image_banner_yVpKNR": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_TKgY94": {
+          "type": "heading",
+          "settings": {
+            "heading": "Holiday Collection",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 60
+          }
+        },
+        "buttons_ReHFtA": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/new-arrivals",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TKgY94",
+        "buttons_ReHFtA"
       ],
-      "name": "Hero section - Control",
+      "name": "gift Guide",
       "settings": {
-        "media_type": "video",
-        "video": "shopify://files/videos/holiday-pt4.mp4",
-        "text_align": "center",
-        "text_vertical_align": "center",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "center",
-        "text_horizontal_align_mobile": "center",
-        "title": "Holiday Collection",
-        "make_h1": true,
-        "subtitle": "",
-        "desktop_font_size": 40,
-        "mobile_font_size": 30,
-        "title_color": "#ffffff",
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
         "description": "",
-        "description_color": "#000000",
-        "button": "Shop Now",
-        "button_enable": true,
-        "link": "shopify://collections/new-arrivals",
-        "button_text_color": "#000000",
-        "button_bg_color": "#faf7f3"
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12603.jpg",
+        "image_2": "shopify://shop_images/Rectangle_970.jpg",
+        "image_link": "shopify://pages/holiday-gift-guide",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
       }
     },
     "slider_collection_KaWYKx": {
@@ -235,6 +270,38 @@
         "mobile_padding_bottom": 36
       }
     },
+    "home-hero-section": {
+      "type": "home-hero-section",
+      "custom_css": [
+        ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
+        ".home-hero-section .section-image {/* aspect-ratio: 22/10; */}",
+        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: 1/1; } .home-hero-section .section-content {position: relative; } p, h1, h2, h4 {color: black !important; } .section-button a {color: white; background-color: black; }}"
+      ],
+      "name": "Hero section - Control",
+      "settings": {
+        "media_type": "video",
+        "video": "shopify://files/videos/holiday-pt4.mp4",
+        "text_align": "center",
+        "text_vertical_align": "center",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "center",
+        "text_horizontal_align_mobile": "center",
+        "title": "The Holiday Gift Guide",
+        "make_h1": true,
+        "subtitle": "",
+        "desktop_font_size": 40,
+        "mobile_font_size": 30,
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "#000000",
+        "button": "Shop Now",
+        "button_enable": true,
+        "link": "shopify://collections/new-arrivals",
+        "button_text_color": "#000000",
+        "button_bg_color": "#faf7f3"
+      }
+    },
     "multicolumn_7dmQ3q": {
       "type": "multicolumn",
       "blocks": {
@@ -371,78 +438,11 @@
         "swipe_on_mobile": true,
         "enable_peek": true,
         "show_mobile_slider": true,
-        "padding_top": 2,
+        "padding_top": 20,
         "padding_bottom": 20,
         "padding_top_mobile": 2,
         "padding_bottom_mobile": 32,
         "custom_class": "behind-design-section"
-      }
-    },
-    "image_banner_yVpKNR": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_TKgY94": {
-          "type": "heading",
-          "settings": {
-            "heading": "Holiday Gift Guide",
-            "heading_size_mobile": 36,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 60
-          }
-        },
-        "buttons_ReHFtA": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://pages/holiday-gift-guide",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_TKgY94",
-        "buttons_ReHFtA"
-      ],
-      "name": "gift Guide",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12603.jpg",
-        "image_2": "shopify://shop_images/Rectangle_970.jpg",
-        "image_link": "shopify://pages/holiday-gift-guide",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "dark",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 32,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
       }
     },
     "multicolumn_7jnCPC": {
@@ -1354,12 +1354,12 @@
     }
   },
   "order": [
-    "home-hero-section",
+    "image_banner_yVpKNR",
     "slider_collection_KaWYKx",
     "multicolumn_Fbdf7n",
     "jr_new_5050_product_list_zy3tkK",
+    "home-hero-section",
     "multicolumn_7dmQ3q",
-    "image_banner_yVpKNR",
     "multicolumn_7jnCPC",
     "jr_new_5050_product_list_LaBwXW",
     "slider_collection_rf9mQd",
