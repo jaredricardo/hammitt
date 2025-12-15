@@ -25,16 +25,15 @@
             {% if product.metafields.custom.preorder_cta_text %} {{ product.metafields.custom.preorder_cta_text }} {% else %} Pre Order {% endif %}
           {% else %}
             {% if enable_gifting_card %}
-                {% if has_reached_gift_threshold == false %}
+              {% if has_reached_gift_threshold == false %}
                   Add to Cart or Unlock free gift with {{ converted_threshold_price | money_without_trailing_zeros }}+
                 {% elsif has_reached_gift_threshold == true and cart_contains_gift_item == false %}
                   You unlocked this Free Gift! Add to Cart
                 {% elsif has_reached_gift_threshold == true and cart_contains_gift_item == true %}
                   {{ 'products.product.add_to_cart' | t }}
-                {% endif %}
-              {% else %}
-                {{ 'products.product.add_to_cart' | t }}
+              {% endif %}
             {% endif %}
+              {{ 'products.product.add_to_cart' | t }}
           {% endif %}
         </button>
         {%- else -%}
