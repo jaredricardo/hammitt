@@ -85,17 +85,28 @@ function formatPrice(price) {
   }).format(price / 100)
 }
 
-// this needs to be converted into a web component later, as th event listener is being lost when the ajax call reloads the pdp buybox section
-function initInspiredAppClickListener() {
-  const inspiredAppOpener = document.querySelector('.inspired-app-opener')
+class InspiredAppOpener extends HTMLElement {
+  constructor() {
+    super()
+  }
 
-  inspiredAppOpener?.addEventListener('click', () => {
+  connectedCallback() {
+    this.addEventListener('click', this.handleClick)
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('click', this.handleClick)
+  }
+
+  handleClick = () => {
     const widget = document.querySelector('inspired-floating-widget')
     const shadowRoot = widget?.shadowRoot
     if (!shadowRoot) return
     shadowRoot.querySelector('.inspired-floating').click()
-  })
+  }
 }
+
+customElements.define('inspired-app-opener', InspiredAppOpener)
 
 function initImgModelHeight() {
   const desktopImgContainer = document.querySelector('li.grid__item:has(img[alt*="Model height"])')
