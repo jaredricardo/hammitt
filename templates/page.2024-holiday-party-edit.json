@@ -55,6 +55,7 @@
       ],
       "disabled": true,
       "settings": {
+        "custom_classes": "",
         "color_scheme": "background-1",
         "full_width": true,
         "padding_top": 40,
@@ -66,6 +67,8 @@
     "image_banner_AgWDhp": {
       "type": "image-banner",
       "settings": {
+        "custom_classes": "",
+        "custom_id": "",
         "title": "",
         "title_color": "",
         "description": "",
@@ -87,6 +90,7 @@
         "color_scheme_mobile": "light",
         "show_text_below": true,
         "full_width": true,
+        "cta_color_scheme": "dark",
         "custom_content_spacing": false,
         "content_padding_top": 0,
         "content_padding_bottom": 0,
@@ -126,6 +130,7 @@
         "text_mWqGN7"
       ],
       "settings": {
+        "custom_classes": "",
         "color_scheme": "background-1",
         "full_width": true,
         "padding_top": 40,
@@ -140,6 +145,7 @@
         "column_6PEwWz": {
           "type": "column",
           "settings": {
+            "reverse_image_and_text_order": false,
             "image": "shopify://shop_images/block2-A.jpg",
             "title": "",
             "b_title_color": "#000000",
@@ -147,8 +153,10 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "",
             "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
             "cta_font_size": 18,
             "cta_font_size_mobile": 14,
@@ -162,6 +170,7 @@
         "column_zYp7qG": {
           "type": "column",
           "settings": {
+            "reverse_image_and_text_order": false,
             "image": "shopify://shop_images/block2-B.jpg",
             "title": "",
             "b_title_color": "#000000",
@@ -169,8 +178,10 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "",
             "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
             "cta_font_size": 18,
             "cta_font_size_mobile": 14,
@@ -210,49 +221,13 @@
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
         "padding_top": 36,
         "padding_bottom": 36,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36,
         "custom_class": ""
-      }
-    },
-    "featured_collection_nRpNy9": {
-      "type": "featured-collection",
-      "blocks": {
-        "collection_HjdC6a": {
-          "type": "collection",
-          "settings": {
-            "title": "",
-            "collection": "vacation-party"
-          }
-        }
-      },
-      "block_order": [
-        "collection_HjdC6a"
-      ],
-      "settings": {
-        "color_scheme": "background-1",
-        "title": "ERICA'S PICKS",
-        "heading_align": "center",
-        "paragraph": "",
-        "full_width": false,
-        "stagger": false,
-        "max_products": 5,
-        "spacing": 20,
-        "card_width_desktop": 32,
-        "card_width_mobile": 85,
-        "scrollbar": true,
-        "arrows": false,
-        "hide_quick_add": false,
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "image_ratio": "adapt",
-        "border_top": false,
-        "border_bottom": false,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "multicolumn_jTNq9p": {
@@ -261,6 +236,7 @@
         "column_LQGGJi": {
           "type": "column",
           "settings": {
+            "reverse_image_and_text_order": false,
             "image": "shopify://shop_images/block3-A.jpg",
             "title": "",
             "b_title_color": "#000000",
@@ -268,8 +244,10 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "",
             "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
             "cta_font_size": 18,
             "cta_font_size_mobile": 14,
@@ -283,6 +261,7 @@
         "column_mKkchW": {
           "type": "column",
           "settings": {
+            "reverse_image_and_text_order": false,
             "image": "shopify://shop_images/block3-B.jpg",
             "title": "",
             "b_title_color": "#000000",
@@ -290,8 +269,10 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "",
+            "link_margin_top": 20,
             "link": "",
             "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
             "cta_bg_color": "#000000",
             "cta_font_size": 18,
             "cta_font_size_mobile": 14,
@@ -331,6 +312,8 @@
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
         "padding_top": 36,
         "padding_bottom": 36,
         "padding_top_mobile": 36,
@@ -408,6 +391,7 @@
         "button_aUEWG3"
       ],
       "settings": {
+        "id_for_scroll_navigator": "",
         "image": "shopify://shop_images/last_block.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
@@ -442,12 +426,33 @@
         "button_DLTjCL"
       ],
       "settings": {
+        "custom_classes": "",
         "color_scheme": "background-1",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36
+      }
+    },
+    "slider_collection_94AcHE": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "best-selling-bags",
+        "max_products": 30,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     }
   },
@@ -457,10 +462,10 @@
     "image_banner_AgWDhp",
     "rich_text_4GYV8k",
     "multicolumn_qbKth4",
-    "featured_collection_nRpNy9",
     "multicolumn_jTNq9p",
     "featured_collection_4QLKt6",
     "image_with_text_bcMqDR",
-    "rich_text_CzPX9k"
+    "rich_text_CzPX9k",
+    "slider_collection_94AcHE"
   ]
 }
