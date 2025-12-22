@@ -28,7 +28,7 @@
         "heading_UxPQrT": {
           "type": "heading",
           "settings": {
-            "heading": "The Gifting Suite",
+            "heading": "The 2026 Valentine’s Day Gift Guide",
             "heading_size_mobile": 26,
             "heading_size_tablet": 30,
             "heading_size_desktop": 60
@@ -37,17 +37,27 @@
         "text_93xVkw": {
           "type": "text",
           "settings": {
-            "text": "We’ve got gift options for everyone! Choose multi-shipments, add gift wrap & handwritten note for a special touch, or go green and skip the box!",
+            "text": "Cupid made us do it.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 13,
             "text_size_tablet": 18,
             "text_size_desktop": 16
           }
+        },
+        "buttons_bgXT6r": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Gift Collection",
+            "button_link_1": "shopify://collections/best-selling-bags",
+            "button_style_secondary_1": false
+          }
         }
       },
       "block_order": [
         "heading_UxPQrT",
-        "text_93xVkw"
+        "text_93xVkw",
+        "buttons_bgXT6r"
       ],
       "custom_css": [
         ".banner__text.body span {line-height: 1.3 !important; display: block;}",
@@ -234,6 +244,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Shop Chains",
+            "link_margin_top": 20,
             "link": "shopify://collections/chain-straps",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -258,6 +269,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Shop Charms",
+            "link_margin_top": 20,
             "link": "shopify://collections/bag-charms",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -282,6 +294,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Shop Wallets",
+            "link_margin_top": 20,
             "link": "shopify://collections/wallets",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -406,6 +419,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "UNDER $200",
+            "link_margin_top": 20,
             "link": "shopify://collections/gifts-under-200",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -430,6 +444,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "UNDER $400",
+            "link_margin_top": 20,
             "link": "shopify://collections/gifts-under-400",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -454,6 +469,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "$400 & MORE",
+            "link_margin_top": 20,
             "link": "shopify://collections/gifts-over-400",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -521,6 +537,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Shop Bestsellers",
+            "link_margin_top": 20,
             "link": "shopify://collections/best-selling-bags",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
@@ -545,6 +562,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Shop New Arrivals",
+            "link_margin_top": 20,
             "link": "shopify://collections/new-arrivals",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
