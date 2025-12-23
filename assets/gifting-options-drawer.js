@@ -65,6 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const brokenOutLineItems = document.querySelectorAll('hammitt-gifting-options-drawer .broken-out-line-item')
             const saveBtn = document.querySelector('hammitt-gifting-options-drawer #save-btn')
             const giftNoteVid = document.querySelector('hammitt-gifting-options-drawer').dataset.giftNoteVid
+            const useGiftWrap = document.querySelector('hammitt-gifting-options-drawer').dataset.useGiftWrap
             let updates = {}
             let postUpdateFormData = {
                 items: []

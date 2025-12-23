@@ -1311,10 +1311,17 @@
         "default": "🎁 Sending as a gift? See our gifting options."
       },
       {
+        "type": "checkbox",
+        "id": "hammitt_gifting_drawer_use_gift_wrap_and_handwritten_note",
+        "label": "Use Gift Wrap",
+        "info": "Enables gift wrap auto adding to cart with gifting drawer",
+        "default": true
+      },
+      {
         "type": "product",
         "id": "hammitt_gift_wrap_product",
         "label": "Hammitt Gift Wrap Product",
-        "info": "Select the Hammitt Gift Wrap product to be automatically added to cart (and visually hidden) when hand written note / gift wrap option is selected. NOTE: The gifting drawer will not appear if no product is selected. This is to prevent javascript errors."
+        "info": "Select the Hammitt Gift Wrap product to be automatically added to cart (and visually hidden) when hand written note / gift wrap option is selected. NOTE: The gifting drawer will not appear if no product is selected AND use gift wrap is enabled. This is to prevent javascript errors."
       },
       {
         "type": "text",

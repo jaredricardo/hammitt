@@ -896,7 +896,14 @@
               <button id="open-btn">{{ settings.hammitt_gifting_trigger_btn_text }}</button>
             </hammitt-gifting-options-drawer-trigger>
 
-            <hammitt-gifting-options-drawer data-gift-note-vid="{{ settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id }}" data-gift-box-vid="{{ settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id }}">
+            <hammitt-gifting-options-drawer 
+              data-gift-note-vid="{{ settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id }}"
+              {% if settings.hammitt_gifting_drawer_use_gift_wrap %}
+                  data-use-gift-wrap="true"
+                {% else %}
+                  data-use-gift-wrap="false"
+              {% endif %}
+            >
               <div class="header-area">
                 <button id="close-btn">
                   {% render 'icon-chevron-left' %}
@@ -1055,7 +1062,11 @@
                                     {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
                                         YES, add my free gift wrap + a handwritten note 🎁
                                       {% else %}
-                                        Add Ribbon + Handwritten Note for $5
+                                        {% if settings.hammitt_gifting_drawer_use_gift_wrap_and_handwritten_note %}
+                                            Add Ribbon + Handwritten Note for $5
+                                          {% else %}
+                                            Gift Note
+                                        {% endif %}
                                     {% endif %}
                                   </label>  
                                 </div>
