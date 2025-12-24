@@ -224,6 +224,5 @@ customElements.define('x-gen-search-result', xGenSearchResult)
 
 window.buildCompleteTheSetInCart = buildCompleteTheSetInCart
 window.formatPrice = formatPrice
-window.initInspiredAppClickListener = initInspiredAppClickListener
 window.initImgModelHeight = initImgModelHeight
 window.setRecentlyViewedNav = setRecentlyViewedNav

@@ -168,8 +168,9 @@ window.addEventListener('DOMContentLoaded', () => {
                             ...consolidatedExistingProperties
                         }
                     }
-                    if(numberOfGiftNotesToAdd > 0) {
-                        // add gift wrap items for each gift note added
+                    if(numberOfGiftNotesToAdd > 0 && useGiftWrap === 'true') {
+                        // add gift wrap items for each gift note added. 
+                        // *** There is also another check in global.js inside cartUpdate() to make sure the correct number of gift wraps are in cart on cart update.
                         postUpdateFormData.items.push({
                             id: parseInt(giftNoteVid),
                             quantity: numberOfGiftNotesToAdd
@@ -177,7 +178,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             })
-
 
             // add setions to update so cart updates properly
             postUpdateFormData.sections = "cart-drawer,cart-icon-bubble,main-cart-items"

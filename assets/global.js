@@ -1646,6 +1646,9 @@ const cartUpdate = (json = false) => {
 
           if(totalItemsWithGiftWrapPropertyInCart != totalGiftWrapsCurrentlyInCart) {
 
+            // if we are opting out of gift wrap, do not add any gift wraps to cart
+            if(document.querySelector('hammitt-gifting-options-drawer').dataset.useGiftWrap === 'false') return 
+
             let updatesObj = {
               updates: {},
               sections: "cart-drawer,cart-icon-bubble,main-cart-items"
