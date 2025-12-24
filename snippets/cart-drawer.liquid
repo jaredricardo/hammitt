@@ -1049,7 +1049,7 @@
                                 <label for="no-box--{{ item.key }}--{{ i }}">Dust bag only, no box.</label>
                               </div>
                               {% if settings.hammitt_gift_wrap_product.available %}
-                                <div class="checkbox-container">  
+                                <div class="checkbox-container" style="display: none;">  
                                   <input type="checkbox" class="line-item-hand-written-note" id="line-item-hand-written-note--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_gift_note != false %} checked {% endif %}>
                                   <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}" {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %} style="color: #1E9907" {% endif %}>
                                     {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
