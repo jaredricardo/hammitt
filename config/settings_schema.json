@@ -1295,6 +1295,24 @@
       },
       {
         "type": "header",
+        "content": "Cart Level Gift Messaging",
+        "info": "Below is Hammitt's CART LEVEL gift messaging settings. If this is enabled, it will override the gifting drawer gift messaging. This means the gift notes will be at the CART LEVEL, not line level. The gifting drawer will remain active, however the message inputs will be hidden."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_hammitt_gift_messaging",
+        "label": "Enable Cart Level Gift Note",
+        "info": "Overrides line level gift messaging",
+        "default": false  
+      },
+      {
+        "type": "textarea",
+        "id": "hammitt_gift_message", 
+        "label": "Gift checkbox label",
+        "default": "Sending this as a Gift? Add a gift note here."
+      },
+      {
+        "type": "header",
         "content": "Hammitt Gifting Drawer Settings"
       },
       {
