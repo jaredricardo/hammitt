@@ -606,6 +606,86 @@ template-{{ template.name -}}
       ></script>
     {%- endif -%}
 
+    {% if settings.enable_hammitt_gift_messaging %}
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          // lazy wat of persisting this data
+          document.addEventListener('cart:updated', (event) => {
+            if(document.querySelector('#hammitt-gift-message-form-input')) {
+              if(localStorage.getItem('giftNote')) {
+                const storageVal = localStorage.getItem('giftNote')
+                document.querySelector('#hammitt-gift-message-form-input').value = storageVal
+              }
+            }
+          })
+          class hammittGiftNote extends HTMLElement {
+            constructor() {
+              super()
+
+                this.giftNoteValue = document.querySelector('input#hammitt-gift-message-form-input')
+                this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
+                this.saveButton = document.querySelector('#gift-note-save-button')
+                this.giftNoteCharLimit = document.querySelector('span#gift-note-char-limit')
+                this.giftNoteCheckbox = document.querySelector('input#hammitt-gift-message-checkbox')
+                this.textAreaPlaceholder = this.giftNoteTextArea.placeholder
+                this.giftNoteInitData = document.querySelector('.cart-drawer-gift-note')
+                this.currentNote = ''
+    
+                this.querySelector('button#gift-note-save-button').addEventListener('click', () => {
+
+                  this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
+                  this.saveButton.classList.add('saved')
+                  this.saveButton.innerText = 'Saved'
+                  document.querySelector('input#hammitt-gift-message-form-input').value = this.currentNote
+                  this.textAreaPlaceholder = this.currentNote
+                  localStorage.setItem('giftNote', this.currentNote)
+                })
+
+                this.giftNoteCheckbox.addEventListener('change', (e) => {
+                  if(e.target.checked) return
+                  localStorage.removeItem('giftNote')
+                  this.giftNoteValue.value = ''
+                  this.giftNoteTextArea.value = ''
+                  this.giftNoteCharLimit.innerText = `0/500`
+                  this.saveButton.classList.remove('saved')
+                  this.saveButton.innerText = 'Save'
+                })
+
+                this.giftNoteTextArea.addEventListener('input', (e) => {
+                  if(e.target.value.length >= 500){
+                    this.giftNoteCharLimit.innerText = `500/500`
+                    this.saveButton.disabled = true
+                    return       
+                  } else {
+                    this.saveButton.disabled = false
+                    this.saveButton.classList.remove('saved')
+                    this.saveButton.innerText = 'Save'
+                    this.currentNote = e.target.value
+                    this.giftNoteCharLimit.innerText = `${e.target.value.length}/500`
+                  }
+                })
+           
+                if(localStorage.getItem('giftNote')){
+                  this.giftNoteValue.value = localStorage.getItem('giftNote')
+                  this.giftNoteTextArea.value = localStorage.getItem('giftNote')
+                  this.giftNoteCheckbox.checked = true
+                  this.giftNoteCharLimit.innerText = `${localStorage.getItem('giftNote').length}/500`
+                  this.saveButton.classList.add('saved')
+                  this.saveButton.innerText = 'Saved'
+                }
+
+                if(this.giftNoteInitData.dataset.serverHasNote === 'false' && !localStorage.getItem('giftNote')){
+                  localStorage.removeItem('giftNote')
+                  this.giftNoteCheckbox.checked = false
+                }
+
+              }
+          }
+          customElements.define('hammitt-cart-level-gift-note', hammittGiftNote)  
+        })
+      </script>
+    {% endif %}
+
     {% comment %} should be moved into a js file {% endcomment %}
     {% if settings.zest_multi_checkout_enabled %}
       <script>

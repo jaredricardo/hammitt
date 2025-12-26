@@ -45,7 +45,3 @@ window.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('dateOfLastXGenCookieFlush', new Date().toISOString());
     } 
 })
-
-window.addEventListener('load', () => {
-    window.initInspiredAppClickListener()
-})
