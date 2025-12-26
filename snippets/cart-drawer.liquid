@@ -889,12 +889,14 @@
         </cart-items>
         {% if settings.enable_hammitt_gifting_drawer %}
 
-            <hammitt-gifting-options-drawer-trigger>
-              <p>
-                {{ settings.hammitt_gifting_drawer_message }}
-              </p>
-              <button id="open-btn">{{ settings.hammitt_gifting_trigger_btn_text }}</button>
-            </hammitt-gifting-options-drawer-trigger>
+          {% comment %} This needs to be set to hidden via CSS, as it must exist in the DOM in order for the trigger to work {% endcomment %}
+          <hammitt-gifting-options-drawer-trigger {% unless settings.hammitt_gifting_drawer_message != blank and settings.hammitt_gifting_trigger_btn_text != blank %} class="hidden" {% endunless %}>
+            <p>
+              {{ settings.hammitt_gifting_drawer_message }}
+            </p>
+            <button id="open-btn">{{ settings.hammitt_gifting_trigger_btn_text }}</button>
+          </hammitt-gifting-options-drawer-trigger>
+       
 
             <hammitt-gifting-options-drawer data-gift-note-vid="{{ settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id }}" data-gift-box-vid="{{ settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id }}">
               <div class="header-area">
