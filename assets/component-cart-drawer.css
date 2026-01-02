@@ -538,9 +538,6 @@ span.freeRemainShippingMsg,
   color: rgb(13,135,86);
 }
 
-.jr-temp-single-gwp .progress-bar:before {
-  width: 0%;
-}
 
 .progress-bar:before {
   --scale-x: 0;
@@ -553,18 +550,6 @@ span.freeRemainShippingMsg,
   transition: width .6s cubic-bezier(.7,0,.3,1) .1s;
 }
 
-.free-shipping-goal .progress-bar:before, cart-drawer[open] .free-shipping-goal .progress-bar:before {
-  --scale-x: var(--percent);
-}
-.free-shipping-goal__label--success {
-  display: none;
-}
-.free-shipping-goal--done .free-shipping-goal__label--default {
-  display: none;
-}
-.free-shipping-goal--done .free-shipping-goal__label--success {
-  display: block;
-}
 gift-box-section {
   display: block;
   position: relative;

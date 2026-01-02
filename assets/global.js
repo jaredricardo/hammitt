@@ -1511,27 +1511,16 @@ checkGWPs(false)
 // });
 
 const cartUpdate = (json = false) => {
-  console.log('CALLING CART UPDATE !!!!!!!!!')
   const cartUpdates = [
     {
       section: "cart-drawer",
-      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp", ".drawer__header h4", ".below-progress-bar-container"]
+      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes", ".drawer__header h4", ".below-progress-bar-container"]
     },
     {
       section: "cart-icon-bubble",
       elements: [".cart-count-bubble"]
     }
   ];
-
-  if (document.querySelector('#using-qualifying-tag')) {
-    const cartDrawerSection = cartUpdates.find(section => section.section === "cart-drawer");
-    if (cartDrawerSection && !cartDrawerSection.elements.includes(".drawer__header free-shipping-goal")) {
-      cartDrawerSection.elements.push(".drawer__header free-shipping-goal");
-    }
-     if (cartDrawerSection && !cartDrawerSection.elements.includes(".drawer__header progress-bar")) {
-      cartDrawerSection.elements.push(".drawer__header progress-bar");
-    }
-  }
 
   const mainCart = document.querySelector('.cart-main');
 
@@ -1564,50 +1553,10 @@ const cartUpdate = (json = false) => {
       
       if(elOld == null || elNew == null) return
 
-      if(element == '.jr-temp-single-gwp') {
-        let oldPercent = '0';
-        if(elOld.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
-          oldPercent = elOld.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')
-        }
-       
-        const oldStyle = document.createElement('style')
-
-        oldStyle.textContent = `
-          .jr-temp-single-gwp .progress-bar:before {
-            width: ${oldPercent}% !important;
-          }
-        `
-        oldStyle.id = 'temp-single-psuedo'
-
-        elNew.querySelector('#temp-single-psuedo').remove()
-
-        elNew.appendChild(oldStyle) 
-        
-      }
 
       if(elOld && elNew) {
         elOld.outerHTML = elNew.outerHTML;
       }
-
-      if(element == '.jr-temp-single-gwp' && document.querySelector('.jr-temp-single-gwp') != null) {
-        setTimeout(() => {
-          let newPercent = '0'
-          if(elNew.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
-            newPercent = elNew.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')
-          }
-          const newStyle = document.createElement('style')
-          newStyle.textContent = `
-            .jr-temp-single-gwp .progress-bar:before { 
-              width: ${newPercent}% !important;
-            }
-          `
-          newStyle.id = 'temp-single-psuedo'
-          document.querySelector('#temp-single-psuedo').remove()
-          document.querySelector('.jr-temp-single-gwp').appendChild(newStyle)
-        }, 200)
-        
-      }
-
     })
 
     cartUpsellSwiper();
@@ -1667,9 +1616,6 @@ const cartUpdate = (json = false) => {
           spinner.classList.remove('active')
         });
 
-        if(parseFloat((document.querySelector(`free-shipping-goal`).dataset.minimumAmount) * 100) < data.items_subtotal_price) {
-          document.querySelector(`free-shipping-goal`).classList.add('free-shipping-goal--done');
-        }
         document.dispatchEvent(
           new CustomEvent('cart:updated', {
             detail: {
@@ -1693,9 +1639,6 @@ const cartUpdate = (json = false) => {
 
   if(document.querySelector(`[data-empty-div]`) != null) {
     document.querySelector(`[data-empty-div]`).classList.add('hidden');
-  }
-  if(document.querySelector(`free-shipping-goal`)) {
-    document.querySelector(`free-shipping-goal`).classList.remove('hidden');
   }
   
   document.querySelectorAll('.loading-overlay').forEach(loader => {

@@ -207,15 +207,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     })
                     .then((json) => {
                         cartUpdate(json)
-                        // this is specifically for the free gift wrap, though it should be ok to stay here even when free gift wrap is active. It just forces the progress bar to update.
-                        const parser = new DOMParser()
-                        const doc = parser.parseFromString(json.sections['cart-drawer'], "text/html")
-                        const elOld = document.querySelector('free-shipping-goal')
-                        const elNew = doc.querySelector('free-shipping-goal')
-                        if(elOld == null || elNew == null) return
-                        if(elOld && elNew) {
-                            elOld.outerHTML = elNew.outerHTML
-                        }
                     })
                 }
             })
