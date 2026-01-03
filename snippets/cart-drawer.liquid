@@ -22,8 +22,6 @@
 
   # EE GWP
   assign EEGWPAddOnId = settings.ee_gwp_product.selected_or_first_available_variant.id
-  # Monogram Addon
-  assign MonogramAddOnId = 48220694577336
 
   ## Only show products that are not small, medium, or large, if this metafield dosnt exist, then we are on a 
   ## color variant with no sizes.
@@ -226,7 +224,7 @@
 {% endif %}
 
 
-{% comment %} {% if settings.enable_free_multi_gift_select %}
+{% if settings.enable_free_multi_gift_select %}
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       class FreeMultiGiftSelect extends HTMLElement {
@@ -278,40 +276,25 @@
             .then((json) => {
               cartUpdate(json)
             })
-            .then (() => {
-              const tempProgressText = document.querySelector('#temp-progress-bar-target')
-              if(tempProgressText) {
-                tempProgressText.textContent = "{{ settings.free_multi_gift_select_success_message }}"
-              }
-            })
           }
       }
       
       customElements.define('free-multi-gift-select', FreeMultiGiftSelect)
     })
   </script>
-{% endif %}   {% endcomment %}
+{% endif %}  
 
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
-
+  
   <div class="drawer__content">
     <div class="drawer__header appear-animation appear-delay-{{ appear_delay }}">
 
+      
+    <strong data-empty-div class="drawer__title h7 display-block {% if cart.item_count == 0 %} drawer_heading {% else %} hidden {% endif %} {% if cart.item_count > 0 %} hidden {% endif %}">Your cart is currently empty</strong>
+    </strong> 
     <button class="drawer__close" data-drawer-close="" aria-label="Close Drawer"></button>
   </div>
-    {% assign shipping_threshold = 'sections.cart.free_shipping_threshold' | t | plus: 0 | times: 100 %}
-    {% comment %}
-    <div class="cart-announcement-bar background-secondary" >
-      {%- liquid
-          if shipping_threshold > cart.total_price
-            assign amount_remaining =  shipping_threshold | minus: cart.total_price | money
-            echo 'sections.cart.free_shipping_message_not_met' | t: amount:amount_remaining | replace: '.00', ''
-          else
-            echo 'sections.cart.free_shipping_message_met' | t
-          endif 
-        -%}
-    </div>
-    {% endcomment %}
+
     {% assign cartSubTotal = cart.items_subtotal_price %}
     <script>
     window.freeGWPProduct = false;
@@ -328,16 +311,6 @@
          </script>
        {% endif %}
      {% endfor %}
-     <div class="below-progress-bar-container">
-      {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
-        <div class="free-gift-wrap-message-html">
-          {{ settings.free_gift_wrap_click_here_text }}
-        </div>
-      {% endif %}
-      {% if cart.item_count > 0 %}
-        <h4 class="h7">Your Cart</h4>
-      {% endif %}
-    </div>
     <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
       {% if cart.item_count == 0 %}
         <div class="drawer_empty center">
@@ -451,10 +424,6 @@
                 continue
               endif
 
-              assign has_monogram = false
-              if item.properties['Monogram Initials'] != blank
-                assign has_monogram = true
-              endif
 
               assign is_gift_note = false
               if item.title == "Hammitt Gift Receipt"
@@ -554,9 +523,6 @@
                 data-key="{{ item.key }}"
                 id="CartDrawerItem-{{ item.index | plus: 1 }}"
                 data-custom-index="{{ item.index | plus: 1 }}"
-                {% if item.variant_id == MonogramAddOnId %}
-                  style="display: none !important; height: 0 !important; width: 0 !important; visibility: hidden !important;"
-                {% endif %}
               > 
               {% assign appear_delay = appear_delay | plus: 1 %}
               <div class="drawer__content-item-image"> 
@@ -599,13 +565,6 @@
                       <span style="color:#C74141; font-size: 11px; margin-top: 5px; margin-bottom: 3px;"> Final Sale</span>
                     {% endif %}
 
-                    {% if has_monogram %}
-                      <div class="monogram product-option">
-                        <div class="drawer__content-item-info"> 
-                          + {{ all_products['monogram'].price | money_without_trailing_zeros }} - {{ all_products['monogram'].title }}
-                        </div>
-                      </div>
-                    {% endif %}
                     {% unless item.product.has_only_default_variant %}
                     {% for option in item.options_with_values %}
                       <div class="product-option">                      
@@ -618,13 +577,6 @@
                     <div class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</div>
                     {% endif %}
                     {% for property in item.properties %}
-                        {% comment %} "_id" MONOGRAM ADDON PROPERTY  {% endcomment %}
-                        {%- assign property_first_three_char = property.first | slice: 0, 3 -%}
-                        {% if property_first_three_char == "_id" %}
-                            <div class="product-option product_id-option" style="display: none;">
-                              <dd {% if item.variant_id == MonogramAddOnId %}class="product_id-monogram"{% endif %}>{{ property.last }}</dd>
-                            </div>
-                        {% endif %}
 
                         {% comment %} EE GWP PROPERTY {% endcomment %}
                         {%- assign property_addon_promotion = property.first | slice: 0, 13 -%}
@@ -664,33 +616,33 @@
                 </div> 
                   {% unless item.variant_id == settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id %}
                     <div class="flex align-center drawer__content-item-actions">
-                      {% unless has_monogram %}
-                      <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}" {% if item.id == EEGWPAddOnId %} disabled style="pointer-events: none; visibility: hidden; opacity: 0;"{% endif %}>
-                        <button class="quantity__button no-js-hidden" name="minus" type="button">
-                          <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
-                          {% render 'icon-minus' %}
-                        </button>
-                        <input class="quantity__input"
-                              type="number"
-                              name="updates[]"
-                              value="{{ item.quantity }}"
-                              min="0"
-                              {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}
-                              max="{{ item.variant.inventory_quantity }}"
-                              {% endunless %}
-                              aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                              id="CartDrawer__Quantity-{{ item.index | plus: 1 }}"
-                              data-index="{{ item.index | plus: 1 }}"
-                              >
-                        <button
-                          class="quantity__button no-js-hidden" 
-                          name="plus" 
-                          type="button"
-                        >
-                          <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
-                          {% render 'icon-plus' %}
-                        </button>
-                      </quantity-input>
+
+                        <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}" {% if item.id == EEGWPAddOnId %} disabled style="pointer-events: none; visibility: hidden; opacity: 0;"{% endif %}>
+                          <button class="quantity__button no-js-hidden" name="minus" type="button">
+                            <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
+                            {% render 'icon-minus' %}
+                          </button>
+                          <input class="quantity__input"
+                                type="number"
+                                name="updates[]"
+                                value="{{ item.quantity }}"
+                                min="0"
+                                {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}
+                                max="{{ item.variant.inventory_quantity }}"
+                                {% endunless %}
+                                aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                                id="CartDrawer__Quantity-{{ item.index | plus: 1 }}"
+                                data-index="{{ item.index | plus: 1 }}"
+                                >
+                          <button
+                            class="quantity__button no-js-hidden" 
+                            name="plus" 
+                            type="button"
+                          >
+                            <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
+                            {% render 'icon-plus' %}
+                          </button>
+                        </quantity-input>
 
                       {% if settings.enable_hammitt_gifting_drawer %}
                         {% if opted_out_of_box == true %}
@@ -700,10 +652,7 @@
                           <span class="gifting-options-icon">🎁</span>
                         {% endif %}
                       {% endif %}
-                      
-                      {% else %}
-                      <div><span class='visually-hidden'>Monogram</span></div>
-                      {% endunless %}
+
                       <div class="remove-button-container">
                         <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
                           <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">

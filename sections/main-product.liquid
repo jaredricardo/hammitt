@@ -1125,10 +1125,6 @@
                 </div>
               </div>
             </noscript>
-            {% when 'monogram_btn' %}
-            {% if product.metafields.monogram.locations != blank and product.metafields.monogram.colors and product.selected_or_first_available_variant.available %}
-              {%- render 'product-monogram' -%}
-          {% endif %}
           {%- when 'buy_buttons' -%}
 
             {% if product.tags contains 'Final Sale' %}
@@ -1752,11 +1748,6 @@
           "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
         }
       ]
-    },
-    {
-    "type": "monogram_btn",
-    "name": "Monogram button",
-    "limit": 1
     },
     {
       "type": "buy_buttons",

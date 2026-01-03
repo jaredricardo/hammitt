@@ -33,17 +33,13 @@ class CartRemoveButton extends HTMLElement {
     const key = String(item.getAttribute("data-key"));
     this.showLoadingOverlay(item);
 
-    const idOptionElement = item.querySelector(".product_id-option > dd");
     const idPromotionPropertyElement = item.querySelector(".id-promotion_property");
     const idAddOnPropertyElement = item.querySelector(".id-addon_property");
 
-    const idOptionProperty = idOptionElement?.innerHTML.trim();
     const idPromotionProperty = idPromotionPropertyElement?.innerHTML.trim();
     const idAddOnProperty = idAddOnPropertyElement?.innerHTML.trim();
 
-    if (idOptionProperty) {
-      this.handleMonogramFromCartPage(event, idOptionProperty, key, cartItems);
-    } else if (idAddOnProperty === "AddOnPromotion") {
+    if (idAddOnProperty === "AddOnPromotion") {
       this.updateCartItems({ [key]: 0 }, true);
     } else if (idPromotionProperty === "IDPromotion") {
       this.handleGWPFromCartPage(key, cartItems);
@@ -63,17 +59,13 @@ class CartRemoveButton extends HTMLElement {
   */
   handleCartDrawerClick(event, cartItems) {
     const item = event.target.closest(".drawer__content-item");
-    const idOptionElement = item.querySelector(".product_id-option > dd");
     const idPromotionPropertyElement = item.querySelector(".id-promotion_property");
     const idAddOnPropertyElement = item.querySelector(".id-addon_property");
 
-    const idOptionProperty = idOptionElement?.innerHTML.trim();
     const idPromotionProperty = idPromotionPropertyElement?.innerHTML.trim();
     const idAddOnProperty = idAddOnPropertyElement?.innerHTML.trim();
 
-    if (idOptionProperty) {
-      this.handleMonogramFromCartDrawer(idOptionProperty, cartItems);
-    } else if (idAddOnProperty === "AddOnPromotion") {
+    if(idAddOnProperty === "AddOnPromotion") {
       cartItems.updateQuantity(this.getAttribute("data-key"), 0, undefined, undefined, true);
     } else if (idPromotionProperty === "IDPromotion") {
       this.handleGWPFromCartDrawer(cartItems);
@@ -133,71 +125,6 @@ class CartRemoveButton extends HTMLElement {
     cOverlay.classList.remove("hidden");
   }
 
-  handleMonogramFromCartPage(event, idOptionProperty, key, cartItems) {
-    const cartItem = event.target.closest(".cart-item");
-    const isMonogramAddOn = cartItem.querySelector(".product_id-monogram");
-    const mainAddOnSelector = ".cart-page-items .product_id-monogram-addon";
-    const mainAddOn = cartItems.querySelectorAll(mainAddOnSelector);
-    let updates = { [key]: 0 };
-
-    if (isMonogramAddOn) {
-      const idOptionAddOnProperty = isMonogramAddOn.innerHTML.trim();
-
-      mainAddOn.forEach((addon) => {
-        if (addon.innerHTML.trim() === idOptionAddOnProperty) {
-          const addOnKey = String(addon.closest('.cart-item').getAttribute("data-key"));
-          updates[addOnKey] = 0;
-        }
-      });
-    } else {
-      const mainAddOn = cartItems.querySelectorAll(".cart-page-items .product_id-monogram");
-      mainAddOn.forEach((addon) => {
-        if (addon.innerHTML.trim() === idOptionProperty) {
-          const addOnKey = String(addon.closest('.cart-item').getAttribute("data-key"));
-          updates[addOnKey] = 0;
-        }
-      });
-    }
-
-    const isMatched = Object.keys(updates).length > 1;
-    if (isMatched) {
-      this.updateCartItems(updates, true);
-    } else {
-      this.updateCartItems(updates, true);
-    }
-  }
-
-  handleMonogramFromCartDrawer(idOptionProperty, cartItems) {
-    const currentKey = this.getAttribute("data-key");
-    const itemMonograms = document.querySelectorAll(".drawer__wrapper .product_id-monogram");
-
-    // If no monograms are found, remove the current item
-    if (itemMonograms.length === 0) {
-      cartItems.updateQuantity(currentKey, 0, undefined, undefined, true);
-      return;
-    }
-
-    let monogramFound = false;
-    itemMonograms.forEach((addon) => {
-      if (addon.innerHTML.trim() === idOptionProperty) {
-        monogramFound = true;
-        const addOnKey = addon.closest('.cart-item')?.getAttribute("data-key");
-        cartItems.updateQuantity(currentKey, 0, undefined, undefined, true);
-        if (addOnKey) {
-          document.addEventListener("itemRemovedFromCartDrawer", handleItemRemoved);
-          function handleItemRemoved() {
-            cartItems.updateQuantity(addOnKey, 0, undefined, undefined, true);
-            document.removeEventListener("itemRemovedFromCartDrawer", handleItemRemoved);
-          }
-        }
-      }
-    });
-
-    // If no matching monogram was found, remove the current item
-    if (!monogramFound) {
-      cartItems.updateQuantity(currentKey, 0, undefined, undefined, true);
-    }
-  }
 
   updateCartItems(updates, reload = false) {
     const body = JSON.stringify({ updates });
