@@ -25,9 +25,9 @@
           "type": "text",
           "settings": {
             "text": "",
-            "text_area_html_swap": "Embrace elevated equestrian trends with Western Rein, <br>\nfeaturing artfully layered leather cutouts.",
+            "text_area_html_swap": "Embrace elevated equestrian trends with Western Rein,\nfeaturing artfully layered leather cutouts.",
             "text_style": "body",
-            "text_size_mobile": 13,
+            "text_size_mobile": 12,
             "text_size_tablet": 13,
             "text_size_desktop": 14
           }
@@ -82,7 +82,7 @@
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
         "padding_top": 0,
-        "padding_bottom": 12,
+        "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
@@ -137,9 +137,9 @@
         "hide_subtitle": false,
         "hide_quick_add": false,
         "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     },
     "image_banner_RfzFJU": {
@@ -154,6 +154,17 @@
             "heading_size_desktop": 60
           }
         },
+        "text_8WjM9z": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_area_html_swap": "Dive into 2026 with our vibrant Deep Water drop, featuring bright blue leather and sleek silver hardware.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 13,
+            "text_size_desktop": 14
+          }
+        },
         "buttons_PwbBzC": {
           "type": "buttons",
           "settings": {
@@ -165,9 +176,10 @@
       },
       "block_order": [
         "heading_bKpaUj",
+        "text_8WjM9z",
         "buttons_PwbBzC"
       ],
-      "name": "western",
+      "name": "deep",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -180,14 +192,14 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12617_2.jpg",
-        "image_2": "shopify://shop_images/Rectangle-792_be194962-d148-4cb3-880a-b29f042181f0.gif",
+        "image": "shopify://shop_images/Group_12627.jpg",
+        "image_2": "shopify://shop_images/Group_12628.jpg",
         "image_link": "shopify://collections/new-arrivals",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "middle-right",
         "desktop_content_alignment": "center",
-        "color_scheme": "light",
+        "color_scheme": "dark",
         "mobile_content_alignment": "center",
         "color_scheme_mobile": "dark",
         "show_text_below": true,
@@ -209,14 +221,81 @@
         "custom_class": ""
       }
     },
-    "slider_collection_LyN9WA": {
+    "image_banner_yVpKNR": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_TKgY94": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Kyle",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 60
+          }
+        },
+        "buttons_ReHFtA": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/kyle",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TKgY94",
+        "buttons_ReHFtA"
+      ],
+      "name": "kyle banner",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12614_3d1d508d-5584-4480-8394-d2fd9968ad16.jpg",
+        "image_2": "shopify://shop_images/Group_12615.jpg",
+        "image_link": "shopify://collections/kyle",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_rf9mQd": {
       "type": "slider-collection",
-      "name": "Product Widget - New In",
+      "name": "Product Widget - bestsellers",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "deep-water",
+        "collection": "best-selling-bags",
         "max_products": 30,
         "image_ratio": "square",
         "hide_price": false,
@@ -224,9 +303,9 @@
         "hide_subtitle": false,
         "hide_quick_add": false,
         "padding_top": 36,
-        "padding_bottom": 36,
+        "padding_bottom": 0,
         "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
+        "mobile_padding_bottom": 10
       }
     },
     "multicolumn_Fbdf7n": {
@@ -405,73 +484,6 @@
         "mobile_padding_bottom": 36
       }
     },
-    "image_banner_yVpKNR": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_TKgY94": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Kyle",
-            "heading_size_mobile": 36,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 60
-          }
-        },
-        "buttons_ReHFtA": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/kyle",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_TKgY94",
-        "buttons_ReHFtA"
-      ],
-      "name": "kyle banner",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12614_3d1d508d-5584-4480-8394-d2fd9968ad16.jpg",
-        "image_2": "shopify://shop_images/Group_12615.jpg",
-        "image_link": "shopify://collections/kyle",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 32,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "multicolumn_7jnCPC": {
       "type": "multicolumn",
       "blocks": {
@@ -614,26 +626,6 @@
         "padding_top_mobile": 10,
         "padding_bottom_mobile": 0,
         "custom_class": ""
-      }
-    },
-    "slider_collection_rf9mQd": {
-      "type": "slider-collection",
-      "name": "Product Widget - bestsellers",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "best-selling-bags",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 0,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 10
       }
     },
     "multicolumn_zgBMdw": {
@@ -1212,12 +1204,11 @@
     "home-hero-section",
     "slider_collection_KaWYKx",
     "image_banner_RfzFJU",
-    "slider_collection_LyN9WA",
+    "image_banner_yVpKNR",
+    "slider_collection_rf9mQd",
     "multicolumn_Fbdf7n",
     "jr_new_5050_product_list_zy3tkK",
-    "image_banner_yVpKNR",
     "multicolumn_7jnCPC",
-    "slider_collection_rf9mQd",
     "multicolumn_zgBMdw",
     "multicolumn_FmaKEp",
     "jr_scrolling_text_QzMT7i",
