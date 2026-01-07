@@ -636,12 +636,14 @@ template-{{ template.name -}}
                 })
            
                 if(localStorage.getItem('giftNote')){
-                  this.giftNoteValue.value = localStorage.getItem('giftNote')
-                  this.giftNoteTextArea.value = localStorage.getItem('giftNote')
-                  this.giftNoteCheckbox.checked = true
-                  this.giftNoteCharLimit.innerText = `${localStorage.getItem('giftNote').length}/500`
-                  this.saveButton.classList.add('saved')
-                  this.saveButton.innerText = 'Saved'
+                  if(this.giftNoteValue) {
+                    this.giftNoteValue.value = localStorage.getItem('giftNote')
+                    this.giftNoteTextArea.value = localStorage.getItem('giftNote')
+                    this.giftNoteCheckbox.checked = true
+                    this.giftNoteCharLimit.innerText = `${localStorage.getItem('giftNote').length}/500`
+                    this.saveButton.classList.add('saved')
+                    this.saveButton.innerText = 'Saved'
+                  }
                 }
 
                 if(this.giftNoteInitData.dataset.serverHasNote === 'false' && !localStorage.getItem('giftNote')){

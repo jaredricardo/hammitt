@@ -297,7 +297,7 @@
     <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
       {% if cart.item_count == 0 %}
         <div class="drawer_empty center">
-          <div class="appear-animation appear-delay-{{ appear_delay }}">
+          <div style="height: 100%;" class="appear-animation appear-delay-{{ appear_delay }}">
             <div class="flex-wrapper">
               <div class="buttons_wrapper">
                 {% for btn in shop.metaobjects.empty_cart_buttons.values %}
