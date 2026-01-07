@@ -853,33 +853,25 @@ class QuickAdd extends HTMLElement {
       closestSpinner.classList.add('active');
     }
 
-    if (target.classList.contains("iday-promotion__product") && EE_GWP.available) {
-      const addOnId = EE_GWP.item;
-      try {
-        const isInCart = await isProductInCart(addOnId);
-        addToCartPromo(itemId, isInCart ? false : addOnId);
-      } catch (error) {
-        console.error('Error checking if product is in the cart:', error);
-      }
-    } else {
-      const quickAddObj = {
-        items: [{
-            id: itemId,
-            quantity: 1,
-            ...(isPreOrderInput && {
-                properties: {
-                  [isPreOrderInput.name]: isPreOrderInput.value
-                }
-            }),
-            ...(isBadgeInput && {
+
+    const quickAddObj = {
+      items: [{
+          id: itemId,
+          quantity: 1,
+          ...(isPreOrderInput && {
               properties: {
-                [isBadgeInput.name]: isBadgeInput.value
+                [isPreOrderInput.name]: isPreOrderInput.value
               }
-            })
-        }]
-      };
-      addToCart(quickAddObj);
-    }
+          }),
+          ...(isBadgeInput && {
+            properties: {
+              [isBadgeInput.name]: isBadgeInput.value
+            }
+          })
+      }]
+    };
+    addToCart(quickAddObj);
+    
   }
 }
 customElements.define('quick-add', QuickAdd);
@@ -1339,76 +1331,6 @@ const klaviyoBISsubmit = (form) => {
   });
 };
 
-const gwpInCart = (id = false) => {
-  return document.querySelector(`[data-variant-id="${id}"`);  
-};
-
-const checkGWPs = (json = false) => {
-  if(document.querySelector('.cart-drawer-btn') != null) {
-    document.querySelector('.cart-drawer-btn').disabled = false;  
-  }        
-  if(document.querySelector('.cart__checkout-button') != null) {
-    document.querySelector('.cart__checkout-button').disabled = false;  
-  }
-  
-  let updatesObj = { 
-    updates: {},
-    sections: "cart-drawer,cart-icon-bubble,main-cart-items"
-  };
-  const drawerItems = document.querySelector('.drawer__items');
-  if(!json) {
-    json = JSON.parse(drawerItems.getAttribute('data-json'));
-  }
-  const subtotal = parseFloat(drawerItems.getAttribute('data-subtotal'));
- 
-  const sortedGwps = gwps.sort((a, b) => b.minimum - a.minimum);
-  let addedGwp = false;
-  sortedGwps.forEach(gwp => { 
-    if (!gwp.enabled || !gwp.available) return;
-    
-    if (subtotal >= gwp.minimum && !addedGwp) {
-      if (!gwpInCart(gwp.item)) {
-        if(document.querySelector('.cart-drawer-btn') != null) {
-          document.querySelector('.cart-drawer-btn').disabled = true;  
-        }        
-        if(document.querySelector('.cart__checkout-button') != null) {
-          document.querySelector('.cart__checkout-button').disabled = true;  
-        }
-        addToCart(
-          {
-            items: [ 
-              {
-                id: gwp.item,
-                quantity: 1,
-                properties: {
-                  '_free_gift': true
-                }
-              }
-            ],
-            sections: "cart-drawer,cart-icon-bubble,main-cart-items"
-          }
-        );
-      }
-      addedGwp = true;
-    } else if (gwpInCart(gwp.item)) {
-      
-      updatesObj.updates[gwp.item] = 0;
-      if(document.querySelector('.cart-drawer-btn') != null) {
-        document.querySelector('.cart-drawer-btn').disabled = true;  
-      }
-      
-      if(document.querySelector('.cart__checkout-button') != null) {
-        document.querySelector('.cart__checkout-button').disabled = true;  
-      }
-
-      updateCart({
-        url: '/cart/update.js',
-        data: JSON.stringify(updatesObj)
-      });
-    }
-  });  
-};
-
 function checkOrderProtection() {
 
   const initialJson = JSON.parse(document.querySelector('.drawer__items').getAttribute('data-json'))
@@ -1438,7 +1360,7 @@ function checkOrderProtection() {
         const toUpdate = [
           {
             section: "cart-drawer",
-            elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp", ".drawer__header h4"]
+            elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes", ".drawer__header h4"]
           },
           {
             section: "cart-icon-bubble",
@@ -1497,7 +1419,6 @@ function updateCart(params) {
 
 // initial on load check for Order Protection items to remove them from cart. They should only be in cart at checkout.
 checkOrderProtection()
-checkGWPs(false)
 
 // document.addEventListener('change', function(evt) {
 //   if(document.querySelector('.cart-drawer-btn') != null) {
@@ -1652,8 +1573,6 @@ const cartUpdate = (json = false) => {
     document.querySelector('#Details-cart-drawer-container .header__icon--menu').click();
   }
 
-  checkGWPs(json);
-
   window.buildCompleteTheSetInCart()
 
   if(!onCartPage) {
@@ -1713,7 +1632,6 @@ document.addEventListener('shopify:section:load', event => {
   klaviyoForms();
   headerScroll();
   footerCollapse();
-  checkGWPs(false);
 });
 
 

@@ -62,7 +62,6 @@ if (!customElements.get('product-form')) {
           // );
           // this.cartDrawer.renderContents(response);
           cartUpdate(response);
-          // checkGWPs(response);
         })
         .catch((e) => {
           console.error(e);

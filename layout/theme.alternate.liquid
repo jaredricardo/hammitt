@@ -332,37 +332,6 @@
       src="https://cdn-widgetsrepository.yotpo.com/v1/loader/99agSqcD2Bh1EPly9czXTA"
       async
     ></script>
-    <script type="text/javascript">
-      const gwps = [
-        {
-          item: {{ settings.gwp_product.selected_or_first_available_variant.id | json }},
-          available: {{ settings.gwp_product.selected_or_first_available_variant.available | json }},
-          enabled: {{ settings.gwp_enabled | json }},
-          minimum: {{ settings.gwp_min_price | times: 100 | json }}
-        },
-        {
-          item: {{ settings.gwp_product2.selected_or_first_available_variant.id | json }},
-          available: {{ settings.gwp_product2.selected_or_first_available_variant.available | json }},
-          enabled: {{ settings.gwp2_enabled | json }},
-          minimum: {{ settings.gwp2_min_price | times: 100 | json }}
-        },
-        {
-          item: {{ settings.gwp_product3.selected_or_first_available_variant.id | json }},
-          available: {{ settings.gwp_product3.selected_or_first_available_variant.available | json }},
-          enabled: {{ settings.gwp3_enabled | json }},
-          minimum: {{ settings.gwp3_min_price | times: 100 | json }}
-        }
-      ];
-    </script>
-
-    
-    {% comment %} EE GWP  {% endcomment %}
-    <script type="text/javascript">
-      const EE_GWP = {
-        item: {{ settings.ee_gwp_product.selected_or_first_available_variant.id | json }},
-        available: {{ settings.ee_gwp_product.selected_or_first_available_variant.available | json }},
-      };
-    </script>
 
     <!-- Removed GA4 instance to not double fire with GTM implementation by Ecom Experts -->
     <!-- Google tag (gtag.js) -->

@@ -41,22 +41,11 @@ class CartRemoveButton extends HTMLElement {
 
     if (idAddOnProperty === "AddOnPromotion") {
       this.updateCartItems({ [key]: 0 }, true);
-    } else if (idPromotionProperty === "IDPromotion") {
-      this.handleGWPFromCartPage(key, cartItems);
     } else {
       this.updateCartItems({ [key]: 0 }, true);
     }
   }
 
-  /*
-    INTUITION FOR EE GWP
-    Check if curr removed item is addon promotion?
-    if yes just delete it
-    Check if it's promotional product
-    if yes, check how many promotional products are in cart 1 or >=2 
-    if 1: remove promotional + addon
-    else: remove curr item
-  */
   handleCartDrawerClick(event, cartItems) {
     const item = event.target.closest(".drawer__content-item");
     const idPromotionPropertyElement = item.querySelector(".id-promotion_property");
@@ -67,54 +56,8 @@ class CartRemoveButton extends HTMLElement {
 
     if(idAddOnProperty === "AddOnPromotion") {
       cartItems.updateQuantity(this.getAttribute("data-key"), 0, undefined, undefined, true);
-    } else if (idPromotionProperty === "IDPromotion") {
-      this.handleGWPFromCartDrawer(cartItems);
     } else {
       cartItems.updateQuantity(this.getAttribute("data-key"), 0, undefined, undefined, true);
-    }
-  }
-
-  handleGWPFromCartDrawer(cartItems) {
-    const itemsCount = document.querySelectorAll(".id-promotion_property").length;
-    const itemKey = this.getAttribute("data-key");
-
-    if (itemsCount >= 2) {
-      cartItems.updateQuantity(itemKey, 0, undefined, undefined, true);
-    } else if (itemsCount === 1) {
-      cartItems.updateQuantity(itemKey, 0, undefined, undefined, true);
-
-      const idAddOnProperty = cartItems.querySelector("cart-items .id-addon_property");
-      if (idAddOnProperty) {
-        document.addEventListener("itemRemovedFromCartDrawer", handleAddOnRemoved);
-
-        function handleAddOnRemoved() {
-            const addOnIndex = idAddOnProperty.closest(".cart-item")?.getAttribute("data-key");
-            if (addOnIndex) {
-                cartItems.updateQuantity(addOnIndex, 0, undefined, undefined, true);
-            }
-            document.removeEventListener("itemRemovedFromCartDrawer", handleAddOnRemoved);
-        }
-      }
-    }
-  }
-
-  handleGWPFromCartPage(key, cartItems) {
-    const itemsCount = cartItems.querySelectorAll(".cart-page-items .id-promotion_property").length;
-    if (itemsCount >= 2) {
-      this.updateCartItems({ [key]: 0 }, true);
-    } else if (itemsCount === 1) {
-      const idAddOnProperty = cartItems.querySelector(".cart-page-items .id-addon_property");
-
-      if (idAddOnProperty) {
-        const addOnKey = String(idAddOnProperty.closest(".cart-item").getAttribute("data-key"));
-        let updates = {
-          [addOnKey]: 0,
-          [key]: 0
-        };
-        this.updateCartItems(updates, true);
-      } else {
-        this.updateCartItems({ [key]: 0 }, true);
-      }
     }
   }
 

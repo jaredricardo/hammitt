@@ -1155,73 +1155,6 @@
     ]
   },
   {
-    "name": "EE GWP",
-    "settings": [
-      {
-        "type": "product",
-        "id": "ee_gwp_product",
-        "label": "GWP FREE Product",
-        "info": "Duplicate the product(if needed), set its price to 0, and hide it."
-      }
-    ]
-  },
-  {
-    "name": "GWP Promo",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "gwp_enabled",
-        "label": "Enable GWP?",
-        "default": true
-      },
-      {
-        "type": "product",
-        "id": "gwp_product",
-        "label": "GWP Product",
-        "info": "First available Variant will be selected"
-      },
-      {
-        "type": "number",
-        "id": "gwp_min_price",
-        "label": "GWP Mininum Price"
-      },
-      {
-        "type": "checkbox",
-        "id": "gwp2_enabled",
-        "label": "Enable GWP 2?",
-        "default": true
-      },
-      {
-        "type": "product",
-        "id": "gwp_product2",
-        "label": "GWP Product #2",
-        "info": "First available Variant will be selected"
-      },
-      {
-        "type": "number",
-        "id": "gwp2_min_price",
-        "label": "GWP #2 Mininum Price"
-      },
-      {
-        "type": "checkbox",
-        "id": "gwp3_enabled",
-        "label": "Enable GWP 3?",
-        "default": true
-      },
-      {
-        "type": "product",
-        "id": "gwp_product3",
-        "label": "GWP Product #3",
-        "info": "First available Variant will be selected"
-      },
-      {
-        "type": "number",
-        "id": "gwp3_min_price",
-        "label": "GWP #3 Mininum Price"
-      }
-    ]
-  },
-  {
     "name": "Dev",
     "settings": [
       {
@@ -1267,21 +1200,7 @@
         "id": "zest_multi_checkout_enabled",
         "label": "Enable Zest Multi Checkout",
         "default": false
-      },
-      {
-        "type": "header",
-        "content": "Free Shipping + Cart message",
-        "info": "Free Shipping Settings"
-      },
-      {
-        "type": "textarea",
-        "id": "freeShippingThreshold",
-        "label": "Free Shipping Threshold"
-      },  
-      {
-        "type": "header",
-        "content": "Free shipping message"
-      },
+      }, 
       {
         "id": "cart_drawer_msg",
         "type": "richtext",

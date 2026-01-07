@@ -20,9 +20,6 @@
 
   endif
 
-  # EE GWP
-  assign EEGWPAddOnId = settings.ee_gwp_product.selected_or_first_available_variant.id
-
   ## Only show products that are not small, medium, or large, if this metafield dosnt exist, then we are on a 
   ## color variant with no sizes.
   if product_size
@@ -296,21 +293,7 @@
   </div>
 
     {% assign cartSubTotal = cart.items_subtotal_price %}
-    <script>
-    window.freeGWPProduct = false;
-   </script>
-     {% for item in cart.items %}
-       {% if item.properties['_free_gift'] != blank %}
-        {% if item.product.handle == settings.gwp_product.handle %}
-          {% assign cartSubTotal = cartSubTotal | minus: item.final_line_price  %}
-        {% elsif item.product.handle == settings.gwp_product2.handle %}
-          {% assign cartSubTotal = cartSubTotal | minus: item.final_line_price  %}
-        {% endif %}
-         <script>
-          window.freeGWPProduct = true;
-         </script>
-       {% endif %}
-     {% endfor %}
+
     <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
       {% if cart.item_count == 0 %}
         <div class="drawer_empty center">
@@ -443,26 +426,6 @@
               assign product_color = item.product.metafields.custom.product_title_color_descriptor
               assign product_size =  item.product.metafields.hammitt.size.value
 
-              #######
-
-              assign is_gwp = false
-
-              if item.id == settings.gwp_product.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-                assign is_gwp = true
-              endif 
-
-              if item.id == settings.gwp_product2.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-                assign is_gwp = true
-              endif
-
-              if item.id == settings.gwp_product3.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-                assign is_gwp = true
-              endif
-
-              if item.title == 'Hammitt GWP' and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-                assign is_gwp = true
-              endif
-
               assign opted_out_of_box = false
               assign has_line_level_gift_note = false
 
@@ -513,7 +476,7 @@
             {% else %}
 
             {% unless item.product.title == 'Order Protection' %} <!-- Beginning of OP Hiding Logic -->
-            <li class="drawer__content-item cart-item item-variant-id--{{ item.variant.id }} CartItem-{{ item.index | plus: 1 }} appear-animation appear-delay-{{ appear_delay }} {%  if is_gift_note %}cart-item__drawer-note{% endif %} {%  if is_gwp %}cart-item__gwp{%  endif %}" 
+            <li class="drawer__content-item cart-item item-variant-id--{{ item.variant.id }} CartItem-{{ item.index | plus: 1 }} appear-animation appear-delay-{{ appear_delay }} {%  if is_gift_note %}cart-item__drawer-note{% endif %}" 
                 data-line="{{ forloop.index }}" 
                 data-json='{{ item | json | escape }}' 
                 data-variant-id="{{ item.variant.id }}"
@@ -529,16 +492,12 @@
                 <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.image.alt }}"> 
               </div> 
               <div class="drawer__content-item-info"> 
-                {% if is_gwp %}
-                  <div class="cart-item__name break">You've qualified for a free gift!</div>
-                  <small>(promo excludes tax + shipping)</small>
-                {% endif %}
                 <div> 
                   <div class="drawer__content-item-and-price">
-                     {% if is_gwp or noLink %}
+                     {% if noLink %}
                       <p class="cart-item__title" style="margin:0;">{{ product_type }}</p>
                      {% endif %}
-                    {%  unless is_gwp or noLink %}                 
+                    {% unless noLink %}                 
                       <a {% unless item.variant_id contains isHiddenItem %}href="{{ item.url }}"{% endunless %} class="cart-item__name break">
                         <span class="cart-item__title">{{ product_type }}</span>
                       </a> 
@@ -557,9 +516,6 @@
                   <div class="drawer_product-info"> 
                     <span class="product-option">{{ product_color }}</span>
                     {% comment %} needs to be deleted after red TLC promo {% endcomment %}
-                    {% if settings.gwp_product.selected_or_first_available_variant.id == item.id %}
-                      {% comment %} <p style="margin: 8px 0 0 0; font-size: 12px; font-weight: 600; line-height: 1.3;">Heads up: Our TLC kit can be used on all pebbled leathers. Wondering if the cleaner inside is right for your bag? Email wecare@hammitt.com</p> {% endcomment %}
-                    {% endif %}
 
                     {% if item.product.tags contains 'sample sale' or item.product.tags contains 'final sale' %}
                       <span style="color:#C74141; font-size: 11px; margin-top: 5px; margin-bottom: 3px;"> Final Sale</span>
@@ -617,7 +573,7 @@
                   {% unless item.variant_id == settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id %}
                     <div class="flex align-center drawer__content-item-actions">
 
-                        <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}" {% if item.id == EEGWPAddOnId %} disabled style="pointer-events: none; visibility: hidden; opacity: 0;"{% endif %}>
+                        <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}"}>
                           <button class="quantity__button no-js-hidden" name="minus" type="button">
                             <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
                             {% render 'icon-minus' %}

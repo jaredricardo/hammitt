@@ -20,7 +20,7 @@
       {% endif %}
       {% if product.has_only_default_variant %}
         {%- if product.available -%}
-        <button data-id="{{ product.selected_or_first_available_variant.id }}" class="quick-add-btn{% if isIDayPromotionProduct == true %} iday-promotion__product{% endif %}">
+        <button data-id="{{ product.selected_or_first_available_variant.id }}" class="quick-add-btn">
           {% if isPreOrderProduct %}
             {% if product.metafields.custom.preorder_cta_text %} {{ product.metafields.custom.preorder_cta_text }} {% else %} Pre Order {% endif %}
           {% else %}

@@ -19,11 +19,6 @@
   }
 {%- endstyle -%}
 
-{% liquid
-  # EE GWP
-  assign EEGWPAddOnId = settings.ee_gwp_product.selected_or_first_available_variant.id
-%}
-
 <cart-items class="cart-main page-width{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="title-wrapper-with-link">
     <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
@@ -66,24 +61,6 @@
               {%- for item in cart.items -%}
                 {% liquid
 
-                  assign is_gwp = false
-
-                  if item.id == settings.gwp_product.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-                     assign is_gwp = true
-                  endif 
-      
-                  if item.id == settings.gwp_product2.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-                     assign is_gwp = true
-                  endif
-      
-                   if item.id == settings.gwp_product3.selected_or_first_available_variant.id and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-                     assign is_gwp = true
-                  endif
-      
-                  if item.title == 'Hammitt GWP' and item.properties['_free_gift'] != blank and qty > 1 and item.final_line_price == 0
-                    assign is_gwp = true
-                  endif
-
                   assign noLink = false
                   
                   if item.product.selected_or_first_available_variant.id == settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id 
@@ -92,11 +69,11 @@
                 %}
                 
                 {% unless item.product.title == 'Order Protection' %} <!-- Beginning of OP Hiding Logic -->
-                <tr class="cart-item {% if is_gwp %}cart-item__gwp{% endif %}" id="CartItem-{{ item.index | plus: 1 }}" data-custom-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
+                <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}" data-custom-index="{{ item.index | plus: 1 }}" data-key="{{ item.key }}">
                   <td class="cart-item__media">
                     {% if item.image %}
                       <a
-                        {% unless item.variant_id == EEGWPAddOnId or noLink %}
+                        {% unless noLink %}
                           href="{{ item.url }}"
                         {% endunless %} 
                         class="cart-item__link-custom" aria-hidden="true" tabindex="-1">

@@ -205,22 +205,6 @@
   
 -%}
 
-<script>
-  console.log('/////')
-  console.log({{ cart.total_price | json }})
-  console.log({{ cart_price_towards_free_gift | json }})
-</script>
-
-{% comment %} FOR EE GWP  {% endcomment %}
-{% liquid
-  assign IDayPromotionProduct = false 
-  
-  for tag in product.tags
-    if tag == "EEIDPromotion"
-      assign IDayPromotionProduct = true
-    endif
-  endfor
-%}
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <style>
@@ -1170,8 +1154,7 @@
                         {% endif %}
                         type="submit"
                         name="add"
-                        class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
-                        {% if IDayPromotionProduct %} style="display: none; pointer-events: none;"{% endif %}>
+                        class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}">
                           <span>
                             {%- if product.selected_or_first_available_variant.available -%}
                               {% if isPreOrderProduct and product.metafields.custom.preorder_key%}
@@ -1214,28 +1197,6 @@
                           {% else %}
                             {{ 'Notify me when available' }}
                         {% endif %}
-                      </button>
-                    {% endif %}
-
-                    {% if IDayPromotionProduct %}
-                      <button
-                        type="submit"
-                        name="add"
-                        class="product-form__submit iday-promotion__product button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
-                        {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
-                      >
-                          <span>
-                            {%- if product.selected_or_first_available_variant.available -%}
-                              {{ 'products.product.add_to_cart' | t }}
-                            {%- else -%}
-                              {{ 'products.product.sold_out' | t }}
-                            {%- endif -%}
-                          </span>
-                          <div class="loading-overlay__spinner hidden">
-                            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                            </svg>
-                          </div>
                       </button>
                     {% endif %}
 
@@ -1591,10 +1552,6 @@
   });
 </script>
 
-
-{% if IDayPromotionProduct %}
-  <script src="{{ 'iday-promotion.js' | asset_url }}" defer></script>
-{% endif %}
 
 {% schema %}
 {

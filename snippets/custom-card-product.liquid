@@ -139,7 +139,7 @@ endfor
           </div>
           {% unless hide_quick_add %}
           {% if settings.enable_quick_add %}
-            {%- render 'quick-add', product: card_product, isIDayPromotionProduct: isIDayPromotionProduct, isPreOrderProduct: isPreOrderProduct, isBadgeProduct: isBadgeProduct -%}
+            {%- render 'quick-add', product: card_product, isPreOrderProduct: isPreOrderProduct, isBadgeProduct: isBadgeProduct -%}
           {% endif %}
           {% endunless %}
         </div>
