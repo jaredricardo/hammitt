@@ -45,20 +45,11 @@
     "favicon": "shopify://shop_images/h-fav-icon.png",
     "sticky_announcement": true,
     "currency_code_enabled": false,
-    "ee_gwp_product": "",
-    "gwp_enabled": false,
-    "gwp_product": "brim-accessory-dawn-brushed-gold",
-    "gwp_min_price": 425,
-    "gwp2_enabled": false,
-    "gwp_product2": "",
-    "gwp2_min_price": 650,
-    "gwp3_enabled": false,
     "split_value": "|",
     "enable_quick_add": true,
     "enable_total_colors": false,
     "enable_card_swatches": false,
     "zest_multi_checkout_enabled": true,
-    "freeShippingThreshold": "1",
     "cart_drawer_msg": "<p>Free shipping. Taxes calculated at checkout.</p>",
     "enable_hammitt_gift_messaging": true,
     "hammitt_gift_message": "A gift? Add a typed gift note letting them know you sent it.",
@@ -99,6 +90,15 @@
     "free_multi_gift_select_collection": "free-gifts",
     "free_multi_gift_use_qualifying_tag": false,
     "free_multi_gift_qualifying_tag": "Seasonal Favorites 25",
+    "ee_gwp_product": "",
+    "gwp_enabled": false,
+    "gwp_product": "brim-accessory-dawn-brushed-gold",
+    "gwp_min_price": 425,
+    "gwp2_enabled": false,
+    "gwp_product2": "",
+    "gwp2_min_price": 650,
+    "gwp3_enabled": false,
+    "freeShippingThreshold": "1",
     "free_multi_gift_select_product_1": "syd-pouch-pouch-black-gunmetal",
     "free_multi_gift_select_product_2": "syd-pouch-pouch-black-brushed-gold-red-zip",
     "free_multi_gift_select_product_3": "syd-pouch-accessory-gala-gold-gold",
@@ -161,6 +161,37 @@
       "header": {
         "type": "header",
         "blocks": {
+          "gwp_tier_fibVRK": {
+            "type": "gwp-tier",
+            "settings": {
+              "gwp_product": "",
+              "gwp_tier_is_free_shipping": true,
+              "gwp_tier_threshold": 1,
+              "gwp_tier_not_reached_message": "more to your cart to unlock a FREE",
+              "gwp_tier_reached_message": "Congratulations! You've unlocked a FREE"
+            }
+          },
+          "gwp_tier_d3PVap": {
+            "type": "gwp-tier",
+            "disabled": true,
+            "settings": {
+              "gwp_product": "lauri-boot-charm-western-rein-silver",
+              "gwp_tier_is_free_shipping": false,
+              "gwp_tier_threshold": 300,
+              "gwp_tier_not_reached_message": "more to your cart to unlock a FREE",
+              "gwp_tier_reached_message": "Congratulations! You've unlocked a FREE"
+            }
+          },
+          "gwp_tier_EatCrj": {
+            "type": "gwp-tier",
+            "settings": {
+              "gwp_product": "kyle-western-rein-silver",
+              "gwp_tier_is_free_shipping": false,
+              "gwp_tier_threshold": 500,
+              "gwp_tier_not_reached_message": "more to your cart to unlock a FREE",
+              "gwp_tier_reached_message": "Congratulations! You've unlocked a FREE"
+            }
+          },
           "visual_menu_item_GEwfV7": {
             "type": "visual-menu-item",
             "settings": {
@@ -296,6 +327,9 @@
           }
         },
         "block_order": [
+          "gwp_tier_fibVRK",
+          "gwp_tier_d3PVap",
+          "gwp_tier_EatCrj",
           "visual_menu_item_GEwfV7",
           "visual_menu_item_qYkRni",
           "visual_menu_item_KWAJ7F",

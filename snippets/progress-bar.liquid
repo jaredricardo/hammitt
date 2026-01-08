@@ -1,0 +1,154 @@
+
+{%- liquid
+  comment
+    Get GWP Tier blocks from header section
+  endcomment
+  assign gwp_tiers = section.blocks | where: 'type', 'gwp-tier'
+  
+  comment
+    Calculate cart total in cents
+  endcomment
+  assign cart_total = cart.total_price | divided_by: 100.0
+  
+  comment
+    Find the current tier status
+  endcomment
+  assign previous_tier = null
+  assign current_tier = null
+  assign next_tier = null
+  assign found_next_tier = false
+  
+  for tier in gwp_tiers
+    assign tier_threshold = tier.settings.gwp_tier_threshold
+    
+    if cart_total >= tier_threshold
+      assign previous_tier = tier
+    elsif found_next_tier == false
+      assign next_tier = tier
+      assign found_next_tier = true
+    endif
+  endfor
+  
+  comment
+    Calculate progress for next tier
+  endcomment
+  assign amount_remaining = 0
+  assign amount_remaining_in_cents = 0
+  assign progress_percentage = 0
+  assign progress_start = 0
+  
+  if next_tier
+    assign next_threshold = next_tier.settings.gwp_tier_threshold
+    
+    if previous_tier
+      assign progress_start = previous_tier.settings.gwp_tier_threshold
+    endif
+    
+    assign tier_range = next_threshold | minus: progress_start | times: 1.0
+    assign progress_amount = cart_total | minus: progress_start
+    assign progress_percentage = progress_amount | times: 100.0 | divided_by: tier_range
+    
+    if progress_percentage > 100
+      assign progress_percentage = 100
+    elsif progress_percentage < 0
+      assign progress_percentage = 0
+    endif
+    
+    assign amount_remaining = next_threshold | minus: cart_total
+    assign amount_remaining_in_cents = amount_remaining | times: 100
+  endif
+-%}
+
+
+
+<style>
+    /* GWP Tier Messages */
+    .gwp-tier-message {
+      padding: 8px 0;
+      text-align: center;
+    }
+
+    .gwp-tier-success {
+      margin-bottom: 4px;
+      color: #0d8756;
+    }
+
+    .gwp-tier-success .h7 {
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .gwp-tier-not-reached {
+      margin-bottom: 8px;
+    }
+
+    .gwp-tier-not-reached .h7 {
+      line-height: 1.4;
+      color: #333;
+    }
+
+    .gwp-tier-not-reached strong {
+      font-weight: 700;
+      color: #000;
+    }
+
+    .drawer__header .progress-bar {
+      margin: 0 10px 12px 10px;
+    }
+
+    .drawer__header .progress-bar::before {
+      background: #0d8756;
+      --scale-x: {{ progress_percentage }}% !important;
+      transition: width 0.6s cubic-bezier(0.7, 0, 0.3, 1) 0.1s;
+    }
+
+    .below-progress-bar-container {
+      padding-top: 8px;
+    }
+</style>
+
+
+<div class="drawer__header">
+  {%- if previous_tier -%}
+    {%- comment -%} Show success message for the previous tier {%- endcomment -%}
+    <div class="gwp-tier-message gwp-tier-success">
+      <span class="h7">
+        {%- if previous_tier.settings.gwp_tier_is_free_shipping -%}
+          You've received FREE shipping!
+        {%- else -%}
+          {{ previous_tier.settings.gwp_tier_reached_message }}
+          {%- if previous_tier.settings.gwp_product -%}
+            <strong>{{ previous_tier.settings.gwp_product.title }}</strong>
+          {%- endif -%}
+        {%- endif -%}
+      </span>
+    </div>
+  {%- endif -%}
+  
+  {%- if next_tier -%}
+    {%- comment -%} Show progress toward next tier {%- endcomment -%}
+    <div class="gwp-tier-message gwp-tier-not-reached">
+      <span class="h7">
+        {%- if next_tier.settings.gwp_tier_is_free_shipping -%}
+          You are <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> away from FREE shipping!
+        {%- else -%}
+          ADD <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> {{ next_tier.settings.gwp_tier_not_reached_message }}
+          {%- if next_tier.settings.gwp_product -%}
+            <strong>{{ next_tier.settings.gwp_product.title }}</strong>
+          {%- endif -%}
+        {%- endif -%}
+      </span>
+    </div>
+    
+    <div class="progress-bar" style="--scale-x: {{ progress_percentage }}%;">
+    </div>
+  {%- elsif previous_tier -%}
+    {%- comment -%} All tiers reached, show full progress bar {%- endcomment -%}
+    <div class="progress-bar" style="--scale-x: 100%;">
+    </div>
+  {%- endif -%}
+
+  <div class="below-progress-bar-container">
+    <h4 class="h7">Your Cart</h4>
+  </div>
+</div>

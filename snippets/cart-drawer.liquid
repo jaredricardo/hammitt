@@ -294,6 +294,9 @@
 
     {% assign cartSubTotal = cart.items_subtotal_price %}
 
+    {% unless cart.item_count == 0 %}
+      {% render 'progress-bar' %}
+    {% endunless %}
     <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
       {% if cart.item_count == 0 %}
         <div class="drawer_empty center">
