@@ -815,6 +815,58 @@
         "padding_bottom_mobile": 0,
         "custom_class": ""
       }
+    },
+    "image_with_text_gYqgBc": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_qEbYGC": {
+          "type": "heading",
+          "settings": {
+            "heading": "A gift they’ll always say yes to.",
+            "heading_size": "h1"
+          }
+        },
+        "text_bkVnfx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Let them choose what they love.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_cQd4MM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop eGift Cards",
+            "button_link": "https://www.hammitt.com/products/rise-ai-giftcard",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_qEbYGC",
+        "text_bkVnfx",
+        "button_cQd4MM"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/gift-card_91da858b-ca85-4349-9358-8d186e9b8417.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
     }
   },
   "order": [
@@ -831,6 +883,7 @@
     "featured_products_and_image_xm3DML",
     "multicolumn_CkQC8U",
     "image_banner_yaK8ix",
-    "multicolumn_9jbfWK"
+    "multicolumn_9jbfWK",
+    "image_with_text_gYqgBc"
   ]
 }
