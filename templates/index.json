@@ -349,13 +349,81 @@
         "heading_bKpaUj": {
           "type": "heading",
           "settings": {
+            "heading": "Valentine’s Day Gift Guide is here",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 60
+          }
+        },
+        "buttons_PwbBzC": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Gift Ideas",
+            "button_link_1": "shopify://pages/valentines-day-gifting",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_bKpaUj",
+        "buttons_PwbBzC"
+      ],
+      "disabled": true,
+      "name": "v day LP - on 1/21",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Rectangle_1028.jpg",
+        "image_2": "shopify://shop_images/Rectangle_441_1.jpg",
+        "image_link": "shopify://pages/valentines-day-gifting",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_banner_rbLtmp": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_rPafW7": {
+          "type": "heading",
+          "settings": {
             "heading": "New Arrivals",
             "heading_size_mobile": 36,
             "heading_size_tablet": 40,
             "heading_size_desktop": 60
           }
         },
-        "text_dCNAxt": {
+        "text_TLWy9H": {
           "type": "text",
           "settings": {
             "text": "",
@@ -366,7 +434,7 @@
             "text_size_desktop": 14
           }
         },
-        "buttons_PwbBzC": {
+        "buttons_eGqyER": {
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
@@ -376,9 +444,9 @@
         }
       },
       "block_order": [
-        "heading_bKpaUj",
-        "text_dCNAxt",
-        "buttons_PwbBzC"
+        "heading_rPafW7",
+        "text_TLWy9H",
+        "buttons_eGqyER"
       ],
       "name": "new in banner - off 1/19",
       "settings": {
@@ -1436,6 +1504,7 @@
     "slider_collection_KaWYKx",
     "multicolumn_Fbdf7n",
     "image_banner_RfzFJU",
+    "image_banner_rbLtmp",
     "image_banner_Bmpjpn",
     "image_banner_yVpKNR",
     "image_banner_md7kAc",
