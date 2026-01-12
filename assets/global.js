@@ -1600,6 +1600,8 @@ const cartUpdate = (json = false) => {
 let isManagingGWP = false; // Prevent infinite loops
 
 document.addEventListener('cart:updated', function(event) {
+
+  return
   // Prevent infinite loops
   if (isManagingGWP) {
     console.log('Skipping GWP management - already in progress');
