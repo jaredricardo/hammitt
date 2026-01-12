@@ -1177,11 +1177,11 @@ productSwatchReload();
 
 const addToCart = (itemsObj) => {
   if(!itemsObj.hasOwnProperty('sections')) {
-    itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
+    itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items,header";
   }
 
   if(!itemsObj.hasOwnProperty('sections_url')) {
-    itemsObj.sections_url = "/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items";
+    itemsObj.sections_url = "/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items,header";
   }
 
   fetch(window.Shopify.routes.root + 'cart/add.js', {
@@ -1342,7 +1342,7 @@ function checkOrderProtection() {
         
       let updatesObj = { 
         updates: {},
-        sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+        sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
       }
 
       updatesObj.updates[item.variant_id] = 0
@@ -1435,11 +1435,15 @@ const cartUpdate = (json = false) => {
   const cartUpdates = [
     {
       section: "cart-drawer",
-      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes", ".drawer__header h4", ".below-progress-bar-container"]
+      elements: [".cart-announcement-bar",".drawer__items",".drawer__final", ".cart_shipping_notes", '.below-progress-bar-container', ".drawer__title"]
     },
     {
       section: "cart-icon-bubble",
       elements: [".cart-count-bubble"]
+    },
+    {
+      section: "header",
+      elements: [".progress-bar-container"]
     }
   ];
 
@@ -1474,6 +1478,13 @@ const cartUpdate = (json = false) => {
         elOld.outerHTML = elNew.outerHTML;
       }
     })
+
+    // Trigger progress bar animation after DOM update
+    const progressBar = document.querySelector('.progress-bar');
+    if(progressBar) {
+      // Force reflow to restart animation
+      void progressBar.offsetWidth;
+    }
 
     cartUpsellSwiper();
 
@@ -1584,6 +1595,110 @@ const cartUpdate = (json = false) => {
     window.location.href = '/cart';
   }
 }
+
+// GWP Auto-Add/Remove Management
+let isManagingGWP = false; // Prevent infinite loops
+
+document.addEventListener('cart:updated', function(event) {
+  // Prevent infinite loops
+  if (isManagingGWP) {
+    console.log('Skipping GWP management - already in progress');
+    return;
+  }
+  
+  console.log('HEARD CART:UPDATED EVENT FOR GWP MANAGEMENT');
+  const cart = event.detail.cart;
+  const progressBarContainer = document.querySelector('.progress-bar-container');
+  
+  if (!progressBarContainer) return;
+  
+  const gwpTiersData = progressBarContainer.getAttribute('data-gwp-tiers');
+  if (!gwpTiersData) return;
+  
+  let gwpTiers = [];
+  try {
+    gwpTiers = JSON.parse(gwpTiersData);
+  } catch (e) {
+    console.error('Failed to parse GWP tiers data:', e);
+    return;
+  }
+  
+  if (gwpTiers.length === 0) return;
+  
+  const cartTotal = cart.total_price / 100; // Convert cents to dollars
+  const cartItems = cart.items;
+  
+  // Determine which GWP products should be in cart based on thresholds met
+  const gwpsToManage = gwpTiers.map(tier => {
+    const thresholdMet = cartTotal >= tier.threshold;
+    const isInCart = cartItems.some(item => item.variant_id === tier.variantId);
+    const isFreeGWP = tier.productPrice === 0;
+    
+    return {
+      variantId: tier.variantId,
+      threshold: tier.threshold,
+      thresholdMet: thresholdMet,
+      isInCart: isInCart,
+      isFreeGWP: isFreeGWP,
+      shouldAdd: thresholdMet && !isInCart,
+      shouldRemove: !thresholdMet && isInCart && isFreeGWP // Only remove free GWPs
+    };
+  });
+  
+  // Check if any actions are needed
+  const itemsToAdd = gwpsToManage.filter(gwp => gwp.shouldAdd);
+  const itemsToRemove = gwpsToManage.filter(gwp => gwp.shouldRemove);
+  
+  if (itemsToAdd.length === 0 && itemsToRemove.length === 0) return;
+  
+  console.log('GWP actions needed:', { itemsToAdd, itemsToRemove });
+  
+  // Set flag to prevent infinite loops
+  isManagingGWP = true;
+  
+  // Build updates object for cart/update.js endpoint
+  let updates = {};
+  
+  // Add items that should be added (set quantity to 1)
+  itemsToAdd.forEach(gwp => {
+    updates[gwp.variantId] = 1;
+  });
+  
+  // Remove items that should be removed (set quantity to 0)
+  itemsToRemove.forEach(gwp => {
+    updates[gwp.variantId] = 0;
+  });
+  
+  // Use cart/update.js for all operations (add and remove)
+  const updatesObj = {
+    updates: updates,
+    sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
+  };
+  
+  fetch(window.Shopify.routes.root + 'cart/update.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'xmlhttprequest'
+    },
+    body: JSON.stringify(updatesObj)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('GWP management complete, updating cart UI');
+    cartUpdate(data);
+  })
+  .catch(error => {
+    console.error('GWP update error:', error);
+  })
+  .finally(() => {
+    // Reset flag after a delay to allow cart to update
+    setTimeout(() => {
+      isManagingGWP = false;
+      console.log('GWP management flag reset');
+    }, 1000);
+  });
+});
 
 const headerScroll = (h) => {
  

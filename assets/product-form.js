@@ -36,7 +36,27 @@ if (!customElements.get('product-form')) {
       delete config.headers['Content-Type'];
 
       const formData = new FormData(this.form);
-      formData.append('sections', this.cartDrawer.getSectionsToRender().map((section) => section.id));
+      
+
+      const sectionsToRender = [
+        {
+          id: "cart-drawer",
+          section: "cart-drawer",
+          elements: [".cart-announcement-bar", ".drawer__items", ".drawer__final", ".cart_shipping_notes", ".below-progress-bar-container", ".drawer__title"]
+        },
+        {
+          id: "cart-icon-bubble",
+          section: "cart-icon-bubble",
+          elements: [".cart-count-bubble"]
+        },
+        {
+          id: "header",
+          section: "header",
+          elements: [".progress-bar-container"]
+        }
+      ]
+
+      formData.append('sections', sectionsToRender.map((section) => section.id));
       formData.append('sections_url', window.location.pathname);
       config.body = formData;
 

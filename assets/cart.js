@@ -112,7 +112,7 @@ class CartItems extends HTMLElement {
     const body = JSON.stringify({
       [isKey ? "id" : "line"]: line,
       quantity,
-      sections: "cart-drawer,cart-icon-bubble"
+      sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
     });     
 
     fetch(`${routes.cart_change_url}`, {...fetchConfig(), ...{ body }})
@@ -449,7 +449,7 @@ class GiftNoteToggle extends HTMLElement {
       quantity: 0,
       note: ''
     }
-    removeData.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
+    removeData.sections = "cart-drawer,cart-icon-bubble,main-cart-items,header";
     
 	fetch(window.Shopify.routes.root + 'cart/change.js', {
         method: 'POST',
