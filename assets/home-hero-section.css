@@ -5,9 +5,9 @@
 .home-hero-section .section-image img{width:100%;height:100%;display:block;position:absolute;top:0px;left:0px;object-fit:contain;}
 .home-hero-section .section-wrap{position:relative;overflow:hidden;}
 .home-hero-section .section-content{position:absolute;top:0px;left:0px;width:100%;height:100%;padding:52px 20px;}
-.home-hero-section .section-content h2{margin:0px;font-family:var(--semi-bold-family);font-weight:var(--semi-bold-weight);font-size:42px;line-height:1.2;}
+.home-hero-section .section-content h2,
+.home-hero-section .section-content h1{margin:0px;font-family:var(--semi-bold-family);font-weight:var(--semi-bold-weight);font-size:42px;line-height:1.2;}
 .home-hero-section .section-content p{font-size:20px;margin:0px;line-height:1.7;}
-/* .home-hero-section .section-content p{font-size:20px;font-weight:500;margin:0px;line-height:1.7;} */
 .home-hero-section .section-content .section-button{padding-top:30px;}
 .home-hero-section .section-content .section-button .button:after,
 .home-hero-section .section-content .section-button .button:before{display:none;}
@@ -18,6 +18,167 @@
 .home-hero-section .section-wrap.no-abs a {
   position: relative;
 }
+
+/* Carousel Layout Styles */
+.home-hero-section .hero-carousel-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.home-hero-section .hero-text-column {
+  padding: 40px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.home-hero-section .hero-text-column h1,
+.home-hero-section .hero-text-column h2 {
+  margin: 0 0 20px 0;
+  font-family: var(--semi-bold-family);
+  font-weight: var(--semi-bold-weight);
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.home-hero-section .hero-text-column h4 {
+  margin: 0 0 15px 0;
+}
+
+.home-hero-section .hero-text-column p {
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  line-height: 1.7;
+}
+
+.home-hero-section .hero-text-column .section-button {
+  padding-top: 10px;
+}
+
+.home-hero-section .hero-text-column .section-button .button {
+  border: 1px solid rgba(var(--color-button), var(--alpha-button-background));
+  font-size: 15px;
+  line-height: 1;
+  text-transform: uppercase;
+  width: 100%;
+  max-width: 250px;
+  padding: 0px 10px;
+}
+
+.home-hero-section .hero-text-column .section-button .button:after,
+.home-hero-section .hero-text-column .section-button .button:before {
+  display: none;
+}
+
+.home-hero-section .hero-text-column .section-button .button:hover {
+  color: rgba(var(--color-button), var(--alpha-button-background));
+}
+
+.home-hero-section .hero-carousel-column {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-hero-section .hero-image-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.home-hero-section .hero-image-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-hero-section .hero-image-swiper .swiper-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Navigation Buttons - Hidden on Mobile */
+.home-hero-section .swiper-button-prev,
+.home-hero-section .swiper-button-next {
+  display: none;
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 50%;
+  color: #666;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.home-hero-section .swiper-button-prev:hover,
+.home-hero-section .swiper-button-next:hover {
+  background: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.home-hero-section .swiper-button-prev.swiper-button-disabled,
+.home-hero-section .swiper-button-next.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.home-hero-section .swiper-button-prev {
+  left: 20px;
+}
+
+.home-hero-section .swiper-button-next {
+  right: 20px;
+}
+
+.home-hero-section .swiper-button-prev svg,
+.home-hero-section .swiper-button-next svg {
+  display: block;
+}
+
+/* Pagination Dots - Mobile Only */
+.home-hero-section .swiper-pagination {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.home-hero-section .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.home-hero-section .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* Text Alignment Classes for Carousel */
+.home-hero-section .hero-text-column.text-left { text-align: left; }
+.home-hero-section .hero-text-column.text-center { text-align: center; align-items: center; }
+.home-hero-section .hero-text-column.text-right { text-align: right; align-items: flex-end; }
+
+.home-hero-section .hero-text-column.text-vertical-top { justify-content: flex-start; }
+.home-hero-section .hero-text-column.text-vertical-center { justify-content: center; }
+.home-hero-section .hero-text-column.text-vertical-bottom { justify-content: flex-end; }
 
 
 @media only screen and (min-width:750px){
@@ -30,6 +191,35 @@
   .home-hero-section .section-content.text-horizontal-left{justify-content:flex-start}
   .home-hero-section .section-content.text-horizontal-center{justify-content:center}
   .home-hero-section .section-content.text-horizontal-right{justify-content:flex-end}
+
+  /* Desktop Carousel Layout: 35% Text / 65% Carousel */
+  .home-hero-section .hero-carousel-layout {
+    flex-direction: row;
+    min-height: 600px;
+  }
+
+  .home-hero-section .hero-text-column {
+    width: 35%;
+    padding: 60px 40px;
+  }
+
+  .home-hero-section .hero-carousel-column {
+    width: 65%;
+    overflow: visible; /* Allow carousel to scroll out of view */
+  }
+
+  /* Show Navigation Buttons on Desktop */
+  .home-hero-section .swiper-button-prev,
+  .home-hero-section .swiper-button-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hide Pagination on Desktop */
+  .home-hero-section .swiper-pagination {
+    display: none;
+  }
 }
 
 
@@ -46,11 +236,56 @@
   .home-hero-section .section-content.mobile-text-horizontal-right{justify-content:flex-end}
 
   .home-hero-section .section-content{padding:25px 10px;}
-  .home-hero-section .section-content h2{font-size:30px;}
+  .home-hero-section .section-content h2,
+  .home-hero-section .section-content h1{font-size:30px;}
   .home-hero-section .section-content p{font-size:17px;line-height:1.4;}
   .home-hero-section .section-content .section-button .button{font-size:14px;max-width:165px;width: 100%;padding: 11px 10px 9px 10px;height: auto;min-height: unset;}
   .home-hero-section .section-content .section-button{padding-top:20px;}
   .home-hero-section .section-image{min-height:250px;}
   .home-hero-section .section-image img,
   .home-hero-section .section-image video{object-fit:cover}
+
+  /* Mobile Carousel Layout - Text at Bottom, Carousel at Top */
+  .home-hero-section .hero-carousel-layout {
+    flex-direction: column;
+  }
+
+  .home-hero-section .hero-text-column {
+    order: 2;
+    width: 100%;
+    padding: 25px 20px;
+  }
+
+  .home-hero-section .hero-carousel-column {
+    order: 1;
+    width: 100%;
+  }
+
+  .home-hero-section .hero-text-column h1,
+  .home-hero-section .hero-text-column h2 {
+    font-size: 30px;
+  }
+
+  .home-hero-section .hero-text-column p {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .home-hero-section .hero-text-column .section-button .button {
+    font-size: 14px;
+    max-width: 165px;
+    padding: 11px 10px 9px 10px;
+    height: auto;
+    min-height: unset;
+  }
+
+  /* Mobile Text Alignment Classes for Carousel */
+  .home-hero-section .hero-text-column.mobile-text-left { text-align: left; align-items: flex-start; }
+  .home-hero-section .hero-text-column.mobile-text-center { text-align: center; align-items: center; }
+  .home-hero-section .hero-text-column.mobile-text-right { text-align: right; align-items: flex-end; }
+
+  .home-hero-section .hero-text-column.mobile-text-vertical-top { justify-content: flex-start; }
+  .home-hero-section .hero-text-column.mobile-text-vertical-center { justify-content: center; }
+  .home-hero-section .hero-text-column.mobile-text-vertical-bottom { justify-content: flex-end; }
+
 }

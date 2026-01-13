@@ -9,6 +9,91 @@
  */
 {
   "sections": {
+    "home_hero_section_qhL9Xk": {
+      "type": "home-hero-section",
+      "blocks": {
+        "image_carousel_item_9fiUmG": {
+          "type": "image-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Group_12607.jpg",
+            "eyebrow": "saddle up",
+            "title": "Slide Title 1",
+            "subcopy": "lorum ipsum",
+            "button_text": "Shop now",
+            "button_url": "shopify://products/110-north-wallet-artichoke-brushed-gold"
+          }
+        },
+        "image_carousel_item_yL6XYf": {
+          "type": "image-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Group_12607.jpg",
+            "eyebrow": "saddle up",
+            "title": "Slide Title 2",
+            "subcopy": "lorum ipsum",
+            "button_text": "Shop now",
+            "button_url": "shopify://products/110-north-wallet-artichoke-brushed-gold"
+          }
+        },
+        "image_carousel_item_gD6dUK": {
+          "type": "image-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Group_12607.jpg",
+            "eyebrow": "saddle up",
+            "title": "Slide Title 3",
+            "subcopy": "lorum ipsum",
+            "button_text": "Shop now",
+            "button_url": "shopify://products/110-north-wallet-artichoke-brushed-gold"
+          }
+        },
+        "image_carousel_item_i33dhB": {
+          "type": "image-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Group_12607.jpg",
+            "eyebrow": "saddle up",
+            "title": "Slide Title 4",
+            "subcopy": "lorum ipsum",
+            "button_text": "Shop now",
+            "button_url": "shopify://products/110-north-wallet-artichoke-brushed-gold"
+          }
+        }
+      },
+      "block_order": [
+        "image_carousel_item_9fiUmG",
+        "image_carousel_item_yL6XYf",
+        "image_carousel_item_gD6dUK",
+        "image_carousel_item_i33dhB"
+      ],
+      "custom_css": [
+        ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
+        ".home-hero-section .section-image {/* aspect-ratio: 22/10; */}",
+        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: 1/1; } .home-hero-section .section-content {position: relative; } p, h1, h2, h4 {color: black !important; } .section-button a {color: white; background-color: black; }}"
+      ],
+      "name": "Hero section - AB ",
+      "settings": {
+        "media_type": "image",
+        "image": "shopify://shop_images/Group_12642.jpg",
+        "mobile_image": "shopify://shop_images/Rectangle-1001.gif",
+        "text_align": "center",
+        "text_vertical_align": "center",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "center",
+        "text_horizontal_align_mobile": "center",
+        "title": "Meet Stormy",
+        "make_h1": true,
+        "subtitle": "",
+        "desktop_font_size": 40,
+        "mobile_font_size": 30,
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "#000000",
+        "button": "Shop Now",
+        "button_enable": true,
+        "link": "shopify://collections/stormy",
+        "button_text_color": "#000000",
+        "button_bg_color": "#faf7f3"
+      }
+    },
     "home-hero-section": {
       "type": "home-hero-section",
       "custom_css": [
@@ -1606,6 +1691,7 @@
     }
   },
   "order": [
+    "home_hero_section_qhL9Xk",
     "home-hero-section",
     "image_banner_CE6nwi",
     "image_banner_F9QiGb",
