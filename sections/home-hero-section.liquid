@@ -129,16 +129,28 @@
       }
       
       [data-section="{{ section.id }}"] .hero-text-item {
-        padding: 25px 20px;
+        padding: 0 25px 20px 25px !important;
+        justify-content: flex-start !important;
+      }
+      
+      [data-section="{{ section.id }}"] .hero-eyebrow {
+        margin: 0 !important;
       }
       
       [data-section="{{ section.id }}"] .hero-title {
         font-size: 30px;
+        margin: 0 !important;
       }
       
       [data-section="{{ section.id }}"] .hero-subcopy {
         font-size: 17px;
         line-height: 1.4;
+        margin: 0 !important;
+      }
+      
+      [data-section="{{ section.id }}"] .hero-text-item .section-button {
+        padding-top: 0;
+        margin-top: 15px;
       }
       
       [data-section="{{ section.id }}"] .hero-text-item .section-button .button {
@@ -183,7 +195,7 @@
 
       {%- comment -%} Right Column: Image Carousel {%- endcomment -%}
       <div class="hero-carousel-column">
-        <div class="swiper hero-image-swiper" data-hero-carousel>
+        <div class="swiper special-init-swiper hero-image-swiper" data-hero-carousel>
           <div class="swiper-wrapper">
             {% for block in section.blocks %}
               <div class="swiper-slide" {{ block.shopify_attributes }}>
@@ -259,7 +271,7 @@
             },
             pagination: {
               el: '.hero-carousel-pagination',
-              clickable: true,
+              clickable: true
             },
             breakpoints: {
               750: {
@@ -271,7 +283,7 @@
               slideChange: function() {
                 console.log('Slide changed, realIndex:', this.realIndex); 
                 updateTextContent(this.realIndex);
-              },
+              }
             }
           });
         }
