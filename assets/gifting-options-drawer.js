@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     const underlayClose = document.querySelector('.cart-drawer-underlay-close')
+    const testMode = true
 
     underlayClose?.addEventListener('click', () => {
         document.querySelector('hammitt-gifting-options-drawer')?.classList.remove('active')
@@ -138,7 +139,7 @@ window.addEventListener('DOMContentLoaded', () => {
                                 id: variantFromLineKey,
                                 quantity: 1,
                                 properties: {
-                                    '_line_item_box_opt_out': true
+                                    [testMode ? 'test_mode_line_item_box_opt_out' : '_line_item_box_opt_out']: true
                                 }
                             })
                         }
@@ -148,7 +149,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             id: variantFromLineKey,
                             quantity: 1,
                             properties: {
-                                '_line_item_gift_note': giftNote
+                                [testMode ? 'test_mode_line_item_gift_note' : '_line_item_gift_note']: giftNote
                             }
                         })
                         numberOfGiftNotesToAdd++

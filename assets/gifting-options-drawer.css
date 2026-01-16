@@ -15,7 +15,7 @@ hammitt-gifting-options-drawer .header-area {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 hammitt-gifting-options-drawer #close-btn {
@@ -121,11 +121,12 @@ hammitt-gifting-options-drawer .broken-out-line-items {
     }
 }
 
-hammitt-gifting-options-drawer  hammitt-gifting-broken-out-line-item {
+hammitt-gifting-options-drawer hammitt-gifting-broken-out-line-item {
     display: flex;
     flex-direction: row;
     align-items: start;
     gap: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 hammitt-gifting-options-drawer .broken-out-line-items li img {
@@ -149,6 +150,7 @@ hammitt-gifting-options-drawer .broken-out-line-item-info-container {
 
 hammitt-gifting-options-drawer .broken-out-line-item-info-container h6 {
     font-weight: 500;
+    margin-bottom: 0.5rem;
 }
 
 hammitt-gifting-options-drawer .checkbox-container {

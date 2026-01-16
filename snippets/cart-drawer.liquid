@@ -645,11 +645,11 @@
 
               for property in item.properties
 
-                # for check boxes
-                if property.first == '_line_item_box_opt_out'
+                # for check boxes // _ is for private props, no _ is for public props / test mode in gifting-options-drawer.js
+                if property.first == '_line_item_box_opt_out' or property.first == 'test_mode_line_item_box_opt_out'
                   assign opted_out_of_box = true
                 endif
-                if property.first == '_line_item_gift_note'
+                if property.first == '_line_item_gift_note' or property.first == 'test_mode_line_item_gift_note'
                   assign has_line_level_gift_note = true
                 endif
 
@@ -967,10 +967,10 @@
                     for property in item.properties
 
                       # for check boxes
-                      if property.first == '_line_item_box_opt_out'
+                     if property.first == '_line_item_box_opt_out' or property.first == 'test_mode_line_item_box_opt_out'
                         assign line_item_box_opt_out = true
                       endif
-                      if property.first == '_line_item_gift_note'
+                      if property.first == '_line_item_gift_note' or property.first == 'test_mode_line_item_gift_note'
                         assign line_item_gift_note = property.last 
                       endif
 
@@ -980,7 +980,7 @@
                       assign pre_existing_properties_keys = ''
                       assign pre_existing_properties_values = ''
                       for property in item.properties
-                        if property.first == '_line_item_box_opt_out' or property.first == '_line_item_gift_note'
+                        if property.first == '_line_item_box_opt_out' or property.first == '_line_item_gift_note' or property.first == 'test_mode_line_item_box_opt_out' or property.first == 'test_mode_line_item_gift_note'
                           continue
                         endif
                         assign pre_existing_properties_keys = pre_existing_properties_keys | append: property.first | append: ','
