@@ -130,6 +130,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     // remove all gift wrap 
                     updates[giftNoteVid] = 0
 
+                    console.log('REMOVING ALL GIFT WRAP')
+
                     // create object to add new line items with modified properties
                     if(item.querySelector('.no-box').checked) {
                         if(postUpdateFormData.items.find((i) => i.id === lineKey)){
@@ -144,7 +146,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             })
                         }
                     } else if(item.querySelector('.line-item-hand-written-note')?.checked) {
-                        const giftNote = item.querySelector('.line-item-gift-note-text-area').value
+                        const giftNote = item.querySelector('.line-item-gift-note-text-area').value 
                         postUpdateFormData.items.push({
                             id: variantFromLineKey,
                             quantity: 1,
@@ -170,6 +172,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                     if(numberOfGiftNotesToAdd > 0) {
                         // add gift wrap items for each gift note added
+                        console.log('////////')
+                        console.log('ADDING GIFT WRAP ITEMS:', numberOfGiftNotesToAdd)
                         postUpdateFormData.items.push({
                             id: parseInt(giftNoteVid),
                             quantity: numberOfGiftNotesToAdd
@@ -179,7 +183,10 @@ window.addEventListener('DOMContentLoaded', () => {
             })
 
 
-            // add setions to update so cart updates properly
+            console.log('////////')
+            console.log(postUpdateFormData)
+
+            // add sections to update so cart updates properly
             postUpdateFormData.sections = "cart-drawer,cart-icon-bubble,main-cart-items"
 
             // use change.js to decrement existing line items via the updates object
@@ -207,6 +214,8 @@ window.addEventListener('DOMContentLoaded', () => {
                         return addResponse.json()
                     })
                     .then((json) => {
+                        console.log('///// add response json')
+                        console.log(json)
                         cartUpdate(json)
                         // this is specifically for the free gift wrap, though it should be ok to stay here even when free gift wrap is active. It just forces the progress bar to update.
                         const parser = new DOMParser()

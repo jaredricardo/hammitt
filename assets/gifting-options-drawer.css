@@ -307,3 +307,7 @@ gifting-tooltip-container li {
     text-align: center;
     flex: 1;
 }
+
+[data-gift-wrap-only-no-note="true"] {
+    display: none !important;
+}
