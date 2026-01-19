@@ -1511,7 +1511,6 @@ checkGWPs(false)
 // });
 
 const cartUpdate = (json = false) => {
-  console.log('cart update called !!!!!');
   const cartUpdates = [
     {
       section: "cart-drawer",

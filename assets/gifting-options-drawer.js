@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     const underlayClose = document.querySelector('.cart-drawer-underlay-close')
-    const testMode = true
+    const testMode = false
 
     underlayClose?.addEventListener('click', () => {
         document.querySelector('hammitt-gifting-options-drawer')?.classList.remove('active')
@@ -130,8 +130,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     // remove all gift wrap 
                     updates[giftNoteVid] = 0
 
-                    console.log('REMOVING ALL GIFT WRAP')
-
                     // create object to add new line items with modified properties
                     if(item.querySelector('.no-box').checked) {
                         if(postUpdateFormData.items.find((i) => i.id === lineKey)){
@@ -172,8 +170,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                     if(numberOfGiftNotesToAdd > 0) {
                         // add gift wrap items for each gift note added
-                        console.log('////////')
-                        console.log('ADDING GIFT WRAP ITEMS:', numberOfGiftNotesToAdd)
                         postUpdateFormData.items.push({
                             id: parseInt(giftNoteVid),
                             quantity: numberOfGiftNotesToAdd
@@ -181,10 +177,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             })
-
-
-            console.log('////////')
-            console.log(postUpdateFormData)
 
             // add sections to update so cart updates properly
             postUpdateFormData.sections = "cart-drawer,cart-icon-bubble,main-cart-items"
@@ -214,8 +206,6 @@ window.addEventListener('DOMContentLoaded', () => {
                         return addResponse.json()
                     })
                     .then((json) => {
-                        console.log('///// add response json')
-                        console.log(json)
                         cartUpdate(json)
                         // this is specifically for the free gift wrap, though it should be ok to stay here even when free gift wrap is active. It just forces the progress bar to update.
                         const parser = new DOMParser()
@@ -223,7 +213,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         const elOld = document.querySelector('free-shipping-goal')
                         const elNew = doc.querySelector('free-shipping-goal')
                         if(elOld == null || elNew == null) return
-                        if(elOld && elNew) {
+                    if(elOld && elNew) {
                             elOld.outerHTML = elNew.outerHTML
                         }
                     })

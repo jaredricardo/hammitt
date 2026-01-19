@@ -87,7 +87,6 @@ class GiftBoxCartSection extends HTMLElement {
   
   connectedCallback() {
     this.addEventListener('click', () => {
-      console.log('clicked gift box section')
       const giftDrawerTrigger = document.querySelector('hammitt-gifting-options-drawer-trigger #open-btn');
       if (giftDrawerTrigger) {
         giftDrawerTrigger.click();
