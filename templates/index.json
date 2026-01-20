@@ -9,15 +9,69 @@
  */
 {
   "sections": {
-    "home-hero-section": {
+    "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
+      "blocks": {
+        "image_carousel_item_9fiUmG": {
+          "type": "image-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_793_6a30d26f-109e-4f2e-9dfc-5a6ff029245c.jpg",
+            "eyebrow": "Saddle Up",
+            "title": "Western Rein",
+            "subcopy": "Layered leather cutouts give a nod to equestrian trends.",
+            "button_text": "Shop Western Rein",
+            "button_url": "shopify://collections/western-rein"
+          }
+        },
+        "image_carousel_item_yL6XYf": {
+          "type": "image-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_795_6a67d4f4-bb3a-4024-89e7-a31cf93fe993.jpg",
+            "eyebrow": "Make a Splash",
+            "title": "Deep Water",
+            "subcopy": "Dive into this vibrant blue leather.",
+            "button_text": "Shop Deep Water",
+            "button_url": "shopify://collections/deep-water"
+          }
+        },
+        "image_carousel_item_gD6dUK": {
+          "type": "image-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_796_b75483ed-4450-4212-9f5d-3d53d8246b9e.jpg",
+            "eyebrow": "Perfectly Polished",
+            "title": "Stormy",
+            "subcopy": "Cool composed color with brushed gold.",
+            "button_text": "Shop Stormy",
+            "button_url": "shopify://collections/stormy"
+          }
+        },
+        "image_carousel_item_i33dhB": {
+          "type": "image-carousel-item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Group_12607.jpg",
+            "eyebrow": "saddle up",
+            "title": "Slide Title 4",
+            "subcopy": "lorum ipsum",
+            "button_text": "Shop now",
+            "button_url": "shopify://products/110-north-wallet-artichoke-brushed-gold"
+          }
+        }
+      },
+      "block_order": [
+        "image_carousel_item_9fiUmG",
+        "image_carousel_item_yL6XYf",
+        "image_carousel_item_gD6dUK",
+        "image_carousel_item_i33dhB"
+      ],
       "custom_css": [
         ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
         ".home-hero-section .section-image {/* aspect-ratio: 22/10; */}",
         "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: 1/1; } .home-hero-section .section-content {position: relative; } p, h1, h2, h4 {color: black !important; } .section-button a {color: white; background-color: black; }}"
       ],
-      "name": "Hero section - off 1/19",
+      "name": "Hero section - AB ",
       "settings": {
+        "section_bg_color": "#fffbf8",
         "media_type": "image",
         "image": "shopify://shop_images/Group_12642.jpg",
         "mobile_image": "shopify://shop_images/Rectangle-1001.gif",
@@ -1606,7 +1660,7 @@
     }
   },
   "order": [
-    "home-hero-section",
+    "home_hero_section_qhL9Xk",
     "image_banner_CE6nwi",
     "image_banner_F9QiGb",
     "image_banner_kYcPV4",
