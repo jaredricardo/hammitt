@@ -716,11 +716,18 @@
                 <div> 
                   <div class="drawer__content-item-and-price">
                      {% if is_gwp or noLink %}
-                      <p class="cart-item__title" style="margin:0;">{{ product_type }}</p>
+                      <p class="cart-item__title" style="margin:0;">
+                        {{ product_type }}
+                        {% if item.variant_id == settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id  %}
+                          x {{ item.quantity }}
+                        {% endif %}
+                      </p>
                      {% endif %}
                     {%  unless is_gwp or noLink %}                 
                       <a {% unless item.variant_id contains isHiddenItem %}href="{{ item.url }}"{% endunless %} class="cart-item__name break">
-                        <span class="cart-item__title">{{ product_type }}</span>
+                        <span class="cart-item__title">
+                          {{ product_type }}
+                        </span>
                       </a> 
                     {% endunless %}
                     <div class="drawer__content-item-price"> 
