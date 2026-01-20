@@ -1194,7 +1194,12 @@
             <div class="checkbox-message-area">
               <div>
                 <input type="checkbox" id="hammitt-gift-message-checkbox">
-                <label for="hammit-gift-message-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_gift_message }}</label>
+                <label for="hammit-gift-message-checkbox" class="hammit-checkbox-message ">{{ settings.hammitt_gift_message }}</label>
+                {% if settings.gifting_drawer_trigger_after_gifting_label %}
+                  <hammitt-gifting-options-drawer-trigger-no-button style="margin: 0;text-decoration: underline;font-size: 13px;margin-left: 5px;cursor: pointer;">
+                    {{ settings.gifting_drawer_trigger_after_gifting_label }}
+                  </hammitt-gifting-options-drawer-trigger-no-button>
+                {% endif %}
               </div>
             </div>
             <div class="hammitt-gift-note-area">

@@ -22,6 +22,16 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    class HammittGiftingOptionsDrawerTriggerNoButton extends HTMLElement {
+        constructor() {
+            super()
+            this.addEventListener('click', this.openGiftingDrawer)
+        }
+        openGiftingDrawer(){
+            document.querySelector('hammitt-gifting-options-drawer')?.classList.add('active')
+        }
+    }
+
     class HammittGiftingOptionsDrawerElTrigger extends HTMLElement {
         constructor() {
             super()
@@ -313,4 +323,5 @@ window.addEventListener('DOMContentLoaded', () => {
     customElements.define('hammitt-line-level-gift-note', HammittLineLevelGiftNote)
     customElements.define('gifting-tooltip-container', GiftingTooltipContainer)
     customElements.define('hammitt-gifting-options-drawer-el-trigger', HammittGiftingOptionsDrawerElTrigger)
+    customElements.define('hammitt-gifting-options-drawer-trigger-no-button', HammittGiftingOptionsDrawerTriggerNoButton)
 })

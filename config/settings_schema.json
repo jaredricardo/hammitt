@@ -1306,10 +1306,16 @@
         "default": false  
       },
       {
-        "type": "textarea",
+        "type": "html",
         "id": "hammitt_gift_message", 
-        "label": "Gift checkbox label",
+        "label": "Gift checkbox label (accepts HTML)",
         "default": "Sending this as a Gift? Add a gift note here."
+      },
+      {
+        "type": "text",
+        "id": "gifting_drawer_trigger_after_gifting_label",
+        "label": "Gifting drawer trigger button label when cart level gifting is enabled",
+        "default": "Gift Options."
       },
       {
         "type": "header",
