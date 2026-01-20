@@ -1083,7 +1083,12 @@
                             {% endif %}>
                             <div class="hammitt-gift-note-area">
                               <div class="note-area-container">
-                                <textarea maxlength="500" placeholder="Enter your gift note here" name="note" class="line-item-gift-note-text-area" {% if line_item_gift_note != false %} value="{{ line_item_gift_note }}" {% endif %}>{% if line_item_gift_note != false %}{{ line_item_gift_note }}{% endif %}</textarea>
+                                <textarea maxlength="500" 
+                                  placeholder="Enter your gift note here" 
+                                  name="note" 
+                                  class="line-item-gift-note-text-area"
+                                  {% if line_item_gift_note != false %} value="{{ line_item_gift_note }}" {% endif %}
+                                >{% if settings.enable_hammitt_gift_messaging %}RIBBON{% else %}{% if line_item_gift_note != false %}{{ line_item_gift_note }}{% endif %}{% endif %}</textarea>
                                 <span class="gift-note-char-limit">
                                   {% if line_item_gift_note != false %}
                                     {{ line_item_gift_note | size }}

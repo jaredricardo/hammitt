@@ -79,23 +79,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 Steps to save gifting options at line item level:
             
-                1. loop through gifting options and check how many of a single variant are modified 
-                2. decrement variant by the number of modified variants
-                3. use add.js to add the same variant to cart with the modified properties
-                4. refresh cart drawer to reflect changes
+                1. Loop through gifting options and check how many of a single variant are modified 
+                2. Decrement variant by the number of modified variants
+                3. Use add.js to add the same variant to cart with the modified properties
+                4. Refresh cart drawer to reflect changes
 
             */
          
             brokenOutLineItems.forEach((item) => {
 
                 /* 
-                
+
                     I couldn't find an easy way to include the json for the existing properties. 
                     The properties object comes in as an array with first value being the key
                     and th second value being the value. This made it difficult to parse through
                     and re-create the object to include in the new line item. Instead, I am
                     capturing the keys and values separately in data attributes and creating the JSON
                     for it below.
+
                 */
 
                 if(item.dataset.excludedFromGifting === 'true' ) return
