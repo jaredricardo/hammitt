@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     const underlayClose = document.querySelector('.cart-drawer-underlay-close')
+    const testMode = false
 
     underlayClose?.addEventListener('click', () => {
         document.querySelector('hammitt-gifting-options-drawer')?.classList.remove('active')
@@ -78,23 +79,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 Steps to save gifting options at line item level:
             
-                1. loop through gifting options and check how many of a single variant are modified 
-                2. decrement variant by the number of modified variants
-                3. use add.js to add the same variant to cart with the modified properties
-                4. refresh cart drawer to reflect changes
+                1. Loop through gifting options and check how many of a single variant are modified 
+                2. Decrement variant by the number of modified variants
+                3. Use add.js to add the same variant to cart with the modified properties
+                4. Refresh cart drawer to reflect changes
 
             */
          
             brokenOutLineItems.forEach((item) => {
 
                 /* 
-                
+
                     I couldn't find an easy way to include the json for the existing properties. 
                     The properties object comes in as an array with first value being the key
                     and th second value being the value. This made it difficult to parse through
                     and re-create the object to include in the new line item. Instead, I am
                     capturing the keys and values separately in data attributes and creating the JSON
                     for it below.
+
                 */
 
                 if(item.dataset.excludedFromGifting === 'true' ) return
@@ -138,17 +140,17 @@ window.addEventListener('DOMContentLoaded', () => {
                                 id: variantFromLineKey,
                                 quantity: 1,
                                 properties: {
-                                    '_line_item_box_opt_out': true
+                                    [testMode ? 'test_mode_line_item_box_opt_out' : '_line_item_box_opt_out']: true
                                 }
                             })
                         }
                     } else if(item.querySelector('.line-item-hand-written-note')?.checked) {
-                        const giftNote = item.querySelector('.line-item-gift-note-text-area').value
+                        const giftNote = item.querySelector('.line-item-gift-note-text-area').value 
                         postUpdateFormData.items.push({
                             id: variantFromLineKey,
                             quantity: 1,
                             properties: {
-                                '_line_item_gift_note': giftNote
+                                [testMode ? 'test_mode_line_item_gift_note' : '_line_item_gift_note']: giftNote
                             }
                         })
                         numberOfGiftNotesToAdd++
@@ -177,8 +179,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
             })
 
-
-            // add setions to update so cart updates properly
+            // add sections to update so cart updates properly
             postUpdateFormData.sections = "cart-drawer,cart-icon-bubble,main-cart-items"
 
             // use change.js to decrement existing line items via the updates object
@@ -213,7 +214,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         const elOld = document.querySelector('free-shipping-goal')
                         const elNew = doc.querySelector('free-shipping-goal')
                         if(elOld == null || elNew == null) return
-                        if(elOld && elNew) {
+                    if(elOld && elNew) {
                             elOld.outerHTML = elNew.outerHTML
                         }
                     })
