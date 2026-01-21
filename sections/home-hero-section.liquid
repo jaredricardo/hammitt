@@ -283,8 +283,6 @@
           
           // Function to update text content based on slide index
           function updateTextContent(index) {
-            console.log('Updating text to index:', index); // Debug log
-            
             // Fade out current active text
             const currentActive = textContent.querySelector('.hero-text-item.active');
             if (currentActive) {
@@ -320,7 +318,6 @@
             },
             on: {
               slideChange: function() {
-                console.log('Slide changed, realIndex:', this.realIndex); 
                 updateTextContent(this.realIndex);
               }
             }

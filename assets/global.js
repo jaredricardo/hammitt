@@ -1432,6 +1432,8 @@ checkOrderProtection()
 // });
 
 const cartUpdate = (json = false) => {
+  console.log('//////// cart update')
+  console.log(json)
   const cartUpdates = [
     {
       section: "cart-drawer",
@@ -1465,6 +1467,7 @@ const cartUpdate = (json = false) => {
   };
 
   cartUpdates.forEach(update => {
+    if(!json.sections[update.section]) return;
     update.elements.forEach(element => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(json.sections[update.section], "text/html");
@@ -1601,7 +1604,6 @@ let isManagingGWP = false; // Prevent infinite loops
 
 document.addEventListener('cart:updated', function(event) {
 
-  return
   // Prevent infinite loops
   if (isManagingGWP) {
     console.log('Skipping GWP management - already in progress');
@@ -1615,6 +1617,8 @@ document.addEventListener('cart:updated', function(event) {
   if (!progressBarContainer) return;
   
   const gwpTiersData = progressBarContainer.getAttribute('data-gwp-tiers');
+  console.log('///////')
+  console.log(gwpTiersData);
   if (!gwpTiersData) return;
   
   let gwpTiers = [];
@@ -1627,8 +1631,20 @@ document.addEventListener('cart:updated', function(event) {
   
   if (gwpTiers.length === 0) return;
   
-  const cartTotal = cart.total_price / 100; // Convert cents to dollars
   const cartItems = cart.items;
+  
+  // Calculate cart total EXCLUDING any GWP products to prevent circular logic
+  // where the GWP itself pushes the cart over the threshold
+  const gwpVariantIds = gwpTiers.map(tier => tier.variantId);
+  const gwpTotalInCart = cartItems
+    .filter(item => gwpVariantIds.includes(item.variant_id))
+    .reduce((total, item) => total + item.final_line_price, 0);
+  
+  const cartTotal = (cart.total_price - gwpTotalInCart) / 100; // Convert cents to dollars, excluding GWP value
+  
+  console.log('Cart total (raw):', cart.total_price / 100);
+  console.log('GWP total in cart:', gwpTotalInCart / 100);
+  console.log('Cart total (adjusted for threshold check):', cartTotal);
   
   // Determine which GWP products should be in cart based on thresholds met
   const gwpsToManage = gwpTiers.map(tier => {
@@ -1658,48 +1674,87 @@ document.addEventListener('cart:updated', function(event) {
   // Set flag to prevent infinite loops
   isManagingGWP = true;
   
-  // Build updates object for cart/update.js endpoint
-  let updates = {};
-  
-  // Add items that should be added (set quantity to 1)
-  itemsToAdd.forEach(gwp => {
-    updates[gwp.variantId] = 1;
-  });
-  
-  // Remove items that should be removed (set quantity to 0)
-  itemsToRemove.forEach(gwp => {
-    updates[gwp.variantId] = 0;
-  });
-  
-  // Use cart/update.js for all operations (add and remove)
-  const updatesObj = {
-    updates: updates,
-    sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
-  };
-  
-  fetch(window.Shopify.routes.root + 'cart/update.js', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'xmlhttprequest'
-    },
-    body: JSON.stringify(updatesObj)
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('GWP management complete, updating cart UI');
-    cartUpdate(data);
-  })
-  .catch(error => {
-    console.error('GWP update error:', error);
-  })
-  .finally(() => {
-    // Reset flag after a delay to allow cart to update
-    setTimeout(() => {
-      isManagingGWP = false;
-      console.log('GWP management flag reset');
-    }, 1000);
-  });
+  // Process GWP updates
+  (async () => {
+    try {
+      // If threshold is NOT met, remove free GWP items (price = 0)
+      if (itemsToRemove.length > 0) {
+        console.log('Removing free GWP items (threshold not met):', itemsToRemove);
+        const updates = {};
+        itemsToRemove.forEach(gwp => {
+          updates[gwp.variantId] = 0;
+        });
+        
+        const removeResponse = await fetch(window.Shopify.routes.root + 'cart/update.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'xmlhttprequest'
+          },
+          body: JSON.stringify({ updates })
+        });
+        
+        if (!removeResponse.ok) {
+          throw new Error('Failed to remove GWP items');
+        }
+        
+        console.log('Free GWP items removed successfully');
+      }
+      
+      // If threshold IS met and item NOT in cart, add it
+      if (itemsToAdd.length > 0) {
+        console.log('Adding GWP items (threshold met, not in cart):', itemsToAdd);
+        const items = itemsToAdd.map(gwp => ({
+          id: gwp.variantId,
+          quantity: 1,
+          properties: {
+            '_free_gift': 'true'
+          }
+        }));
+        
+        const addResponse = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'xmlhttprequest'
+          },
+          body: JSON.stringify({ items })
+        });
+        
+        if (!addResponse.ok) {
+          throw new Error('Failed to add GWP items');
+        }
+        
+        console.log('GWP items added successfully');
+      }
+      
+      // Fetch updated cart with sections
+      const sectionsResponse = await fetch(
+        window.Shopify.routes.root + 'cart?sections=cart-drawer,cart-icon-bubble,main-cart-items,header',
+        {
+          headers: {
+            'X-Requested-With': 'xmlhttprequest'
+          }
+        }
+      );
+      
+      const sectionsData = await sectionsResponse.json();
+      console.log('GWP management complete, updating cart UI');
+      
+      // Wrap sections data in the expected format for cartUpdate
+      const data = { sections: sectionsData };
+      cartUpdate(data);
+      
+    } catch (error) {
+      console.error('GWP update error:', error);
+    } finally {
+      // Reset flag after a delay to allow cart to update
+      setTimeout(() => {
+        isManagingGWP = false;
+        console.log('GWP management flag reset');
+      }, 1000);
+    }
+  })();
 });
 
 const headerScroll = (h) => {
