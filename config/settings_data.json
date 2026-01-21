@@ -115,6 +115,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_rWU3KJ": {
+            "type": "announcement",
+            "settings": {
+              "text": "Valentine's Day Gift Guide",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://pages/valentines-day-gifting"
+            }
+          },
           "announcement_a4yGWJ": {
             "type": "announcement",
             "disabled": true,
@@ -136,6 +145,7 @@
           }
         },
         "block_order": [
+          "announcement_rWU3KJ",
           "announcement_a4yGWJ",
           "announcement_CwR3it"
         ],
