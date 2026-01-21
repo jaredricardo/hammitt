@@ -38,6 +38,19 @@
       height: 100% !important;
     }
     
+    /* Image link wrapper */
+    [data-section="{{ section.id }}"] .hero-carousel-image-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    
+    [data-section="{{ section.id }}"] .hero-carousel-image-link img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    
     /* Loading state - entire carousel starts hidden */
     [data-section="{{ section.id }}"] .hero-image-swiper {
       opacity: 0;
@@ -214,13 +227,25 @@
             {% for block in section.blocks %}
               <div class="swiper-slide" {{ block.shopify_attributes }}>
                 {% if block.settings.image != blank %}
-                  <img 
-                    src="{{ block.settings.image | img_url: '1800x' }}" 
-                    alt="{{ block.settings.image.alt | escape }}"
-                    width="{{ block.settings.image.width }}"
-                    height="{{ block.settings.image.height }}"
-                    loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
-                  >
+                  {% if block.settings.enable_image_as_link_out and block.settings.button_url != blank %}
+                    <a href="{{ block.settings.button_url }}" class="hero-carousel-image-link">
+                      <img 
+                        src="{{ block.settings.image | img_url: '1800x' }}" 
+                        alt="{{ block.settings.image.alt | escape }}"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                        loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                      >
+                    </a>
+                  {% else %}
+                    <img 
+                      src="{{ block.settings.image | img_url: '1800x' }}" 
+                      alt="{{ block.settings.image.alt | escape }}"
+                      width="{{ block.settings.image.width }}"
+                      height="{{ block.settings.image.height }}"
+                      loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                    >
+                  {% endif %}
                 {% else %}
                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                 {% endif %}
@@ -679,6 +704,12 @@
             "type": "url",
             "id": "button_url",
             "label": "Button URL"
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_image_as_link_out",
+            "label": "Enable image as link",
+            "default": true
           }
         ]
       }
