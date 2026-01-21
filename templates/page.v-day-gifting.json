@@ -29,8 +29,8 @@
           "type": "heading",
           "settings": {
             "heading": "The 2026 Valentine’s Day Gift Guide",
-            "heading_size_mobile": 24,
-            "heading_size_tablet": 30,
+            "heading_size_mobile": 20,
+            "heading_size_tablet": 22,
             "heading_size_desktop": 42
           }
         },
@@ -41,14 +41,14 @@
             "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 13,
-            "text_size_tablet": 18,
-            "text_size_desktop": 16
+            "text_size_tablet": 13,
+            "text_size_desktop": 14
           }
         },
         "buttons_bgXT6r": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop Gift Collection",
+            "button_label_1": "Shop Gift Ideas",
             "button_link_1": "shopify://collections/best-selling-bags",
             "button_style_secondary_1": false
           }
@@ -80,7 +80,7 @@
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-right",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
@@ -117,7 +117,7 @@
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "Under $175",
+            "link_label": "Gift Under $175",
             "link_margin_top": 20,
             "link": "shopify://collections/gift-guide-under-175",
             "cta_color": "#ffffff",
@@ -142,7 +142,7 @@
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "Under $350",
+            "link_label": "Gift Under $300",
             "link_margin_top": 20,
             "link": "shopify://collections/gift-guide-under-300",
             "cta_color": "#ffffff",
@@ -167,7 +167,7 @@
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "$350+",
+            "link_label": "Gift  $300+",
             "link_margin_top": 20,
             "link": "shopify://collections/300",
             "cta_color": "#ffffff",
@@ -228,50 +228,57 @@
         "navigator_tDMry4": {
           "type": "navigator",
           "settings": {
-            "title": "Perfect Gift",
-            "href": "PerfectGift"
+            "title": "Red Hot Favorites",
+            "href": "Red"
           }
         },
         "navigator_cJVxrb": {
           "type": "navigator",
           "settings": {
-            "title": "Top Picks",
-            "href": "TopPicks"
+            "title": "Top Rated Gifts",
+            "href": "Top-rate"
           }
         },
         "navigator_3wKPKh": {
           "type": "navigator",
           "settings": {
-            "title": "Iconic",
-            "href": "Iconic"
+            "title": "Iconic Bags",
+            "href": "TheKyle"
           }
         },
         "navigator_gGNNek": {
           "type": "navigator",
           "settings": {
-            "title": "Most loved",
-            "href": "Mostloved"
+            "title": "Perfect Pairings",
+            "href": "PerfectPairings"
+          }
+        },
+        "navigator_zAApFN": {
+          "type": "navigator",
+          "settings": {
+            "title": "Most-Wanted",
+            "href": "Most-Wanted"
           }
         },
         "navigator_9ECwhx": {
           "type": "navigator",
           "settings": {
-            "title": "Trendy",
+            "title": "Presents for Trendsetters",
             "href": "Trendy"
           }
         },
         "navigator_76ER4e": {
           "type": "navigator",
           "settings": {
-            "title": "Easy Gifts",
+            "title": "Little Delights",
             "href": "Easy"
           }
         },
         "navigator_ncqJkH": {
           "type": "navigator",
           "settings": {
-            "title": "men",
-            "href": "men"
+            "title": "For Your Favorite Guy",
+            "href": "men-guy"
           }
         }
       },
@@ -280,6 +287,7 @@
         "navigator_cJVxrb",
         "navigator_3wKPKh",
         "navigator_gGNNek",
+        "navigator_zAApFN",
         "navigator_9ECwhx",
         "navigator_76ER4e",
         "navigator_ncqJkH"
@@ -293,21 +301,27 @@
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
       "settings": {
-        "href": "PerfectGift",
+        "href": "Red",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/Group_12589_1.jpg",
-        "image_link": "shopify://collections/best-selling-bags",
-        "header": "PerfectGift",
-        "subheader": "Our bestselling fall favorites.",
+        "image_link": "shopify://products/meredith-med-chili-red-gold",
+        "header": "Red Hot Favorites",
+        "subheader": "Show your love with the color of the season.",
         "featured_products": [
-          "meredith-sml-chili-red-gold",
           "meredith-med-chili-red-gold",
+          "meredith-sml-chili-red-gold",
           "kyle-shoulder-bag-chili-red-gold",
           "kyle-lrg-chili-red-gold",
           "210-west-wallet-chili-red-gold",
-          "kyle-chocolate-diamond-suede-antique-gold",
-          "kyle-shoulder-bag-calla-lily-white-brushed-gold"
+          "syd-pouch-accessory-chili-red-gold",
+          "syd-pouch-accessory-cherrywood-pebble-brushed-gold",
+          "meredith-med-cherrywood-pebble-brushed-gold",
+          "tim-med-shoulder-bag-cherrywood-pebble-brushed-gold",
+          "charles-crossbody-med-crossbody-cherrywood-pebble-brushed-gold",
+          "charlotte-med-cherrywood-pebble-gold",
+          "tom-zip-cherrywood-pebble-brushed-gold",
+          "kyle-shoulder-bag-wildberry-brushed-gold"
         ],
         "featured_collection": ""
       }
@@ -316,23 +330,29 @@
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
       "settings": {
-        "href": "TopPicks",
+        "href": "Top-rate",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "image": "shopify://shop_images/Group_12580_1.jpg",
-        "image_link": "shopify://collections/new-arrivals",
-        "header": "New Top Picks",
-        "subheader": "Give the gift of their 9-to-5 companion — effortlessly chic from coffee to cocktails.",
+        "image": "shopify://shop_images/Group_12599_b984d86b-214b-4836-8658-3df61969594e.jpg",
+        "image_link": "shopify://collections/charles-crossbody",
+        "header": "Top Rated Gifts",
+        "subheader": "Five star favorites they're sure to love.",
         "featured_products": [
+          "charles-crossbody-lrg-belt-bag-mahogany-pebble-brushed-gold-red-zip",
+          "charles-crossbody-lrg-belt-bag-calla-lily-white-brushed-gold",
+          "kyle-shoulder-bag-black-brushed-gold-red-zip",
+          "charles-crossbody-crossbody-black-brushed-gold-red-zip",
           "kyle-shoulder-bag-calla-lily-white-brushed-gold",
           "charles-crossbody-med-crossbody-calla-lily-white-brushed-gold",
-          "kyle-western-rein-silver",
-          "becker-sml-western-rein-silver",
-          "kyle-chocolate-diamond-suede-antique-gold",
-          "meredith-med-chocolate-diamond-suede-antique-gold",
-          "meredith-sml-chocolate-diamond-suede-antique-gold",
-          "tim-med-shoulder-bag-chocolate-diamond-suede-antique-gold",
-          "charles-crossbody-med-chocolate-diamond-suede-antique-gold"
+          "kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "charles-crossbody-crossbody-mahogany-pebble-brushed-gold-red-zip",
+          "charles-crossbody-lrg-belt-bag-black-brushed-gold-red-zip",
+          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "charles-crossbody-lrg-belt-bag-black-gunmetal",
+          "charles-crossbody-lrg-belt-bag-limestone-silver",
+          "charles-crossbody-crossbody-black-gunmetal",
+          "charles-crossbody-lrg-belt-bag-pewter-pebble-brushed-silver",
+          "charles-crossbody-lrg-belt-bag-espresso-pebble-silver"
         ],
         "featured_collection": ""
       }
@@ -341,28 +361,36 @@
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
       "settings": {
-        "href": "Iconic",
+        "href": "TheKyle",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "image": "shopify://shop_images/Group_12582.jpg",
+        "image": "shopify://shop_images/Group_12580_1.jpg",
         "image_link": "shopify://collections/kyle",
-        "header": "Iconic Kyle",
-        "subheader": "Evening bags for all your special occasions.",
+        "header": "Iconic Bag, Bold Hues",
+        "subheader": "Build their collection with our bestselling Kyle.",
         "featured_products": [
-          "kyle-shoulder-bag-chili-red-gold",
-          "kyle-lrg-chili-red-gold",
-          "kyle-chocolate-diamond-suede-antique-gold",
-          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
-          "kyle-revival-clutch-black-press-gold-silver-red-zip",
+          "kyle-shoulder-bag-calla-lily-white-brushed-gold",
+          "kyle-deep-water-silver",
+          "kyle-shoulder-bag-wildberry-brushed-gold",
+          "kyle-med-deep-water-weave-silver",
           "kyle-shoulder-bag-black-brushed-gold-red-zip",
+          "kyle-lrg-chili-red-gold",
+          "kyle-revival-clutch-black-press-gold-silver-red-zip",
+          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "kyle-lrg-black-brushed-gold-red-zip",
+          "kyle-shoulder-bag-chili-red-gold",
+          "kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
           "kyle-med-shoulder-bag-black-brushed-gold-red-zip",
           "kyle-shoulder-bag-black-gunmetal",
+          "kyle-lrg-black-gunmetal",
           "kyle-med-shoulder-bag-black-gunmetal",
-          "kyle-deep-water-silver",
-          "kyle-med-deep-water-weave-silver",
+          "kyle-med-shoulder-bag-calla-lily-white-brushed-gold",
+          "kyle-med-shoulder-bag-espresso-pebble-weave-silver",
+          "kyle-lrg-espresso-pebble-silver",
           "kyle-shoulder-bag-espresso-pebble-silver",
-          "kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
-          "kyle-midnight-marquise-gunmetal"
+          "kyle-shoulder-bag-limestone-silver",
+          "kyle-midnight-marquise-gunmetal",
+          "kyle-shoulder-bag-pewter-brushed-gold-red-zip"
         ],
         "featured_collection": ""
       }
@@ -371,29 +399,62 @@
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
       "settings": {
-        "href": "Mostloved",
+        "href": "PerfectPairings",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "image": "shopify://shop_images/Group_12586_26dc77a1-45fd-4498-b6ad-92f609f9cbdf.jpg",
-        "image_link": "shopify://collections/satchel-shoulder-bag",
-        "header": "Most Loved",
-        "subheader": "Shop the new go-to bags on the shoulders of Olivia Munn, Lola Tung, and Jenna Ortega.",
+        "image": "shopify://shop_images/Group_12586_7239b0f6-6b29-4504-bc93-40ca9d4b1bd8.jpg",
+        "image_link": "shopify://products/tim-med-stormy-gold",
+        "header": "Perfect Pairings",
+        "subheader": "Build a matching set made in heaven.",
         "featured_products": [
-          "tim-med-shoulder-bag-cherrywood-pebble-brushed-gold",
-          "tim-med-deep-water-weave-silver",
-          "tim-med-shoulder-bag-espresso-pebble-weave-silver",
-          "tim-med-shoulder-bag-chocolate-diamond-suede-antique-gold",
-          "tim-med-shoulder-bag-black-brushed-gold",
-          "tim-med-shoulder-bag-black-gunmetal",
-          "tim-med-shoulder-bag-espresso-pebble-silver",
-          "tim-noir-diamond-suede-gunmetal",
-          "tim-med-shoulder-bag-dune-silver",
-          "bryant-med-deep-water-weave-silver",
+          "tim-med-stormy-gold",
+          "110-north-stormy-brushed-gold",
+          "daniel-lrg-black-bg-r-zip-tote-bag",
+          "110-north-wallet-black-brushed-gold-red-zip",
+          "daniel-med-satchel-calla-lily-white-brushed-gold",
+          "110-north-wallet-calla-lily-white-brushed-gold",
+          "bryant-med-shoulder-bag-black-brushed-gold-red-zip",
+          "210-west-blk-bg-r-zip-wallet",
           "bryant-deep-water-weave-silver",
-          "bryant-med-shoulder-bag-espresso-pebble-weave-silver",
-          "bryant-lrg-crossbody-espresso-pebble-weave-silver",
-          "bryant-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
-          "bryant-med-shoulder-bag-belted-suede-gunmetal"
+          "210-west-deep-water-silver",
+          "tom-zip-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "110-north-wallet-mahogany-pebble-brushed-gold-red-zip"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_MqqXQ4": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Most-Wanted",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Group_12597_6bbbb055-3a4c-4eaa-9f37-c371ecc51b18.jpg",
+        "image_link": "shopify://products/tom-zip-med-shoulder-bag-belted-suede-gunmetal",
+        "header": "Most-Loved on Social",
+        "subheader": "Explore influencer and celebrity favorites.",
+        "featured_products": [
+          "tom-zip-med-shoulder-bag-belted-suede-gunmetal",
+          "meredith-sml-chocolate-diamond-suede-antique-gold",
+          "meredith-med-chocolate-diamond-suede-antique-gold",
+          "tim-med-shoulder-bag-espresso-pebble-silver",
+          "meredith-sml-black-gunmetal",
+          "tim-med-shoulder-bag-black-brushed-gold",
+          "kyle-revival-clutch-black-press-gold-silver-red-zip",
+          "tom-zip-med-zebra-brushed-gold",
+          "kyle-med-shoulder-bag-espresso-pebble-weave-silver",
+          "kyle-lrg-espresso-pebble-silver",
+          "meredith-med-black-brushed-gold",
+          "meredith-sml-black-brushed-gold",
+          "meredith-sml-chili-red-gold",
+          "meredith-med-noir-diamond-suede-gunmetal",
+          "meredith-sml-noir-diamond-suede-gunmetal",
+          "meredith-med-cherrywood-pebble-brushed-gold",
+          "meredith-med-chili-red-gold",
+          "meredith-med-dune-silver",
+          "meredith-sml-dune-silver",
+          "meredith-med-black-gunmetal"
         ],
         "featured_collection": ""
       }
@@ -407,31 +468,15 @@
         "text_color": "#000000",
         "image": "shopify://shop_images/Group_12587_3ce786a7-5d4e-43eb-b09f-8ee1eaa0544f.jpg",
         "image_link": "shopify://collections/cross-body",
-        "header": "Trendy",
-        "subheader": "Treat your favorite guy to wallets or sleek travel essentials.",
+        "header": "Presents for Trendsetters",
+        "subheader": "Luxe fabrics, chains and beyond.",
         "featured_products": [
           "daniel-crossbody-clutch-monarch-velvet-antique-gold",
-          "invitation-clutch-med-monarch-velvet-antique-gold",
-          "montana-clutch-sml-monarch-velvet-antique-gold",
-          "daniel-crossbody-clutch-sml-crossbody-diamond-marquee-silver",
+          "charles-crossbody-med-chocolate-diamond-suede-antique-gold",
+          "charlotte-sml-calf-hair-gunmetal",
+          "charles-crossbody-med-crossbody-cherrywood-pebble-brushed-gold",
           "charlotte-sml-crossbody-diamond-marquee-silver",
-          "meredith-sml-noir-diamond-suede-gunmetal",
-          "meredith-med-noir-diamond-suede-gunmetal",
-          "meredith-sml-chocolate-diamond-suede-antique-gold",
-          "meredith-med-chocolate-diamond-suede-antique-gold",
-          "tim-med-shoulder-bag-chocolate-diamond-suede-antique-gold",
-          "tim-noir-diamond-suede-gunmetal",
-          "tom-zip-chocolate-diamond-suede-antique-gold",
-          "tom-zip-med-chocolate-diamond-suede-antique-gold",
-          "montana-pendant-noir-diamond-suede-gunmetal",
-          "montana-pendant-chocolate-diamond-suede-antique-gold",
-          "montana-clutch-sml-shoulder-bag-diamond-marquee-silver",
-          "kyle-chocolate-diamond-suede-antique-gold",
-          "invitation-clutch-med-chocolate-diamond-suede-antique-gold",
-          "daniel-med-noir-diamond-suede-gunmetal",
-          "charlotte-sml-noir-diamond-suede-gunmetal",
-          "charlotte-med-noir-diamond-suede-gunmetal",
-          "charles-crossbody-med-chocolate-diamond-suede-antique-gold"
+          "charlotte-med-noir-diamond-suede-gunmetal"
         ],
         "featured_collection": ""
       }
@@ -445,23 +490,17 @@
         "text_color": "#000000",
         "image": "shopify://shop_images/Group_12588_2.jpg",
         "image_link": "shopify://collections/bag-charms",
-        "header": "Easy pick",
-        "subheader": "Treat your favorite guy to wallets or sleek travel essentials.",
+        "header": "Little Delights",
+        "subheader": "Build a stack with scarves, chains and charms.",
         "featured_products": [
-          "cowboy-russ-charm-red-flare-brushed-gold",
-          "metal-chain-shoulder-strap-straps-antique-gold",
-          "metal-chain-shoulder-strap-straps-gold-silver",
-          "lauri-boot-charm-red-flare-brushed-gold",
-          "cowboy-russ-charm-charm-chocolate-diamond-pebble-antique-gold",
-          "cowboy-russ-charm-western-rein-silver",
-          "lauri-boot-charm-charm-chocolate-diamond-pebble-antique-gold",
-          "lauri-boot-charm-western-rein-silver",
-          "cowboy-russ-charm-charm-habanero-gold",
-          "metal-chain-shoulder-strap-straps-gunmetal",
-          "metal-chain-shoulder-strap-straps-brushed-gold",
+          "mini-b-red-flare-brushed-gold",
+          "silk-scarf-scarf-silk-scarf",
+          "syd-pouch-accessory-chili-red-gold",
           "metal-chain-shoulder-strap-straps-gold",
-          "metal-chain-shoulder-strap-straps-brushed-silver",
-          "metal-chain-shoulder-strap-silver-straps-silver"
+          "montana-pendant-zebra-brushed-gold",
+          "syd-pouch-accessory-cherrywood-pebble-brushed-gold",
+          "lauri-boot-charm-charm-chocolate-diamond-pebble-antique-gold",
+          "cowboy-russ-charm-red-flare-brushed-gold"
         ],
         "featured_collection": ""
       }
@@ -470,21 +509,24 @@
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
       "settings": {
-        "href": "men",
+        "href": "men-guy",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "image": "shopify://shop_images/Group_12590_1.jpg",
         "image_link": "shopify://collections/mens-collection",
-        "header": "Men",
-        "subheader": "Treat your favorite guy to wallets or sleek travel essentials.",
+        "header": "For Your Favorite Guy",
+        "subheader": "Polished presents you'll steal for yourself.",
         "featured_products": [
-          "lax-intl-blk-gm-duffel",
           "burbank-backpack-backpack-black-gunmetal",
-          "lax-intl-duffel-black-brushed-gold-red-zip",
+          "del-mar-dopp-kit-pouch-black-gunmetal",
           "charles-crossbody-lrg-belt-bag-black-gunmetal",
+          "lax-intl-blk-gm-duffel",
+          "lax-intl-duffel-black-brushed-gold-red-zip",
           "charles-crossbody-lrg-belt-bag-espresso-pebble-silver",
+          "cambria-card-case-wallet-bourbon-gunmetal",
           "montana-backpack-xl-black-backpack",
-          "montana-backpack-xl-noir-diamond-suede-gunmetal"
+          "montana-backpack-xl-noir-diamond-suede-gunmetal",
+          "pch-card-holder-black"
         ],
         "featured_collection": ""
       }
@@ -659,161 +701,57 @@
         "custom_class": ""
       }
     },
-    "image_banner_yaK8ix": {
-      "type": "image-banner",
+    "image_with_text_gYqgBc": {
+      "type": "image-with-text",
       "blocks": {
-        "heading_7BP8mM": {
+        "heading_qEbYGC": {
           "type": "heading",
           "settings": {
-            "heading": "Gift with Intention",
-            "heading_size_mobile": 20,
-            "heading_size_tablet": 30,
-            "heading_size_desktop": 60
+            "heading": "Send a Digital Gift Card",
+            "heading_size": "h1"
           }
         },
-        "buttons_gdBUew": {
-          "type": "buttons",
+        "text_bkVnfx": {
+          "type": "text",
+          "disabled": true,
           "settings": {
-            "button_label_1": "Shop eGift Cards",
-            "button_link_1": "shopify://collections/best-selling-bags",
-            "button_style_secondary_1": false
+            "text": "<p>Let them choose what they love.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_cQd4MM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop eGift Cards",
+            "button_link": "https://www.hammitt.com/products/rise-ai-giftcard",
+            "button_style_secondary": false
           }
         }
       },
       "block_order": [
-        "heading_7BP8mM",
-        "buttons_gdBUew"
+        "heading_qEbYGC",
+        "text_bkVnfx",
+        "button_cQd4MM"
       ],
+      "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h1",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image_link": "https://www.hammitt.com/products/rise-ai-giftcard",
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "desktop_content_position": "middle-left-more",
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/giftcard-v-day.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
         "desktop_content_alignment": "center",
-        "color_scheme": "dark",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "multicolumn_9jbfWK": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_pYNiLU": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/cherryw00d-banner_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "Shop Bestsellers",
-            "link_margin_top": 20,
-            "link": "shopify://collections/best-selling-bags",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_6JK9ee": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_780_1.jpg",
-            "title": "",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "Shop New Arrivals",
-            "link_margin_top": 20,
-            "link": "shopify://collections/new-arrivals",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_pYNiLU",
-        "column_6JK9ee"
-      ],
-      "disabled": true,
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "portrait",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 2,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
+        "content_layout": "no-overlap",
         "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "enable_peek": true,
-        "show_mobile_slider": true,
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
         "padding_top": 36,
         "padding_bottom": 36,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
     }
   },
@@ -826,11 +764,11 @@
     "featured_products_and_image_dLyba9",
     "featured_products_and_image_6AcR6r",
     "featured_products_and_image_NMtFda",
+    "featured_products_and_image_MqqXQ4",
     "featured_products_and_image_DcAEJ4",
     "featured_products_and_image_hUpmmc",
     "featured_products_and_image_xm3DML",
     "multicolumn_CkQC8U",
-    "image_banner_yaK8ix",
-    "multicolumn_9jbfWK"
+    "image_with_text_gYqgBc"
   ]
 }

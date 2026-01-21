@@ -52,7 +52,7 @@
     "zest_multi_checkout_enabled": true,
     "cart_drawer_msg": "<p>Free shipping. Taxes calculated at checkout.</p>",
     "enable_hammitt_gift_messaging": true,
-    "hammitt_gift_message": "A gift? Add a typed gift note letting them know you sent it.",
+    "hammitt_gift_message": "A gift? Add a typed gift note and/or ribbon.",
     "enable_hammitt_gifting_drawer": true,
     "hammitt_gifting_drawer_message": "",
     "hammitt_gift_wrap_product": "gift-wrap",
@@ -65,7 +65,7 @@
     "country_code": "+1",
     "content": "",
     "Klaviyo_confirmation_text": "<p>Thanks for joining the wishlist! We’ll send you an email when this item comes back in stock.</p>",
-    "only_a_few_left_threshold": 25,
+    "only_a_few_left_threshold": 15,
     "special_leathers": "suede,raffia,woven leather,acrylic,pewter",
     "special_leather_tooltip_copy": "<p>This unique material requires special care. Don’t worry - we’ll walk you through, step by step!</p>",
     "special_leather_tooltip_link": "shopify://pages/hammitt-leather-care",
@@ -202,21 +202,12 @@
               "nav_image": "shopify://shop_images/Rectangle_792_9d3d3a1b-796f-4ede-a251-d60df8ed80fa.jpg"
             }
           },
-          "visual_menu_item_qYkRni": {
-            "type": "visual-menu-item",
-            "disabled": true,
-            "settings": {
-              "nav_link": "shopify://pages/holiday-gift-guide",
-              "title": "Gifting",
-              "nav_image": "shopify://shop_images/fwdjqihd_-Group-12581-_1.gif"
-            }
-          },
           "visual_menu_item_KWAJ7F": {
             "type": "visual-menu-item",
             "settings": {
               "nav_link": "shopify://collections/best-selling-bags",
               "title": "Bestsellers",
-              "nav_image": "shopify://shop_images/Rectangle_802.jpg"
+              "nav_image": "shopify://shop_images/Tile_29.jpg"
             }
           },
           "visual_menu_item_PmYb6N": {
@@ -224,7 +215,7 @@
             "settings": {
               "nav_link": "shopify://collections/kyle",
               "title": "Kyle",
-              "nav_image": "shopify://shop_images/Rectangle803.jpg"
+              "nav_image": "shopify://shop_images/Rectangle_734stormy.jpg"
             }
           },
           "visual_menu_item_RG36DA": {
@@ -232,15 +223,15 @@
             "settings": {
               "nav_link": "shopify://pages/current-season",
               "title": "New Winter Edit",
-              "nav_image": "shopify://shop_images/MONTANA-CLUTCH_Diamond-Marquee-25-66.jpg"
+              "nav_image": "shopify://shop_images/Tile_27.jpg"
             }
           },
           "visual_menu_item_R797MM": {
             "type": "visual-menu-item",
             "settings": {
               "nav_link": "shopify://collections/new-silhouettes-2025",
-              "title": "New Debut 2025",
-              "nav_image": "shopify://shop_images/Rectangle_811_92d7550f-1faa-4ddd-8ac9-9396c751a745.jpg"
+              "title": "New Debut",
+              "nav_image": "shopify://shop_images/Tile_31.jpg"
             }
           },
           "visual_menu_item_7RgGWL": {
@@ -264,7 +255,7 @@
             "settings": {
               "nav_link": "shopify://collections/low-inventory",
               "title": "Going Fast",
-              "nav_image": "shopify://shop_images/Group_12584.jpg"
+              "nav_image": "shopify://shop_images/Group_12607.jpg"
             }
           },
           "visual_menu_item_CeKqAn": {
@@ -288,7 +279,7 @@
             "settings": {
               "nav_link": "shopify://collections/accessories-view-all",
               "title": "Accessories",
-              "nav_image": "shopify://shop_images/Group_12506.jpg"
+              "nav_image": "shopify://shop_images/Tile_18.jpg"
             }
           },
           "visual_menu_item_YfRjF6": {
@@ -334,6 +325,7 @@
           "gwp_tier_EatCrj",
           "visual_menu_item_GEwfV7",
           "visual_menu_item_qYkRni",
+          "visual_menu_item_GEwfV7",
           "visual_menu_item_KWAJ7F",
           "visual_menu_item_PmYb6N",
           "visual_menu_item_RG36DA",
@@ -683,7 +675,7 @@
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Meredith_Sml_Choc_Diamond_Suede_Sml-2-Sq_be172604-8d80-4ec1-b391-b1e4c5647132.jpg",
+              "image": "shopify://shop_images/Deep-Water-1255_cabc1d3a-1ad4-479b-bc2b-22092d0fcdb7.jpg",
               "image_ratio": "portrait",
               "image_caption": "Trending Now",
               "image_link": "shopify://collections/best-selling-bags"
@@ -789,16 +781,6 @@
       },
       "12512365888938011351": {
         "type": "shopify://apps/analyzify-ga4-ads-tracking/blocks/app-embed/69637cfd-dd6f-4511-aa97-7037cfb5515c",
-        "disabled": false,
-        "settings": {}
-      },
-      "3577669850698438243": {
-        "type": "shopify://apps/preorder-now-wod-presale/blocks/app-embed/fdf17d17-ef12-4a7b-8383-20cc1fc2a4b6",
-        "disabled": false,
-        "settings": {}
-      },
-      "11809892702313333283": {
-        "type": "shopify://apps/firework-shoppable-video-ugc/blocks/firework-header/347a2e4c-f5cb-410d-8354-490d1e80558c",
         "disabled": false,
         "settings": {}
       },
