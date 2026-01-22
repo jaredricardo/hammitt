@@ -32,17 +32,43 @@
 </style>
 {% endif %}
 {%- comment -%}
-  Build list of GWP variant IDs and subtract their value if in cart
+  Build list of GWP variant IDs and calculate how much to exclude
   Only for product-based GWP (not free shipping)
+  If there are 2+ total GWP items in cart, only exclude the discounted/free one
 {%- endcomment -%}
 {% for tier in gwp_tiers %}
   {% unless tier.settings.gwp_tier_is_free_shipping %}
     {% if tier.settings.gwp_product %}
       {% assign gwp_variant_id = tier.settings.gwp_product.selected_or_first_available_variant.id %}
+      {% assign total_gwp_quantity = 0 %}
+      {% assign gwp_full_price = tier.settings.gwp_product.price | divided_by: 100.0 %}
+      
+      {%- comment -%} First pass: Count total quantity of this GWP in cart {%- endcomment -%}
       {% for item in cart.items %}
         {% if item.variant_id == gwp_variant_id %}
-          {% assign gwp_item_total = item.final_line_price | divided_by: 100.0 %}
-          {% assign gwp_total_in_cart = gwp_total_in_cart | plus: gwp_item_total %}
+          {% assign total_gwp_quantity = total_gwp_quantity | plus: item.quantity %}
+        {% endif %}
+      {% endfor %}
+      
+      {%- comment -%} Second pass: Calculate how much to exclude {%- endcomment -%}
+      {% for item in cart.items %}
+        {% if item.variant_id == gwp_variant_id %}
+          {% assign item_price_per_unit = item.final_line_price | divided_by: item.quantity | divided_by: 100.0 %}
+          
+          {% if total_gwp_quantity >= 2 %}
+            {%- comment -%} 
+              If 2+ GWPs total, only exclude the discounted one(s)
+              If this line item is discounted (price < full price), exclude it
+            {%- endcomment -%}
+            {% if item_price_per_unit < gwp_full_price %}
+              {% assign gwp_item_total = item.final_line_price | divided_by: 100.0 %}
+              {% assign gwp_total_in_cart = gwp_total_in_cart | plus: gwp_item_total %}
+            {% endif %}
+          {% else %}
+            {%- comment -%} If only 1 GWP total, exclude its full price {%- endcomment -%}
+            {% assign gwp_item_total = item.final_line_price | divided_by: 100.0 %}
+            {% assign gwp_total_in_cart = gwp_total_in_cart | plus: gwp_item_total %}
+          {% endif %}
         {% endif %}
       {% endfor %}
     {% endif %}
