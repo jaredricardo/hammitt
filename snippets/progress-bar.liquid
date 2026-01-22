@@ -168,7 +168,13 @@
             {% assign reward_title = previous_tier.settings.gwp_product.title %}
           {% endif %}
           {%- if reward_title != blank -%}
-            <strong>{{ reward_title }}</strong>
+            <strong>
+              {%- if previous_tier.settings.gwp_product and previous_tier.settings.gwp_product.price > 0 -%}
+                <a href="{{ previous_tier.settings.gwp_product.url }}" style="color: inherit; text-decoration: underline; cursor: pointer;">{{ reward_title }}</a>
+              {%- else -%}
+                {{ reward_title }}
+              {%- endif -%}
+            </strong>
           {%- endif -%}
         {%- endif -%}
       </span>
@@ -189,7 +195,13 @@
             {% assign reward_title = next_tier.settings.gwp_product.title %}
           {% endif %}
           {%- if reward_title != blank -%}
-            <strong>{{ reward_title }}</strong>
+            <strong>
+              {%- if next_tier.settings.gwp_product and next_tier.settings.gwp_product.price > 0 -%}
+                <a href="{{ next_tier.settings.gwp_product.url }}" style="color: inherit; text-decoration: underline; cursor: pointer; font-weight: bold; margin-left: 3px;">{{ reward_title }}</a>
+              {%- else -%}
+                {{ reward_title }}
+              {%- endif -%}
+            </strong>
           {%- endif -%}
         {%- endif -%}
       </span>
