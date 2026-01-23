@@ -7,9 +7,20 @@
 
 {% if has_carousel %}
   <style>
-    [data-section="{{ section.id }}"] .swiper-button-next::after,
-    [data-section="{{ section.id }}"] .swiper-button-prev::after {
+    /* Hide ::after on hero carousel buttons only */
+    [data-section="{{ section.id }}"] .hero-image-swiper .swiper-button-next::after,
+    [data-section="{{ section.id }}"] .hero-image-swiper .swiper-button-prev::after {
       display: none !important;
+    }
+
+    /* Show ::after on product carousel buttons */
+    [data-section="{{ section.id }}"] .swiper:has(.section-productgrid) .swiper-button-next::after,
+    [data-section="{{ section.id }}"] .swiper:has(.section-productgrid) .swiper-button-prev::after {
+      display: block;
+      font-family: swiper-icons !important;
+    }
+    [data-section="{{ section.id }}"] .swiper:has(.section-productgrid) {
+      padding-left: 24px;
     }
     [data-section="{{ section.id }}"] .swiper-button-next,
     [data-section="{{ section.id }}"] .swiper-button-prev {
@@ -130,6 +141,9 @@
     
     /* Mobile: remove max-height restrictions */
     @media only screen and (max-width: 749px) {
+      [data-section="{{ section.id }}"] .swiper:has(.section-productgrid){
+        padding-left: 10px;
+      }
       [data-section="{{ section.id }}"] .hero-carousel-column,
       [data-section="{{ section.id }}"] .hero-image-swiper,
       [data-section="{{ section.id }}"] .hero-image-swiper .swiper-slide,
@@ -192,28 +206,27 @@
     /* Collection Slider Container */
     [data-section="{{ section.id }}"] .hero-collection-sliders-container {
       margin-top: 40px;
-      padding: 0 40px;
       position: relative;
-      min-height: 400px;
-      transition: height 300ms ease-in-out;
     }
     
     /* Collection Slider Styles */
     [data-section="{{ section.id }}"] .hero-collection-slider {
-      opacity: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      transition: opacity 300ms ease-in-out;
-      pointer-events: none;
-      padding: 0 40px;
+      display: none;
     }
     
     [data-section="{{ section.id }}"] .hero-collection-slider.active {
-      opacity: 1;
-      pointer-events: auto;
+      display: block;
+      animation: fadeIn 300ms ease-in-out;
+    }
+
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
     
     [data-section="{{ section.id }}"] .hero-collection-slider .swiper-button-next,
@@ -421,16 +434,6 @@
             }
           });
           
-          // Function to update container height
-          function updateContainerHeight(slider) {
-            const container = document.querySelector('.hero-collection-sliders-container');
-            if (container && slider) {
-              // Get the actual height of the slider content
-              const height = slider.scrollHeight;
-              container.style.height = height + 'px';
-            }
-          }
-          
           // Function to update text content and collection slider based on slide index
           function updateContent(index) {
             // Fade out current active text
@@ -456,8 +459,6 @@
               const sliderIndex = parseInt(slider.getAttribute('data-slide-index'));
               if (sliderIndex === targetIndex) {
                 slider.classList.add('active');
-                // Update container height to match new active slider
-                setTimeout(() => updateContainerHeight(slider), 10);
               }
             });
           }
@@ -488,12 +489,6 @@
               }
             }
           });
-          
-          // Set initial height on load
-          const initialActiveSlider = document.querySelector('.hero-collection-slider.active');
-          if (initialActiveSlider) {
-            setTimeout(() => updateContainerHeight(initialActiveSlider), 100);
-          }
         }
       });
     </script>
