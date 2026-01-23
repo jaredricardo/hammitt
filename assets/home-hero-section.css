@@ -103,7 +103,6 @@
 /* Navigation Buttons - Hidden on Mobile */
 .home-hero-section .hero-carousel-column .swiper-button-prev,
 .home-hero-section .hero-carousel-column .swiper-button-next {
-  display: none;
   width: 48px;
   height: 48px;
   background: white;
@@ -119,8 +118,8 @@
   z-index: 10;
 }
 
-.home-hero-section .swiper-button-prev:hover,
-.home-hero-section .swiper-button-next:hover {
+.home-hero-section .hero-carousel-column .swiper-button-prev:hover,
+.home-hero-section .hero-carousel-column .swiper-button-next:hover {
   background: #f5f5f5;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
