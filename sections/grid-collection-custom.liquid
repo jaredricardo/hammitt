@@ -147,17 +147,12 @@
                 {% continue %}
               {% endif %}
 
-              {% comment %} FOR EE GWP  {% endcomment %}
               {% liquid
-                assign IDayPromotionProduct = false
 
                 # PreOrder
                 assign isPreOrderProduct = false 
                 
                 for tag in product.tags
-                  if tag == "EEIDPromotion"
-                    assign IDayPromotionProduct = true
-                  endif
 
                   # PreOrder
                   if tag == "ee-pre-order"
@@ -184,7 +179,6 @@
                   show_rating: section.settings.show_rating,
                   lazy_load: lazy_load,
                   index: forloop.index,
-                  isIDayPromotionProduct: IDayPromotionProduct,
                   isPreOrderProduct: isPreOrderProduct,
                   view_style: section.settings.view_style
                   %}

@@ -1,0 +1,245 @@
+
+{%- comment -%}
+  Get GWP Tier blocks from header section
+{%- endcomment -%}
+{% assign gwp_tiers = section.blocks | where: 'type', 'gwp-tier' %}
+
+{%- comment -%}
+  Calculate cart total EXCLUDING any GWP products
+  This prevents circular logic where GWP pushes cart over threshold
+{%- endcomment -%}
+{% assign cart_total_raw = cart.total_price | divided_by: 100.0 %}
+{% assign gwp_total_in_cart = 0.0 %}
+
+{%- comment -%}
+  Check if there are any non-free-shipping GWP tiers
+{%- endcomment -%}
+{% assign has_gwp_products = false %}
+{% for tier in gwp_tiers %}
+  {% unless tier.settings.gwp_tier_is_free_shipping %}
+    {% if tier.settings.gwp_product %}
+      {% assign has_gwp_products = true %}
+      {% break %}
+    {% endif %}
+  {% endunless %}
+{% endfor %}
+
+{% if has_gwp_products %}
+<style>
+  .discounts__discount {
+    display: none;
+  }
+</style>
+{% endif %}
+{%- comment -%}
+  Build list of GWP variant IDs and calculate how much to exclude
+  Only for product-based GWP (not free shipping)
+  If there are 2+ total GWP items in cart, only exclude the discounted/free one
+{%- endcomment -%}
+{% for tier in gwp_tiers %}
+  {% unless tier.settings.gwp_tier_is_free_shipping %}
+    {% if tier.settings.gwp_product %}
+      {% assign gwp_variant_id = tier.settings.gwp_product.selected_or_first_available_variant.id %}
+      {% assign total_gwp_quantity = 0 %}
+      {% assign gwp_full_price = tier.settings.gwp_product.price | divided_by: 100.0 %}
+      
+      {%- comment -%} First pass: Count total quantity of this GWP in cart {%- endcomment -%}
+      {% for item in cart.items %}
+        {% if item.variant_id == gwp_variant_id %}
+          {% assign total_gwp_quantity = total_gwp_quantity | plus: item.quantity %}
+        {% endif %}
+      {% endfor %}
+      
+      {%- comment -%} Second pass: Calculate how much to exclude {%- endcomment -%}
+      {% for item in cart.items %}
+        {% if item.variant_id == gwp_variant_id %}
+          {% assign item_price_per_unit = item.final_line_price | divided_by: item.quantity | divided_by: 100.0 %}
+          
+          {% if total_gwp_quantity >= 2 %}
+            {%- comment -%} 
+              If 2+ GWPs total, only exclude the discounted one(s)
+              If this line item is discounted (price < full price), exclude it
+            {%- endcomment -%}
+            {% if item_price_per_unit < gwp_full_price %}
+              {% assign gwp_item_total = item.final_line_price | divided_by: 100.0 %}
+              {% assign gwp_total_in_cart = gwp_total_in_cart | plus: gwp_item_total %}
+            {% endif %}
+          {% else %}
+            {%- comment -%} If only 1 GWP total, exclude its full price {%- endcomment -%}
+            {% assign gwp_item_total = item.final_line_price | divided_by: 100.0 %}
+            {% assign gwp_total_in_cart = gwp_total_in_cart | plus: gwp_item_total %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endunless %}
+{% endfor %}
+
+{%- comment -%}
+  Calculate two different cart totals:
+  1. cart_total_for_products: excludes GWP products (for product reward tiers)
+  2. cart_total_raw: includes GWP products (for free shipping tiers)
+{%- endcomment -%}
+{% assign cart_total_for_products = cart_total_raw | minus: gwp_total_in_cart %}
+
+{%- comment -%}
+  Find the current tier status using the appropriate cart total
+{%- endcomment -%}
+{% assign previous_tier = null %}
+{% assign current_tier = null %}
+{% assign next_tier = null %}
+{% assign found_next_tier = false %}
+
+{% for tier in gwp_tiers %}
+  {% assign tier_threshold = tier.settings.gwp_tier_threshold %}
+  
+  {%- comment -%}
+    Use raw cart total for free shipping, adjusted total for product rewards
+  {%- endcomment -%}
+  {% if tier.settings.gwp_tier_is_free_shipping %}
+    {% assign comparison_total = cart_total_raw %}
+  {% else %}
+    {% assign comparison_total = cart_total_for_products %}
+  {% endif %}
+  
+  {% if comparison_total >= tier_threshold %}
+    {% assign previous_tier = tier %}
+  {% elsif found_next_tier == false %}
+    {% assign next_tier = tier %}
+    {% assign found_next_tier = true %}
+  {% endif %}
+{% endfor %}
+
+{%- comment -%}
+  Calculate progress for next tier
+{%- endcomment -%}
+{% assign amount_remaining = 0 %}
+{% assign amount_remaining_in_cents = 0 %}
+{% assign progress_percentage = 0 %}
+{% assign progress_start = 0 %}
+
+{% if next_tier %}
+  {% assign next_threshold = next_tier.settings.gwp_tier_threshold %}
+  
+  {%- comment -%}
+    Use the appropriate cart total for this tier
+  {%- endcomment -%}
+  {% if next_tier.settings.gwp_tier_is_free_shipping %}
+    {% assign current_cart_total = cart_total_raw %}
+  {% else %}
+    {% assign current_cart_total = cart_total_for_products %}
+  {% endif %}
+  
+  {% if previous_tier %}
+    {% assign progress_start = previous_tier.settings.gwp_tier_threshold %}
+  {% endif %}
+  
+  {% assign tier_range = next_threshold | minus: progress_start | times: 1.0 %}
+  {% assign progress_amount = current_cart_total | minus: progress_start %}
+  {% assign progress_percentage = progress_amount | times: 100.0 | divided_by: tier_range %}
+  
+  {% if progress_percentage > 100 %}
+    {% assign progress_percentage = 100 %}
+  {% elsif progress_percentage < 0 %}
+    {% assign progress_percentage = 0 %}
+  {% endif %}
+  
+  {% assign amount_remaining = next_threshold | minus: current_cart_total %}
+  {% assign amount_remaining_in_cents = amount_remaining | times: 100 %}
+{% elsif previous_tier %}
+  {% comment %} All tiers reached, set to 100% {% endcomment %}
+  {% assign progress_percentage = 100 %}
+{% endif %}
+
+{%- comment -%}
+  Build JSON data for GWP tier management
+{%- endcomment -%}
+
+
+{% capture gwp_tiers_data %}
+[
+  {%- assign tier_count = 0 -%}
+  {%- for tier in gwp_tiers -%}
+    {%- unless tier.settings.gwp_tier_is_free_shipping -%}
+      {%- if tier.settings.gwp_product -%}
+        {%- assign first_variant = all_products[tier.settings.gwp_product].selected_or_first_available_variant -%}
+        {%- if first_variant and first_variant.id -%}
+          {%- if tier_count > 0 -%},{%- endif -%}
+          {
+            "threshold": {{ tier.settings.gwp_tier_threshold }},
+            "variantId": {{ first_variant.id }},
+            "productPrice": {{ tier.settings.gwp_product.price }},
+            "isFreeShipping": false
+          }
+          {%- assign tier_count = tier_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endfor -%}
+]
+{% endcapture %}
+
+<div class="progress-bar-container {% if cart.item_count == 0 %} hidden {% endif %}" data-gwp-tiers='{{ gwp_tiers_data | strip_newlines | strip }}'>
+  {%- if previous_tier -%}
+    {%- comment -%} Show success message for the previous tier {%- endcomment -%}
+    <div class="gwp-progress-bar-header gwp-tier-success">
+      <span class="h7">
+        {%- if previous_tier.settings.gwp_tier_is_free_shipping -%}
+          You've received FREE shipping!
+        {%- else -%}
+          {{ previous_tier.settings.gwp_tier_reached_message }}
+          {% if previous_tier.settings.gwp_tier_alternate_reward_title != blank %}
+            {% assign reward_title = previous_tier.settings.gwp_tier_alternate_reward_title %}
+          {% elsif previous_tier.settings.gwp_product %}
+            {% assign reward_title = previous_tier.settings.gwp_product.title %}
+          {% endif %}
+          {%- if reward_title != blank -%}
+            <strong>
+              {%- if previous_tier.settings.gwp_product and previous_tier.settings.gwp_product.price > 0 -%}
+                <a href="{{ previous_tier.settings.gwp_product.url }}" style="color: inherit; text-decoration: underline; cursor: pointer;">{{ reward_title }}</a>
+              {%- else -%}
+                {{ reward_title }}
+              {%- endif -%}
+            </strong>
+          {%- endif -%}
+        {%- endif -%}
+      </span>
+    </div>
+  {%- endif -%}
+  
+  {%- if next_tier -%}
+    {%- comment -%} Show progress toward next tier {%- endcomment -%}
+    <div class="gwp-progress-bar-header gwp-tier-not-reached">
+      <span class="h7">
+        {%- if next_tier.settings.gwp_tier_is_free_shipping -%}
+          You are <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> away from FREE shipping!
+        {%- else -%}
+          ADD <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> {{ next_tier.settings.gwp_tier_not_reached_message }}
+          {% if next_tier.settings.gwp_tier_alternate_reward_title != blank %}
+            {% assign reward_title = next_tier.settings.gwp_tier_alternate_reward_title %}
+          {% elsif next_tier.settings.gwp_product %}
+            {% assign reward_title = next_tier.settings.gwp_product.title %}
+          {% endif %}
+          {%- if reward_title != blank -%}
+            <strong>
+              {%- if next_tier.settings.gwp_product and next_tier.settings.gwp_product.price > 0 -%}
+                <a href="{{ next_tier.settings.gwp_product.url }}" style="color: inherit; text-decoration: underline; cursor: pointer; font-weight: bold; margin-left: 3px;">{{ reward_title }}</a>
+              {%- else -%}
+                {{ reward_title }}
+              {%- endif -%}
+            </strong>
+          {%- endif -%}
+        {%- endif -%}
+      </span>
+    </div>
+    
+    <div class="progress-bar" style="--scale-x: {{ progress_percentage }}%;">
+    </div>
+  {%- elsif previous_tier -%}
+    {%- comment -%} All tiers reached, show full progress bar {%- endcomment -%}
+    <div class="progress-bar" style="--scale-x: 100%;">
+    </div>
+  {%- endif -%}
+
+</div>
+

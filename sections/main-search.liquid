@@ -267,17 +267,11 @@
                     {%- when 'product' -%}
                     
                       {% liquid
-                      
-                        # FOR EE GWP 
-                        assign IDayPromotionProduct = false
 
                         # PreOrder
                         assign isPreOrderProduct = false 
                         
                         for tag in item.tags
-                          if tag == "EEIDPromotion"
-                            assign IDayPromotionProduct = true
-                          endif
 
                           # PreOrder
                           if tag == "ee-pre-order"

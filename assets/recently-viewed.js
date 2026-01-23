@@ -94,10 +94,6 @@ class RecentlyViewed extends HTMLElement {
     reversedArr.forEach(product => {
       // Don't show Current Product 
       if(product.id === window.productJSON.id) return true;
-      // Don't show Monogram Addon Product 
-      if(product.id === 9113502449848) return true;
-      // Don't show EE GWP 
-      if(product.id === EE_GWP.item) return true; 
 
       if (product.product_tags && product.product_tags.includes("shareholder")) {
         let shareholderLogin = localStorage.getItem('shareholder_login');

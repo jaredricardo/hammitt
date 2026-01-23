@@ -137,7 +137,7 @@
     </symbol>
   </svg>
   <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper {% if section.settings.transparent_homepage and template == 'index' %}header--transparent{% endif %} {% if section.settings.invert_colors %}header--invert-colors{% endif %} color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
-    <header class="header  header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}">
+    <header class="header  header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}" data-header-section-id="{{ section.id }}">
       <div class="header-mobile-menu">
         {%- if section.settings.menu_mobile != blank -%}
           <header-drawer data-breakpoint="tablet">
@@ -1143,6 +1143,55 @@
             "label": "Default Popular Search Term"
           }
         ]
+      },
+      {
+        "type": "gwp-tier",
+        "name": "GWP Tier",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "header",
+            "content": "GWP Tier Settings",
+            "info": "Please ensure these tiers are 1. In order from lowest to highest, and 2. If the products that are selected are NOT $0, there is an active automatic discount that makes these items free at their given thresholds."
+          },
+          {
+            "type": "product",
+            "id": "gwp_product",
+            "label": "GWP Product"
+          },
+          {
+            "type": "checkbox",
+            "id": "gwp_tier_is_free_shipping",
+            "label": "GWP Tier Is Free Shipping",
+            "info": "Check this box if reaching this Threshold gives free shipping. This takes the places of the product above and text below.",
+            "default": false
+          },
+          {
+            "type": "number",
+            "id": "gwp_tier_threshold",
+            "label": "GWP Tier Threshold Amount ($)"
+          },
+          {
+            "type": "text",
+            "id": "gwp_tier_not_reached_message",
+            "label": "GWP Tier Not Reached Message",
+            "info": "Follows the pattern: 'ADD [$X.XX] more to unlock a FREE [GWP Product Name]'. The [$X.XX] and [GWP Product Name] portions are hard coded.",
+            "default": "more to unlock a FREE"
+          },
+          {
+            "type": "text",
+            "id": "gwp_tier_reached_message",
+            "label": "GWP Tier Reached Message",
+            "info": "Follows the pattern: 'Congratulations! You've unlocked a FREE [GWP Product Name]'. The [GWP Product Name] portion is hard coded.",
+            "default": "Congratulations! You've unlocked a FREE"
+          },
+          {
+            "type": "text",
+            "id": "gwp_tier_alternate_reward_title",
+            "label": "Alternate Reward Title",
+            "info": "Optional: Use a custom title for the reward instead of the product name. Leave blank to use the product name."
+          }
+        ] 
       }
     ]
   }

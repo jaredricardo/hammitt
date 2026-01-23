@@ -529,6 +529,7 @@ span.freeRemainShippingMsg,
 } */
 
 .progress-bar {
+  --scale-x: 0%;
   height: 4px;
   border-radius: var(--progress-bar-radius, 3rem);
   background-color: rgba(0,0,0, .075);
@@ -538,33 +539,26 @@ span.freeRemainShippingMsg,
   color: rgb(13,135,86);
 }
 
-.jr-temp-single-gwp .progress-bar:before {
-  width: 0%;
-}
 
 .progress-bar:before {
-  --scale-x: 0;
   content: "";
-  background: #316124;
+  background: #0d8756;
   border-radius: inherit;
   display: block;
   height: 100%;
-  width: var(--scale-x);
-  transition: width .6s cubic-bezier(.7,0,.3,1) .1s;
+  width: 0%;
+  animation: progressBarFill 0.6s cubic-bezier(.7,0,.3,1) 0.1s forwards;
 }
 
-.free-shipping-goal .progress-bar:before, cart-drawer[open] .free-shipping-goal .progress-bar:before {
-  --scale-x: var(--percent);
+@keyframes progressBarFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--scale-x);
+  }
 }
-.free-shipping-goal__label--success {
-  display: none;
-}
-.free-shipping-goal--done .free-shipping-goal__label--default {
-  display: none;
-}
-.free-shipping-goal--done .free-shipping-goal__label--success {
-  display: block;
-}
+
 gift-box-section {
   display: block;
   position: relative;
@@ -967,3 +961,39 @@ div#dynamic-checkout-cart {
 }
 
 
+/* GWP Progress Bar Header Messages */
+.gwp-progress-bar-header {
+  padding: 7px 0 5px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.gwp-progress-bar-header.gwp-tier-success {
+  color: #0d8756;
+  margin-bottom: 0;
+  padding-bottom: 0px !important;
+}
+
+.gwp-progress-bar-header.gwp-tier-success .h7 {
+  font-size: 14px;
+}
+
+.gwp-progress-bar-header .h7 {
+  font-weight: 600;
+  line-height: 1.4;
+  font-size: 12px !important;
+}
+
+.gwp-progress-bar-header strong {
+  font-weight: 700 !important;
+  color: inherit;
+}
+
+.drawer__header .progress-bar {
+  margin: 4px 0 8px 0;
+}
+
+
+.below-progress-bar-container {
+  padding-top: 8px;
+}

@@ -23,16 +23,6 @@
 
 {%- assign product = section.settings.product -%}
 
-{% comment %} FOR EE GWP  {% endcomment %}
-{% liquid
-  assign IDayPromotionProduct = false 
-  
-  for tag in product.tags
-    if tag == "EEIDPromotion"
-      assign IDayPromotionProduct = true
-    endif
-  endfor
-%}
 
 {% liquid
   # PreOrder
@@ -307,7 +297,7 @@
                         <button
                           type="submit"
                           name="add"
-                          class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %} {% if IDayPromotionProduct %} iday-promotion__product{% endif %}"
+                          class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
                         {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                         >
                             <span>
@@ -526,10 +516,6 @@
 
 {% if product.media.size > 0 %}
   <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
-{% endif %}
-
-{% if IDayPromotionProduct %}
-  <script src="{{ 'iday-promotion.js' | asset_url }}" defer></script>
 {% endif %}
 
 {% schema %}

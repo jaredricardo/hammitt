@@ -224,7 +224,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         const elOld = document.querySelector('free-shipping-goal')
                         const elNew = doc.querySelector('free-shipping-goal')
                         if(elOld == null || elNew == null) return
-                    if(elOld && elNew) {
+                        if(elOld && elNew) {
                             elOld.outerHTML = elNew.outerHTML
                         }
                     })

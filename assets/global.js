@@ -853,33 +853,25 @@ class QuickAdd extends HTMLElement {
       closestSpinner.classList.add('active');
     }
 
-    if (target.classList.contains("iday-promotion__product") && EE_GWP.available) {
-      const addOnId = EE_GWP.item;
-      try {
-        const isInCart = await isProductInCart(addOnId);
-        addToCartPromo(itemId, isInCart ? false : addOnId);
-      } catch (error) {
-        console.error('Error checking if product is in the cart:', error);
-      }
-    } else {
-      const quickAddObj = {
-        items: [{
-            id: itemId,
-            quantity: 1,
-            ...(isPreOrderInput && {
-                properties: {
-                  [isPreOrderInput.name]: isPreOrderInput.value
-                }
-            }),
-            ...(isBadgeInput && {
+
+    const quickAddObj = {
+      items: [{
+          id: itemId,
+          quantity: 1,
+          ...(isPreOrderInput && {
               properties: {
-                [isBadgeInput.name]: isBadgeInput.value
+                [isPreOrderInput.name]: isPreOrderInput.value
               }
-            })
-        }]
-      };
-      addToCart(quickAddObj);
-    }
+          }),
+          ...(isBadgeInput && {
+            properties: {
+              [isBadgeInput.name]: isBadgeInput.value
+            }
+          })
+      }]
+    };
+    addToCart(quickAddObj);
+    
   }
 }
 customElements.define('quick-add', QuickAdd);
@@ -1185,11 +1177,11 @@ productSwatchReload();
 
 const addToCart = (itemsObj) => {
   if(!itemsObj.hasOwnProperty('sections')) {
-    itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items";
+    itemsObj.sections = "cart-drawer,cart-icon-bubble,main-cart-items,header";
   }
 
   if(!itemsObj.hasOwnProperty('sections_url')) {
-    itemsObj.sections_url = "/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items";
+    itemsObj.sections_url = "/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items,header";
   }
 
   fetch(window.Shopify.routes.root + 'cart/add.js', {
@@ -1339,76 +1331,6 @@ const klaviyoBISsubmit = (form) => {
   });
 };
 
-const gwpInCart = (id = false) => {
-  return document.querySelector(`[data-variant-id="${id}"`);  
-};
-
-const checkGWPs = (json = false) => {
-  if(document.querySelector('.cart-drawer-btn') != null) {
-    document.querySelector('.cart-drawer-btn').disabled = false;  
-  }        
-  if(document.querySelector('.cart__checkout-button') != null) {
-    document.querySelector('.cart__checkout-button').disabled = false;  
-  }
-  
-  let updatesObj = { 
-    updates: {},
-    sections: "cart-drawer,cart-icon-bubble,main-cart-items"
-  };
-  const drawerItems = document.querySelector('.drawer__items');
-  if(!json) {
-    json = JSON.parse(drawerItems.getAttribute('data-json'));
-  }
-  const subtotal = parseFloat(drawerItems.getAttribute('data-subtotal'));
- 
-  const sortedGwps = gwps.sort((a, b) => b.minimum - a.minimum);
-  let addedGwp = false;
-  sortedGwps.forEach(gwp => { 
-    if (!gwp.enabled || !gwp.available) return;
-    
-    if (subtotal >= gwp.minimum && !addedGwp) {
-      if (!gwpInCart(gwp.item)) {
-        if(document.querySelector('.cart-drawer-btn') != null) {
-          document.querySelector('.cart-drawer-btn').disabled = true;  
-        }        
-        if(document.querySelector('.cart__checkout-button') != null) {
-          document.querySelector('.cart__checkout-button').disabled = true;  
-        }
-        addToCart(
-          {
-            items: [ 
-              {
-                id: gwp.item,
-                quantity: 1,
-                properties: {
-                  '_free_gift': true
-                }
-              }
-            ],
-            sections: "cart-drawer,cart-icon-bubble,main-cart-items"
-          }
-        );
-      }
-      addedGwp = true;
-    } else if (gwpInCart(gwp.item)) {
-      
-      updatesObj.updates[gwp.item] = 0;
-      if(document.querySelector('.cart-drawer-btn') != null) {
-        document.querySelector('.cart-drawer-btn').disabled = true;  
-      }
-      
-      if(document.querySelector('.cart__checkout-button') != null) {
-        document.querySelector('.cart__checkout-button').disabled = true;  
-      }
-
-      updateCart({
-        url: '/cart/update.js',
-        data: JSON.stringify(updatesObj)
-      });
-    }
-  });  
-};
-
 function checkOrderProtection() {
 
   const initialJson = JSON.parse(document.querySelector('.drawer__items').getAttribute('data-json'))
@@ -1420,7 +1342,7 @@ function checkOrderProtection() {
         
       let updatesObj = { 
         updates: {},
-        sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+        sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
       }
 
       updatesObj.updates[item.variant_id] = 0
@@ -1438,7 +1360,7 @@ function checkOrderProtection() {
         const toUpdate = [
           {
             section: "cart-drawer",
-            elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp", ".drawer__header h4"]
+            elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes", ".drawer__header h4"]
           },
           {
             section: "cart-icon-bubble",
@@ -1497,7 +1419,6 @@ function updateCart(params) {
 
 // initial on load check for Order Protection items to remove them from cart. They should only be in cart at checkout.
 checkOrderProtection()
-checkGWPs(false)
 
 // document.addEventListener('change', function(evt) {
 //   if(document.querySelector('.cart-drawer-btn') != null) {
@@ -1511,26 +1432,22 @@ checkGWPs(false)
 // });
 
 const cartUpdate = (json = false) => {
+  console.log('//////// cart update')
+  console.log(json)
   const cartUpdates = [
     {
       section: "cart-drawer",
-      elements: [".cart-announcement-bar",".drawer__items",".drawer__final",".cart_shipping_notes",".jr-temp-single-gwp", ".drawer__header h4", ".below-progress-bar-container"]
+      elements: [".cart-announcement-bar",".drawer__items",".drawer__final", ".cart_shipping_notes", '.below-progress-bar-container', ".drawer__title"]
     },
     {
       section: "cart-icon-bubble",
       elements: [".cart-count-bubble"]
+    },
+    {
+      section: "header",
+      elements: [".progress-bar-container"]
     }
   ];
-
-  if (document.querySelector('#using-qualifying-tag')) {
-    const cartDrawerSection = cartUpdates.find(section => section.section === "cart-drawer");
-    if (cartDrawerSection && !cartDrawerSection.elements.includes(".drawer__header free-shipping-goal")) {
-      cartDrawerSection.elements.push(".drawer__header free-shipping-goal");
-    }
-     if (cartDrawerSection && !cartDrawerSection.elements.includes(".drawer__header progress-bar")) {
-      cartDrawerSection.elements.push(".drawer__header progress-bar");
-    }
-  }
 
   const mainCart = document.querySelector('.cart-main');
 
@@ -1545,16 +1462,12 @@ const cartUpdate = (json = false) => {
     });
   }
 
-  const monogramElement = document.querySelector('#PopupModal-monogram');
-  if(monogramElement && monogramElement.hasAttribute('open')) {
-    monogramElement.removeAttribute('open');
-  }
-
   if(!json || json === undefined) {
     json = JSON.parse(document.querySelector('.drawer__items').getAttribute('data-json'));
   };
 
   cartUpdates.forEach(update => {
+    if(!json.sections[update.section]) return;
     update.elements.forEach(element => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(json.sections[update.section], "text/html");
@@ -1563,51 +1476,18 @@ const cartUpdate = (json = false) => {
       
       if(elOld == null || elNew == null) return
 
-      if(element == '.jr-temp-single-gwp') {
-        let oldPercent = '0';
-        if(elOld.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
-          oldPercent = elOld.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')
-        }
-       
-        const oldStyle = document.createElement('style')
-
-        oldStyle.textContent = `
-          .jr-temp-single-gwp .progress-bar:before {
-            width: ${oldPercent}% !important;
-          }
-        `
-        oldStyle.id = 'temp-single-psuedo'
-
-        elNew.querySelector('#temp-single-psuedo').remove()
-
-        elNew.appendChild(oldStyle) 
-        
-      }
 
       if(elOld && elNew) {
         elOld.outerHTML = elNew.outerHTML;
       }
-
-      if(element == '.jr-temp-single-gwp' && document.querySelector('.jr-temp-single-gwp') != null) {
-        setTimeout(() => {
-          let newPercent = '0'
-          if(elNew.querySelector('.jr-temp-single-gwp .progress-bar') != null) {
-            newPercent = elNew.querySelector('.jr-temp-single-gwp .progress-bar').getAttribute('data-percentage')
-          }
-          const newStyle = document.createElement('style')
-          newStyle.textContent = `
-            .jr-temp-single-gwp .progress-bar:before { 
-              width: ${newPercent}% !important;
-            }
-          `
-          newStyle.id = 'temp-single-psuedo'
-          document.querySelector('#temp-single-psuedo').remove()
-          document.querySelector('.jr-temp-single-gwp').appendChild(newStyle)
-        }, 200)
-        
-      }
-
     })
+
+    // Trigger progress bar animation after DOM update
+    const progressBar = document.querySelector('.progress-bar');
+    if(progressBar) {
+      // Force reflow to restart animation
+      void progressBar.offsetWidth;
+    }
 
     cartUpsellSwiper();
 
@@ -1665,9 +1545,6 @@ const cartUpdate = (json = false) => {
           spinner.classList.remove('active')
         });
 
-        if(parseFloat((document.querySelector(`free-shipping-goal`).dataset.minimumAmount) * 100) < data.items_subtotal_price) {
-          document.querySelector(`free-shipping-goal`).classList.add('free-shipping-goal--done');
-        }
         document.dispatchEvent(
           new CustomEvent('cart:updated', {
             detail: {
@@ -1692,9 +1569,6 @@ const cartUpdate = (json = false) => {
   if(document.querySelector(`[data-empty-div]`) != null) {
     document.querySelector(`[data-empty-div]`).classList.add('hidden');
   }
-  if(document.querySelector(`free-shipping-goal`)) {
-    document.querySelector(`free-shipping-goal`).classList.remove('hidden');
-  }
   
   document.querySelectorAll('.loading-overlay').forEach(loader => {
     loader.classList.add('hidden');
@@ -1713,8 +1587,6 @@ const cartUpdate = (json = false) => {
     document.querySelector('#Details-cart-drawer-container .header__icon--menu').click();
   }
 
-  checkGWPs(json);
-
   window.buildCompleteTheSetInCart()
 
   if(!onCartPage) {
@@ -1726,6 +1598,164 @@ const cartUpdate = (json = false) => {
     window.location.href = '/cart';
   }
 }
+
+// GWP Auto-Add/Remove Management
+let isManagingGWP = false; // Prevent infinite loops
+
+document.addEventListener('cart:updated', function(event) {
+
+  // Prevent infinite loops
+  if (isManagingGWP) {
+    console.log('Skipping GWP management - already in progress');
+    return;
+  }
+  
+  console.log('HEARD CART:UPDATED EVENT FOR GWP MANAGEMENT');
+  const cart = event.detail.cart;
+  const progressBarContainer = document.querySelector('.progress-bar-container');
+  
+  if (!progressBarContainer) return;
+  
+  const gwpTiersData = progressBarContainer.getAttribute('data-gwp-tiers');
+  console.log('///////')
+  console.log(gwpTiersData);
+  if (!gwpTiersData) return;
+  
+  let gwpTiers = [];
+  try {
+    gwpTiers = JSON.parse(gwpTiersData);
+  } catch (e) {
+    console.error('Failed to parse GWP tiers data:', e);
+    return;
+  }
+  
+  if (gwpTiers.length === 0) return;
+  
+  const cartItems = cart.items;
+  
+  // Calculate cart total EXCLUDING any GWP products to prevent circular logic
+  // where the GWP itself pushes the cart over the threshold
+  const gwpVariantIds = gwpTiers.map(tier => tier.variantId);
+  const gwpTotalInCart = cartItems
+    .filter(item => gwpVariantIds.includes(item.variant_id))
+    .reduce((total, item) => total + item.final_line_price, 0);
+  
+  const cartTotal = (cart.total_price - gwpTotalInCart) / 100; // Convert cents to dollars, excluding GWP value
+  
+  console.log('Cart total (raw):', cart.total_price / 100);
+  console.log('GWP total in cart:', gwpTotalInCart / 100);
+  console.log('Cart total (adjusted for threshold check):', cartTotal);
+  
+  // Determine which GWP products should be in cart based on thresholds met
+  const gwpsToManage = gwpTiers.map(tier => {
+    const thresholdMet = cartTotal >= tier.threshold;
+    const isInCart = cartItems.some(item => item.variant_id === tier.variantId);
+    const isFreeGWP = tier.productPrice === 0;
+    
+    return {
+      variantId: tier.variantId,
+      threshold: tier.threshold,
+      thresholdMet: thresholdMet,
+      isInCart: isInCart,
+      isFreeGWP: isFreeGWP,
+      shouldAdd: thresholdMet && !isInCart,
+      shouldRemove: !thresholdMet && isInCart && isFreeGWP // Only remove free GWPs
+    };
+  });
+  
+  // Check if any actions are needed
+  const itemsToAdd = gwpsToManage.filter(gwp => gwp.shouldAdd);
+  const itemsToRemove = gwpsToManage.filter(gwp => gwp.shouldRemove);
+  
+  if (itemsToAdd.length === 0 && itemsToRemove.length === 0) return;
+  
+  console.log('GWP actions needed:', { itemsToAdd, itemsToRemove });
+  
+  // Set flag to prevent infinite loops
+  isManagingGWP = true;
+  
+  // Process GWP updates
+  (async () => {
+    try {
+      // If threshold is NOT met, remove free GWP items (price = 0)
+      if (itemsToRemove.length > 0) {
+        console.log('Removing free GWP items (threshold not met):', itemsToRemove);
+        const updates = {};
+        itemsToRemove.forEach(gwp => {
+          updates[gwp.variantId] = 0;
+        });
+        
+        const removeResponse = await fetch(window.Shopify.routes.root + 'cart/update.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'xmlhttprequest'
+          },
+          body: JSON.stringify({ updates })
+        });
+        
+        if (!removeResponse.ok) {
+          throw new Error('Failed to remove GWP items');
+        }
+        
+        console.log('Free GWP items removed successfully');
+      }
+      
+      // If threshold IS met and item NOT in cart, add it
+      if (itemsToAdd.length > 0) {
+        console.log('Adding GWP items (threshold met, not in cart):', itemsToAdd);
+        const items = itemsToAdd.map(gwp => ({
+          id: gwp.variantId,
+          quantity: 1,
+          properties: {
+            '_free_gift': 'true'
+          }
+        }));
+        
+        const addResponse = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'xmlhttprequest'
+          },
+          body: JSON.stringify({ items })
+        });
+        
+        if (!addResponse.ok) {
+          throw new Error('Failed to add GWP items');
+        }
+        
+        console.log('GWP items added successfully');
+      }
+      
+      // Fetch updated cart with sections
+      const sectionsResponse = await fetch(
+        window.Shopify.routes.root + 'cart?sections=cart-drawer,cart-icon-bubble,main-cart-items,header',
+        {
+          headers: {
+            'X-Requested-With': 'xmlhttprequest'
+          }
+        }
+      );
+      
+      const sectionsData = await sectionsResponse.json();
+      console.log('GWP management complete, updating cart UI');
+      
+      // Wrap sections data in the expected format for cartUpdate
+      const data = { sections: sectionsData };
+      cartUpdate(data);
+      
+    } catch (error) {
+      console.error('GWP update error:', error);
+    } finally {
+      // Reset flag after a delay to allow cart to update
+      setTimeout(() => {
+        isManagingGWP = false;
+        console.log('GWP management flag reset');
+      }, 1000);
+    }
+  })();
+});
 
 const headerScroll = (h) => {
  
@@ -1774,7 +1804,6 @@ document.addEventListener('shopify:section:load', event => {
   klaviyoForms();
   headerScroll();
   footerCollapse();
-  checkGWPs(false);
 });
 
 
