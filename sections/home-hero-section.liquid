@@ -7,9 +7,20 @@
 
 {% if has_carousel %}
   <style>
-    [data-section="{{ section.id }}"] .swiper-button-next::after,
-    [data-section="{{ section.id }}"] .swiper-button-prev::after {
+    /* Hide ::after on hero carousel buttons only */
+    [data-section="{{ section.id }}"] .hero-image-swiper .swiper-button-next::after,
+    [data-section="{{ section.id }}"] .hero-image-swiper .swiper-button-prev::after {
       display: none !important;
+    }
+
+    /* Show ::after on product carousel buttons */
+    [data-section="{{ section.id }}"] .swiper:has(.section-productgrid) .swiper-button-next::after,
+    [data-section="{{ section.id }}"] .swiper:has(.section-productgrid) .swiper-button-prev::after {
+      display: block;
+      font-family: swiper-icons !important;
+    }
+    [data-section="{{ section.id }}"] .swiper:has(.section-productgrid) {
+      padding-left: 24px;
     }
     [data-section="{{ section.id }}"] .swiper-button-next,
     [data-section="{{ section.id }}"] .swiper-button-prev {
@@ -130,6 +141,9 @@
     
     /* Mobile: remove max-height restrictions */
     @media only screen and (max-width: 749px) {
+      [data-section="{{ section.id }}"] .swiper:has(.section-productgrid){
+        padding-left: 10px;
+      }
       [data-section="{{ section.id }}"] .hero-carousel-column,
       [data-section="{{ section.id }}"] .hero-image-swiper,
       [data-section="{{ section.id }}"] .hero-image-swiper .swiper-slide,
@@ -188,6 +202,59 @@
         font-size: 13px !important;
       }
     }
+    
+    /* Collection Slider Container */
+    [data-section="{{ section.id }}"] .hero-collection-sliders-container {
+      margin-top: 40px;
+      position: relative;
+    }
+    
+    /* Collection Slider Styles */
+    [data-section="{{ section.id }}"] .hero-collection-slider {
+      display: none;
+    }
+    
+    [data-section="{{ section.id }}"] .hero-collection-slider.active {
+      display: block;
+      animation: fadeIn 300ms ease-in-out;
+    }
+
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    [data-section="{{ section.id }}"] .hero-collection-slider .swiper-button-next,
+    [data-section="{{ section.id }}"] .hero-collection-slider .swiper-button-prev {
+      display: none;
+    }
+    
+    @media screen and (min-width: 750px) {
+      [data-section="{{ section.id }}"] .hero-collection-slider .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 25px);
+        display: block;
+      }
+
+      [data-section="{{ section.id }}"] .hero-collection-slider .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 25px);
+        display: block;
+      }
+
+      [data-section="{{ section.id }}"] .hero-collection-slider .swiper-button-next::after,
+      [data-section="{{ section.id }}"] .hero-collection-slider .swiper-button-prev::after {
+        font-size: 30px;
+      }
+
+      [data-section="{{ section.id }}"] .hero-collection-slider .swiper-button-next,
+      [data-section="{{ section.id }}"] .hero-collection-slider .swiper-button-prev {
+        top: calc(50% - 5rem);
+      }
+    }
   </style>
 {% endif %}
 
@@ -211,9 +278,9 @@
             {%- if block.settings.subcopy != blank -%}
               <p class="hero-subcopy">{{ block.settings.subcopy }}</p>
             {%- endif -%}
-            {%- if block.settings.button_text != blank and block.settings.button_url != blank -%}
+            {%- if block.settings.button_text != blank and block.settings.collection_url != blank -%}
               <div class="section-button">
-                <a href="{{ block.settings.button_url }}" class="button button--primary">{{ block.settings.button_text }}</a>
+                <a href="{{ block.settings.collection_url.url }}" class="button button--primary">{{ block.settings.button_text }}</a>
               </div>
             {%- endif -%}
           </div>
@@ -227,8 +294,8 @@
             {% for block in section.blocks %}
               <div class="swiper-slide" {{ block.shopify_attributes }}>
                 {% if block.settings.image != blank %}
-                  {% if block.settings.enable_image_as_link_out and block.settings.button_url != blank %}
-                    <a href="{{ block.settings.button_url }}" class="hero-carousel-image-link">
+                  {% if block.settings.enable_image_as_link_out and block.settings.collection_url != blank %}
+                    <a href="{{ block.settings.collection_url.url }}" class="hero-carousel-image-link">
                       <img 
                         src="{{ block.settings.image | img_url: '1800x' }}" 
                         alt="{{ block.settings.image.alt | escape }}"
@@ -272,17 +339,103 @@
 
     </div>
 
+    {%- comment -%} Product Collection Sliders Container {%- endcomment -%}
+    <div class="hero-collection-sliders-container">
+      {% for block in section.blocks %}
+        {% if block.settings.collection_url != blank %}
+          {%- capture collection_json -%}
+            {
+              "slidesPerView": 1,
+              "spaceBetween": 20,
+              "freeMode": true,
+              "mousewheel": false,
+              "loop": false,
+              "scrollbar": {
+                "el": "#collection-slider-{{ forloop.index0 }} .swiper-scrollbar",
+                "draggable": true
+              },
+            "effect": "slide",
+            "navigation": {
+              "nextEl": "#collection-slider-{{ forloop.index0 }} .swiper-button-next",
+              "prevEl": "#collection-slider-{{ forloop.index0 }} .swiper-button-prev"
+            },
+            "breakpoints": {
+              "0": {
+                "slidesPerView": "1.4",
+                "spaceBetween": 10
+              },
+              "750": {
+                "slidesPerView": "2",
+                "spaceBetween": 10
+              },
+              "990": {
+                "slidesPerView": "4",
+                "spaceBetween": 35
+              }
+            }
+          }
+        {%- endcapture -%}
+        
+        <div class="hero-collection-slider {% if forloop.first %}active{% endif %}" 
+             id="collection-slider-{{ forloop.index0 }}" 
+             data-slide-index="{{ forloop.index0 }}">
+          <div class="section-productgrid-wrap">
+            <div class="swiper" data-json='{{ collection_json | strip_newlines | strip }}'>
+              <div class="section-productgrid swiper-wrapper">
+                {% for product in block.settings.collection_url.products limit: block.settings.max_products %}
+                  {% liquid
+                    assign isPreOrderProduct = false 
+                    for tag in product.tags
+                      if tag == "ee-pre-order"
+                        assign isPreOrderProduct = true
+                      endif
+                    endfor
+                  %}
+                  <div id="block-{{ product.id }}" class="swiper-slide">
+                    {%- render 'card-product', 
+                       card_product: product, 
+                       media_aspect_ratio: block.settings.image_ratio, 
+                       hide_price: block.settings.hide_price, 
+                       hide_tag: block.settings.hide_tag, 
+                       hide_subtitle: block.settings.hide_subtitle, 
+                       hide_quick_add: block.settings.hide_quick_add, 
+                       isPreOrderProduct: isPreOrderProduct -%}
+                  </div>
+                {% endfor %}
+              </div>
+
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+            <div class="swiper-scrollbar"></div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const heroCarousel = document.querySelector('[data-hero-carousel]');
         const textContent = document.querySelector('[data-hero-text-content]');
+        const collectionSliders = document.querySelectorAll('.hero-collection-slider');
         
         if (heroCarousel && textContent && typeof Swiper !== 'undefined') {
           const textItems = textContent.querySelectorAll('.hero-text-item');
           const totalSlides = {{ section.blocks.size | plus: 0 }};
           
-          // Function to update text content based on slide index
-          function updateTextContent(index) {
+          // Initialize collection slider Swipers
+          const collectionSwipers = [];
+          collectionSliders.forEach((slider, index) => {
+            const swiperEl = slider.querySelector('.swiper');
+            if (swiperEl) {
+              const config = JSON.parse(swiperEl.getAttribute('data-json'));
+              collectionSwipers[index] = new Swiper(swiperEl, config);
+            }
+          });
+          
+          // Function to update text content and collection slider based on slide index
+          function updateContent(index) {
             // Fade out current active text
             const currentActive = textContent.querySelector('.hero-text-item.active');
             if (currentActive) {
@@ -294,6 +447,20 @@
             if (textItems[targetIndex]) {
               textItems[targetIndex].classList.add('active');
             }
+            
+            // Fade out current active collection slider
+            const currentActiveSlider = document.querySelector('.hero-collection-slider.active');
+            if (currentActiveSlider) {
+              currentActiveSlider.classList.remove('active');
+            }
+            
+            // Fade in new collection slider based on active slide
+            collectionSliders.forEach((slider) => {
+              const sliderIndex = parseInt(slider.getAttribute('data-slide-index'));
+              if (sliderIndex === targetIndex) {
+                slider.classList.add('active');
+              }
+            });
           }
           
           const swiper = new Swiper(heroCarousel, {
@@ -318,7 +485,7 @@
             },
             on: {
               slideChange: function() {
-                updateTextContent(this.realIndex);
+                updateContent(this.realIndex);
               }
             }
           });
@@ -698,15 +865,79 @@
             "label": "Button text"
           },
           {
-            "type": "url",
-            "id": "button_url",
-            "label": "Button URL"
+            "type": "collection",
+            "id": "collection_url",
+            "label": "Button Collection URL"
           },
           {
             "type": "checkbox",
             "id": "enable_image_as_link_out",
             "label": "Enable image as link",
             "default": true
+          },
+          {
+            "type": "header",
+            "content": "Product Slider Settings",
+            "info": "Visible only if a collection is selected above"
+          },
+          {
+            "type": "range",
+            "id": "max_products",
+            "min": 1,
+            "max": 30,
+            "step": 1,
+            "label": "Max products",
+            "default": 5,
+            "visible_if":"{{ block.settings.collection_url != blank }}"
+          },
+          {
+            "type": "select",
+            "id": "image_ratio",
+            "options": [
+              {
+                "value": "adapt",
+                "label": "Adapt to image"
+              },
+              {
+                "value": "portrait",
+                "label": "Portrait"
+              },
+              {
+                "value": "square",
+                "label": "Square"
+              }
+            ],
+            "default": "adapt",
+            "label": "Image ratio",
+            "visible_if":"{{ block.settings.collection_url != blank }}"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_price",
+            "label": "Hide price",
+            "default": false,
+            "visible_if":"{{ block.settings.collection_url != blank }}"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_tag",
+            "label": "Hide product tag",
+            "default": false,
+            "visible_if":"{{ block.settings.collection_url != blank }}"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_subtitle",
+            "label": "Hide subtitle",
+            "default": false,
+            "visible_if":"{{ block.settings.collection_url != blank }}"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_quick_add",
+            "label": "Hide quick add",
+            "default": false,
+            "visible_if":"{{ block.settings.collection_url != blank }}"
           }
         ]
       }
