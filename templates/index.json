@@ -143,6 +143,54 @@
         "button_bg_color": "#faf7f3"
       }
     },
+    "home_hero_section_GzUagM": {
+      "type": "home-hero-section",
+      "name": "Hero section",
+      "settings": {
+        "section_bg_color": "#FFFBF8",
+        "media_type": "video",
+        "video": "shopify://files/videos/v-day-banner.mp4",
+        "text_align": "center",
+        "text_vertical_align": "center",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "center",
+        "text_horizontal_align_mobile": "center",
+        "title": "Valentine’s Day Gift Guide is here",
+        "make_h1": true,
+        "subtitle": "",
+        "desktop_font_size": 42,
+        "mobile_font_size": 26,
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "",
+        "button": "Shop Gift Ideas",
+        "button_enable": true,
+        "link": "shopify://pages/valentines-day-gifting",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffffff"
+      }
+    },
+    "slider_collection_rf9mQd": {
+      "type": "slider-collection",
+      "name": "best sellers widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "best-selling-bags",
+        "max_products": 30,
+        "image_ratio": "square",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 36,
+        "padding_bottom": 0,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 10
+      }
+    },
     "jr_new_5050_product_list_kKjVm9": {
       "type": "jr-new-5050-product-list",
       "custom_css": [
@@ -172,34 +220,6 @@
         "padding_bottom": 36,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
-      }
-    },
-    "home_hero_section_GzUagM": {
-      "type": "home-hero-section",
-      "name": "Hero section",
-      "settings": {
-        "section_bg_color": "#FFFBF8",
-        "media_type": "video",
-        "video": "shopify://files/videos/v-day-banner.mp4",
-        "text_align": "center",
-        "text_vertical_align": "center",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "center",
-        "text_horizontal_align_mobile": "center",
-        "title": "Valentine’s Day Gift Guide is here",
-        "make_h1": true,
-        "subtitle": "",
-        "desktop_font_size": 42,
-        "mobile_font_size": 26,
-        "title_color": "#ffffff",
-        "description": "",
-        "description_color": "",
-        "button": "Shop Gift Ideas",
-        "button_enable": true,
-        "link": "shopify://pages/valentines-day-gifting",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff"
       }
     },
     "image_banner_RfzFJU": {
@@ -268,26 +288,6 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
-      }
-    },
-    "slider_collection_rf9mQd": {
-      "type": "slider-collection",
-      "name": "best sellers widget",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "best-selling-bags",
-        "max_products": 30,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 0,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 10
       }
     },
     "image_banner_yVpKNR": {
@@ -1124,9 +1124,9 @@
   "order": [
     "home_hero_section_qhL9Xk",
     "home_hero_section_GzUagM",
+    "slider_collection_rf9mQd",
     "jr_new_5050_product_list_kKjVm9",
     "image_banner_RfzFJU",
-    "slider_collection_rf9mQd",
     "image_banner_yVpKNR",
     "image_banner_CE6nwi",
     "multicolumn_Fbdf7n",
