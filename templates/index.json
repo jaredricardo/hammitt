@@ -14,9 +14,28 @@
       "blocks": {
         "image_carousel_item_fMrt4V": {
           "type": "image-carousel-item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_1.jpg",
+            "eyebrow": "Our Most Versatile Brown",
+            "title": "New Mahogany Pebble",
+            "subcopy": "Due to popular demand, we've added more Mahogany Pebble styles to our lineup.",
+            "button_text": "SHOP MAHOGANY",
+            "collection_url": "mahogany-pebble",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "image_ratio": "square",
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_PPdUzN": {
+          "type": "image-carousel-item",
           "settings": {
             "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_928cac4e-0837-474c-bddc-cd8d094c3012.jpg",
-            "eyebrow": "BACK IN BLOOM",
+            "eyebrow": "Back In bloom",
             "title": "Calla Lily White",
             "subcopy": "Your favorite seasonal leather is back, now with NEW bags added to the collection.",
             "button_text": "SHOP CALLA LILY WHITE",
@@ -106,6 +125,7 @@
       },
       "block_order": [
         "image_carousel_item_fMrt4V",
+        "image_carousel_item_PPdUzN",
         "image_carousel_item_9fiUmG",
         "image_carousel_item_yL6XYf",
         "image_carousel_item_gD6dUK",
@@ -147,7 +167,7 @@
       "type": "home-hero-section",
       "name": "Hero section",
       "settings": {
-        "section_bg_color": "#FFFBF8",
+        "section_bg_color": "#fffbf8",
         "media_type": "video",
         "video": "shopify://files/videos/v-day-banner.mp4",
         "text_align": "center",
