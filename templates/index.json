@@ -9,10 +9,96 @@
  */
 {
   "sections": {
+    "home_hero_section_GzUagM": {
+      "type": "home-hero-section",
+      "disabled": true,
+      "name": "Hero section",
+      "settings": {
+        "section_bg_color": "#fffbf8",
+        "media_type": "video",
+        "video": "shopify://files/videos/0202(2).mp4",
+        "text_align": "center",
+        "text_vertical_align": "center",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "center",
+        "text_horizontal_align_mobile": "center",
+        "title": "Brand New Arrivals",
+        "make_h1": true,
+        "subtitle": "",
+        "desktop_font_size": 42,
+        "mobile_font_size": 26,
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "",
+        "button": "Shop Now",
+        "button_enable": true,
+        "link": "shopify://collections/new-arrivals",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffffff"
+      }
+    },
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
         "image_carousel_item_fMrt4V": {
+          "type": "image-carousel-item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_3.jpg",
+            "eyebrow": "LIGHT AND AIRY",
+            "title": "Catamaran Cream",
+            "subcopy": "Choose off-white leather with tasteful piped trim.",
+            "button_text": "SHOP CATAMARAN",
+            "collection_url": "catamaran",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "image_ratio": "square",
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_i9fMeg": {
+          "type": "image-carousel-item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_4.jpg",
+            "eyebrow": "A STYLIST FAVORITE",
+            "title": "Nautical Navy",
+            "subcopy": "Inspired by afternoons at the Yacht Club,\nthis wearable collection is an easy, breezy dose of color.",
+            "button_text": "SHOP Nautical",
+            "collection_url": "nautical-navy",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "image_ratio": "square",
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_3kt837": {
+          "type": "image-carousel-item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_7.jpg",
+            "eyebrow": "OUR NEW NEUTRAL",
+            "title": "Toasty Sand",
+            "subcopy": "Embrace beachy vibes with softer-than-soft\ntan pebbled leather.",
+            "button_text": "SHOP Toasty Sand",
+            "collection_url": "toasty-sand",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "image_ratio": "square",
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_by7dVy": {
           "type": "image-carousel-item",
           "settings": {
             "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_1_fd9945c6-5fec-45fc-94f0-db5ee4909111.jpg",
@@ -124,6 +210,9 @@
       },
       "block_order": [
         "image_carousel_item_fMrt4V",
+        "image_carousel_item_i9fMeg",
+        "image_carousel_item_3kt837",
+        "image_carousel_item_by7dVy",
         "image_carousel_item_PPdUzN",
         "image_carousel_item_9fiUmG",
         "image_carousel_item_yL6XYf",
@@ -162,32 +251,71 @@
         "button_bg_color": "#faf7f3"
       }
     },
-    "home_hero_section_GzUagM": {
-      "type": "home-hero-section",
-      "name": "Hero section",
+    "image_banner_RfzFJU": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_bKpaUj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Valentine's Day Gift Guide",
+            "heading_size_mobile": 24,
+            "heading_size_tablet": 30,
+            "heading_size_desktop": 60
+          }
+        },
+        "buttons_PwbBzC": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Gift Ideas",
+            "button_link_1": "shopify://pages/valentines-day-gifting",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_bKpaUj",
+        "buttons_PwbBzC"
+      ],
+      "name": "v day LP - on 1/21",
       "settings": {
-        "section_bg_color": "#fffbf8",
-        "media_type": "video",
-        "video": "shopify://files/videos/v-day-banner.mp4",
-        "text_align": "center",
-        "text_vertical_align": "center",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "center",
-        "text_horizontal_align_mobile": "center",
-        "title": "Valentine's Day Gift Guide",
-        "make_h1": true,
-        "subtitle": "",
-        "desktop_font_size": 42,
-        "mobile_font_size": 26,
-        "title_color": "#ffffff",
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
         "description": "",
         "description_color": "",
-        "button": "Shop Gift Ideas",
-        "button_enable": true,
-        "link": "shopify://pages/valentines-day-gifting",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff"
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/v-day-banner.gif",
+        "image_2": "shopify://shop_images/mobile-Group-12685.gif",
+        "image_link": "shopify://pages/valentines-day-gifting",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
       }
     },
     "slider_collection_rf9mQd": {
@@ -239,74 +367,6 @@
         "padding_bottom": 36,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
-      }
-    },
-    "image_banner_RfzFJU": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_bKpaUj": {
-          "type": "heading",
-          "settings": {
-            "heading": "Valentine’s Day Gift Guide is here",
-            "heading_size_mobile": 24,
-            "heading_size_tablet": 30,
-            "heading_size_desktop": 60
-          }
-        },
-        "buttons_PwbBzC": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Gift Ideas",
-            "button_link_1": "shopify://pages/valentines-day-gifting",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_bKpaUj",
-        "buttons_PwbBzC"
-      ],
-      "disabled": true,
-      "name": "v day LP - on 1/21",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Rectangle_1028.jpg",
-        "image_2": "shopify://shop_images/Rectangle_441_1.jpg",
-        "image_link": "shopify://pages/valentines-day-gifting",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-right",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
       }
     },
     "image_banner_yVpKNR": {
@@ -1141,11 +1201,11 @@
     }
   },
   "order": [
-    "home_hero_section_qhL9Xk",
     "home_hero_section_GzUagM",
+    "home_hero_section_qhL9Xk",
+    "image_banner_RfzFJU",
     "slider_collection_rf9mQd",
     "jr_new_5050_product_list_kKjVm9",
-    "image_banner_RfzFJU",
     "image_banner_yVpKNR",
     "image_banner_CE6nwi",
     "multicolumn_Fbdf7n",
