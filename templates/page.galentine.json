@@ -101,10 +101,129 @@
         "padding_bottom_mobile": 0,
         "custom_class": ""
       }
+    },
+    "multicolumn_bXjXqE": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_FNtreh": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_7.jpg",
+            "title": "Shop New Arrivals",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link_margin_top": 20,
+            "link": "shopify://collections/new-arrivals",
+            "cta_color": "#fff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_dtytFJ": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/KYLE-BG_14_MR_PARKER_6498.jpg",
+            "title": "Shop Bestsellers",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link_margin_top": 20,
+            "link": "shopify://collections/best-selling-bags",
+            "cta_color": "#fff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_AFzwKg": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_447.jpg",
+            "title": "Shop Trending",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "",
+            "link_margin_top": 20,
+            "link": "shopify://collections/trending",
+            "cta_color": "#fff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "#000",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": false,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_FNtreh",
+        "column_dtytFJ",
+        "column_AFzwKg"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "square",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 3,
+        "columns_gap": 2,
+        "row_gap": 2,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "left",
+        "text_position": "overlay_type",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "main",
-    "image_banner_bXMWWH"
+    "image_banner_bXMWWH",
+    "multicolumn_bXjXqE"
   ]
 }
