@@ -675,8 +675,7 @@
             </div>
             {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
                 <p>
-                  <span>You qualify for FREE gift wrap! Click the check box below to confirm your service.</span>
-                  <span style="color: #1E9907">Be sure to check the third box to confirm your complimentary gift wrap.</span>
+                  Complimentary gift boxes are available for most items. Small accessories, backpacks, and oversized bags ship in dust bags only. Please specify if you prefer a dust bag, a box, or—for boxed items only—a free ribbon.
                 </p>
               {% else %}
                 {% if settings.hammitt_gifting_drawer_header_text %}
@@ -807,7 +806,7 @@
                             {% if is_final_sale == true %}
                               <span style="color: #C74141; font-size: 11px;">Final Sale</span>
                             {% endif %}
-                            <span class="db-only">Shipped in dust bags only. Gifting options unavailable.<span>
+                            <span class="db-only">Box not included, gift wrap not available.<span>
                             </div>
                           {% else %}
                             <div class="checkbox-container">
@@ -821,18 +820,16 @@
                             {% if settings.hammitt_gift_wrap_product.available %}
                               <div class="checkbox-container">  
                                 <input type="checkbox" class="line-item-hand-written-note" id="line-item-hand-written-note--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_gift_note != false %} checked {% endif %}>
-                                <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}" {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %} style="color: #1E9907" {% endif %}>
+                                <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}">
                                   {% comment %} 
                                     Enable_hammitt_gift_messaging is a bit if a misnomber, it actually is CART LEVEL note activiation. This means we need
                                     disable line item gift notes and make it so fthat the auto adding gift wrap check box only adds the free gift wrap without the note.
                                   {% endcomment %}
                                   {% if settings.enable_hammitt_gift_messaging %}
-                                      Add Ribbon for $5
-                                    {% else %}
                                     {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
-                                      YES, add my free gift wrap + a handwritten note 🎁
-                                    {% else %}
-                                      Add Ribbon + Handwritten Note for $5
+                                        Add Free Ribbon
+                                      {% else %}
+                                        Add Ribbon for $5
                                     {% endif %}
                                   {% endif %}
                                 </label>  
