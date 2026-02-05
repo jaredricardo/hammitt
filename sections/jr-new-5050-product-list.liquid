@@ -38,6 +38,12 @@
         }
     }
 
+    @media screen and (max-width:971px) {
+        [data-section-id="{{ section.id }}"] .jr-new-5050-product-list .columns.image-top {
+            flex-direction: column-reverse !important;
+        }
+    }
+
 
 {% endstyle %}
 
@@ -80,7 +86,7 @@
         {% if section.settings.title != blank %}
             <h2 class="h1 section-title center">{{ section.settings.title }}</h2>
         {% endif %}
-        <div class="columns {{ section.settings.image_alignment_desktop }}">
+        <div class="columns {{ section.settings.image_alignment_desktop }} {{ section.settings.image_alignment_mobile }}">
             <div class="col">
                 {% if section.settings.product_list != empty %}
                     <div class="swiper mobile" data-json='{{ json }}'>
@@ -173,6 +179,21 @@
                    {
                         "value": "image-left",
                         "label": "Image Left"
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "id": "image_alignment_mobile",
+                "label": "Mobile Image Alignment",
+                "options": [
+                    {
+                        "value": "image-top",
+                        "label": "Image Top"
+                    },
+                   {
+                        "value": "image-bottom",
+                        "label": "Image Bottom"
                     }
                 ]
             },
