@@ -16,8 +16,9 @@
         color: {{section.settings.heading_color}}
     }
 
-    .jr-new-5050-product-list .section-title {
-        margin-bottom: 20px
+    [data-section-id="{{ section.id }}"] .jr-new-5050-product-list .section-title {
+        margin-bottom: 20px;
+        padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
     }
 
     [data-section-id="{{ section.id }}"] .columns.image-right {
@@ -33,14 +34,19 @@
             padding-top: {{section.settings.padding_top}}px;
             padding-bottom: {{section.settings.padding_bottom}}px;
         }
-        .jr-new-5050-product-list .section-title {
+        [data-section-id="{{ section.id }}"] .jr-new-5050-product-list .section-title {
             margin-bottom: 12px;
+            padding-bottom: {{ section.settings.padding_bottom_dekstop }}px;
         }
     }
 
     @media screen and (max-width:971px) {
         [data-section-id="{{ section.id }}"] .jr-new-5050-product-list .columns.image-top {
             flex-direction: column-reverse !important;
+        }
+        [data-section-id="{{ section.id }}"] .jr-new-5050-product-list .section-title {
+            margin-bottom: 20px;
+            padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
         }
     }
 
@@ -150,6 +156,24 @@
                 "id": "title",
                 "label": "Title",
                 "default": "Best Sellers"
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom_desktop",
+                "label": "Padding Bottom Desktop",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 0
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom_mobile",
+                "label": "Padding Bottom Mobile",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 0
             },
             {
                 "type": "checkbox",
