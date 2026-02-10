@@ -1167,6 +1167,13 @@
             "default": false
           },
           {
+            "type": "html",
+            "id": "free_shipping_gwp_success_text",
+            "label": "Free Shipping GWP Success Text (accepts HTML)",
+            "visible_if": "{{ block.settings.gwp_tier_is_free_shipping }}",
+            "default": "You've received FREE shipping!"
+          },
+          {
             "type": "number",
             "id": "gwp_tier_threshold",
             "label": "GWP Tier Threshold Amount ($)"

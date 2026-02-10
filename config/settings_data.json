@@ -57,7 +57,7 @@
     "hammitt_gifting_drawer_message": "",
     "hammitt_gift_wrap_product": "gift-wrap",
     "hammitt_gifting_trigger_btn_text": "",
-    "hammitt_gifting_drawer_header_text": "<p>Complimentary gift boxes are available with most items. Please let us know if you prefer a dust bag only.</p>",
+    "hammitt_gifting_drawer_header_text": "<p>Complimentary gift boxes are available for most items. Please select if you prefer complimentary gift box, only dust bag or add Free Gift Wrap*<br><br><em>*Small accessories, backpacks, and oversized bags are not eligible for gift boxes or ribbon.</em></p>",
     "email_text": "Register to receive a notification when this item comes back in stock.",
     "subscribe_to_email_text": "<p>Add me to your email list.</p>",
     "enable_sms_subscribe": false,
@@ -81,7 +81,7 @@
       "charles-crossbody-lrg-belt-bag-black-brushed-gold-red-zip",
       "charles-crossbody-crossbody-black-brushed-gold-red-zip"
     ],
-    "enable_free_gift_wrap": false,
+    "enable_free_gift_wrap": true,
     "free_gift_wrap_product": "gift-wrap",
     "free_gift_wrap_threshold_price": 1,
     "free_gift_wrap_above_image_text": "",
@@ -130,7 +130,7 @@
           "announcement_rWU3KJ": {
             "type": "announcement",
             "settings": {
-              "text": "Valentine's Day Gift Guide",
+              "text": "Limited Time Only: Free Gift Wrap",
               "text_color": "#ffffff",
               "background_color": "#96353c",
               "link": "shopify://pages/valentines-day-gifting"
@@ -190,6 +190,7 @@
             "settings": {
               "gwp_product": "",
               "gwp_tier_is_free_shipping": true,
+              "free_shipping_gwp_success_text": "You get FREE shipping and <hammitt-gifting-options-drawer-trigger-no-button style=\"text-decoration:underline; cursor: pointer;\"> can add FREE Gift Wrap* </hammitt-gifting-options-drawer-trigger-no-button>",
               "gwp_tier_threshold": 1,
               "gwp_tier_not_reached_message": "more to unlock a FREE",
               "gwp_tier_reached_message": "You've unlocked a FREE",
@@ -202,19 +203,11 @@
             "settings": {
               "gwp_product": "love-crush-bag-charm-hangtag-chili-red-none",
               "gwp_tier_is_free_shipping": false,
+              "free_shipping_gwp_success_text": "You've received FREE shipping!",
               "gwp_tier_threshold": 395,
               "gwp_tier_not_reached_message": "more to unlock a FREE",
               "gwp_tier_reached_message": "You've unlocked a FREE",
               "gwp_tier_alternate_reward_title": "Love Charm"
-            }
-          },
-          "visual_menu_item_qYkRni": {
-            "type": "visual-menu-item",
-            "disabled": true,
-            "settings": {
-              "nav_link": "shopify://pages/valentines-day-gifting",
-              "title": "Gifting",
-              "nav_image": "shopify://shop_images/Group_12580_1.jpg"
             }
           },
           "visual_menu_item_GEwfV7": {
@@ -222,7 +215,7 @@
             "settings": {
               "nav_link": "shopify://collections/new-arrivals",
               "title": "New In",
-              "nav_image": "shopify://shop_images/Rectangle_569_a37a75d4-868b-48c3-802c-cba6ee1be0a7.jpg"
+              "nav_image": "shopify://shop_images/Tile_66.jpg"
             }
           },
           "visual_menu_item_KWAJ7F": {
@@ -238,15 +231,15 @@
             "settings": {
               "nav_link": "shopify://collections/kyle",
               "title": "Kyle",
-              "nav_image": "shopify://shop_images/Rectangle-831stormy.jpg"
+              "nav_image": "shopify://shop_images/KYLE_Toasty-Sand_08_CROQUET_4720.jpg"
             }
           },
           "visual_menu_item_RG36DA": {
             "type": "visual-menu-item",
             "settings": {
               "nav_link": "shopify://pages/current-season",
-              "title": "New Winter Edit",
-              "nav_image": "shopify://shop_images/Tile_27.jpg"
+              "title": "New Spring Edit",
+              "nav_image": "shopify://shop_images/CHARLES-MED_Nautical-Navy_12_PSYC_5663.jpg"
             }
           },
           "visual_menu_item_R797MM": {
@@ -254,11 +247,20 @@
             "settings": {
               "nav_link": "shopify://collections/new-silhouettes-2025",
               "title": "New Debut",
-              "nav_image": "shopify://shop_images/Tile_31.jpg"
+              "nav_image": "shopify://shop_images/SHELLEY-CLUTCH_Toasty-Sand_08_CROQUET_4507.jpg"
+            }
+          },
+          "visual_menu_item_qYkRni": {
+            "type": "visual-menu-item",
+            "settings": {
+              "nav_link": "shopify://pages/valentines-day-gifting",
+              "title": "Valentine's Day",
+              "nav_image": "shopify://shop_images/Group_12580_1.jpg"
             }
           },
           "visual_menu_item_7RgGWL": {
             "type": "visual-menu-item",
+            "disabled": true,
             "settings": {
               "nav_link": "shopify://collections/clutch",
               "title": "Evening Bags",
@@ -270,7 +272,7 @@
             "settings": {
               "nav_link": "shopify://collections/travel",
               "title": "Travel",
-              "nav_image": "shopify://shop_images/Rectangle_817.jpg"
+              "nav_image": "shopify://shop_images/ANDERSEN_Nautical-Navy_12_PSYC_5659.jpg"
             }
           },
           "visual_menu_item_dbDRDJ": {
@@ -286,7 +288,7 @@
             "settings": {
               "nav_link": "https://www.hammitt.com/pages/celebrity-hammitt-bags",
               "title": "As Seen On",
-              "nav_image": "shopify://shop_images/Frame_789.jpg"
+              "nav_image": "shopify://shop_images/Vita_Selects-55792_1_1.jpg"
             }
           },
           "visual_menu_item_BGKFjn": {
@@ -310,7 +312,7 @@
             "settings": {
               "nav_link": "shopify://collections/view-all",
               "title": "Shop All",
-              "nav_image": "shopify://shop_images/Rectangle_410_e8bae701-78c1-4025-ad1e-4a8ee6456764.jpg"
+              "nav_image": "shopify://shop_images/Rectangle_447_759b4d7b-5d92-4745-af50-875a05bbd016.jpg"
             }
           },
           "popular_search_QfKWpn": {
@@ -345,12 +347,12 @@
         "block_order": [
           "gwp_tier_HBiUJD",
           "gwp_tier_Ac4WzB",
-          "visual_menu_item_qYkRni",
           "visual_menu_item_GEwfV7",
           "visual_menu_item_KWAJ7F",
           "visual_menu_item_PmYb6N",
           "visual_menu_item_RG36DA",
           "visual_menu_item_R797MM",
+          "visual_menu_item_qYkRni",
           "visual_menu_item_7RgGWL",
           "visual_menu_item_f4DzN9",
           "visual_menu_item_dbDRDJ",
@@ -687,7 +689,7 @@
           "image_gY6exJ": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Vita_Selects-55792_1_1.jpg",
+              "image": "shopify://shop_images/ERICA_Black_14_MR_PARKER_6476.jpg",
               "image_ratio": "portrait",
               "image_caption": "New In",
               "image_link": "shopify://collections/new-arrivals"
@@ -696,7 +698,7 @@
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Tile_52.jpg",
+              "image": "shopify://shop_images/TIM-MED_Nautical-Navy_12_PSYC_5721-_1.jpg",
               "image_ratio": "portrait",
               "image_caption": "Trending Now",
               "image_link": "shopify://collections/best-selling-bags"

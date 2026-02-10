@@ -673,16 +673,10 @@
               </button>
               <button id="save-btn" disabled>Save</button>
             </div>
-            {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %}
-                <p>
-                  Complimentary gift boxes are available for most items. Small accessories, backpacks, and oversized bags ship in dust bags only. Please specify if you prefer a dust bag, a box, or—for boxed items only—a free ribbon.
-                </p>
-              {% else %}
-                {% if settings.hammitt_gifting_drawer_header_text %}
-                  <p>{{ settings.hammitt_gifting_drawer_header_text }}</p>
-                {% endif %}
-            {% endif %}
 
+            {% if settings.hammitt_gifting_drawer_header_text %}
+              <p>{{ settings.hammitt_gifting_drawer_header_text }}</p>
+            {% endif %}
 
             <ul class="broken-out-line-items">
               {% for item in cart.items %}
@@ -820,7 +814,7 @@
                             {% if settings.hammitt_gift_wrap_product.available %}
                               <div class="checkbox-container">  
                                 <input type="checkbox" class="line-item-hand-written-note" id="line-item-hand-written-note--{{ item.key }}--{{ i }}" name="gifting-option" {% if line_item_gift_note != false %} checked {% endif %}>
-                                <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}">
+                                <label for="line-item-hand-written-note--{{ item.key }}--{{ i }}" {% if settings.enable_free_gift_wrap and has_reached_gift_wrap_threshold %} style="color:#309814;" {% endif %}>
                                   {% comment %} 
                                     Enable_hammitt_gift_messaging is a bit if a misnomber, it actually is CART LEVEL note activiation. This means we need
                                     disable line item gift notes and make it so fthat the auto adding gift wrap check box only adds the free gift wrap without the note.

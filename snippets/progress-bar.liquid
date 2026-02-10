@@ -185,7 +185,7 @@
     <div class="gwp-progress-bar-header gwp-tier-success">
       <span class="h7">
         {%- if previous_tier.settings.gwp_tier_is_free_shipping -%}
-          You've received FREE shipping!
+          {{ previous_tier.settings.free_shipping_gwp_success_text }}
         {%- else -%}
           {{ previous_tier.settings.gwp_tier_reached_message }}
           {% if previous_tier.settings.gwp_tier_alternate_reward_title != blank %}
