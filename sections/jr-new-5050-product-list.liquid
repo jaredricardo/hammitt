@@ -100,7 +100,7 @@
                             {% for product in section.settings.product_list limit: 6 %}
                                 {% if product.available %}
                                     <div id="block-{{ product.id }}" class="swiper-slide">
-                                        {% render 'card-product', card_product: product %}
+                                        {% render 'card-product', card_product: product, show_secondary_image: section.settings.show_secondary_image %}
                                     </div>
                                 {% endif %}
                             {% endfor %}
@@ -110,7 +110,7 @@
                     <div class="desktop">
                         {% for product in section.settings.product_list limit: 6 %}
                             {% if product.available and section.settings.allow_sold_out_cards == false %}
-                                {% render 'card-product', card_product: product %}
+                                {% render 'card-product', card_product: product, show_secondary_image: section.settings.show_secondary_image %}
                             {% endif %}
                         {% endfor %}
                     </div>
@@ -185,6 +185,12 @@
                 "type": "product_list",
                 "id": "product_list",
                 "label": "Product List"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_secondary_image",
+                "label": "Show secondary image on hover",
+                "default": true
             },
             {
                 "type": "image_picker",

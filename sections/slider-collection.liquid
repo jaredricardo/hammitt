@@ -70,6 +70,8 @@
     }
   }
   {%- endcapture -%}
+
+  {% assign show_secondary_image = section.settings.show_secondary_image %}
   
   <div class="section-wrap section-{{ section.id }}-padding">
   {%- if section.settings.title != blank -%}
@@ -92,13 +94,14 @@
           %}
           <div id="block-{{ product.id }}" class="swiper-slide">
             {%- render 'card-product', 
-               card_product: product, 
-               media_aspect_ratio: section.settings.image_ratio, 
-               hide_price: section.settings.hide_price, 
-               hide_tag: section.settings.hide_tag, 
-               hide_subtitle: section.settings.hide_subtitle, 
-               hide_quick_add: section.settings.hide_quick_add, 
-               isPreOrderProduct: isPreOrderProduct -%}
+                card_product: product, 
+                show_secondary_image: section.settings.show_secondary_image,
+                media_aspect_ratio: section.settings.image_ratio, 
+                hide_price: section.settings.hide_price, 
+                hide_tag: section.settings.hide_tag, 
+                hide_subtitle: section.settings.hide_subtitle, 
+                hide_quick_add: section.settings.hide_quick_add, 
+                isPreOrderProduct: isPreOrderProduct -%}
           </div>
         {% endfor %}
       </div>
@@ -166,7 +169,13 @@
       "type": "header",
       "content": "Product card settings"
     },
-	{
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "label": "Show secondary image on hover",
+      "default": true
+    },
+    {
       "type": "select",
       "id": "image_ratio",
       "options": [

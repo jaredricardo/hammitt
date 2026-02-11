@@ -398,6 +398,7 @@
                   <div id="block-{{ product.id }}" class="swiper-slide">
                     {%- render 'card-product', 
                        card_product: product, 
+                       show_secondary_image: section.settings.show_secondary_image,
                        media_aspect_ratio: block.settings.image_ratio, 
                        hide_price: block.settings.hide_price, 
                        hide_tag: block.settings.hide_tag, 
@@ -763,6 +764,16 @@
             "label": "Right"
           }
         ]
+      },
+      {
+        "type": "header",
+        "content": "Card Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_secondary_image",
+        "label": "Show secondary image on hover (if available)",
+        "default": true
       },
       {
         "type": "text",
