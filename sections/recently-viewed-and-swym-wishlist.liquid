@@ -1,0 +1,421 @@
+<style>
+    /* Hide desktop nav recently viewed button when on this page */
+    .recently-viewed-button {
+        display: none !important;
+    }
+
+    [data-section-id="{{ section.id }}"] {
+        padding-top: 2rem;
+    }
+
+    /* Toggle Buttons */
+    .view-toggle-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .view-toggle-btn {
+        padding: 12px 32px;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border: 2px solid #000;
+        background: white;
+        color: #000;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .view-toggle-btn:hover {
+        background: #f5f5f5;
+    }
+
+    .view-toggle-btn.active {
+        background: #000;
+        color: white;
+    }
+
+    /* View Containers */
+    .view-section {
+        display: none;
+    }
+
+    .view-section.active {
+        display: block;
+    }
+
+    /* Wishlist Styles */
+    .wishlist-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wishlist-container.loaded .spinner {
+        display: none;
+    }
+
+    .wishlist-container.loaded {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        align-items: start;
+    }
+
+    .wishlist-container .wishlist-card {
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .wishlist-container .wishlist-card .wl-price {
+        margin-left: 5px;
+    }
+
+    .wishlist-container .wishlist-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .wishlist-container .wishlist-card h5 {
+        margin: 2rem 0 0 0;
+        font-weight: 500;
+        letter-spacing: 0%;
+        text-align: center;
+        color: black;
+    }
+
+    .wl-text-container {
+        max-width: 600px;
+        margin: 0 auto 3rem;
+        text-align: center;
+    }
+
+    .wl-text-container p,
+    .wl-text-container h1,
+    .wl-text-container h2 {
+        margin: 0;
+    }
+
+    .wl-text-container h1 {
+        font-weight: 500;
+        line-height: 34px;
+        letter-spacing: 0%;
+    }
+
+    .wl-text-container h2 a {
+        color: black !important;
+    }
+
+    .wl-text-container h2 {
+        font-weight: 700;
+        line-height: 22px;
+        letter-spacing: 0%;
+        margin-top: 2rem;
+    }
+
+    /* Recently Viewed Styles */
+    .jr-recently-viewed-grid h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .jr-recently-viewed-grid h3.hidden {
+        display: none;
+    }
+
+    .jr-recently-viewed-grid h3 {
+        text-align: center;
+        font-weight: 400;
+        margin: 2rem 0;
+    }
+
+    .jr-recently-viewed-grid .grid-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .jr-recently-viewed-grid .grid-container.loaded {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        align-items: start;
+    }
+
+    .jr-recently-viewed-grid .grid-container.loaded .spinner {
+        display: none;
+    }
+
+    .recently-viewed-card {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .recently-viewed-card > button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: white;
+        border: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.2s ease;
+    }
+
+    .recently-viewed-card > button:hover {
+        background: #f5f5f5;
+        transform: scale(1.1);
+    }
+
+    .recently-viewed-card > button svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .recently-viewed-card a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .recently-viewed-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .recently-viewed-card .info-container {
+        margin-top: 1rem;
+    }
+
+    .recently-viewed-card .price-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 0.5rem;
+    }
+
+    .recently-viewed-card .product-title {
+        font-weight: 500;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .recently-viewed-card .product-price {
+        font-weight: 600;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .recently-viewed-card .color-descriptor {
+        font-size: 12px;
+        color: #666;
+        margin: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        [data-section-id="{{ section.id }}"] {
+            padding-top: 0rem;
+        }
+
+        .view-toggle-container {
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .view-toggle-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .wishlist-container.loaded,
+        .jr-recently-viewed-grid .grid-container.loaded {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .wl-text-container {
+            margin-bottom: 2rem;
+        }
+
+        .wishlist-container .wishlist-card h5 {
+            margin: 1rem 0 0 0;
+        }
+
+        .wl-text-container h1 {
+            line-height: 34px;
+        }
+
+        .wl-text-container h2 {
+            line-height: 18px;
+            margin-top: 1rem;
+        }
+
+        .jr-recently-viewed-grid h1 {
+            margin-bottom: 1.5rem;
+        }
+    }
+</style>
+
+<div data-section-id="{{ section.id }}" class="page-width">
+    
+    <!-- Toggle Buttons -->
+    <div class="view-toggle-container">
+        <button class="view-toggle-btn active" data-view="wishlist">
+            Wishlist
+        </button>
+        <button class="view-toggle-btn" data-view="recently-viewed">
+            Recently Viewed
+        </button>
+    </div>
+
+    <!-- Wishlist Section -->
+    <div class="view-section active" id="wishlist-view">
+        <div class="wl-text-container">
+            <h1>
+                {% if customer %}
+                    {{ customer.first_name }}'S
+                {% endif %}
+                Wishlist
+            </h1>
+            {% unless customer %}
+                <h2>{{ section.settings.wishlist_content }}</h2>
+            {% endunless %}
+        </div>
+        <div class="wishlist-container">
+            <img class="spinner" src="{{ 'Spinner-2.gif' | asset_url }}" style="width:48px;height:48px;" alt="Loading...">
+        </div>
+    </div>
+
+    <!-- Recently Viewed Section -->
+    <div class="view-section" id="recently-viewed-view">
+        <div class="jr-recently-viewed-grid">
+            <h1 class="h0">Recently Viewed</h1>
+            <h3 class="hidden" style="text-align: center;">No products have been viewed yet...</h3>
+          
+            <div class="grid-container">
+                <img class="spinner" src="{{ 'Spinner-2.gif' | asset_url }}" style="width:48px;height:48px;" alt="Loading...">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Toggle functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButtons = document.querySelectorAll('.view-toggle-btn');
+    const viewSections = document.querySelectorAll('.view-section');
+    
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetView = button.getAttribute('data-view');
+            
+            // Update button states
+            toggleButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Update view sections
+            viewSections.forEach(section => section.classList.remove('active'));
+            document.getElementById(`${targetView}-view`).classList.add('active');
+            
+            // Initialize recently viewed if switching to it for the first time
+            if (targetView === 'recently-viewed' && !window.recentlyViewedInitialized) {
+                initRecentlyViewed();
+                window.recentlyViewedInitialized = true;
+            }
+        });
+    });
+    
+    // Auto-initialize wishlist (always loaded first)
+    // Swym wishlist initialization will happen through their existing script
+    
+    // Recently Viewed functionality
+    function initRecentlyViewed() {
+        const recentlyViewedProducts = JSON.parse(localStorage.getItem('_rv') || '[]').reverse();
+        const sectionContainer = document.querySelector('.jr-recently-viewed-grid');
+        const gridContainer = document.querySelector('.jr-recently-viewed-grid .grid-container');
+        
+        if (!recentlyViewedProducts.length) {
+            sectionContainer.querySelector('h3').classList.remove('hidden');
+            gridContainer.querySelector('.spinner').style.display = 'none';
+            return;
+        }
+        
+        recentlyViewedProducts.forEach((product) => {
+            const cardHTML = `
+                <div class="recently-viewed-card">
+                    <button data-id-to-remove="${product.id}">{% render 'icon-close' %}</button>
+                    <a href="/products/${product.handle}">
+                        <img src="${product.featured_image}" alt="Recently Viewed Product">
+                        <div class="info-container">
+                            <div class="price-title">
+                                <h3 class="product-title">${product.product_title_type}</h3>
+                                <h3 class="product-price">${window.formatPrice(product.price)}</h3>
+                            </div>
+                            <p class="color-descriptor">${product.product_title_color_descriptor}</p>
+                        </div>
+                    </a>
+                </div>
+            `;
+            gridContainer.insertAdjacentHTML('beforeend', cardHTML);
+        });
+        
+        document.querySelectorAll('.recently-viewed-card button').forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const idToRemove = button.getAttribute('data-id-to-remove');
+                const currentlyStored = JSON.parse(localStorage.getItem('_rv') || '[]');
+                const updatedProducts = currentlyStored.filter(product => product.id.toString() !== idToRemove);
+                document.querySelector(`[data-id-to-remove="${idToRemove}"]`).parentElement.remove();
+                localStorage.setItem('_rv', JSON.stringify(updatedProducts));
+                if (!updatedProducts.length) {
+                    sectionContainer.querySelector('h3').classList.remove('hidden');
+                }
+            });
+        });
+        
+        gridContainer.classList.add('loaded');
+        gridContainer.querySelector('.spinner').style.display = 'none';
+    }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Wishlist & RV",
+  "limit": 1,
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    {
+        "type": "header",
+        "content": "Wishlist Settings"
+    },
+    {
+        "type": "richtext",
+        "id": "wishlist_content",
+        "label": "Wishlist paragraph content (for logged out users)",
+        "default": "<p><a href=\"/account\" title=\"/account\">Sign in or create an account</a> to save your items permanently, access your saved list from any device, save your addresses for faster checkout and update on items you love.</p>"
+    }
+  ],
+  "presets": [
+    {
+        "name": "Wishlist & RV"
+    }
+  ]
+}
+{% endschema %}
