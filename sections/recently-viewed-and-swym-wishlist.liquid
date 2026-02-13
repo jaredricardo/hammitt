@@ -11,31 +11,36 @@
     /* Toggle Buttons */
     .view-toggle-container {
         display: flex;
-        justify-content: center;
-        gap: 1rem;
+        justify-content: start;
+        gap: 3rem;
         margin-bottom: 3rem;
     }
 
     .view-toggle-btn {
-        padding: 12px 32px;
+        padding: 0;
         font-size: 16px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        border: 2px solid #000;
-        background: white;
+        font-weight: 400;
+        text-transform: none;
+        letter-spacing: 0;
+        border: none;
+        background: transparent;
         color: #000;
         cursor: pointer;
-        transition: all 0.3s ease;
+        text-decoration: none;
+        transition: border-color 0.3s ease;
     }
 
     .view-toggle-btn:hover {
-        background: #f5f5f5;
+        opacity: 0.7;
+    }
+
+    .view-toggle-btn:hover {
+        text-decoration: underline;
     }
 
     .view-toggle-btn.active {
-        background: #000;
-        color: white;
+        border-bottom-color: #000;
+        text-decoration: underline;
     }
 
     /* View Containers */
@@ -63,6 +68,9 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 16px;
         align-items: start;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .wishlist-container .wishlist-card {
@@ -72,6 +80,8 @@
         flex-direction: column;
         cursor: pointer;
         position: relative;
+        min-width: 0;
+        max-width: 100%;
     }
 
     .wishlist-container .wishlist-card .wl-price {
@@ -98,22 +108,22 @@
     }
 
     .wl-text-container p,
-    .wl-text-container h1,
     .wl-text-container h2 {
         margin: 0;
     }
 
-    .wl-text-container h1 {
+    .wl-text-container h2 {
         font-weight: 500;
+        font-size: 28px;
         line-height: 34px;
         letter-spacing: 0%;
     }
 
-    .wl-text-container h2 a {
+    .wl-text-container p a {
         color: black !important;
     }
 
-    .wl-text-container h2 {
+    .wl-text-container p {
         font-weight: 700;
         line-height: 22px;
         letter-spacing: 0%;
@@ -121,7 +131,10 @@
     }
 
     /* Recently Viewed Styles */
-    .jr-recently-viewed-grid h1 {
+    .jr-recently-viewed-grid h2 {
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 34px;
         text-align: center;
         margin-bottom: 2rem;
     }
@@ -147,6 +160,9 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 16px;
         align-items: start;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .jr-recently-viewed-grid .grid-container.loaded .spinner {
@@ -156,6 +172,8 @@
     .recently-viewed-card {
         position: relative;
         cursor: pointer;
+        min-width: 0;
+        max-width: 100%;
     }
 
     .recently-viewed-card > button {
@@ -171,7 +189,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 10;
+        z-index: 2;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         transition: all 0.2s ease;
     }
@@ -189,6 +207,8 @@
     .recently-viewed-card a {
         text-decoration: none;
         color: inherit;
+        display: flex;
+        flex-direction: column;
     }
 
     .recently-viewed-card img {
@@ -197,33 +217,31 @@
         display: block;
     }
 
-    .recently-viewed-card .info-container {
-        margin-top: 1rem;
-    }
-
-    .recently-viewed-card .price-title {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        margin-bottom: 0.5rem;
-    }
-
-    .recently-viewed-card .product-title {
+    .recently-viewed-card h5 {
+        margin: 1rem 0 1rem 0;
         font-weight: 500;
-        font-size: 14px;
-        margin: 0;
+        letter-spacing: 0%;
+        text-align: center;
+        color: black;
     }
 
-    .recently-viewed-card .product-price {
-        font-weight: 600;
-        font-size: 14px;
-        margin: 0;
+    .recently-viewed-card .rv-price {
+        margin-left: 5px;
     }
 
-    .recently-viewed-card .color-descriptor {
-        font-size: 12px;
-        color: #666;
-        margin: 0;
+    /* Responsive grid breakpoints */
+    @media screen and (max-width: 1200px) {
+        .wishlist-container.loaded,
+        .jr-recently-viewed-grid .grid-container.loaded {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media screen and (max-width: 990px) {
+        .wishlist-container.loaded,
+        .jr-recently-viewed-grid .grid-container.loaded {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     @media screen and (max-width: 768px) {
@@ -232,18 +250,12 @@
         }
 
         .view-toggle-container {
-            gap: 0.5rem;
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
         .view-toggle-btn {
-            padding: 10px 20px;
             font-size: 14px;
-        }
-
-        .wishlist-container.loaded,
-        .jr-recently-viewed-grid .grid-container.loaded {
-            grid-template-columns: repeat(2, 1fr);
         }
 
         .wl-text-container {
@@ -254,17 +266,32 @@
             margin: 1rem 0 0 0;
         }
 
-        .wl-text-container h1 {
-            line-height: 34px;
+        .recently-viewed-card h5 {
+            margin: 1rem 0 0 0;
         }
 
         .wl-text-container h2 {
+            font-size: 28px;
+            line-height: 34px;
+        }
+
+        .wl-text-container p {
             line-height: 18px;
             margin-top: 1rem;
         }
 
-        .jr-recently-viewed-grid h1 {
+        .jr-recently-viewed-grid h2 {
+            font-size: 28px;
+            line-height: 34px;
             margin-bottom: 1.5rem;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .wishlist-container.loaded,
+        .jr-recently-viewed-grid .grid-container.loaded {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
         }
     }
 </style>
@@ -284,14 +311,14 @@
     <!-- Wishlist Section -->
     <div class="view-section active" id="wishlist-view">
         <div class="wl-text-container">
-            <h1>
+            <h2>
                 {% if customer %}
                     {{ customer.first_name }}'S
                 {% endif %}
                 Wishlist
-            </h1>
+            </h2>
             {% unless customer %}
-                <h2>{{ section.settings.wishlist_content }}</h2>
+                <p>{{ section.settings.wishlist_content }}</p>
             {% endunless %}
         </div>
         <div class="wishlist-container">
@@ -302,7 +329,7 @@
     <!-- Recently Viewed Section -->
     <div class="view-section" id="recently-viewed-view">
         <div class="jr-recently-viewed-grid">
-            <h1 class="h0">Recently Viewed</h1>
+            <h2>Recently Viewed</h2>
             <h3 class="hidden" style="text-align: center;">No products have been viewed yet...</h3>
           
             <div class="grid-container">
@@ -355,18 +382,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         recentlyViewedProducts.forEach((product) => {
+            console.log(product)
             const cardHTML = `
                 <div class="recently-viewed-card">
                     <button data-id-to-remove="${product.id}">{% render 'icon-close' %}</button>
                     <a href="/products/${product.handle}">
                         <img src="${product.featured_image}" alt="Recently Viewed Product">
-                        <div class="info-container">
-                            <div class="price-title">
-                                <h3 class="product-title">${product.product_title_type}</h3>
-                                <h3 class="product-price">${window.formatPrice(product.price)}</h3>
-                            </div>
-                            <p class="color-descriptor">${product.product_title_color_descriptor}</p>
-                        </div>
+                        <h5>
+                            <span class="rv-title">${product.title}</span>
+                            <span class="rv-price">${window.formatPrice(product.price)}</span>
+                        </h5>
                     </a>
                 </div>
             `;
