@@ -997,3 +997,23 @@ div#dynamic-checkout-cart {
 .below-progress-bar-container {
   padding-top: 8px;
 }
+
+/* AB Test: Progress Bar A and B Wrappers */
+/* Default state: show A, hide B */
+.progress-bar-wrapper-a {
+  display: block !important;
+}
+
+.progress-bar-wrapper-b {
+  display: none !important;
+}
+
+/* When body has shipping-test-b class: hide A, show B */
+body.shipping-test-b .progress-bar-wrapper-a {
+  display: none !important;
+}
+
+body.shipping-test-b .progress-bar-wrapper-b {
+  display: block !important;
+}
+
