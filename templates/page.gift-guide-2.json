@@ -71,6 +71,13 @@
     "image_with_text_navigator_3mM6rF": {
       "type": "image-with-text-navigator",
       "blocks": {
+        "navigator_jbKDtp": {
+          "type": "navigator",
+          "settings": {
+            "title": "Lola Tung",
+            "href": "lola"
+          }
+        },
         "navigator_pqR6pn": {
           "type": "navigator",
           "settings": {
@@ -120,13 +127,6 @@
             "href": "barbara-palvin"
           }
         },
-        "navigator_jbKDtp": {
-          "type": "navigator",
-          "settings": {
-            "title": "Lola Tung",
-            "href": "lola"
-          }
-        },
         "navigator_e4mkCP": {
           "type": "navigator",
           "settings": {
@@ -171,6 +171,7 @@
         }
       },
       "block_order": [
+        "navigator_jbKDtp",
         "navigator_pqR6pn",
         "navigator_tEfyJF",
         "navigator_wXeERa",
@@ -178,7 +179,6 @@
         "navigator_AYa9WG",
         "navigator_FNG4kU",
         "navigator_wWrw67",
-        "navigator_jbKDtp",
         "navigator_e4mkCP",
         "navigator_wCdxAF",
         "navigator_RkrewV",
@@ -190,6 +190,34 @@
       "settings": {
         "background_color": "#ffffff",
         "enable_scroll_to_top": false
+      }
+    },
+    "featured_products_and_image_n7xGzC": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "lola",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/IMG_9486.jpg",
+        "image_link": "shopify://collections/tom-zip",
+        "header": "Lola Tung – From NYFW",
+        "subheader": "In NYFW for The Summer I Turned Pretty finale, Lola Tung completes her look with Hammitt.",
+        "featured_products": [
+          "kyle-shoulder-bag-black-gunmetal",
+          "silk-scarf-scarf-silk-scarf",
+          "kyle-med-shoulder-bag-black-gunmetal",
+          "kyle-lrg-black-gunmetal",
+          "tom-zip-med-shoulder-bag-belted-suede-gunmetal",
+          "tom-zip-med-zebra-brushed-gold",
+          "tom-zip-med-chocolate-diamond-suede-antique-gold",
+          "tom-zip-med-shoulder-bag-dune-silver",
+          "tom-zip-med-shoulder-bag-espresso-pebble-silver",
+          "tom-zip-med-shoulder-bag-black-brushed-gold-red-zip",
+          "tom-zip-med-shoulder-bag-black-gunmetal",
+          "tom-zip-med-shoulder-bag-limestone-silver"
+        ],
+        "featured_collection": ""
       }
     },
     "featured_products_and_image_znFGiR": {
@@ -359,30 +387,6 @@
         "featured_collection": ""
       }
     },
-    "featured_products_and_image_n7xGzC": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "lola",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/8Y0A0789_1.jpg",
-        "image_link": "shopify://collections/tom-zip",
-        "header": "Lola Tung – From Paris with Style",
-        "subheader": "In Paris for The Summer I Turned Pretty finale, Lola Tung completes her look with Hammitt.",
-        "featured_products": [
-          "tom-zip-med-shoulder-bag-belted-suede-gunmetal",
-          "tom-zip-med-zebra-brushed-gold",
-          "tom-zip-med-chocolate-diamond-suede-antique-gold",
-          "tom-zip-med-shoulder-bag-dune-silver",
-          "tom-zip-med-shoulder-bag-espresso-pebble-silver",
-          "tom-zip-med-shoulder-bag-black-brushed-gold-red-zip",
-          "tom-zip-med-shoulder-bag-black-gunmetal",
-          "tom-zip-med-shoulder-bag-limestone-silver"
-        ],
-        "featured_collection": ""
-      }
-    },
     "featured_products_and_image_Em4iNp": {
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
@@ -534,6 +538,7 @@
         "heading_color": "",
         "collection": "influencer-favorites",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -550,6 +555,7 @@
     "main",
     "image_with_text_TWNkJG",
     "image_with_text_navigator_3mM6rF",
+    "featured_products_and_image_n7xGzC",
     "featured_products_and_image_znFGiR",
     "featured_products_and_image_zAcwqF",
     "featured_products_and_image_UTxwwj",
@@ -557,7 +563,6 @@
     "featured_products_and_image_N7DjDd",
     "featured_products_and_image_UkFUfW",
     "featured_products_and_image_URXAyE",
-    "featured_products_and_image_n7xGzC",
     "featured_products_and_image_Em4iNp",
     "featured_products_and_image_EJQ8cC",
     "featured_products_and_image_qcWkYq",
