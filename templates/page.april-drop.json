@@ -29,7 +29,7 @@
           "type": "text",
           "settings": {
             "text": "",
-            "text_area_html_swap": "NEW AND TRENDING ON SOCIAL",
+            "text_area_html_swap": "Our New 'It' Bag",
             "text_style": "body",
             "text_size_mobile": 13,
             "text_size_tablet": 14,
@@ -39,13 +39,113 @@
         "heading_NwRpwK": {
           "type": "heading",
           "settings": {
-            "heading": "The Erica Sml",
+            "heading": "Meet Beverly",
             "heading_size_mobile": 36,
             "heading_size_tablet": 40,
             "heading_size_desktop": 50
           }
         },
         "buttons_yGjwRY": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Beverly",
+            "button_link_1": "shopify://collections/beverly",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "text_pjGGXU",
+        "heading_NwRpwK",
+        "buttons_yGjwRY"
+      ],
+      "name": "erica",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12703_1.jpg",
+        "image_2": "shopify://shop_images/PDP_Beverly_ToasyTan_08_CROQUET_4792.jpg",
+        "image_link": "shopify://collections/beverly",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_tpG8XK": {
+      "type": "slider-collection",
+      "name": "Erica w",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "beverly",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_FHHky9": {
+      "type": "image-banner",
+      "blocks": {
+        "text_CiJeqd": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_area_html_swap": "NEW AND TRENDING ON SOCIAL",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 14
+          }
+        },
+        "heading_fABL39": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Erica Sml",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 50
+          }
+        },
+        "buttons_KWU66x": {
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop Erica",
@@ -55,9 +155,9 @@
         }
       },
       "block_order": [
-        "text_pjGGXU",
-        "heading_NwRpwK",
-        "buttons_yGjwRY"
+        "text_CiJeqd",
+        "heading_fABL39",
+        "buttons_KWU66x"
       ],
       "name": "erica",
       "settings": {
@@ -101,7 +201,7 @@
         "custom_class": ""
       }
     },
-    "slider_collection_tpG8XK": {
+    "slider_collection_zWKNBK": {
       "type": "slider-collection",
       "name": "Erica w",
       "settings": {
@@ -110,6 +210,7 @@
         "heading_color": "",
         "collection": "erica",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -197,6 +298,7 @@
         "heading_color": "",
         "collection": "toasty-sand",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -284,6 +386,7 @@
         "heading_color": "",
         "collection": "nautical-navy",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -371,6 +474,7 @@
         "heading_color": "",
         "collection": "catamaran-cream",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -458,6 +562,7 @@
         "heading_color": "",
         "collection": "calla-lily-white-1",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -545,6 +650,7 @@
         "heading_color": "",
         "collection": "stormy",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -632,6 +738,7 @@
         "heading_color": "",
         "collection": "western-rein",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -648,6 +755,8 @@
     "main",
     "image_banner_BtVyp6",
     "slider_collection_tpG8XK",
+    "image_banner_FHHky9",
+    "slider_collection_zWKNBK",
     "image_banner_4G4rLA",
     "slider_collection_HXWA7z",
     "image_banner_QG6rLB",

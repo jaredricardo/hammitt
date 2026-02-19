@@ -57,7 +57,7 @@
     "hammitt_gifting_drawer_message": "",
     "hammitt_gift_wrap_product": "gift-wrap",
     "hammitt_gifting_trigger_btn_text": "",
-    "hammitt_gifting_drawer_header_text": "<p>Complimentary gift boxes are available for most items. Please select if you prefer complimentary gift box, only dust bag or add Free Gift Wrap*<br><br><em>*Small accessories, backpacks, and oversized bags are not eligible for gift boxes or ribbon.</em></p>",
+    "hammitt_gifting_drawer_header_text": "<p>Complimentary gift boxes are available for most items. Please select if you prefer complimentary gift box, only dust bag or add $5 gift wrap (ribbon).<br/><br/><em>*Small accessories, backpacks, and oversized bags are not eligible for gift boxes or ribbon.</em></p>",
     "email_text": "Register to receive a notification when this item comes back in stock.",
     "subscribe_to_email_text": "<p>Add me to your email list.</p>",
     "enable_sms_subscribe": false,
@@ -81,7 +81,7 @@
       "charles-crossbody-lrg-belt-bag-black-brushed-gold-red-zip",
       "charles-crossbody-crossbody-black-brushed-gold-red-zip"
     ],
-    "enable_free_gift_wrap": true,
+    "enable_free_gift_wrap": false,
     "free_gift_wrap_product": "gift-wrap",
     "free_gift_wrap_threshold_price": 1,
     "free_gift_wrap_above_image_text": "",
@@ -129,6 +129,7 @@
           },
           "announcement_rWU3KJ": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Limited Time Only: Free Gift Wrap",
               "text_color": "#ffffff",
@@ -148,7 +149,6 @@
           },
           "announcement_CwR3it": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "text": "Free Shipping on All Orders",
               "text_color": "#ffffff",
@@ -190,7 +190,7 @@
             "settings": {
               "gwp_product": "",
               "gwp_tier_is_free_shipping": true,
-              "free_shipping_gwp_success_text": "You get FREE shipping and <hammitt-gifting-options-drawer-trigger-no-button style=\"text-decoration:underline; cursor: pointer;\"> can add FREE Gift Wrap* </hammitt-gifting-options-drawer-trigger-no-button>",
+              "free_shipping_gwp_success_text": "You get FREE shipping",
               "gwp_tier_threshold": 1,
               "gwp_tier_not_reached_message": "more to unlock a FREE",
               "gwp_tier_reached_message": "You've unlocked a FREE",
@@ -252,6 +252,7 @@
           },
           "visual_menu_item_qYkRni": {
             "type": "visual-menu-item",
+            "disabled": true,
             "settings": {
               "nav_link": "shopify://pages/valentines-day-gifting",
               "title": "Valentine's Day",
@@ -260,11 +261,10 @@
           },
           "visual_menu_item_7RgGWL": {
             "type": "visual-menu-item",
-            "disabled": true,
             "settings": {
               "nav_link": "shopify://collections/clutch",
               "title": "Evening Bags",
-              "nav_image": "shopify://shop_images/Rectangle_77999.jpg"
+              "nav_image": "shopify://shop_images/PDP_Beverly_ToasyTan_08_CROQUET_4792.jpg"
             }
           },
           "visual_menu_item_f4DzN9": {
