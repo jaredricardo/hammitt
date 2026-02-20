@@ -63,7 +63,7 @@
         "product_description_YpcghE": {
           "type": "product_description",
           "settings": {
-            "show_gifting_tooltip": true,
+            "show_gifting_tooltip": false,
             "gifting_tooltip_heading": "Complimentary Hammitt gift box for this bag.",
             "gifting_tooltip_content": "<div class=\"gifting-tooltip-images\">\n    <button class=\"close-btn\">\n        {% render 'icon-close' %}\n    </button>\n    <div class=\"col\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0661/5963/files/20250910_Hammit_2007_BOXS_Output_0083_1.png?v=1761619028\" alt=\"Hammitt Gift Box\">\n        <p>Complimentary Gift Box</p>\n    </div>\n    <div class=\"col\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0661/5963/files/gift-box-no-note.png?v=1768799060\" alt=\"Hammitt Gift Ribbon\">\n <p>Add Free Ribbon</p>\n    </div>\n</div>\n\n<div class=\"gifting-tooltip-copy\">\n    <p>Most items come in our signature white box. Every item is protected by a dust bag and tissue paper.</p>\n    <ul>\n        <li>Dust bag only, no box.</li>\n        <li>Add a Free Ribbon. </li>\n        <li>We also offer the option to ship your order items to multiple addresses.</li>   \n    </ul>\n</div>"
           }
@@ -506,6 +506,7 @@
         "heading_color": "",
         "collection": "trending",
         "max_products": 10,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
