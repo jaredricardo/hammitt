@@ -43,14 +43,6 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "blocks": {
-        "collection_filter_link_eh737q": {
-          "type": "collection-filter-link",
-          "disabled": true,
-          "settings": {
-            "collection": "gifts",
-            "title": "Gifting"
-          }
-        },
         "collection_filter_link_MHHCt7": {
           "type": "collection-filter-link",
           "settings": {
@@ -120,10 +112,16 @@
             "collection": "accessories-view-all",
             "title": "Accessories"
           }
+        },
+        "collection_filter_link_WN3Lzr": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "low-inventory",
+            "title": "Going Fast"
+          }
         }
       },
       "block_order": [
-        "collection_filter_link_eh737q",
         "collection_filter_link_MHHCt7",
         "collection_filter_link_gwYa7K",
         "collection_filter_link_GM3dJ9",
@@ -133,7 +131,8 @@
         "collection_filter_link_V7hQaf",
         "collection_filter_link_Yq77Rz",
         "collection_filter_link_AkqQNh",
-        "collection_filter_link_prpfV4"
+        "collection_filter_link_prpfV4",
+        "collection_filter_link_WN3Lzr"
       ],
       "settings": {
         "use_new_filters": true,
