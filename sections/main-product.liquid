@@ -1246,9 +1246,8 @@
               data-yotpo-product-collections="{{product.collections | json | url_encode}}" 
               data-yotpo-product-tags="{{ product.tags | json | url_encode }}" 
               data-yotpo-product-type="{{ product.type | json | url_encode }}"
-              data-yotpo-variant-id-selector="input[name='id']"
-              data-yotpo-quantity-selector="input[name='quantity']"
-              data-gtm-form-interact-field-id="0">
+              data-yotpo-variant-id-selector="form[action^='/cart/add'] input[name='id']"
+              data-yotpo-quantity-selector="form[action^='/cart/add'] input[name='quantity'], form[action^='/cart/add'] .quantity__input">
             </div>
 
 
