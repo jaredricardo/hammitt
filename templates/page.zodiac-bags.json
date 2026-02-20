@@ -392,56 +392,6 @@
         "featured_collection": ""
       }
     },
-    "hero_video_banner_ELD4zp": {
-      "type": "hero-video-banner",
-      "name": "Hero Video Banner",
-      "settings": {
-        "video_height": "auto",
-        "video_height_mobile": "auto",
-        "full_width": true,
-        "enable_video_looping": false,
-        "video": "shopify://files/videos/bevery-added.mp4",
-        "video_url": "",
-        "description": "",
-        "video_overlay": 0,
-        "video_overlay_color": "#000000",
-        "video_overlay_cb": true,
-        "content_position_align": "bottom_center",
-        "content_text_align": "center",
-        "content_text_align_mobile": "center",
-        "content_padding_tb": 20,
-        "content_padding_rl": 20,
-        "heading": "New Arrivals to Fall For",
-        "video_title_size": 20,
-        "video_title_size_mobile": 20,
-        "video_title_color": "#ffffff",
-        "video_title_color_mobile": "#000000",
-        "video_text": "",
-        "content_size": 14,
-        "content_size_mobile": 14,
-        "content_color": "#ffffff",
-        "content_color_mobile": "#000000",
-        "content_space_top": 4,
-        "content_space_bottom": 12,
-        "content_space_top_mob": 4,
-        "content_space_bottom_mob": 12,
-        "cta_text": "<p>Shop Now</p>",
-        "cta_url": "shopify://collections/new-arrivals",
-        "cta_font_size": 16,
-        "cta_font_size_mobile": 14,
-        "cta_text_decoration": "none",
-        "cta_color": "#000000",
-        "cta_color_mobile": "#ffffff",
-        "cta_bg_color": "#ffffff",
-        "cta_bg_color_mobile": "#000000",
-        "cta_width": 150,
-        "cta_width_mobile": 110,
-        "cta_top_bottom": 16,
-        "cta_top_bottom_mobile": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "multicolumn_CkQC8U": {
       "type": "multicolumn",
       "blocks": {
@@ -519,68 +469,17 @@
             "cta_top_spacing": 5,
             "cta_bottom_spacing": 5
           }
-        },
-        "column_QMgrii": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_423_07b902e5-2998-452b-864b-383c71eee91d.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "Brown",
-            "link_margin_top": 20,
-            "link": "shopify://collections/brown",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_cijHYY": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_422.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "Blue",
-            "link_margin_top": 20,
-            "link": "shopify://collections/blue",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
         }
       },
       "block_order": [
         "column_PGUYxC",
         "column_pdGGMF",
-        "column_JHr9MD",
-        "column_QMgrii",
-        "column_cijHYY"
+        "column_JHr9MD"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Shop By Color",
+        "title": "",
         "title_color": "",
         "heading_size": "h1",
         "paragraph": "",
@@ -611,59 +510,6 @@
         "padding_bottom_mobile": 0,
         "custom_class": ""
       }
-    },
-    "image_with_text_gYqgBc": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_qEbYGC": {
-          "type": "heading",
-          "settings": {
-            "heading": "Send a Digital Gift Card",
-            "heading_size": "h1"
-          }
-        },
-        "text_bkVnfx": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>Let them choose what they love.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_cQd4MM": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop eGift Cards",
-            "button_link": "https://www.hammitt.com/products/rise-ai-giftcard",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_qEbYGC",
-        "text_bkVnfx",
-        "button_cQd4MM"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "id_for_scroll_navigator": "",
-        "image": "shopify://shop_images/giftcard-v-day.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "center",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "color_background": "",
-        "show_color_background": false,
-        "color_background_height": 50,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
     }
   },
   "order": [
@@ -682,8 +528,6 @@
     "featured_products_and_image_hC4cYn",
     "featured_products_and_image_UBcJCw",
     "featured_products_and_image_hkVH9T",
-    "hero_video_banner_ELD4zp",
-    "multicolumn_CkQC8U",
-    "image_with_text_gYqgBc"
+    "multicolumn_CkQC8U"
   ]
 }
