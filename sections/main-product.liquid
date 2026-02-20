@@ -1238,6 +1238,19 @@
                 </template>
               </pickup-availability>
             </div> 
+            
+            <div class="yotpo-widget-instance" data-yotpo-instance-id="843974" 
+              data-yotpo-product-id="{{product.id}}" 
+              data-yotpo-variant-id="{{ product.selected_or_first_available_variant.id }}" 
+              data-yotpo-product-variants="{{ product.variants | json | url_encode }}" 
+              data-yotpo-product-collections="{{product.collections | json | url_encode}}" 
+              data-yotpo-product-tags="{{ product.tags | json | url_encode }}" 
+              data-yotpo-product-type="{{ product.type | json | url_encode }}"
+              data-yotpo-variant-id-selector="input[name='id']"
+              data-yotpo-quantity-selector="input[name='quantity']"
+              data-gtm-form-interact-field-id="0">
+            </div>
+
 
             <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
           {%- when 'rating' -%}
