@@ -9,84 +9,853 @@
  */
 {
   "sections": {
-    "rich_text_TVxR8H": {
-      "type": "rich-text",
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_html_tag": "h1",
+        "hide_title": true,
+        "width": "page-width--narrow",
+        "padding_top": 44,
+        "padding_bottom": 24,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "image_banner_3wGbz9": {
+      "type": "image-banner",
       "blocks": {
-        "heading_LbGdNC": {
+        "heading_UxPQrT": {
           "type": "heading",
           "settings": {
-            "heading_html_tag": "h2",
-            "heading": "JOIN OUR TEAM",
+            "heading": "Valentine's Day Gift Guide",
+            "heading_size_mobile": 20,
+            "heading_size_tablet": 22,
+            "heading_size_desktop": 42
+          }
+        },
+        "text_93xVkw": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "",
+            "text_area_html_swap": "<p>To enjoy free gift wrap, simply add it in your cart. </p><br>Small accessories, backpacks, and oversized bags that ship in a dust bag are not eligible.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 13,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_bgXT6r": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Gift Ideas",
+            "button_link_1": "shopify://collections/best-selling-bags",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_UxPQrT",
+        "text_93xVkw",
+        "buttons_bgXT6r"
+      ],
+      "custom_css": [
+        ".banner__text.body span {line-height: 1.3 !important; display: block;}",
+        ".banner__box {max-width: 75rem;}"
+      ],
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h1",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Rectangle_444.jpg",
+        "image_2": "shopify://shop_images/Rectangle_445.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 4,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 12,
+        "custom_class": ""
+      }
+    },
+    "multicolumn_NAPywa": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_8jFA6g": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_11_a1800d43-1938-4e15-bdfb-b082f415ae17.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "Gift Under $175",
+            "link_margin_top": 20,
+            "link": "shopify://collections/gift-guide-under-175",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_AfVhxP": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_446.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "Gift Under $300",
+            "link_margin_top": 20,
+            "link": "shopify://collections/gift-guide-under-300",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_eTYH3C": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_796_0fc3b879-3b7d-4174-b76f-c521365db4dd.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "Gifts  $300+",
+            "link_margin_top": 20,
+            "link": "shopify://collections/300",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_8jFA6g",
+        "column_AfVhxP",
+        "column_eTYH3C"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "square",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 3,
+        "columns_gap": 2,
+        "row_gap": 0,
+        "mobile_columns_gap": 0,
+        "mobile_row_gap": 0,
+        "column_alignment": "center",
+        "text_position": "overlay_type",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "enable_peek": true,
+        "show_mobile_slider": true,
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_with_text_navigator_LYMLkH": {
+      "type": "image-with-text-navigator",
+      "blocks": {
+        "navigator_tDMry4": {
+          "type": "navigator",
+          "settings": {
+            "title": "Red Hot Favorites",
+            "href": "Red"
+          }
+        },
+        "navigator_cJVxrb": {
+          "type": "navigator",
+          "settings": {
+            "title": "Top Rated Gifts",
+            "href": "Top-rate"
+          }
+        },
+        "navigator_3wKPKh": {
+          "type": "navigator",
+          "settings": {
+            "title": "Iconic Bags",
+            "href": "TheKyle"
+          }
+        },
+        "navigator_gGNNek": {
+          "type": "navigator",
+          "settings": {
+            "title": "Perfect Pairings",
+            "href": "PerfectPairings"
+          }
+        },
+        "navigator_zAApFN": {
+          "type": "navigator",
+          "settings": {
+            "title": "Most-Wanted",
+            "href": "Most-Wanted"
+          }
+        },
+        "navigator_9ECwhx": {
+          "type": "navigator",
+          "settings": {
+            "title": "Presents for Trendsetters",
+            "href": "Trendy"
+          }
+        },
+        "navigator_76ER4e": {
+          "type": "navigator",
+          "settings": {
+            "title": "Little Delights",
+            "href": "Easy"
+          }
+        },
+        "navigator_ncqJkH": {
+          "type": "navigator",
+          "settings": {
+            "title": "For Your Favorite Guy",
+            "href": "men-guy"
+          }
+        }
+      },
+      "block_order": [
+        "navigator_tDMry4",
+        "navigator_cJVxrb",
+        "navigator_3wKPKh",
+        "navigator_gGNNek",
+        "navigator_zAApFN",
+        "navigator_9ECwhx",
+        "navigator_76ER4e",
+        "navigator_ncqJkH"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "enable_scroll_to_top": true
+      }
+    },
+    "featured_products_and_image_ypGVJ7": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Red",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Group_12589_1.jpg",
+        "image_link": "shopify://products/meredith-med-chili-red-gold",
+        "header": "Red Hot Favorites",
+        "subheader": "Show your love with the color of the season.",
+        "featured_products": [
+          "meredith-med-chili-red-gold",
+          "meredith-sml-chili-red-gold",
+          "kyle-shoulder-bag-chili-red-gold",
+          "kyle-lrg-chili-red-gold",
+          "210-west-wallet-chili-red-gold",
+          "syd-pouch-accessory-chili-red-gold",
+          "syd-pouch-accessory-cherrywood-pebble-brushed-gold",
+          "meredith-med-cherrywood-pebble-brushed-gold",
+          "tim-med-shoulder-bag-cherrywood-pebble-brushed-gold",
+          "charles-crossbody-med-crossbody-cherrywood-pebble-brushed-gold",
+          "charlotte-med-cherrywood-pebble-gold",
+          "tom-zip-cherrywood-pebble-brushed-gold",
+          "kyle-shoulder-bag-wildberry-brushed-gold"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_dLyba9": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Top-rate",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Group_12600_c49c7e2c-2db7-42f1-9237-ca71de656edc.jpg",
+        "image_link": "shopify://collections/charles-crossbody",
+        "header": "Top Rated Gifts",
+        "subheader": "Five star favorites they're sure to love.",
+        "featured_products": [
+          "kyle-shoulder-bag-toasty-sand-brushed-gold",
+          "charles-crossbody-med-crossbody-nautical-navy-silver",
+          "charles-crossbody-lrg-belt-bag-mahogany-pebble-brushed-gold-red-zip",
+          "charles-crossbody-med-crossbody-toasty-sand-brushed-gold",
+          "charles-crossbody-lrg-belt-bag-calla-lily-white-brushed-gold",
+          "charles-crossbody-lrg-crossbody-toasty-sand-brushed-gold",
+          "kyle-shoulder-bag-black-brushed-gold-red-zip",
+          "charles-crossbody-crossbody-black-brushed-gold-red-zip",
+          "kyle-shoulder-bag-calla-lily-white-brushed-gold",
+          "charles-crossbody-med-crossbody-calla-lily-white-brushed-gold",
+          "kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "charles-crossbody-crossbody-mahogany-pebble-brushed-gold-red-zip",
+          "charles-crossbody-lrg-belt-bag-black-brushed-gold-red-zip",
+          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "charles-crossbody-lrg-belt-bag-black-gunmetal",
+          "charles-crossbody-lrg-belt-bag-limestone-silver",
+          "charles-crossbody-crossbody-black-gunmetal",
+          "charles-crossbody-lrg-belt-bag-pewter-pebble-brushed-silver",
+          "charles-crossbody-lrg-belt-bag-espresso-pebble-silver"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_6AcR6r": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "TheKyle",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Group_12599_3c5cc66c-2df4-4119-87b9-da5960dd56f1.jpg",
+        "image_link": "shopify://collections/kyle",
+        "header": "Iconic Bags",
+        "subheader": "Build their collection with our bestselling.",
+        "featured_products": [
+          "meredith-sml-shoulder-bag-catamaran-cream-brushed-gold",
+          "kyle-shoulder-bag-calla-lily-white-brushed-gold",
+          "meredith-med-shoulder-bag-catamaran-cream-brushed-gold",
+          "kyle-deep-water-silver",
+          "meredith-med-shoulder-bag-nautical-navy-silver",
+          "kyle-shoulder-bag-wildberry-brushed-gold",
+          "kyle-med-deep-water-weave-silver",
+          "meredith-sml-shoulder-bag-nautical-navy-silver",
+          "kyle-shoulder-bag-black-brushed-gold-red-zip",
+          "kyle-lrg-chili-red-gold",
+          "kyle-revival-clutch-black-press-gold-silver-red-zip",
+          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "kyle-lrg-black-brushed-gold-red-zip",
+          "kyle-shoulder-bag-chili-red-gold",
+          "kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "kyle-med-shoulder-bag-black-brushed-gold-red-zip",
+          "kyle-shoulder-bag-black-gunmetal",
+          "kyle-lrg-black-gunmetal",
+          "kyle-med-shoulder-bag-black-gunmetal",
+          "kyle-med-shoulder-bag-calla-lily-white-brushed-gold",
+          "kyle-med-shoulder-bag-espresso-pebble-weave-silver",
+          "kyle-lrg-espresso-pebble-silver",
+          "kyle-shoulder-bag-espresso-pebble-silver",
+          "kyle-shoulder-bag-limestone-silver",
+          "kyle-midnight-marquise-gunmetal",
+          "kyle-shoulder-bag-pewter-brushed-gold-red-zip"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_NMtFda": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "PerfectPairings",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Group_12603_6d39a226-d76a-4c34-ac4f-77e3571b9341.jpg",
+        "image_link": "shopify://products/tim-med-stormy-gold",
+        "header": "Perfect Pairings",
+        "subheader": "Build a matching set made in heaven.",
+        "featured_products": [
+          "bryant-med-satchel-nautical-navy-silver",
+          "210-west-wallet-nautical-navy-silver",
+          "tim-med-stormy-gold",
+          "110-north-stormy-brushed-gold",
+          "daniel-lrg-black-bg-r-zip-tote-bag",
+          "110-north-wallet-black-brushed-gold-red-zip",
+          "daniel-med-satchel-calla-lily-white-brushed-gold",
+          "110-north-wallet-calla-lily-white-brushed-gold",
+          "bryant-med-shoulder-bag-black-brushed-gold-red-zip",
+          "210-west-blk-bg-r-zip-wallet",
+          "bryant-deep-water-weave-silver",
+          "210-west-deep-water-silver",
+          "tom-zip-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "110-north-wallet-mahogany-pebble-brushed-gold-red-zip"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_MqqXQ4": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Most-Wanted",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Group_12602.jpg",
+        "image_link": "shopify://products/tom-zip-med-shoulder-bag-belted-suede-gunmetal",
+        "header": "Most-Loved on Social",
+        "subheader": "Explore influencer and celebrity favorites.",
+        "featured_products": [
+          "kyle-shoulder-bag-black-brushed-gold-red-zip",
+          "kyle-midnight-marquise-gunmetal",
+          "tom-zip-med-shoulder-bag-belted-suede-gunmetal",
+          "meredith-sml-black-gunmetal",
+          "meredith-sml-chocolate-diamond-suede-antique-gold",
+          "tom-zip-med-zebra-brushed-gold",
+          "tim-med-shoulder-bag-espresso-pebble-silver",
+          "meredith-med-chocolate-diamond-suede-antique-gold",
+          "tim-med-shoulder-bag-black-brushed-gold",
+          "meredith-med-black-brushed-gold",
+          "meredith-sml-chili-red-gold",
+          "kyle-revival-clutch-black-press-gold-silver-red-zip",
+          "kyle-med-shoulder-bag-espresso-pebble-weave-silver",
+          "kyle-lrg-espresso-pebble-silver",
+          "meredith-sml-black-brushed-gold",
+          "meredith-med-noir-diamond-suede-gunmetal",
+          "meredith-sml-noir-diamond-suede-gunmetal",
+          "meredith-med-cherrywood-pebble-brushed-gold",
+          "meredith-med-chili-red-gold",
+          "meredith-med-dune-silver",
+          "meredith-sml-dune-silver",
+          "meredith-med-black-gunmetal",
+          "kyle-med-shoulder-bag-black-brushed-gold-red-zip"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_DcAEJ4": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Trendy",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Group_12597_3695d86b-c154-44e9-af8b-15e739af3e59.jpg",
+        "image_link": "shopify://collections/cross-body",
+        "header": "Presents for Trendsetters",
+        "subheader": "Luxe fabrics and beyond.",
+        "featured_products": [
+          "tim-med-shoulder-bag-mahogany-pebble-brushed-gold",
+          "tom-zip-shoulder-bag-calla-lily-white-brushed-gold",
+          "shelley-clutch-clutch-toasty-sand-brushed-gold",
+          "vip-med-crossbody-toasty-sand-brushed-gold",
+          "daniel-crossbody-clutch-monarch-velvet-antique-gold",
+          "charles-crossbody-med-chocolate-diamond-suede-antique-gold",
+          "charlotte-sml-calf-hair-gunmetal",
+          "charles-crossbody-med-crossbody-cherrywood-pebble-brushed-gold",
+          "charlotte-sml-crossbody-diamond-marquee-silver",
+          "charlotte-med-noir-diamond-suede-gunmetal",
+          "tom-zip-med-hobo-mahogany-pebble-brushed-gold-red-zip",
+          "kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "kyle-lrg-tote-mahogany-pebble-brushed-gold-red-zip",
+          "bryant-med-satchel-toasty-sand-brushed-gold",
+          "invitation-clutch-clutch-calla-lily-white-brushed-gold",
+          "kyle-med-shoulder-bag-calla-lily-white-brushed-gold"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_hUpmmc": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "Easy",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Group_12601.jpg",
+        "image_link": "shopify://collections/bag-charms",
+        "header": "Little Delights",
+        "subheader": "Build a stack with charms, chains and scarves.",
+        "featured_products": [
+          "love-crush-bag-charm-hangtag-chili-red-none",
+          "hot-stuff-charm-hangtag-chili-red-none",
+          "lauri-boot-charm-western-rein-silver",
+          "cowboy-russ-charm-western-rein-silver",
+          "mini-b-red-flare-brushed-gold",
+          "silk-scarf-scarf-silk-scarf",
+          "syd-pouch-accessory-chili-red-gold",
+          "mini-b-charm-black-brushed-gold",
+          "metal-chain-shoulder-strap-straps-gold",
+          "montana-pendant-zebra-brushed-gold",
+          "mini-b-espresso-pebble-silver",
+          "cowboy-russ-charm-red-flare-brushed-gold",
+          "syd-pouch-accessory-cherrywood-pebble-brushed-gold",
+          "lauri-boot-charm-charm-chocolate-diamond-pebble-antique-gold",
+          "lauri-boot-charm-red-flare-brushed-gold",
+          "montana-pendant-chocolate-diamond-suede-antique-gold",
+          "cowboy-russ-charm-charm-habanero-gold",
+          "montana-pendant-midnight-marquise-gunmetal",
+          "cowboy-russ-charm-charm-chocolate-diamond-pebble-antique-gold",
+          "montana-pendant-noir-diamond-suede-gunmetal"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_xm3DML": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "men-guy",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/Group_12592.jpg",
+        "image_link": "shopify://collections/mens-collection",
+        "header": "For Your Favorite Guy",
+        "subheader": "Polished presents you'll steal for yourself.",
+        "featured_products": [
+          "burbank-backpack-backpack-black-gunmetal",
+          "del-mar-dopp-kit-pouch-black-gunmetal",
+          "charles-crossbody-lrg-belt-bag-black-gunmetal",
+          "lax-intl-blk-gm-duffel",
+          "lax-intl-duffel-black-brushed-gold-red-zip",
+          "charles-crossbody-lrg-belt-bag-espresso-pebble-silver",
+          "cambria-card-case-wallet-bourbon-gunmetal",
+          "montana-backpack-xl-black-backpack",
+          "montana-backpack-xl-noir-diamond-suede-gunmetal",
+          "pch-card-holder-black"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "hero_video_banner_ELD4zp": {
+      "type": "hero-video-banner",
+      "name": "Hero Video Banner",
+      "settings": {
+        "video_height": "auto",
+        "video_height_mobile": "auto",
+        "full_width": true,
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/bevery-added.mp4",
+        "video_url": "",
+        "description": "",
+        "video_overlay": 0,
+        "video_overlay_color": "#000000",
+        "video_overlay_cb": true,
+        "content_position_align": "bottom_center",
+        "content_text_align": "center",
+        "content_text_align_mobile": "center",
+        "content_padding_tb": 20,
+        "content_padding_rl": 20,
+        "heading": "New Arrivals to Fall For",
+        "video_title_size": 20,
+        "video_title_size_mobile": 20,
+        "video_title_color": "#ffffff",
+        "video_title_color_mobile": "#000000",
+        "video_text": "",
+        "content_size": 14,
+        "content_size_mobile": 14,
+        "content_color": "#ffffff",
+        "content_color_mobile": "#000000",
+        "content_space_top": 4,
+        "content_space_bottom": 12,
+        "content_space_top_mob": 4,
+        "content_space_bottom_mob": 12,
+        "cta_text": "<p>Shop Now</p>",
+        "cta_url": "shopify://collections/new-arrivals",
+        "cta_font_size": 16,
+        "cta_font_size_mobile": 14,
+        "cta_text_decoration": "none",
+        "cta_color": "#000000",
+        "cta_color_mobile": "#ffffff",
+        "cta_bg_color": "#ffffff",
+        "cta_bg_color_mobile": "#000000",
+        "cta_width": 150,
+        "cta_width_mobile": 110,
+        "cta_top_bottom": 16,
+        "cta_top_bottom_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_CkQC8U": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_PGUYxC": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_415_73392142-9ae9-4156-be3b-e7b1188af7af.jpg",
+            "title": "",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "Red",
+            "link_margin_top": 20,
+            "link": "shopify://collections/red",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_pdGGMF": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_424_cff4a650-8a33-46f9-9fdd-596c1393e0c7.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "Black",
+            "link_margin_top": 20,
+            "link": "shopify://collections/black",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_JHr9MD": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_421_ce079042-1807-41fc-b555-b301e620597e.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "White",
+            "link_margin_top": 20,
+            "link": "shopify://collections/white",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_QMgrii": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_423_07b902e5-2998-452b-864b-383c71eee91d.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "Brown",
+            "link_margin_top": 20,
+            "link": "shopify://collections/brown",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_cijHYY": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_422.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "Blue",
+            "link_margin_top": 20,
+            "link": "shopify://collections/blue",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_PGUYxC",
+        "column_pdGGMF",
+        "column_JHr9MD",
+        "column_QMgrii",
+        "column_cijHYY"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Shop By Color",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "square",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 5,
+        "columns_gap": 1,
+        "row_gap": 0,
+        "mobile_columns_gap": 0,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "overlay_type",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "enable_peek": true,
+        "show_mobile_slider": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_with_text_gYqgBc": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_qEbYGC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Send a Digital Gift Card",
             "heading_size": "h1"
           }
         },
-        "text_U9TYri": {
+        "text_bkVnfx": {
           "type": "text",
+          "disabled": true,
           "settings": {
-            "text": "<h2>We are currently hiring for the following positions:</h2><h2></h2><p><a href=\"https://www.linkedin.com/jobs/view/vice-president-of-sales-at-hammitt-3882355386?position=1&pageNum=0&refId=E2HV4fEuO%2FplIXrh2xccsQ%3D%3D&trackingId=U%2BLYKpDWDK8MmNOjj7BPBg%3D%3D&trk=public_jobs_jserp-result_search-card\" title=\"https://www.linkedin.com/jobs/view/vice-president-of-sales-at-hammitt-3882355386?position=1&pageNum=0&refId=E2HV4fEuO%2FplIXrh2xccsQ%3D%3D&trackingId=U%2BLYKpDWDK8MmNOjj7BPBg%3D%3D&trk=public_jobs_jserp-result_search-card\">Vice President Wholesale Sales </a><br/> Hermosa Beach, CA (On-site)</p><p><a href=\"https://www.linkedin.com/jobs/view/production-manager-at-hammitt-3876922329\" title=\"https://www.linkedin.com/jobs/view/production-manager-at-hammitt-3876922329\">Production Manager </a><br/>Hermosa Beach, CA (On-site)</p><p><a href=\"https://www.linkedin.com/jobs/view/inventory-and-allocation-planner-at-hammitt-3876963843\" title=\"https://www.linkedin.com/jobs/view/inventory-and-allocation-planner-at-hammitt-3876963843\">Inventory and Allocation Planner</a><br/>Hermosa Beach, CA (On-site)</p><p><a href=\"https://www.linkedin.com/jobs/view/3923614860\" target=\"_blank\" title=\"https://www.linkedin.com/jobs/view/3923614860\">NetSuite Administrator</a><br/>Hermosa Beach, CA (On-site)</p><p><a href=\"https://www.linkedin.com/jobs/view/3923621532\" target=\"_blank\" title=\"https://www.linkedin.com/jobs/view/3923621532\">Store Manager</a><br/>Manhattan Beach, CA (On-site)</p><p><a href=\"https://www.linkedin.com/jobs/view/3923617914\" target=\"_blank\" title=\"https://www.linkedin.com/jobs/view/3923617914\">Keyholder</a><br/>La Jolla Shores, CA (On-site)</p><p><a href=\"https://www.indeed.com/cmp/Hammitt/jobs?jk=bae32d7eac981992&start=0\" target=\"_blank\" title=\"https://www.indeed.com/cmp/Hammitt/jobs?jk=bae32d7eac981992&start=0\">Keyholder</a><br/>Costa Mesa, CA (On-site)</p><p><a href=\"https://www.indeed.com/viewjob?jk=216fcc37ed26d76d&tk=1huj6aus1glrh802&from=company&xpse=SoCP67I3ATE-Yzy-Ax0LbzkdCdPP&xfps=7aa4f118-d8c2-4f56-ae66-1492acd1cf14\" title=\"https://www.indeed.com/viewjob?jk=216fcc37ed26d76d&tk=1huj6aus1glrh802&from=company&xpse=SoCP67I3ATE-Yzy-Ax0LbzkdCdPP&xfps=7aa4f118-d8c2-4f56-ae66-1492acd1cf14\">Stylist (Retail Sales)</a><br/>La Jolla Shores, CA (On-site)</p><p><a href=\"https://www.indeed.com/viewjob?jk=17cf1a332e7ccbaf&tk=1huj6aus1glrh802&from=company&xpse=SoAz67I3ATEiK0yCTB0LbzkdCdPP&xfps=e57f2d17-0b24-4470-a2de-a49b37cb4187\" title=\"https://www.indeed.com/viewjob?jk=17cf1a332e7ccbaf&tk=1huj6aus1glrh802&from=company&xpse=SoAz67I3ATEiK0yCTB0LbzkdCdPP&xfps=e57f2d17-0b24-4470-a2de-a49b37cb4187\">Stylist (Retail Sales)</a><br/>Costa Mesa, CA (On-site)</p><p><a href=\"https://www.indeed.com/viewjob?jk=4fe9e5292e80e586&tk=1huj6aus1glrh802&from=company&xpse=SoCT67I3ATE78FxvU50LbzkdCdPP&xfps=7b29070d-3c3c-4432-94e6-afc9259dc2ef\" title=\"https://www.indeed.com/viewjob?jk=4fe9e5292e80e586&tk=1huj6aus1glrh802&from=company&xpse=SoCT67I3ATE78FxvU50LbzkdCdPP&xfps=7b29070d-3c3c-4432-94e6-afc9259dc2ef\">Stylist (Retail Sales)</a><br/>Manhattan Beach, CA (On-site)<br/></p><p><strong>To apply and stay up to date on our latest career opportunities, please visit our LinkedIn page </strong><a href=\"https://www.linkedin.com/jobs/hammitt-jobs-worldwide?f_C=6598117&trk=top-card_top-card-primary-button-top-card-primary-cta&position=1&pageNum=0&currentJobId=3165430179\" target=\"_blank\" title=\"Careers opportunities. Click here.\"><strong>here.</strong></a></p>"
+            "text": "<p>Let them choose what they love.</p>",
+            "text_style": "body"
           }
         },
-        "button_KPeUij": {
+        "button_cQd4MM": {
           "type": "button",
           "settings": {
-            "button_label": "LEARN MORE",
-            "button_link": "https://www.linkedin.com/jobs/search/?currentJobId=3923614833&f_C=6598117&geoId=92000000&origin=COMPANY_PAGE_JOBS_CLUSTER_EXPANSION&originToLandingJobPostings=3923614833%2C3922090282%2C3923621532%2C3923619544%2C3923614860%2C3923623010%2C3923617914",
+            "button_label": "Shop eGift Cards",
+            "button_link": "https://www.hammitt.com/products/rise-ai-giftcard",
             "button_style_secondary": false
           }
         }
       },
       "block_order": [
-        "heading_LbGdNC",
-        "text_U9TYri",
-        "button_KPeUij"
+        "heading_qEbYGC",
+        "text_bkVnfx",
+        "button_cQd4MM"
       ],
-      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "custom_classes": "",
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/giftcard-v-day.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
         "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36
-      }
-    },
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "heading_html_tag": "h1",
-        "hide_title": true,
-        "width": "page-width--narrow",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0
-      }
-    },
-    "slider_collection_w9UPnP": {
-      "type": "slider-collection",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "tom-zip",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
       }
     }
   },
   "order": [
-    "rich_text_TVxR8H",
     "main",
-    "slider_collection_w9UPnP"
+    "image_banner_3wGbz9",
+    "multicolumn_NAPywa",
+    "image_with_text_navigator_LYMLkH",
+    "featured_products_and_image_ypGVJ7",
+    "featured_products_and_image_dLyba9",
+    "featured_products_and_image_6AcR6r",
+    "featured_products_and_image_NMtFda",
+    "featured_products_and_image_MqqXQ4",
+    "featured_products_and_image_DcAEJ4",
+    "featured_products_and_image_hUpmmc",
+    "featured_products_and_image_xm3DML",
+    "hero_video_banner_ELD4zp",
+    "multicolumn_CkQC8U",
+    "image_with_text_gYqgBc"
   ]
 }
