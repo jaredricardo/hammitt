@@ -370,7 +370,7 @@
           "logo_width": 120,
           "logo__mobile_width": 100,
           "logo_position": "middle-center",
-          "menu": "new-menu-23",
+          "menu": "main-menu-feb-2026",
           "menu_mobile": "mobile-menu",
           "menu_under_visual_menu": "visual-nav-drop-downs",
           "wishlist_page": "shopify://pages/my-wishlist",
@@ -713,10 +713,11 @@
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f"
         ],
         "settings": {
-          "parent": "Shop Bags + More",
+          "enable_mega_menu": true,
+          "parent": "Shop",
           "background_color": "#ffffff",
           "padding_top": 15,
-          "padding_bottom": 51,
+          "padding_bottom": 50,
           "max_width": 1280
         }
       },
@@ -776,6 +777,100 @@
           "invert_colors": true,
           "enable_sticky_header": true,
           "margin_bottom": 0
+        }
+      },
+      "mega-menu-2": {
+        "type": "mega-menu-2",
+        "blocks": {
+          "column_yreUH8": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "test",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "categories",
+              "show_heading": true
+            }
+          },
+          "column_MAc877": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "categories",
+              "show_heading": true
+            }
+          },
+          "column_pXrdtx": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "categories",
+              "show_heading": true
+            }
+          },
+          "column_BifQzJ": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "categories",
+              "show_heading": true
+            }
+          },
+          "image_PGqUNy": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/PDP-BEVERLY_Catamaran_08_CROQUET_4289.jpg",
+              "image_ratio": "portrait",
+              "image_caption": "test",
+              "image_link": "shopify://products/110-north-blk-gm-wallet"
+            }
+          },
+          "image_897X3e": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/PDP-BEVERLY_Catamaran_08_CROQUET_4289.jpg",
+              "image_ratio": "portrait",
+              "image_caption": "test",
+              "image_link": "shopify://products/110-north-blk-gm-wallet"
+            }
+          }
+        },
+        "block_order": [
+          "column_yreUH8",
+          "column_MAc877",
+          "column_pXrdtx",
+          "column_BifQzJ",
+          "image_PGqUNy",
+          "image_897X3e"
+        ],
+        "settings": {
+          "enable_mega_menu": true,
+          "parent": "Collection",
+          "background_color": "#ffffff",
+          "padding_top": 15,
+          "padding_bottom": 50,
+          "max_width": 1280
+        }
+      },
+      "mega-menu-3": {
+        "type": "mega-menu-3",
+        "settings": {
+          "enable_mega_menu": true,
+          "parent": "Explore",
+          "background_color": "#ffffff",
+          "padding_top": 15,
+          "padding_bottom": 50,
+          "max_width": 1280
         }
       }
     },

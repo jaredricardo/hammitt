@@ -1,18 +1,18 @@
 {% if section.settings.enable_mega_menu %}
-  {%- render 'mega-menu', section: section -%}
+    {%- render 'mega-menu', section: section -%}
 {% endif %}
 
 {% schema %}
 {
-  "name": "Mega Menu 1",
+  "name": "Mega Menu 2",
   "class": "mega-menu-section",
   "max_blocks": 7,
   "settings": [
     {
-      "type": "checkbox",
-      "id": "enable_mega_menu",
-      "label": "Enable Mega Menu",
-      "default": true
+        "type": "checkbox",
+        "id": "enable_mega_menu",
+        "label": "Enable Mega Menu",
+        "default": true
     },
     {
       "type": "text",
@@ -147,4 +147,3 @@
 }
 
 {% endschema %}
-

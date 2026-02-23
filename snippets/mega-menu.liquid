@@ -19,7 +19,7 @@ endfor
            data-dropdown="{{ section.settings.parent | handleize }}" 
            data-parent="{{ section.settings.parent | escape }}" 
            style="background-color: {{ section.settings.background_color }};">
-        <div class="dropdown menu text-left page-width mega-menu-{{ section.id }}">
+        <div class="dropdown menu text-left page-width mega-menu-{{ section.id }} mega-menu-no-index">
           <div class="dropdown_content {% if section.blocks < 4 %}dropdown_narrow{% endif %} flex justify-center {{ section.id | handle }}">
             {% for block in section.blocks %}
             
