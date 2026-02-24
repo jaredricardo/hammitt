@@ -180,9 +180,9 @@
 {% endcapture %}
 
 {%- comment -%}
-  Calculate Progress Bar B values (hardcoded $350 threshold for AB test)
+  Calculate Progress Bar B values (hardcoded $250 threshold for AB test)
 {%- endcomment -%}
-{%- assign threshold_b = 350.00 -%}
+{%- assign threshold_b = 250.00 -%}
 {%- assign cart_total_b = cart.total_price | divided_by: 100.0 -%}
 {%- assign amount_remaining_b = threshold_b | minus: cart_total_b -%}
 {%- assign progress_percentage_b = 0 -%}
@@ -262,7 +262,7 @@
     {%- endif -%}
   </div>
 
-  {%- comment -%} PROGRESS BAR B - Hardcoded $350 Threshold (AB Test Variant) {%- endcomment -%}
+  {%- comment -%} PROGRESS BAR B - Hardcoded $250 Threshold (AB Test Variant) {%- endcomment -%}
   <div class="progress-bar-wrapper-b">
     {%- if amount_remaining_b <= 0 -%}
       {%- comment -%} Threshold reached - show success message {%- endcomment -%}
