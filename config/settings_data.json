@@ -789,7 +789,7 @@
               "image_caption": "test",
               "image_link": "",
               "submenu_reference": "menu",
-              "menu": "categories",
+              "menu": "colorway",
               "show_heading": true
             }
           },
@@ -800,7 +800,7 @@
               "image_caption": "",
               "image_link": "",
               "submenu_reference": "menu",
-              "menu": "categories",
+              "menu": "trending",
               "show_heading": true
             }
           },
@@ -811,18 +811,7 @@
               "image_caption": "",
               "image_link": "",
               "submenu_reference": "menu",
-              "menu": "categories",
-              "show_heading": true
-            }
-          },
-          "column_BifQzJ": {
-            "type": "column",
-            "settings": {
-              "image_ratio": "default",
-              "image_caption": "",
-              "image_link": "",
-              "submenu_reference": "menu",
-              "menu": "categories",
+              "menu": "featured",
               "show_heading": true
             }
           },
@@ -849,7 +838,6 @@
           "column_yreUH8",
           "column_MAc877",
           "column_pXrdtx",
-          "column_BifQzJ",
           "image_PGqUNy",
           "image_897X3e"
         ],
@@ -873,6 +861,17 @@
               "image_link": "",
               "submenu_reference": "default",
               "menu": "about",
+              "show_heading": false
+            }
+          },
+          "column_FtHDCH": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "",
+              "image_link": "",
+              "submenu_reference": "default",
+              "menu": "community",
               "show_heading": false
             }
           },
@@ -906,6 +905,7 @@
         },
         "block_order": [
           "column_ycq4Y7",
+          "column_FtHDCH",
           "image_dXtgTc",
           "image_4WdaeP",
           "image_zQyYdA"
