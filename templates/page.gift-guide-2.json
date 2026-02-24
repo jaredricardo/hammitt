@@ -50,7 +50,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "id_for_scroll_navigator": "",
-        "image": "shopify://shop_images/celeb-banner-_2.gif",
+        "image": "shopify://shop_images/celeb-banner-_3.gif",
         "height": "adapt",
         "desktop_image_width": "large",
         "layout": "image_first",
@@ -71,6 +71,20 @@
     "image_with_text_navigator_3mM6rF": {
       "type": "image-with-text-navigator",
       "blocks": {
+        "navigator_jbKDtp": {
+          "type": "navigator",
+          "settings": {
+            "title": "Lola Tung",
+            "href": "lola"
+          }
+        },
+        "navigator_wWrw67": {
+          "type": "navigator",
+          "settings": {
+            "title": "Barbara Palvin",
+            "href": "barbara-palvin"
+          }
+        },
         "navigator_pqR6pn": {
           "type": "navigator",
           "settings": {
@@ -111,20 +125,6 @@
           "settings": {
             "title": "Isla Fisher",
             "href": "isla-fisher"
-          }
-        },
-        "navigator_wWrw67": {
-          "type": "navigator",
-          "settings": {
-            "title": "Barbara Palvin",
-            "href": "barbara-palvin"
-          }
-        },
-        "navigator_jbKDtp": {
-          "type": "navigator",
-          "settings": {
-            "title": "Lola Tung",
-            "href": "lola"
           }
         },
         "navigator_e4mkCP": {
@@ -171,14 +171,14 @@
         }
       },
       "block_order": [
+        "navigator_jbKDtp",
+        "navigator_wWrw67",
         "navigator_pqR6pn",
         "navigator_tEfyJF",
         "navigator_wXeERa",
         "navigator_6QYWA8",
         "navigator_AYa9WG",
         "navigator_FNG4kU",
-        "navigator_wWrw67",
-        "navigator_jbKDtp",
         "navigator_e4mkCP",
         "navigator_wCdxAF",
         "navigator_RkrewV",
@@ -190,6 +190,58 @@
       "settings": {
         "background_color": "#ffffff",
         "enable_scroll_to_top": false
+      }
+    },
+    "featured_products_and_image_n7xGzC": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "lola",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/IMG_9486.jpg",
+        "image_link": "shopify://collections/best-selling-bags",
+        "header": "Lola Tung – From NYFW",
+        "subheader": "In NYFW for The Summer I Turned Pretty finale, Lola Tung completes her look with Hammitt.",
+        "featured_products": [
+          "kyle-shoulder-bag-black-gunmetal",
+          "silk-scarf-scarf-silk-scarf",
+          "kyle-med-shoulder-bag-black-gunmetal",
+          "kyle-lrg-black-gunmetal",
+          "tom-zip-med-shoulder-bag-belted-suede-gunmetal",
+          "tom-zip-med-zebra-brushed-gold",
+          "tom-zip-med-chocolate-diamond-suede-antique-gold",
+          "tom-zip-med-shoulder-bag-dune-silver",
+          "tom-zip-med-shoulder-bag-espresso-pebble-silver",
+          "tom-zip-med-shoulder-bag-black-brushed-gold-red-zip",
+          "tom-zip-med-shoulder-bag-black-gunmetal",
+          "tom-zip-med-shoulder-bag-limestone-silver"
+        ],
+        "featured_collection": ""
+      }
+    },
+    "featured_products_and_image_URXAyE": {
+      "type": "featured-products-and-image",
+      "name": "Featured Products + Image",
+      "settings": {
+        "href": "barbara-palvin",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "image": "shopify://shop_images/IMG_1330.jpg",
+        "image_link": "shopify://collections/new-arrivals",
+        "header": "Barbara Palvin – Confident & approachable",
+        "subheader": "As seen in Super Bowl — iconic bags for iconic moments.",
+        "featured_products": [
+          "erica-sml-shoulder-bag-black-brushed-gold",
+          "erica-sml-shoulder-bag-calla-lily-white-brushed-gold",
+          "erica-sml-shoulder-bag-toasty-sand-brushed-gold",
+          "meredith-sml-black-gunmetal",
+          "kyle-shoulder-bag-black-gunmetal",
+          "meredith-med-black-gunmetal",
+          "bryant-med-shoulder-bag-black-gunmetal",
+          "bryant-lrg-crossbody-black-gunmetal"
+        ],
+        "featured_collection": ""
       }
     },
     "featured_products_and_image_znFGiR": {
@@ -337,52 +389,6 @@
         "featured_collection": ""
       }
     },
-    "featured_products_and_image_URXAyE": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "barbara-palvin",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/Rectangle_760.jpg",
-        "image_link": "shopify://collections/meredith",
-        "header": "Barbara Palvin – Confident & approachable",
-        "subheader": "As seen in Venice — iconic bags for iconic moments.",
-        "featured_products": [
-          "meredith-sml-black-gunmetal",
-          "kyle-shoulder-bag-black-gunmetal",
-          "meredith-med-black-gunmetal",
-          "bryant-med-shoulder-bag-black-gunmetal",
-          "bryant-lrg-crossbody-black-gunmetal",
-          "bryant-med-moto-black-gunmetal"
-        ],
-        "featured_collection": ""
-      }
-    },
-    "featured_products_and_image_n7xGzC": {
-      "type": "featured-products-and-image",
-      "name": "Featured Products + Image",
-      "settings": {
-        "href": "lola",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "image": "shopify://shop_images/8Y0A0789_1.jpg",
-        "image_link": "shopify://collections/tom-zip",
-        "header": "Lola Tung – From Paris with Style",
-        "subheader": "In Paris for The Summer I Turned Pretty finale, Lola Tung completes her look with Hammitt.",
-        "featured_products": [
-          "tom-zip-med-shoulder-bag-belted-suede-gunmetal",
-          "tom-zip-med-zebra-brushed-gold",
-          "tom-zip-med-chocolate-diamond-suede-antique-gold",
-          "tom-zip-med-shoulder-bag-dune-silver",
-          "tom-zip-med-shoulder-bag-espresso-pebble-silver",
-          "tom-zip-med-shoulder-bag-black-brushed-gold-red-zip",
-          "tom-zip-med-shoulder-bag-black-gunmetal",
-          "tom-zip-med-shoulder-bag-limestone-silver"
-        ],
-        "featured_collection": ""
-      }
-    },
     "featured_products_and_image_Em4iNp": {
       "type": "featured-products-and-image",
       "name": "Featured Products + Image",
@@ -508,18 +514,19 @@
         "href": "vita",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "image": "shopify://shop_images/IMG_3029_4_1.jpg",
+        "image": "shopify://shop_images/Tom_Zip_-_Zebra.jpg",
         "image_link": "shopify://collections/tim",
         "header": "Vita Sidorkina - Vacation Chic",
         "subheader": "Sun-drenched destinations, effortless style. Discover how Vita Sidorkina brings Hammitt along for every getaway.",
         "featured_products": [
+          "tom-zip-med-zebra-brushed-gold",
+          "becker-sml-zebra-brushed-gold",
+          "meredith-med-chili-red-gold",
           "tim-med-shoulder-bag-black-brushed-gold",
           "tim-med-shoulder-bag-black-gunmetal",
           "tim-med-shoulder-bag-chocolate-diamond-suede-antique-gold",
           "tim-med-shoulder-bag-espresso-pebble-weave-silver",
           "tim-med-shoulder-bag-espresso-pebble-silver",
-          "tim-noir-diamond-suede-gunmetal",
-          "tim-med-shoulder-bag-cherrywood-pebble-brushed-gold",
           "tim-med-shoulder-bag-dune-silver"
         ],
         "featured_collection": ""
@@ -534,6 +541,7 @@
         "heading_color": "",
         "collection": "influencer-favorites",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -550,14 +558,14 @@
     "main",
     "image_with_text_TWNkJG",
     "image_with_text_navigator_3mM6rF",
+    "featured_products_and_image_n7xGzC",
+    "featured_products_and_image_URXAyE",
     "featured_products_and_image_znFGiR",
     "featured_products_and_image_zAcwqF",
     "featured_products_and_image_UTxwwj",
     "featured_products_and_image_t3Xgqi",
     "featured_products_and_image_N7DjDd",
     "featured_products_and_image_UkFUfW",
-    "featured_products_and_image_URXAyE",
-    "featured_products_and_image_n7xGzC",
     "featured_products_and_image_Em4iNp",
     "featured_products_and_image_EJQ8cC",
     "featured_products_and_image_qcWkYq",

@@ -43,14 +43,6 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "blocks": {
-        "collection_filter_link_eh737q": {
-          "type": "collection-filter-link",
-          "disabled": true,
-          "settings": {
-            "collection": "gifts",
-            "title": "Gifting"
-          }
-        },
         "collection_filter_link_MHHCt7": {
           "type": "collection-filter-link",
           "settings": {
@@ -93,13 +85,6 @@
             "title": "Wallets"
           }
         },
-        "collection_filter_link_V7hQaf": {
-          "type": "collection-filter-link",
-          "settings": {
-            "collection": "satchel-shoulder-bag",
-            "title": "Satchels"
-          }
-        },
         "collection_filter_link_Yq77Rz": {
           "type": "collection-filter-link",
           "settings": {
@@ -120,20 +105,42 @@
             "collection": "accessories-view-all",
             "title": "Accessories"
           }
+        },
+        "collection_filter_link_gWD4zW": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "trending",
+            "title": "Top Trending"
+          }
+        },
+        "collection_filter_link_WN3Lzr": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "low-inventory",
+            "title": "Going Fast"
+          }
+        },
+        "collection_filter_link_kPBBCw": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "mini-bags",
+            "title": "Mini bags"
+          }
         }
       },
       "block_order": [
-        "collection_filter_link_eh737q",
         "collection_filter_link_MHHCt7",
         "collection_filter_link_gwYa7K",
         "collection_filter_link_GM3dJ9",
         "collection_filter_link_yU8BjT",
         "collection_filter_link_djJjwe",
         "collection_filter_link_FB87Lz",
-        "collection_filter_link_V7hQaf",
         "collection_filter_link_Yq77Rz",
         "collection_filter_link_AkqQNh",
-        "collection_filter_link_prpfV4"
+        "collection_filter_link_prpfV4",
+        "collection_filter_link_gWD4zW",
+        "collection_filter_link_WN3Lzr",
+        "collection_filter_link_kPBBCw"
       ],
       "settings": {
         "use_new_filters": true,

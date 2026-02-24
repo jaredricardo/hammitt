@@ -943,6 +943,14 @@ a.nav-wishlist-button .heart-count {
   gap: 0.75rem;
 }
 
+.details-header:hover {
+  text-decoration: underline;
+}
+
+.details-header svg {
+  display: none;
+}
+
 @media screen and (max-width: 990px) {
   .desktop-pdp-price {
     display: none;

@@ -41,22 +41,20 @@
     },
     "home_hero_section_rjE9kf": {
       "type": "home-hero-section",
-      "custom_css": [
-        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: 1/1; } .home-hero-section .section-content {position: relative; } p, h1, h2, h4 {color: black !important; } .section-button a {color: white; background-color: black; }}"
-      ],
+      "custom_css": [],
       "name": "Hero section with text below",
       "settings": {
         "section_bg_color": "#ffffff",
         "media_type": "video",
         "video": "shopify://files/videos/bevery-added.mp4",
         "text_align": "center",
-        "text_vertical_align": "center",
+        "text_vertical_align": "bottom",
         "text_horizontal_align": "center",
         "text_align_mobile": "center",
         "text_vertical_align_mobile": "center",
         "text_horizontal_align_mobile": "center",
         "show_secondary_image": true,
-        "title": "Explore New Arrivals",
+        "title": "Step into Spring",
         "make_h1": true,
         "subtitle": "",
         "desktop_font_size": 42,
@@ -69,6 +67,41 @@
         "link": "shopify://collections/new-arrivals",
         "button_text_color": "#000000",
         "button_bg_color": "#ffffff"
+      }
+    },
+    "jr_new_5050_product_list_zy3tkK": {
+      "type": "jr-new-5050-product-list",
+      "custom_css": [
+        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
+      ],
+      "name": "Bestsellers modal ",
+      "settings": {
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
+        "title": "The Kyle",
+        "padding_bottom_desktop": 20,
+        "padding_bottom_mobile": 0,
+        "allow_sold_out_cards": false,
+        "product_list": [
+          "kyle-shoulder-bag-black-brushed-gold-red-zip",
+          "kyle-med-shoulder-bag-black-brushed-gold-red-zip",
+          "kyle-lrg-black-brushed-gold-red-zip",
+          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "kyle-lrg-tote-mahogany-pebble-brushed-gold-red-zip"
+        ],
+        "show_secondary_image": true,
+        "image": "shopify://shop_images/Rectangle_447_759b4d7b-5d92-4745-af50-875a05bbd016.jpg",
+        "image_alignment_desktop": "image-right",
+        "image_alignment_mobile": "image-top",
+        "button_link": "shopify://collections/kyle",
+        "button_text": "Shop Now",
+        "button_text_color": "#000000",
+        "button_background_color": "#ffffff",
+        "padding_top": 50,
+        "padding_bottom": 0,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
       }
     },
     "slider_collection_L6qdiY": {
@@ -92,19 +125,163 @@
         "mobile_padding_bottom": 10
       }
     },
+    "multicolumn_FmaKEp": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_8MxtDV": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_1049.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "Shop New Arrivals",
+            "link_margin_top": 20,
+            "link": "shopify://collections/new-arrivals",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 0
+          }
+        },
+        "column_EDDjd9": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_1050.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "Shop Bestsellers",
+            "link_margin_top": 20,
+            "link": "shopify://collections/best-selling-bags",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 0
+          }
+        },
+        "column_CAPFXw": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_1051.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "Most Trending",
+            "link_margin_top": 20,
+            "link": "shopify://collections/trending",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 0
+          }
+        },
+        "column_ABLfVE": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_1052.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "The Kyle",
+            "link_margin_top": 20,
+            "link": "shopify://collections/kyle",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 0
+          }
+        }
+      },
+      "block_order": [
+        "column_8MxtDV",
+        "column_EDDjd9",
+        "column_CAPFXw",
+        "column_ABLfVE"
+      ],
+      "name": "hi traffic LP ",
+      "settings": {
+        "title": "",
+        "title_color": "",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "portrait",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 4,
+        "columns_gap": 1,
+        "row_gap": 1,
+        "mobile_columns_gap": 1,
+        "mobile_row_gap": 1,
+        "column_alignment": "center",
+        "text_position": "bottom",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": false,
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "padding_top_mobile": 10,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
-        "image_carousel_item_9imwXj": {
+        "image_carousel_item_hDqCRg": {
           "type": "image-carousel-item",
-          "name": "Erica",
+          "name": "Nautical",
           "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_11.jpg",
-            "eyebrow": "NEW AND TRENDING ON SOCIAL",
-            "title": "The Erica Sml",
-            "subcopy": "Embrace beachy vibes with softer-than-soft\nCarry this croissant-shaped style\non your shoulder, or wear as a crossbody.",
-            "button_text": "SHOP ERICA",
-            "collection_url": "erica",
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_4.jpg",
+            "eyebrow": "A STYLIST FAVORITE",
+            "title": "Nautical Navy",
+            "subcopy": "Inspired by afternoons at the Yacht Club,\nthis wearable collection is an easy, breezy dose of color.",
+            "button_text": "SHOP Nautical",
+            "collection_url": "nautical-navy",
             "enable_image_as_link_out": true,
             "max_products": 10,
             "image_ratio": "square",
@@ -133,16 +310,16 @@
             "hide_quick_add": false
           }
         },
-        "image_carousel_item_hDqCRg": {
+        "image_carousel_item_9imwXj": {
           "type": "image-carousel-item",
-          "name": "Nautical",
+          "name": "Erica",
           "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_4.jpg",
-            "eyebrow": "A STYLIST FAVORITE",
-            "title": "Nautical Navy",
-            "subcopy": "Inspired by afternoons at the Yacht Club,\nthis wearable collection is an easy, breezy dose of color.",
-            "button_text": "SHOP Nautical",
-            "collection_url": "nautical-navy",
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_11.jpg",
+            "eyebrow": "NEW AND TRENDING ON SOCIAL",
+            "title": "The Erica Sml",
+            "subcopy": "Embrace beachy vibes with softer-than-soft\nCarry this croissant-shaped style\non your shoulder, or wear as a crossbody.",
+            "button_text": "SHOP ERICA",
+            "collection_url": "erica",
             "enable_image_as_link_out": true,
             "max_products": 10,
             "image_ratio": "square",
@@ -196,7 +373,7 @@
           "settings": {
             "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_1_fd9945c6-5fec-45fc-94f0-db5ee4909111.jpg",
             "eyebrow": "Our Most Versatile Brown",
-            "title": "New Mahogany Pebble",
+            "title": "Mahogany Pebble",
             "subcopy": "Due to popular demand, we've added more Mahogany Pebble styles to our lineup.",
             "button_text": "SHOP MAHOGANY",
             "collection_url": "mahogany-pebble",
@@ -287,9 +464,9 @@
         }
       },
       "block_order": [
-        "image_carousel_item_9imwXj",
-        "image_carousel_item_i9fMeg",
         "image_carousel_item_hDqCRg",
+        "image_carousel_item_i9fMeg",
+        "image_carousel_item_9imwXj",
         "image_carousel_item_3kt837",
         "image_carousel_item_fMrt4V",
         "image_carousel_item_by7dVy",
@@ -331,290 +508,6 @@
         "button_bg_color": "#faf7f3"
       }
     },
-    "image_banner_RfzFJU": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_bKpaUj": {
-          "type": "heading",
-          "settings": {
-            "heading": "Valentine's Day Gift Guide",
-            "heading_size_mobile": 24,
-            "heading_size_tablet": 30,
-            "heading_size_desktop": 42
-          }
-        },
-        "buttons_PwbBzC": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Gift Ideas",
-            "button_link_1": "shopify://pages/valentines-day-gifting",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_bKpaUj",
-        "buttons_PwbBzC"
-      ],
-      "name": "v day LP - on 1/21",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/v-day-banner.gif",
-        "image_2": "shopify://shop_images/mobile-Group-12685.gif",
-        "image_link": "shopify://pages/valentines-day-gifting",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_rf9mQd": {
-      "type": "slider-collection",
-      "name": "best sellers widget",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "best-selling-bags",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "square",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 0,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 10
-      }
-    },
-    "jr_new_5050_product_list_kKjVm9": {
-      "type": "jr-new-5050-product-list",
-      "custom_css": [
-        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
-      ],
-      "name": "Bestsellers modal ",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "The Kyle: Our #1 Bestselling Gift",
-        "padding_bottom_desktop": 20,
-        "padding_bottom_mobile": 0,
-        "allow_sold_out_cards": false,
-        "product_list": [
-          "kyle-shoulder-bag-black-brushed-gold-red-zip",
-          "kyle-med-deep-water-weave-silver",
-          "kyle-western-rein-silver",
-          "kyle-shoulder-bag-wildberry-brushed-gold",
-          "kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
-          "kyle-lrg-black-brushed-gold-red-zip"
-        ],
-        "show_secondary_image": true,
-        "image": "shopify://shop_images/kyle_2.gif",
-        "image_alignment_desktop": "image-left",
-        "image_alignment_mobile": "image-top",
-        "button_link": "shopify://collections/kyle",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 70,
-        "padding_bottom": 36,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "image_banner_yVpKNR": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_TKgY94": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Kyle",
-            "heading_size_mobile": 36,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 60
-          }
-        },
-        "text_7yRky9": {
-          "type": "text",
-          "settings": {
-            "text": "The perfect slouch, in three sizes.",
-            "text_area_html_swap": "",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 13,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_ReHFtA": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/kyle",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_TKgY94",
-        "text_7yRky9",
-        "buttons_ReHFtA"
-      ],
-      "disabled": true,
-      "name": "kyle banner - off 1/21",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/kyle-banner-desktop_1.jpg",
-        "image_2": "shopify://shop_images/kyle-banner-mobile_1.jpg",
-        "image_link": "shopify://collections/kyle",
-        "image_overlay_opacity": 10,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 32,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "image_banner_CE6nwi": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_GYfNfi": {
-          "type": "heading",
-          "settings": {
-            "heading": "Calla Lilly",
-            "heading_size_mobile": 36,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 60
-          }
-        },
-        "text_qD9J9N": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "",
-            "text_area_html_swap": "Embrace elevated equestrian trends with Western Rein,\nfeaturing artfully layered leather cutouts.",
-            "text_style": "body",
-            "text_size_mobile": 12,
-            "text_size_tablet": 13,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_Hkc9rt": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/new-arrivals",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_GYfNfi",
-        "text_qD9J9N",
-        "buttons_Hkc9rt"
-      ],
-      "disabled": true,
-      "name": "calla - on 1/19",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12647_1.jpg",
-        "image_2": "shopify://shop_images/Group_12632_1.jpg",
-        "image_link": "shopify://collections/calla-lily-white-1",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "multicolumn_Fbdf7n": {
       "type": "multicolumn",
       "blocks": {
@@ -622,16 +515,41 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Untitled_design_6_1vday.jpg",
+            "image": "shopify://shop_images/Rectangle_1053.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "Gifts Under $175",
+            "link_label": "Shoulder & Satchel",
             "link_margin_top": 20,
-            "link": "shopify://collections/gift-guide-under-175",
-            "cta_color": "#ffffff",
+            "link": "shopify://collections/satchel-shoulder-bag",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_QBn8xw": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_1056.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Clutches",
+            "link_margin_top": 20,
+            "link": "shopify://collections/clutch",
+            "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
             "cta_font_size": 18,
@@ -647,16 +565,41 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_792_85b87409-11a6-44fc-8a6b-a3af75004ebb.jpg",
+            "image": "shopify://shop_images/Rectangle_1054.jpg",
             "title": "",
             "b_title_color": "#ffffff",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "Gifts Under $300",
+            "link_label": "Crossbody",
             "link_margin_top": 20,
-            "link": "shopify://collections/gift-guide-under-300",
-            "cta_color": "#ffffff",
+            "link": "shopify://collections/cross-body",
+            "cta_color": "#000000",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 10
+          }
+        },
+        "column_qBDFFC": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_1057.jpg",
+            "title": "",
+            "b_title_color": "#ffffff",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Wallets",
+            "link_margin_top": 20,
+            "link": "shopify://collections/wallets",
+            "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
             "cta_font_size": 18,
@@ -672,16 +615,16 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12600_dec9a069-97a7-4a3e-84e6-5c39d7a54f65.jpg",
+            "image": "shopify://shop_images/Rectangle_1055.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "Gifts $300+",
+            "link_label": "Accessories",
             "link_margin_top": 20,
-            "link": "shopify://collections/300",
-            "cta_color": "#ffffff",
+            "link": "shopify://collections/accessories-view-all",
+            "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
             "cta_font_size": 18,
@@ -696,10 +639,13 @@
       },
       "block_order": [
         "column_wjLVLn",
+        "column_QBn8xw",
         "column_B8dHVB",
+        "column_qBDFFC",
         "column_UyfTNT"
       ],
-      "name": "price column - on 1/21",
+      "disabled": true,
+      "name": "categories",
       "settings": {
         "title": "",
         "title_color": "#000000",
@@ -710,10 +656,102 @@
         "image_width": "full",
         "image_ratio": "square",
         "image_padding": false,
+        "removed_section_padding": false,
+        "columns_desktop": 5,
+        "columns_gap": 0,
+        "row_gap": 0,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "bottom",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_top_mobile": 2,
+        "padding_bottom_mobile": 2,
+        "custom_class": "behind-design-section"
+      }
+    },
+    "multicolumn_96rXyy": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_7NQLtz": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Tile_77_0c18d14a-87a4-4d7e-a9c9-ff70f3409177.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Shoulder & Satchel",
+            "link_margin_top": 20,
+            "link": "shopify://collections/satchel-shoulder-bag",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 0
+          }
+        },
+        "column_pMMqE7": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Tile_78.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Crossbody",
+            "link_margin_top": 20,
+            "link": "shopify://collections/cross-body",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 0
+          }
+        }
+      },
+      "block_order": [
+        "column_7NQLtz",
+        "column_pMMqE7"
+      ],
+      "name": "categories",
+      "settings": {
+        "title": "",
+        "title_color": "#000000",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "columns_gap": 2,
-        "row_gap": 2,
+        "row_gap": 0,
         "mobile_columns_gap": 2,
         "mobile_row_gap": 2,
         "column_alignment": "center",
@@ -727,6 +765,98 @@
         "enable_peek": false,
         "show_mobile_slider": true,
         "padding_top": 20,
+        "padding_bottom": 4,
+        "padding_top_mobile": 2,
+        "padding_bottom_mobile": 2,
+        "custom_class": "behind-design-section"
+      }
+    },
+    "multicolumn_jQUrg7": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_mJbX9t": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_1059_362db7ac-a292-4fda-ae92-2ebfe4270635.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Clutches & Evening Bags",
+            "link_margin_top": 20,
+            "link": "shopify://collections/clutch",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 0
+          }
+        },
+        "column_6jmwGC": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_1058.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Accessories",
+            "link_margin_top": 20,
+            "link": "shopify://collections/accessories-view-all",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 0
+          }
+        }
+      },
+      "block_order": [
+        "column_mJbX9t",
+        "column_6jmwGC"
+      ],
+      "name": "categories",
+      "settings": {
+        "title": "",
+        "title_color": "#000000",
+        "heading_size": "h1",
+        "paragraph": "",
+        "paragraph_color": "",
+        "larger_text": false,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "image_padding": false,
+        "removed_section_padding": true,
+        "columns_desktop": 2,
+        "columns_gap": 2,
+        "row_gap": 0,
+        "mobile_columns_gap": 2,
+        "mobile_row_gap": 2,
+        "column_alignment": "center",
+        "text_position": "overlay_type",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": true,
+        "padding_top": 0,
         "padding_bottom": 20,
         "padding_top_mobile": 2,
         "padding_bottom_mobile": 2,
@@ -893,57 +1023,22 @@
         "custom_class": ""
       }
     },
-    "jr_new_5050_product_list_zy3tkK": {
-      "type": "jr-new-5050-product-list",
-      "custom_css": [
-        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
-      ],
-      "name": "Bestsellers modal ",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "New Favorites",
-        "padding_bottom_desktop": 20,
-        "padding_bottom_mobile": 0,
-        "allow_sold_out_cards": false,
-        "product_list": [
-          "erica-sml-shoulder-bag-black-brushed-gold",
-          "erica-sml-shoulder-bag-calla-lily-white-brushed-gold",
-          "erica-sml-shoulder-bag-toasty-sand-brushed-gold",
-          "shelley-clutch-clutch-black-brushed-gold",
-          "shelley-clutch-clutch-toasty-sand-brushed-gold",
-          "kyle-med-shoulder-bag-calla-lily-white-brushed-gold"
-        ],
-        "show_secondary_image": true,
-        "image": "shopify://shop_images/bestsellers-_1-_1_c2999bea-f5d6-4605-9f89-b472c7e5b829.gif",
-        "image_alignment_desktop": "image-right",
-        "image_alignment_mobile": "image-top",
-        "button_link": "shopify://collections/best-selling-bags",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 50,
-        "padding_bottom": 36,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "multicolumn_FmaKEp": {
+    "multicolumn_Knr9Hr": {
       "type": "multicolumn",
       "blocks": {
-        "column_8MxtDV": {
+        "column_VVB8Nn": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/red-cherrywood_1_2.jpg",
+            "image": "shopify://shop_images/Rectangle_422_cefdb1a1-7e95-4034-a9d1-b29229d63d54.jpg",
             "title": "",
-            "b_title_color": "#000000",
+            "b_title_color": "#ffffff",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "<strong>Red</strong>",
+            "link_label": "<strong>Blue</strong>",
             "link_margin_top": 20,
-            "link": "shopify://collections/red",
+            "link": "shopify://collections/blue",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -956,7 +1051,7 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_EDDjd9": {
+        "column_3q7KLV": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -966,7 +1061,7 @@
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "<strong>White </strong>",
+            "link_label": "<strong>Neutral</strong>",
             "link_margin_top": 20,
             "link": "shopify://collections/white",
             "cta_color": "#000000",
@@ -981,7 +1076,7 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_CAPFXw": {
+        "column_QXLcBV": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -1006,7 +1101,32 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_ABLfVE": {
+        "column_6mDLqr": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/red-cherrywood_1_2.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 18,
+            "text": "",
+            "link_label": "<strong>Red</strong>",
+            "link_margin_top": 20,
+            "link": "shopify://collections/red",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 120,
+            "cta_width_desktop": 174,
+            "cta_top_spacing": 5,
+            "cta_bottom_spacing": 5
+          }
+        },
+        "column_MraEpw": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -1031,7 +1151,7 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_TzW8NU": {
+        "column_4d3y8r": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
@@ -1055,44 +1175,20 @@
             "cta_top_spacing": 5,
             "cta_bottom_spacing": 5
           }
-        },
-        "column_eqfkMw": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_422.jpg",
-            "title": "",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "<strong>Blue</strong>",
-            "link_margin_top": 20,
-            "link": "shopify://collections/blue",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
         }
       },
       "block_order": [
-        "column_8MxtDV",
-        "column_EDDjd9",
-        "column_CAPFXw",
-        "column_ABLfVE",
-        "column_TzW8NU",
-        "column_eqfkMw"
+        "column_VVB8Nn",
+        "column_3q7KLV",
+        "column_QXLcBV",
+        "column_6mDLqr",
+        "column_MraEpw",
+        "column_4d3y8r"
       ],
+      "disabled": true,
       "name": "Shop By color",
       "settings": {
-        "title": "Shop By Color",
+        "title": "",
         "title_color": "",
         "heading_size": "h1",
         "paragraph": "",
@@ -1122,21 +1218,6 @@
         "padding_top_mobile": 10,
         "padding_bottom_mobile": 36,
         "custom_class": ""
-      }
-    },
-    "homepage_instagram_RrcAhY": {
-      "type": "homepage-instagram",
-      "settings": {
-        "enabled_slider": false,
-        "feed_id": "hammitt_2",
-        "heading": "As Seen On Social",
-        "page_size": "5",
-        "image_margin": "0",
-        "paragraph": "Tag #HammittLA for a chance to be featured on our feed.",
-        "text_align": "center",
-        "show_link_to_page": true,
-        "link_to_page": "shopify://pages/shop-insta",
-        "link_to_page_text": "Shop Insta"
       }
     },
     "jr_scrolling_text_QzMT7i": {
@@ -1287,24 +1368,37 @@
         "speed": 30,
         "align_icons_row": false
       }
+    },
+    "homepage_instagram_RrcAhY": {
+      "type": "homepage-instagram",
+      "settings": {
+        "enabled_slider": false,
+        "feed_id": "hammitt_2",
+        "heading": "As Seen On Social",
+        "page_size": "5",
+        "image_margin": "0",
+        "paragraph": "Tag #HammittLA for a chance to be featured on our feed.",
+        "text_align": "center",
+        "show_link_to_page": true,
+        "link_to_page": "shopify://pages/shop-insta",
+        "link_to_page_text": "Shop Insta"
+      }
     }
   },
   "order": [
     "home_hero_section_GzUagM",
     "home_hero_section_rjE9kf",
     "slider_collection_L6qdiY",
+    "jr_new_5050_product_list_zy3tkK",
     "home_hero_section_qhL9Xk",
-    "image_banner_RfzFJU",
-    "slider_collection_rf9mQd",
-    "jr_new_5050_product_list_kKjVm9",
-    "image_banner_yVpKNR",
-    "image_banner_CE6nwi",
+    "multicolumn_FmaKEp",
     "multicolumn_Fbdf7n",
+    "multicolumn_96rXyy",
+    "multicolumn_jQUrg7",
     "image_banner_md7kAc",
     "image_banner_hMApH8",
-    "jr_new_5050_product_list_zy3tkK",
-    "multicolumn_FmaKEp",
-    "homepage_instagram_RrcAhY",
-    "jr_scrolling_text_QzMT7i"
+    "multicolumn_Knr9Hr",
+    "jr_scrolling_text_QzMT7i",
+    "homepage_instagram_RrcAhY"
   ]
 }
