@@ -14,12 +14,13 @@
         justify-content: start;
         gap: 3rem;
         margin-bottom: 3rem;
+        margin-top: 3rem;
     }
 
     .view-toggle-btn {
         padding: 0;
-        font-size: 16px;
-        font-weight: 400;
+        font-size: 22px;
+        font-weight: 600;
         text-transform: none;
         letter-spacing: 0;
         border: none;
@@ -28,6 +29,7 @@
         cursor: pointer;
         text-decoration: none;
         transition: border-color 0.3s ease;
+        font-family: 'Nunito Sans';
     }
 
     .view-toggle-btn:hover {
@@ -285,6 +287,9 @@
             line-height: 34px;
             margin-bottom: 1.5rem;
         }
+        .view-toggle-btn {
+            font-size: 16px;
+        }
     }
 
     @media screen and (max-width: 480px) {
@@ -313,7 +318,7 @@
         <div class="wl-text-container">
             <h2>
                 {% if customer %}
-                    {{ customer.first_name }}'S
+                    {{ customer.first_name }}'s
                 {% endif %}
                 Wishlist
             </h2>
