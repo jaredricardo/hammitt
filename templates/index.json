@@ -41,7 +41,9 @@
     },
     "home_hero_section_rjE9kf": {
       "type": "home-hero-section",
-      "custom_css": [],
+      "custom_css": [
+        "@media screen and (max-width: 768px) {.section-image:has(video) {aspect-ratio: 1/1; }}"
+      ],
       "name": "Hero section with text below",
       "settings": {
         "section_bg_color": "#ffffff",
