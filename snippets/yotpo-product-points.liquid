@@ -1,10 +1,41 @@
 <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/99agSqcD2Bh1EPly9czXTA" async></script>
-<div class="yotpo-widget-instance" data-yotpo-instance-id="843974" 
-    data-yotpo-product-id="{{product.id}}" 
-    data-yotpo-variant-id="{{ product.selected_or_first_available_variant.id }}" 
-    data-yotpo-product-variants="{{ product.variants | json | url_encode }}" 
-    data-yotpo-product-collections="{{product.collections | json | url_encode}}" 
-    data-yotpo-product-tags="{{ product.tags | json | url_encode }}" 
-    data-yotpo-product-type="{{ product.type | json | url_encode }}"
-    data-yotpo-variant-id-selector="input[name='id']"
+
+<div class="yotpo-widget-instance"
+  data-yotpo-instance-id="843974"
+  data-yotpo-product-id="{{ product.id }}"
+  data-yotpo-product-variants="{{ product.variants | json | url_encode }}"
 ></div>
+
+<script>
+(function () {
+  let lastVariantId = null;
+
+  function refreshYotpoVariant() {
+    if (
+      !window.ShopifyAnalytics ||
+      !ShopifyAnalytics.meta ||
+      !ShopifyAnalytics.meta.selectedVariantId
+    ) return;
+
+    const variantId = ShopifyAnalytics.meta.selectedVariantId;
+    if (variantId === lastVariantId) return;
+
+    lastVariantId = variantId;
+
+    const widget = document.querySelector('.yotpo-widget-instance');
+    if (!widget) return;
+
+    widget.setAttribute('data-yotpo-variant-id', variantId);
+
+    if (window.yotpoWidgetsContainer) {
+      window.yotpoWidgetsContainer.refresh();
+    }
+  }
+
+  // Run on load
+  document.addEventListener('DOMContentLoaded', refreshYotpoVariant);
+
+  // Watch for Hammitt's JS-driven variant updates
+  setInterval(refreshYotpoVariant, 300);
+})();
+</script>
