@@ -641,17 +641,6 @@
       "mega-menu-1": {
         "type": "mega-menu-1",
         "blocks": {
-          "fe8f8a8f-f6af-45ed-84a4-6fc6b6ebb111": {
-            "type": "column",
-            "settings": {
-              "image_ratio": "default",
-              "image_caption": "",
-              "image_link": "",
-              "submenu_reference": "menu",
-              "menu": "silhouettes",
-              "show_heading": true
-            }
-          },
           "645e1e82-5d24-4546-a2ef-269314265222": {
             "type": "column",
             "settings": {
@@ -660,6 +649,17 @@
               "image_link": "",
               "submenu_reference": "menu",
               "menu": "categories",
+              "show_heading": true
+            }
+          },
+          "fe8f8a8f-f6af-45ed-84a4-6fc6b6ebb111": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "silhouettes",
               "show_heading": true
             }
           },
@@ -705,8 +705,8 @@
           }
         },
         "block_order": [
-          "fe8f8a8f-f6af-45ed-84a4-6fc6b6ebb111",
           "645e1e82-5d24-4546-a2ef-269314265222",
+          "fe8f8a8f-f6af-45ed-84a4-6fc6b6ebb111",
           "5c68e212-1635-4d0c-9ee3-090bf539fed0",
           "5756ebe0-ea7a-4159-93dd-aee128363f04",
           "image_gY6exJ",
@@ -880,7 +880,7 @@
             "settings": {
               "image": "shopify://shop_images/Rectangle_3.jpg",
               "image_ratio": "portrait",
-              "image_caption": "Rivette Club",
+              "image_caption": "The Rivett Club",
               "image_link": "https://www.hammitt.com/pages/loyalty"
             }
           },
