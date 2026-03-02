@@ -117,6 +117,16 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_CwR3it": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Free Shipping on orders $250+",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/best-selling-bags"
+            }
+          },
           "announcement_Yd7Xnr": {
             "type": "announcement",
             "disabled": true,
@@ -144,23 +154,13 @@
               "background_color": "#000000",
               "link": "shopify://collections/new-arrivals"
             }
-          },
-          "announcement_CwR3it": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "Free Shipping on All Orders",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://collections/best-selling-bags"
-            }
           }
         },
         "block_order": [
+          "announcement_CwR3it",
           "announcement_Yd7Xnr",
           "announcement_rWU3KJ",
-          "announcement_a4yGWJ",
-          "announcement_CwR3it"
+          "announcement_a4yGWJ"
         ],
         "custom_css": [],
         "settings": {
