@@ -95,25 +95,24 @@
     "image_banner_hMApH8": {
       "type": "image-banner",
       "blocks": {
+        "text_9abRa9": {
+          "type": "text",
+          "settings": {
+            "text": "Travel Ready",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
         "heading_tMgi48": {
           "type": "heading",
           "settings": {
-            "heading": "The Heiress Collection for Travel",
+            "heading": "The Heiress Collection",
             "heading_size_mobile": 36,
             "heading_size_tablet": 40,
             "heading_size_desktop": 60
-          }
-        },
-        "text_ELVG39": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "The perfect slouch, in three sizes.",
-            "text_area_html_swap": "",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 13,
-            "text_size_desktop": 14
           }
         },
         "buttons_cwdUxP": {
@@ -126,8 +125,8 @@
         }
       },
       "block_order": [
+        "text_9abRa9",
         "heading_tMgi48",
-        "text_ELVG39",
         "buttons_cwdUxP"
       ],
       "name": "travel",
@@ -268,25 +267,6 @@
             "hide_quick_add": false
           }
         },
-        "image_carousel_item_PPdUzN": {
-          "type": "image-carousel-item",
-          "name": "Calla",
-          "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_11_102afc7a-ff65-481f-8290-0baf4ce168fb.jpg",
-            "eyebrow": "Back In bloom",
-            "title": "Calla Lily White Raffia",
-            "subcopy": "Your favorite seasonal leather is back, now with NEW bags added to the collection.",
-            "button_text": "SHOP CALLA LILY WHITE",
-            "collection_url": "calla-lily-white-raffia-1",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "image_ratio": "square",
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
         "image_carousel_item_3kt837": {
           "type": "image-carousel-item",
           "name": "Toasty",
@@ -325,9 +305,29 @@
             "hide_quick_add": false
           }
         },
+        "image_carousel_item_PPdUzN": {
+          "type": "image-carousel-item",
+          "name": "Calla",
+          "settings": {
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_11_102afc7a-ff65-481f-8290-0baf4ce168fb.jpg",
+            "eyebrow": "Back In bloom",
+            "title": "Calla Lily White Raffia",
+            "subcopy": "Your favorite seasonal leather is back, now with NEW bags added to the collection.",
+            "button_text": "SHOP CALLA LILY WHITE",
+            "collection_url": "calla-lily-white-raffia-1",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "image_ratio": "square",
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
         "image_carousel_item_by7dVy": {
           "type": "image-carousel-item",
           "name": "Mahogany",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_1_fd9945c6-5fec-45fc-94f0-db5ee4909111.jpg",
             "eyebrow": "Our Most Versatile Brown",
@@ -347,6 +347,7 @@
         "image_carousel_item_9fiUmG": {
           "type": "image-carousel-item",
           "name": "Western",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Rectangle_1040.jpg",
             "eyebrow": "Saddle Up",
@@ -366,6 +367,7 @@
         "image_carousel_item_yL6XYf": {
           "type": "image-carousel-item",
           "name": "Deep Water",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Rectangle_795_6a67d4f4-bb3a-4024-89e7-a31cf93fe993.jpg",
             "eyebrow": "Make a Splash",
@@ -385,6 +387,7 @@
         "image_carousel_item_gD6dUK": {
           "type": "image-carousel-item",
           "name": "Stormy",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Rectangle_796_b75483ed-4450-4212-9f5d-3d53d8246b9e.jpg",
             "eyebrow": "Perfectly Polished",
@@ -406,9 +409,9 @@
         "image_carousel_item_hDqCRg",
         "image_carousel_item_i9fMeg",
         "image_carousel_item_9imwXj",
-        "image_carousel_item_PPdUzN",
         "image_carousel_item_3kt837",
         "image_carousel_item_fMrt4V",
+        "image_carousel_item_PPdUzN",
         "image_carousel_item_by7dVy",
         "image_carousel_item_9fiUmG",
         "image_carousel_item_yL6XYf",
