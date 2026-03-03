@@ -19,7 +19,7 @@ endfor
            data-dropdown="{{ section.settings.parent | handleize }}" 
            data-parent="{{ section.settings.parent | escape }}" 
            style="background-color: {{ section.settings.background_color }};">
-        <div class="dropdown menu text-left page-width mega-menu-{{ section.id }}">
+        <div class="dropdown menu text-left page-width mega-menu-{{ section.id }} mega-menu-no-index">
           <div class="dropdown_content {% if section.blocks < 4 %}dropdown_narrow{% endif %} flex justify-center {{ section.id | handle }}">
             {% for block in section.blocks %}
             
@@ -32,10 +32,8 @@ endfor
               {% if block.type == 'image' %}
                 {% if block.settings.image != nil or block.settings.image_caption != blank %}
                 <div class="mega-menu__image-caption-link relative">
-                  <a href="/collections/travel" data-acsb-clickable="true" data-acsb-navigable="true" data-acsbnow-navigable="true"><span class="visually-hidden acsb-sr-only" aria-hidden="false" dataacsb-hidden="false" data-acsb-sr-only="true" data-acsb-force-visible="true">Vacation
-Bound</span></a>
-                  <a href="/collections/core" data-acsb-clickable="true" data-acsb-navigable="true" data-acsbnow-navigable="true"><span class="visually-hidden acsb-sr-only" aria-hidden="false" dataacsb-hidden="false" data-acsb-sr-only="true" data-acsb-force-visible="true">Buy Now, Pay
-Later with Affirm</span></a>
+                  <a href="/collections/travel" data-acsb-clickable="true" data-acsb-navigable="true" data-acsbnow-navigable="true"><span class="visually-hidden acsb-sr-only" aria-hidden="false" dataacsb-hidden="false" data-acsb-sr-only="true" data-acsb-force-visible="true">Vacation Bound</span></a>
+                  <a href="/collections/core" data-acsb-clickable="true" data-acsb-navigable="true" data-acsbnow-navigable="true"><span class="visually-hidden acsb-sr-only" aria-hidden="false" dataacsb-hidden="false" data-acsb-sr-only="true" data-acsb-force-visible="true">Buy Now, Pay Later with Affirm</span></a>
                   <a {% if block.settings.image_link != blank %}href="{{ block.settings.image_link }}"{% endif %} >
                     <span class="visually-hidden">{{ block.settings.image_caption }}</span>
                     {% if block.settings.image != nil %}
@@ -74,6 +72,17 @@ Later with Affirm</span></a>
                     </li>
                     {% endfor %}
                   </ul>
+                    {% comment %} secondary menu underneath menu {% endcomment %}
+                    {% if block.settings.submenu_menu != blank %}
+                        <strong style="font-size: 14px; letter-spacing: 0.03em" class="display-block menu__margin-custom">{{ linklists[block.settings.submenu_menu].title | upcase }}</strong>
+                       <ul class="list-unstyled">
+                        {% for sublink in linklists[block.settings.submenu_menu].links %}
+                            <li>
+                                <a class="list-menu__item link link--text" href="{{ sublink.url }}">{{ sublink.title }}</a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
                   {% endif %}
                   
                   

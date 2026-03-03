@@ -361,10 +361,10 @@
           "logo_width": 120,
           "logo__mobile_width": 100,
           "logo_position": "middle-center",
-          "menu": "new-menu-23",
+          "menu": "main-menu-feb-2026",
           "menu_mobile": "mobile-menu",
           "menu_under_visual_menu": "visual-nav-drop-downs",
-          "wishlist_page": "shopify://pages/my-wishlist",
+          "wishlist_page": "shopify://pages/recently-viewed-and-hammitt-wishlist",
           "recently_viewed_page": "",
           "show_line_separator": false,
           "transparent_homepage": false,
@@ -632,17 +632,6 @@
       "mega-menu-1": {
         "type": "mega-menu-1",
         "blocks": {
-          "fe8f8a8f-f6af-45ed-84a4-6fc6b6ebb111": {
-            "type": "column",
-            "settings": {
-              "image_ratio": "default",
-              "image_caption": "",
-              "image_link": "",
-              "submenu_reference": "menu",
-              "menu": "by-collection",
-              "show_heading": true
-            }
-          },
           "645e1e82-5d24-4546-a2ef-269314265222": {
             "type": "column",
             "settings": {
@@ -651,7 +640,20 @@
               "image_link": "",
               "submenu_reference": "menu",
               "menu": "categories",
-              "show_heading": true
+              "show_heading": true,
+              "submenu_menu": ""
+            }
+          },
+          "fe8f8a8f-f6af-45ed-84a4-6fc6b6ebb111": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "silhouettes",
+              "show_heading": true,
+              "submenu_menu": ""
             }
           },
           "5c68e212-1635-4d0c-9ee3-090bf539fed0": {
@@ -661,8 +663,9 @@
               "image_caption": "",
               "image_link": "",
               "submenu_reference": "menu",
-              "menu": "by-occasion",
-              "show_heading": true
+              "menu": "hardware",
+              "show_heading": true,
+              "submenu_menu": "hardware-1"
             }
           },
           "5756ebe0-ea7a-4159-93dd-aee128363f04": {
@@ -672,8 +675,9 @@
               "image_caption": "",
               "image_link": "",
               "submenu_reference": "menu",
-              "menu": "more",
-              "show_heading": true
+              "menu": "by-occasion",
+              "show_heading": true,
+              "submenu_menu": ""
             }
           },
           "image_gY6exJ": {
@@ -690,24 +694,25 @@
             "settings": {
               "image": "shopify://shop_images/ERICA_Toasty-Sand_08_CROQUET_4583.jpg",
               "image_ratio": "portrait",
-              "image_caption": "Trending Now",
+              "image_caption": "Bestsellers",
               "image_link": "shopify://collections/best-selling-bags"
             }
           }
         },
         "block_order": [
-          "fe8f8a8f-f6af-45ed-84a4-6fc6b6ebb111",
           "645e1e82-5d24-4546-a2ef-269314265222",
+          "fe8f8a8f-f6af-45ed-84a4-6fc6b6ebb111",
           "5c68e212-1635-4d0c-9ee3-090bf539fed0",
           "5756ebe0-ea7a-4159-93dd-aee128363f04",
           "image_gY6exJ",
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f"
         ],
         "settings": {
-          "parent": "Shop Bags + More",
+          "enable_mega_menu": true,
+          "parent": "Shop",
           "background_color": "#ffffff",
           "padding_top": 15,
-          "padding_bottom": 51,
+          "padding_bottom": 50,
           "max_width": 1280
         }
       },
@@ -767,6 +772,151 @@
           "invert_colors": true,
           "enable_sticky_header": true,
           "margin_bottom": 0
+        }
+      },
+      "mega-menu-2": {
+        "type": "mega-menu-2",
+        "blocks": {
+          "column_yreUH8": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "Colorway",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "colorway",
+              "show_heading": true,
+              "submenu_menu": ""
+            }
+          },
+          "column_MAc877": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "Trending",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "trending",
+              "show_heading": true,
+              "submenu_menu": ""
+            }
+          },
+          "column_pXrdtx": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "Featured",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "featured",
+              "show_heading": true,
+              "submenu_menu": ""
+            }
+          },
+          "image_PGqUNy": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/Rectangle_1-1.jpg",
+              "image_ratio": "portrait",
+              "image_caption": "Trending",
+              "image_link": "shopify://collections/trending"
+            }
+          },
+          "image_897X3e": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/Rectangle_2-1.jpg",
+              "image_ratio": "portrait",
+              "image_caption": "Complete the Look",
+              "image_link": "shopify://collections/accessories-view-all"
+            }
+          }
+        },
+        "block_order": [
+          "column_yreUH8",
+          "column_MAc877",
+          "column_pXrdtx",
+          "image_PGqUNy",
+          "image_897X3e"
+        ],
+        "settings": {
+          "enable_mega_menu": false,
+          "parent": "Collection",
+          "background_color": "#ffffff",
+          "padding_top": 15,
+          "padding_bottom": 50,
+          "max_width": 1280
+        }
+      },
+      "mega-menu-3": {
+        "type": "mega-menu-3",
+        "blocks": {
+          "column_ycq4Y7": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "about",
+              "show_heading": true,
+              "submenu_menu": ""
+            }
+          },
+          "column_FtHDCH": {
+            "type": "column",
+            "settings": {
+              "image_ratio": "default",
+              "image_caption": "",
+              "image_link": "",
+              "submenu_reference": "menu",
+              "menu": "community",
+              "show_heading": true,
+              "submenu_menu": ""
+            }
+          },
+          "image_dXtgTc": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/Rectangle_3.jpg",
+              "image_ratio": "portrait",
+              "image_caption": "The Rivett Club",
+              "image_link": "https://www.hammitt.com/pages/loyalty"
+            }
+          },
+          "image_4WdaeP": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/IMG_9486.jpg",
+              "image_ratio": "portrait",
+              "image_caption": "As Seen On",
+              "image_link": "https://www.hammitt.com/pages/celebrity-hammitt-bags"
+            }
+          },
+          "image_zQyYdA": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/Rectangle_2_fb916f80-9cf3-4777-ad6d-1c45cfd73ee3.jpg",
+              "image_ratio": "portrait",
+              "image_caption": "Our Stores",
+              "image_link": "https://www.hammitt.com/pages/our-stores"
+            }
+          }
+        },
+        "block_order": [
+          "column_ycq4Y7",
+          "column_FtHDCH",
+          "image_dXtgTc",
+          "image_4WdaeP",
+          "image_zQyYdA"
+        ],
+        "settings": {
+          "enable_mega_menu": true,
+          "parent": "Explore",
+          "background_color": "#ffffff",
+          "padding_top": 15,
+          "padding_bottom": 50,
+          "max_width": 1280
         }
       }
     },
