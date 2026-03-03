@@ -117,6 +117,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_rWU3KJ": {
+            "type": "announcement",
+            "settings": {
+              "text": "The March Drop has arrived",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/new-arrivals"
+            }
+          },
           "announcement_CwR3it": {
             "type": "announcement",
             "settings": {
@@ -135,16 +144,6 @@
               "link": "https://www.hammitt.com/pages/loyalty"
             }
           },
-          "announcement_rWU3KJ": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "Beverly is a hit! Shop it before it sells out.",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://collections/beverly"
-            }
-          },
           "announcement_a4yGWJ": {
             "type": "announcement",
             "disabled": true,
@@ -157,9 +156,9 @@
           }
         },
         "block_order": [
+          "announcement_rWU3KJ",
           "announcement_CwR3it",
           "announcement_Yd7Xnr",
-          "announcement_rWU3KJ",
           "announcement_a4yGWJ"
         ],
         "custom_css": [],
