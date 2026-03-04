@@ -117,6 +117,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_eRcyND": {
+            "type": "announcement",
+            "settings": {
+              "text": "Rivett Club Members enjoy Free Shipping on All Orders",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": ""
+            }
+          },
           "announcement_rWU3KJ": {
             "type": "announcement",
             "settings": {
@@ -158,6 +167,7 @@
           }
         },
         "block_order": [
+          "announcement_eRcyND",
           "announcement_rWU3KJ",
           "announcement_CwR3it",
           "announcement_Yd7Xnr",
