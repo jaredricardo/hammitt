@@ -252,6 +252,8 @@
 
             if(!targetContainer || !searchTerm) return
 
+            if(document.body.classList.contains('shopify-search-test-variant')) return
+
             let searchObj = {
                 query: searchTerm, 
                 options: {
