@@ -52,7 +52,8 @@ class PredictiveSearch extends HTMLElement {
       document.querySelector('.initial-search-modal-content .recent-or-trending-products ul').appendChild(tempLi)
     }
 
-    const results = await xg.search.getResults({
+    // Fetch X-Gen results
+    const xGenResults = await xg.search.getResults({
       query: searchTerm, 
       options: {
         collection: 'default', 
@@ -60,10 +61,33 @@ class PredictiveSearch extends HTMLElement {
       }
     })    
 
-    buildXGenSearchResultsForSearchHeader(results, searchTerm)
+    // Fetch Shopify predictive search results
+    const shopifyResults = await this.getShopifySearchResults(searchTerm)
+
+    buildCombinedSearchResults(xGenResults, shopifyResults, searchTerm)
 
     //  old get search results method turned off for now
     // this.getSearchResults(searchTerm);
+  }
+
+  async getShopifySearchResults(searchTerm) {
+    try {
+      const response = await fetch(window.Shopify.routes.root + `search/suggest.json?q=${encodeURIComponent(searchTerm)}&resources[type]=product&resources[limit]=4&resources[options][unavailable_products]=hide&resources[options][fields]=title,product_type,variants.title`)
+      
+      if (!response.ok) {
+        console.error(`Shopify API returned status: ${response.status}`)  
+        const errorText = await response.text()
+        console.error('Error response:', errorText)
+        throw new Error(`Shopify API error: ${response.status}`)
+      }
+
+      const jsonResponse = await response.json()
+      
+      return jsonResponse
+    } catch (error) {
+      console.error('Error fetching Shopify predictive search results:', error)
+      return null
+    }
   }
 
   onFormSubmit(event) {
@@ -385,4 +409,187 @@ function buildRedirectCard(targetContainer, response, searchTerm){
   targetContainer.appendChild(simplePageResultCard)
 }
 
+function buildXGenSearchResults(xGenResponse, searchTerm) {
+  // Check if Shopify variant is active - if so, skip X-Gen results
+  if(document.body.classList.contains('shopify-search-test-variant')) {
+    return
+  }
+
+  const targetContainer = document.querySelector('.initial-search-modal-content .recent-or-trending-products ul')
+  const deploymentId = 'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
+
+  if(!targetContainer) return
+
+  // Get X-Gen results (first 4)
+  const xGenResults = xGenResponse.items || []
+
+  // Build redirect card if exists
+  if(xGenResponse.urlRedirect) {
+    buildRedirectCard(targetContainer, xGenResponse, searchTerm)
+  }
+
+  // Build X-Gen product cards (first 4)
+  xGenResults.slice(0, 4).forEach((result, i) => {
+    let formattedProductTitle = result.prod_name
+    let productSize = result.metafields?.hammitt?.size || null
+    let productColorDescriptor = result.metafields?.custom?.product_title_color_descriptor || null
+    let productTitleType = result.metafields?.custom?.product_title_type || null
+    let useDescriptor = false
+
+    if(productColorDescriptor !== null && productTitleType !== null) {
+      let finalSizeString = ''  
+
+      switch(productSize) {
+        case 'Small':
+          finalSizeString = 'sml'
+          break
+        case 'Medium':
+          finalSizeString = "med"
+          break
+        case 'Large':
+          finalSizeString = "lrg"
+          break
+        case 'Extra Large':
+          finalSizeString = "xl"
+          break
+        case 'One Size':
+          finalSizeString = ""
+          break
+        default:
+          finalSizeString = ""
+      }
+      formattedProductTitle = `${productTitleType} ${finalSizeString}`
+      useDescriptor = true   
+    }
+
+    const simpleProductCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
+
+    simpleProductCard.querySelector('.card-image img').src = result.featured_image.src
+    simpleProductCard.querySelector('.card-image img').alt = result.prod_name
+    simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
+
+    if(useDescriptor) {
+      simpleProductCard.querySelector('.product-color').innerText = productColorDescriptor
+    }
+
+    simpleProductCard.querySelector('a').href = result.product_url
+
+    // add data for searchClick method for analytics
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-query', searchTerm)
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-query-id', xGenResponse.queryId)
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-deployment-id', deploymentId)
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-item', result.prod_code)
+
+    simpleProductCard.classList.remove('inactive')
+    simpleProductCard.classList.add('x-gen-search-result')
+    targetContainer.appendChild(simpleProductCard)
+  })
+}
+
+function buildShopifySearchResults(shopifyResponse, searchTerm) {
+  // Check if Shopify variant is active - if not, skip Shopify results
+  if(!document.body.classList.contains('shopify-search-test-variant')) {
+    return
+  }
+
+  const targetContainer = document.querySelector('.initial-search-modal-content .recent-or-trending-products ul')
+
+  if(!targetContainer) return
+
+  // Get Shopify results (first 4)
+  const shopifyResults = shopifyResponse?.resources?.results?.products || []
+
+  // Build Shopify product cards (first 4)
+  shopifyResults.slice(0, 4).forEach((product, i) => {
+    const simpleProductCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
+
+    simpleProductCard.querySelector('.card-image img').src = product.featured_image?.url || product.image
+    simpleProductCard.querySelector('.card-image img').alt = product.title
+    simpleProductCard.querySelector('.product-title').innerText = product.title
+
+    // Shopify products don't have color descriptor in this response
+    if(simpleProductCard.querySelector('.product-color')) {
+      simpleProductCard.querySelector('.product-color').innerText = ''
+    }
+
+    simpleProductCard.querySelector('a').href = product.url
+
+    // Remove X-Gen specific attributes for Shopify results
+    if(simpleProductCard.querySelector('x-gen-search-result')) {
+      simpleProductCard.querySelector('x-gen-search-result').removeAttribute('data-query')
+      simpleProductCard.querySelector('x-gen-search-result').removeAttribute('data-query-id')
+      simpleProductCard.querySelector('x-gen-search-result').removeAttribute('data-deployment-id')
+      simpleProductCard.querySelector('x-gen-search-result').removeAttribute('data-item')
+    }
+
+    simpleProductCard.classList.remove('inactive')
+    simpleProductCard.classList.add('shopify-search-result')
+    targetContainer.appendChild(simpleProductCard)
+  })
+}
+
+function buildCombinedSearchResults(xGenResponse, shopifyResponse, searchTerm) {
+  const targetContainer = document.querySelector('.initial-search-modal-content .recent-or-trending-products ul')
+  const recentOrTrendingHeader = document.querySelector('.initial-search-modal-content .recent-or-trending-products h4')
+  const linkToAllQueryResults = document.querySelector('.initial-search-modal-content .rot-header-container a')
+  const noResults = document.querySelector('.number-of-x-gen-results')
+
+  if(!targetContainer) return
+
+  // Hide default suggested products
+  targetContainer.querySelectorAll('li').forEach((li) =>{
+    if(li.classList.contains('trending-now-product')) {
+      li.classList.add('hidden')
+    } else {
+      li.remove()
+    }
+  })
+  
+  recentOrTrendingHeader.innerText = 'Top Products'
+
+  // Get results counts
+  const xGenResults = xGenResponse.items || []
+  const shopifyResults = shopifyResponse?.resources?.results?.products || []
+
+  // Check if we have any results
+  if(xGenResults.length === 0 && shopifyResults.length === 0 && !xGenResponse.urlRedirect) {
+    noResults.classList.remove('inactive')
+    noResults.innerText = 'No results found'
+    if(searchTerm.length === 0 ) {
+      noResults.classList.add('inactive')
+    }
+    if(document.querySelector('.predictive-search-spinner')) {
+      document.querySelector('.predictive-search-spinner').remove()
+    }
+    document.querySelectorAll('.trending-now-product').forEach((li) => {
+      li.classList.remove('hidden')
+    })
+    return
+  }
+
+  // Build X-Gen results
+  buildXGenSearchResults(xGenResponse, searchTerm)
+
+  // Build Shopify results
+  buildShopifySearchResults(shopifyResponse, searchTerm)
+
+  // Update "View All" link
+  const totalResults = xGenResults.length + shopifyResults.length
+  if(totalResults > 8) {
+    linkToAllQueryResults.classList.remove('inactive')
+    linkToAllQueryResults.href = `/search?q=${searchTerm}&type=product`
+    linkToAllQueryResults.innerText = `View All (${totalResults})`
+  } else {
+    linkToAllQueryResults.classList.add('inactive')
+  }
+
+  // Remove spinner
+  if(document.querySelector('.predictive-search-spinner')) {
+    document.querySelector('.predictive-search-spinner').remove()
+  }
+}
+
 window.buildRedirectCard = buildRedirectCard
+window.buildXGenSearchResults = buildXGenSearchResults
+window.buildShopifySearchResults = buildShopifySearchResults
+window.buildCombinedSearchResults = buildCombinedSearchResults

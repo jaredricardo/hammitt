@@ -1,0 +1,16 @@
+body.shopify-search-test-variant #x-gen-search-results-container {
+    display: none !important;
+}
+
+body.shopify-search-test-variant .native-shopify-search-results {
+    display: block;
+}
+
+.search-page-filters.filter-sort-button-container {
+    /* hiding for purpose of making test equal */
+    display: none !important;
+}
+
+body.shopify-search-test-variant:has(#x-gen-search-results-container) {
+    opacity: 1 !important;
+}
