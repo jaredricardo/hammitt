@@ -48,14 +48,37 @@ if (localStorage.getItem("target") !== null) {
 } 
 
 const loadNextPage = (url) => {
+  console.log('/////// loading next')
   fetch(url)
     .then(response => response.text())
     .then(html => {
       const doc = new DOMParser().parseFromString(html, 'text/html');
-      const productGrid = document.querySelector('.product-grid');
-      doc.querySelectorAll('.product-grid .grid__item').forEach(gridItem => {
+      
+      // Check if we're using Shopify search results or X-Gen search results
+      const isShopifySearch = document.body.classList.contains('shopify-search-test-variant');
+      
+      let productGrid;
+      if (isShopifySearch) {
+        // For Shopify native search, use #product-grid
+        productGrid = document.querySelector('#product-grid');
+      } else {
+        // For X-Gen search, use #ProductGridContainerXGen
+        productGrid = document.querySelector('#ProductGridContainerXGen');
+      }
+      
+      if (!productGrid) {
+        console.error('Product grid not found');
+        return;
+      }
+      
+      const newGridItems = isShopifySearch 
+        ? doc.querySelectorAll('#product-grid .grid__item')
+        : doc.querySelectorAll('#ProductGridContainerXGen .grid__item');
+        
+      newGridItems.forEach(gridItem => {
         productGrid.appendChild(gridItem);
       });
+      
       const pagination = document.querySelector('.pagination-wrapper');
       const newPagination = doc.querySelector('.pagination-wrapper');
       if (pagination && newPagination) {
@@ -68,6 +91,7 @@ const loadNextPage = (url) => {
 }
 
 const infiniteScroll = () => {
+  console.log('/////// checking for next page')
   let nextButton = document.querySelector('.pagination__item[aria-label="Next page"]');
   const loader = document.getElementById('loader');
 
