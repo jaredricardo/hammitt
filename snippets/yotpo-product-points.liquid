@@ -5,37 +5,3 @@
   data-yotpo-product-id="{{ product.id }}"
   data-yotpo-product-variants="{{ product.variants | json | url_encode }}"
 ></div>
-
-<script>
-(function () {
-  let lastVariantId = null;
-
-  function refreshYotpoVariant() {
-    if (
-      !window.ShopifyAnalytics ||
-      !ShopifyAnalytics.meta ||
-      !ShopifyAnalytics.meta.selectedVariantId
-    ) return;
-
-    const variantId = ShopifyAnalytics.meta.selectedVariantId;
-    if (variantId === lastVariantId) return;
-
-    lastVariantId = variantId;
-
-    const widget = document.querySelector('.yotpo-widget-instance');
-    if (!widget) return;
-
-    widget.setAttribute('data-yotpo-variant-id', variantId);
-
-    if (window.yotpoWidgetsContainer) {
-      window.yotpoWidgetsContainer.refresh();
-    }
-  }
-
-  // Run on load
-  document.addEventListener('DOMContentLoaded', refreshYotpoVariant);
-
-  // Watch for Hammitt's JS-driven variant updates
-  setInterval(refreshYotpoVariant, 300);
-})();
-</script>
