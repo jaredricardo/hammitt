@@ -6,7 +6,7 @@
 
 {%- comment -%}
   Check if there's a free shipping tier AND customer is logged in
-  If so, we'll inject a manual $1 threshold tier at position 0
+  If so, we'll handle member tier manually (don't rebuild array)
 {%- endcomment -%}
 {% assign has_free_shipping_tier = false %}
 {% for tier in gwp_tiers %}
@@ -17,32 +17,7 @@
   {% endif %}
 {% endfor %}
 
-{%- comment -%}
-  Build new gwp_tiers array with manual $1 tier for logged-in customers
-{%- endcomment -%}
 {% if customer and has_free_shipping_tier %}
-  {% assign gwp_tiers_with_member = '' | split: '' %}
-  
-  {%- comment -%}
-    Create a mock tier object for $1 free shipping (Rivet Club members)
-    This will always be first in the tier list
-  {%- endcomment -%}
-  {% assign member_tier = '' %}
-  {% assign member_tier_hash = '{"threshold":1,"is_free_shipping":true,"is_member_tier":true}' %}
-  
-  {%- comment -%}
-    Add member tier first, then add all other tiers EXCEPT the original free shipping tier
-  {%- endcomment -%}
-  {% for tier in gwp_tiers %}
-    {% unless tier.settings.gwp_tier_is_free_shipping %}
-      {% assign gwp_tiers_with_member = gwp_tiers_with_member | concat: tier %}
-    {% endunless %}
-  {% endfor %}
-  
-  {%- comment -%}
-    We'll handle the member tier manually in the tier loop below
-  {%- endcomment -%}
-  {% assign gwp_tiers = gwp_tiers_with_member %}
   {% assign use_member_tier = true %}
 {% else %}
   {% assign use_member_tier = false %}
@@ -157,9 +132,14 @@
 {% endif %}
 
 {%- comment -%}
-  Now loop through remaining GWP tiers (product rewards only if member tier is active)
+  Now loop through remaining GWP tiers (skip free shipping tier if member tier is active)
 {%- endcomment -%}
 {% for tier in gwp_tiers %}
+  {%- comment -%} Skip free shipping tier if we're using member tier logic {%- endcomment -%}
+  {% if use_member_tier and tier.settings.gwp_tier_is_free_shipping %}
+    {% continue %}
+  {% endif %}
+  
   {% assign tier_threshold = tier.settings.gwp_tier_threshold %}
   
   {%- comment -%}
@@ -315,7 +295,7 @@
       </div>
     {%- endif -%}
     
-    {%- comment -%} Handle Member Tier Progress {%- endcomment -%}
+    {%- comment -%} Handle Next Tier Progress - Always show if next_tier exists {%- endcomment -%}
     {%- if next_tier_is_member -%}
       {%- comment -%} Show progress toward $1 member free shipping {%- endcomment -%}
       <div class="gwp-progress-bar-header gwp-tier-not-reached">
@@ -331,9 +311,14 @@
       <div class="gwp-progress-bar-header gwp-tier-not-reached">
         <span class="h7">
           {%- if next_tier.settings.gwp_tier_is_free_shipping -%}
-            You are <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> away from FREE shipping!
+            {% if customer %}
+                You get free shipping as a Rivett Club member
+              {% else %}
+                Free Shipping if you <a href="/account/register" style="font-size: 11px !important; color: inherit; text-decoration: underline; cursor: pointer; font-weight; 700;">Join Rivett Club</a> or spend <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> more!
+            {% endif %}
+            {% comment %} You are <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> away from FREE shipping! {% endcomment %}
           {%- else -%}
-            ADD <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> {{ next_tier.settings.gwp_tier_not_reached_message }}
+            ADD <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> {{ next_tier.settings.gwp_tier_not_reached_message }} 
             {% if next_tier.settings.gwp_tier_alternate_reward_title != blank %}
               {% assign reward_title = next_tier.settings.gwp_tier_alternate_reward_title %}
             {% elsif next_tier.settings.gwp_product %}
@@ -355,7 +340,7 @@
       <div class="progress-bar" style="--scale-x: {{ progress_percentage }}%;">
       </div>
     {%- elsif previous_tier or previous_tier_is_member -%}
-      {%- comment -%} All tiers reached, show full progress bar {%- endcomment -%}
+      {%- comment -%} All tiers reached, show full progress bar only if no next tier {%- endcomment -%}
       <div class="progress-bar" style="--scale-x: 100%;">
       </div>
     {%- endif -%}
