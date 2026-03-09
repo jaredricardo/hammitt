@@ -5,6 +5,25 @@
 {% assign gwp_tiers = section.blocks | where: 'type', 'gwp-tier' %}
 
 {%- comment -%}
+  Check if there's a free shipping tier AND customer is logged in
+  If so, we'll handle member tier manually (don't rebuild array)
+{%- endcomment -%}
+{% assign has_free_shipping_tier = false %}
+{% for tier in gwp_tiers %}
+  {% if tier.settings.gwp_tier_is_free_shipping %}
+    {% assign has_free_shipping_tier = true %}
+    {% assign free_shipping_tier_settings = tier.settings %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% if customer and has_free_shipping_tier %}
+  {% assign use_member_tier = true %}
+{% else %}
+  {% assign use_member_tier = false %}
+{% endif %}
+
+{%- comment -%}
   Calculate cart total EXCLUDING any GWP products
   This prevents circular logic where GWP pushes cart over threshold
 {%- endcomment -%}
@@ -84,13 +103,43 @@
 
 {%- comment -%}
   Find the current tier status using the appropriate cart total
+  If use_member_tier is true, manually check $1 threshold first
 {%- endcomment -%}
 {% assign previous_tier = null %}
 {% assign current_tier = null %}
 {% assign next_tier = null %}
 {% assign found_next_tier = false %}
 
+{%- comment -%}
+  MEMBER TIER: Check $1 threshold first for logged-in customers
+{%- endcomment -%}
+{% if use_member_tier %}
+  {% assign member_threshold = 1.0 %}
+  {% if cart_total_raw >= member_threshold %}
+    {%- comment -%}
+      Member has qualified for free shipping (cart >= $1)
+      Set previous_tier to member tier
+    {%- endcomment -%}
+    {% assign previous_tier_is_member = true %}
+    {% assign previous_tier = null %}
+  {% else %}
+    {%- comment -%}
+      Cart is empty or $0, member tier is next
+    {%- endcomment -%}
+    {% assign next_tier_is_member = true %}
+    {% assign found_next_tier = true %}
+  {% endif %}
+{% endif %}
+
+{%- comment -%}
+  Now loop through remaining GWP tiers (skip free shipping tier if member tier is active)
+{%- endcomment -%}
 {% for tier in gwp_tiers %}
+  {%- comment -%} Skip free shipping tier if we're using member tier logic {%- endcomment -%}
+  {% if use_member_tier and tier.settings.gwp_tier_is_free_shipping %}
+    {% continue %}
+  {% endif %}
+  
   {% assign tier_threshold = tier.settings.gwp_tier_threshold %}
   
   {%- comment -%}
@@ -104,8 +153,10 @@
   
   {% if comparison_total >= tier_threshold %}
     {% assign previous_tier = tier %}
+    {% assign previous_tier_is_member = false %}
   {% elsif found_next_tier == false %}
     {% assign next_tier = tier %}
+    {% assign next_tier_is_member = false %}
     {% assign found_next_tier = true %}
   {% endif %}
 {% endfor %}
@@ -118,7 +169,28 @@
 {% assign progress_percentage = 0 %}
 {% assign progress_start = 0 %}
 
-{% if next_tier %}
+{%- comment -%}
+  Handle member tier progress if it's the next tier
+{%- endcomment -%}
+{% if next_tier_is_member %}
+  {% assign next_threshold = 1.0 %}
+  {% assign current_cart_total = cart_total_raw %}
+  {% assign progress_start = 0 %}
+  
+  {% assign tier_range = next_threshold | minus: progress_start | times: 1.0 %}
+  {% assign progress_amount = current_cart_total | minus: progress_start %}
+  {% assign progress_percentage = progress_amount | times: 100.0 | divided_by: tier_range %}
+  
+  {% if progress_percentage > 100 %}
+    {% assign progress_percentage = 100 %}
+  {% elsif progress_percentage < 0 %}
+    {% assign progress_percentage = 0 %}
+  {% endif %}
+  
+  {% assign amount_remaining = next_threshold | minus: current_cart_total %}
+  {% assign amount_remaining_in_cents = amount_remaining | times: 100 %}
+  
+{% elsif next_tier %}
   {% assign next_threshold = next_tier.settings.gwp_tier_threshold %}
   
   {%- comment -%}
@@ -130,7 +202,12 @@
     {% assign current_cart_total = cart_total_for_products %}
   {% endif %}
   
-  {% if previous_tier %}
+  {%- comment -%}
+    If member tier was previous, start progress from $1
+  {%- endcomment -%}
+  {% if previous_tier_is_member %}
+    {% assign progress_start = 1.0 %}
+  {% elsif previous_tier %}
     {% assign progress_start = previous_tier.settings.gwp_tier_threshold %}
   {% endif %}
   
@@ -146,7 +223,7 @@
   
   {% assign amount_remaining = next_threshold | minus: current_cart_total %}
   {% assign amount_remaining_in_cents = amount_remaining | times: 100 %}
-{% elsif previous_tier %}
+{% elsif previous_tier or previous_tier_is_member %}
   {% comment %} All tiers reached, set to 100% {% endcomment %}
   {% assign progress_percentage = 100 %}
 {% endif %}
@@ -179,28 +256,19 @@
 ]
 {% endcapture %}
 
-{%- comment -%}
-  Calculate Progress Bar B values (hardcoded $250 threshold for AB test)
-{%- endcomment -%}
-{%- assign threshold_b = 250.00 -%}
-{%- assign cart_total_b = cart.total_price | divided_by: 100.0 -%}
-{%- assign amount_remaining_b = threshold_b | minus: cart_total_b -%}
-{%- assign progress_percentage_b = 0 -%}
-
-{%- if cart_total_b >= threshold_b -%}
-  {%- assign progress_percentage_b = 100 -%}
-  {%- assign amount_remaining_b = 0 -%}
-{%- elsif cart_total_b > 0 -%}
-  {%- assign progress_percentage_b = cart_total_b | divided_by: threshold_b | times: 100 -%}
-{%- endif -%}
-
-{%- assign amount_remaining_in_cents_b = amount_remaining_b | times: 100 | round -%}
-
 <div class="progress-bar-container {% if cart.item_count == 0 %} hidden {% endif %}" data-gwp-tiers='{{ gwp_tiers_data | strip_newlines | strip }}'>
   
   {%- comment -%} PROGRESS BAR A - Dynamic GWP Tiers (Control) {%- endcomment -%}
   <div class="progress-bar-wrapper-a">
-    {%- if previous_tier -%}
+    {%- comment -%} Handle Member Tier (Logged-in customer with free shipping) {%- endcomment -%}
+    {%- if previous_tier_is_member -%}
+      {%- comment -%} Show success message for member free shipping {%- endcomment -%}
+      <div class="gwp-progress-bar-header gwp-tier-success">
+        <span class="h7">
+          You get free shipping as a Rivett Club member
+        </span>
+      </div>
+    {%- elsif previous_tier -%}
       {%- comment -%} Show success message for the previous tier {%- endcomment -%}
       <div class="gwp-progress-bar-header gwp-tier-success">
         <span class="h7">
@@ -227,14 +295,30 @@
       </div>
     {%- endif -%}
     
-    {%- if next_tier -%}
+    {%- comment -%} Handle Next Tier Progress - Always show if next_tier exists {%- endcomment -%}
+    {%- if next_tier_is_member -%}
+      {%- comment -%} Show progress toward $1 member free shipping {%- endcomment -%}
+      <div class="gwp-progress-bar-header gwp-tier-not-reached">
+        <span class="h7">
+          You are <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> away from FREE shipping!
+        </span>
+      </div>
+      
+      <div class="progress-bar" style="--scale-x: {{ progress_percentage }}%;">
+      </div>
+    {%- elsif next_tier -%}
       {%- comment -%} Show progress toward next tier {%- endcomment -%}
       <div class="gwp-progress-bar-header gwp-tier-not-reached">
         <span class="h7">
           {%- if next_tier.settings.gwp_tier_is_free_shipping -%}
-            You are <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> away from FREE shipping!
+            {% if customer %}
+                You get free shipping as a Rivett Club member
+              {% else %}
+                Free Shipping if you <a href="/account/register" style="font-size: 11px !important; color: inherit; text-decoration: underline; cursor: pointer; font-weight; 700;">Join Rivett Club</a> or spend <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> more!
+            {% endif %}
+            {% comment %} You are <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> away from FREE shipping! {% endcomment %}
           {%- else -%}
-            ADD <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> {{ next_tier.settings.gwp_tier_not_reached_message }}
+            ADD <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> {{ next_tier.settings.gwp_tier_not_reached_message }} 
             {% if next_tier.settings.gwp_tier_alternate_reward_title != blank %}
               {% assign reward_title = next_tier.settings.gwp_tier_alternate_reward_title %}
             {% elsif next_tier.settings.gwp_product %}
@@ -255,32 +339,9 @@
       
       <div class="progress-bar" style="--scale-x: {{ progress_percentage }}%;">
       </div>
-    {%- elsif previous_tier -%}
-      {%- comment -%} All tiers reached, show full progress bar {%- endcomment -%}
+    {%- elsif previous_tier or previous_tier_is_member -%}
+      {%- comment -%} All tiers reached, show full progress bar only if no next tier {%- endcomment -%}
       <div class="progress-bar" style="--scale-x: 100%;">
-      </div>
-    {%- endif -%}
-  </div>
-
-  {%- comment -%} PROGRESS BAR B - Hardcoded $250 Threshold (AB Test Variant) {%- endcomment -%}
-  <div class="progress-bar-wrapper-b">
-    {%- if amount_remaining_b <= 0 -%}
-      {%- comment -%} Threshold reached - show success message {%- endcomment -%}
-      <div class="gwp-progress-bar-header gwp-tier-success">
-        <span class="h7">
-          You've qualified for FREE shipping!
-        </span>
-      </div>
-      <div class="progress-bar" style="--scale-x: 100%;">
-      </div>
-    {%- else -%}
-      {%- comment -%} Show progress toward threshold {%- endcomment -%}
-      <div class="gwp-progress-bar-header gwp-tier-not-reached">
-        <span class="h7">
-          You are <strong>{{ amount_remaining_in_cents_b | money_without_trailing_zeros }}</strong> away from FREE shipping!
-        </span>
-      </div>
-      <div class="progress-bar" style="--scale-x: {{ progress_percentage_b }}%;">
       </div>
     {%- endif -%}
   </div>

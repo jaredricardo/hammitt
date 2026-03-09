@@ -42,6 +42,7 @@
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
     <link rel="stylesheet" href="{{ 'critical.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'ab-test.css' | asset_url }}">
     <script src="{{ 'critical-global-functions.js' | asset_url }}" defer></script>
     {% unless is_admin_interface %}
       {% render '__opt-theme-observer' %}
@@ -508,7 +509,7 @@ template-{{ template.name -}}
 {%- if template.suffix %} template-{{ template.suffix | replace: '.', ' ' | truncatewords: 1, '' | handle -}}{%- endif -%}
 {%- endcapture -%}
   
-  <body class="gradient {{ bodyClass }}" {% if template contains 'product' %} data-current-page-product-id="{{ product.id }}" {% endif %}>
+  <body class="gradient {{ bodyClass }} " {% if template contains 'product' %} data-current-page-product-id="{{ product.id }}" {% endif %}>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -760,7 +761,10 @@ template-{{ template.name -}}
       src="{{ 'cart.js' | asset_url }}"
       defer="defer"
     ></script>
+    
     {% section 'mega-menu-1' %}
+    {% section 'mega-menu-2' %}
+    {% section 'mega-menu-3' %}
     {% section 'product-swatches' %}
     {% section 'product-badges' %}
 

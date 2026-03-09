@@ -22,14 +22,16 @@
         "padding_bottom_mobile": 0
       }
     },
-    "jr_recently_viewed_page_grid_eWGkcc": {
-      "type": "jr-recently-viewed-page-grid",
-      "name": "JR Recently Viewed Grid",
-      "settings": {}
+    "recently_viewed_and_swym_wishlist_r3pXLX": {
+      "type": "recently-viewed-and-swym-wishlist",
+      "name": "Wishlist & RV",
+      "settings": {
+        "wishlist_content": "<p><a href=\"/account\" title=\"/account\">Sign in or create an account</a> to save your items permanently, access your saved list from any device, save your addresses for faster checkout and update on items you love.</p>"
+      }
     }
   },
   "order": [
     "main",
-    "jr_recently_viewed_page_grid_eWGkcc"
+    "recently_viewed_and_swym_wishlist_r3pXLX"
   ]
 }

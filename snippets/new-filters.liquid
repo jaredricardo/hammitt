@@ -823,7 +823,7 @@
             {% render 'grid-view-svg' %}
             <span class="collection-view"></span>   
         </button>
-        <div class="filter-sort-button-container">
+        <div class="filter-sort-button-container {% if request.page_type == "search" %} search-page-filters {% endif %}">
             <button id="toggle-filter-drawer">
                 Filter
                 <span class="minty-fresh-active-filter-count">({{ active_filter_count }})</span>
