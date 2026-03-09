@@ -1105,6 +1105,30 @@ const productCardHovers = () => {
   });
 };
 
+let lastVariantIdForYotpo = null
+
+function refreshYotpoVariant() {
+  if (
+    !window.ShopifyAnalytics ||
+    !ShopifyAnalytics.meta ||
+    !ShopifyAnalytics.meta.selectedVariantId
+  ) return;
+
+  const variantId = ShopifyAnalytics.meta.selectedVariantId;
+  if (variantId === lastVariantIdForYotpo) return;
+
+  lastVariantIdForYotpo = variantId;
+
+  const widget = document.querySelector('.yotpo-widget-instance');
+  if (!widget) return;
+
+  widget.setAttribute('data-yotpo-variant-id', variantId);
+
+  if (window.yotpoWidgetsContainer) {
+    window.yotpoWidgetsContainer.refresh();
+  }
+}
+
 productCardHovers();
 
 const productSwatchReload = () => {
@@ -1167,6 +1191,7 @@ const productSwatchReload = () => {
           if(document.querySelector('.swym-button.hammitt-custom')) {
             document.dispatchEvent(new CustomEvent("swym:collections-loaded"))
           }
+          refreshYotpoVariant()
           window.initImgModelHeight()
       });
     });
@@ -1274,7 +1299,6 @@ const klaviyoSubscribe = (form, callback) => {
     } else {
       messages.textContent = response.errors;
     }
-    console.log('subscribe',response);
     messages.classList.remove("hidden");
     if (callback && typeof callback === 'function') {
       callback();
@@ -1432,8 +1456,6 @@ checkOrderProtection()
 // });
 
 const cartUpdate = (json = false) => {
-  console.log('//////// cart update')
-  console.log(json)
   const cartUpdates = [
     {
       section: "cart-drawer",
@@ -1606,19 +1628,15 @@ document.addEventListener('cart:updated', function(event) {
 
   // Prevent infinite loops
   if (isManagingGWP) {
-    console.log('Skipping GWP management - already in progress');
     return;
   }
   
-  console.log('HEARD CART:UPDATED EVENT FOR GWP MANAGEMENT');
   const cart = event.detail.cart;
   const progressBarContainer = document.querySelector('.progress-bar-container');
   
   if (!progressBarContainer) return;
   
   const gwpTiersData = progressBarContainer.getAttribute('data-gwp-tiers');
-  console.log('///////')
-  console.log(gwpTiersData);
   if (!gwpTiersData) return;
   
   let gwpTiers = [];
@@ -1641,10 +1659,6 @@ document.addEventListener('cart:updated', function(event) {
     .reduce((total, item) => total + item.final_line_price, 0);
   
   const cartTotal = (cart.total_price - gwpTotalInCart) / 100; // Convert cents to dollars, excluding GWP value
-  
-  console.log('Cart total (raw):', cart.total_price / 100);
-  console.log('GWP total in cart:', gwpTotalInCart / 100);
-  console.log('Cart total (adjusted for threshold check):', cartTotal);
   
   // Determine which GWP products should be in cart based on thresholds met
   const gwpsToManage = gwpTiers.map(tier => {
@@ -1669,8 +1683,6 @@ document.addEventListener('cart:updated', function(event) {
   
   if (itemsToAdd.length === 0 && itemsToRemove.length === 0) return;
   
-  console.log('GWP actions needed:', { itemsToAdd, itemsToRemove });
-  
   // Set flag to prevent infinite loops
   isManagingGWP = true;
   
@@ -1679,7 +1691,6 @@ document.addEventListener('cart:updated', function(event) {
     try {
       // If threshold is NOT met, remove free GWP items (price = 0)
       if (itemsToRemove.length > 0) {
-        console.log('Removing free GWP items (threshold not met):', itemsToRemove);
         const updates = {};
         itemsToRemove.forEach(gwp => {
           updates[gwp.variantId] = 0;
@@ -1697,13 +1708,10 @@ document.addEventListener('cart:updated', function(event) {
         if (!removeResponse.ok) {
           throw new Error('Failed to remove GWP items');
         }
-        
-        console.log('Free GWP items removed successfully');
       }
       
       // If threshold IS met and item NOT in cart, add it
       if (itemsToAdd.length > 0) {
-        console.log('Adding GWP items (threshold met, not in cart):', itemsToAdd);
         const items = itemsToAdd.map(gwp => ({
           id: gwp.variantId,
           quantity: 1,
@@ -1724,8 +1732,6 @@ document.addEventListener('cart:updated', function(event) {
         if (!addResponse.ok) {
           throw new Error('Failed to add GWP items');
         }
-        
-        console.log('GWP items added successfully');
       }
       
       // Fetch updated cart with sections
@@ -1739,7 +1745,6 @@ document.addEventListener('cart:updated', function(event) {
       );
       
       const sectionsData = await sectionsResponse.json();
-      console.log('GWP management complete, updating cart UI');
       
       // Wrap sections data in the expected format for cartUpdate
       const data = { sections: sectionsData };
@@ -1751,7 +1756,6 @@ document.addEventListener('cart:updated', function(event) {
       // Reset flag after a delay to allow cart to update
       setTimeout(() => {
         isManagingGWP = false;
-        console.log('GWP management flag reset');
       }, 1000);
     }
   })();
