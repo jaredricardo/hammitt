@@ -207,7 +207,8 @@ function xGenSort(targetContainer, searchTerm, sortValue) {
       break
   }
 
-  window.buildXGenSearchResultsForCollectionGrid(targetContainer, searchTerm, sortValueFormatted)
+  // we stopped using xgen but i am leaving this here should we return to it
+  // window.buildXGenSearchResultsForCollectionGrid(targetContainer, searchTerm, sortValueFormatted)
 }
 
 customElements.define('minty-fresh-filters', MintyFreshFilters)
