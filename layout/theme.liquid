@@ -461,7 +461,13 @@
       gtag('config', 'G-E9B9SCSR4D');
     </script> -->
 
-    {% render 'x-gen-and-search-update' %}
+
+      {% comment %} 
+        No longer using the x-gen script but will leave in place in case we turn it back on in the future. 
+        Additionally, there are card templates in here that we need to access for regualar search now. 
+      {% endcomment %}
+      {% render 'x-gen-and-search-update' %}
+
     
     {% comment %} MS CLARITY {% endcomment %}
     <script type="text/javascript">

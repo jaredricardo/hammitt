@@ -29,6 +29,20 @@ class PredictiveSearch extends HTMLElement {
 
   async onChange() {
     const searchTerm = this.getQuery()
+    
+    // Don't search if query is empty
+    if (!searchTerm || searchTerm.length === 0) {
+      // Show trending products when search is cleared
+      document.querySelectorAll('.trending-now-product').forEach((li) => {
+        li.classList.remove('hidden')
+      })
+      // Remove any existing search results
+      document.querySelectorAll('.recent-or-trending-products .basic-product-card-template--li:not(.trending-now-product)').forEach((li) => {
+        li.remove()
+      })
+      return
+    }
+    
     const numXGenSearchResults = document.querySelector('.number-of-x-gen-results')
     
     const loader = `
@@ -52,22 +66,12 @@ class PredictiveSearch extends HTMLElement {
       document.querySelector('.initial-search-modal-content .recent-or-trending-products ul').appendChild(tempLi)
     }
 
-    // Fetch X-Gen results
-    const xGenResults = await xg.search.getResults({
-      query: searchTerm, 
-      options: {
-        collection: 'default', 
-        deploymentId:'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
-      }
-    })    
-
-    // Fetch Shopify predictive search results
+    // Fetch Shopify Search & Discovery results and build UI
     const shopifyResults = await this.getShopifySearchResults(searchTerm)
+    buildShopifySearchResults(shopifyResults, searchTerm)
 
-    buildCombinedSearchResults(xGenResults, shopifyResults, searchTerm)
-
-    //  old get search results method turned off for now
-    // this.getSearchResults(searchTerm);
+    // Also fetch native Shopify predictive search for the main results section
+    this.getSearchResults(searchTerm);
   }
 
   async getShopifySearchResults(searchTerm) {
@@ -173,6 +177,11 @@ class PredictiveSearch extends HTMLElement {
   }
 
   getSearchResults(searchTerm) {
+    // Don't search if query is empty
+    if (!searchTerm || searchTerm.length === 0) {
+      return
+    }
+    
     const queryKey = searchTerm.replace(" ", "-").toLowerCase();
     this.setLiveRegionLoadingState();
 
@@ -487,21 +496,49 @@ function buildXGenSearchResults(xGenResponse, searchTerm) {
 }
 
 function buildShopifySearchResults(shopifyResponse, searchTerm) {
-  // Check if Shopify variant is active - if not, skip Shopify results
-  if(!document.body.classList.contains('shopify-search-test-variant')) {
-    return
-  }
-
   const targetContainer = document.querySelector('.initial-search-modal-content .recent-or-trending-products ul')
+  const recentOrTrendingHeader = document.querySelector('.initial-search-modal-content .recent-or-trending-products h4')
+  const linkToAllQueryResults = document.querySelector('.initial-search-modal-content .rot-header-container a')
+  const noResults = document.querySelector('.number-of-x-gen-results')
+  const cardTemplate = document.querySelector('[data-basic-card-template]:not(.trending-now-product)')
 
-  if(!targetContainer) return
+  // Hide default suggested products
+  targetContainer.querySelectorAll('li').forEach((li) =>{
+    if(li.classList.contains('trending-now-product')) {
+      li.classList.add('hidden')
+    } else {
+      li.remove()
+    }
+  })
+  
+  if(recentOrTrendingHeader) {
+    recentOrTrendingHeader.innerText = 'Top Products'
+  }
 
   // Get Shopify results (first 4)
   const shopifyResults = shopifyResponse?.resources?.results?.products || []
 
+  // Check if we have any results
+  if(shopifyResults.length === 0) {
+    if(noResults) {
+      noResults.classList.remove('inactive')
+      noResults.innerText = 'No results found'
+      if(searchTerm.length === 0 ) {
+        noResults.classList.add('inactive')
+      }
+    }
+    if(document.querySelector('.predictive-search-spinner')) {
+      document.querySelector('.predictive-search-spinner').remove()
+    }
+    document.querySelectorAll('.trending-now-product').forEach((li) => {
+      li.classList.remove('hidden')
+    })
+    return
+  }
+
   // Build Shopify product cards (first 4)
   shopifyResults.slice(0, 4).forEach((product, i) => {
-    const simpleProductCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
+    const simpleProductCard = cardTemplate.cloneNode(true)
 
     simpleProductCard.querySelector('.card-image img').src = product.featured_image?.url || product.image
     simpleProductCard.querySelector('.card-image img').alt = product.title
@@ -526,9 +563,116 @@ function buildShopifySearchResults(shopifyResponse, searchTerm) {
     simpleProductCard.classList.add('shopify-search-result')
     targetContainer.appendChild(simpleProductCard)
   })
+
+  // Update "View All" link
+  if(shopifyResults.length > 4) {
+    linkToAllQueryResults.classList.remove('inactive')
+    linkToAllQueryResults.href = `/search?q=${searchTerm}&type=product`
+    linkToAllQueryResults.innerText = `View All`
+  } else {
+    linkToAllQueryResults.classList.add('inactive')
+  }
+
+  // Remove spinner
+  if(document.querySelector('.predictive-search-spinner')) {
+    document.querySelector('.predictive-search-spinner').remove()
+  }
 }
 
-function buildCombinedSearchResults(xGenResponse, shopifyResponse, searchTerm) {
+window.buildShopifySearchResults = buildShopifySearchResults
+
+/* ============================================================================
+   UNUSED X-GEN SEARCH FUNCTIONS - PRESERVED FOR POSSIBLE FUTURE USE
+   ============================================================================
+   These functions were used for X-Gen search integration but are currently
+   not in use. Shopify Search & Discovery has been found to provide better
+   results. Keep these functions for reference or future A/B testing.
+   ============================================================================ */
+
+/**
+ * UNUSED: Build X-Gen search results in the predictive search dropdown
+ * @param {Object} xGenResponse - Response from X-Gen API
+ * @param {String} searchTerm - User's search query
+ */
+function buildXGenSearchResults_UNUSED(xGenResponse, searchTerm) {
+  const targetContainer = document.querySelector('.initial-search-modal-content .recent-or-trending-products ul')
+  const deploymentId = 'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
+
+  if(!targetContainer) return
+
+  // Get X-Gen results (first 4)
+  const xGenResults = xGenResponse.items || []
+
+  // Build redirect card if exists
+  if(xGenResponse.urlRedirect) {
+    buildRedirectCard(targetContainer, xGenResponse, searchTerm)
+  }
+
+  // Build X-Gen product cards (first 4)
+  xGenResults.slice(0, 4).forEach((result, i) => {
+    let formattedProductTitle = result.prod_name
+    let productSize = result.metafields?.hammitt?.size || null
+    let productColorDescriptor = result.metafields?.custom?.product_title_color_descriptor || null
+    let productTitleType = result.metafields?.custom?.product_title_type || null
+    let useDescriptor = false
+
+    if(productColorDescriptor !== null && productTitleType !== null) {
+      let finalSizeString = ''  
+
+      switch(productSize) {
+        case 'Small':
+          finalSizeString = 'sml'
+          break
+        case 'Medium':
+          finalSizeString = "med"
+          break
+        case 'Large':
+          finalSizeString = "lrg"
+          break
+        case 'Extra Large':
+          finalSizeString = "xl"
+          break
+        case 'One Size':
+          finalSizeString = ""
+          break
+        default:
+          finalSizeString = ""
+      }
+      formattedProductTitle = `${productTitleType} ${finalSizeString}`
+      useDescriptor = true   
+    }
+
+    const simpleProductCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
+
+    simpleProductCard.querySelector('.card-image img').src = result.featured_image.src
+    simpleProductCard.querySelector('.card-image img').alt = result.prod_name
+    simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
+
+    if(useDescriptor) {
+      simpleProductCard.querySelector('.product-color').innerText = productColorDescriptor
+    }
+
+    simpleProductCard.querySelector('a').href = result.product_url
+
+    // add data for searchClick method for analytics
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-query', searchTerm)
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-query-id', xGenResponse.queryId)
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-deployment-id', deploymentId)
+    simpleProductCard.querySelector('x-gen-search-result').setAttribute('data-item', result.prod_code)
+
+    simpleProductCard.classList.remove('inactive')
+    simpleProductCard.classList.add('x-gen-search-result')
+    targetContainer.appendChild(simpleProductCard)
+  })
+}
+
+/**
+ * UNUSED: Build combined X-Gen and Shopify search results (for A/B testing)
+ * @param {Object} xGenResponse - Response from X-Gen API
+ * @param {Object} shopifyResponse - Response from Shopify Search API
+ * @param {String} searchTerm - User's search query
+ */
+function buildCombinedSearchResults_UNUSED(xGenResponse, shopifyResponse, searchTerm) {
   const targetContainer = document.querySelector('.initial-search-modal-content .recent-or-trending-products ul')
   const recentOrTrendingHeader = document.querySelector('.initial-search-modal-content .recent-or-trending-products h4')
   const linkToAllQueryResults = document.querySelector('.initial-search-modal-content .rot-header-container a')
@@ -567,11 +711,12 @@ function buildCombinedSearchResults(xGenResponse, shopifyResponse, searchTerm) {
     return
   }
 
-  // Build X-Gen results
-  buildXGenSearchResults(xGenResponse, searchTerm)
+  // Build X-Gen results (4 cards)
+  buildXGenSearchResults_UNUSED(xGenResponse, searchTerm)
 
-  // Build Shopify results
-  buildShopifySearchResults(shopifyResponse, searchTerm)
+  // Build Shopify results (4 cards) 
+  // Note: Would need to modify buildShopifySearchResults to not handle UI setup
+  // when used in combined mode
 
   // Update "View All" link
   const totalResults = xGenResults.length + shopifyResults.length
@@ -589,7 +734,26 @@ function buildCombinedSearchResults(xGenResponse, shopifyResponse, searchTerm) {
   }
 }
 
-window.buildRedirectCard = buildRedirectCard
-window.buildXGenSearchResults = buildXGenSearchResults
-window.buildShopifySearchResults = buildShopifySearchResults
-window.buildCombinedSearchResults = buildCombinedSearchResults
+/**
+ * UNUSED: Example of how to fetch X-Gen results in onChange method
+ * 
+ * async onChange() {
+ *   const searchTerm = this.getQuery()
+ *   
+ *   // Fetch X-Gen results
+ *   const xGenResults = await xg.search.getResults({
+ *     query: searchTerm, 
+ *     options: {
+ *       collection: 'default', 
+ *       deploymentId:'ea9fc1d0-cb86-4dab-8aa3-1879b146fb8b'
+ *     }
+ *   })
+ *   
+ *   // Build X-Gen only
+ *   buildXGenSearchResults_UNUSED(xGenResults, searchTerm)
+ *   
+ *   // Or build combined with Shopify
+ *   const shopifyResults = await this.getShopifySearchResults(searchTerm)
+ *   buildCombinedSearchResults_UNUSED(xGenResults, shopifyResults, searchTerm)
+ * }
+ */

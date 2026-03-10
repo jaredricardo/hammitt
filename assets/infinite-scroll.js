@@ -48,32 +48,20 @@ if (localStorage.getItem("target") !== null) {
 } 
 
 const loadNextPage = (url) => {
-  console.log('/////// loading next')
   fetch(url)
     .then(response => response.text())
     .then(html => {
       const doc = new DOMParser().parseFromString(html, 'text/html');
       
-      // Check if we're using Shopify search results or X-Gen search results
-      const isShopifySearch = document.body.classList.contains('shopify-search-test-variant');
-      
-      let productGrid;
-      if (isShopifySearch) {
-        // For Shopify native search, use #product-grid
-        productGrid = document.querySelector('#product-grid');
-      } else {
-        // For X-Gen search, use #ProductGridContainerXGen
-        productGrid = document.querySelector('#ProductGridContainerXGen');
-      }
+      // Use Shopify native search grid (#product-grid)
+      const productGrid = document.querySelector('#product-grid');
       
       if (!productGrid) {
         console.error('Product grid not found');
         return;
       }
       
-      const newGridItems = isShopifySearch 
-        ? doc.querySelectorAll('#product-grid .grid__item')
-        : doc.querySelectorAll('#ProductGridContainerXGen .grid__item');
+      const newGridItems = doc.querySelectorAll('#product-grid .grid__item');
         
       newGridItems.forEach(gridItem => {
         productGrid.appendChild(gridItem);

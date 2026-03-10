@@ -208,6 +208,7 @@
       {%- endif -%}
     {%- endif -%}
 
+    {% comment %} 
     <div id="x-gen-search-results-container">
       <div class="page-width">
         <ul id="ProductGridContainerXGen" class="grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if section.settings.columns_desktop == 1 %} grid--full-width{% else %} grid--{{ section.settings.columns_desktop }}-col-desktop{% endif %}" role="list">
@@ -225,7 +226,8 @@
           {% endfor %}
         </ul>
       </div>
-    </div>
+    </div> 
+    {% endcomment %}
     
     <div id="ProductGridContainer" class="native-shopify-search-results">
       {%- if search.results.size == 0 and search.filters != empty -%}
