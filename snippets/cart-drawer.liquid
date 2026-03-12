@@ -702,6 +702,7 @@
                   assign pre_existing_properties_values = false
                   assign excluded_from_gifting = false
                   assign is_final_sale = false
+                  assign no_box_or_dust_bag = false
 
                   if product_size 
 
@@ -758,6 +759,11 @@
                     assign excluded_from_gifting = true
                   endif
 
+                  if item.product.tags contains 'excluded-from-gifting-both-options'
+                    assign excluded_from_gifting = true
+                    assign no_box_or_dust_bag = true
+                  endif
+
                 -%}
 
           
@@ -800,7 +806,11 @@
                             {% if is_final_sale == true %}
                               <span style="color: #C74141; font-size: 11px;">Final Sale</span>
                             {% endif %}
-                            <span class="db-only">Box not included, gift wrap not available.<span>
+                            {% if no_box_or_dust_bag == true %}
+                                <span>Box, dust bag, and gift wrap not available.<span>
+                              {% else %}
+                                <span>Box not included, gift wrap not available.<span></span>
+                            {% endif %}
                             </div>
                           {% else %}
                             <div class="checkbox-container">
