@@ -227,6 +227,7 @@
     },
     "custom_liquid_jiGdDY": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "{% if product.metafields.custom.playlist != blank %}\n  <script async src='//asset.fwcdn3.com/js/fwn.js'></script>\n  <style>\n    div.storyblock {}\n    div.embed {}\n\n    @media screen and (min-width: 600px) {\n      div.storyblock {\n        display: none;\n      }\n    }\n\n    @media screen and (max-width: 600px) {\n      div.embed {\n        display: none;\n      }\n    }\n  </style>\n\n  <div class=\"storyblock\">\n    <fw-storyblock\n      player_captions=\"false\"\n      channel=\"hammitt223858521\"\n      playlist=\"{{ product.metafields.custom.playlist }}\"\n      branding=\"false\"\n      autoplay=\"true\"\n    ></fw-storyblock>\n  </div>\n\n  <div class=\"embed\">\n   <fw-embed-feed\n    channel=\"hammitt223858521\"\n    playlist=\"{{ product.metafields.custom.playlist }}\"\n    captions=\"false\"\n    autoplay=\"true\"\n  ></fw-embed-feed>\n  </div>\n\n{% else %}\n \n  <style>\n    div.storyblock {}\n    div.embed {}\n\n    @media screen and (min-width: 600px) {\n      div.storyblock {\n        display: none;\n      }\n    }\n\n    @media screen and (max-width: 600px) {\n      div.embed {\n        display: none;\n      }\n    }\n  </style>\n\n  <script async src='//asset.fwcdn3.com/js/fwn.js'></script>\n\n  <div class=\"storyblock\">\n    <fw-storyblock\n      player_captions=\"false\"\n      channel=\"hammitt223858521\"\n      skus=\"{{ product.id }}\"\n      branding=\"false\"\n      autoplay=\"true\"\n    ></fw-storyblock>\n  </div>\n\n  <div class=\"embed\">\n    <fw-embed-feed\n      channel=\"hammitt223858521\"\n      skus=\"{{ product.id }}\"\n      mode=\"row\"\n      open_in=\"default\"\n      max_videos=\"0\"\n      placement=\"middle\"\n      branding=\"false\"\n      captions=\"false\"\n      player_placement=\"bottom-right\"\n    ></fw-embed-feed>\n  </div>\n{% endif %}",
         "color_scheme": "background-1",
@@ -235,24 +236,6 @@
         "padding_top_mobile": 100,
         "padding_bottom_mobile": 20,
         "custom_class": ""
-      }
-    },
-    "928b18aaf91cc2f853c4": {
-      "type": "apps",
-      "blocks": {
-        "c76dc59c-df2d-4d31-8403-08fae3d56773": {
-          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
-          "settings": {
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "c76dc59c-df2d-4d31-8403-08fae3d56773"
-      ],
-      "disabled": true,
-      "settings": {
-        "include_margins": true
       }
     },
     "foursixty_bn3ptH": {
@@ -295,149 +278,6 @@
         "margins": 20,
         "border_top": true,
         "text_align": "center"
-      }
-    },
-    "multicolumn_YpDmQ6": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_pgexD8": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Neil-Lilac_5B.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_e6B8kF": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_mEefEr": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Tom-Tan_5B.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_HnDNUg": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_VIP-Sml-Daybreak-Blue_5B_6719e5b2-bb72-4022-b5d6-727ad2b99e3b.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_pgexD8",
-        "column_e6B8kF",
-        "column_mEefEr",
-        "column_HnDNUg"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "Styled in the Wild",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "<p>How mavens like you wear this look.</p>",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 4,
-        "columns_gap": 20,
-        "row_gap": 20,
-        "mobile_columns_gap": 20,
-        "mobile_row_gap": 20,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 80,
-        "padding_bottom": 0,
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 0,
-        "custom_class": "pdp-image-grid"
       }
     },
     "image_with_text_q9fxHx": {
@@ -535,16 +375,32 @@
         "mobile_padding_top": 30,
         "mobile_padding_bottom": 30
       }
+    },
+    "1773790513cd1e6071": {
+      "type": "apps",
+      "blocks": {
+        "tolstoy_shoppable_video_quiz_carousel_block_GHrwHr": {
+          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "4npieotp5bx8x"
+          }
+        }
+      },
+      "block_order": [
+        "tolstoy_shoppable_video_quiz_carousel_block_GHrwHr"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
+    "1773790513cd1e6071",
     "ca12ef536bc4551840b3",
     "pdp-video-section",
     "custom_liquid_jiGdDY",
-    "928b18aaf91cc2f853c4",
     "foursixty_bn3ptH",
-    "multicolumn_YpDmQ6",
     "image_with_text_q9fxHx",
     "product-recommendations",
     "slider_collection_8QrB64",
