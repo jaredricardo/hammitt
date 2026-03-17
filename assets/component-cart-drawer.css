@@ -160,8 +160,8 @@ cart-drawer > details[open] > summary::before {
 }
 .drawer__content-items .drawer__content-item{
   display:flex;
-  padding-top: 1rem;
-  padding-bottom:1rem;
+  padding-top: 0.75rem;
+  padding-bottom:0.75rem;
   margin-bottom:0rem !important;
   gap:15px;
   border-bottom: none;
@@ -187,6 +187,14 @@ cart-drawer > details[open] > summary::before {
   display: flex;
   flex-direction: column;
 }
+
+.drawer_product-info .exclusion-span {
+  color:#C74141; 
+  font-size: 11px; 
+  margin-top: 5px; 
+  margin-bottom: 3px;
+}
+
 .drawer__content-item-info{
   flex-direction:column;
   flex:1 1 0%;
@@ -996,4 +1004,8 @@ div#dynamic-checkout-cart {
 
 .below-progress-bar-container {
   padding-top: 8px;
+}
+
+save-for-later { 
+  cursor: pointer;
 }

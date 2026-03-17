@@ -527,9 +527,15 @@
                   {% comment %} needs to be deleted after red TLC promo {% endcomment %}
 
                   {% if item.product.tags contains 'sample sale' or item.product.tags contains 'final sale' %}
-                    <span style="color:#C74141; font-size: 11px; margin-top: 5px; margin-bottom: 3px;"> Final Sale</span>
+                    <span class="exclusion-span"> Final Sale</span>
                   {% endif %}
 
+                  {% if item.product.tags contains 'excluded-from-gifting-both-options' %}
+                      <span class="exclusion-span">Box, dust bag, and gift wrap not available.</span>
+                    {% elsif item.product.tags contains 'excluded-from-gifting' %}
+                      <span class="exclusion-span">Box not included, gift wrap not available.</span>
+                  {% endif %}
+                  
                   {% unless item.product.has_only_default_variant %}
                   {% for option in item.options_with_values %}
                     <div class="product-option">                      
@@ -557,17 +563,15 @@
                             {% assign isBadgeProductProperties = true %}
                           {% endif %}
                         {% endif %}
-                      {% endfor %}
+                      {% endfor %}  
                     {% if property.first.first == "_" %}{% continue %}{% endif %}
                     {% if property.first == "Sample Sale" %}{% continue %}{% endif %}
                     {% unless property.first == "tn_enabled" %}
-                      <div class="product-option product-option--{{ property.first | handle }} {% if isBadgeProductProperties %} product-properties__option {% endif %}">                      
+                      <div style="margin-top: 5px;" class="product-option product-option--{{ property.first | handle }} {% if isBadgeProductProperties %} product-properties__option {% endif %}">                      
                         <dt>{{ property.first }}:</dt>
                         <dd>{{ property.last }}</dd>
                       </div> 
                     {% endunless %}
-
-                    
                   {% endfor %}
                 </div> 
                 <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
@@ -608,6 +612,10 @@
                           {% render 'icon-plus' %}
                         </button>
                       </quantity-input>
+
+                      <save-for-later data-item-json='{{ item.variant | json }}'>
+                        Save for later
+                      </save-for-later>
 
                     {% if settings.enable_hammitt_gifting_drawer %}
                       {% if opted_out_of_box == true %}
@@ -884,6 +892,11 @@
               </svg>
             </div>
           </hammitt-gifting-options-drawer>
+      {% endif %}
+      {% if settings.enable_cart_rivett_club %}
+        {% unless customer %}
+          {% render 'cart-rivett-club-component' %}
+        {% endunless %}
       {% endif %}
       <gift-box-section class="{% if settings.enable_free_multi_gift_select and has_reached_threshold and cart_contains_gift_item == false %} hidden {% endif %}">
         {% comment %} this never should have been a metaobject to loop through, especially if the limit is 1. {% endcomment %}

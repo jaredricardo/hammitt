@@ -283,9 +283,6 @@ class CartDrawer extends MenuDrawer {
 }
 
 customElements.define('cart-drawer', CartDrawer);
-
-
-
 class QuickAddButton extends HTMLElement {
   constructor() {
     super();
@@ -382,8 +379,6 @@ class CartUpsells extends HTMLElement {
 }
 
 customElements.define('cart-upsells', CartUpsells);
-
-
 class GiftNoteToggle extends HTMLElement {
   constructor() {
     super();
@@ -483,3 +478,18 @@ class GiftNoteToggle extends HTMLElement {
 }
 
 customElements.define('gift-note', GiftNoteToggle);
+
+class SaveForLater extends HTMLElement {
+  constructor() {
+    super()
+    this.addEventListener('click', this.handleClick.bind(this))
+  } 
+
+  handleClick(event) {
+    event.preventDefault()
+    const itemJson = JSON.parse(this.getAttribute('data-item-json'))
+    console.log(itemJson)
+  }
+}
+
+customElements.define('save-for-later', SaveForLater)

@@ -573,6 +573,45 @@ template-{{ template.name -}}
       window.enableQuickAdd = {{ settings.enable_quick_add | json }};
     </script>
 
+    {% comment %} settings based scripts / css {% endcomment %}
+
+    {% if settings.enable_cart_rivett_club %}
+      {% unless customer %}
+        <script>
+          window.addEventListener('DOMContentLoaded', () => {
+            const cartRivettClub = document.querySelector('cart-rivett-club')
+            if(!cartRivettClub) return
+            const hasClosedBefore = localStorage.getItem('rivettClubClosed')
+            if(!hasClosedBefore) {
+              cartRivettClub.classList.add('active')
+            }
+          })
+
+          class CartRivettClub extends HTMLElement {
+            constructor() {
+              super()
+            }
+
+            connectedCallback() {
+              this.closeBtn = this.querySelector('.icon-close')
+              
+              this.closeBtn.addEventListener('click', (e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                
+                this.classList.remove('active')
+                
+                localStorage.setItem('rivettClubClosed', 'true')
+              })
+            }
+          }
+
+          customElements.define('cart-rivett-club', CartRivettClub)
+        </script>
+        <link rel="stylesheet" href="{{ 'cart-rivett-club.css' | asset_url }}">
+      {% endunless %}
+    {% endif %}
+
     {%- if settings.predictive_search_enabled -%}
       <script
         {% if template contains 'index' or template contains 'collection' or template contains 'product' %}
