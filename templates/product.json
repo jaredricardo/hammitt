@@ -77,6 +77,7 @@
         },
         "custom_liquid_aGYRdk": {
           "type": "custom_liquid",
+          "disabled": true,
           "settings": {
             "custom_liquid": "<tolstoy-stories\n  data-tags=\"{% for tag in product.tags -%}{{ tag | escape }},{%- endfor %}\"\n  class=\"tolstoy-stories\"\n  data-publish-id=\"os6nu0pk8adyf\"\n  data-product-id=\"{{ product.id }}\">\n</tolstoy-stories>"
           }
