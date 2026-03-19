@@ -515,7 +515,7 @@ template-{{ template.name -}}
 {%- if template.suffix %} template-{{ template.suffix | replace: '.', ' ' | truncatewords: 1, '' | handle -}}{%- endif -%}
 {%- endcapture -%}
   
-  <body class="gradient {{ bodyClass }} testtesttest {% if product.metafields.custom.product_title_type == 'Kyle' %} kyle-product {% endif %}" {% if template contains 'product' %} data-current-page-product-id="{{ product.id }}" {% endif %}>
+  <body class="gradient {% if product.metafields.custom.product_title_type contains 'Kyle' or product.title contains "Kyle" %} kyle-product {% endif %} {{ bodyClass }}" {% if template contains 'product' %} data-current-page-product-id="{{ product.id }}" {% endif %}>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
