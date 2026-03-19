@@ -518,7 +518,6 @@
                         {% else %}
                         <span class="price price--end"> {{ item.price | money_without_trailing_zeros }}</span>
                       {% endif %}
-                      
                     </div> 
                   </div> 
                 </div> 
@@ -613,9 +612,13 @@
                         </button>
                       </quantity-input>
 
-                      <save-for-later data-item-json='{{ item.variant | json }}'>
+                      <save-for-later data-item-json='{{ item | json }}' data-line-title="{{ product_type }}" data-line-string-price="{{ item.price | money_without_trailing_zeros }}" data-item-variant-color="{{ product_color }}">
                         Save for later
                       </save-for-later>
+
+                      <remove-from-save-for-later data-variant-to-rmove="{{ item.variant.id }}">
+                        remove
+                      </remove-from-save-for-later>
 
                     {% if settings.enable_hammitt_gifting_drawer %}
                       {% if opted_out_of_box == true %}

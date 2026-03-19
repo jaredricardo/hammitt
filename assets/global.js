@@ -1978,3 +1978,21 @@ function expressCheckout() {
 function stopFindElement() {
   clearInterval(findElement);
 }
+
+
+class GiftingTooltipContainer extends HTMLElement {
+    constructor() {
+      super()
+      this.querySelector('.learn-more')?.addEventListener('mouseenter', this.open)
+      this.querySelector('.learn-more')?.addEventListener('mouseleave', this.close)
+      this.querySelector('.close-btn')?.addEventListener('click', this.close)
+    }
+    open() {
+      this.closest('gifting-tooltip-container').querySelector('.gifting-tooltip-content')?.classList.add('active')
+    }
+    close() {
+      this.closest('gifting-tooltip-container').querySelector('.gifting-tooltip-content')?.classList.remove('active')
+    }
+}
+
+customElements.define('gifting-tooltip-container', GiftingTooltipContainer)

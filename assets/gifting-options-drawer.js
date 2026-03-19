@@ -302,26 +302,11 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    class GiftingTooltipContainer extends HTMLElement {
-        constructor() {
-            super()
-            this.querySelector('.learn-more')?.addEventListener('mouseenter', this.open)
-            this.querySelector('.learn-more')?.addEventListener('mouseleave', this.close)
-            this.querySelector('.close-btn')?.addEventListener('click', this.close)
-        }
-        open() {
-            this.closest('gifting-tooltip-container').querySelector('.gifting-tooltip-content')?.classList.add('active')
-        }
-        close() {
-            this.closest('gifting-tooltip-container').querySelector('.gifting-tooltip-content')?.classList.remove('active')
-        }
-    }
 
     customElements.define('hammitt-gifting-options-drawer-trigger', HammittGiftingOptionsDrawerTrigger)
     customElements.define('hammitt-gifting-options-drawer', HammittGiftingOptionsDrawer)
     customElements.define('hammitt-gifting-broken-out-line-item', HammittGiftingBrokenOutLineItem)
     customElements.define('hammitt-line-level-gift-note', HammittLineLevelGiftNote)
-    customElements.define('gifting-tooltip-container', GiftingTooltipContainer)
     customElements.define('hammitt-gifting-options-drawer-el-trigger', HammittGiftingOptionsDrawerElTrigger)
     customElements.define('hammitt-gifting-options-drawer-trigger-no-button', HammittGiftingOptionsDrawerTriggerNoButton)
 })
