@@ -925,7 +925,11 @@ div#dynamic-checkout-cart {
 }
 
 .remove-button-container {
-  width: max-content;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .multiple-gifts-section {
@@ -1024,4 +1028,109 @@ save-for-later {
   margin-right: auto;
   margin-left: 15px;
 }
+
+/* Saved for Later Container Styles */
+saved-for-later-container {
+  display: block;
+  margin: 20px 10px;
+  border-top: 1px solid #CACACA;
+  padding-top: 15px;
+}
+
+.saved-for-later__toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 0;
+  user-select: none;
+}
+
+.saved-for-later__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.saved-for-later__icon {
+  font-size: 20px;
+  font-weight: 300;
+  color: #000;
+  width: 20px;
+  text-align: center;
+}
+
+.saved-for-later__content {
+  margin-top: 10px;
+}
+
+.saved-for-later__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Saved for Later Item Styles */
+save-for-later-item {
+  display: block;
+}
+
+.saved-for-later-item {
+  opacity: 1;
+}
+
+.saved-for-later-actions {
+  gap: 8px;
+}
+
+.saved-for-later-move-to-cart,
+.saved-for-later-move-to-wishlist {
+  cursor: pointer;
+  color: #000;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  border: 0.5px solid #CACACA;
+  border-radius: 2px;
+  min-height: 20px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  white-space: nowrap;
+}
+
+.saved-for-later-move-to-cart {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.saved-for-later-move-to-wishlist {
+  margin-left: 0;
+}
+
+.saved-for-later-move-to-cart:hover,
+.saved-for-later-move-to-wishlist:hover {
+  background: #f5f5f5;
+}
+
+.saved-for-later-item .remove-button-container {
+  position: relative;
+}
+
+.saved-for-later-item .loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
 

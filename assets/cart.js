@@ -553,7 +553,259 @@ class RemoveFromSaveForLater extends HTMLElement {
     localStorage.setItem('saveForLater', JSON.stringify(savedItems))
 
     console.log(savedItems)
+    
+    // Dispatch event to update the saved for later container
+    document.dispatchEvent(new CustomEvent('saveForLater:updated', {
+      detail: { 
+        action: 'removed',
+        variantId: variantId,
+        savedItems: savedItems
+      }
+    }))
   }
 }
 
 customElements.define('remove-from-save-for-later', RemoveFromSaveForLater)
+
+class SavedForLaterContainer extends HTMLElement {
+  constructor() {
+    super()
+    this.isOpen = false
+  }
+
+  connectedCallback() {
+    this.render()
+    this.attachEventListeners()
+    
+    // Listen for localStorage updates
+    document.addEventListener('saveForLater:updated', () => {
+      this.renderItems()
+    })
+  }
+
+  attachEventListeners() {
+    const toggle = this.querySelector('.saved-for-later__toggle')
+    if (toggle) {
+      toggle.addEventListener('click', () => this.toggleContainer())
+    }
+  }
+
+  toggleContainer() {
+    this.isOpen = !this.isOpen
+    const content = this.querySelector('.saved-for-later__content')
+    const icon = this.querySelector('.saved-for-later__icon')
+    
+    if (content) {
+      content.style.display = this.isOpen ? 'block' : 'none'
+    }
+    if (icon) {
+      icon.textContent = this.isOpen ? '−' : '+'
+    }
+  }
+
+  render() {
+    const savedItems = JSON.parse(localStorage.getItem('saveForLater') || '{}')
+    const itemCount = Object.keys(savedItems).length
+    
+    if (itemCount === 0) {
+      this.style.display = 'none'
+      return
+    }
+
+    this.style.display = 'block'
+    
+    this.innerHTML = `
+      <div class="saved-for-later__toggle">
+        <span class="saved-for-later__title">Saved for Later (${itemCount})</span>
+        <span class="saved-for-later__icon">+</span>
+      </div>
+      <div class="saved-for-later__content" style="display: none;">
+        <ul class="saved-for-later__list"></ul>
+      </div>
+    `
+    
+    this.renderItems()
+  }
+
+  renderItems() {
+    const savedItems = JSON.parse(localStorage.getItem('saveForLater') || '{}')
+    const itemCount = Object.keys(savedItems).length
+    const list = this.querySelector('.saved-for-later__list')
+    const title = this.querySelector('.saved-for-later__title')
+    
+    if (!list) return
+    
+    if (itemCount === 0) {
+      this.style.display = 'none'
+      return
+    }
+
+    this.style.display = 'block'
+    
+    if (title) {
+      title.textContent = `Saved for Later (${itemCount})`
+    }
+    
+    list.innerHTML = ''
+    
+    Object.entries(savedItems).forEach(([variantId, itemData]) => {
+      const itemElement = document.createElement('save-for-later-item')
+      itemElement.setAttribute('data-variant-id', variantId)
+      itemElement.setAttribute('data-item-data', JSON.stringify(itemData))
+      list.appendChild(itemElement)
+    })
+  }
+}
+
+customElements.define('saved-for-later-container', SavedForLaterContainer)
+
+class SaveForLaterItem extends HTMLElement {
+  connectedCallback() {
+    const itemData = JSON.parse(this.getAttribute('data-item-data'))
+    const variantId = this.getAttribute('data-variant-id')
+    
+    this.innerHTML = `
+      <li class="drawer__content-item cart-item saved-for-later-item">
+        <div class="drawer__content-item-image">
+          <img src="${itemData.variant_image_string}" alt="${itemData.variant_formatted_title}">
+        </div>
+        <div class="drawer__content-item-info">
+          <div>
+            <div class="drawer__content-item-and-price">
+              <a href="${itemData.variant_url}" class="cart-item__name break">
+                <span class="cart-item__title">${itemData.variant_formatted_title}</span>
+              </a>
+              <div class="drawer__content-item-price">
+                <div class="cart-item__price-wrapper">
+                  <span class="price price--end">${itemData.variant_string_price}</span>
+                </div>
+              </div>
+            </div>
+            <div class="drawer_product-info">
+              ${itemData.variant_color ? `<span class="product-option">${itemData.variant_color}</span>` : ''}
+            </div>
+          </div>
+          <div class="flex align-center drawer__content-item-actions saved-for-later-actions">
+            <button class="saved-for-later-move-to-cart" data-variant-id="${itemData.variant_add_to_cart_id}">
+              Move to Cart
+            </button>
+            <button class="saved-for-later-move-to-wishlist" data-variant-id="${variantId}">
+              Move to Wishlist
+            </button>
+            <div class="remove-button-container">
+              <remove-from-save-for-later data-variant-id-to-remove="${variantId}">
+                <a href="#" class="button button--tertiary" aria-label="Remove ${itemData.variant_formatted_title}">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true" focusable="false" role="presentation" class="icon icon-remove">
+                    <path d="M14 3h-3.53a3.07 3.07 0 00-.6-1.65C9.44.82 8.8.5 8 .5s-1.44.32-1.87.85A3.06 3.06 0 005.53 3H2a.5.5 0 000 1h1.25v10c0 .28.22.5.5.5h8.5c.28 0 .5-.22.5-.5V4H14a.5.5 0 000-1zM6.91 1.98c.23-.29.58-.48 1.09-.48s.85.19 1.09.48c.2.24.3.6.36 1.02h-2.9c.05-.42.17-.78.36-1.02zm4.84 11.52h-7.5V4h7.5v9.5z" fill="currentColor"></path>
+                    <path d="M6.55 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5zM9.45 5.25a.5.5 0 00-.5.5v6a.5.5 0 001 0v-6a.5.5 0 00-.5-.5z" fill="currentColor"></path>
+                  </svg>
+                </a>
+              </remove-from-save-for-later>
+              <div class="loading-overlay hidden">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    `
+    
+    // Attach event listener for "Move to Cart" button
+    const moveToCartBtn = this.querySelector('.saved-for-later-move-to-cart')
+    if (moveToCartBtn) {
+      moveToCartBtn.addEventListener('click', () => this.moveToCart(itemData, variantId))
+    }
+  }
+
+  showLoading() {
+    const actions = this.querySelector('.saved-for-later-actions')
+    const removeContainer = this.querySelector('.remove-button-container')
+    const moveToCartBtn = this.querySelector('.saved-for-later-move-to-cart')
+    const moveToWishlistBtn = this.querySelector('.saved-for-later-move-to-wishlist')
+    const removeBtn = this.querySelector('remove-from-save-for-later')
+    const loadingOverlay = this.querySelector('.loading-overlay')
+    
+    if (actions) actions.style.opacity = '0.5'
+    if (moveToCartBtn) moveToCartBtn.classList.add('hidden')
+    if (moveToWishlistBtn) moveToWishlistBtn.classList.add('hidden')
+    if (removeBtn) removeBtn.classList.add('hidden')
+    if (loadingOverlay) loadingOverlay.classList.remove('hidden')
+  }
+
+  hideLoading() {
+    const actions = this.querySelector('.saved-for-later-actions')
+    const moveToCartBtn = this.querySelector('.saved-for-later-move-to-cart')
+    const moveToWishlistBtn = this.querySelector('.saved-for-later-move-to-wishlist')
+    const removeBtn = this.querySelector('remove-from-save-for-later')
+    const loadingOverlay = this.querySelector('.loading-overlay')
+    
+    if (actions) actions.style.opacity = '1'
+    if (moveToCartBtn) moveToCartBtn.classList.remove('hidden')
+    if (moveToWishlistBtn) moveToWishlistBtn.classList.remove('hidden')
+    if (removeBtn) removeBtn.classList.remove('hidden')
+    if (loadingOverlay) loadingOverlay.classList.add('hidden')
+  }
+
+  moveToCart(itemData, variantId) {
+    // Show loading state
+    this.showLoading()
+
+    const addToCartObj = {
+      items: [{
+        id: itemData.variant_add_to_cart_id,
+        quantity: 1
+      }]
+    }
+    
+    // Add to cart using global function if available
+    if (typeof theme !== 'undefined' && theme.addToCart) {
+      theme.addToCart(addToCartObj)
+      
+      // Remove from saved items after a brief delay
+      setTimeout(() => {
+        this.removeFromSaved(variantId)
+      }, 500)
+    } else if (typeof addToCart === 'function') {
+      addToCart(addToCartObj)
+      
+      // Remove from saved items after a brief delay
+      setTimeout(() => {
+        this.removeFromSaved(variantId)
+      }, 500)
+    } else {
+      // Fallback to fetch
+      fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(addToCartObj)
+      })
+      .then(response => response.json())
+      .then(() => {
+        this.removeFromSaved(variantId)
+      })
+      .catch(error => {
+        console.error('Error adding to cart:', error)
+        this.hideLoading()
+      })
+    }
+  }
+
+  removeFromSaved(variantId) {
+    // Remove from saved items
+    const savedItems = JSON.parse(localStorage.getItem('saveForLater') || '{}')
+    delete savedItems[variantId]
+    localStorage.setItem('saveForLater', JSON.stringify(savedItems))
+    
+    // Dispatch event
+    document.dispatchEvent(new CustomEvent('saveForLater:updated', {
+      detail: { action: 'movedToCart', variantId }
+    }))
+  }
+}
+
+customElements.define('save-for-later-item', SaveForLaterItem)
+
