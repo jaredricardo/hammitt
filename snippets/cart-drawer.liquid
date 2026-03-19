@@ -612,13 +612,13 @@
                         </button>
                       </quantity-input>
 
-                      <save-for-later data-item-json='{{ item | json }}' data-line-title="{{ product_type }}" data-line-string-price="{{ item.price | money_without_trailing_zeros }}" data-item-variant-color="{{ product_color }}">
+                      <save-for-later data-key="{{ item.key }}" data-item-json='{{ item | json }}' data-line-title="{{ product_type }}" data-line-string-price="{{ item.price | money_without_trailing_zeros }}" data-item-variant-color="{{ product_color }}">
                         Save for later
                       </save-for-later>
 
-                      <remove-from-save-for-later data-variant-to-rmove="{{ item.variant.id }}">
+                      {% comment %} <remove-from-save-for-later data-variant-id-to-remove="{{ item.variant.id }}">
                         remove
-                      </remove-from-save-for-later>
+                      </remove-from-save-for-later> {% endcomment %}
 
                     {% if settings.enable_hammitt_gifting_drawer %}
                       {% if opted_out_of_box == true %}
@@ -901,6 +901,7 @@
           {% render 'cart-rivett-club-component' %}
         {% endunless %}
       {% endif %}
+      {% render 'save-for-later-container' %}
       <gift-box-section class="{% if settings.enable_free_multi_gift_select and has_reached_threshold and cart_contains_gift_item == false %} hidden {% endif %}">
         {% comment %} this never should have been a metaobject to loop through, especially if the limit is 1. {% endcomment %}
         {% for content in shop.metaobjects.complimentary_content.values limit: 1 %}

@@ -496,28 +496,30 @@ class SaveForLater extends HTMLElement {
       variant_formatted_title: this.getAttribute('data-line-title'),
       variant_string_price: this.getAttribute('data-line-string-price'),
       variant_color: variantColor && variantColor !== '' ? variantColor : null
+      
     }
     
-    // Get existing saved items or initialize empty object
     const savedItems = JSON.parse(localStorage.getItem('saveForLater') || '{}')
     
-    // Add new item using variant_id as key
     savedItems[itemJson.variant_id] = saveForLaterItemData
     
-    // Save back to localStorage
     localStorage.setItem('saveForLater', JSON.stringify(savedItems))
-    
-    // Dispatch custom event so other parts of the app can react
-    document.dispatchEvent(new CustomEvent('saveForLater:updated', {
-      detail: { 
-        action: 'added',
-        variantId: itemJson.variant_id,
-        savedItems: savedItems
+    console.log(savedItems)
+
+    const cartItems = this.closest('cart-items')
+    if (cartItems) {
+      cartItems.updateQuantity(this.getAttribute("data-key"), 0, undefined, undefined, true)
+    }
+
+    setTimeout(function() {
+      if(document.querySelector('.cart-drawer-btn') != null) {
+        document.querySelector('.cart-drawer-btn').disabled = false  
       }
-    }))
-    
-    console.log('Item saved for later:', saveForLaterItemData)
-    console.log('All saved items:', savedItems)
+      
+      if(document.querySelector('.cart__checkout-button') != null) {
+        document.querySelector('.cart__checkout-button').disabled = false  
+      }
+    }, 1000)
   }
 }
 
@@ -531,10 +533,9 @@ class RemoveFromSaveForLater extends HTMLElement {
 
   handleClick(event) {
     event.preventDefault()
-    const variantId = this.getAttribute('data-variant-id')
+    const variantId = this.getAttribute('data-variant-id-to-remove')
     
     if (!variantId) {
-      console.error('No variant ID provided for remove-from-save-for-later')
       return
     }
     
@@ -547,23 +548,11 @@ class RemoveFromSaveForLater extends HTMLElement {
       return
     }
     
-    // Remove the item
     delete savedItems[variantId]
     
-    // Save back to localStorage
     localStorage.setItem('saveForLater', JSON.stringify(savedItems))
-    
-    // Dispatch custom event
-    document.dispatchEvent(new CustomEvent('saveForLater:updated', {
-      detail: { 
-        action: 'removed',
-        variantId: variantId,
-        savedItems: savedItems
-      }
-    }))
-    
-    console.log(`Removed variant ${variantId} from saved items`)
-    console.log('Remaining saved items:', savedItems)
+
+    console.log(savedItems)
   }
 }
 
