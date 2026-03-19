@@ -581,10 +581,13 @@ template-{{ template.name -}}
           window.addEventListener('DOMContentLoaded', () => {
             const cartRivettClub = document.querySelector('cart-rivett-club')
             if(!cartRivettClub) return
+            
             const hasClosedBefore = localStorage.getItem('rivettClubClosed')
-            if(!hasClosedBefore) {
-              cartRivettClub.classList.add('active')
-            }
+            
+            // Show by default, hide only if user has closed it before
+            if(hasClosedBefore === 'true') {
+              cartRivettClub.classList.add('inactive')
+            } 
           })
 
           class CartRivettClub extends HTMLElement {
@@ -599,7 +602,7 @@ template-{{ template.name -}}
                 e.preventDefault()
                 e.stopPropagation()
                 
-                this.classList.remove('active')
+                this.classList.add('inactive')
                 
                 localStorage.setItem('rivettClubClosed', 'true')
               })

@@ -717,6 +717,12 @@ class SaveForLaterItem extends HTMLElement {
     if (moveToCartBtn) {
       moveToCartBtn.addEventListener('click', () => this.moveToCart(itemData, variantId))
     }
+
+    // Attach event listener for "Move to Wishlist" button
+    const moveToWishlistBtn = this.querySelector('.saved-for-later-move-to-wishlist')
+    if (moveToWishlistBtn) {
+      moveToWishlistBtn.addEventListener('click', () => this.moveToWishlist(itemData, variantId))
+    }
   }
 
   showLoading() {
@@ -804,6 +810,19 @@ class SaveForLaterItem extends HTMLElement {
     document.dispatchEvent(new CustomEvent('saveForLater:updated', {
       detail: { action: 'movedToCart', variantId }
     }))
+  }
+
+  moveToWishlist(itemData, variantId) {
+
+    return 
+    // const savedItems = JSON.parse(localStorage.getItem('saveForLater') || '{}')
+    // delete savedItems[variantId]
+    // localStorage.setItem('saveForLater', JSON.stringify(savedItems))
+    
+    // // Dispatch event to update container
+    // document.dispatchEvent(new CustomEvent('saveForLater:updated', {
+    //   detail: { action: 'movedToWishlist', variantId }
+    // }))
   }
 }
 

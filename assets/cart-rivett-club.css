@@ -1,10 +1,10 @@
 cart-rivett-club {
     cursor: pointer; 
-    display: none;
+    display: block;
 }
 
-cart-rivett-club.active {
-    display: block;
+cart-rivett-club.inactive {
+    display: none;
 }
 
 cart-rivett-club a {
@@ -35,7 +35,6 @@ cart-rivett-club h4 {
     font-family: "Adobe Caslon Pro" !important;
     font-size: 15px !important; 
     line-height: 100%;
-    font-weight: 500 !important;
 }
 
 cart-rivett-club .icon-close {

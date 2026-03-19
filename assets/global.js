@@ -1185,7 +1185,6 @@ const productSwatchReload = () => {
         const json = JSON.parse(swiper.getAttribute('data-json'));
         const productSwiper = new Swiper(swiper, json);
         
-        // history.pushState(null, "", `${productURL}`);
         history.replaceState(null, "", `${productURL}`);
       }).finally(() => {
           if(document.querySelector('.swym-button.hammitt-custom')) {
@@ -1512,14 +1511,6 @@ const cartUpdate = (json = false) => {
     }
 
     cartUpsellSwiper();
-
-    // force swiper update on gift box section if its in cart
-
-    if(document.querySelector('gift-box-section .swiper.gift-box--swiper') != null) {
-      const carousel = document.querySelector('gift-box-section .swiper.gift-box--swiper');
-      const json = JSON.parse(carousel.getAttribute('data-json'));
-      const swiper = new Swiper(carousel, json)
-    }
 
    fetch(window.Shopify.routes.root + 'cart.js')
     .then(response =>
