@@ -611,8 +611,7 @@
                           {% render 'icon-plus' %}
                         </button>
                       </quantity-input>
-
-                      <save-for-later data-key="{{ item.key }}" data-item-json='{{ item | json }}' data-line-title="{{ product_type }}" data-line-string-price="{{ item.price | money_without_trailing_zeros }}" data-item-variant-color="{{ product_color }}">
+                      <save-for-later data-key="{{ item.key }}" data-item-json='{{ item | json }}' data-product-id="{{ item.product_id }}" data-line-title="{{ product_type }}" data-line-string-price="{{ item.price | money_without_trailing_zeros }}" data-item-variant-color="{{ product_color }}">
                         Save for later
                       </save-for-later>
 

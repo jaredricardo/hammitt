@@ -489,7 +489,9 @@ class SaveForLater extends HTMLElement {
     event.preventDefault()
     const itemJson = JSON.parse(this.getAttribute('data-item-json'))
     const variantColor = this.getAttribute('data-item-variant-color')
+    const productId = this.getAttribute('data-product-id')
     const saveForLaterItemData = {
+      product_level_id: productId,
       variant_add_to_cart_id: itemJson.variant_id,
       variant_url: itemJson.url,
       variant_image_string: itemJson.featured_image.url,
@@ -504,7 +506,6 @@ class SaveForLater extends HTMLElement {
     savedItems[itemJson.variant_id] = saveForLaterItemData
     
     localStorage.setItem('saveForLater', JSON.stringify(savedItems))
-    console.log(savedItems)
 
     const cartItems = this.closest('cart-items')
     if (cartItems) {
@@ -551,8 +552,6 @@ class RemoveFromSaveForLater extends HTMLElement {
     delete savedItems[variantId]
     
     localStorage.setItem('saveForLater', JSON.stringify(savedItems))
-
-    console.log(savedItems)
     
     // Dispatch event to update the saved for later container
     document.dispatchEvent(new CustomEvent('saveForLater:updated', {
@@ -689,7 +688,14 @@ class SaveForLaterItem extends HTMLElement {
             <button class="saved-for-later-move-to-cart" data-variant-id="${itemData.variant_add_to_cart_id}">
               Move to Cart
             </button>
-            <button class="saved-for-later-move-to-wishlist" data-variant-id="${variantId}">
+
+            <button 
+                class="saved-for-later-move-to-wishlist" 
+                data-variant-id="${variantId}"
+                data-product-id="${itemData.product_level_id}"
+                data-variant-add-id="${itemData.variant_add_to_cart_id}"
+                data-product-url="https://www.hammitt.com${itemData.variant_url}"
+            >
               Move to Wishlist
             </button>
             <div class="remove-button-container">
@@ -813,16 +819,46 @@ class SaveForLaterItem extends HTMLElement {
   }
 
   moveToWishlist(itemData, variantId) {
+    // Check if Swym is available
+    if (typeof window._swat === 'undefined') {
+      console.error('Swym is not loaded')
+      return
+    }
 
-    return 
-    // const savedItems = JSON.parse(localStorage.getItem('saveForLater') || '{}')
-    // delete savedItems[variantId]
-    // localStorage.setItem('saveForLater', JSON.stringify(savedItems))
-    
-    // // Dispatch event to update container
-    // document.dispatchEvent(new CustomEvent('saveForLater:updated', {
-    //   detail: { action: 'movedToWishlist', variantId }
-    // }))
+    // Show loading state
+    this.showLoading()
+
+    // Create the product object for Swym
+    const productData = {
+      epi: parseInt(itemData.variant_add_to_cart_id),
+      empi: parseInt(itemData.product_level_id),
+      du: `https://www.hammitt.com${itemData.variant_url}`,
+      dt: itemData.variant_formatted_title,
+      iu: itemData.variant_image_string,
+      pr: parseFloat(itemData.variant_string_price.replace(/[^0-9.]/g, ''))
+    }
+
+    // Add to wishlist using Swym API
+    window._swat.addToWishList(
+      productData,
+      (response) => {
+        // Success callback - remove from saved items immediately        
+        // Remove from saved items
+        const savedItems = JSON.parse(localStorage.getItem('saveForLater') || '{}')
+        delete savedItems[variantId]
+        localStorage.setItem('saveForLater', JSON.stringify(savedItems))
+        
+        // Dispatch event to update container
+        document.dispatchEvent(new CustomEvent('saveForLater:updated', {
+          detail: { action: 'movedToWishlist', variantId }
+        }))
+      },
+      (error) => {
+        // Error callback
+        console.error('Error adding to wishlist:', error)
+        this.hideLoading()
+      }
+    )
   }
 }
 
