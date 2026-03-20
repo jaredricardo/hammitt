@@ -770,6 +770,180 @@ template-{{ template.name -}}
       </script>
     {% endif %}
 
+    {% if settings.enable_hammitt_gift_wrap_upsell_cart_level %}
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          class HammittGiftWrapUpsell extends HTMLElement {
+            constructor() {
+              super()
+
+              this.giftWrapCheckbox = document.querySelector('input#hammitt-gift-wrap-upsell-checkbox')
+              this.giftWrapVid = this.dataset.giftWrapVid
+              this.cartHasGiftWrap = this.dataset.cartHasGiftWrap === 'true'
+
+              // Handle checkbox change
+              this.giftWrapCheckbox.addEventListener('change', async (e) => {
+                if(e.target.checked) {
+                  // Add gift wrap to cart
+                  await this.addGiftWrapToCart()
+                } else {
+                  // Remove gift wrap from cart
+                  await this.removeGiftWrapFromCart()
+                }
+              })
+
+              // Initialize checkbox state from server
+              this.giftWrapCheckbox.checked = this.cartHasGiftWrap
+            }
+
+            connectedCallback() {
+              // Listen for cart updates to check if gift wrap should be removed
+              document.addEventListener('cart:updated', async () => {
+                await this.checkAndRemoveGiftWrapIfOnlyItem()
+              })
+            }
+
+            getCartElements() {
+              // Always get fresh references since cart DOM gets replaced on update
+              return {
+                drawerWrapper: document.querySelector('.drawer__wrapper'),
+                loadingOverlay: document.querySelector('cart-items .loading-overlay')
+              }
+            }
+
+            showLoading() {
+              const { drawerWrapper, loadingOverlay } = this.getCartElements()
+              
+              if(drawerWrapper) {
+                drawerWrapper.classList.add('is-loading')
+                drawerWrapper.style.opacity = '0.65'
+                drawerWrapper.style.pointerEvents = 'none'
+              }
+              if(loadingOverlay) {
+                loadingOverlay.classList.remove('hidden')
+              }
+            }
+
+            hideLoading() {
+              const { drawerWrapper, loadingOverlay } = this.getCartElements()
+              
+              if(drawerWrapper) {
+                drawerWrapper.classList.remove('is-loading')
+                drawerWrapper.style.opacity = '1'
+                drawerWrapper.style.pointerEvents = 'initial'
+              }
+              if(loadingOverlay) {
+                loadingOverlay.classList.add('hidden')
+              }
+            }
+
+            getCartData() {
+              // Get cart data from drawer__items data attribute instead of API call
+              const drawerItems = document.querySelector('.drawer__items')
+              if(drawerItems && drawerItems.dataset.json) {
+                try {
+                  const cartData = JSON.parse(drawerItems.dataset.json)
+                  return cartData
+                } catch(error) {
+                  console.error('Error parsing cart data:', error)
+                  return []
+                }
+              }
+              return []
+            }
+
+            async checkAndRemoveGiftWrapIfOnlyItem() {
+              try {
+                const cartItems = this.getCartData()
+                
+                // Check if cart only contains gift wrap (and nothing else)
+                if(cartItems.length === 1) {
+                  const onlyItem = cartItems[0]
+                  if(onlyItem.variant_id == this.giftWrapVid) {
+                    // Cart only has gift wrap, remove it
+                    await this.removeGiftWrapFromCart()
+                  }
+                } else if(cartItems.length === 0) {
+                  // Cart is empty, just uncheck the box
+                  this.giftWrapCheckbox.checked = false
+                }
+              } catch(error) {
+                console.error('Error checking gift wrap status:', error)
+              }
+            }
+
+            async addGiftWrapToCart() {
+              this.showLoading()
+              
+              try {
+                const response = await fetch('/cart/add.js', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    items: [{
+                      id: this.giftWrapVid,
+                      quantity: 1
+                    }],
+                    sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+                  })
+                })
+
+                if(response.ok) {
+                  const data = await response.json()
+                  // Update cart UI with sections data
+                  if(typeof cartUpdate === 'function') {
+                    await cartUpdate(data)
+                  }
+                }
+              } catch(error) {
+                console.error('Error adding gift wrap to cart:', error)
+                // Revert checkbox on error
+                this.giftWrapCheckbox.checked = false
+              } finally {
+                this.hideLoading()
+              }
+            }
+
+            async removeGiftWrapFromCart() {
+              this.showLoading()
+              
+              try {
+                const response = await fetch('/cart/change.js', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    id: this.giftWrapVid,
+                    quantity: 0,
+                    sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+                  })
+                })
+
+                if(response.ok) {
+                  const data = await response.json()
+                  // Update cart UI with sections data
+                  if(typeof cartUpdate === 'function') {
+                    await cartUpdate(data)
+                  }
+                }
+              } catch(error) {
+                console.error('Error removing gift wrap from cart:', error)
+                // Revert checkbox on error
+                this.giftWrapCheckbox.checked = true
+              } finally {
+                this.hideLoading()
+              }
+            }
+          }
+
+          customElements.define('hammitt-gift-wrap-upsell', HammittGiftWrapUpsell)
+        })
+      </script>
+    {% endif %}
+
     {% comment %} should be moved into a js file {% endcomment %}
     {% if settings.zest_multi_checkout_enabled %}
       <script>

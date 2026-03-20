@@ -706,12 +706,6 @@ div#dynamic-checkout-cart {
   border-radius: 2px;
 }
 
-@media screen and (max-width: 751px) {
-  .hammitt-gift-note-area textarea {
-    font-size: 16px !important;
-  }
-}
-
 .hammitt-gift-note-area #gift-note-char-limit,
 .gift-note-char-limit {
   position: absolute;
@@ -802,6 +796,38 @@ hammitt-cart-level-gift-note {
 
 .cart-drawer-box-opt-out #hammitt-box-opt-out-checkbox {
   accent-color: black;
+}
+
+/* Gift Wrap Upsell Checkbox Styles */
+.cart-drawer-gift-wrap-upsell {
+  display: block;
+  width: 100%;
+}
+
+.cart-drawer-gift-wrap-upsell .checkbox-message-area {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.cart-drawer-gift-wrap-upsell .checkbox-message-area div {
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-drawer-gift-wrap-upsell #hammitt-gift-wrap-upsell-checkbox {
+  accent-color: black;
+}
+
+/* Mutual exclusivity: Box opt-out disables gift wrap upsell and vice versa */
+.cart-level-gift-options-container:has(#hammitt-box-opt-out-checkbox:checked) .cart-drawer-gift-wrap-upsell {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.cart-level-gift-options-container:has(#hammitt-gift-wrap-upsell-checkbox:checked) .cart-drawer-box-opt-out {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .cart-item .quantity__input {
@@ -1126,4 +1152,25 @@ remove-from-save-for-later {
   margin-bottom: 1rem;
   border: 0.5px solid #CACACA;
   border-radius: 5px;
+}
+
+/* Add cursor pointer to all inputs and labels in gift options */
+.cart-level-gift-options-container input[type="checkbox"],
+.cart-level-gift-options-container label {
+  cursor: pointer;
+}
+
+/* Hide quantity controls, save for later, and remove button for gift wrap product */
+.cart-item[data-gift-wrap-product="true"] .drawer__content-item-actions {
+  display: none !important;
+}
+
+/* Remove link from gift wrap product title */
+.cart-item[data-gift-wrap-product="true"] .cart-item__name {
+  pointer-events: none;
+  cursor: default;
+}
+
+.cart-item[data-gift-wrap-product="true"] .cart-item__name:hover {
+  text-decoration: none;
 }
