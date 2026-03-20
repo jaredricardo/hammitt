@@ -707,6 +707,69 @@ template-{{ template.name -}}
       </script>
     {% endif %}
 
+    {% if settings.enable_hammitt_box_opt_out_cart_level %}
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          // Persist box opt-out data on cart updates
+          document.addEventListener('cart:updated', (event) => {
+            if(document.querySelector('#hammitt-box-opt-out-form-input')) {
+              if(localStorage.getItem('boxOptOut')) {
+                const storageVal = localStorage.getItem('boxOptOut')
+                document.querySelector('#hammitt-box-opt-out-form-input').value = storageVal === 'true' ? 'true' : ''
+              }
+            }
+          })
+
+          class HammittBoxOptOut extends HTMLElement {
+            constructor() {
+              super()
+
+              this.boxOptOutInput = document.querySelector('input#hammitt-box-opt-out-form-input')
+              this.boxOptOutCheckbox = document.querySelector('input#hammitt-box-opt-out-checkbox')
+              this.boxOptOutInitData = document.querySelector('.cart-drawer-box-opt-out')
+
+              // Handle checkbox change
+              this.boxOptOutCheckbox.addEventListener('change', (e) => {
+                if(e.target.checked) {
+                  // User opted out of box
+                  this.boxOptOutInput.value = 'true'
+                  localStorage.setItem('boxOptOut', 'true')
+                } else {
+                  // User wants the box
+                  this.boxOptOutInput.value = ''
+                  localStorage.removeItem('boxOptOut')
+                }
+              })
+
+              // Initialize from localStorage
+              if(localStorage.getItem('boxOptOut') === 'true') {
+                if(this.boxOptOutInput) {
+                  this.boxOptOutInput.value = 'true'
+                  this.boxOptOutCheckbox.checked = true
+                }
+              }
+
+              // Initialize from server data
+              if(this.boxOptOutInitData.dataset.serverHasOptOut === 'true') {
+                this.boxOptOutCheckbox.checked = true
+                this.boxOptOutInput.value = 'true'
+                localStorage.setItem('boxOptOut', 'true')
+              }
+
+              // Clear if neither server nor localStorage has it
+              if(this.boxOptOutInitData.dataset.serverHasOptOut === 'false' && localStorage.getItem('boxOptOut') !== 'true') {
+                localStorage.removeItem('boxOptOut')
+                this.boxOptOutCheckbox.checked = false
+                this.boxOptOutInput.value = ''
+              }
+            }
+          }
+
+          customElements.define('hammitt-box-opt-out', HammittBoxOptOut)
+        })
+      </script>
+    {% endif %}
+
     {% comment %} should be moved into a js file {% endcomment %}
     {% if settings.zest_multi_checkout_enabled %}
       <script>

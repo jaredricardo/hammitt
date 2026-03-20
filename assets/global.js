@@ -1510,6 +1510,17 @@ const cartUpdate = (json = false) => {
       void progressBar.offsetWidth;
     }
 
+    // Check and update Rivett Club component state after cart update
+    const cartRivettClub = document.querySelector('cart-rivett-club');
+    if (cartRivettClub) {
+      const hasClosedBefore = localStorage.getItem('rivettClubClosed');
+      if (hasClosedBefore === 'true') {
+        cartRivettClub.classList.add('inactive');
+      } else {
+        cartRivettClub.classList.remove('inactive');
+      }
+    }
+
     cartUpsellSwiper();
 
    fetch(window.Shopify.routes.root + 'cart.js')

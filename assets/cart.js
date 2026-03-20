@@ -487,23 +487,29 @@ class SaveForLater extends HTMLElement {
 
   handleClick(event) {
     event.preventDefault()
-    const itemJson = JSON.parse(this.getAttribute('data-item-json'))
-    const variantColor = this.getAttribute('data-item-variant-color')
+    
+    // Get data from attributes (no JSON parsing needed)
     const productId = this.getAttribute('data-product-id')
+    const variantId = this.getAttribute('data-variant-id')
+    const variantUrl = this.getAttribute('data-variant-url')
+    const variantImage = this.getAttribute('data-variant-image')
+    const variantTitle = this.getAttribute('data-line-title')
+    const variantPrice = this.getAttribute('data-line-string-price')
+    const variantColor = this.getAttribute('data-item-variant-color')
+    
     const saveForLaterItemData = {
       product_level_id: productId,
-      variant_add_to_cart_id: itemJson.variant_id,
-      variant_url: itemJson.url,
-      variant_image_string: itemJson.featured_image.url,
-      variant_formatted_title: this.getAttribute('data-line-title'),
-      variant_string_price: this.getAttribute('data-line-string-price'),
+      variant_add_to_cart_id: variantId,
+      variant_url: variantUrl,
+      variant_image_string: variantImage,
+      variant_formatted_title: variantTitle,
+      variant_string_price: variantPrice,
       variant_color: variantColor && variantColor !== '' ? variantColor : null
-      
     }
     
     const savedItems = JSON.parse(localStorage.getItem('saveForLater') || '{}')
     
-    savedItems[itemJson.variant_id] = saveForLaterItemData
+    savedItems[variantId] = saveForLaterItemData
     
     localStorage.setItem('saveForLater', JSON.stringify(savedItems))
 

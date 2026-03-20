@@ -1231,10 +1231,34 @@
         "default": "Sending this as a Gift? Add a gift note here."
       },
       {
+        "type": "checkbox",
+        "id": "enable_hammitt_box_opt_out_cart_level",
+        "label": "Enable gift box opt-out at cart level",
+        "default": false
+      },
+      {
         "type": "text",
-        "id": "gifting_drawer_trigger_after_gifting_label",
-        "label": "Gifting drawer trigger button label when cart level gifting is enabled",
-        "default": "Gift Options."
+        "id": "hammitt_box_opt_out_message_cart_level",
+        "label": "Gift box opt-out checkbox label",
+        "default": "🌱 I'll pass on the box! Please send my item(s) in a dust bag only."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_hammitt_gift_wrap_upsell_cart_level",
+        "label": "Enable gift wrap upsell at cart level",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "hammitt_gift_wrap_upsell_message_cart_level",
+        "label": "Gift wrap upsell checkbox label",
+        "default": "Yes, wrap my items with ribbon for $5. 🎀"
+      },
+      {
+        "type": "product",
+        "id": "hammitt_gift_wrap_product_cart_level",
+        "label": "Hammitt Gift Wrap Product for Cart Level Gift Wrap Upsell",
+        "info": "Select the Hammitt Gift Wrap product to be automatically added to cart when gift wrap upsell checkbox is selected. This is for the CART LEVEL gift wrap upsell. NOTE: The gift wrap upsell checkbox will not appear if no product is selected. This is to prevent javascript errors."
       },
       {
         "type": "header",

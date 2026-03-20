@@ -611,7 +611,16 @@
                           {% render 'icon-plus' %}
                         </button>
                       </quantity-input>
-                      <save-for-later data-key="{{ item.key }}" data-item-json='{{ item | json }}' data-product-id="{{ item.product_id }}" data-line-title="{{ product_type }}" data-line-string-price="{{ item.price | money_without_trailing_zeros }}" data-item-variant-color="{{ product_color }}">
+                      <save-for-later 
+                        data-key="{{ item.key }}" 
+                        data-product-id="{{ item.product_id }}" 
+                        data-variant-id="{{ item.variant_id }}"
+                        data-variant-url="{{ item.url }}"
+                        data-variant-image="{{ item.image | img_url: 'master' }}"
+                        data-line-title="{{ product_type }}" 
+                        data-line-string-price="{{ item.price | money_without_trailing_zeros }}" 
+                        data-item-variant-color="{{ product_color }}"
+                      >
                         Save for later
                       </save-for-later>
 
@@ -666,6 +675,22 @@
         <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
       </cart-items>
       <div class="cart-level-gift-options-container">
+        {% if settings.enable_hammitt_box_opt_out_cart_level %}
+          <hammitt-box-opt-out class="cart-drawer-box-opt-out"
+            {% if cart.attributes['opted_out_of_box'] %}
+              data-server-has-opt-out="true"
+            {% else %}
+              data-server-has-opt-out="false"
+            {% endif %}
+          >
+            <div class="checkbox-message-area">
+              <div>
+                <input type="checkbox" id="hammitt-box-opt-out-checkbox">
+                <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message">{{ settings.hammitt_box_opt_out_message_cart_level }}</label>
+              </div>
+            </div>
+          </hammitt-box-opt-out>
+        {% endif %}
         {% if settings.enable_hammitt_gift_messaging %}
           <hammitt-cart-level-gift-note class="cart-drawer-gift-note"
             {% if cart.attributes['Gift Note'] %}
@@ -678,7 +703,7 @@
               <div>
                 <input type="checkbox" id="hammitt-gift-message-checkbox">
                 <label for="hammit-gift-message-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_gift_message }}</label>
-                {% if settings.gifting_drawer_trigger_after_gifting_label %}
+                {% if settings.gifting_drawer_trigger_after_gifting_label != blank %}
                   <hammitt-gifting-options-drawer-trigger-no-button style="margin: 0;text-decoration: underline;font-size: 13px;margin-left: 5px;cursor: pointer;">
                     {{ settings.gifting_drawer_trigger_after_gifting_label }}
                   </hammitt-gifting-options-drawer-trigger-no-button>
@@ -1097,6 +1122,9 @@
         <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
           {% if settings.enable_hammitt_gift_messaging %}
             <input id="hammitt-gift-message-form-input" type="hidden" name="attributes[Gift Note]" value="">
+          {% endif %}
+          {% if settings.enable_hammitt_box_opt_out_cart_level %}
+            <input id="hammitt-box-opt-out-form-input" type="hidden" name="attributes[opted_out_of_box]" value="">
           {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>

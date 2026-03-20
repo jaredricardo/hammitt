@@ -702,7 +702,7 @@ div#dynamic-checkout-cart {
 .hammitt-gift-note-area textarea {
   width: 100% !important;
   min-height: 90px;
-  border: 1.5px solid black;
+  border: 0.5px solid #D4D4D4;
   border-radius: 2px;
 }
 
@@ -755,6 +755,7 @@ div#dynamic-checkout-cart {
 
 .cart-drawer-gift-note .hammitt-gift-note-area {
   display: none;
+  margin-top: 8px;
 }
 
 .cart-drawer-gift-note:has(#hammitt-gift-message-checkbox:checked) .hammitt-gift-note-area {
@@ -768,12 +769,39 @@ div#dynamic-checkout-cart {
 }
 
 .hammit-checkbox-message {
-  font-size: 13px;
+  font-size: 11.5px;
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 1.2;
   font-family: Sofia Pro;
+}
+
+hammitt-box-opt-out,
+hammitt-cart-level-gift-note {
+  margin: 6px 0;
+}
+
+
+/* Box Opt-Out Checkbox Styles */
+.cart-drawer-box-opt-out {
+  display: block;
+  width: 100%;
+}
+
+.cart-drawer-box-opt-out .checkbox-message-area {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.cart-drawer-box-opt-out .checkbox-message-area div {
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-drawer-box-opt-out #hammitt-box-opt-out-checkbox {
+  accent-color: black;
 }
 
 .cart-item .quantity__input {
