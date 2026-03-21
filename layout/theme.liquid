@@ -573,6 +573,48 @@ template-{{ template.name -}}
       window.enableQuickAdd = {{ settings.enable_quick_add | json }};
     </script>
 
+    {% comment %} settings based scripts / css {% endcomment %}
+
+    {% if settings.enable_cart_rivett_club %}
+      {% unless customer %}
+        <script>
+          window.addEventListener('DOMContentLoaded', () => {
+            const cartRivettClub = document.querySelector('cart-rivett-club')
+            if(!cartRivettClub) return
+            
+            const hasClosedBefore = localStorage.getItem('rivettClubClosed')
+            
+            // Show by default, hide only if user has closed it before
+            if(hasClosedBefore === 'true') {
+              cartRivettClub.classList.add('inactive')
+            } 
+          })
+
+          class CartRivettClub extends HTMLElement {
+            constructor() {
+              super()
+            }
+
+            connectedCallback() {
+              this.closeBtn = this.querySelector('.icon-close')
+              
+              this.closeBtn.addEventListener('click', (e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                
+                this.classList.add('inactive')
+                
+                localStorage.setItem('rivettClubClosed', 'true')
+              })
+            }
+          }
+
+          customElements.define('cart-rivett-club', CartRivettClub)
+        </script>
+        <link rel="stylesheet" href="{{ 'cart-rivett-club.css' | asset_url }}">
+      {% endunless %}
+    {% endif %}
+
     {%- if settings.predictive_search_enabled -%}
       <script
         {% if template contains 'index' or template contains 'collection' or template contains 'product' %}
@@ -661,6 +703,243 @@ template-{{ template.name -}}
               }
           }
           customElements.define('hammitt-cart-level-gift-note', hammittGiftNote)  
+        })
+      </script>
+    {% endif %}
+
+    {% if settings.enable_hammitt_box_opt_out_cart_level %}
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          // Persist box opt-out data on cart updates
+          document.addEventListener('cart:updated', (event) => {
+            if(document.querySelector('#hammitt-box-opt-out-form-input')) {
+              if(localStorage.getItem('boxOptOut')) {
+                const storageVal = localStorage.getItem('boxOptOut')
+                document.querySelector('#hammitt-box-opt-out-form-input').value = storageVal === 'true' ? 'true' : ''
+              }
+            }
+          })
+
+          class HammittBoxOptOut extends HTMLElement {
+            constructor() {
+              super()
+
+              this.boxOptOutInput = document.querySelector('input#hammitt-box-opt-out-form-input')
+              this.boxOptOutCheckbox = document.querySelector('input#hammitt-box-opt-out-checkbox')
+              this.boxOptOutInitData = document.querySelector('.cart-drawer-box-opt-out')
+
+              // Handle checkbox change
+              this.boxOptOutCheckbox.addEventListener('change', (e) => {
+                if(e.target.checked) {
+                  // User opted out of box
+                  this.boxOptOutInput.value = 'true'
+                  localStorage.setItem('boxOptOut', 'true')
+                } else {
+                  // User wants the box
+                  this.boxOptOutInput.value = ''
+                  localStorage.removeItem('boxOptOut')
+                }
+              })
+
+              // Initialize from localStorage
+              if(localStorage.getItem('boxOptOut') === 'true') {
+                if(this.boxOptOutInput) {
+                  this.boxOptOutInput.value = 'true'
+                  this.boxOptOutCheckbox.checked = true
+                }
+              }
+
+              // Initialize from server data
+              if(this.boxOptOutInitData.dataset.serverHasOptOut === 'true') {
+                this.boxOptOutCheckbox.checked = true
+                this.boxOptOutInput.value = 'true'
+                localStorage.setItem('boxOptOut', 'true')
+              }
+
+              // Clear if neither server nor localStorage has it
+              if(this.boxOptOutInitData.dataset.serverHasOptOut === 'false' && localStorage.getItem('boxOptOut') !== 'true') {
+                localStorage.removeItem('boxOptOut')
+                this.boxOptOutCheckbox.checked = false
+                this.boxOptOutInput.value = ''
+              }
+            }
+          }
+
+          customElements.define('hammitt-box-opt-out', HammittBoxOptOut)
+        })
+      </script>
+    {% endif %}
+
+    {% if settings.enable_hammitt_gift_wrap_upsell_cart_level %}
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          class HammittGiftWrapUpsell extends HTMLElement {
+            constructor() {
+              super()
+
+              this.giftWrapCheckbox = document.querySelector('input#hammitt-gift-wrap-upsell-checkbox')
+              this.giftWrapVid = this.dataset.giftWrapVid
+              this.cartHasGiftWrap = this.dataset.cartHasGiftWrap === 'true'
+
+              // Handle checkbox change
+              this.giftWrapCheckbox.addEventListener('change', async (e) => {
+                if(e.target.checked) {
+                  // Add gift wrap to cart
+                  await this.addGiftWrapToCart()
+                } else {
+                  // Remove gift wrap from cart
+                  await this.removeGiftWrapFromCart()
+                }
+              })
+
+              // Initialize checkbox state from server
+              this.giftWrapCheckbox.checked = this.cartHasGiftWrap
+            }
+
+            connectedCallback() {
+              // Listen for cart updates to check if gift wrap should be removed
+              document.addEventListener('cart:updated', async () => {
+                await this.checkAndRemoveGiftWrapIfOnlyItem()
+              })
+            }
+
+            getCartElements() {
+              // Always get fresh references since cart DOM gets replaced on update
+              return {
+                drawerWrapper: document.querySelector('.drawer__wrapper'),
+                loadingOverlay: document.querySelector('cart-items .loading-overlay')
+              }
+            }
+
+            showLoading() {
+              const { drawerWrapper, loadingOverlay } = this.getCartElements()
+              
+              if(drawerWrapper) {
+                drawerWrapper.classList.add('is-loading')
+                drawerWrapper.style.opacity = '0.65'
+                drawerWrapper.style.pointerEvents = 'none'
+              }
+              if(loadingOverlay) {
+                loadingOverlay.classList.remove('hidden')
+              }
+            }
+
+            hideLoading() {
+              const { drawerWrapper, loadingOverlay } = this.getCartElements()
+              
+              if(drawerWrapper) {
+                drawerWrapper.classList.remove('is-loading')
+                drawerWrapper.style.opacity = '1'
+                drawerWrapper.style.pointerEvents = 'initial'
+              }
+              if(loadingOverlay) {
+                loadingOverlay.classList.add('hidden')
+              }
+            }
+
+            getCartData() {
+              // Get cart data from drawer__items data attribute instead of API call
+              const drawerItems = document.querySelector('.drawer__items')
+              if(drawerItems && drawerItems.dataset.json) {
+                try {
+                  const cartData = JSON.parse(drawerItems.dataset.json)
+                  return cartData
+                } catch(error) {
+                  console.error('Error parsing cart data:', error)
+                  return []
+                }
+              }
+              return []
+            }
+
+            async checkAndRemoveGiftWrapIfOnlyItem() {
+              try {
+                const cartItems = this.getCartData()
+                
+                // Check if cart only contains gift wrap (and nothing else)
+                if(cartItems.length === 1) {
+                  const onlyItem = cartItems[0]
+                  if(onlyItem.variant_id == this.giftWrapVid) {
+                    // Cart only has gift wrap, remove it
+                    await this.removeGiftWrapFromCart()
+                  }
+                } else if(cartItems.length === 0) {
+                  // Cart is empty, just uncheck the box
+                  this.giftWrapCheckbox.checked = false
+                }
+              } catch(error) {
+                console.error('Error checking gift wrap status:', error)
+              }
+            }
+
+            async addGiftWrapToCart() {
+              this.showLoading()
+              
+              try {
+                const response = await fetch('/cart/add.js', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    items: [{
+                      id: this.giftWrapVid,
+                      quantity: 1
+                    }],
+                    sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+                  })
+                })
+
+                if(response.ok) {
+                  const data = await response.json()
+                  // Update cart UI with sections data
+                  if(typeof cartUpdate === 'function') {
+                    await cartUpdate(data)
+                  }
+                }
+              } catch(error) {
+                console.error('Error adding gift wrap to cart:', error)
+                // Revert checkbox on error
+                this.giftWrapCheckbox.checked = false
+              } finally {
+                this.hideLoading()
+              }
+            }
+
+            async removeGiftWrapFromCart() {
+              this.showLoading()
+              
+              try {
+                const response = await fetch('/cart/change.js', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    id: this.giftWrapVid,
+                    quantity: 0,
+                    sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+                  })
+                })
+
+                if(response.ok) {
+                  const data = await response.json()
+                  // Update cart UI with sections data
+                  if(typeof cartUpdate === 'function') {
+                    await cartUpdate(data)
+                  }
+                }
+              } catch(error) {
+                console.error('Error removing gift wrap from cart:', error)
+                // Revert checkbox on error
+                this.giftWrapCheckbox.checked = true
+              } finally {
+                this.hideLoading()
+              }
+            }
+          }
+
+          customElements.define('hammitt-gift-wrap-upsell', HammittGiftWrapUpsell)
         })
       </script>
     {% endif %}

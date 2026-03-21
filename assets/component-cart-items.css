@@ -116,7 +116,7 @@
 
 .cart-item cart-remove-button {
   display: flex;
-  margin-left: 1rem;
+  margin: 0;
   width: max-content;
   margin-top: 0;
 }
@@ -126,7 +126,7 @@ cart-remove-button .button {
   /* min-height: 2.5rem; */
   padding: 0;
   margin: 0 0.1rem 0.1rem 0;
-  justify-content: center;
+  justify-content: end;
 }
 
 cart-remove-button .button:before,
@@ -146,8 +146,8 @@ cart-remove-button .button:not([disabled]):hover {
 }
 
 cart-remove-button .icon-remove {
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.75rem;
+  width: 1.75rem;
 }
 
 .cart-item .loading-overlay {
@@ -157,7 +157,8 @@ cart-remove-button .icon-remove {
   bottom: 0;
   padding: 0;
   margin-left: 2rem;
-  height: 4.5rem;
+  height: 1.75rem;
+  width: 1.75rem;
 }
 
 @media screen and (min-width: 750px) {
