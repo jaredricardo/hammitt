@@ -1,0 +1,68 @@
+cart-rivett-club {
+    cursor: pointer; 
+    display: block;
+}
+
+cart-rivett-club.inactive {
+    display: none;
+}
+
+cart-rivett-club a {
+    text-decoration: none;
+}
+
+cart-rivett-club .inner-club-area {
+    display: flex;
+    flex-direction: column;
+    background-color: #FAF5F5;
+    padding: 1rem;
+    text-align: center;
+    gap: 0.75rem;
+    position: relative;
+}
+
+cart-rivett-club .value-props {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-top: 0.75rem;
+}   
+
+cart-rivett-club h4 {
+    padding-bottom: 1rem !important;
+    border-bottom: 1px solid #DFDFDF;
+    color: #000;
+    font-family: "Adobe Caslon Pro" !important;
+    font-size: 16px !important; 
+    line-height: 100%;
+}
+
+cart-rivett-club .icon-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+cart-rivett-club .prop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+cart-rivett-club p {
+    color: #000;
+    text-align: center;
+    font-family: "Nunito Sans";
+    font-size: 11px !important;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150% !important; 
+    letter-spacing: normal;
+    margin: 0.5rem 0;
+}

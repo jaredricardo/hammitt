@@ -1185,7 +1185,6 @@ const productSwatchReload = () => {
         const json = JSON.parse(swiper.getAttribute('data-json'));
         const productSwiper = new Swiper(swiper, json);
         
-        // history.pushState(null, "", `${productURL}`);
         history.replaceState(null, "", `${productURL}`);
       }).finally(() => {
           if(document.querySelector('.swym-button.hammitt-custom')) {
@@ -1511,15 +1510,18 @@ const cartUpdate = (json = false) => {
       void progressBar.offsetWidth;
     }
 
-    cartUpsellSwiper();
-
-    // force swiper update on gift box section if its in cart
-
-    if(document.querySelector('gift-box-section .swiper.gift-box--swiper') != null) {
-      const carousel = document.querySelector('gift-box-section .swiper.gift-box--swiper');
-      const json = JSON.parse(carousel.getAttribute('data-json'));
-      const swiper = new Swiper(carousel, json)
+    // Check and update Rivett Club component state after cart update
+    const cartRivettClub = document.querySelector('cart-rivett-club');
+    if (cartRivettClub) {
+      const hasClosedBefore = localStorage.getItem('rivettClubClosed');
+      if (hasClosedBefore === 'true') {
+        cartRivettClub.classList.add('inactive');
+      } else {
+        cartRivettClub.classList.remove('inactive');
+      }
     }
+
+    cartUpsellSwiper();
 
    fetch(window.Shopify.routes.root + 'cart.js')
     .then(response =>
@@ -1978,3 +1980,21 @@ function expressCheckout() {
 function stopFindElement() {
   clearInterval(findElement);
 }
+
+
+class GiftingTooltipContainer extends HTMLElement {
+    constructor() {
+      super()
+      this.querySelector('.learn-more')?.addEventListener('mouseenter', this.open)
+      this.querySelector('.learn-more')?.addEventListener('mouseleave', this.close)
+      this.querySelector('.close-btn')?.addEventListener('click', this.close)
+    }
+    open() {
+      this.closest('gifting-tooltip-container').querySelector('.gifting-tooltip-content')?.classList.add('active')
+    }
+    close() {
+      this.closest('gifting-tooltip-container').querySelector('.gifting-tooltip-content')?.classList.remove('active')
+    }
+}
+
+customElements.define('gifting-tooltip-container', GiftingTooltipContainer)

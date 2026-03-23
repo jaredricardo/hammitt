@@ -1,0 +1,30 @@
+<cart-rivett-club>
+    <a class="inner-club-area" href="{{ settings.cart_rivett_club_link }}">
+        {% render 'icon-close' %}
+        {% if settings.cart_rivett_club_title %}
+            <h4>
+                {{ settings.cart_rivett_club_title }}
+            </h4>
+        {% endif %}
+        <div class="value-props">
+            <div class="prop">
+                <img src="{{ settings.cart_rivett_club_svg_1 | image_url: width: 200 }}" alt="Rivett Club Icon 1">
+                {% if settings.cart_rivett_club_value_prop_1 %}
+                    <p>{{ settings.cart_rivett_club_value_prop_1 }}</p>
+                {% endif %}
+            </div>
+            <div class="prop">
+                <img src="{{ settings.cart_rivett_club_svg_2 | image_url: width: 200  }}" alt="Rivett Club Icon 2">
+                {% if settings.cart_rivett_club_value_prop_2 %}
+                    <p>{{ settings.cart_rivett_club_value_prop_2 }}</p>
+                {% endif %}
+            </div>
+            <div class="prop">
+                <img src="{{ settings.cart_rivett_club_svg_3 | image_url: width: 200 }}" alt="Rivett Club Icon 3">
+                {% if settings.cart_rivett_club_value_prop_3 %}
+                    <p>{{ settings.cart_rivett_club_value_prop_3 }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </a>
+</cart-rivett-club>
