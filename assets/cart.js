@@ -619,12 +619,19 @@ class SavedForLaterContainer extends HTMLElement {
 
     this.style.display = 'block'
     
+    // Check if cart is empty to default to open state
+    const drawerItems = document.querySelector('.drawer__items')
+    const cartItemCount = drawerItems ? parseInt(drawerItems.dataset.totalItems || '0') : 0
+    const shouldBeOpen = cartItemCount === 0
+    
+    this.isOpen = shouldBeOpen
+    
     this.innerHTML = `
       <div class="saved-for-later__toggle">
         <span class="saved-for-later__title">Saved for Later (${itemCount})</span>
-        <span class="saved-for-later__icon">+</span>
+        <span class="saved-for-later__icon">${shouldBeOpen ? '−' : '+'}</span>
       </div>
-      <div class="saved-for-later__content" style="display: none;">
+      <div class="saved-for-later__content" style="display: ${shouldBeOpen ? 'block' : 'none'};">
         <ul class="saved-for-later__list"></ul>
       </div>
     `

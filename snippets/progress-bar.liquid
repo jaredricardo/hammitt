@@ -256,7 +256,7 @@
 ]
 {% endcapture %}
 
-<div class="progress-bar-container {% if cart.item_count == 0 %} hidden {% endif %}" data-gwp-tiers='{{ gwp_tiers_data | strip_newlines | strip }}'>
+<div class="progress-bar-container" data-gwp-tiers='{{ gwp_tiers_data | strip_newlines | strip }}'>
   
   {%- comment -%} PROGRESS BAR A - Dynamic GWP Tiers (Control) {%- endcomment -%}
   <div class="progress-bar-wrapper-a">

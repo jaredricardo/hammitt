@@ -646,9 +646,25 @@ template-{{ template.name -}}
                 this.saveButton = document.querySelector('#gift-note-save-button')
                 this.giftNoteCharLimit = document.querySelector('span#gift-note-char-limit')
                 this.giftNoteCheckbox = document.querySelector('input#hammitt-gift-message-checkbox')
+                this.checkboxMessageArea = this.querySelector('.checkbox-message-area')
                 this.textAreaPlaceholder = this.giftNoteTextArea.placeholder
                 this.giftNoteInitData = document.querySelector('.cart-drawer-gift-note')
                 this.currentNote = ''
+
+                // Make entire checkbox-message-area clickable
+                if(this.checkboxMessageArea) {
+                  this.checkboxMessageArea.addEventListener('click', (e) => {
+                    // Don't toggle if clicking on the checkbox itself or the trigger button
+                    if(e.target === this.giftNoteCheckbox || 
+                       e.target.closest('hammitt-gifting-options-drawer-trigger-no-button')) {
+                      return
+                    }
+                    // Toggle the checkbox
+                    this.giftNoteCheckbox.checked = !this.giftNoteCheckbox.checked
+                    // Trigger the change event
+                    this.giftNoteCheckbox.dispatchEvent(new Event('change'))
+                  })
+                }
     
                 this.querySelector('button#gift-note-save-button').addEventListener('click', () => {
 
@@ -712,10 +728,16 @@ template-{{ template.name -}}
         window.addEventListener('DOMContentLoaded', () => {
           // Persist box opt-out data on cart updates
           document.addEventListener('cart:updated', (event) => {
-            if(document.querySelector('#hammitt-box-opt-out-form-input')) {
-              if(localStorage.getItem('boxOptOut')) {
-                const storageVal = localStorage.getItem('boxOptOut')
-                document.querySelector('#hammitt-box-opt-out-form-input').value = storageVal === 'true' ? 'true' : ''
+            const boxOptOutInput = document.querySelector('#hammitt-box-opt-out-form-input')
+            const boxOptOutCheckbox = document.querySelector('#hammitt-box-opt-out-checkbox')
+            
+            if(boxOptOutInput && boxOptOutCheckbox) {
+              if(localStorage.getItem('boxOptOut') === 'true') {
+                boxOptOutInput.value = 'true'
+                boxOptOutCheckbox.checked = true
+              } else {
+                boxOptOutInput.value = ''
+                boxOptOutCheckbox.checked = false
               }
             }
           })
@@ -727,6 +749,11 @@ template-{{ template.name -}}
               this.boxOptOutInput = document.querySelector('input#hammitt-box-opt-out-form-input')
               this.boxOptOutCheckbox = document.querySelector('input#hammitt-box-opt-out-checkbox')
               this.boxOptOutInitData = document.querySelector('.cart-drawer-box-opt-out')
+
+              // Exit early if required elements don't exist
+              if(!this.boxOptOutInput || !this.boxOptOutCheckbox || !this.boxOptOutInitData) {
+                return
+              }
 
               // Handle checkbox change
               this.boxOptOutCheckbox.addEventListener('change', (e) => {
@@ -743,21 +770,17 @@ template-{{ template.name -}}
 
               // Initialize from localStorage
               if(localStorage.getItem('boxOptOut') === 'true') {
-                if(this.boxOptOutInput) {
-                  this.boxOptOutInput.value = 'true'
-                  this.boxOptOutCheckbox.checked = true
-                }
+                this.boxOptOutInput.value = 'true'
+                this.boxOptOutCheckbox.checked = true
               }
 
-              // Initialize from server data
+              // Initialize from server data (takes precedence)
               if(this.boxOptOutInitData.dataset.serverHasOptOut === 'true') {
                 this.boxOptOutCheckbox.checked = true
                 this.boxOptOutInput.value = 'true'
                 localStorage.setItem('boxOptOut', 'true')
-              }
-
-              // Clear if neither server nor localStorage has it
-              if(this.boxOptOutInitData.dataset.serverHasOptOut === 'false' && localStorage.getItem('boxOptOut') !== 'true') {
+              } else if(this.boxOptOutInitData.dataset.serverHasOptOut === 'false' && localStorage.getItem('boxOptOut') !== 'true') {
+                // Clear if neither server nor localStorage has it
                 localStorage.removeItem('boxOptOut')
                 this.boxOptOutCheckbox.checked = false
                 this.boxOptOutInput.value = ''
