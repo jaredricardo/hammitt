@@ -687,6 +687,16 @@
         <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
       </cart-items>
       <div class="cart-level-gift-options-container {% if cart.item_count == 0 %} hidden {% endif %}">
+        <div class="options-text" style="margin-bottom: 5px;">Gifting Options</div>
+        <div class="options-text">Most items arrive in a complimentary Hammitt gift box.
+          <gifting-options-tooltip>
+            <span class="tooltip-trigger">{% render 'icon-exclamation' %}</span>
+            <div class="tooltip-content">
+              Some items ie. accessories, travel, backpacks, and bags with large shoulder straps, are not eligible for complimentary gift boxes or ribbon.
+              {% render 'icon-close' %}
+            </div>
+          </gifting-options-tooltip>
+        </div>
         {% if settings.enable_hammitt_box_opt_out_cart_level %}
           <hammitt-box-opt-out class="cart-drawer-box-opt-out"
             {% if cart.attributes['opt_out_of_gift_box'] %}

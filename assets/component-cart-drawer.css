@@ -759,6 +759,7 @@ div#dynamic-checkout-cart {
 .checkbox-message-area #hammitt-gift-message-checkbox {
   accent-color: black;
   cursor: pointer;
+  margin-left: 0px;
 }
 
 .cart-drawer-gift-note .hammitt-gift-note-area {
@@ -810,6 +811,7 @@ hammitt-cart-level-gift-note {
 
 .cart-drawer-box-opt-out #hammitt-box-opt-out-checkbox {
   accent-color: black;
+  margin-left: 0;
 }
 
 /* Gift Wrap Upsell Checkbox Styles */
@@ -831,6 +833,7 @@ hammitt-cart-level-gift-note {
 
 .cart-drawer-gift-wrap-upsell #hammitt-gift-wrap-upsell-checkbox {
   accent-color: black;
+  margin-left: 0px;
 }
 
 /* Mutual exclusivity: Box opt-out disables gift wrap upsell and vice versa */
@@ -1162,7 +1165,7 @@ remove-from-save-for-later {
 }
 
 .cart-level-gift-options-container {
-  padding: 0.5rem;
+  padding: 8px 6px;
   margin-bottom: 1rem;
   border: 0.5px solid #CACACA;
   border-radius: 5px;
@@ -1172,6 +1175,75 @@ remove-from-save-for-later {
 .cart-level-gift-options-container input[type="checkbox"],
 .cart-level-gift-options-container label {
   cursor: pointer;
+}
+
+/* Gifting Options Tooltip Styles */
+gifting-options-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+gifting-options-tooltip .tooltip-trigger {
+  display: inline-flex;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+gifting-options-tooltip .tooltip-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  padding: 8px;
+  transform: translateX(-100%);
+  left: 50%;
+  background-color: #FAF5F5;
+  color: #000;
+  z-index: 1000;
+  width: max-content;
+  max-width: 300px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #000;
+  font-family: "Nunito Sans";
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 120%; /* 10.8px */
+}
+
+.options-text {
+  color: #000;
+  font-family: "Nunito Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 14.4px */
+}
+
+gifting-options-tooltip.is-open .tooltip-content {
+  display: block;
+}
+
+gifting-options-tooltip .tooltip-content .icon-close {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  cursor: pointer;
+  width: 7px;
+  height: 7px;
+}
+
+gifting-options-tooltip .tooltip-content .icon-close:hover {
+  opacity: 0.7;
+}
+
+.cart-level-gift-options-container .tooltip-trigger {
+  width: 8px;
+  height: 8px;
+}
+
+gifting-options-tooltip .icon-close:hover {
+  opacity: 0.7;
 }
 
 /* Hide quantity controls, save for later, and remove button for gift wrap product */

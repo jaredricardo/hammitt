@@ -793,6 +793,63 @@ template-{{ template.name -}}
       </script>
     {% endif %}
 
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        class GiftingOptionsTooltip extends HTMLElement {
+          constructor() {
+            super()
+            this.trigger = null
+            this.tooltipContent = null
+            this.closeButton = null
+            this.isOpen = false
+          }
+
+          connectedCallback() {
+            this.trigger = this.querySelector('.tooltip-trigger')
+            this.tooltipContent = this.querySelector('.tooltip-content')
+            this.closeButton = this.querySelector('.icon-close')
+            this.attachEventListeners()
+          }
+
+          attachEventListeners() {
+            // Show tooltip on hover of the trigger (exclamation icon)
+            if (this.trigger) {
+              this.trigger.addEventListener('mouseenter', () => {
+                this.show()
+              })
+            }
+
+            // Hide tooltip when mouse leaves the tooltip content
+            if (this.tooltipContent) {
+              this.tooltipContent.addEventListener('mouseleave', () => {
+                this.hide()
+              })
+            }
+
+            // Close on X button click or hover
+            if (this.closeButton) {
+              this.closeButton.addEventListener('click', (e) => {
+                e.stopPropagation()
+                this.hide()
+              })
+            }
+          }
+
+          show() {
+            this.isOpen = true
+            this.classList.add('is-open')
+          }
+
+          hide() {
+            this.isOpen = false
+            this.classList.remove('is-open')
+          }
+        }
+
+        customElements.define('gifting-options-tooltip', GiftingOptionsTooltip)
+      })
+    </script>
+
     {% if settings.enable_hammitt_gift_wrap_upsell_cart_level %}
       <script>
         window.addEventListener('DOMContentLoaded', () => {
