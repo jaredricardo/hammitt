@@ -730,14 +730,46 @@ template-{{ template.name -}}
           document.addEventListener('cart:updated', (event) => {
             const boxOptOutInput = document.querySelector('#hammitt-box-opt-out-form-input')
             const boxOptOutCheckbox = document.querySelector('#hammitt-box-opt-out-checkbox')
+            const drawerItems = document.querySelector('.drawer__items')
+            const cartItemCount = drawerItems ? parseInt(drawerItems.dataset.totalItems || '0') : 0
+            
+            // Clear boxOptOut when cart is empty to ensure checkbox isn't auto-checked on next add
+            if(cartItemCount === 0) {
+              localStorage.removeItem('boxOptOut')
+              if(boxOptOutInput) boxOptOutInput.value = ''
+              if(boxOptOutCheckbox) boxOptOutCheckbox.checked = false
+              return
+            }
             
             if(boxOptOutInput && boxOptOutCheckbox) {
+              // Re-attach event listener after cart update (DOM gets replaced)
+              const newCheckbox = document.querySelector('#hammitt-box-opt-out-checkbox')
+              if(newCheckbox) {
+                // Remove any existing listeners by cloning and replacing
+                const clone = newCheckbox.cloneNode(true)
+                newCheckbox.parentNode.replaceChild(clone, newCheckbox)
+                
+                // Attach fresh event listener
+                clone.addEventListener('change', (e) => {
+                  if(e.target.checked) {
+                    const input = document.querySelector('#hammitt-box-opt-out-form-input')
+                    if(input) input.value = 'true'
+                    localStorage.setItem('boxOptOut', 'true')
+                  } else {
+                    const input = document.querySelector('#hammitt-box-opt-out-form-input')
+                    if(input) input.value = ''
+                    localStorage.removeItem('boxOptOut')
+                  }
+                })
+              }
+              
+              // Update checkbox state from localStorage
               if(localStorage.getItem('boxOptOut') === 'true') {
                 boxOptOutInput.value = 'true'
-                boxOptOutCheckbox.checked = true
+                if(newCheckbox) newCheckbox.checked = true
               } else {
                 boxOptOutInput.value = ''
-                boxOptOutCheckbox.checked = false
+                if(newCheckbox) newCheckbox.checked = false
               }
             }
           })
