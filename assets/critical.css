@@ -106,6 +106,7 @@ p {
   font-family: 'Adobe Carlson SemiBold' !important;
   font-size: 15px !important;
   text-transform: Capitalize !important;
+  font-style: italic !important;
 }
 
 product-recommendations .card__heading a,
@@ -996,4 +997,14 @@ a.nav-wishlist-button .heart-count {
   .desktop-only {
     display: none;
   }
+}
+
+.card__heading {
+  justify-content: start !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* orginally this was a setting with text-align: var(--card-text-alignment), but it was broken at some point so now its just hard coded */
+.card-information {
+  text-align: left !important;
 }
