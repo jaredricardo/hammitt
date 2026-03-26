@@ -997,3 +997,11 @@ a.nav-wishlist-button .heart-count {
     display: none;
   }
 }
+
+.shopify-section:has(.tolstoy-carousel) {
+  display:none;
+}
+
+body.kyle-product .shopify-section:has(.tolstoy-carousel) {
+  display: block;
+}
