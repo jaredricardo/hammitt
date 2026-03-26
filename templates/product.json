@@ -225,16 +225,21 @@
         "padding_bottom_mobile": 0
       }
     },
-    "custom_liquid_jiGdDY": {
-      "type": "custom-liquid",
+    "177454590307bcb7e8": {
+      "type": "apps",
+      "blocks": {
+        "tolstoy_shoppable_video_quiz_carousel_block_ExC6rY": {
+          "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "4npieotp5bx8x"
+          }
+        }
+      },
+      "block_order": [
+        "tolstoy_shoppable_video_quiz_carousel_block_ExC6rY"
+      ],
       "settings": {
-        "custom_liquid": "{% if product.metafields.custom.playlist != blank %}\n  <script async src='//asset.fwcdn3.com/js/fwn.js'></script>\n  <style>\n    div.storyblock {}\n    div.embed {}\n\n    @media screen and (min-width: 600px) {\n      div.storyblock {\n        display: none;\n      }\n    }\n\n    @media screen and (max-width: 600px) {\n      div.embed {\n        display: none;\n      }\n    }\n  </style>\n\n  <div class=\"storyblock\">\n    <fw-storyblock\n      player_captions=\"false\"\n      channel=\"hammitt223858521\"\n      playlist=\"{{ product.metafields.custom.playlist }}\"\n      branding=\"false\"\n      autoplay=\"true\"\n    ></fw-storyblock>\n  </div>\n\n  <div class=\"embed\">\n   <fw-embed-feed\n    channel=\"hammitt223858521\"\n    playlist=\"{{ product.metafields.custom.playlist }}\"\n    captions=\"false\"\n    autoplay=\"true\"\n  ></fw-embed-feed>\n  </div>\n\n{% else %}\n \n  <style>\n    div.storyblock {}\n    div.embed {}\n\n    @media screen and (min-width: 600px) {\n      div.storyblock {\n        display: none;\n      }\n    }\n\n    @media screen and (max-width: 600px) {\n      div.embed {\n        display: none;\n      }\n    }\n  </style>\n\n  <script async src='//asset.fwcdn3.com/js/fwn.js'></script>\n\n  <div class=\"storyblock\">\n    <fw-storyblock\n      player_captions=\"false\"\n      channel=\"hammitt223858521\"\n      skus=\"{{ product.id }}\"\n      branding=\"false\"\n      autoplay=\"true\"\n    ></fw-storyblock>\n  </div>\n\n  <div class=\"embed\">\n    <fw-embed-feed\n      channel=\"hammitt223858521\"\n      skus=\"{{ product.id }}\"\n      mode=\"row\"\n      open_in=\"default\"\n      max_videos=\"0\"\n      placement=\"middle\"\n      branding=\"false\"\n      captions=\"false\"\n      player_placement=\"bottom-right\"\n    ></fw-embed-feed>\n  </div>\n{% endif %}",
-        "color_scheme": "background-1",
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "padding_top_mobile": 100,
-        "padding_bottom_mobile": 20,
-        "custom_class": ""
+        "include_margins": true
       }
     },
     "928b18aaf91cc2f853c4": {
@@ -541,7 +546,7 @@
     "main",
     "ca12ef536bc4551840b3",
     "pdp-video-section",
-    "custom_liquid_jiGdDY",
+    "177454590307bcb7e8",
     "928b18aaf91cc2f853c4",
     "foursixty_bn3ptH",
     "multicolumn_YpDmQ6",
