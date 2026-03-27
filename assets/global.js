@@ -1455,6 +1455,7 @@ checkOrderProtection()
 // });
 
 const cartUpdate = (json = false) => {
+
   const cartUpdates = [
     {
       section: "cart-drawer",
@@ -1552,7 +1553,7 @@ const cartUpdate = (json = false) => {
 
             let updatesObj = {
               updates: {},
-              sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+              sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
             }
 
             updatesObj.updates[giftWrapProductVid] = totalItemsWithGiftWrapPropertyInCart
