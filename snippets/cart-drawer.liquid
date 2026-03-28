@@ -370,14 +370,15 @@
                           <div class="multicolumns-image">
                             {{
                               column.image
-                              | image_url: width: 3840
+                              | image_url: width: 800
                               | image_tag:
                                 width: column.image.width,
                                 height: image_height,
                                 class: image_class,
-                                sizes: sizes,
-                                widths: widths,
-                                fetchpriority: fetch_priority
+                                sizes: '(min-width: 750px) 400px, 50vw',
+                                widths: '200, 400, 600, 800',
+                                fetchpriority: fetch_priority,
+                                loading: 'lazy'
                             }}
                           </div>
                         {% endif %}
@@ -482,7 +483,14 @@
               {% if bundle_item.properties['bundle_id'] != item.properties['bundle_id'] %}{% continue %}{% endif %}
               {% if current_bundle_items contains item.id %}{% continue %}{% endif %}
               <div class="ajaxcart--bundle__image" data-id="">
-                {{ bundle_item | img_url: '250x' | img_tag }}
+                <img src="{{ bundle_item | image_url: width: 150 }}" 
+                     srcset="{{ bundle_item | image_url: width: 75 }} 75w,
+                             {{ bundle_item | image_url: width: 150 }} 150w"
+                     sizes="75px"
+                     alt="{{ bundle_item.title }}"
+                     loading="lazy"
+                     width="75"
+                     height="75">
               </div>
               {% capture update %}updates[{{ bundle_item.id }}]=0{% endcapture %}
               {% assign my_bundle_items = my_bundle_items | append: '&' | append: update %}
@@ -514,7 +522,14 @@
             > 
             {% assign appear_delay = appear_delay | plus: 1 %}
             <div class="drawer__content-item-image"> 
-              <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.image.alt }}"> 
+              <img src="{{ item.image | image_url: width: 150 }}" 
+                   srcset="{{ item.image | image_url: width: 75 }} 75w,
+                           {{ item.image | image_url: width: 150 }} 150w"
+                   sizes="75px"
+                   alt="{{ item.image.alt }}"
+                   loading="lazy"
+                   width="75"
+                   height="75"> 
             </div> 
             <div class="drawer__content-item-info"> 
               <div> 
