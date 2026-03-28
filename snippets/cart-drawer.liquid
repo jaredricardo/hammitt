@@ -440,6 +440,10 @@
               assign noLink = true
             endif
 
+            if item.price == 0
+              assign noLink = true
+            endif
+
             ####### new way of assigning product title
 
             assign product_type =  item.product.metafields.custom.product_title_type
@@ -595,7 +599,7 @@
                 </ul>
               </div> 
                 {% unless item.variant_id == settings.hammitt_gift_wrap_product.selected_or_first_available_variant.id %}
-                  <div class="flex align-center drawer__content-item-actions">
+                  <div class="flex align-center drawer__content-item-actions {% if item.price == 0 %} hidden {% endif %}">
 
                       <quantity-input class="quantity" data-variant-id="{{ item.id }}" data-max="{% if item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}999{% else %}{{ item.variant.inventory_quantity }}{% endif %}"}>
                         <button class="quantity__button no-js-hidden" name="minus" type="button">
