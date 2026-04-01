@@ -9,36 +9,6 @@
  */
 {
   "sections": {
-    "home_hero_section_GzUagM": {
-      "type": "home-hero-section",
-      "disabled": true,
-      "name": "Hero section",
-      "settings": {
-        "section_bg_color": "#fffbf8",
-        "media_type": "video",
-        "video": "shopify://files/videos/bevery-added.mp4",
-        "text_align": "center",
-        "text_vertical_align": "center",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "center",
-        "text_horizontal_align_mobile": "center",
-        "show_secondary_image": true,
-        "title": "Explore New Arrivals",
-        "make_h1": true,
-        "subtitle": "",
-        "desktop_font_size": 42,
-        "mobile_font_size": 26,
-        "title_color": "#ffffff",
-        "description": "",
-        "description_color": "",
-        "button": "Shop Now",
-        "button_enable": true,
-        "link": "shopify://collections/new-arrivals",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff"
-      }
-    },
     "home_hero_section_rjE9kf": {
       "type": "home-hero-section",
       "custom_css": [
@@ -92,6 +62,36 @@
         "mobile_padding_bottom": 10
       }
     },
+    "home_hero_section_GzUagM": {
+      "type": "home-hero-section",
+      "disabled": true,
+      "name": "Hero section",
+      "settings": {
+        "section_bg_color": "#fffbf8",
+        "media_type": "video",
+        "video": "shopify://files/videos/bevery-added.mp4",
+        "text_align": "center",
+        "text_vertical_align": "center",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "center",
+        "text_horizontal_align_mobile": "center",
+        "show_secondary_image": true,
+        "title": "Explore New Arrivals",
+        "make_h1": true,
+        "subtitle": "",
+        "desktop_font_size": 42,
+        "mobile_font_size": 26,
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "",
+        "button": "Shop Now",
+        "button_enable": true,
+        "link": "shopify://collections/new-arrivals",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffffff"
+      }
+    },
     "image_banner_hMApH8": {
       "type": "image-banner",
       "blocks": {
@@ -129,6 +129,7 @@
         "heading_tMgi48",
         "buttons_cwdUxP"
       ],
+      "disabled": true,
       "name": "travel",
       "settings": {
         "custom_classes": "",
@@ -173,6 +174,7 @@
     },
     "slider_collection_UVDJXV": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "new in widget",
       "settings": {
         "title": "",
@@ -195,16 +197,35 @@
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
+        "image_carousel_item_by7dVy": {
+          "type": "image-carousel-item",
+          "name": "Mahogany",
+          "settings": {
+            "image": "shopify://shop_images/Tailored-Tangerine-Charlotte-Med-110-North_e1f94a9a-feb1-46a0-b24b-249f302603f7.jpg",
+            "eyebrow": "",
+            "title": "Tailored Tangerine",
+            "subcopy": "",
+            "button_text": "SHOP Tangerine",
+            "collection_url": "tailored-tangerine",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "image_ratio": "square",
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
         "image_carousel_item_hDqCRg": {
           "type": "image-carousel-item",
           "name": "Nautical",
           "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_13.jpg",
-            "eyebrow": "NEW!",
-            "title": "Cocoa Raffia",
-            "subcopy": "Effortlessly resort-ready, the perfect poolside companion.",
-            "button_text": "SHOP Cocoa Raffia",
-            "collection_url": "cocoa-raffia",
+            "image": "shopify://shop_images/Blueberry-Sortbet-Olympia-Totes.jpg",
+            "eyebrow": "",
+            "title": "Blueberry Sorbet",
+            "subcopy": "",
+            "button_text": "SHOP Blueberry Sorbet",
+            "collection_url": "blueberry-sorbet",
             "enable_image_as_link_out": true,
             "max_products": 10,
             "image_ratio": "square",
@@ -289,35 +310,15 @@
             "hide_subtitle": false,
             "hide_quick_add": false
           }
-        },
-        "image_carousel_item_by7dVy": {
-          "type": "image-carousel-item",
-          "name": "Mahogany",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_1_fd9945c6-5fec-45fc-94f0-db5ee4909111.jpg",
-            "eyebrow": "Our Most Versatile Brown",
-            "title": "Mahogany Pebble",
-            "subcopy": "Due to popular demand, we've added more Mahogany Pebble styles to our lineup.",
-            "button_text": "SHOP MAHOGANY",
-            "collection_url": "mahogany-pebble",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "image_ratio": "square",
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
         }
       },
       "block_order": [
+        "image_carousel_item_by7dVy",
         "image_carousel_item_hDqCRg",
         "image_carousel_item_i9fMeg",
         "image_carousel_item_3kt837",
         "image_carousel_item_fMrt4V",
-        "image_carousel_item_PPdUzN",
-        "image_carousel_item_by7dVy"
+        "image_carousel_item_PPdUzN"
       ],
       "custom_css": [
         ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
@@ -1330,9 +1331,9 @@
     }
   },
   "order": [
-    "home_hero_section_GzUagM",
     "home_hero_section_rjE9kf",
     "slider_collection_L6qdiY",
+    "home_hero_section_GzUagM",
     "image_banner_hMApH8",
     "slider_collection_UVDJXV",
     "home_hero_section_qhL9Xk",
