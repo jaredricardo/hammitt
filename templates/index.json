@@ -197,6 +197,23 @@
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
+        "image_carousel_item_Ya83Pf": {
+          "type": "image-carousel-item",
+          "settings": {
+            "eyebrow": "",
+            "title": "Slide Title",
+            "subcopy": "",
+            "button_text": "",
+            "collection_url": "",
+            "enable_image_as_link_out": true,
+            "max_products": 5,
+            "image_ratio": "adapt",
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
         "image_carousel_item_by7dVy": {
           "type": "image-carousel-item",
           "name": "Mahogany",
@@ -280,7 +297,7 @@
             "image": "shopify://shop_images/Rectangle_1060.jpg",
             "eyebrow": "",
             "title": "Cocoa Raffia",
-            "subcopy": "",
+            "subcopy": "Crafted with a combination of chaparral raffia, medium tone tan brown pebbled leather and mosaic brown pebbled leather.",
             "button_text": "SHOP Cocoa Raffia",
             "collection_url": "cocoa-raffia",
             "enable_image_as_link_out": true,
@@ -313,6 +330,7 @@
         }
       },
       "block_order": [
+        "image_carousel_item_Ya83Pf",
         "image_carousel_item_by7dVy",
         "image_carousel_item_hDqCRg",
         "image_carousel_item_i9fMeg",
