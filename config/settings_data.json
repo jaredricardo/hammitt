@@ -129,20 +129,19 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_rWU3KJ": {
+            "type": "announcement",
+            "settings": {
+              "text": "The April Drop Has Arrived",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/new-arrivals"
+            }
+          },
           "announcement_eRcyND": {
             "type": "announcement",
             "settings": {
-              "text": "Free Shipping with Rivett Club or $250+ Orders",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://pages/loyalty"
-            }
-          },
-          "announcement_rWU3KJ": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "The March Drop Has Arrived",
+              "text": "Shop Newest Drop",
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "shopify://collections/new-arrivals"
@@ -180,8 +179,8 @@
           }
         },
         "block_order": [
-          "announcement_eRcyND",
           "announcement_rWU3KJ",
+          "announcement_eRcyND",
           "announcement_CwR3it",
           "announcement_Yd7Xnr",
           "announcement_a4yGWJ"
