@@ -129,21 +129,21 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
-          "announcement_rWU3KJ": {
-            "type": "announcement",
-            "settings": {
-              "text": "The April Drop Has Arrived",
-              "text_color": "#ffffff",
-              "background_color": "#d96a0b",
-              "link": "shopify://collections/new-arrivals"
-            }
-          },
           "announcement_eRcyND": {
             "type": "announcement",
             "settings": {
               "text": "Free Hand Fan with Order $295+",
               "text_color": "#ffffff",
               "background_color": "#000000",
+              "link": "shopify://collections/new-arrivals"
+            }
+          },
+          "announcement_rWU3KJ": {
+            "type": "announcement",
+            "settings": {
+              "text": "The April Drop Has Arrived",
+              "text_color": "#ffffff",
+              "background_color": "#d96a0b",
               "link": "shopify://collections/new-arrivals"
             }
           },
@@ -179,8 +179,8 @@
           }
         },
         "block_order": [
-          "announcement_rWU3KJ",
           "announcement_eRcyND",
+          "announcement_rWU3KJ",
           "announcement_CwR3it",
           "announcement_Yd7Xnr",
           "announcement_a4yGWJ"
