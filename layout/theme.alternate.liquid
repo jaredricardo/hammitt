@@ -107,8 +107,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
     {% style %}
-       {{ settings.type_body_font | font_face }}
-       {{ settings.type_header_font | font_face }}
+       {{ settings.type_body_font | font_face: font_display: 'swap' }}
+       {{ settings.type_header_font | font_face: font_display: 'swap' }}
 
         #powrIframeLoader {
           display: none !important;

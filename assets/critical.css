@@ -1,8 +1,7 @@
 /* 
-
 This file is for CSS that is critical in preventing CLS on page load, 
-mainly above the fold and immedietly visible. Base.css loads after a lot of markup has already loaded.
-
+mainly above the fold and immediately visible. Base.css loads after markup.
+OPTIMIZED: Uses CSS variables from variables.css for maintainability
 */
 
 a,
@@ -11,141 +10,138 @@ a,
 .button--secondary,
 .card__badge,
 .list-menu__item > span {
-  font-family: "Nunito Sans", sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 500;
-  letter-spacing: 0.05em !important;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
 }
-
 
 h1,
 .h1 {
-  font-size: 42px !important;
-  font-family: 'Adobe Carlson Italic' !important;
+  font-size: var(--font-size-h1);
+  font-family: var(--font-heading-italic);
   margin: 0;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }
 
 h1.carlson-pro,
 .h1.carlson-pro {
-  font-family: 'Adobe Carlson Pro' !important;
+  font-family: var(--font-heading);
 }
 
 h2,
 .h2 {
-  font-family: "Nunito Sans", sans-serif !important;
-  font-size: 32px !important;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h2);
   margin: 0;
 }
 
 h2.carlson-pro,
 .h2.carlson-pro {
-  font-family: 'Adobe Carlson Pro' !important;
+  font-family: var(--font-heading);
 }
 
 h3,
 .h3 {
-  font-size: 28px !important;
-  font-family: "Nunito Sans", sans-serif !important;
+  font-size: var(--font-size-h3);
+  font-family: var(--font-primary);
   margin: 0;
 }
 
 h4,
 .h4 {
-  font-family: "Nunito Sans", sans-serif !important;
-  font-size: 20px !important; 
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h5);
   margin: 0;
 }
 
 h5,
 .h5 { 
-  font-family: "Nunito Sans", sans-serif !important;
-  font-size: 18px !important;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h6);
   margin: 0;
-  line-height: 1.3 !important;
+  line-height: var(--line-height-tight);
 }
 
 h6,
-.h6
- {
-  font-family: "Nunito Sans", sans-serif !important;
-  font-size: 15px !important;
-  line-height: 1.3 !important;
+.h6 {
+  font-family: var(--font-primary);
+  font-size: 15px;
+  line-height: var(--line-height-tight);
   margin: 0;
 }
 
 .h7 {
-  font-family: "Nunito Sans", sans-serif !important;
-  font-size: 13px !important;
-  line-height: 1.3 !important;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  line-height: var(--line-height-tight);
   margin: 0;
 }
 
 p {
-  font-family: "Nunito Sans", sans-serif !important;
-  font-size: 13px !important;
-  line-height: 1.25 !important;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  line-height: 1.25;
 }
 
 .p-large,
 .body p {
-  font-family: "Nunito Sans", sans-serif !important;
-  font-size: 15px !important;
-  line-height: 1.25 !important;
-  font-weight: 400;
+  font-family: var(--font-primary);
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: var(--font-weight-regular);
 }
 
 .carlson-semibold {
-  font-family: 'Adobe Carlson SemiBold' !important;
+  font-family: 'Adobe Carlson SemiBold';
 }
 
 /* overwritting some font stuff with more specificity */
 
 .card__heading a,
 .card__heading .price {
-  font-family: 'Adobe Carlson SemiBold' !important;
-  font-size: 15px !important;
-  text-transform: Capitalize !important;
+  font-family: 'Adobe Carlson SemiBold';
+  font-size: 15px;
+  text-transform: capitalize;
 }
 
 product-recommendations .card__heading a,
 .seo-description-container h2,
 product-recommendations .card__heading .price {
-  font-size: 14px !important;
+  font-size: var(--font-size-base);
 }
 
 strong,
 .main-nav-item span,
 minty-fresh-filters li a,
 .footer__blocks-wrapper .footer-header-button {
-  font-weight: 600 !important; 
-  font-family: "Nunito Sans", sans-serif !important;
-  font-size: 14px !important;
-  letter-spacing: 0.03em !important;
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  letter-spacing: 0.03em;
 }
 
 .footer__blocks-wrapper .footer-block__details-content li a {
-  letter-spacing: 0 !important;
+  letter-spacing: var(--letter-spacing-normal);
 }
 
 .main-nav-item span {
-  text-transform: lowercase !important;
-  text-transform: capitalize !important;
+  text-transform: capitalize;
 }
 
 .complete-the-set-text {
-  font-size: 13px !important; 
-  font-weight: 600;
-  font-family: "Nunito Sans", sans-serif !important;
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-primary);
 }
 
 .jr-featured-products-and-image h2 {
-  font-family: Adobe Carlson Italic !important;
-  font-size: 28px !important;
+  font-family: var(--font-heading-italic);
+  font-size: var(--font-size-h3);
 }
 
 #dropahint_wrapper #dropahint-cta img {
-  display: none !important;
+  display: none;
 }
 
 .pdp-hero-wrap .product_description p,
@@ -153,54 +149,47 @@ minty-fresh-filters li a,
 .pdp-hero-wrap .product_description li,
 .pdp-hero-wrap .product-collapse-container .accordion__content li,
 .pdp-hero-wrap .product-collapse-container .accordion__content p {
-  font-family: "Nunito Sans", sans-serif !important;
-  font-size: 15px !important;
+  font-family: var(--font-primary);
+  font-size: 15px;
 }
 
 .pdp-hero-wrap .product_description ul {
-  margin: 0.75rem 0 !important;
-  padding-left: 1.25rem !important;
-}
-.pdp-hero-wrap .product_description li {
-  list-style-type: disc !important; 
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
 }
 
+.pdp-hero-wrap .product_description li {
+  list-style-type: disc;
+}
+
+/* Mobile Typography Adjustments */
 @media only screen and (max-width: 750px) {
-  /* cheap way of adding greater specificity */
-  body h1,
-  body .h1 {
-    font-size: 30px !important;
+  h1, .h1 {
+    font-size: 30px;
   }
-  body h2,
-  body .h2 {
-    font-size: 22px !important;
+  h2, .h2 {
+    font-size: 22px;
   }
-  body h2.carlson-pro,
-  body .h2.carlson-pro {
-    font-size: 20px !important;
+  h2.carlson-pro, .h2.carlson-pro {
+    font-size: 20px;
   }
-  body h3,
-  body .h3  {
-    font-size: 18px !important;
+  h3, .h3 {
+    font-size: 18px;
   }
-  body h4,
-  body .h4 {
-    font-size: 16px !important;
+  h4, .h4 {
+    font-size: 16px;
   }
-  body h5,
-  body .h5 {
-    font-size: 15px !important;
+  h5, .h5 {
+    font-size: 15px;
   }
-  body h6,
-  body .h6 {
-    font-size: 14px !important;
+  h6, .h6 {
+    font-size: 14px;
   }
-  body p,
-  body .h7  {
-    font-size: 12px !important;
+  p, .h7 {
+    font-size: var(--font-size-small);
   }
-  body a,
-  body .button,
+  a,
+  .button,
   body .button--primary,
   body .button--secondary,
   body .card__badge {
