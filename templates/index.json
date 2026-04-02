@@ -95,10 +95,19 @@
     "image_banner_hMApH8": {
       "type": "image-banner",
       "blocks": {
+        "heading_tMgi48": {
+          "type": "heading",
+          "settings": {
+            "heading": "Free Gift",
+            "heading_size_mobile": 40,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 60
+          }
+        },
         "text_9abRa9": {
           "type": "text",
           "settings": {
-            "text": "Travel Ready",
+            "text": "Spend $295+ and receive a complimentary hand fan.",
             "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 18,
@@ -106,30 +115,20 @@
             "text_size_desktop": 18
           }
         },
-        "heading_tMgi48": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Heiress Collection",
-            "heading_size_mobile": 36,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 60
-          }
-        },
         "buttons_cwdUxP": {
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/heiress-collection",
+            "button_link_1": "shopify://collections/bestsellers",
             "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
-        "text_9abRa9",
         "heading_tMgi48",
+        "text_9abRa9",
         "buttons_cwdUxP"
       ],
-      "disabled": true,
       "name": "travel",
       "settings": {
         "custom_classes": "",
@@ -143,12 +142,12 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/desktop-travel-HP-banner.jpg",
-        "image_2": "shopify://shop_images/mobile-travel-HP-banner.gif",
-        "image_link": "shopify://collections/heiress-collection",
+        "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_25.jpg",
+        "image_2": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_24.jpg",
+        "image_link": "shopify://collections/bestsellers",
         "image_overlay_opacity": 20,
-        "image_height": "adapt",
-        "desktop_content_position": "bottom-center",
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
