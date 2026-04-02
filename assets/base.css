@@ -1270,11 +1270,13 @@ summary::-webkit-details-marker {
 /* component-media */
 .media {
   display: block;
-  background-color: #EFEFEF;
   position: relative;
   overflow: hidden;
   width: 100%;
+}
 
+.card__media .media {
+  background-color: #F9F8F6 !important;
 }
 
 .media--transparent {
@@ -3054,7 +3056,7 @@ details-disclosure > details {
   border: var(--media-border-width) solid rgba(var(--color-foreground), var(--media-border-opacity));
   border-radius: var(--media-radius);
   overflow: visible !important;
-  background-color: #EFEFEF;
+  background-color: #F9F8F6;
 }
 
 .global-media-settings:after {
@@ -3307,6 +3309,10 @@ cart-upsells {
 
 .display-block{
   display: block;
+}
+
+.page-width.near-full-width {
+  padding: 0 8px;
 }
 
 .template-index #MainContent .page-width{max-width: 100%;padding-left: 10px;padding-right: 10px;}

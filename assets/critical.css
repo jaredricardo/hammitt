@@ -531,7 +531,7 @@ minty-fresh-filters li a,
 
 @media screen and (max-width: 989px) {
   .grid__item:has(.num-slots-1) {
-    width: calc(50% - 9px) !important;
+    width: calc(50% - 3px) !important;
     max-width: calc(50% - 9px) !important;
   }
   
@@ -778,7 +778,7 @@ body:has(inspired-floating-widget) .inspired-app-opener {
 
 .jr-new-5050-product-list .columns {
   display: flex;
-  gap: 4rem;
+  gap: 8px;
   align-items: stretch;
   justify-content: center;
 }
@@ -796,7 +796,7 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 4px;
 }
 
 .jr-new-5050-product-list .swiper-scrollbar {
@@ -843,7 +843,6 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   }
   .jr-new-5050-product-list .columns {
     flex-direction: column !important;
-    gap: 2rem;
   }
   .jr-new-5050-product-list .swiper-scrollbar {
     display: block;
@@ -1007,4 +1006,20 @@ a.nav-wishlist-button .heart-count {
 /* orginally this was a setting with text-align: var(--card-text-alignment), but it was broken at some point so now its just hard coded */
 .card-information {
   text-align: left !important;
+}
+#product-grid {
+  column-gap: 4px;
+  row-gap: 12px;
+}
+
+#product-grid .grid__item {
+  max-width: none !important;
+}
+
+.product-card {
+  padding-bottom: 1.5rem !important;
+}
+
+.page-width.near-full-width {
+  padding: 0 8px;
 }
