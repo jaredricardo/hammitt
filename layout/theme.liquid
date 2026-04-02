@@ -44,9 +44,12 @@
     <link rel="stylesheet" href="{{ 'critical.css' | asset_url }}" fetchPriority="high">
     <link rel="stylesheet" href="{{ 'ab-test.css' | asset_url }}">
     <script src="{{ 'critical-global-functions.js' | asset_url }}" defer></script>
+    {%- comment -%}
+    DISABLED: Bot detection only - keeping header manipulation for compatibility
     {% unless is_admin_interface %}
       {% render '__opt-theme-observer' %}
     {% endunless %}
+    {%- endcomment -%}
     {% include '__opt-theme-headers' %}
     
     <!-- Global site tag (gtag.js) - Google Ads: AW-965460943 -->
@@ -1296,7 +1299,7 @@ template-{{ template.name -}}
   
     {%- endif -%}
 
-    {% render '__opt-theme-js' %} 
+    {% render '__opt-theme-js' %}
 
 {% if template contains 'product' %}
     <script>
