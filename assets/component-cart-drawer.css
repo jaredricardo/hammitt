@@ -166,7 +166,7 @@ cart-drawer > details[open] > summary::before {
   margin:0;
   list-style:none;
   margin:0;
-  padding:0
+  padding:0 0 5px 0;
 }
 .drawer__content-items .drawer__content-item{
   display:flex;
@@ -178,11 +178,12 @@ cart-drawer > details[open] > summary::before {
 }
 .drawer__content-item-image{
   width: 63px;
-  height: 63px;
   text-align: center;
   align-items: center;
   display: flex;
   justify-content: center;
+  aspect-ratio: 4/5;
+  background-color: #F9F8F6;
 }
 .drawer__content-item-image img{
   height:auto;
@@ -384,10 +385,6 @@ button[aria-disabled="true"] {
 
 .cart-drawer-upsells .upsell {
   width: 125px !important;
-}
-
-.swiper upsell-item.cts {
-  margin-right: 9px !important;
 }
 
 .cart_shipping_notes {
@@ -634,6 +631,7 @@ cart-upsells .upsell__image {
   position: relative;
   margin-bottom: 10px;
   width: 100%;
+  aspect-ratio: 4/5;
 }
 cart-upsells .upsell__image:after {
   content: '';

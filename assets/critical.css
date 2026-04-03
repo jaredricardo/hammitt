@@ -1013,7 +1013,13 @@ a.nav-wishlist-button .heart-count {
 }
 
 #product-grid .grid__item {
-  max-width: none !important;
+  max-width: calc(25% - 4px) !important;
+}
+
+@media screen and (max-width: 768px) {
+  #product-grid .grid__item {
+    max-width: 50% !important;
+  }
 }
 
 .product-card {
