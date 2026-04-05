@@ -377,9 +377,9 @@
         "image_padding": false,
         "removed_section_padding": true,
         "columns_desktop": 4,
-        "columns_gap": 1,
+        "columns_gap": 0,
         "row_gap": 0,
-        "mobile_columns_gap": 0,
+        "mobile_columns_gap": 1,
         "mobile_row_gap": 2,
         "column_alignment": "center",
         "text_position": "bottom",
@@ -495,9 +495,9 @@
         "image_padding": false,
         "removed_section_padding": true,
         "columns_desktop": 3,
-        "columns_gap": 1,
+        "columns_gap": 0,
         "row_gap": 0,
-        "mobile_columns_gap": 0,
+        "mobile_columns_gap": 1,
         "mobile_row_gap": 2,
         "column_alignment": "center",
         "text_position": "bottom",
@@ -505,14 +505,97 @@
         "button_label": "",
         "button_link": "",
         "color_scheme": "background-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "enable_peek": true,
-        "show_mobile_slider": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_peek": false,
+        "show_mobile_slider": false,
         "padding_top": 36,
         "padding_bottom": 36,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "image_banner_TEpUBB": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_pWCh86": {
+          "type": "heading",
+          "settings": {
+            "heading": "Mother's Day Gift Guide",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 50
+          }
+        },
+        "text_4izqN3": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "",
+            "text_area_html_swap": "<p>To enjoy free gift wrap, simply add it in your cart. </p><br>Small accessories, backpacks, and oversized bags that ship in a dust bag are not eligible.",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 13,
+            "text_size_desktop": 14
+          }
+        },
+        "buttons_B77qMb": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Gift Collection",
+            "button_link_1": "shopify://collections/gifts",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_pWCh86",
+        "text_4izqN3",
+        "buttons_B77qMb"
+      ],
+      "custom_css": [
+        ".banner__text.body span {line-height: 1.3 !important; display: block;}",
+        ".banner__box {max-width: 75rem;}"
+      ],
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h1",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Rectangle_981.jpg",
+        "image_2": "shopify://shop_images/Rectangle_982.jpg",
+        "image_link": "shopify://collections/gifts",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left-more",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 4,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 12,
         "custom_class": ""
       }
     },
@@ -581,6 +664,7 @@
     "featured_products_and_image_DcAEJ4",
     "multicolumn_CkQC8U",
     "multicolumn_p3haAw",
+    "image_banner_TEpUBB",
     "image_with_text_gYqgBc"
   ]
 }
