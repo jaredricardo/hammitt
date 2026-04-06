@@ -1,9 +1,17 @@
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
+
   assign appear_delay = 1
   assign has_gift_note = false
   assign cart_price_towards_free_gift = cart.total_price
+  assign cart_cannot_have_gift_wrap = false
+
+  for item in cart.items
+    if item.product.tags contains 'excluded-from-gifting-both-options' or item.product.tags contains 'excluded-from-gifting'
+      assign cart_cannot_have_gift_wrap = true
+    endif
+  endfor
 
   if settings.free_multi_gift_use_qualifying_tag
 
@@ -311,7 +319,7 @@
     </div>
 
   {% assign cartSubTotal = cart.items_subtotal_price %}
-  <div class="drawer__items" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
+  <div class="drawer__items" data-cart-cannot-have-gift-wrap="{{ cart_cannot_have_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
     {% comment %} 
       OLD CART EMPTY STATE
       {% if cart.item_count == 0 %}
