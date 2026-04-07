@@ -196,25 +196,6 @@
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
-        "image_carousel_item_i9fMeg": {
-          "type": "image-carousel-item",
-          "name": "Noir",
-          "settings": {
-            "image": "shopify://shop_images/Noir-Smooth-Raffia-PaulMini-KnottedStrap.jpg",
-            "eyebrow": "",
-            "title": "Noir Smooth Raffia",
-            "subcopy": "Crafted with a combination of chaparral raffia and classic black semi-veg tanned and pebbled leathers.",
-            "button_text": "SHOP Raffia Season",
-            "collection_url": "raffia",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "image_ratio": "square",
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
         "image_carousel_item_qXqAnb": {
           "type": "image-carousel-item",
           "name": "Flora",
@@ -225,6 +206,25 @@
             "subcopy": "This season's most anticipated bag has arrived.",
             "button_text": "SHOP  NOW",
             "collection_url": "flora-collection",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "image_ratio": "square",
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_i9fMeg": {
+          "type": "image-carousel-item",
+          "name": "Noir",
+          "settings": {
+            "image": "shopify://shop_images/Noir-Smooth-Raffia-PaulMini-KnottedStrap.jpg",
+            "eyebrow": "",
+            "title": "Noir Smooth Raffia",
+            "subcopy": "Crafted with a combination of chaparral raffia and classic black semi-veg tanned and pebbled leathers.",
+            "button_text": "SHOP Raffia Season",
+            "collection_url": "raffia",
             "enable_image_as_link_out": true,
             "max_products": 10,
             "image_ratio": "square",
@@ -331,8 +331,8 @@
         }
       },
       "block_order": [
-        "image_carousel_item_i9fMeg",
         "image_carousel_item_qXqAnb",
+        "image_carousel_item_i9fMeg",
         "image_carousel_item_hDqCRg",
         "image_carousel_item_by7dVy",
         "image_carousel_item_3kt837",
