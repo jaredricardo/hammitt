@@ -1,0 +1,119 @@
+/**
+ * CSS Variables (Custom Properties)
+ * Centralized design tokens to eliminate duplication and improve maintainability
+ * Load this FIRST before any other CSS
+ */
+
+:root {
+  /* Typography - Font Families */
+  --font-primary: "Nunito Sans", sans-serif;
+  --font-heading: "Adobe Carlson Pro", serif;
+  --font-heading-italic: "Adobe Carlson Italic", serif;
+  --font-body: "Sofia Pro Light", sans-serif;
+  --font-body-medium: "Sofia Pro Medium", sans-serif;
+  --font-mono: "GT Flexa Mono Regular", monospace;
+  
+  /* Font Sizes */
+  --font-size-base: 14px;
+  --font-size-h1: 42px;
+  --font-size-h2: 32px;
+  --font-size-h3: 28px;
+  --font-size-h4: 24px;
+  --font-size-h5: 20px;
+  --font-size-h6: 18px;
+  --font-size-small: 12px;
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Colors - Primary Palette */
+  --color-primary: #000000;
+  --color-secondary: #ffffff;
+  --color-accent: #146ff8;
+  
+  /* Colors - Grays */
+  --color-gray-darkest: #1a1a1a;
+  --color-gray-dark: #333333;
+  --color-gray-medium: #666666;
+  --color-gray-light: #999999;
+  --color-gray-lighter: #cccccc;
+  --color-gray-lightest: #f5f5f5;
+  
+  /* Colors - Semantic */
+  --color-error: #dc2626;
+  --color-success: #16a34a;
+  --color-warning: #ea580c;
+  --color-info: #0284c7;
+  
+  /* Spacing Scale (based on 8px grid) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  
+  /* Border Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+  
+  /* Z-Index Scale */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal-backdrop: 900;
+  --z-modal: 1000;
+  --z-toast: 1100;
+  --z-tooltip: 1200;
+  
+  /* Layout Breakpoints (for JS usage) */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 990px;
+  --breakpoint-wide: 1440px;
+  
+  /* Container Widths */
+  --container-narrow: 640px;
+  --container-normal: 1024px;
+  --container-wide: 1280px;
+  --container-full: 100%;
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Override colors for dark mode if needed */
+    /* --color-primary: #ffffff; */
+    /* --color-secondary: #000000; */
+  }
+}

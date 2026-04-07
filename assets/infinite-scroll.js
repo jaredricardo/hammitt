@@ -14,7 +14,6 @@ function scrollVertically(height) {
 // restore anchor position
 function updateQueryParam(key, value) {
   let url = new URL(window.location.href);
-  console.log(key)
   url.searchParams.set(key, value);
 
   // Update the URL without reloading the page
@@ -40,7 +39,6 @@ if (localStorage.getItem("target") !== null) {
   let scrollTarget = parseInt((targetElement === null || targetElement === void 0 ? void 0 : targetElement.getBoundingClientRect().top) - 200 + window.scrollY);
   if (!isNaN(scrollTarget)) {
     setTimeout(function () {
-      console.log(scrollTarget, 'f')
       scrollVertically(scrollTarget);
     }, 10);
   } 
@@ -75,11 +73,10 @@ const loadNextPage = (url) => {
       lazyImages();
       infiniteScroll();
     })
-    .catch(error => console.log(error));
+    .catch(error => console.error('Infinite scroll error:', error));
 }
 
 const infiniteScroll = () => {
-  console.log('/////// checking for next page')
   let nextButton = document.querySelector('.pagination__item[aria-label="Next page"]');
   const loader = document.getElementById('loader');
 

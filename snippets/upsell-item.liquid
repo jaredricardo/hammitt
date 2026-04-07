@@ -3,7 +3,14 @@
     <span class="visually-hidden">Link to {{ product.title }}</span>
   </a>
   <div class="upsell__image">
-    <img src="{{ product.images[0] | img_url: '200x' }}" width="100%" alt="{{ product.title }}">
+    <img srcset="{{ product.images[0] | image_url: width: 150 }} 150w,
+                 {{ product.images[0] | image_url: width: 300 }} 300w"
+         sizes="150px"
+         src="{{ product.images[0] | image_url: width: 200 }}"
+         alt="{{ product.title | escape }}"
+         loading="lazy"
+         width="150"
+         height="150">
     <svg class="icon-plus" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="black"/>
       <path d="M7.37255 7.37255V4H8.60784V7.37255H12V8.60784H8.60784V12H7.37255V8.60784H4V7.37255H7.37255Z" fill="black"/>

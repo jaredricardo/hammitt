@@ -133,7 +133,6 @@ customElements.define('product-thumbnail', ProductThumbnail);
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
-    console.log('VariantSelects');
     this.addEventListener('change', this.onVariantChange);
     this.productId = window.productJSON.id
     this.currentVariant = window.initialVariant;
@@ -399,9 +398,8 @@ class VariantRadios extends VariantSelects {
 }
 
 const getSwatches = () => {
- console.log('getSwatches');
+  // Swatches initialization
 };
-
 
 
 const buildSizes = (sizes) => {
@@ -493,7 +491,7 @@ const buildOptions = (b) => {
   if(limitedColorsEl.innerHTML.trim().length === 0) {
     limitedColorsEl.parentNode.style.display = 'none';
   }
-  console.log('buildOptions done');
+  
   window.productJSON = window.fauxJSON;
   customElements.define('variant-selects', VariantSelects);
   customElements.define('variant-radios', VariantRadios);
@@ -501,18 +499,15 @@ const buildOptions = (b) => {
 };
 
 const completeTheSetPDP = (c) => {
-  console.log('completeTheSetPDP');
   const productUpsells = document.querySelector('.product__upsells .product__upsells-scroller');
   if(!productUpsells) return
   fetch(`/collections/you-may-also-like?view=upsells`)
   .then(response => response.text())
   .then(html => {
-    console.log('fetched');
     var parser = new DOMParser();
 	var doc = parser.parseFromString(html, 'text/html');
     const upsells = doc.querySelectorAll('.upsell');
     upsells.forEach(upsell => {
-      console.log(upsell);
       const myTitle = upsell.getAttribute('data-title');
       if(window.ogJSON.tags.indexOf('NO_LAUNDRY') != -1 && myTitle.indexOf("Leather Laundry") != -1) {
         return true;
@@ -521,7 +516,7 @@ const completeTheSetPDP = (c) => {
     });
     
   })
-  .catch(error => console.log(error));
+  .catch(error => console.error('Complete the set error:', error));
 };
 
 const foursixtyHasPosts = (f) => {
