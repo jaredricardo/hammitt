@@ -5,13 +5,22 @@
   assign appear_delay = 1
   assign has_gift_note = false
   assign cart_price_towards_free_gift = cart.total_price
-  assign cart_cannot_have_gift_wrap = false
+  assign cart_can_have_gift_wrap = true
+  assign items_that_do_not_allow_gift_wrap = 0
 
   for item in cart.items
     if item.product.tags contains 'excluded-from-gifting-both-options' or item.product.tags contains 'excluded-from-gifting'
-      assign cart_cannot_have_gift_wrap = true
+      assign items_that_do_not_allow_gift_wrap = items_that_do_not_allow_gift_wrap | plus: item.quantity
+    endif
+    if item.product.id == settings.hammitt_gift_wrap_product_cart_level.id
+      assign items_that_do_not_allow_gift_wrap = items_that_do_not_allow_gift_wrap | plus: 1
     endif
   endfor
+
+  if items_that_do_not_allow_gift_wrap >= cart.item_count
+    #if all the items in the cart are excluded from gifting, then gift wrap cannot be added to the cart
+    assign cart_can_have_gift_wrap = false
+  endif
 
   if settings.free_multi_gift_use_qualifying_tag
 
@@ -111,6 +120,10 @@
     }
   </style>
 {% endif %}
+
+<script>
+  console.log({{ cart | json }})
+</script>
 
 {% if settings.enable_free_multi_gift_select or settings.enable_free_gift_wrap %}
   <style>
@@ -319,7 +332,7 @@
     </div>
 
   {% assign cartSubTotal = cart.items_subtotal_price %}
-  <div class="drawer__items" data-cart-cannot-have-gift-wrap="{{ cart_cannot_have_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
+  <div class="drawer__items" data-cart-can-have-gift-wrap="{{ cart_can_have_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
     {% comment %} 
       OLD CART EMPTY STATE
       {% if cart.item_count == 0 %}
@@ -736,7 +749,7 @@
               endif
             endfor
           -%}
-          <hammitt-gift-wrap-upsell class="cart-drawer-gift-wrap-upsell"
+          <hammitt-gift-wrap-upsell class="cart-drawer-gift-wrap-upsell{% unless cart_can_have_gift_wrap %} hidden {% endunless %}"
             data-gift-wrap-vid="{{ settings.hammitt_gift_wrap_product_cart_level.selected_or_first_available_variant.id }}"
             data-cart-has-gift-wrap="{{ cart_has_gift_wrap }}"
           >
