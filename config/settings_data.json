@@ -129,6 +129,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_Tpxzm9": {
+            "type": "announcement",
+            "settings": {
+              "text": "Free Shipping on All Orders",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/new-arrivals"
+            }
+          },
           "announcement_eRcyND": {
             "type": "announcement",
             "settings": {
@@ -179,6 +188,7 @@
           }
         },
         "block_order": [
+          "announcement_Tpxzm9",
           "announcement_eRcyND",
           "announcement_rWU3KJ",
           "announcement_CwR3it",
