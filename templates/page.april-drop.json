@@ -22,74 +22,33 @@
         "padding_bottom_mobile": 0
       }
     },
-    "image_banner_BtVyp6": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_NwRpwK": {
-          "type": "heading",
-          "settings": {
-            "heading": "The April Drop",
-            "heading_size_mobile": 26,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 50
-          }
-        },
-        "text_raMHwC": {
-          "type": "text",
-          "settings": {
-            "text": "Spring's most unexpected pieces are here. Explore resort-ready totes, whimsical floral details, natural raffia, and vibrant hues galore.",
-            "text_area_html_swap": "",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 16
-          }
-        }
-      },
-      "block_order": [
-        "heading_NwRpwK",
-        "text_raMHwC"
-      ],
-      "name": "erica",
+    "home_hero_section_hrMDbk": {
+      "type": "home-hero-section",
+      "name": "Hero section",
       "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
+        "section_bg_color": "#FFFBF8",
+        "media_type": "video",
+        "video": "shopify://files/videos/0407.mp4",
+        "text_align": "center",
+        "text_vertical_align": "center",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "center",
+        "text_horizontal_align_mobile": "center",
+        "show_secondary_image": true,
+        "title": "New This Month",
+        "make_h1": true,
+        "subtitle": "",
+        "desktop_font_size": 42,
+        "mobile_font_size": 30,
+        "title_color": "#ffffff",
         "description": "",
         "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/spring-lp-banner.gif",
-        "image_2": "shopify://shop_images/spring-lp-banner.gif",
-        "image_link": "shopify://collections/new-arrivals",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "light",
-        "show_text_below": false,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 12,
-        "custom_class": ""
+        "button": "Shop Now",
+        "button_enable": true,
+        "link": "shopify://collections/new-arrivals",
+        "button_text_color": "#000000",
+        "button_bg_color": "#ffffff"
       }
     },
     "image_banner_hx9Xkx": {
@@ -152,7 +111,7 @@
         "content_padding_bottom_mobile": 0,
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
-        "padding_top": 0,
+        "padding_top": 4,
         "padding_bottom": 12,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
@@ -1178,7 +1137,7 @@
   },
   "order": [
     "main",
-    "image_banner_BtVyp6",
+    "home_hero_section_hrMDbk",
     "image_banner_hx9Xkx",
     "slider_collection_bMjVQg",
     "jr_new_5050_product_list_qD9BMk",
