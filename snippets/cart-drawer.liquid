@@ -723,7 +723,7 @@
           </gifting-options-tooltip>
         </div>
         {% if settings.enable_hammitt_box_opt_out_cart_level %}
-          <hammitt-box-opt-out class="cart-drawer-box-opt-out"
+          <hammitt-box-opt-out class="cart-drawer-box-opt-out{% unless cart_can_have_gift_wrap %} hidden {% endunless %}"
             {% if cart.attributes['opt_out_of_gift_box'] %}
               data-server-has-opt-out="true"
             {% else %}

@@ -742,9 +742,18 @@ template-{{ template.name -}}
             const boxOptOutCheckbox = document.querySelector('#hammitt-box-opt-out-checkbox')
             const drawerItems = document.querySelector('.drawer__items')
             const cartItemCount = drawerItems ? parseInt(drawerItems.dataset.totalItems || '0') : 0
+            const cartCanHaveGiftWrap = drawerItems ? drawerItems.dataset.cartCanHaveGiftWrap === 'true' : true
             
             // Clear boxOptOut when cart is empty to ensure checkbox isn't auto-checked on next add
             if(cartItemCount === 0) {
+              localStorage.removeItem('boxOptOut')
+              if(boxOptOutInput) boxOptOutInput.value = ''
+              if(boxOptOutCheckbox) boxOptOutCheckbox.checked = false
+              return
+            }
+            
+            // Clear boxOptOut when all items are ineligible for gifting
+            if(!cartCanHaveGiftWrap) {
               localStorage.removeItem('boxOptOut')
               if(boxOptOutInput) boxOptOutInput.value = ''
               if(boxOptOutCheckbox) boxOptOutCheckbox.checked = false
