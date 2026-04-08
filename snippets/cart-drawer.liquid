@@ -5,21 +5,28 @@
   assign appear_delay = 1
   assign has_gift_note = false
   assign cart_price_towards_free_gift = cart.total_price
-  assign cart_can_have_gift_wrap = true
-  assign items_that_do_not_allow_gift_wrap = 0
+  assign cart_can_have_gift_wrap = false
+  assign items_that_allow_gift_wrap = 0
 
   for item in cart.items
+    assign is_excluded = false
+    assign is_gift_wrap = false
+    
     if item.product.tags contains 'excluded-from-gifting-both-options' or item.product.tags contains 'excluded-from-gifting'
-      assign items_that_do_not_allow_gift_wrap = items_that_do_not_allow_gift_wrap | plus: item.quantity
+      assign is_excluded = true
     endif
+    
     if item.product.id == settings.hammitt_gift_wrap_product_cart_level.id
-      assign items_that_do_not_allow_gift_wrap = items_that_do_not_allow_gift_wrap | plus: 1
+      assign is_gift_wrap = true
     endif
+    
+    unless is_excluded or is_gift_wrap
+      assign items_that_allow_gift_wrap = items_that_allow_gift_wrap | plus: item.quantity
+    endunless
   endfor
 
-  if items_that_do_not_allow_gift_wrap >= cart.item_count
-    #if all the items in the cart are excluded from gifting, then gift wrap cannot be added to the cart
-    assign cart_can_have_gift_wrap = false
+  if items_that_allow_gift_wrap > 0
+    assign cart_can_have_gift_wrap = true
   endif
 
   if settings.free_multi_gift_use_qualifying_tag
