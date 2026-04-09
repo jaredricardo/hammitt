@@ -573,11 +573,13 @@
                     <span class="exclusion-span"> Final Sale</span>
                   {% endif %}
 
-                  {% if item.product.tags contains 'excluded-from-gifting-both-options' %}
-                      <span class="exclusion-span">Box, dust bag, and gift wrap not available.</span>
-                    {% elsif item.product.tags contains 'excluded-from-gifting' %}
-                      <span class="exclusion-span">Box not included, gift wrap not available.</span>
-                  {% endif %}
+                  {% unless item.product.id == settings.hammitt_gift_wrap_product_cart_level.id %}
+                    {% if item.product.tags contains 'excluded-from-gifting-both-options' %}
+                        <span class="exclusion-span">Box, dust bag, and gift wrap not available.</span>
+                      {% elsif item.product.tags contains 'excluded-from-gifting' %}
+                        <span class="exclusion-span">Box not included, gift wrap not available.</span>
+                    {% endif %}
+                  {% endunless %}
                   
                   {% unless item.product.has_only_default_variant %}
                   {% for option in item.options_with_values %}
