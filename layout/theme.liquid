@@ -181,12 +181,6 @@
     {% style %}
        {{ settings.type_body_font | font_face }}
        {{ settings.type_header_font | font_face }}
-        body.overflow-hidden-tablet #gladlyChat_container.preload,
-        body.overflow-hidden-all #gladlyChat_container.preload,
-        body.overflow-hidden-mobile #gladlyChat_container.preload,
-        body.menu-drawer__MENU-DRAWER--open #gladlyChat_container.preload{
-            z-index: 1 !important;
-        }
         #powrIframeLoader {
           display: none !important;
         }
@@ -490,7 +484,7 @@
       });
     </script>
     <!-- Flip Chat Widget -->
-    <script src="https://chat.flipcx.com/cdn/hammit-chat-widget.min.js" async></script>
+    <script src="https://chat.flipcx.com/cdn/hammit-chat-widget.min.js"></script>
     <script>
       FlipChat.init({
         clientId: '28d859bb-753c-4a01-83e4-18745ecdbe3a',
@@ -499,13 +493,7 @@
         primaryColor: '#000000',
       });
     </script>
-    <!-- Gladly Chat Widget -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        !function(c,n,r,t){if(!c[r]){var i,d,p=[];d="PROD"!==t&&t?"STAGING"===t?"https://cdn.gladly.qa/gladly/chat-sdk/widget.js":t:"https://cdn.gladly.com/chat-sdk/widget.js",c[r]={init:function(){i=arguments;var e={then:function(t){return p.push({type:"t",next:t}),e},catch:function(t){return p.push({type:"c",next:t}),e}};return e}},c.__onHelpAppHostReady__=function(t){if(delete c.__onHelpAppHostReady__,(c[r]=t).loaderCdn=d,i)for(var e=t.init.apply(t,i),n=0;n<p.length;n++){var a=p[n];e="t"===a.type?e.then(a.next):e.catch(a.next)}},function(){try{var t=n.getElementsByTagName("script")[0],e=n.createElement("script");e.async=!0,e.src=d+"?q="+(new Date).getTime(),t.parentNode.insertBefore(e,t)}catch(t){}}()}}
-        (window,document,'Gladly','PROD')
-      });
-    </script>
+
     <img
       alt="icon"
       id="svgicon"
@@ -1350,11 +1338,6 @@ template-{{ template.name -}}
         };
     </script>
   {% endif %}
-    <script>
-    window.gladlyConfig = {
-      appId: 'hammitt.com'
-    };
-    </script>
     <img width="1" height="1" src="//action.dstillery.com/orbserv/nspix?adv=cl171899756252500&ns=8682&nc=Hammitt-Site-Visitor&ncv=68" />
     {% render 'swym-custom' %}
     <script>

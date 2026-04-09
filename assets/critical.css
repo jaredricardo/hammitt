@@ -622,6 +622,10 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   display: none !important;
 }
 
+body:has(.cart-drawer-container[open]) #flip-chat-widget {
+  z-index: -99999 !important;
+}
+
 
 @media screen and (max-width: 751px) {
   .search-modal__content.x-gen-search {
