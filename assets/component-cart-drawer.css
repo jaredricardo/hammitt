@@ -119,7 +119,7 @@ cart-drawer > details[open] > summary::before {
 .your-cart-is-empty {
   font-size: 14px;
   text-align: center;
-  min-height: 100px;
+  min-height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,7 +136,7 @@ cart-drawer > details[open] > summary::before {
 
 .empty-cart-button-container a {
   border: 1px solid black;
-  height: 40px;
+  height: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,14 +155,12 @@ cart-drawer > details[open] > summary::before {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 1rem;
-  padding: 1rem;
 }
 
 @media screen and (max-width: 749px) {
   .empty-cart-upsell-products {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
-    padding: 0.75rem;
   }
 }
 
@@ -1011,7 +1009,7 @@ hammitt-cart-level-gift-note {
 
 
 .below-progress-bar-container {
-  padding: 8px 10px 20px 10px;
+  padding: 4px 10px 20px 10px;
 }
 
 save-for-later { 
@@ -1330,7 +1328,31 @@ gifting-options-tooltip .icon-close:hover {
   font-style: italic;
   font-weight: 400;
   line-height: 32px; 
-  padding: 10px 0;
+  padding: 7px 0;
   text-align: center;
   border-top: 1px solid #EBEBEB;
+}
+
+.empty-cart-product-upsell-container h3.card__heading {
+  font-style: italic !important;
+  justify-content: start;
+  font-size: 13px !important;
+  font-family: "Adobe Carlson SemiBold" !important;
+}
+
+.empty-cart-product-upsell-container h3.card__heading a {
+  font-family: "Adobe Carlson SemiBold" !important;
+  font-size: 13px !important;
+}
+
+.empty-cart-product-upsell-container h3 .upsell__price {
+  margin: 0 0 0 7px;
+  font-style: italic !important;
+  font-family: "Adobe Carlson SemiBold" !important;
+  font-size: 13px !important;
+}
+
+.empty-cart-product-upsell-container .card__information {
+  padding: 0;
+  line-height: 1.1; 
 }

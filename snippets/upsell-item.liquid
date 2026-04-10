@@ -38,4 +38,9 @@
     </a>
     <span class="upsell__price">{{ product.price | money_without_trailing_zeros }}</span>
   </h3>
+  {% if product_color %}
+    <div class="card__information">
+      <small>{{ product_color }}</small>
+    </div>
+  {% endif %}
 </upsell-item>
