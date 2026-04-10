@@ -1467,7 +1467,7 @@ const cartUpdate = (json = false) => {
     },
     {
       section: "header",
-      elements: [".cart-announcement-bar",".drawer__items",".drawer__final", ".cart_shipping_notes", '.below-progress-bar-container', ".drawer__title"]
+      elements: [".cart-announcement-bar",".drawer__items",".drawer__final", ".cart_shipping_notes", '.below-progress-bar-container', ".drawer__title", ".progress-bar-container"]
     }
   ];
 
