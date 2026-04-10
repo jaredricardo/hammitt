@@ -117,14 +117,58 @@ cart-drawer > details[open] > summary::before {
 }
 
 .your-cart-is-empty {
-  font-size: 13px;
+  font-size: 14px;
   text-align: center;
   min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #7D7D7D;
-  border-bottom: 1px solid #EBEBEB;
+  color: #000000;
+}
+
+.empty-cart-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 20px;
+}
+
+.empty-cart-button-container a {
+  border: 1px solid black;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 165px;
+  color: black; 
+  text-decoration: none;
+  color: #000;
+  font-size: 12px !important;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.empty-cart-upsell-products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 749px) {
+  .empty-cart-upsell-products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+}
+
+.your-cart-is-empty p {
+  line-height: 150%;
+  color: black;
 }
 
 .drawer__content h4 {
@@ -375,6 +419,10 @@ button[aria-disabled="true"] {
   pointer-events: none;
 }
 
+.empty-cart-button-container card__heading h3 {
+  font-weight: 
+}
+
 .cart-announcement-bar {
   font-size: 1.1rem;
   text-align: center;
@@ -596,6 +644,13 @@ cart-upsells .tab-item__upsell ul {
   white-space: nowrap;
 }
 
+cart-upsells h3.card-heading a,
+.empty-cart-product-upsell-container h3.card-heading a {
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
 cart-upsells .tab-item__upsell ul li {
   list-style: none;
   padding: 0;
@@ -626,21 +681,26 @@ cart-upsells .tab-item__upsell ul li.tab-item a {
   font-weight: 500;
 }
 cart-upsells .loading-overlay {right: 0;  margin: auto;}
-cart-upsells .upsell__title {font-size: 12px;line-height: 1.2; font-weight: 600;}
-cart-upsells .upsell__price {font-family: Sofia Pro;font-weight: 400;font-size: 12px;line-height: 22px;letter-spacing: 1.2;margin-top: 5px; display: block;}
+cart-upsells .upsell__title,
+.empty-cart-product-upsell-container .upsell__title {font-size: 12px;line-height: 1.2; font-weight: 600;}
+cart-upsells .upsell__price,
+.empty-cart-product-upsell-container .upsell__price {font-family: Sofia Pro;font-weight: 400;font-size: 12px;line-height: 22px;letter-spacing: 1.2;margin-top: 5px; display: block;}
 /* cart-upsells .swiper-wrapper {  min-height: 240px;} */
 .drawer__content-items .drawer__content-item:last-child {border-bottom: 0 !important;}
-cart-upsells .upsell__image {
+cart-upsells .upsell__image,
+.empty-cart-product-upsell-container .upsell__image {
   position: relative;
   margin-bottom: 10px;
   width: 100%;
 }
-cart-upsells .upsell__image:after {
+cart-upsells .upsell__image:after,
+.empty-cart-product-upsell-container .upsell__image:after {
   content: '';
   padding-bottom: 100%;
   display: block;
 }
-cart-upsells .upsell__image img {
+cart-upsells .upsell__image img,
+.empty-cart-product-upsell-container .upsell__image img {
   max-width: 100%;
   position: absolute;
   top: 0;
@@ -660,7 +720,8 @@ a:has(.upsell__title) {
   text-decoration: none;
 }
 
-cart-upsells .upsell__image .icon-plus {
+cart-upsells .upsell__image .icon-plus,
+.empty-cart-product-upsell-container .upsell__image .icon-plus {
   position: absolute;
   right: 5px;
   bottom: 5px;
@@ -950,7 +1011,7 @@ hammitt-cart-level-gift-note {
 
 
 .below-progress-bar-container {
-  padding: 8px 10px 0px 10px;
+  padding: 8px 10px 20px 10px;
 }
 
 save-for-later { 
@@ -1260,4 +1321,16 @@ gifting-options-tooltip .icon-close:hover {
 
 .cart-item[data-gift-wrap-product="true"] .cart-item__name:hover {
   text-decoration: none;
+}
+
+.empty-cart-product-upsell-container h5 {
+  color: #000;
+  font-family: "Adobe Caslon Pro" !important;
+  font-size: 21px !important;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 32px; 
+  padding: 10px 0;
+  text-align: center;
+  border-top: 1px solid #EBEBEB;
 }

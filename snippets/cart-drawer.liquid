@@ -333,7 +333,25 @@
       <h4 class="h7">Your Cart</h4>
       {% if cart.item_count == 0 %}
         <div class="your-cart-is-empty">
-          Your cart is currently empty
+            {{ section.settings.empty_cart_message }}
+        </div>
+        <div class="empty-cart-button-container">
+          {% if section.settings.empty_cart_button_link_one %}
+            <a href="{{ section.settings.empty_cart_button_link_one }}">{{ section.settings.empty_cart_button_text_one }}</a>
+          {% endif %}
+          {% if section.settings.empty_cart_button_link_two %}
+            <a href="{{ section.settings.empty_cart_button_link_two }}">{{ section.settings.empty_cart_button_text_two }}</a>
+          {% endif %}
+        </div>
+        <div class="empty-cart-product-upsell-container">
+          {% if section.settings.empty_cart_upsells_header %}
+            <h5>{{ section.settings.empty_cart_upsells_header }}</h5>
+          {% endif %}
+          <div class="empty-cart-upsell-products">
+            {% for product in section.settings.empty_cart_upsells %}
+              {%  render 'upsell-item', product: product %}
+            {% endfor %}
+          </div>
         </div>
       {% endif %}
     </div>
