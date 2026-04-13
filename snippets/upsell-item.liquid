@@ -1,16 +1,46 @@
+{%- liquid 
+  assign product_type = product.metafields.custom.product_title_type
+  assign product_color = product.metafields.custom.product_title_color_descriptor
+  assign product_size = product.metafields.hammitt.size.value
+  assign product_size_abbreviated = null
+  assign formatted_size_string = null
+
+  if product_size 
+    assign formatted_size_string = product_size | downcase | strip
+
+    case formatted_size_string 
+      when 'mini'
+        assign product_size_abbreviated = 'mini'
+      when 'small'  
+        assign product_size_abbreviated = 'sml'
+      when 'medium'
+        assign product_size_abbreviated = 'med'
+      when 'large'
+        assign product_size_abbreviated = 'lrg'
+    endcase
+  endif
+-%}
+
 <upsell-item class="upsell relative swiper-slide" data-title="{{ product.title }}">
   <a data-id="{{ product.selected_or_first_available_variant.id }}" href="/products/{{ product.handle }}" class="link--fill-parent seventy quick-add-btn">
     <span class="visually-hidden">Link to {{ product.title }}</span>
   </a>
   <div class="upsell__image">
-    <img src="{{ product.images[0] | img_url: '200x' }}" width="100%" alt="{{ product.title }}">
+    <img src="{{ product.images[0] | img_url: '300x' }}" width="100%" alt="{{ product.title }}">
     <svg class="icon-plus" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="black"/>
       <path d="M7.37255 7.37255V4H8.60784V7.37255H12V8.60784H8.60784V12H7.37255V8.60784H4V7.37255H7.37255Z" fill="black"/>
     </svg>
   </div>
-  <a href="{{ product.url }}">
-    <div class="upsell__title">{{ product.title }}</div>
-  </a>
-  <div class="upsell__price">{{ product.price | money_without_trailing_zeros }}</div>
+  <h3 class="card__heading carlson-semibold">
+    <a href="{{ product.url }}" class="full-unstyled-link">
+      {{ product_type }} {% if product_size %} {{ product_size_abbreviated }} {% endif %}
+    </a>
+    <span class="upsell__price">{{ product.price | money_without_trailing_zeros }}</span>
+  </h3>
+  {% if product_color %}
+    <div class="card__information">
+      <small>{{ product_color }}</small>
+    </div>
+  {% endif %}
 </upsell-item>
