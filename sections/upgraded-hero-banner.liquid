@@ -1,0 +1,799 @@
+{% comment %} Dynamic (Liquid-driven) per-block CSS {% endcomment %}
+{% style %}
+  {% for block in section.blocks %}
+    .hero-slide-{{ block.id }} {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background-color: {{ block.settings.background_color }};
+    }
+
+    .hero-slide-{{ block.id }}::before {
+      content: '';
+      display: block;
+      {% if block.settings.background_image_mobile %}
+        padding-top: {{ 100.0 | divided_by: block.settings.background_image_mobile.aspect_ratio }}%;
+      {% else %}
+        padding-top: 100%;
+      {% endif %}
+    }
+
+    @media (min-width: 1024px) {
+      .hero-slide-{{ block.id }}::before {
+        {% if block.settings.background_image_desktop %}
+          padding-top: {{ 100.0 | divided_by: block.settings.background_image_desktop.aspect_ratio }}%;
+        {% else %}
+          padding-top: 56.25%;
+        {% endif %}
+      }
+    }
+
+    .hero-slide-{{ block.id }} svg path,
+    .hero-slide-{{ block.id }} svg g {
+      fill: {{ block.settings.text_color }} !important;
+    }
+
+    .hero-slide-{{ block.id }} .hero-heading,
+    .hero-slide-{{ block.id }} .hero-subheader {
+      color: {{ block.settings.text_color }} !important;
+    }
+
+    .hero-slide-{{ block.id }} .hero-heading {
+      font-size: {{ block.settings.heading_size_mobile }}px !important;
+    }
+
+    .hero-slide-{{ block.id }} .hero-subheader {
+      font-size: {{ block.settings.subheader_size_mobile }}px !important;
+    }
+
+    .hero-slide-{{ block.id }} .hero-button-link {
+      background-color: {{ block.settings.button_bg_color }} !important;
+      border-color: {{ block.settings.button_border_color }} !important;
+      border-width: {{ block.settings.button_border_width }}px !important;
+      border-radius: {{ block.settings.button_border_radius }}px !important;
+      color: {{ block.settings.button_text_color }} !important;
+      font-size: {{ block.settings.button_size_mobile }}px !important;
+      width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-slide-{{ block.id }} .hero-heading {
+        font-size: {{ block.settings.heading_size_desktop }}px !important;
+      }
+
+      .hero-slide-{{ block.id }} .hero-subheader {
+        font-size: {{ block.settings.subheader_size_desktop }}px !important;
+      }
+
+      .hero-slide-{{ block.id }} .hero-button-link {
+        font-size: {{ block.settings.button_size_desktop }}px !important;
+      }
+    }
+
+    {% if block.settings.heading_font == 'adobe-caslon-italic' %}
+      .hero-slide-{{ block.id }} .hero-heading {
+        font-family: 'adobe-caslon-pro', serif !important;
+        font-style: italic !important;
+      }
+    {% endif %}
+
+    {% if block.settings.subheader_font == 'adobe-caslon-italic' %}
+      .hero-slide-{{ block.id }} .hero-subheader {
+        font-family: 'adobe-caslon-pro', serif !important;
+        font-style: italic !important;
+      }
+    {% endif %}
+
+    .hero-slide-{{ block.id }} .hero-banner__overlay {
+      background-color: rgba(0, 0, 0, {{ block.settings.overlay_opacity | divided_by: 100.0 }}) !important;
+      display: block !important;
+    }
+
+    .hero-slide-{{ block.id }} .banner-text-container {
+      {% if block.settings.content_position == 'bottom' %}
+        align-items: flex-end;
+      {% else %}
+        align-items: center;
+      {% endif %}
+    }
+
+    {% if block.settings.content_position == 'bottom' %}
+      .hero-slide-{{ block.id }} .banner-text-container .hero-content {
+        padding-bottom: 15%;
+      }
+
+      @media (min-width: 1024px) {
+        .hero-slide-{{ block.id }} .banner-text-container .hero-content {
+          padding-bottom: 7.5%;
+        }
+      }
+    {% endif %}
+  {% endfor %}
+{% endstyle %}
+
+{% comment %} Static CSS — Tailwind utilities extracted to plain CSS {% endcomment %}
+<style>
+  .hero-banner-{{ section.id }} .hero-banner__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-banner-{{ section.id }} .hero-banner__background img,
+  .hero-banner-{{ section.id }} .hero-banner__background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-banner-{{ section.id }} .hero-banner__background .desktop-image {
+    display: none;
+  }
+
+  .hero-banner-{{ section.id }} .hero-banner__background .mobile-image {
+    display: block;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-banner-{{ section.id }} .hero-banner__background .mobile-image {
+      display: none;
+    }
+
+    .hero-banner-{{ section.id }} .hero-banner__background .desktop-image {
+      display: block;
+    }
+  }
+
+  .hero-banner-{{ section.id }} .hero-banner__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-banner-{{ section.id }} .banner-text-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  .hero-banner-{{ section.id }} .banner-text-container .hero-content {
+    pointer-events: auto;
+    text-align: center;
+  }
+
+  .hero-banner-{{ section.id }} .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-banner-{{ section.id }} .hero-heading {
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-banner-{{ section.id }} .hero-heading {
+      line-height: 1;
+    }
+  }
+
+  .hero-banner-{{ section.id }} .hero-subheader {
+    margin: 0 0 1.25rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .hero-banner-{{ section.id }} .hero-button-wrapper {
+    display: flex;
+    margin-top: 1.5rem;
+    justify-content: center;
+    width: 250px !important;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 561px) {
+    .hero-banner-{{ section.id }} .hero-button-wrapper {
+        width: 200px !important;
+        margin-top: 1rem;
+    }
+  }
+
+  .hero-banner-{{ section.id }} .hero-button-link {
+    display: inline-block;
+    padding: 0.6em 1.4em;
+    border-style: solid;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: opacity 200ms ease;
+  }
+
+  .hero-banner-{{ section.id }} .hero-button-link:hover {
+    opacity: 0.8;
+  }
+
+  /* Prevent flash of stacked slides before Swiper initializes */
+  .hero-banner-{{ section.id }}.swiper:not(.swiper-initialized) .swiper-slide:not(:first-child) {
+    display: none;
+  }
+</style>
+
+<style>
+  /* Upgraded Hero Banner — general carousel control styles */
+
+  .uhb-carousel-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms ease;
+  }
+
+  /* Override Swiper's default absolute positioning on the pagination */
+  .uhb-pagination.swiper-pagination {
+    position: static;
+    bottom: auto;
+    width: auto !important;
+    pointer-events: auto;
+  }
+
+  .uhb-pagination .swiper-pagination-bullet {
+    background: transparent;
+    border: 2px solid #ffffff;
+    opacity: 1;
+    width: 8px;
+    height: 8px;
+  }
+
+  .uhb-pagination .swiper-pagination-bullet-active {
+    background: #ffffff;
+    opacity: 1;
+  }
+
+  /* Override Swiper's default absolute positioning on the arrows */
+  .uhb-arrow.swiper-button-prev,
+  .uhb-arrow.swiper-button-next {
+    position: static;
+    margin: 0;
+    width: 28px;
+    height: 28px;
+    color: #ffffff;
+    pointer-events: auto;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+  }
+
+  /* Hide the default Swiper icon font */
+  .uhb-arrow.swiper-button-prev::after,
+  .uhb-arrow.swiper-button-next::after {
+    display: none;
+  }
+
+  /* Hide (but preserve space) when at first/last slide */
+  .uhb-arrow.swiper-button-disabled {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  @media (min-width: 1024px) {
+    .uhb-carousel-controls {
+      gap: 14px;
+    }
+
+    .uhb-pagination .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+    }
+
+    .uhb-arrow.swiper-button-prev,
+    .uhb-arrow.swiper-button-next {
+      width: 34px;
+      height: 34px;
+    }
+
+    .uhb-arrow svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+</style>
+
+{% assign block_count = section.blocks.size %}
+
+<div class="hero-banner-{{ section.id }} no-section-padding{% if block_count > 1 %} swiper special-init-swiper{% endif %}">
+  <div class="{% if block_count > 1 %}swiper-wrapper{% endif %}">
+    {% for block in section.blocks %}
+      {% assign lazy_video = false %}
+      {% if block_count > 1 and forloop.first == false %}
+        {% assign lazy_video = true %}
+      {% endif %}
+      {% assign has_mobile_media = false %}
+      {% if block.settings.background_video_mobile or block.settings.background_image_mobile %}
+        {% assign has_mobile_media = true %}
+      {% endif %}
+      <div class="hero-slide hero-slide-{{ block.id }}{% if block_count > 1 %} swiper-slide{% endif %}" {{ block.shopify_attributes }}>
+        <div class="hero-banner__background">
+          {% if block.settings.background_video_mobile %}
+            <video
+              {% unless lazy_video %}autoplay{% endunless %}
+              muted
+              loop
+              playsinline
+              disablepictureinpicture
+              poster="{{ block.settings.background_video_mobile.preview_image | image_url: width: 1200 }}"
+              class="mobile-image"
+              {% if lazy_video %}data-lazy-video{% endif %}
+            >
+              {% for source in block.settings.background_video_mobile.sources %}
+                <source {% if lazy_video %}data-src{% else %}src{% endif %}="{{ source.url }}" type="{{ source.mime_type }}">
+              {% endfor %}
+            </video>
+          {% elsif block.settings.background_image_mobile %}
+            <img
+              src="{{ block.settings.background_image_mobile | image_url: width: 1200 }}"
+              srcset="{{ block.settings.background_image_mobile | image_url: width: 600 }} 600w,
+                      {{ block.settings.background_image_mobile | image_url: width: 800 }} 800w,
+                      {{ block.settings.background_image_mobile | image_url: width: 1200 }} 1200w"
+              sizes="100vw"
+              alt=""
+              loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+              fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}"
+              class="mobile-image"
+            >
+          {% endif %}
+          {% if block.settings.background_video_desktop %}
+            <video
+              {% unless lazy_video %}autoplay{% endunless %}
+              muted
+              loop
+              playsinline
+              disablepictureinpicture
+              poster="{{ block.settings.background_video_desktop.preview_image | image_url: width: 2400 }}"
+              class="{% unless has_mobile_media %}mobile-image {% endunless %}desktop-image"
+              {% if lazy_video %}data-lazy-video{% endif %}
+            >
+              {% for source in block.settings.background_video_desktop.sources %}
+                <source {% if lazy_video %}data-src{% else %}src{% endif %}="{{ source.url }}" type="{{ source.mime_type }}">
+              {% endfor %}
+            </video>
+          {% elsif block.settings.background_image_desktop %}
+            <img
+              src="{{ block.settings.background_image_desktop | image_url: width: 2400 }}"
+              srcset="{{ block.settings.background_image_desktop | image_url: width: 1200 }} 1200w,
+                      {{ block.settings.background_image_desktop | image_url: width: 1800 }} 1800w,
+                      {{ block.settings.background_image_desktop | image_url: width: 2400 }} 2400w"
+              sizes="100vw"
+              alt=""
+              loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+              fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}"
+              class="{% unless has_mobile_media %}mobile-image {% endunless %}desktop-image"
+            >
+          {% endif %}
+        </div>
+        <div class="hero-banner__overlay" style="background-color: rgba(0, 0, 0, {{ block.settings.overlay_opacity | divided_by: 100.0 }});"></div>
+        <div class="banner-text-container">
+          <div class="pad-x hero-content">
+            {% if block.settings.custom_html != blank %}
+              {{ block.settings.custom_html }}
+            {% else %}
+              {% if block.settings.heading_tag != 'none' and block.settings.heading_copy != blank %}
+                {% if block.settings.heading_tag == 'h1' %}
+                  <h1 class="hero-heading manrope">{{ block.settings.heading_copy }}</h1>
+                {% else %}
+                  <h2 class="hero-heading manrope">{{ block.settings.heading_copy }}</h2>
+                {% endif %}
+              {% endif %}
+              {% if block.settings.subheader != blank %}
+                <{{ block.settings.subheader_tag }} class="hero-subheader">{{ block.settings.subheader }}</{{ block.settings.subheader_tag }}>
+              {% endif %}
+              {% if block.settings.button_text != blank %}
+                <div class="hero-button-wrapper">
+                  <a
+                    class="hero-button-link"
+                    href="{{ block.settings.button_link }}"
+                  >
+                    {{ block.settings.button_text }}
+                  </a>
+                </div>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if block_count > 1 %}
+    <div class="uhb-carousel-controls">
+      <button class="swiper-button-prev uhb-arrow" aria-label="Previous slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="swiper-pagination uhb-pagination"></div>
+      <button class="swiper-button-next uhb-arrow" aria-label="Next slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  {% endif %}
+</div>
+
+{% if block_count > 1 %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var el = document.querySelector('.hero-banner-{{ section.id }}');
+      if (!el || typeof Swiper === 'undefined') return;
+
+      function loadVideoSources(video) {
+        if (!video.hasAttribute('data-lazy-video')) return;
+        video.querySelectorAll('source[data-src]').forEach(function (source) {
+          source.setAttribute('src', source.getAttribute('data-src'));
+          source.removeAttribute('data-src');
+        });
+        video.removeAttribute('data-lazy-video');
+        video.load();
+      }
+
+      function playSlideVideos(slideEl) {
+        slideEl.querySelectorAll('video').forEach(function (video) {
+          loadVideoSources(video);
+          video.currentTime = 0;
+          video.play();
+        });
+      }
+
+      function pauseSlideVideos(slideEl) {
+        slideEl.querySelectorAll('video').forEach(function (video) {
+          video.pause();
+        });
+      }
+
+      var controls = el.querySelector('.uhb-carousel-controls');
+
+      var swiper = new Swiper(el, {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: false,
+        speed: 300,
+        freeMode: false,
+        autoHeight: true,
+        navigation: {
+          nextEl: '.hero-banner-{{ section.id }} .swiper-button-next',
+          prevEl: '.hero-banner-{{ section.id }} .swiper-button-prev'
+        },
+        pagination: {
+          el: '.hero-banner-{{ section.id }} .swiper-pagination',
+          clickable: true
+        },
+        on: {
+          slideChange: function () {
+            console.log('slide change upgraded hero')
+            var activeSlide = this.slides[this.activeIndex];
+            this.slides.forEach(function (slide) {
+              pauseSlideVideos(slide);
+            });
+            playSlideVideos(activeSlide);
+          }
+        }
+      });
+
+      if (controls) {
+        controls.style.opacity = '1';
+      }
+
+      // Ensure the first slide's video plays on init
+      playSlideVideos(swiper.slides[swiper.activeIndex]);
+    });
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Upgraded Hero Banner",
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Background Images"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image_desktop",
+          "label": "Background Image (Desktop)",
+          "info": "Recommended size: 1920x1080px or larger"
+        },
+        {
+          "type": "video",
+          "id": "background_video_desktop",
+          "label": "Background Video (Desktop)",
+          "info": "If a video is uploaded here, it will be used as the background instead of the desktop image. Video autoplays silently on loop."
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image_mobile",
+          "label": "Background Image (Mobile)",
+          "info": "Recommended size: 800x1200px or larger"
+        },
+        {
+          "type": "video",
+          "id": "background_video_mobile",
+          "label": "Background Video (Mobile)",
+          "info": "If a video is uploaded here, it will be used as the background instead of the mobile image. Video autoplays silently on loop."
+        },
+        {
+          "type": "header",
+          "content": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Heading Tag",
+          "options": [
+            { "value": "none", "label": "None (hide heading)" },
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "text",
+          "id": "heading_copy",
+          "label": "Heading Copy",
+          "default": "Your Headline Here"
+        },
+        {
+          "type": "html",
+          "id": "custom_html",
+          "label": "Custom HTML Override",
+          "info": "If populated, replaces the entire heading/subheader/button area with this raw HTML. Leave blank to use the structured settings above."
+        },
+        {
+          "type": "range",
+          "id": "heading_size_mobile",
+          "label": "Heading Font Size (Mobile)",
+          "min": 16,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "heading_size_desktop",
+          "label": "Heading Font Size (Desktop)",
+          "min": 16,
+          "max": 120,
+          "step": 2,
+          "unit": "px",
+          "default": 72
+        },
+        {
+          "type": "select",
+          "id": "heading_font",
+          "label": "Heading Font Family",
+          "options": [
+            { "value": "default", "label": "Default (Theme Font)" },
+            { "value": "adobe-caslon-italic", "label": "Adobe Caslon Italic" }
+          ],
+          "default": "default"
+        },
+        {
+          "type": "header",
+          "content": "Subheader"
+        },
+        {
+          "type": "select",
+          "id": "subheader_tag",
+          "label": "Subheader Tag",
+          "options": [
+            { "value": "p", "label": "Paragraph (p)" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" }
+          ],
+          "default": "p"
+        },
+        {
+          "type": "textarea",
+          "id": "subheader",
+          "label": "Subheader Copy",
+          "default": "Discover our latest collection."
+        },
+        {
+          "type": "range",
+          "id": "subheader_size_mobile",
+          "label": "Subheader Font Size (Mobile)",
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "subheader_size_desktop",
+          "label": "Subheader Font Size (Desktop)",
+          "min": 10,
+          "max": 80,
+          "step": 1,
+          "unit": "px",
+          "default": 20
+        },
+        {
+          "type": "select",
+          "id": "subheader_font",
+          "label": "Subheader Font Family",
+          "options": [
+            { "value": "default", "label": "Default (Theme Font)" },
+            { "value": "adobe-caslon-italic", "label": "Adobe Caslon Italic" }
+          ],
+          "default": "default"
+        },
+        {
+          "type": "header",
+          "content": "Text Colors"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Heading & Subheader Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button URL"
+        },
+        {
+          "type": "range",
+          "id": "button_size_mobile",
+          "label": "Button Font Size (Mobile)",
+          "min": 10,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "default": 14
+        },
+        {
+          "type": "range",
+          "id": "button_size_desktop",
+          "label": "Button Font Size (Desktop)",
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "default": 16
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_color",
+          "label": "Button Background Color",
+          "default": "transparent"
+        },
+        {
+          "type": "color",
+          "id": "button_border_color",
+          "label": "Button Border Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "button_border_width",
+          "label": "Button Border Width",
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "unit": "px",
+          "default": 1.5
+        },
+        {
+          "type": "range",
+          "id": "button_border_radius",
+          "label": "Button Border Radius",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 1
+        },
+        {
+          "type": "header",
+          "content": "Background"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background Color (Fallback)",
+          "default": "#ffffff",
+          "info": "Shows when background image is not loaded"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Background Overlay Darkness (%)",
+          "info": "Adds a black overlay on top of the background image/video. 0 = transparent, 100 = fully black. Useful for legibility of white text.",
+          "default": 0,
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content Vertical Position",
+          "options": [
+            { "value": "center", "label": "Center" },
+            { "value": "bottom", "label": "Bottom" }
+          ],
+          "default": "center"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Upgraded Hero Banner",
+      "blocks": [
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}
