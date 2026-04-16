@@ -4,6 +4,7 @@
     assign publish_id_to_use = 'sww58zv9ke8rx'
     assign downcased_product_type = product.metafields.custom.product_title_type | downcase
 
+    # in the future this should be made dynamic using blocks 
     if downcased_product_type contains 'kyle'
         assign publish_id_to_use = 'sww58zv9ke8rx'
     elsif downcased_product_type contains 'tim'
