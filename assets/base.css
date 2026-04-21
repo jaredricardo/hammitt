@@ -4466,3 +4466,8 @@ minty-fresh-filter-input:has([name="filter.v.availability"][value="0"]),
     align-items: center;
   }
 }
+
+.yotpo-filters-container {
+  position: relative;
+  z-index: 1;
+}
