@@ -12,7 +12,7 @@
     "home_hero_section_rjE9kf": {
       "type": "home-hero-section",
       "custom_css": [
-        "@media screen and (max-width: 768px) {.section-image:has(video) {aspect-ratio: 4/5; }}"
+        "@media screen and (max-width: 768px) {.section-image:has(video) {aspect-ratio: 1/1; }}"
       ],
       "name": "Hero section with text below",
       "settings": {
@@ -201,7 +201,7 @@
           "type": "image-carousel-item",
           "name": "Floral",
           "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_27.jpg",
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_34.jpg",
             "eyebrow": "",
             "title": "Flamingo Flora",
             "subcopy": "This fresh, of-the-moment bag is a must-have companion for nights on the town.",
@@ -220,7 +220,7 @@
           "type": "image-carousel-item",
           "name": "Noir",
           "settings": {
-            "image": "shopify://shop_images/Noir-Smooth-Raffia-PaulMini-KnottedStrap.jpg",
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_33.jpg",
             "eyebrow": "",
             "title": "Noir Smooth Raffia",
             "subcopy": "Crafted with a combination of chaparral raffia and classic black semi-veg tanned and pebbled leathers.",
@@ -239,7 +239,7 @@
           "type": "image-carousel-item",
           "name": "Blueberry",
           "settings": {
-            "image": "shopify://shop_images/blueberry-banner-carousel.jpg",
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_38.jpg",
             "eyebrow": "",
             "title": "Blueberry Sorbet",
             "subcopy": "Soft weave with leather accents, in three sizes made to move with you.",
@@ -258,7 +258,7 @@
           "type": "image-carousel-item",
           "name": "Tangerine",
           "settings": {
-            "image": "shopify://shop_images/Tailored-Tangerine-Charlotte-Med-110-North_e1f94a9a-feb1-46a0-b24b-249f302603f7.jpg",
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_35.jpg",
             "eyebrow": "",
             "title": "Tailored Tangerine",
             "subcopy": "Crafted with a combination of mid-toned orange and mosaic brown pebbled leathers, and a medium-toned tan brown smooth, semi-veg tanned leather.",
@@ -277,7 +277,7 @@
           "type": "image-carousel-item",
           "name": "Pink",
           "settings": {
-            "image": "shopify://shop_images/Pink-Lemonade-Olympia-Tote-Mini-Knotted-Strap.jpg",
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_36.jpg",
             "eyebrow": "",
             "title": "Pink Lemonade",
             "subcopy": "Pink Lemonade is crafted in a vibrant Italian weave with soft leather accents, equal parts polished and playful, and very much at home poolside.",
@@ -315,32 +315,12 @@
           "type": "image-carousel-item",
           "name": "Heiress",
           "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_23.jpg",
+            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_37.jpg",
             "eyebrow": "",
             "title": "The Heiress Collection",
             "subcopy": "Our new travel bags and accessories. Elevate every adventure with luxe nylon designed for endless journeys.",
             "button_text": "SHOP Travel",
             "collection_url": "heiress-collection",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "image_ratio": "square",
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
-        "image_carousel_item_qXqAnb": {
-          "type": "image-carousel-item",
-          "name": "Flora",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_21_da8cfedf-4dc6-47dc-bfe9-80a28c1f0485.jpg",
-            "eyebrow": "",
-            "title": "Limited Edition",
-            "subcopy": "Collect artisan-crafted details that are sure to turn heads.",
-            "button_text": "SHOP  NOW",
-            "collection_url": "flora-collection",
             "enable_image_as_link_out": true,
             "max_products": 10,
             "image_ratio": "square",
@@ -358,8 +338,7 @@
         "image_carousel_item_by7dVy",
         "image_carousel_item_3kt837",
         "image_carousel_item_fMrt4V",
-        "image_carousel_item_PPdUzN",
-        "image_carousel_item_qXqAnb"
+        "image_carousel_item_PPdUzN"
       ],
       "custom_css": [
         ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
@@ -471,8 +450,8 @@
         "background_color": "#ffffff",
         "header_text_color": "#000000",
         "title": "The Kyle",
-        "padding_bottom_desktop": 20,
-        "padding_bottom_mobile": 67,
+        "padding_bottom_desktop": 0,
+        "padding_bottom_mobile": 0,
         "allow_sold_out_cards": false,
         "product_list": [
           "kyle-shoulder-bag-flamingo-flora-brushed-gold",
@@ -489,7 +468,7 @@
           "kyle-shoulder-bag-regatta-stripe-gold"
         ],
         "show_secondary_image": true,
-        "image": "shopify://shop_images/Rectangle_1060_9e32d552-5c99-4aed-9b15-0c01ed2c6ac9.jpg",
+        "image": "shopify://shop_images/2-Rectangle-1060.gif",
         "image_alignment_desktop": "image-right",
         "image_alignment_mobile": "image-top",
         "button_link": "shopify://collections/kyle",
@@ -849,7 +828,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_1058_862fa92a-d6d2-4eb7-bf7c-0d5789d73e24.jpg",
+            "image": "shopify://shop_images/Tile_78_5810ef22-e247-4aa3-9417-4503ea807f28.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -916,7 +895,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_1058_710e287d-9a67-43ef-aaaf-2f6550e117bd.jpg",
+            "image": "shopify://shop_images/Rectangle_1059_015bd2df-2504-4697-a83f-458302060663.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,

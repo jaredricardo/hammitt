@@ -129,6 +129,24 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_X8c7zh": {
+            "type": "announcement",
+            "settings": {
+              "text": "Send a Present with a Printed Gift Note",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/gift-guide"
+            }
+          },
+          "announcement_nAtPBK": {
+            "type": "announcement",
+            "settings": {
+              "text": "Mother's Day Gift Guide",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://pages/mothers-day-gift-guide"
+            }
+          },
           "announcement_Tpxzm9": {
             "type": "announcement",
             "settings": {
@@ -188,6 +206,8 @@
           }
         },
         "block_order": [
+          "announcement_X8c7zh",
+          "announcement_nAtPBK",
           "announcement_Tpxzm9",
           "announcement_eRcyND",
           "announcement_rWU3KJ",
