@@ -924,12 +924,6 @@ a.nav-wishlist-button .heart-count {
   max-width: calc(25% - 4px) !important;
 }
 
-@media screen and (max-width: 768px) {
-  #product-grid .grid__item {
-    max-width: 50% !important;
-  }
-}
-
 .product-card {
   padding-bottom: 1.5rem !important;
 }
@@ -938,7 +932,14 @@ a.nav-wishlist-button .heart-count {
   padding: 0 8px;
 }
 
-
+@media screen and (max-width: 768px) {
+  #product-grid .grid__item {
+    max-width: 50% !important;
+  }
+  .page-width.near-full-width {
+    padding: 0 4px;
+  }
+}
 
 gifting-tooltip-container {
     display: flex;
