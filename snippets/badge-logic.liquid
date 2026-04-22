@@ -37,9 +37,11 @@
         endif
 
         if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available and special_tag_assigned == false
-            assign special_tag_assigned = true
-            assign is_only_a_few_left_tag = true
-            assign badge_tag = settings.only_a_few_left_text
+            unless product.title contains 'Gift Card'
+                assign special_tag_assigned = true
+                assign is_only_a_few_left_tag = true
+                assign badge_tag = settings.only_a_few_left_text
+            endunless
         endif
 
         if product.tags contains 'Seasonal Favorites 25' and special_tag_assigned == false

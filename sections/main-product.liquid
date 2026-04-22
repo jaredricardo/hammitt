@@ -550,10 +550,12 @@
                     </div>
                     {% else %}
                       {% if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available %}
-                        <div class="only-x-left-container">
-                          {% render 'icon-timer' %}
-                          {{ settings.only_a_few_left_text }}
-                        </div>
+                        {% unless product.title contains 'Gift Card' %}
+                          <div class="only-x-left-container">
+                            {% render 'icon-timer' %}
+                            {{ settings.only_a_few_left_text }}
+                          </div>
+                      {% endunless %}
                       {% endif %}
                   {% endif %}
                 </div>       
@@ -649,10 +651,12 @@
                 </div>
                 {% else %}
                   {% if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available %}
-                    <div class="only-x-left-container">
-                      {% render 'icon-timer' %}
-                      {{ settings.only_a_few_left_text }}
-                    </div>
+                    {% unless product.title contains 'Gift Card' %}
+                      <div class="only-x-left-container">
+                        {% render 'icon-timer' %}
+                        {{ settings.only_a_few_left_text }}
+                      </div>
+                  {% endunless %}
                   {% endif %}
               {% endif %}
             </div>      
