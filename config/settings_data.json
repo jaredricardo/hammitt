@@ -129,23 +129,53 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
-          "announcement_eRcyND": {
+          "announcement_X8c7zh": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
-              "text": "Free Shipping with Rivett Club or $250+ Orders",
+              "text": "Send a Present with a Printed Gift Note",
               "text_color": "#ffffff",
               "background_color": "#000000",
-              "link": "shopify://pages/loyalty"
+              "link": "shopify://collections/gift-guide"
+            }
+          },
+          "announcement_nAtPBK": {
+            "type": "announcement",
+            "settings": {
+              "text": "Mother's Day Gift Guide",
+              "text_color": "#000000",
+              "background_color": "#f1e0d7",
+              "link": "shopify://pages/mothers-day-gift-guide"
+            }
+          },
+          "announcement_Tpxzm9": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Free Shipping on All Orders",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/new-arrivals"
+            }
+          },
+          "announcement_eRcyND": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Find Perfect Mother's Day Gifts",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://pages/mothers-day-gift-guide"
             }
           },
           "announcement_rWU3KJ": {
             "type": "announcement",
             "disabled": true,
             "settings": {
-              "text": "The March Drop Has Arrived",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://collections/new-arrivals"
+              "text": "New this Month",
+              "text_color": "#000000",
+              "background_color": "#ede9e6",
+              "link": "shopify://pages/current-season"
             }
           },
           "announcement_CwR3it": {
@@ -180,6 +210,9 @@
           }
         },
         "block_order": [
+          "announcement_X8c7zh",
+          "announcement_nAtPBK",
+          "announcement_Tpxzm9",
           "announcement_eRcyND",
           "announcement_rWU3KJ",
           "announcement_CwR3it",
@@ -189,18 +222,18 @@
         "custom_css": [],
         "settings": {
           "enable_countdown_bar": false,
-          "countdown_bar_background_color": "#741e11",
+          "countdown_bar_background_color": "#000000",
           "countdown_bar_text_color": "#ffffff",
-          "countdown_timer_text_color": "#741e11",
+          "countdown_timer_text_color": "#000000",
           "countdown_timer_button_bg_color": "#ffffff",
-          "countdown_timer_button_text_color": "#741e11",
-          "countdown_bar_text": "Time’s Running Out. Sale Ends in:",
-          "countdown_timer_button_text": "Shop Now",
-          "countdown_timer_button_link": "shopify://collections/sample-sale-2025",
+          "countdown_timer_button_text_color": "#000000",
+          "countdown_bar_text": "Limited Time to Preorder Statement Fringe",
+          "countdown_timer_button_text": "Preorder Now",
+          "countdown_timer_button_link": "shopify://collections/statement-fringe",
           "enable_klaviyo_button_opener": false,
-          "year": 2025,
-          "month": 11,
-          "day": 16,
+          "year": 2026,
+          "month": 4,
+          "day": 23,
           "hour": 23,
           "minute": 59
         }
@@ -212,41 +245,28 @@
             "type": "gwp-tier",
             "settings": {
               "gwp_product": "",
-              "gwp_tier_is_free_shipping": true,
-              "free_shipping_gwp_success_text": "You get FREE shipping",
-              "gwp_tier_threshold": 250,
-              "gwp_tier_not_reached_message": "more to unlock a FREE",
-              "gwp_tier_reached_message": "You've unlocked a FREE",
-              "gwp_tier_alternate_reward_title": "FREE Shipping"
-            }
-          },
-          "gwp_tier_Ac4WzB": {
-            "type": "gwp-tier",
-            "disabled": true,
-            "settings": {
-              "gwp_product": "love-crush-bag-charm-hangtag-chili-red-none",
               "gwp_tier_is_free_shipping": false,
-              "free_shipping_gwp_success_text": "You've received FREE shipping!",
-              "gwp_tier_threshold": 395,
-              "gwp_tier_not_reached_message": "more to unlock a FREE",
-              "gwp_tier_reached_message": "You've unlocked a FREE",
-              "gwp_tier_alternate_reward_title": "Love Charm"
+              "free_shipping_gwp_success_text": "You get FREE shipping",
+              "gwp_tier_threshold": 0,
+              "gwp_tier_not_reached_message": "more to unlock",
+              "gwp_tier_reached_message": "You've unlocked",
+              "gwp_tier_alternate_reward_title": "FREE Shipping"
             }
           },
           "visual_menu_item_GEwfV7": {
             "type": "visual-menu-item",
             "settings": {
               "nav_link": "shopify://collections/new-arrivals",
-              "title": "The Spring Edit",
-              "nav_image": "shopify://shop_images/Rectangle_840_de105bcb-7432-4f13-b1c9-103fa56674ad.jpg"
+              "title": "New",
+              "nav_image": "shopify://shop_images/Tile_91.jpg"
             }
           },
           "visual_menu_item_KWAJ7F": {
             "type": "visual-menu-item",
             "settings": {
-              "nav_link": "shopify://collections/best-selling-bags",
+              "nav_link": "shopify://collections/bestsellers",
               "title": "Bestsellers",
-              "nav_image": "shopify://shop_images/Rectangle_856.jpg"
+              "nav_image": "shopify://shop_images/Tile_83.jpg"
             }
           },
           "visual_menu_item_PmYb6N": {
@@ -254,15 +274,7 @@
             "settings": {
               "nav_link": "shopify://collections/kyle",
               "title": "Kyle",
-              "nav_image": "shopify://shop_images/Tile_84.jpg"
-            }
-          },
-          "visual_menu_item_f4DzN9": {
-            "type": "visual-menu-item",
-            "settings": {
-              "nav_link": "shopify://collections/resort",
-              "title": "Resort",
-              "nav_image": "shopify://shop_images/Rectangle_853.jpg"
+              "nav_image": "shopify://shop_images/Tile_102_0f750c6b-efee-443f-bc78-3fd054684988.jpg"
             }
           },
           "visual_menu_item_9xHkTW": {
@@ -270,7 +282,31 @@
             "settings": {
               "nav_link": "shopify://collections/accessories-view-all",
               "title": "Accessories",
-              "nav_image": "shopify://shop_images/Tile_82.jpg"
+              "nav_image": "shopify://shop_images/Tile_101.jpg"
+            }
+          },
+          "visual_menu_item_f4DzN9": {
+            "type": "visual-menu-item",
+            "settings": {
+              "nav_link": "shopify://pages/current-season",
+              "title": "Spring Edit",
+              "nav_image": "shopify://shop_images/Tile_110.jpg"
+            }
+          },
+          "visual_menu_item_U3PzgT": {
+            "type": "visual-menu-item",
+            "settings": {
+              "nav_link": "shopify://pages/mothers-day-gift-guide",
+              "title": "Mother's Day Gifts",
+              "nav_image": "shopify://shop_images/Tile_111.jpg"
+            }
+          },
+          "visual_menu_item_dFdi9e": {
+            "type": "visual-menu-item",
+            "settings": {
+              "nav_link": "shopify://collections/raffia",
+              "title": "Raffia Season",
+              "nav_image": "shopify://shop_images/Rectangle_1070.jpg"
             }
           },
           "visual_menu_item_YfRjF6": {
@@ -278,7 +314,7 @@
             "settings": {
               "nav_link": "shopify://collections/view-all",
               "title": "Shop All",
-              "nav_image": "shopify://shop_images/Tile_80.jpg"
+              "nav_image": "shopify://shop_images/Frame_12497.jpg"
             }
           },
           "popular_search_QfKWpn": {
@@ -312,12 +348,13 @@
         },
         "block_order": [
           "gwp_tier_HBiUJD",
-          "gwp_tier_Ac4WzB",
           "visual_menu_item_GEwfV7",
           "visual_menu_item_KWAJ7F",
           "visual_menu_item_PmYb6N",
-          "visual_menu_item_f4DzN9",
           "visual_menu_item_9xHkTW",
+          "visual_menu_item_f4DzN9",
+          "visual_menu_item_U3PzgT",
+          "visual_menu_item_dFdi9e",
           "visual_menu_item_YfRjF6",
           "popular_search_QfKWpn",
           "popular_search_yjeaJJ",
@@ -341,7 +378,19 @@
           "enable_sticky_header": true,
           "margin_bottom": 0,
           "yotpo_bgColor": "#faf7f3",
-          "yotpo_text_Color": "#000000"
+          "yotpo_text_Color": "#000000",
+          "empty_cart_message": "<p>Your cart is currently empty.<br/>Check out our New Arrivals & Bestsellers.</p>",
+          "empty_cart_button_link_one": "shopify://collections/bestsellers",
+          "empty_cart_button_link_two": "shopify://collections/new-arrivals-1",
+          "empty_cart_button_text_one": "Shop Bestsellers",
+          "empty_cart_button_text_two": "Shop New Arrivals",
+          "empty_cart_upsells_header": "Most Picked",
+          "empty_cart_upsells": [
+            "kyle-med-shoulder-bag-black-brushed-gold-red-zip",
+            "charles-crossbody-lrg-belt-bag-mahogany-pebble-brushed-gold-red-zip",
+            "kyle-shoulder-bag-noir-smooth-raffia-gunmetal",
+            "olympia-tote-mini-crossbody-blueberry-sorbet-gold"
+          ]
         }
       },
       "footer": {
@@ -652,19 +701,19 @@
           "image_gY6exJ": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/PDP-Shelley-Tote_Cocoa-Raffia-3963.jpg",
+              "image": "shopify://shop_images/Hammitt_Kyle-Statement-Fringe-GM-2.jpg",
               "image_ratio": "portrait",
-              "image_caption": "New In",
-              "image_link": "shopify://collections/new-arrivals"
+              "image_caption": "April Drop",
+              "image_link": "shopify://pages/current-season"
             }
           },
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/PDP-Zoey-Tote_BLACK-NYLON_1881-whitedress.jpg",
+              "image": "shopify://shop_images/Rectangle_1060_9e32d552-5c99-4aed-9b15-0c01ed2c6ac9.jpg",
               "image_ratio": "portrait",
-              "image_caption": "Bestsellers",
-              "image_link": "shopify://collections/best-selling-bags"
+              "image_caption": "Mother's Day Gifts",
+              "image_link": "shopify://pages/mothers-day-gift-guide"
             }
           }
         },
@@ -856,7 +905,7 @@
           "image_4WdaeP": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Group_12601_8a429879-e726-420e-b29b-81bff60f71e1.jpg",
+              "image": "shopify://shop_images/As-seen-On.jpg",
               "image_ratio": "portrait",
               "image_caption": "As Seen On",
               "image_link": "https://www.hammitt.com/pages/celebrity-hammitt-bags"
@@ -1000,6 +1049,11 @@
       },
       "4705145147225299685": {
         "type": "shopify://apps/tolstoy-shoppable-video-quiz/blocks/widget-block/06fa8282-42ff-403e-b67c-1936776aed11",
+        "disabled": false,
+        "settings": {}
+      },
+      "12439146293631897289": {
+        "type": "shopify://apps/blockify-fraud-filter/blocks/app_embed/2e3e0ba5-0e70-447a-9ec5-3bf76b5ef12e",
         "disabled": false,
         "settings": {}
       }

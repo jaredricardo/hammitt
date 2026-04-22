@@ -1455,18 +1455,19 @@ checkOrderProtection()
 // });
 
 const cartUpdate = (json = false) => {
+
   const cartUpdates = [
-    {
-      section: "cart-drawer",
-      elements: [".cart-announcement-bar",".drawer__items",".drawer__final", ".cart_shipping_notes", '.below-progress-bar-container', ".drawer__title"]
-    },
+    // {
+    //   section: "cart-drawer",
+    //   elements: [".cart-announcement-bar",".drawer__items",".drawer__final", ".cart_shipping_notes", '.below-progress-bar-container', ".drawer__title"]
+    // },
     {
       section: "cart-icon-bubble",
       elements: [".cart-count-bubble"]
     },
     {
       section: "header",
-      elements: [".progress-bar-container"]
+      elements: [".cart-announcement-bar",".drawer__items",".drawer__final", ".cart_shipping_notes", '.below-progress-bar-container', ".drawer__title", ".progress-bar-container"]
     }
   ];
 
@@ -1552,7 +1553,7 @@ const cartUpdate = (json = false) => {
 
             let updatesObj = {
               updates: {},
-              sections: "cart-drawer,cart-icon-bubble,main-cart-items"
+              sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
             }
 
             updatesObj.updates[giftWrapProductVid] = totalItemsWithGiftWrapPropertyInCart

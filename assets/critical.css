@@ -292,102 +292,6 @@ minty-fresh-filters li a,
   margin-top: 0.5rem;
 }
 
-/* jr review section */
-
-.jr-customer-reviews {
-  overflow: hidden;
-}
-
-
-.jr-customer-reviews .card-img-container img {
-  aspect-ratio: 1/1;
-  max-width: 100%;
-  height: 100%;
-  width: 100%;
-  vertical-align: bottom;
-}
-
-.jr-customer-reviews .star-img-container img {
-  width: 100%;
-  height: 100%;
-  max-width: 110px;
-}
-
-.jr-customer-reviews .star-img-container {
-  margin-top: 3rem;
-}
-
-.jr-customer-reviews .review-card-inner {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  cursor: drag;
-}
-
-.jr-customer-reviews .review-card {
-  text-decoration: none;
-}
-
-.jr-customer-reviews .review-content h3 {
-  font-weight: 500;
-  line-height: 22px;
-  margin: 0.5rem 0;
-}
-
-.jr-customer-reviews .review-content p {
-  font-weight: 400;
-  line-height: 120%;
-  margin: 0.25rem 0;
-}
-
-.jr-customer-reviews .review-content h5 {
-  font-weight: 500;
-  margin: 0.5rem 0;
-}
-
-.jr-customer-reviews .swiper-scrollbar {
-  height: 4px;
-}
-
-.jr-customer-reviews .swiper-scrollbar-drag {
-  display: block !important;
-}
-
-@media screen and (max-width: 768px) {
-  .jr-customer-reviews .review-content h3 {
-    line-height: 18px;
-  }
-
-  .jr-customer-reviews .review-content p {
-    line-height: 14px;
-    max-width: 85%;
-    margin: 0 auto important!;
-  }
-
-  .jr-customer-reviews .review-content h5 {
-    font-size: 12px;
-    line-height: 14px;
-  }
-  .jr-customer-reviews .star-img-container {
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    line-height: 1;
-  }
-  .jr-customer-reviews .review-content h3,
-  .jr-customer-reviews .review-content h5,
-  .jr-customer-reviews .review-content p  {
-    margin: 0.5rem 0rem;
-  }
-  .jr-customer-reviews .review-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
 @media screen and (max-width: 561px) {
   li.slide-peek--true {
     width: 85% !important;
@@ -719,6 +623,10 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   display: none !important;
 }
 
+body:has(.cart-drawer-container[open]) #flip-chat-widget {
+  z-index: -99999 !important;
+}
+
 
 @media screen and (max-width: 751px) {
   .search-modal__content.x-gen-search {
@@ -1028,4 +936,86 @@ a.nav-wishlist-button .heart-count {
 
 .page-width.near-full-width {
   padding: 0 8px;
+}
+
+
+
+gifting-tooltip-container {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem !important;
+}
+gifting-tooltip-container .learn-more {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+gifting-tooltip-container .heading-container {
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+gifting-tooltip-container p {
+    margin: 0.5rem 0;
+    line-height: 1.3;
+}
+
+gifting-tooltip-container .close-btn {
+    top: 0;
+    right: 0;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+gifting-tooltip-container p,
+gifting-tooltip-container li {
+    font-size: 13px;
+}
+
+.gifting-tooltip-content {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+    position: absolute;
+    z-index: 5;
+    padding: 1rem 2rem;
+    top: -10px;
+    left: 0;
+}
+
+.gifting-tooltip-content .gifting-tooltip-images {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.gifting-tooltip-content .gifting-tooltip-copy {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.gifting-tooltip-content img {
+    max-width: 100%;
+}
+
+.gifting-tooltip-content.active {
+    display: flex;
+}
+
+.gifting-tooltip-images .col {
+    text-align: center;
+    flex: 1;
 }

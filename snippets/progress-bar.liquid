@@ -304,7 +304,7 @@
         </span>
       </div>
       
-      <div class="progress-bar" style="--scale-x: {{ progress_percentage }}%;">
+      <div class="progress-bar {% if cart.item_count == 0 %} hidden {% endif %}" style="--scale-x: {{ progress_percentage }}%;">
       </div>
     {%- elsif next_tier -%}
       {%- comment -%} Show progress toward next tier {%- endcomment -%}
@@ -337,11 +337,11 @@
         </span>
       </div>
       
-      <div class="progress-bar" style="--scale-x: {{ progress_percentage }}%;">
+      <div class="progress-bar {% if cart.item_count == 0 %} hidden {% endif %}" style="--scale-x: {{ progress_percentage }}%;">
       </div>
     {%- elsif previous_tier or previous_tier_is_member -%}
       {%- comment -%} All tiers reached, show full progress bar only if no next tier {%- endcomment -%}
-      <div class="progress-bar" style="--scale-x: 100%;">
+      <div class="progress-bar {% if cart.item_count == 0 %} hidden {% endif %}" style="--scale-x: 100%;">
       </div>
     {%- endif -%}
   </div>

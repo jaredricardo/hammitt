@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -29,6 +38,7 @@
           "type": "text",
           "settings": {
             "text": "Why the Rivets? Here’s the Scoop.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 18,
             "text_size_tablet": 18,
@@ -41,6 +51,8 @@
         "text_yHMxkB"
       ],
       "settings": {
+        "custom_classes": "",
+        "custom_id": "",
         "title": "",
         "title_color": "",
         "description": "",
@@ -50,8 +62,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/Rectangle_344_1.jpg",
-        "image_2": "shopify:\/\/shop_images\/Rectangle_345_1_923c41e9-18d3-4f37-9ba9-e1c25791fde0.jpg",
+        "image": "shopify://shop_images/Rectangle_344_1.jpg",
+        "image_2": "shopify://shop_images/Rectangle_345_1_923c41e9-18d3-4f37-9ba9-e1c25791fde0.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -92,7 +104,7 @@
         "template--15878130139320__e688e378-dde0-4169-b87d-8427d1564171-166872453825a8b955-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Our co-founder Stephenie set out to redefine luxury: soft leather, shimmering hardware, and cool, classic design.\u2028<\/p><p>To create the perfect accessory, she crafted her own—using tan leather and snaps from the hardware store.\u2028<\/p><p>Her friends loved the bold, edgy style. That accidental detail? It became our signature.<\/p>",
+            "text": "<p>Our co-founder Stephenie set out to redefine luxury: soft leather, shimmering hardware, and cool, classic design. </p><p>To create the perfect accessory, she crafted her own—using tan leather and snaps from the hardware store. </p><p>Her friends loved the bold, edgy style. That accidental detail? It became our signature.</p>",
             "text_style": "body"
           }
         }
@@ -102,7 +114,8 @@
         "template--15878130139320__e688e378-dde0-4169-b87d-8427d1564171-166872453825a8b955-1"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/banner-story-1.jpg",
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/banner-story-1.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -133,7 +146,7 @@
         "text_Vge3eH": {
           "type": "text",
           "settings": {
-            "text": "<p>What started as utility turned into a symbol. Today, our rivets are unmistakable—seen from street corners to airports and everywhere in between.\u2028<\/p><p>If you spot round studs from across the way, chances are, it's a Hammitt. Go say hi—you might just meet your next favorite bag.<\/p>",
+            "text": "<p>What started as utility turned into a symbol. Today, our rivets are unmistakable—seen from street corners to airports and everywhere in between. </p><p>If you spot round studs from across the way, chances are, it's a Hammitt. Go say hi—you might just meet your next favorite bag.</p>",
             "text_style": "body"
           }
         }
@@ -143,7 +156,8 @@
         "text_Vge3eH"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/banner-story-2.jpg",
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/banner-story-2.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -169,6 +183,7 @@
         "heading_color": "",
         "collection": "kyle",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -188,6 +203,7 @@
         "heading_color": "",
         "collection": "daniel",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -207,6 +223,7 @@
         "heading_color": "",
         "collection": "colorway-tom-zip",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
@@ -225,14 +242,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/studs-bestseller.jpg",
+            "image": "shopify://shop_images/m-coco-raffia.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 10,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "SHOP BESTSELLERS",
-            "link": "shopify:\/\/collections\/best-selling-bags",
+            "link_margin_top": 20,
+            "link": "shopify://collections/best-selling-bags",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -249,14 +267,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/gifting-mob-banner.jpg",
+            "image": "shopify://shop_images/black-travel.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "SHOP NEW IN",
-            "link": "shopify:\/\/collections\/new-arrivals",
+            "link_margin_top": 20,
+            "link": "shopify://collections/new-arrivals",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -273,14 +292,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_646_2x_a19c5dfb-e49b-4660-952f-544e570124d0.png",
+            "image": "shopify://shop_images/Charles-Med_MAHOGANY_1228.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "TRENDING",
-            "link": "shopify:\/\/collections\/best-sellers",
+            "link_margin_top": 20,
+            "link": "shopify://collections/best-sellers",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -297,14 +317,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Chaparral-Raffia-18.jpg",
+            "image": "shopify://shop_images/Hazy-block-lp.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "SHOP ALL",
-            "link": "shopify:\/\/collections\/view-all",
+            "link_margin_top": 20,
+            "link": "shopify://collections/view-all",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -332,9 +353,9 @@
         "paragraph_color": "",
         "larger_text": false,
         "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": true,
-        "removed_section_padding": true,
+        "image_ratio": "portrait",
+        "image_padding": false,
+        "removed_section_padding": false,
         "columns_desktop": 4,
         "columns_gap": 2,
         "row_gap": 2,
@@ -348,6 +369,8 @@
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
+        "enable_peek": false,
+        "show_mobile_slider": true,
         "padding_top": 36,
         "padding_bottom": 36,
         "padding_top_mobile": 36,
@@ -362,14 +385,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_613_1.jpg",
+            "image": "shopify://shop_images/Rectangle_613_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 10,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "ABOUT US",
-            "link": "shopify:\/\/pages\/why-hammitt",
+            "link_margin_top": 20,
+            "link": "shopify://pages/why-hammitt",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -386,14 +410,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_616_1.jpg",
+            "image": "shopify://shop_images/Rectangle_616_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "NEW TO HAMMITT",
-            "link": "shopify:\/\/pages\/new-to-hammitt",
+            "link_margin_top": 20,
+            "link": "shopify://pages/new-to-hammitt",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -410,14 +435,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify:\/\/shop_images\/Rectangle_615_1.jpg",
+            "image": "shopify://shop_images/Rectangle_615_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "IN THE PRESS",
-            "link": "shopify:\/\/pages\/in-the-press",
+            "link_margin_top": 20,
+            "link": "shopify://pages/in-the-press",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -460,6 +486,8 @@
         "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
+        "enable_peek": false,
+        "show_mobile_slider": true,
         "padding_top": 36,
         "padding_bottom": 36,
         "padding_top_mobile": 36,

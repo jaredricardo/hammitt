@@ -22,6 +22,55 @@
         "padding_bottom_mobile": 36
       }
     },
+    "hero_video_banner_Vfir3e": {
+      "type": "hero-video-banner",
+      "settings": {
+        "video_height": "auto",
+        "video_height_mobile": "auto",
+        "full_width": true,
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/brand-video.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "video_overlay": 0,
+        "video_overlay_color": "#000000",
+        "video_overlay_cb": true,
+        "content_position_align": "center_center",
+        "content_text_align": "center",
+        "content_text_align_mobile": "center",
+        "content_padding_tb": 50,
+        "content_padding_rl": 40,
+        "heading": "",
+        "video_title_size": 50,
+        "video_title_size_mobile": 30,
+        "video_title_color": "#ffffff",
+        "video_title_color_mobile": "#000000",
+        "video_text": "",
+        "content_size": 50,
+        "content_size_mobile": 20,
+        "content_color": "#ffffff",
+        "content_color_mobile": "#000000",
+        "content_space_top": 0,
+        "content_space_bottom": 0,
+        "content_space_top_mob": 0,
+        "content_space_bottom_mob": 0,
+        "cta_text": "",
+        "cta_url": "",
+        "cta_font_size": 16,
+        "cta_font_size_mobile": 16,
+        "cta_text_decoration": "none",
+        "cta_color": "#000000",
+        "cta_color_mobile": "#ffffff",
+        "cta_bg_color": "#ffffff",
+        "cta_bg_color_mobile": "#000000",
+        "cta_width": 120,
+        "cta_width_mobile": 110,
+        "cta_top_bottom": 0,
+        "cta_top_bottom_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "1652475685f15e0217": {
       "type": "image-banner",
       "blocks": {
@@ -48,6 +97,7 @@
         "16524756851debb734-0",
         "14268653-a3a3-4f8b-a314-2d775f380bb7"
       ],
+      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -481,6 +531,7 @@
           "type": "text",
           "settings": {
             "text": "Making luxury a lifestyle.",
+            "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 18,
             "text_size_tablet": 18,
@@ -534,14 +585,14 @@
         "custom_class": ""
       }
     },
-    "hero_video_banner_Vfir3e": {
+    "hero_video_banner_7JiEPg": {
       "type": "hero-video-banner",
       "settings": {
         "video_height": "auto",
         "video_height_mobile": "auto",
         "full_width": true,
         "enable_video_looping": true,
-        "video": "shopify://files/videos/copy_B7D84662-1616-48D2-A663-5E492D4C7E49.mov",
+        "video": "shopify://files/videos/Core-spring_a2428c4c-1ee6-4af3-8cfb-ba9c73692d0b.mp4",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "description": "",
         "video_overlay": 0,
@@ -552,12 +603,12 @@
         "content_text_align_mobile": "center",
         "content_padding_tb": 50,
         "content_padding_rl": 40,
-        "heading": "<strong>Feel Itt. Love Itt. Hammitt.</strong>",
+        "heading": "",
         "video_title_size": 50,
         "video_title_size_mobile": 30,
         "video_title_color": "#ffffff",
         "video_title_color_mobile": "#000000",
-        "video_text": "Making luxury a lifestyle.",
+        "video_text": "",
         "content_size": 50,
         "content_size_mobile": 20,
         "content_color": "#ffffff",
@@ -597,6 +648,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "New To Hammit",
+            "link_margin_top": 20,
             "link": "shopify://pages/new-to-hammitt",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -621,6 +673,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "As Seen On",
+            "link_margin_top": 20,
             "link": "shopify://pages/in-the-press",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -645,6 +698,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "New in",
+            "link_margin_top": 20,
             "link": "shopify://collections/new-arrivals",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -669,6 +723,7 @@
             "b_title_font_mobile": 18,
             "text": "",
             "link_label": "Gift Guide",
+            "link_margin_top": 20,
             "link": "shopify://pages/holiday-gift-guide",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
@@ -689,6 +744,7 @@
         "column_4GFdxk",
         "column_p3jmin"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "",
@@ -726,6 +782,7 @@
   },
   "order": [
     "main",
+    "hero_video_banner_Vfir3e",
     "1652475685f15e0217",
     "jr_scrolling_text_PWRBNh",
     "16516040938ea0527c",
@@ -735,7 +792,7 @@
     "16582601848f1573e6",
     "1658260197f9d65fbd",
     "16615305619480395e",
-    "hero_video_banner_Vfir3e",
+    "hero_video_banner_7JiEPg",
     "multicolumn_cPDUHB"
   ]
 }
