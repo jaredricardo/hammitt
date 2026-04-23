@@ -976,6 +976,10 @@ hammitt-cart-level-gift-note {
 
 
 /* GWP Progress Bar Header Messages */
+.gwp-tier-not-reached {
+  padding-bottom: 10px !important;
+  padding-top: 0 !important;
+}
 .gwp-progress-bar-header {
   padding: 7px 0 5px;
   text-align: center;
@@ -988,7 +992,7 @@ hammitt-cart-level-gift-note {
 }
 
 .gwp-progress-bar-header.gwp-tier-success .h7 {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .gwp-progress-bar-header .h7 {
@@ -1008,7 +1012,7 @@ hammitt-cart-level-gift-note {
 
 
 .below-progress-bar-container {
-  padding: 4px 10px 20px 10px;
+  padding: 4px 10px 4px 10px;
 }
 
 save-for-later { 
