@@ -17,6 +17,9 @@ a,
   letter-spacing: 0.05em !important;
 }
 
+.carlson-italic {
+  font-family: 'Adobe Carlson Italic' !important;
+}
 
 h1,
 .h1 {
@@ -622,8 +625,11 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   display: none !important;
 }
 
-body:has(.cart-drawer-container[open]) #flip-chat-widget {
+body:has(.cart-drawer-container[open]) #flip-chat-widget,
+body:has(sticky-atc.active) #flip-chat-widget {
   z-index: -99999 !important;
+  pointer-events: none !important;
+  opacity: 0;
 }
 
 
@@ -987,4 +993,64 @@ gifting-tooltip-container li {
 .gifting-tooltip-images .col {
     text-align: center;
     flex: 1;
+}
+
+
+sticky-atc {
+  display: none;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 2rem;
+  box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  min-height: 75px;
+}
+
+sticky-atc.active {
+  display: flex;
+  opacity: 1;
+}
+
+sticky-atc h2 {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+sticky-atc h3 {
+  font-size: 14px !important;
+}
+
+sticky-atc button {
+  min-width: 325px;
+  height: 50px;
+  text-transform: uppercase;
+}
+
+.sticky-atc-price {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  sticky-atc h2,
+  sticky-atc h3,
+  .sticky-atc-price {
+    display: none;
+  }
+  sticky-atc {
+    min-height: 40px;
+    width: 100%;
+    padding: 0;
+  }
+  sticky-atc .col,
+  sticky-atc button  {
+    width: 100vw;
+  }
 }

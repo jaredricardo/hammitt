@@ -333,6 +333,16 @@
 
 {% unless hide_from_customers == true  %} 
   <section class="pdp-hero-wrap section-{{ section.id }}-padding page-width-tablet {% if section.settings.enable_sticky_info %} product__info-parent-container--sticky{% endif %}">
+    <sticky-atc class="b-variant">
+      <div class="col">
+        <h2 class="carlson-italic">{{ formatted_product_title }}</h2>
+        <h3>{{ product_color }}</h3>
+      </div>
+      <div class="col">
+        <span class="sticky-atc-price">{{ product.price | money_without_trailing_zeros }}</span>
+        <button class="button"></button>
+      </div>
+    </sticky-atc>
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col ">
       <div class="grid__item product__media-wrapper">
         <div class="medium-up-hide">

@@ -130,6 +130,106 @@ class ProductThumbnail extends HTMLElement {
 
 customElements.define('product-thumbnail', ProductThumbnail);
 
+if (!customElements.get('sticky-atc')) {
+  customElements.define('sticky-atc', class StickyAtc extends HTMLElement {
+    connectedCallback() {
+      this.atcButton = this.querySelector('button');
+      this.productForm = document.querySelector('product-form');
+      this.mainSubmitButton = this.productForm
+        ? this.productForm.querySelector('[type="submit"]')
+        : null;
+
+      this.hide();
+      this.setupIntersectionObserver();
+      this.setupButton();
+      this.observeMainButton();
+    }
+
+    setupIntersectionObserver() {
+      if (!this.mainSubmitButton) return;
+      const targetEl =
+        this.mainSubmitButton.closest('.product-form__buttons') ||
+        this.mainSubmitButton;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const isOutOfView = entry.intersectionRatio < 0.9;
+            const isAboveViewport = entry.boundingClientRect.top < 0;
+            if (isOutOfView && isAboveViewport) {
+              this.show();
+            } else {
+              this.hide();
+            }
+          });
+        },
+        { threshold: [0, 0.9] }
+      );
+
+      observer.observe(targetEl);
+    }
+
+    setupButton() {
+      if (!this.atcButton) return;
+      this.atcButton.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        if (!this.productForm || this.atcButton.disabled) return;
+        const form = this.productForm.querySelector('form');
+        if (form) {
+          form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+        }
+      });
+      this.syncButtonState();
+    }
+
+    observeMainButton() {
+      if (!this.mainSubmitButton) return;
+      const mo = new MutationObserver(() => this.syncButtonState());
+      mo.observe(this.mainSubmitButton, {
+        attributes: true,
+        attributeFilter: ['disabled', 'class'],
+      });
+    }
+
+    syncButtonState() {
+      if (!this.atcButton || !this.mainSubmitButton) return;
+      const isDisabled = this.mainSubmitButton.disabled;
+      const isLoading = this.mainSubmitButton.classList.contains('loading');
+
+      // Find the text span (not the spinner span)
+      const mainSpan = Array.from(
+        this.mainSubmitButton.querySelectorAll('span')
+      ).find((s) => !s.classList.contains('loading-overlay__spinner'));
+
+      this.atcButton.disabled = isDisabled;
+      this.atcButton.classList.toggle('loading', isLoading);
+
+      if (!isLoading && mainSpan) {
+        const spanEl = this.atcButton.querySelector('span') || (() => {
+          const s = document.createElement('span');
+          this.atcButton.appendChild(s);
+          return s;
+        })();
+        spanEl.textContent = mainSpan.textContent;
+      }
+    }
+
+    show() {
+      this.style.display = 'flex';
+      requestAnimationFrame(() => this.classList.add('active'));
+    }
+
+    hide() {
+      this.classList.remove('active');
+      const onTransitionEnd = () => {
+        if (!this.classList.contains('active')) this.style.display = 'none';
+        this.removeEventListener('transitionend', onTransitionEnd);
+      };
+      this.addEventListener('transitionend', onTransitionEnd);
+    }
+  });
+}
+
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
