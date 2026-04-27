@@ -129,6 +129,26 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_X8c7zh": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Send a Present with a Printed Gift Note",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/gift-guide"
+            }
+          },
+          "announcement_nAtPBK": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Mother's Day Gift Guide",
+              "text_color": "#000000",
+              "background_color": "#f1e0d7",
+              "link": "shopify://pages/mothers-day-gift-guide"
+            }
+          },
           "announcement_Tpxzm9": {
             "type": "announcement",
             "disabled": true,
@@ -223,7 +243,7 @@
             "type": "gwp-tier",
             "settings": {
               "gwp_product": "",
-              "gwp_tier_is_free_shipping": false,
+              "gwp_tier_is_free_shipping": true,
               "free_shipping_gwp_success_text": "You get FREE shipping",
               "gwp_tier_threshold": 0,
               "gwp_tier_not_reached_message": "more to unlock",
@@ -231,12 +251,17 @@
               "gwp_tier_alternate_reward_title": "FREE Shipping"
             }
           },
-          "visual_menu_item_U3PzgT": {
-            "type": "visual-menu-item",
+          "gwp_tier_DFBBdG": {
+            "type": "gwp-tier",
+            "disabled": true,
             "settings": {
-              "nav_link": "shopify://pages/mothers-day-gift-guide",
-              "title": "Mother's Day Gifts",
-              "nav_image": "shopify://shop_images/Tile_111.jpg"
+              "gwp_product": "sunset-sip-hangtag-multi-none",
+              "gwp_tier_is_free_shipping": false,
+              "free_shipping_gwp_success_text": "You get FREE shipping",
+              "gwp_tier_threshold": 295,
+              "gwp_tier_not_reached_message": "more to unlock a FREE",
+              "gwp_tier_reached_message": "You've unlocked a FREE",
+              "gwp_tier_alternate_reward_title": "Wine Charm"
             }
           },
           "visual_menu_item_GEwfV7": {
@@ -326,7 +351,7 @@
         },
         "block_order": [
           "gwp_tier_HBiUJD",
-          "visual_menu_item_U3PzgT",
+          "gwp_tier_DFBBdG",
           "visual_menu_item_GEwfV7",
           "visual_menu_item_KWAJ7F",
           "visual_menu_item_PmYb6N",

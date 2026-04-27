@@ -158,7 +158,8 @@
             {% render 'badge-logic', product:card_product, type:'card' %}
           {% endunless %}
           
-          {% unless hide_quick_add %}
+          {% comment %} quick add is not currently built to handle variants {% endcomment %}
+          {% unless hide_quick_add or card_product.variants.size > 1 %}
             {% if settings.enable_quick_add %}
               {%- render 'quick-add', 
                 product: card_product, 
@@ -176,18 +177,6 @@
       </div>
       <div class="card__content card__main-content">
         <div class="card__information">
-          {% comment %} 
-
-            unused for the moment
-
-          {% if card_product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and card_product.available%}
-            <div class="only-x-left-container">
-              {% render 'icon-timer' %}
-              {{ settings.only_a_few_left_text }}
-            </div>
-          {% endif %} 
-          {% endcomment %}
-
           <h3 class="card__heading carlson-semibold">
             <a
               {% if request.page_type == 'search' %}
