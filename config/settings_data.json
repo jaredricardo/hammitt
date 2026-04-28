@@ -129,6 +129,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_rWU3KJ": {
+            "type": "announcement",
+            "settings": {
+              "text": "Free Set of 4 Leather Wine Charms with $295+ Orders",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/bestsellers"
+            }
+          },
           "announcement_Tpxzm9": {
             "type": "announcement",
             "settings": {
@@ -145,16 +154,6 @@
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "shopify://pages/mothers-day-gift-guide"
-            }
-          },
-          "announcement_rWU3KJ": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "New this Month",
-              "text_color": "#000000",
-              "background_color": "#ede9e6",
-              "link": "shopify://pages/current-season"
             }
           },
           "announcement_CwR3it": {
@@ -189,9 +188,9 @@
           }
         },
         "block_order": [
+          "announcement_rWU3KJ",
           "announcement_Tpxzm9",
           "announcement_eRcyND",
-          "announcement_rWU3KJ",
           "announcement_CwR3it",
           "announcement_Yd7Xnr",
           "announcement_a4yGWJ"
