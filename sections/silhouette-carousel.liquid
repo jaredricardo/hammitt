@@ -1,0 +1,157 @@
+{% style %}
+
+  [data-section-id="{{ section.id }}"] {
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  [data-section-id="{{ section.id }}"] .sillhouette-carousel__image {
+    background-color: {{ section.settings.card_bg_color }};
+  }
+
+  {% if section.settings.image_ratio == 'square' %}
+    [data-section-id="{{ section.id }}"] .sillhouette-carousel__image {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      object-fit: cover;
+    }
+  {% elsif section.settings.image_ratio == 'portrait' %}
+    [data-section-id="{{ section.id }}"] .sillhouette-carousel__image {
+      aspect-ratio: 2 / 3;
+      width: 100%;
+      object-fit: cover;
+    }
+  {% else %}
+    [data-section-id="{{ section.id }}"] .sillhouette-carousel__image {
+      width: 100%;
+      height: auto;
+    }
+  {% endif %}
+
+{% endstyle %}
+
+{%- capture json -%}
+{
+  "loop": true,
+  {% if section.settings.enable_auto_scroll %}
+    "autoplay": { "delay": {{ section.settings.auto_scroll_speed }}, "disableOnInteraction": false },
+  {% endif %}
+  "allowSlideNext": true,
+  "allowSlidePrev": true,
+  "autoHeight": true,
+  "slidesPerView": 3.7,
+  "spaceBetween": 4,
+  "breakpoints": {
+    "640": {
+      "slidesPerView": 6.4
+    },
+    "1025": {
+      "slidesPerView": 6.4
+    }
+  }
+}
+{%- endcapture -%}
+
+<section data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
+    <div class="sillhouette-carousel">
+        <div class="swiper" data-json='{{ json }}'>
+            <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                    <a class="swiper-slide sillhouette-card" href="{{ block.settings.url }}">
+                        {% if block.settings.image != blank %}
+                            <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.hover_state_text}}" class="sillhouette-carousel__image" />
+                        {% endif %}
+                        {% if block.settings.hover_state_text %}
+                            <h6 class="sillhouette-carousel__hover-text carlson-italic">{{ block.settings.hover_state_text }}</h6>
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Silhouette Carousel",
+  "enabled_on": {
+    "templates": ["product", "collection", "page", "index", "article", "blog", "404", "cart", "search"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section Anchor ID (optional)"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_auto_scroll",
+      "label": "Enable Auto Scroll",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "auto_scroll_speed",
+      "label": "Auto Scroll Speed (ms)",
+      "default": 5000
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image Ratio",
+      "default": "adapt",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+        "type": "silhouette-carousel-item",
+        "name": "Silhouette Carousel Item",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "URL"
+            },
+            {
+                "type": "text",
+                "id": "hover_state_text",
+                "label": "Hover State Text",
+                "default": "Hover Title"
+            }
+            // {
+            //     "type": "product",
+            //     "id": "product",
+            //     "label": "Product",
+            //     "info": "If a product is selected, quick add will be enabled for this block."
+            // }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Silhouette Carousel",
+    }
+  ]
+}
+{% endschema %}
