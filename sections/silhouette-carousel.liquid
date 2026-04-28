@@ -4,24 +4,24 @@
     background-color: {{ section.settings.bg_color }};
   }
 
-  [data-section-id="{{ section.id }}"] .sillhouette-carousel__image {
+  [data-section-id="{{ section.id }}"] .silhouette-carousel__image {
     background-color: {{ section.settings.card_bg_color }};
   }
 
   {% if section.settings.image_ratio == 'square' %}
-    [data-section-id="{{ section.id }}"] .sillhouette-carousel__image {
+    [data-section-id="{{ section.id }}"] .silhouette-carousel__image {
       aspect-ratio: 1 / 1;
       width: 100%;
       object-fit: cover;
     }
   {% elsif section.settings.image_ratio == 'portrait' %}
-    [data-section-id="{{ section.id }}"] .sillhouette-carousel__image {
+    [data-section-id="{{ section.id }}"] .silhouette-carousel__image {
       aspect-ratio: 2 / 3;
       width: 100%;
       object-fit: cover;
     }
   {% else %}
-    [data-section-id="{{ section.id }}"] .sillhouette-carousel__image {
+    [data-section-id="{{ section.id }}"] .silhouette-carousel__image {
       width: 100%;
       height: auto;
     }
@@ -52,16 +52,16 @@
 {%- endcapture -%}
 
 <section data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
-    <div class="sillhouette-carousel">
+    <div class="silhouette-carousel">
         <div class="swiper" data-json='{{ json }}'>
             <div class="swiper-wrapper">
                 {% for block in section.blocks %}
-                    <a class="swiper-slide sillhouette-card" href="{{ block.settings.url }}">
+                    <a class="swiper-slide silhouette-card" href="{{ block.settings.url }}">
                         {% if block.settings.image != blank %}
-                            <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.hover_state_text}}" class="sillhouette-carousel__image" />
+                            <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.title }}" class="silhouette-carousel__image" />
                         {% endif %}
-                        {% if block.settings.hover_state_text %}
-                            <h6 class="sillhouette-carousel__hover-text carlson-italic">{{ block.settings.hover_state_text }}</h6>
+                        {% if block.settings.title %}
+                            <h6 class="silhouette-carousel__hover-text carlson-italic">{{ block.settings.title }}</h6>
                         {% endif %}
                     </a>
                 {% endfor %}
@@ -135,7 +135,7 @@
             },
             {
                 "type": "text",
-                "id": "hover_state_text",
+                "id": "title",
                 "label": "Hover State Text",
                 "default": "Hover Title"
             }
