@@ -1177,6 +1177,7 @@
     },
     "homepage_instagram_RrcAhY": {
       "type": "homepage-instagram",
+      "disabled": true,
       "settings": {
         "enabled_slider": false,
         "feed_id": "hammitt_2",
@@ -1188,6 +1189,23 @@
         "show_link_to_page": true,
         "link_to_page": "shopify://pages/shop-insta",
         "link_to_page_text": "Shop Insta"
+      }
+    },
+    "1777417324d647b990": {
+      "type": "apps",
+      "blocks": {
+        "tolstoy_ads_image_video_carousel_block_tiLqAy": {
+          "type": "shopify://apps/tolstoy-ads-image-video/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "b9hvkqlx0oy7s"
+          }
+        }
+      },
+      "block_order": [
+        "tolstoy_ads_image_video_carousel_block_tiLqAy"
+      ],
+      "settings": {
+        "include_margins": true
       }
     }
   },
@@ -1205,6 +1223,7 @@
     "multicolumn_jQUrg7",
     "multicolumn_Knr9Hr",
     "jr_scrolling_text_QzMT7i",
-    "homepage_instagram_RrcAhY"
+    "homepage_instagram_RrcAhY",
+    "1777417324d647b990"
   ]
 }
