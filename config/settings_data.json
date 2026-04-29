@@ -129,28 +129,17 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
-          "announcement_X8c7zh": {
+          "announcement_rWU3KJ": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
-              "text": "Send a Present with a Printed Gift Note",
+              "text": "Free Set of 4 Leather Wine Charms with $295+ Orders",
               "text_color": "#ffffff",
               "background_color": "#000000",
-              "link": "shopify://collections/gift-guide"
-            }
-          },
-          "announcement_nAtPBK": {
-            "type": "announcement",
-            "settings": {
-              "text": "Mother's Day Gift Guide",
-              "text_color": "#000000",
-              "background_color": "#f1e0d7",
-              "link": "shopify://pages/mothers-day-gift-guide"
+              "link": "shopify://collections/bestsellers"
             }
           },
           "announcement_Tpxzm9": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "text": "Free Shipping on All Orders",
               "text_color": "#ffffff",
@@ -160,22 +149,11 @@
           },
           "announcement_eRcyND": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
-              "text": "Find Perfect Mother's Day Gifts",
+              "text": "Mother's Day Gift Guide",
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "shopify://pages/mothers-day-gift-guide"
-            }
-          },
-          "announcement_rWU3KJ": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "New this Month",
-              "text_color": "#000000",
-              "background_color": "#ede9e6",
-              "link": "shopify://pages/current-season"
             }
           },
           "announcement_CwR3it": {
@@ -210,11 +188,9 @@
           }
         },
         "block_order": [
-          "announcement_X8c7zh",
-          "announcement_nAtPBK",
+          "announcement_rWU3KJ",
           "announcement_Tpxzm9",
           "announcement_eRcyND",
-          "announcement_rWU3KJ",
           "announcement_CwR3it",
           "announcement_Yd7Xnr",
           "announcement_a4yGWJ"
@@ -245,7 +221,7 @@
             "type": "gwp-tier",
             "settings": {
               "gwp_product": "",
-              "gwp_tier_is_free_shipping": false,
+              "gwp_tier_is_free_shipping": true,
               "free_shipping_gwp_success_text": "You get FREE shipping",
               "gwp_tier_threshold": 0,
               "gwp_tier_not_reached_message": "more to unlock",
@@ -253,7 +229,27 @@
               "gwp_tier_alternate_reward_title": "FREE Shipping"
             }
           },
+          "gwp_tier_DFBBdG": {
+            "type": "gwp-tier",
+            "settings": {
+              "gwp_product": "sunset-sip-hangtag-multi-none",
+              "gwp_tier_is_free_shipping": false,
+              "free_shipping_gwp_success_text": "You get FREE shipping",
+              "gwp_tier_threshold": 295,
+              "gwp_tier_not_reached_message": "more to unlock a FREE",
+              "gwp_tier_reached_message": "You've unlocked a FREE",
+              "gwp_tier_alternate_reward_title": "set of 4 wine charms"
+            }
+          },
           "visual_menu_item_GEwfV7": {
+            "type": "visual-menu-item",
+            "settings": {
+              "nav_link": "shopify://collections/bestsellers",
+              "title": "Free Gift",
+              "nav_image": "shopify://shop_images/GWP.gif"
+            }
+          },
+          "visual_menu_item_EpM8Ep": {
             "type": "visual-menu-item",
             "settings": {
               "nav_link": "shopify://collections/new-arrivals",
@@ -291,14 +287,6 @@
               "nav_link": "shopify://pages/current-season",
               "title": "Spring Edit",
               "nav_image": "shopify://shop_images/Tile_110.jpg"
-            }
-          },
-          "visual_menu_item_U3PzgT": {
-            "type": "visual-menu-item",
-            "settings": {
-              "nav_link": "shopify://pages/mothers-day-gift-guide",
-              "title": "Mother's Day Gifts",
-              "nav_image": "shopify://shop_images/Tile_111.jpg"
             }
           },
           "visual_menu_item_dFdi9e": {
@@ -348,12 +336,13 @@
         },
         "block_order": [
           "gwp_tier_HBiUJD",
+          "gwp_tier_DFBBdG",
           "visual_menu_item_GEwfV7",
+          "visual_menu_item_EpM8Ep",
           "visual_menu_item_KWAJ7F",
           "visual_menu_item_PmYb6N",
           "visual_menu_item_9xHkTW",
           "visual_menu_item_f4DzN9",
-          "visual_menu_item_U3PzgT",
           "visual_menu_item_dFdi9e",
           "visual_menu_item_YfRjF6",
           "popular_search_QfKWpn",
@@ -701,10 +690,10 @@
           "image_gY6exJ": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/Hammitt_Kyle-Statement-Fringe-GM-2.jpg",
+              "image": "shopify://shop_images/Group_12717.jpg",
               "image_ratio": "portrait",
-              "image_caption": "April Drop",
-              "image_link": "shopify://pages/current-season"
+              "image_caption": "Free Gift with $295+ Order",
+              "image_link": "shopify://collections/bestsellers"
             }
           },
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f": {

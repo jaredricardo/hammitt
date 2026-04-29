@@ -623,7 +623,7 @@ span.freeRemainShippingMsg,
   text-align: center;
 }
 
-.cart-item__name {font-size: 14px;font-weight: 600;    line-height: 1.2;}
+.cart-item__name {font-size: 14px;font-weight: 600;    line-height: 1.2; max-width: 200px;}
 .product-option.product-properties__option,
 .product-option {font-size: 12px;    margin-top: 0;}
 
@@ -974,6 +974,10 @@ hammitt-cart-level-gift-note {
 
 
 /* GWP Progress Bar Header Messages */
+.gwp-tier-not-reached {
+  padding-bottom: 10px !important;
+  padding-top: 0 !important;
+}
 .gwp-progress-bar-header {
   padding: 7px 0 5px;
   text-align: center;
@@ -986,7 +990,7 @@ hammitt-cart-level-gift-note {
 }
 
 .gwp-progress-bar-header.gwp-tier-success .h7 {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .gwp-progress-bar-header .h7 {
@@ -1006,7 +1010,7 @@ hammitt-cart-level-gift-note {
 
 
 .below-progress-bar-container {
-  padding: 4px 10px 20px 10px;
+  padding: 4px 10px 4px 10px;
 }
 
 save-for-later { 
