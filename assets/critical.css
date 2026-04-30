@@ -169,25 +169,6 @@ minty-fresh-filters li a,
   list-style-type: disc !important; 
 }
 
-/* styles for image ratio 4:5 swap to handle hover / and bg change overrides */
-
-.card-wrapper:hover .media.media--hover-effect > img:first-child {
-  /* overriding the opacity rule with a display none instead as we are having opacity specificity rule issues */
-  display: none !important;
-}
-
-.card-wrapper:hover .media.media--hover-effect > img:last-child {
-  /* display: none; */
-}
-
-.card-wrapper:hover .media.media--hover-effect > img:last-child {
-  opacity: 1 !important;
-}
-
-.card__inner {
-
-}
-
 @media only screen and (max-width: 750px) {
   /* cheap way of adding greater specificity */
   body h1,
@@ -1087,6 +1068,29 @@ sticky-atc button {
 .sticky-atc-price {
   font-size: 20px;
   margin-right: 20px;
+}
+
+/* styles for image ratio 4:5 swap to handle hover / and bg change overrides */
+
+.card-wrapper:hover .media.media--hover-effect > img:first-child {
+  /* overriding the opacity rule with a display none instead as we are having opacity specificity rule issues */
+  display: none !important;
+}
+
+.card-wrapper:hover .media.media--hover-effect > img:last-child {
+  /* display: none; */
+}
+
+.card-wrapper .media.media--hover-effect > img:last-child {
+  opacity: 0 !important;
+}
+
+.card-wrapper:hover .media.media--hover-effect > img:last-child {
+  opacity: 1 !important;
+}
+
+.card__inner {
+  background-color: #f9f8f6 !important;
 }
 
 @media screen and (max-width: 768px) {
