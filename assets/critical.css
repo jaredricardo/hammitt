@@ -1089,7 +1089,10 @@ sticky-atc button {
   opacity: 1 !important;
 }
 
-.card__inner {
+/* new bg color default to prevnt flicker load. Simply overriding the other settings. */
+.card__inner,
+.global-media-settings,
+.pdp-hero-section .pdp-info-col .custom-variant-options ul li .swatch_image-a img {
   background-color: #f9f8f6 !important;
 }
 
