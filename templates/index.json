@@ -26,6 +26,7 @@
         "text_vertical_align_mobile": "bottom",
         "text_horizontal_align_mobile": "center",
         "show_secondary_image": true,
+        "image_ratio": "adapt",
         "title": "Find Perfect Mother's Day Gifts",
         "make_h1": true,
         "subtitle": "",
@@ -80,6 +81,7 @@
         "text_vertical_align_mobile": "center",
         "text_horizontal_align_mobile": "center",
         "show_secondary_image": true,
+        "image_ratio": "adapt",
         "title": "Explore New Arrivals",
         "make_h1": true,
         "subtitle": "",
@@ -395,6 +397,7 @@
         "text_vertical_align_mobile": "center",
         "text_horizontal_align_mobile": "center",
         "show_secondary_image": true,
+        "image_ratio": "adapt",
         "title": "Meet Stormy",
         "make_h1": true,
         "subtitle": "",
@@ -678,6 +681,31 @@
     "multicolumn_96rXyy": {
       "type": "multicolumn",
       "blocks": {
+        "column_EG7WKg": {
+          "type": "column",
+          "settings": {
+            "reverse_image_and_text_order": false,
+            "image": "shopify://shop_images/Rectangle_569-3.jpg",
+            "title": "",
+            "b_title_color": "#000000",
+            "b_title_font_desktop": 20,
+            "b_title_font_mobile": 17,
+            "text": "",
+            "link_label": "Tote",
+            "link_margin_top": 20,
+            "link": "shopify://collections/tote",
+            "cta_color": "#ffffff",
+            "cta_column_alignment": "center",
+            "cta_bg_color": "rgba(0,0,0,0)",
+            "cta_font_size": 18,
+            "cta_font_size_mobile": 14,
+            "hide_arrows": true,
+            "cta_width_mobile": 200,
+            "cta_width_desktop": 250,
+            "cta_top_spacing": 0,
+            "cta_bottom_spacing": 0
+          }
+        },
         "column_7NQLtz": {
           "type": "column",
           "settings": {
@@ -702,36 +730,11 @@
             "cta_top_spacing": 0,
             "cta_bottom_spacing": 0
           }
-        },
-        "column_pMMqE7": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/charles03.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 17,
-            "text": "",
-            "link_label": "Crossbody",
-            "link_margin_top": 20,
-            "link": "shopify://collections/cross-body",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 0
-          }
         }
       },
       "block_order": [
-        "column_7NQLtz",
-        "column_pMMqE7"
+        "column_EG7WKg",
+        "column_7NQLtz"
       ],
       "name": "categories",
       "settings": {
@@ -770,19 +773,19 @@
     "multicolumn_jQUrg7": {
       "type": "multicolumn",
       "blocks": {
-        "column_mJbX9t": {
+        "column_VDHw3g": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_569-3.jpg",
+            "image": "shopify://shop_images/charles03.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 17,
             "text": "",
-            "link_label": "Tote",
+            "link_label": "Crossbody",
             "link_margin_top": 20,
-            "link": "shopify://collections/tote",
+            "link": "shopify://collections/cross-body",
             "cta_color": "#ffffff",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -822,7 +825,7 @@
         }
       },
       "block_order": [
-        "column_mJbX9t",
+        "column_VDHw3g",
         "column_6jmwGC"
       ],
       "name": "categories",
