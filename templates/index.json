@@ -20,13 +20,14 @@
         "media_type": "video",
         "video": "shopify://files/videos/new-_0e937126-97bb-4d0a-8de1-350a289ebd08.mp4",
         "text_align": "center",
-        "text_vertical_align": "bottom",
+        "text_vertical_align": "center",
         "text_horizontal_align": "center",
         "text_align_mobile": "center",
         "text_vertical_align_mobile": "bottom",
         "text_horizontal_align_mobile": "center",
         "show_secondary_image": true,
-        "title": "Spring In Bloom",
+        "image_ratio": "adapt",
+        "title": "Find Perfect Mother's Day Gifts",
         "make_h1": true,
         "subtitle": "",
         "desktop_font_size": 42,
@@ -137,6 +138,7 @@
         "silhouette_carousel_item_erqGc6",
         "silhouette_carousel_item_T3fgQb"
       ],
+      "disabled": true,
       "name": "Silhouette Carousel",
       "settings": {
         "section_anchor_id": "",
@@ -157,15 +159,18 @@
         "collection": "new-arrivals",
         "max_products": 30,
         "show_secondary_image": true,
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "hide_price": false,
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 20,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 10
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "mobile_padding_top": 4,
+        "mobile_padding_bottom": 4
       }
     },
     "home_hero_section_GzUagM": {
@@ -183,6 +188,7 @@
         "text_vertical_align_mobile": "center",
         "text_horizontal_align_mobile": "center",
         "show_secondary_image": true,
+        "image_ratio": "adapt",
         "title": "Explore New Arrivals",
         "make_h1": true,
         "subtitle": "",
@@ -272,7 +278,7 @@
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
         "padding_top": 0,
-        "padding_bottom": 32,
+        "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
@@ -289,21 +295,42 @@
         "collection": "heiress-collection",
         "max_products": 30,
         "show_secondary_image": true,
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "hide_price": false,
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 20,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 10
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 10,
+        "padding_bottom": 10,
+        "mobile_padding_top": 8,
+        "mobile_padding_bottom": 8
       }
     },
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
         "image_carousel_item_hDqCRg": {
+          "type": "image-carousel-item",
+          "name": "GWP",
+          "settings": {
+            "image": "shopify://shop_images/GWP.gif",
+            "eyebrow": "",
+            "title": "Free Gift For Mom",
+            "subcopy": "Sunset Sip leather wine tags (set of 4) with $295+ orders.",
+            "button_text": "SHOP NOW",
+            "collection_url": "bestsellers",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_RyXzpx": {
           "type": "image-carousel-item",
           "name": "Blueberry",
           "settings": {
@@ -315,7 +342,6 @@
             "collection_url": "blueberry-sorbet",
             "enable_image_as_link_out": true,
             "max_products": 10,
-            "image_ratio": "square",
             "hide_price": false,
             "hide_tag": false,
             "hide_subtitle": false,
@@ -334,7 +360,6 @@
             "collection_url": "cocoa-raffia",
             "enable_image_as_link_out": true,
             "max_products": 10,
-            "image_ratio": "square",
             "hide_price": false,
             "hide_tag": false,
             "hide_subtitle": false,
@@ -353,7 +378,6 @@
             "collection_url": "flamingo-flora",
             "enable_image_as_link_out": true,
             "max_products": 10,
-            "image_ratio": "square",
             "hide_price": false,
             "hide_tag": false,
             "hide_subtitle": false,
@@ -372,7 +396,6 @@
             "collection_url": "pink-lemonade",
             "enable_image_as_link_out": true,
             "max_products": 10,
-            "image_ratio": "square",
             "hide_price": false,
             "hide_tag": false,
             "hide_subtitle": false,
@@ -391,7 +414,6 @@
             "collection_url": "calla-lily-white-1",
             "enable_image_as_link_out": true,
             "max_products": 10,
-            "image_ratio": "square",
             "hide_price": false,
             "hide_tag": false,
             "hide_subtitle": false,
@@ -410,7 +432,6 @@
             "collection_url": "tailored-tangerine",
             "enable_image_as_link_out": true,
             "max_products": 10,
-            "image_ratio": "square",
             "hide_price": false,
             "hide_tag": false,
             "hide_subtitle": false,
@@ -429,7 +450,6 @@
             "collection_url": "raffia",
             "enable_image_as_link_out": true,
             "max_products": 10,
-            "image_ratio": "square",
             "hide_price": false,
             "hide_tag": false,
             "hide_subtitle": false,
@@ -448,7 +468,6 @@
             "collection_url": "calla-lily-white-raffia-1",
             "enable_image_as_link_out": true,
             "max_products": 10,
-            "image_ratio": "square",
             "hide_price": false,
             "hide_tag": false,
             "hide_subtitle": false,
@@ -458,6 +477,7 @@
       },
       "block_order": [
         "image_carousel_item_hDqCRg",
+        "image_carousel_item_RyXzpx",
         "image_carousel_item_fMrt4V",
         "image_carousel_item_46iAtM",
         "image_carousel_item_3kt837",
@@ -484,6 +504,7 @@
         "text_vertical_align_mobile": "center",
         "text_horizontal_align_mobile": "center",
         "show_secondary_image": true,
+        "image_ratio": "adapt",
         "title": "Meet Stormy",
         "make_h1": true,
         "subtitle": "",
@@ -511,6 +532,17 @@
             "heading_size_desktop": 46
           }
         },
+        "text_LLqadp": {
+          "type": "text",
+          "settings": {
+            "text": "Spend $295+ and receive a complimentary leather wine charms",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
         "buttons_NyARTV": {
           "type": "buttons",
           "settings": {
@@ -522,6 +554,7 @@
       },
       "block_order": [
         "heading_rgQaaM",
+        "text_LLqadp",
         "buttons_NyARTV"
       ],
       "name": "mother's day",
@@ -560,8 +593,8 @@
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
         "padding_top": 0,
-        "padding_bottom": 32,
-        "padding_top_mobile": 12,
+        "padding_bottom": 8,
+        "padding_top_mobile": 8,
         "padding_bottom_mobile": 0,
         "custom_class": ""
       }
@@ -594,6 +627,7 @@
           "kyle-shoulder-bag-regatta-stripe-gold"
         ],
         "show_secondary_image": true,
+        "image_ratio": "portrait",
         "image": "shopify://shop_images/2-Rectangle-1060.gif",
         "image_alignment_desktop": "image-right",
         "image_alignment_mobile": "image-top",
@@ -601,10 +635,10 @@
         "button_text": "Shop Now",
         "button_text_color": "#000000",
         "button_background_color": "#ffffff",
-        "padding_top": 50,
-        "padding_bottom": 20,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "mobile_padding_top": 8,
+        "mobile_padding_bottom": 8
       }
     },
     "multicolumn_FmaKEp": {
@@ -744,10 +778,10 @@
         "swipe_on_mobile": false,
         "enable_peek": false,
         "show_mobile_slider": false,
-        "padding_top": 30,
-        "padding_bottom": 30,
-        "padding_top_mobile": 10,
-        "padding_bottom_mobile": 36,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "padding_top_mobile": 8,
+        "padding_bottom_mobile": 8,
         "custom_class": ""
       }
     },
@@ -1132,6 +1166,39 @@
         "custom_class": ""
       }
     },
+    "homepage_instagram_RrcAhY": {
+      "type": "homepage-instagram",
+      "disabled": true,
+      "settings": {
+        "enabled_slider": false,
+        "feed_id": "hammitt_2",
+        "heading": "As Seen On Social",
+        "page_size": "5",
+        "image_margin": "0",
+        "paragraph": "Tag #HammittLA for a chance to be featured on our feed.",
+        "text_align": "center",
+        "show_link_to_page": true,
+        "link_to_page": "shopify://pages/shop-insta",
+        "link_to_page_text": "Shop Insta"
+      }
+    },
+    "1777417324d647b990": {
+      "type": "apps",
+      "blocks": {
+        "tolstoy_ads_image_video_carousel_block_tiLqAy": {
+          "type": "shopify://apps/tolstoy-ads-image-video/blocks/carousel-block/06fa8282-42ff-403e-b67c-1936776aed11",
+          "settings": {
+            "publishId": "b9hvkqlx0oy7s"
+          }
+        }
+      },
+      "block_order": [
+        "tolstoy_ads_image_video_carousel_block_tiLqAy"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "jr_scrolling_text_QzMT7i": {
       "type": "jr-scrolling-text",
       "blocks": {
@@ -1280,21 +1347,6 @@
         "speed": 30,
         "align_icons_row": false
       }
-    },
-    "homepage_instagram_RrcAhY": {
-      "type": "homepage-instagram",
-      "settings": {
-        "enabled_slider": false,
-        "feed_id": "hammitt_2",
-        "heading": "As Seen On Social",
-        "page_size": "5",
-        "image_margin": "0",
-        "paragraph": "Tag #HammittLA for a chance to be featured on our feed.",
-        "text_align": "center",
-        "show_link_to_page": true,
-        "link_to_page": "shopify://pages/shop-insta",
-        "link_to_page_text": "Shop Insta"
-      }
     }
   },
   "order": [
@@ -1311,7 +1363,8 @@
     "multicolumn_96rXyy",
     "multicolumn_jQUrg7",
     "multicolumn_Knr9Hr",
-    "jr_scrolling_text_QzMT7i",
-    "homepage_instagram_RrcAhY"
+    "homepage_instagram_RrcAhY",
+    "1777417324d647b990",
+    "jr_scrolling_text_QzMT7i"
   ]
 }

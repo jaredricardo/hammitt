@@ -109,6 +109,7 @@ p {
   font-family: 'Adobe Carlson SemiBold' !important;
   font-size: 15px !important;
   text-transform: Capitalize !important;
+  font-style: italic !important;
 }
 
 product-recommendations .card__heading a,
@@ -437,7 +438,7 @@ minty-fresh-filters li a,
 
 @media screen and (max-width: 989px) {
   .grid__item:has(.num-slots-1) {
-    width: calc(50% - 9px) !important;
+    width: calc(50% - 3px) !important;
     max-width: calc(50% - 9px) !important;
   }
   
@@ -691,7 +692,7 @@ body:has(sticky-atc.active) #flip-chat-widget {
 
 .jr-new-5050-product-list .columns {
   display: flex;
-  gap: 4rem;
+  gap: 8px;
   align-items: stretch;
   justify-content: center;
 }
@@ -709,7 +710,7 @@ body:has(sticky-atc.active) #flip-chat-widget {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 4px;
 }
 
 .jr-new-5050-product-list .swiper-scrollbar {
@@ -756,7 +757,6 @@ body:has(sticky-atc.active) #flip-chat-widget {
   }
   .jr-new-5050-product-list .columns {
     flex-direction: column !important;
-    gap: 2rem;
   }
   .jr-new-5050-product-list .swiper-scrollbar {
     display: block;
@@ -936,6 +936,40 @@ a.nav-wishlist-button .heart-count {
   .silhouette-carousel .silhouette-card .silhouette-carousel__image {
     max-width: 100%;
   }
+.card__heading {
+  justify-content: start !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* orginally this was a setting with text-align: var(--card-text-alignment), but it was broken at some point so now its just hard coded */
+.card-information {
+  text-align: left !important;
+}
+#product-grid {
+  column-gap: 4px;
+  row-gap: 12px;
+}
+
+#product-grid .grid__item {
+  max-width: calc(25% - 4px);
+}
+
+.product-card {
+  padding-bottom: 1.5rem !important;
+}
+
+.page-width.near-full-width {
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 768px) {
+  #product-grid .grid__item {
+    max-width: 50%;
+  }
+  .page-width.near-full-width {
+    padding: 0 4px;
+  }
+}
 
 gifting-tooltip-container {
     display: flex;
@@ -1058,6 +1092,32 @@ sticky-atc button {
 .sticky-atc-price {
   font-size: 20px;
   margin-right: 20px;
+}
+
+/* styles for image ratio 4:5 swap to handle hover / and bg change overrides */
+
+.card-wrapper:hover .media.media--hover-effect > img:first-child {
+  /* overriding the opacity rule with a display none instead as we are having opacity specificity rule issues */
+  display: none !important;
+}
+
+.card-wrapper:hover .media.media--hover-effect > img:last-child {
+  /* display: none; */
+}
+
+.card-wrapper .media.media--hover-effect > img:last-child {
+  opacity: 0 !important;
+}
+
+.card-wrapper:hover .media.media--hover-effect > img:last-child {
+  opacity: 1 !important;
+}
+
+/* new bg color default to prevnt flicker load. Simply overriding the other settings. */
+.card__inner,
+.global-media-settings,
+.pdp-hero-section .pdp-info-col .custom-variant-options ul li .swatch_image-a img {
+  background-color: #f9f8f6 !important;
 }
 
 @media screen and (max-width: 768px) {

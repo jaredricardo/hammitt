@@ -242,7 +242,7 @@
         </div>
       {%- else -%}
         {% paginate search.results by 24 %}
-          <div class="template-search__results collection page-width" data-id="{{ section.id }}">
+          <div class="template-search__results collection page-width near-full-width" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
 
             {% if paginate.previous %}
