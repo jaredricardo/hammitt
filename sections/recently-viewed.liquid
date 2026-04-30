@@ -31,15 +31,15 @@
     "breakpoints": {
       "0": {
         "slidesPerView": "1.4",
-        "spaceBetween": 10
+        "spaceBetween": 4
       },
       "750": {
         "slidesPerView": "2",
-        "spaceBetween": 10
+        "spaceBetween": 4
       },
       "990": {
         "slidesPerView": "3.8",
-        "spaceBetween": 35
+        "spaceBetween": 4
       }
     }
   }
@@ -49,7 +49,7 @@
   {% if section.settings.title != blank %}
   <h2 class="h1 center section-title recently-title">{{ section.settings.title }}</h2>
   {% endif %}
-  <recently-viewed class="grid overflow-scroll-x swiper" data-json='{{ rc_slider }}'>
+  <recently-viewed class="grid overflow-scroll-x swiper" data-json='{{ rc_slider }}' data-image-ratio='{{ section.settings.image_ratio }}'>
     <div class="swiper-wrapper">
     </div>
     <div class="swiper-button-next"></div>
@@ -71,6 +71,26 @@
 		"id":"title",
 		"label":"Title"
 	  },
+      {
+        "type": "select",
+        "id": "image_ratio",
+        "options": [
+          {
+            "value": "adapt",
+            "label": "Adapt to image"
+          },
+          {
+            "value": "portrait",
+            "label": "Portrait"
+          },
+          {
+            "value": "square",
+            "label": "Square"
+          }
+        ],
+        "default": "adapt",
+        "label": "Image ratio"
+      },
       {
         "type": "header",
         "content": "Section padding"

@@ -51,15 +51,18 @@
         "collection": "new-arrivals",
         "max_products": 30,
         "show_secondary_image": true,
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "hide_price": false,
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 20,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 10
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "mobile_padding_top": 4,
+        "mobile_padding_bottom": 4
       }
     },
     "home_hero_section_GzUagM": {
@@ -166,7 +169,7 @@
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
         "padding_top": 0,
-        "padding_bottom": 32,
+        "padding_bottom": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
@@ -183,15 +186,18 @@
         "collection": "heiress-collection",
         "max_products": 30,
         "show_secondary_image": true,
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "hide_price": false,
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
-        "padding_top": 36,
-        "padding_bottom": 20,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 10
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 10,
+        "padding_bottom": 10,
+        "mobile_padding_top": 8,
+        "mobile_padding_bottom": 8
       }
     },
     "home_hero_section_qhL9Xk": {
@@ -285,7 +291,7 @@
             "collection_url": "pink-lemonade",
             "enable_image_as_link_out": true,
             "max_products": 10,
-            "image_ratio": "square",
+            "image_ratio": "portrait",
             "hide_price": false,
             "hide_tag": false,
             "hide_subtitle": false,
@@ -304,7 +310,7 @@
             "collection_url": "calla-lily-white-1",
             "enable_image_as_link_out": true,
             "max_products": 10,
-            "image_ratio": "square",
+            "image_ratio": "portrait",
             "hide_price": false,
             "hide_tag": false,
             "hide_subtitle": false,
@@ -486,8 +492,8 @@
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
         "padding_top": 0,
-        "padding_bottom": 32,
-        "padding_top_mobile": 12,
+        "padding_bottom": 8,
+        "padding_top_mobile": 8,
         "padding_bottom_mobile": 0,
         "custom_class": ""
       }
@@ -520,6 +526,7 @@
           "kyle-shoulder-bag-regatta-stripe-gold"
         ],
         "show_secondary_image": true,
+        "image_ratio": "portrait",
         "image": "shopify://shop_images/2-Rectangle-1060.gif",
         "image_alignment_desktop": "image-right",
         "image_alignment_mobile": "image-top",
@@ -527,10 +534,10 @@
         "button_text": "Shop Now",
         "button_text_color": "#000000",
         "button_background_color": "#ffffff",
-        "padding_top": 50,
-        "padding_bottom": 20,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "mobile_padding_top": 8,
+        "mobile_padding_bottom": 8
       }
     },
     "multicolumn_FmaKEp": {
@@ -670,10 +677,10 @@
         "swipe_on_mobile": false,
         "enable_peek": false,
         "show_mobile_slider": false,
-        "padding_top": 30,
-        "padding_bottom": 30,
-        "padding_top_mobile": 10,
-        "padding_bottom_mobile": 36,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "padding_top_mobile": 8,
+        "padding_bottom_mobile": 8,
         "custom_class": ""
       }
     },

@@ -6,7 +6,7 @@
 }
 
 .product-card {
-  padding-bottom: 3.0rem;
+  padding-bottom: 0rem;
 }
 
 .card {
@@ -160,7 +160,7 @@
   margin-bottom: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   font-weight: 500;
 }
@@ -632,5 +632,11 @@ quick-add .label {
   }
   .back-in-stock-one-liner-container {
     font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card__heading {
+    margin-bottom: 0 !important;
   }
 }
