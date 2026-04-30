@@ -17,6 +17,9 @@ a,
   letter-spacing: 0.05em !important;
 }
 
+.carlson-italic {
+  font-family: 'Adobe Carlson Italic' !important;
+}
 
 h1,
 .h1 {
@@ -106,6 +109,7 @@ p {
   font-family: 'Adobe Carlson SemiBold' !important;
   font-size: 15px !important;
   text-transform: Capitalize !important;
+  font-style: italic !important;
 }
 
 product-recommendations .card__heading a,
@@ -434,7 +438,7 @@ minty-fresh-filters li a,
 
 @media screen and (max-width: 989px) {
   .grid__item:has(.num-slots-1) {
-    width: calc(50% - 9px) !important;
+    width: calc(50% - 3px) !important;
     max-width: calc(50% - 9px) !important;
   }
   
@@ -622,8 +626,11 @@ body:has(inspired-floating-widget) .inspired-app-opener {
   display: none !important;
 }
 
-body:has(.cart-drawer-container[open]) #flip-chat-widget {
+body:has(.cart-drawer-container[open]) #flip-chat-widget,
+body:has(sticky-atc.active) #flip-chat-widget {
   z-index: -99999 !important;
+  pointer-events: none !important;
+  opacity: 0;
 }
 
 
@@ -685,7 +692,7 @@ body:has(.cart-drawer-container[open]) #flip-chat-widget {
 
 .jr-new-5050-product-list .columns {
   display: flex;
-  gap: 4rem;
+  gap: 8px;
   align-items: stretch;
   justify-content: center;
 }
@@ -703,7 +710,7 @@ body:has(.cart-drawer-container[open]) #flip-chat-widget {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 4px;
 }
 
 .jr-new-5050-product-list .swiper-scrollbar {
@@ -750,7 +757,6 @@ body:has(.cart-drawer-container[open]) #flip-chat-widget {
   }
   .jr-new-5050-product-list .columns {
     flex-direction: column !important;
-    gap: 2rem;
   }
   .jr-new-5050-product-list .swiper-scrollbar {
     display: block;
@@ -906,8 +912,64 @@ a.nav-wishlist-button .heart-count {
   }
 }
 
+  .silhouette-carousel {
+    padding: 8px 0 8px 4px;
+  }
 
+  .silhouette-carousel .silhouette-carousel__hover-text {
+    opacity: 0;
+    text-align: center;
+    transition: 300ms ease;
+    padding-left: 5px;
+    color: black;
+    font-weight: 600 !important;
+  }
 
+  .silhouette-carousel a {
+    text-decoration: none !important;
+  }
+
+  .silhouette-carousel a:hover .silhouette-carousel__hover-text {
+    opacity: 1;
+  }
+
+  .silhouette-carousel .silhouette-card .silhouette-carousel__image {
+    max-width: 100%;
+  }
+.card__heading {
+  justify-content: start !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* orginally this was a setting with text-align: var(--card-text-alignment), but it was broken at some point so now its just hard coded */
+.card-information {
+  text-align: left !important;
+}
+#product-grid {
+  column-gap: 4px;
+  row-gap: 12px;
+}
+
+#product-grid .grid__item {
+  max-width: calc(25% - 4px);
+}
+
+.product-card {
+  padding-bottom: 1.5rem !important;
+}
+
+.page-width.near-full-width {
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 768px) {
+  #product-grid .grid__item {
+    max-width: 50%;
+  }
+  .page-width.near-full-width {
+    padding: 0 4px;
+  }
+}
 
 gifting-tooltip-container {
     display: flex;
@@ -987,4 +1049,90 @@ gifting-tooltip-container li {
 .gifting-tooltip-images .col {
     text-align: center;
     flex: 1;
+}
+
+
+sticky-atc {
+  display: none;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 2rem;
+  box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  min-height: 75px;
+}
+
+sticky-atc.active {
+  display: flex;
+  opacity: 1;
+}
+
+sticky-atc h2 {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+sticky-atc h3 {
+  font-size: 14px !important;
+}
+
+sticky-atc button {
+  min-width: 325px;
+  height: 50px;
+  text-transform: uppercase;
+}
+
+.sticky-atc-price {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+/* styles for image ratio 4:5 swap to handle hover / and bg change overrides */
+
+.card-wrapper:hover .media.media--hover-effect > img:first-child {
+  /* overriding the opacity rule with a display none instead as we are having opacity specificity rule issues */
+  display: none !important;
+}
+
+.card-wrapper:hover .media.media--hover-effect > img:last-child {
+  /* display: none; */
+}
+
+.card-wrapper .media.media--hover-effect > img:last-child {
+  opacity: 0 !important;
+}
+
+.card-wrapper:hover .media.media--hover-effect > img:last-child {
+  opacity: 1 !important;
+}
+
+/* new bg color default to prevnt flicker load. Simply overriding the other settings. */
+.card__inner,
+.global-media-settings,
+.pdp-hero-section .pdp-info-col .custom-variant-options ul li .swatch_image-a img {
+  background-color: #f9f8f6 !important;
+}
+
+@media screen and (max-width: 768px) {
+  sticky-atc h2,
+  sticky-atc h3,
+  .sticky-atc-price {
+    display: none;
+  }
+  sticky-atc {
+    min-height: 40px;
+    width: 100%;
+    padding: 0;
+  }
+  sticky-atc .col,
+  sticky-atc button  {
+    width: 100vw;
+  }
 }

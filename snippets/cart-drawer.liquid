@@ -398,9 +398,12 @@
               assign noLink = true
             endif
 
-            if item.price == 0
-              assign noLink = true
-            endif
+            unless item.product.tags contains 'allow-pdp'
+              if item.price == 0 
+                assign noLink = true
+              endif
+            endunless
+
 
             ####### new way of assigning product title
 
@@ -1071,7 +1074,7 @@
                 {%- capture swiperJson -%}
                   {
                     "slidesPerView": 2.5,
-                    "spaceBetween": 9,
+                    "spaceBetween": 4,
                     "freeMode": false,
                     "mousewheel": false,
                     "loop": false,
@@ -1083,11 +1086,11 @@
                     "breakpoints": {
                       "750": {
                         "slidesPerView": "2.5",
-                        "spaceBetween": 10
+                        "spaceBetween": 4
                       },
                       "990": {
                         "slidesPerView": "2.8",
-                        "spaceBetween": 5
+                        "spaceBetween": 4
                       }
                     }
                   }

@@ -79,7 +79,6 @@ const loadNextPage = (url) => {
 }
 
 const infiniteScroll = () => {
-  console.log('/////// checking for next page')
   let nextButton = document.querySelector('.pagination__item[aria-label="Next page"]');
   const loader = document.getElementById('loader');
 

@@ -208,7 +208,7 @@ cart-drawer > details[open] > summary::before {
   margin:0;
   list-style:none;
   margin:0;
-  padding:0
+  padding:0 0 5px 0;
 }
 .drawer__content-items .drawer__content-item{
   display:flex;
@@ -220,11 +220,12 @@ cart-drawer > details[open] > summary::before {
 }
 .drawer__content-item-image{
   width: 63px;
-  height: 63px;
   text-align: center;
   align-items: center;
   display: flex;
   justify-content: center;
+  aspect-ratio: 4/5;
+  background-color: #F9F8F6;
 }
 .drawer__content-item-image img{
   height:auto;
@@ -432,10 +433,6 @@ button[aria-disabled="true"] {
   width: 125px !important;
 }
 
-.swiper upsell-item.cts {
-  margin-right: 9px !important;
-}
-
 .cart_shipping_notes {
   text-align: center;
   font-size: 12px;
@@ -626,7 +623,7 @@ span.freeRemainShippingMsg,
   text-align: center;
 }
 
-.cart-item__name {font-size: 14px;font-weight: 600;    line-height: 1.2;}
+.cart-item__name {font-size: 14px;font-weight: 600;    line-height: 1.2; max-width: 200px;}
 .product-option.product-properties__option,
 .product-option {font-size: 12px;    margin-top: 0;}
 
@@ -690,6 +687,7 @@ cart-upsells .upsell__image,
   position: relative;
   margin-bottom: 10px;
   width: 100%;
+  aspect-ratio: 4/5;
 }
 cart-upsells .upsell__image:after,
 .empty-cart-product-upsell-container .upsell__image:after {
@@ -976,6 +974,10 @@ hammitt-cart-level-gift-note {
 
 
 /* GWP Progress Bar Header Messages */
+.gwp-tier-not-reached {
+  padding-bottom: 10px !important;
+  padding-top: 0 !important;
+}
 .gwp-progress-bar-header {
   padding: 7px 0 5px;
   text-align: center;
@@ -988,7 +990,7 @@ hammitt-cart-level-gift-note {
 }
 
 .gwp-progress-bar-header.gwp-tier-success .h7 {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .gwp-progress-bar-header .h7 {
@@ -1008,7 +1010,7 @@ hammitt-cart-level-gift-note {
 
 
 .below-progress-bar-container {
-  padding: 4px 10px 20px 10px;
+  padding: 4px 10px 4px 10px;
 }
 
 save-for-later { 

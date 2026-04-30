@@ -90,6 +90,9 @@ class RecentlyViewed extends HTMLElement {
       return;
     }
     const reversedArr = [...storageJson].reverse();
+    
+    // Get image ratio setting from data attribute
+    const imageRatio = this.dataset.imageRatio || 'adapt';
 
     reversedArr.forEach(product => {
       // Don't show Current Product 
@@ -107,9 +110,19 @@ class RecentlyViewed extends HTMLElement {
         }
       }
 
+      // Calculate ratio based on image_ratio setting
+      let ratio = 1; // default for square
+      if (imageRatio === 'portrait') {
+        ratio = 0.8;
+      } else if (imageRatio === 'adapt') {
+        // For adapt, we'll use a default ratio since we don't have image dimensions in storage
+        ratio = 1;
+      }
+      const ratioPercent = (1 / ratio) * 100;
+
       const el = document.createElement('div');
       el.classList.add('recently-viewed__item','grid__item' , 'swiper-slide');
-      el.innerHTML = `<div class="media">
+      el.innerHTML = `<div class="media" style="--ratio-percent: ${ratioPercent}%; padding-bottom: var(--ratio-percent);">
         <img data-src="${product.featured_image}" width="100%" alt="${product.title}" /></div>
         <h5>${product.title}</h5>
         <a href="/products/${product.handle}" class="link--fill-parent"><span class="visually-hidden">${product.title}</span></a>`;

@@ -1,0 +1,50 @@
+{% liquid 
+
+    # using kyle as the fallback 
+    assign publish_id_to_use = '4npieotp5bx8x'
+    assign downcased_product_type = product.metafields.custom.product_title_type | downcase
+
+    # in the future this should be made dynamic using blocks 
+    if downcased_product_type contains 'kyle'
+        assign publish_id_to_use = '4npieotp5bx8x'
+    elsif downcased_product_type contains 'tim'
+        assign publish_id_to_use = 'sww58zv9ke8rx'
+    elsif downcased_product_type contains 'bryant'
+        assign publish_id_to_use = 'xeu6mwj5i0bei'
+    elsif downcased_product_type contains 'daniel'
+        assign publish_id_to_use = 'z167z46u3guni' 
+    elsif downcased_product_type contains 'charles'
+        assign publish_id_to_use = '1tcv00235xlop'
+    elsif downcased_product_type contains 'tom'
+        assign publish_id_to_use = 'pm5a2uanolh4x'
+    elsif downcased_product_type contains 'evan'
+        assign publish_id_to_use = 'lwrfdehvxk0x5'
+    elsif downcased_product_type contains 'vip'
+        assign publish_id_to_use = '9wlmb1lr5augb'
+    elsif downcased_product_type contains 'tony'
+        assign publish_id_to_use = '02bira1c2rgai'
+    elsif downcased_product_type contains 'meredith'
+        assign publish_id_to_use = 'y0flttquuz1e5'
+    elsif downcased_product_type contains 'erica'
+        assign publish_id_to_use = 'ypfbbox7rasbp'
+    endif
+-%}
+
+<tolstoy-carousel
+  data-tags="{% for tag in product.tags -%}{{ tag | escape }},{%- endfor %}"
+  class="tolstoy-carousel"
+  data-publish-id="{{ publish_id_to_use }}"
+  data-product-id="{{ product.id }}">
+</tolstoy-carousel>
+
+{% schema %}
+{
+    "name": "Tolstoy Manual Section",
+    "settings": [],
+    "presets": [
+        {
+            "name": "Tolstoy Manual Section"
+        }
+    ]
+}
+{% endschema %}
