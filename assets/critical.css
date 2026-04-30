@@ -901,7 +901,6 @@ a.nav-wishlist-button .heart-count {
   pointer-events: none;
 }
 
-
 @media screen and (max-width: 749px) {
   .mobile-only {
     display: block;
@@ -1096,27 +1095,25 @@ sticky-atc button {
 
 /* styles for image ratio 4:5 swap to handle hover / and bg change overrides */
 
-.card-wrapper:hover .media.media--hover-effect > img:first-child {
+.card-wrapper:hover .media.media--hover-effect:has(img + img) > img:first-child {
   /* overriding the opacity rule with a display none instead as we are having opacity specificity rule issues */
   display: none !important;
 }
 
-.card-wrapper:hover .media.media--hover-effect > img:last-child {
-  /* display: none; */
-}
-
-.card-wrapper .media.media--hover-effect > img:last-child {
+.card-wrapper .media.media--hover-effect:has(img + img) > img:last-child {
   opacity: 0 !important;
 }
 
-.card-wrapper:hover .media.media--hover-effect > img:last-child {
+.card-wrapper:hover .media.media--hover-effect:has(img + img) > img:last-child {
   opacity: 1 !important;
 }
 
 /* new bg color default to prevnt flicker load. Simply overriding the other settings. */
 .card__inner,
 .global-media-settings,
-.pdp-hero-section .pdp-info-col .custom-variant-options ul li .swatch_image-a img {
+.pdp-hero-section .pdp-info-col .custom-variant-options ul li .swatch_image-a img,
+cart-upsells .upsell__image,
+.drawer__content-item-image img {
   background-color: #f9f8f6 !important;
 }
 
