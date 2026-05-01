@@ -914,6 +914,33 @@ a.nav-wishlist-button .heart-count {
 
   .silhouette-carousel {
     padding: 8px 0 8px 4px;
+    opacity: 0;
+    transition: 300ms ease;
+  }
+
+  .silhouette-carousel:has(.swiper-initialized) {
+    opacity: 1; 
+  }
+
+  /* Pre-constrain slides before Swiper initializes to prevent layout pop */
+  .silhouette-carousel .swiper:not(.swiper-initialized) {
+    overflow: hidden;
+  }
+
+  .silhouette-carousel .swiper:not(.swiper-initialized) .swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .silhouette-carousel .swiper:not(.swiper-initialized) .swiper-slide {
+    width: calc(100% / 3.7);
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 640px) {
+    .silhouette-carousel .swiper:not(.swiper-initialized) .swiper-slide {
+      width: calc(100% / 6.4);
+    }
   }
 
   .silhouette-carousel .silhouette-carousel__hover-text {
