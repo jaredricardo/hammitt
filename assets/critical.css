@@ -110,6 +110,7 @@ p {
   font-size: 15px !important;
   text-transform: Capitalize !important;
   font-style: italic !important;
+  font-weight: 500 !important;
 }
 
 product-recommendations .card__heading a,
@@ -221,7 +222,6 @@ minty-fresh-filters li a,
   .card__heading .price {
     font-family: 'Adobe Carlson SemiBold' !important;
     font-size: 13px !important;
-    font-weight: 600 !important;
   }
   product-recommendations .card__heading a,
   product-recommendations .card__heading .price  {
@@ -684,7 +684,8 @@ body:has(sticky-atc.active) #flip-chat-widget {
   margin: 2rem 0
 }
 
-.jr-new-5050-product-list img {
+.jr-new-5050-product-list img,
+.jr-new-5050-product-list video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -921,7 +922,7 @@ a.nav-wishlist-button .heart-count {
     transition: 300ms ease;
     padding-left: 5px;
     color: black;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
   }
 
   .silhouette-carousel a {
