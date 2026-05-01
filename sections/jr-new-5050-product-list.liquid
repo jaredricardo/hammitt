@@ -117,7 +117,11 @@
                 {% endif %}
             </div>
             <div class="col">
-                <img src="{{ section.settings.image | image_url: width: '1000' }}" alt="Hammitt Section Image">
+                {% if section.settings.video != blank %}
+                    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'media-video' }}
+                {% elsif section.settings.image != blank %}
+                    <img src="{{ section.settings.image | image_url: width: '1000' }}" alt="Hammitt Section Image">
+                {% endif %}
                 {% if section.settings.button_link != blank %}
                     <a href="{{ section.settings.button_link }}" class="button abs" style="background-color: {{ section.settings.button_background_color }}; color: {{ section.settings.button_text_color }};">{{ section.settings.button_text }}</a>
                 {% endif %}
@@ -211,6 +215,12 @@
                 ],
                 "default": "adapt",
                 "label": "Image ratio"
+            },
+            {
+                "type": "video",
+                "id": "video",
+                "label": "Video",
+                "info": "If a video is set, it will display instead of the image."
             },
             {
                 "type": "image_picker",

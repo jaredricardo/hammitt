@@ -9,232 +9,80 @@
  */
 {
   "sections": {
-    "home_hero_section_rjE9kf": {
-      "type": "home-hero-section",
-      "custom_css": [
-        "@media screen and (max-width: 768px) {.section-image:has(video) {aspect-ratio: 1/1; }}"
-      ],
-      "name": "Hero section with text below",
-      "settings": {
-        "section_bg_color": "#ffffff",
-        "media_type": "video",
-        "video": "shopify://files/videos/new-_0e937126-97bb-4d0a-8de1-350a289ebd08.mp4",
-        "text_align": "center",
-        "text_vertical_align": "center",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "bottom",
-        "text_horizontal_align_mobile": "center",
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "title": "Find Perfect Mother's Day Gifts",
-        "make_h1": true,
-        "subtitle": "",
-        "desktop_font_size": 42,
-        "mobile_font_size": 26,
-        "title_color": "#ffffff",
-        "description": "",
-        "description_color": "#ffffff",
-        "button": "Shop Now",
-        "button_enable": true,
-        "link": "shopify://collections/new-arrivals",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff"
-      }
-    },
     "upgraded_hero_banner_9JtHPR": {
       "type": "upgraded-hero-banner",
       "blocks": {
         "slide_xgJEpe": {
           "type": "slide",
           "settings": {
-            "heading_tag": "h2",
-            "heading_copy": "Your Headline Here",
+            "background_video_desktop": "shopify://files/videos/kyle-16x9_12191794-2a09-444c-81ef-982da9675f97.mp4",
+            "heading_tag": "h1",
+            "heading_copy": "The May Drop Is Here",
             "custom_html": "",
-            "heading_size_mobile": 36,
-            "heading_size_desktop": 72,
+            "heading_size_mobile": 26,
+            "heading_size_desktop": 54,
             "heading_font": "default",
             "subheader_tag": "p",
-            "subheader": "Discover our latest collection.",
+            "subheader": "",
             "subheader_size_mobile": 16,
             "subheader_size_desktop": 20,
             "subheader_font": "default",
             "text_color": "#ffffff",
-            "button_text": "",
-            "button_link": "",
-            "button_size_mobile": 14,
-            "button_size_desktop": 16,
+            "button_text": "SHOP NEW ARRIVALS",
+            "button_link": "shopify://collections/new-arrivals",
+            "button_size_mobile": 12,
+            "button_size_desktop": 13,
             "button_text_color": "#ffffff",
             "button_bg_color": "rgba(0,0,0,0)",
             "button_border_color": "#ffffff",
-            "button_border_width": 1.5,
+            "button_border_width": 1,
+            "button_border_radius": 0,
+            "background_color": "#ffffff",
+            "overlay_opacity": 0,
+            "content_position": "bottom",
+            "content_alignment_desktop": "center",
+            "subcopy_text_align": "center"
+          }
+        },
+        "slide_B6A7aF": {
+          "type": "slide",
+          "settings": {
+            "background_video_desktop": "shopify://files/videos/Doxie-HP.mp4",
+            "heading_tag": "h1",
+            "heading_copy": "Meet Our Newest Bag",
+            "custom_html": "",
+            "heading_size_mobile": 26,
+            "heading_size_desktop": 54,
+            "heading_font": "default",
+            "subheader_tag": "p",
+            "subheader": "",
+            "subheader_size_mobile": 16,
+            "subheader_size_desktop": 20,
+            "subheader_font": "default",
+            "text_color": "#ffffff",
+            "button_text": "SHOP THE DOXIE",
+            "button_link": "shopify://collections/doxie",
+            "button_size_mobile": 12,
+            "button_size_desktop": 13,
+            "button_text_color": "#ffffff",
+            "button_bg_color": "rgba(0,0,0,0)",
+            "button_border_color": "#ffffff",
+            "button_border_width": 1,
             "button_border_radius": 1,
             "background_color": "#ffffff",
             "overlay_opacity": 0,
-            "content_position": "center",
+            "content_position": "bottom",
             "content_alignment_desktop": "center",
             "subcopy_text_align": "center"
           }
         }
       },
       "block_order": [
-        "slide_xgJEpe"
+        "slide_xgJEpe",
+        "slide_B6A7aF"
       ],
-      "disabled": true,
       "name": "Upgraded Hero Banner",
       "settings": {}
-    },
-    "silhouette_carousel_Je7Pit": {
-      "type": "silhouette-carousel",
-      "blocks": {
-        "silhouette_carousel_item_HCWKe9": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_04dad90e-dc14-4fd0-923a-15c759d2b8eb.png",
-            "url": "shopify://products/kyle-shoulder-bag-calla-lily-white-brushed-gold",
-            "title": "Kyle Sml"
-          }
-        },
-        "silhouette_carousel_item_JNthXJ": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_3080765a-bec5-4f0b-99b2-4323d77b3fa0.png",
-            "url": "shopify://products/kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
-            "title": "Kyle Med"
-          }
-        },
-        "silhouette_carousel_item_UzWT3E": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_7a81af81-db33-4d64-92e1-2ca323f04ca9.png",
-            "url": "shopify://products/kyle-lrg-tote-cocoa-raffia-gold",
-            "title": "Kyle Lrg"
-          }
-        },
-        "silhouette_carousel_item_JjMxTK": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_b3b9594f-81be-4434-8812-77ce72392f0c.png",
-            "url": "shopify://products/charles-crossbody-med-crossbody-toasty-sand-brushed-gold",
-            "title": "Charles Crossbody Med"
-          }
-        },
-        "silhouette_carousel_item_kHM7Eb": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_35df2d6c-b4eb-4845-b9d8-d9eaf7c101b2.png",
-            "url": "shopify://products/charles-crossbody-lrg-belt-bag-mahogany-pebble-brushed-gold-red-zip",
-            "title": "Charles Crossbody Lrg"
-          }
-        },
-        "silhouette_carousel_item_XGwX3z": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_dded12e9-4d2e-4cba-8ba2-6cb9aeac5353.png",
-            "url": "shopify://products/bryant-med-satchel-cocoa-raffia-gold",
-            "title": "Bryant Med"
-          }
-        },
-        "silhouette_carousel_item_tyDX6J": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_f1429968-cea2-4884-bb03-9fd7f8c3afc5.png",
-            "url": "shopify://products/olympia-tote-mini-crossbody-flamingo-flora-brushed-gold",
-            "title": "Olympia Tote Mini"
-          }
-        },
-        "silhouette_carousel_item_kKdmTg": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_e803bd47-75c7-4d8a-a621-32a2c04fa0f1.png",
-            "url": "shopify://products/vip-med-crossbody-hazy-blue-gold",
-            "title": "VIP Med"
-          }
-        },
-        "silhouette_carousel_item_9LPhqK": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_c8b36476-9bf7-45d4-8f59-5fd64871dc26.png",
-            "url": "shopify://products/beverly-med-crossbody-catamaran-cream-brushed-gold",
-            "title": "Beverly Med"
-          }
-        },
-        "silhouette_carousel_item_EhVMTq": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_e8f48433-d88a-47cc-8c11-3d45446a1595.png",
-            "url": "shopify://products/meredith-sml-shoulder-bag-nautical-navy-silver",
-            "title": "Meredith Sml"
-          }
-        },
-        "silhouette_carousel_item_riw4DG": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/R-media_92c0baca-918a-4651-8adf-07fed9bc1fb4.png",
-            "url": "shopify://products/daniel-crossbody-clutch-sml-crossbody-cocoa-raffia-gold",
-            "title": "Daniel Crossbody Clutch"
-          }
-        },
-        "silhouette_carousel_item_wNKQXF": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_9975c343-8435-46af-b863-8cc06643b285.png",
-            "url": "shopify://products/tim-med-shoulder-bag-catamaran-cream-brushed-gold",
-            "title": "Tim Med"
-          }
-        },
-        "silhouette_carousel_item_erqGc6": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_6f498baf-d312-4b8f-9dc3-6222cfbf92bf.png",
-            "url": "shopify://products/olympia-tote-tote-bag-blueberry-sorbet-gold",
-            "title": "Olympia Tote"
-          }
-        },
-        "silhouette_carousel_item_T3fgQb": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_3ec88869-c5b0-46ae-9a8c-918992452e68.png",
-            "url": "shopify://products/tom-zip-med-hobo-hazy-blue-gold",
-            "title": "Tom Med"
-          }
-        },
-        "silhouette_carousel_item_gXKrL8": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/BB--Hammitt_Daniel-Med-Mahogany-Pebble_1A.png",
-            "url": "shopify://products/daniel-med-satchel-black-brushed-gold-red-zip",
-            "title": "Daniel Med"
-          }
-        }
-      },
-      "block_order": [
-        "silhouette_carousel_item_HCWKe9",
-        "silhouette_carousel_item_JNthXJ",
-        "silhouette_carousel_item_UzWT3E",
-        "silhouette_carousel_item_JjMxTK",
-        "silhouette_carousel_item_kHM7Eb",
-        "silhouette_carousel_item_XGwX3z",
-        "silhouette_carousel_item_tyDX6J",
-        "silhouette_carousel_item_kKdmTg",
-        "silhouette_carousel_item_9LPhqK",
-        "silhouette_carousel_item_EhVMTq",
-        "silhouette_carousel_item_riw4DG",
-        "silhouette_carousel_item_wNKQXF",
-        "silhouette_carousel_item_erqGc6",
-        "silhouette_carousel_item_T3fgQb",
-        "silhouette_carousel_item_gXKrL8"
-      ],
-      "disabled": true,
-      "name": "Silhouette Carousel",
-      "settings": {
-        "section_anchor_id": "",
-        "bg_color": "#ffffff",
-        "card_bg_color": "#faf7f3",
-        "enable_auto_scroll": true,
-        "auto_scroll_speed": 5000,
-        "image_ratio": "adapt"
-      }
     },
     "slider_collection_L6qdiY": {
       "type": "slider-collection",
@@ -258,6 +106,185 @@
         "padding_bottom": 8,
         "mobile_padding_top": 4,
         "mobile_padding_bottom": 4
+      }
+    },
+    "silhouette_carousel_Je7Pit": {
+      "type": "silhouette-carousel",
+      "blocks": {
+        "silhouette_carousel_item_HCWKe9": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_04dad90e-dc14-4fd0-923a-15c759d2b8eb.png",
+            "url": "shopify://products/kyle-shoulder-bag-calla-lily-white-brushed-gold",
+            "title": "Kyle Sml"
+          }
+        },
+        "silhouette_carousel_item_JNthXJ": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_3080765a-bec5-4f0b-99b2-4323d77b3fa0.png",
+            "url": "shopify://products/kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+            "title": "Kyle Med"
+          }
+        },
+        "silhouette_carousel_item_JjMxTK": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_7a81af81-db33-4d64-92e1-2ca323f04ca9.png",
+            "url": "shopify://products/kyle-lrg-tote-cocoa-raffia-gold",
+            "title": "Kyle Lrg"
+          }
+        },
+        "silhouette_carousel_item_9LPhqK": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_b3b9594f-81be-4434-8812-77ce72392f0c.png",
+            "url": "shopify://products/charles-crossbody-med-crossbody-toasty-sand-brushed-gold",
+            "title": "Charles Med"
+          }
+        },
+        "silhouette_carousel_item_kHM7Eb": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_6a85ffe9-dbbc-472c-9763-37ea24d853c2.png",
+            "url": "shopify://products/vip-med-crossbody-noir-smooth-raffia-gunmetal",
+            "title": "VIP Med"
+          }
+        },
+        "silhouette_carousel_item_kKdmTg": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Bryant-Med-Pickle-Stripe-G-1.png",
+            "url": "shopify://products/bryant-med-satchel-cocoa-raffia-gold",
+            "title": "Bryant Med"
+          }
+        },
+        "silhouette_carousel_item_wNKQXF": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_c8b36476-9bf7-45d4-8f59-5fd64871dc26.png",
+            "url": "shopify://products/beverly-med-crossbody-catamaran-cream-brushed-gold",
+            "title": "Beverly Med"
+          }
+        },
+        "silhouette_carousel_item_EhVMTq": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/BB--Hammitt_Daniel-Med-Mahogany-Pebble_1A.png",
+            "url": "shopify://products/daniel-med-satchel-black-brushed-gold-red-zip",
+            "title": "Daniel Med"
+          }
+        },
+        "silhouette_carousel_item_erqGc6": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_3a635a24-7fd9-41d9-9dc6-081c09d1e0d0.png",
+            "url": "shopify://products/olympia-tote-tote-bag-pink-lemonade-g",
+            "title": "Olympia Tote"
+          }
+        },
+        "silhouette_carousel_item_T3fgQb": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_2246c0eb-088c-4982-b7e0-64317c1e61ac.png",
+            "url": "shopify://products/tom-zip-shoulder-bag-calla-lily-white-brushed-gold",
+            "title": "Tom Lrg"
+          }
+        },
+        "silhouette_carousel_item_FXUQBV": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_8208b42e-58e1-4a58-9dc8-22dfbbf8c976.png",
+            "url": "shopify://products/tom-zip-med-hobo-mahogany-pebble-brushed-gold-red-zip",
+            "title": "Tom Med"
+          }
+        },
+        "silhouette_carousel_item_66xFcX": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_9a2c253d-ad0d-4b9f-8bc7-454997af70c5.png",
+            "url": "shopify://products/daniel-crossbody-clutch-sml-crossbody-cocoa-raffia-gold",
+            "title": "Daniel Crossbody Clutch"
+          }
+        },
+        "silhouette_carousel_item_DW6BqX": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_5931c7bf-5d1e-42bf-acc7-313660660646.png",
+            "url": "shopify://products/vip-mobile-crossbody-tailored-tangerine-silver",
+            "title": "VIP Mobile"
+          }
+        },
+        "silhouette_carousel_item_r6xhHN": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Meredith-Sml-Cabana-Blue-BG-6.png",
+            "url": "shopify://products/meredith-sml-shoulder-bag-clubhouse-stripe-silver",
+            "title": "Meredith Sml"
+          }
+        },
+        "silhouette_carousel_item_xwRNLU": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_9975c343-8435-46af-b863-8cc06643b285.png",
+            "url": "shopify://products/tim-med-shoulder-bag-catamaran-cream-brushed-gold",
+            "title": "Tim Med"
+          }
+        },
+        "silhouette_carousel_item_rKqxxq": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_d07366f2-5d64-495f-b809-62968156fe5b.png",
+            "url": "shopify://products/charlotte-med-shoulder-bag-hazy-blue-gold",
+            "title": "Charlotte Med"
+          }
+        },
+        "silhouette_carousel_item_rr8Wby": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_772e7921-9edd-4c3c-b24d-44a507ad6cb5.png",
+            "url": "shopify://products/andersen-revival-tote-bag-espresso-pebble-silver",
+            "title": "Andersen Revival"
+          }
+        },
+        "silhouette_carousel_item_dkYX6k": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_b9ff662d-906b-4ea5-802a-483186b93976.png",
+            "url": "shopify://products/erica-sml-shoulder-bag-black-brushed-gold",
+            "title": "Erica Sml"
+          }
+        }
+      },
+      "block_order": [
+        "silhouette_carousel_item_HCWKe9",
+        "silhouette_carousel_item_JNthXJ",
+        "silhouette_carousel_item_JjMxTK",
+        "silhouette_carousel_item_9LPhqK",
+        "silhouette_carousel_item_kHM7Eb",
+        "silhouette_carousel_item_kKdmTg",
+        "silhouette_carousel_item_wNKQXF",
+        "silhouette_carousel_item_EhVMTq",
+        "silhouette_carousel_item_erqGc6",
+        "silhouette_carousel_item_T3fgQb",
+        "silhouette_carousel_item_FXUQBV",
+        "silhouette_carousel_item_66xFcX",
+        "silhouette_carousel_item_DW6BqX",
+        "silhouette_carousel_item_r6xhHN",
+        "silhouette_carousel_item_xwRNLU",
+        "silhouette_carousel_item_rKqxxq",
+        "silhouette_carousel_item_rr8Wby",
+        "silhouette_carousel_item_dkYX6k"
+      ],
+      "disabled": true,
+      "name": "Silhouette Carousel",
+      "settings": {
+        "section_anchor_id": "",
+        "bg_color": "#ffffff",
+        "card_bg_color": "rgba(0,0,0,0)",
+        "enable_auto_scroll": true,
+        "auto_scroll_speed": 6000,
+        "image_ratio": "adapt"
       }
     },
     "home_hero_section_GzUagM": {
@@ -291,86 +318,6 @@
         "button_bg_color": "#ffffff"
       }
     },
-    "image_banner_hMApH8": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_tMgi48": {
-          "type": "heading",
-          "settings": {
-            "heading": "Free Gift",
-            "heading_size_mobile": 40,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 60
-          }
-        },
-        "text_9abRa9": {
-          "type": "text",
-          "settings": {
-            "text": "Spend $295+ and receive a complimentary hand fan.",
-            "text_area_html_swap": "",
-            "text_style": "body",
-            "text_size_mobile": 14,
-            "text_size_tablet": 15,
-            "text_size_desktop": 16
-          }
-        },
-        "buttons_cwdUxP": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/bestsellers",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_tMgi48",
-        "text_9abRa9",
-        "buttons_cwdUxP"
-      ],
-      "disabled": true,
-      "name": "GWP",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_25.jpg",
-        "image_2": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_24.jpg",
-        "image_link": "shopify://collections/bestsellers",
-        "image_overlay_opacity": 20,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-left-more",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "slider_collection_UVDJXV": {
       "type": "slider-collection",
       "disabled": true,
@@ -399,6 +346,114 @@
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
+        "image_carousel_item_RyXzpx": {
+          "type": "image-carousel-item",
+          "name": "Blueberry",
+          "settings": {
+            "image": "shopify://shop_images/westend_01.jpg",
+            "eyebrow": "",
+            "title": "West End",
+            "subcopy": "",
+            "button_text": "Shop Now",
+            "collection_url": "west-end",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_fMrt4V": {
+          "type": "image-carousel-item",
+          "name": "Cocoa",
+          "settings": {
+            "image": "shopify://shop_images/cabana_02.jpg",
+            "eyebrow": "",
+            "title": "Cabana Blue",
+            "subcopy": "",
+            "button_text": "Shop Now",
+            "collection_url": "cabana-blue",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_46iAtM": {
+          "type": "image-carousel-item",
+          "name": "Floral",
+          "settings": {
+            "image": "shopify://shop_images/pickle_03.jpg",
+            "eyebrow": "",
+            "title": "Pickle Stripe",
+            "subcopy": "",
+            "button_text": "Shop Now",
+            "collection_url": "pickle-stripe",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_QwxQ3j": {
+          "type": "image-carousel-item",
+          "name": "Calla Lily White",
+          "settings": {
+            "image": "shopify://shop_images/midsummer_05.jpg",
+            "eyebrow": "",
+            "title": "Midsummer Night",
+            "subcopy": "",
+            "button_text": "SHOP Now",
+            "collection_url": "midsummer-night",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_3kt837": {
+          "type": "image-carousel-item",
+          "name": "Pink",
+          "settings": {
+            "image": "shopify://shop_images/huntington_04.jpg",
+            "eyebrow": "",
+            "title": "Huntington Garden",
+            "subcopy": "",
+            "button_text": "SHOP Now",
+            "collection_url": "huntington-garden",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_by7dVy": {
+          "type": "image-carousel-item",
+          "name": "Tangerine",
+          "settings": {
+            "image": "shopify://shop_images/dill_06.jpg",
+            "eyebrow": "",
+            "title": "Dill",
+            "subcopy": "",
+            "button_text": "SHOP Now",
+            "collection_url": "dill",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
         "image_carousel_item_hDqCRg": {
           "type": "image-carousel-item",
           "name": "GWP",
@@ -416,162 +471,16 @@
             "hide_subtitle": false,
             "hide_quick_add": false
           }
-        },
-        "image_carousel_item_RyXzpx": {
-          "type": "image-carousel-item",
-          "name": "Blueberry",
-          "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_38.jpg",
-            "eyebrow": "",
-            "title": "Blueberry Sorbet",
-            "subcopy": "Soft weave with leather accents, in three sizes made to move with you.",
-            "button_text": "SHOP Blueberry Sorbet",
-            "collection_url": "blueberry-sorbet",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
-        "image_carousel_item_fMrt4V": {
-          "type": "image-carousel-item",
-          "name": "Cocoa",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_1060.jpg",
-            "eyebrow": "",
-            "title": "Cocoa Raffia",
-            "subcopy": "Crafted with a combination of chaparral raffia, medium tone tan brown pebbled leather and mosaic brown pebbled leather.",
-            "button_text": "SHOP Cocoa Raffia",
-            "collection_url": "cocoa-raffia",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
-        "image_carousel_item_46iAtM": {
-          "type": "image-carousel-item",
-          "name": "Floral",
-          "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_48.jpg",
-            "eyebrow": "",
-            "title": "Flamingo Flora",
-            "subcopy": "This fresh, of-the-moment bag is a must-have companion for nights on the town.",
-            "button_text": "SHOP Flamingo Flora",
-            "collection_url": "flamingo-flora",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
-        "image_carousel_item_3kt837": {
-          "type": "image-carousel-item",
-          "name": "Pink",
-          "settings": {
-            "image": "shopify://shop_images/pink-lemonade-HP.jpg",
-            "eyebrow": "",
-            "title": "Pink Lemonade",
-            "subcopy": "Pink Lemonade is crafted in a vibrant Italian weave with soft leather accents, equal parts polished and playful, and very much at home poolside.",
-            "button_text": "SHOP Pink Lemonade",
-            "collection_url": "pink-lemonade",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
-        "image_carousel_item_QwxQ3j": {
-          "type": "image-carousel-item",
-          "name": "Calla Lily White",
-          "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_42.jpg",
-            "eyebrow": "",
-            "title": "Calla Lily White",
-            "subcopy": "Back by popular demand, featuring the same luminous warm white pebbled leather you love.",
-            "button_text": "SHOP Calla Lily White",
-            "collection_url": "calla-lily-white-1",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
-        "image_carousel_item_by7dVy": {
-          "type": "image-carousel-item",
-          "name": "Tangerine",
-          "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_43.jpg",
-            "eyebrow": "",
-            "title": "Tailored Tangerine",
-            "subcopy": "Crafted with a combination of mid-toned orange and mosaic brown pebbled leathers, and a medium-toned tan brown smooth, semi-veg tanned leather.",
-            "button_text": "SHOP Tangerine",
-            "collection_url": "tailored-tangerine",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
-        "image_carousel_item_i9fMeg": {
-          "type": "image-carousel-item",
-          "name": "Noir",
-          "settings": {
-            "image": "shopify://shop_images/Hammitt_Paul-Mini-Noir-Smooth-Raffia-GM-2.jpg",
-            "eyebrow": "",
-            "title": "Noir Smooth Raffia",
-            "subcopy": "Crafted with a combination of chaparral raffia and classic black semi-veg tanned and pebbled leathers.",
-            "button_text": "SHOP Raffia Season",
-            "collection_url": "raffia",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
-        "image_carousel_item_PPdUzN": {
-          "type": "image-carousel-item",
-          "name": "Calla Raffia",
-          "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_41.jpg",
-            "eyebrow": "",
-            "title": "Calla Lily White Raffia",
-            "subcopy": "Crafted with a combination of Spanish raffia and bright white pebbled leather.",
-            "button_text": "SHOP Calla Lily White Raffia",
-            "collection_url": "calla-lily-white-raffia-1",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
         }
       },
       "block_order": [
-        "image_carousel_item_hDqCRg",
         "image_carousel_item_RyXzpx",
         "image_carousel_item_fMrt4V",
         "image_carousel_item_46iAtM",
-        "image_carousel_item_3kt837",
         "image_carousel_item_QwxQ3j",
+        "image_carousel_item_3kt837",
         "image_carousel_item_by7dVy",
-        "image_carousel_item_i9fMeg",
-        "image_carousel_item_PPdUzN"
+        "image_carousel_item_hDqCRg"
       ],
       "custom_css": [
         ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
@@ -604,7 +513,7 @@
         "button_enable": true,
         "link": "shopify://collections/stormy",
         "button_text_color": "#000000",
-        "button_bg_color": "#faf7f3"
+        "button_bg_color": "#000000"
       }
     },
     "image_banner_md7kAc": {
@@ -613,8 +522,8 @@
         "heading_rgQaaM": {
           "type": "heading",
           "settings": {
-            "heading": "Mother's Day Gift Guide",
-            "heading_size_mobile": 28,
+            "heading": "Gifts for Mom",
+            "heading_size_mobile": 26,
             "heading_size_tablet": 32,
             "heading_size_desktop": 46
           }
@@ -622,18 +531,18 @@
         "text_LLqadp": {
           "type": "text",
           "settings": {
-            "text": "Spend $295+ and receive a complimentary leather wine charms",
+            "text": "Spend $295+ and receive a complimentary set of leather wine charms.",
             "text_area_html_swap": "",
             "text_style": "body",
-            "text_size_mobile": 18,
-            "text_size_tablet": 18,
-            "text_size_desktop": 18
+            "text_size_mobile": 12,
+            "text_size_tablet": 13,
+            "text_size_desktop": 14
           }
         },
         "buttons_NyARTV": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP NOW",
+            "button_label_1": "Shop Mother’s Day Gifts",
             "button_link_1": "shopify://pages/mothers-day-gift-guide",
             "button_style_secondary_1": false
           }
@@ -657,12 +566,12 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/new_--PinkFlamingo_Florals.jpg",
-        "image_2": "shopify://shop_images/Tile_119.jpg",
+        "image": "shopify://shop_images/mother-desktop.jpg",
+        "image_2": "shopify://shop_images/mother-mobile.jpg",
         "image_link": "shopify://pages/mothers-day-gift-guide",
         "image_overlay_opacity": 0,
-        "image_height": "small",
-        "desktop_content_position": "middle-left",
+        "image_height": "adapt",
+        "desktop_content_position": "middle-right",
         "desktop_content_alignment": "center",
         "color_scheme": "dark",
         "mobile_content_alignment": "center",
@@ -700,22 +609,16 @@
         "padding_bottom_mobile": 0,
         "allow_sold_out_cards": false,
         "product_list": [
-          "kyle-shoulder-bag-flamingo-flora-brushed-gold",
-          "kyle-shoulder-bag-tailored-tangerine-silver",
-          "kyle-shoulder-bag-noir-smooth-raffia-gunmetal",
-          "kyle-lrg-tote-cocoa-raffia-gold",
-          "kyle-med-shoulder-bag-hazy-blue-gold",
-          "kyle-shoulder-bag-calla-lily-white-brushed-gold",
-          "kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
-          "kyle-lrg-tote-mahogany-pebble-brushed-gold-red-zip",
-          "kyle-lrg-tote-clubhouse-stripe-silver",
-          "kyle-lrg-tote-regatta-stripe-gold",
-          "kyle-shoulder-bag-clubhouse-stripe-silver",
-          "kyle-shoulder-bag-regatta-stripe-gold"
+          "kyle-shoulder-bag-black-brushed-gold-red-zip",
+          "kyle-med-shoulder-bag-black-brushed-gold-red-zip",
+          "kyle-lrg-black-brushed-gold-red-zip",
+          "kyle-lrg-black-gunmetal",
+          "kyle-med-shoulder-bag-black-gunmetal",
+          "kyle-shoulder-bag-black-gunmetal"
         ],
         "show_secondary_image": true,
         "image_ratio": "portrait",
-        "image": "shopify://shop_images/2-Rectangle-1060.gif",
+        "video": "shopify://files/videos/kyle-merchbox-4x5.mp4",
         "image_alignment_desktop": "image-right",
         "image_alignment_mobile": "image-top",
         "button_link": "shopify://collections/kyle",
@@ -735,7 +638,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_1052_e7fd52bc-dc2a-413d-9274-d0b44ca18c4d.jpg",
+            "image": "shopify://shop_images/shop-new.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -760,7 +663,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Meredith-Sml-Flamingo-Flora-BG-10.jpg",
+            "image": "shopify://shop_images/shop-best_dac2fd92-f7e9-49ca-844f-cdbba18ecceb.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -785,40 +688,15 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Hammitt_Olympia-Tote-Mini-Blueberry-Sorbet-G-2.jpg",
+            "image": "shopify://shop_images/shop-summer-edit.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
             "b_title_font_mobile": 18,
             "text": "",
-            "link_label": "Trending",
+            "link_label": "The May Edit",
             "link_margin_top": 20,
-            "link": "shopify://collections/trending",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 200,
-            "cta_width_desktop": 250,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 0
-          }
-        },
-        "column_ABLfVE": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/amber-travel.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "Travel",
-            "link_margin_top": 20,
-            "link": "shopify://collections/travel",
+            "link": "shopify://pages/current-season",
             "cta_color": "#000000",
             "cta_column_alignment": "center",
             "cta_bg_color": "rgba(0,0,0,0)",
@@ -835,8 +713,7 @@
       "block_order": [
         "column_8MxtDV",
         "column_EDDjd9",
-        "column_CAPFXw",
-        "column_ABLfVE"
+        "column_CAPFXw"
       ],
       "name": "hi traffic LP ",
       "settings": {
@@ -847,10 +724,10 @@
         "paragraph_color": "",
         "larger_text": false,
         "image_width": "full",
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "columns_gap": 1,
         "row_gap": 1,
         "mobile_columns_gap": 1,
@@ -861,7 +738,7 @@
         "button_label": "",
         "button_link": "",
         "color_scheme": "background-1",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": false,
         "enable_peek": false,
         "show_mobile_slider": false,
@@ -930,6 +807,7 @@
         "column_EG7WKg",
         "column_7NQLtz"
       ],
+      "disabled": true,
       "name": "categories",
       "settings": {
         "title": "",
@@ -1022,6 +900,7 @@
         "column_VDHw3g",
         "column_6jmwGC"
       ],
+      "disabled": true,
       "name": "categories",
       "settings": {
         "title": "",
@@ -1054,203 +933,6 @@
         "padding_top_mobile": 2,
         "padding_bottom_mobile": 2,
         "custom_class": "behind-design-section"
-      }
-    },
-    "multicolumn_Knr9Hr": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_VVB8Nn": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_422_cefdb1a1-7e95-4034-a9d1-b29229d63d54.jpg",
-            "title": "",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "<strong>Blue</strong>",
-            "link_margin_top": 20,
-            "link": "shopify://collections/blue",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_3q7KLV": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_421_ce079042-1807-41fc-b555-b301e620597e.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "<strong>Neutral</strong>",
-            "link_margin_top": 20,
-            "link": "shopify://collections/white",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_QXLcBV": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/colo-brow_3f23c524-78a2-4bc8-8c82-d0980c42a84a.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "<strong>Brown</strong>",
-            "link_margin_top": 20,
-            "link": "shopify://collections/brown",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_6mDLqr": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/red-cherrywood_1_2.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "<strong>Red</strong>",
-            "link_margin_top": 20,
-            "link": "shopify://collections/red",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_MraEpw": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/colo-blk_049bda11-fd45-4adb-b3c0-165473e1b7c6.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "<strong>Black</strong>",
-            "link_margin_top": 20,
-            "link": "shopify://collections/black",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_4d3y8r": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/clear-color_1_1_846f0d94-ff59-44ec-b6fb-721e2ffccc02.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "<strong>Fabric</strong>",
-            "link_margin_top": 20,
-            "link": "shopify://collections/unique-fabrics",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "rgba(0,0,0,0)",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_VVB8Nn",
-        "column_3q7KLV",
-        "column_QXLcBV",
-        "column_6mDLqr",
-        "column_MraEpw",
-        "column_4d3y8r"
-      ],
-      "disabled": true,
-      "name": "Shop By color",
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "portrait",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 6,
-        "columns_gap": 1,
-        "row_gap": 1,
-        "mobile_columns_gap": 1,
-        "mobile_row_gap": 1,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "enable_peek": true,
-        "show_mobile_slider": true,
-        "padding_top": 30,
-        "padding_bottom": 30,
-        "padding_top_mobile": 10,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
       }
     },
     "homepage_instagram_RrcAhY": {
@@ -1437,12 +1119,10 @@
     }
   },
   "order": [
-    "home_hero_section_rjE9kf",
     "upgraded_hero_banner_9JtHPR",
-    "silhouette_carousel_Je7Pit",
     "slider_collection_L6qdiY",
+    "silhouette_carousel_Je7Pit",
     "home_hero_section_GzUagM",
-    "image_banner_hMApH8",
     "slider_collection_UVDJXV",
     "home_hero_section_qhL9Xk",
     "image_banner_md7kAc",
@@ -1450,7 +1130,6 @@
     "multicolumn_FmaKEp",
     "multicolumn_96rXyy",
     "multicolumn_jQUrg7",
-    "multicolumn_Knr9Hr",
     "homepage_instagram_RrcAhY",
     "1777417324d647b990",
     "jr_scrolling_text_QzMT7i"

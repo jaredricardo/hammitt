@@ -28,15 +28,16 @@
       "settings": {
         "section_bg_color": "#fffbf8",
         "media_type": "video",
-        "video": "shopify://files/videos/hero-refresh-4-13.mp4",
+        "video": "shopify://files/videos/current-season-video.mp4",
         "text_align": "center",
-        "text_vertical_align": "center",
+        "text_vertical_align": "bottom",
         "text_horizontal_align": "center",
         "text_align_mobile": "center",
         "text_vertical_align_mobile": "center",
         "text_horizontal_align_mobile": "center",
         "show_secondary_image": true,
-        "title": "New for Spring",
+        "image_ratio": "adapt",
+        "title": "The May Drop",
         "make_h1": true,
         "subtitle": "",
         "desktop_font_size": 42,
@@ -51,124 +52,9 @@
         "button_bg_color": "#ffffff"
       }
     },
-    "multicolumn_JGBnJ8": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_tAT9jJ": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/PDP-Alexis-Renn.gif",
-            "title": "<strong>Kyle Statement Fringe</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "PREORDER NOW",
-            "link_margin_top": 20,
-            "link": "shopify://products/kyle-shoulder-bag-statement-fringe-gunmetal",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_TWHfYJ": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Shelley-Clutch_Statement-Fringe_Front-_1.gif",
-            "title": "<strong>Shelley Clutch Statement Fringe</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "PREORDER NOW",
-            "link_margin_top": 20,
-            "link": "shopify://products/shelley-clutch-clutch-statement-fringe-gunmetal",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_tAT9jJ",
-        "column_TWHfYJ"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "Limited Edition",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 2,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "shopify://collections/new-arrivals",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
-    },
     "image_banner_hx9Xkx": {
       "type": "image-banner",
-      "blocks": {
-        "heading_dBG6k3": {
-          "type": "heading",
-          "settings": {
-            "heading": "Flamingo Flora",
-            "heading_size_mobile": 36,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 50
-          }
-        },
-        "buttons_PKJRiE": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Flamingo Flora",
-            "button_link_1": "shopify://collections/flamingo-flora",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_dBG6k3",
-        "buttons_PKJRiE"
-      ],
-      "name": "Limited",
+      "name": "doxie",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -181,9 +67,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12707_1653e34e-9775-4549-949c-910fcb9f8254.jpg",
-        "image_2": "shopify://shop_images/Rectangle_1060_9e32d552-5c99-4aed-9b15-0c01ed2c6ac9.jpg",
-        "image_link": "shopify://collections/flamingo-flora",
+        "image": "shopify://shop_images/doxie-banner-desktop.jpg",
+        "image_2": "shopify://shop_images/doxie-banner-mob.gif",
+        "image_link": "shopify://collections/doxie",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "bottom-center",
@@ -203,32 +89,11 @@
         "content_padding_bottom_mobile": 0,
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
-        "padding_top": 4,
-        "padding_bottom": 12,
-        "padding_top_mobile": 4,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_3Xx8CU": {
-      "type": "slider-collection",
-      "name": "Noir Raffia widget",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "flamingo-flora",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
         "padding_top": 20,
         "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
+        "padding_top_mobile": 4,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
       }
     },
     "image_banner_ymqbFj": {
@@ -237,7 +102,7 @@
         "heading_QCK8Rz": {
           "type": "heading",
           "settings": {
-            "heading": "Raffia Season",
+            "heading": "West End",
             "heading_size_mobile": 36,
             "heading_size_tablet": 40,
             "heading_size_desktop": 50
@@ -246,7 +111,7 @@
         "buttons_MreEgb": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop Raffia",
+            "button_label_1": "Shop Now",
             "button_link_1": "shopify://collections/raffia",
             "button_style_secondary_1": false
           }
@@ -256,7 +121,7 @@
         "heading_QCK8Rz",
         "buttons_MreEgb"
       ],
-      "name": "Noir Raffia",
+      "name": "west end",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -269,9 +134,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12714.jpg",
-        "image_2": "shopify://shop_images/Noir-Smooth-Raffia-PaulMini-KnottedStrap.jpg",
-        "image_link": "shopify://collections/raffia",
+        "image": "shopify://shop_images/WestEnd-desk.jpg",
+        "image_2": "shopify://shop_images/westend_01_00ac9d9f-f0aa-4e31-8072-87feb24c4795.jpg",
+        "image_link": "shopify://collections/west-end",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "bottom-center",
@@ -300,12 +165,12 @@
     },
     "slider_collection_bMjVQg": {
       "type": "slider-collection",
-      "name": "Noir Raffia widget",
+      "name": "west end widget",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "raffia",
+        "collection": "west-end",
         "max_products": 30,
         "show_secondary_image": true,
         "image_ratio": "adapt",
@@ -313,71 +178,18 @@
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
         "padding_top": 20,
         "padding_bottom": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
     },
-    "jr_new_5050_product_list_qD9BMk": {
-      "type": "jr-new-5050-product-list",
-      "name": "JR Product List & Image",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "Tailored Tangerine",
-        "padding_bottom_desktop": 0,
-        "padding_bottom_mobile": 0,
-        "allow_sold_out_cards": false,
-        "product_list": [
-          "charlotte-med-shoulder-bag-tailored-tangerine-silver",
-          "erica-sml-shoulder-bag-tailored-tangerine-silver",
-          "kyle-shoulder-bag-tailored-tangerine-silver",
-          "meredith-sml-shoulder-bag-tailored-tangerine-silver",
-          "tim-med-shoulder-bag-tailored-tangerine-silver",
-          "110-north-wallet-tailored-tangerine-silver",
-          "vip-mobile-crossbody-tailored-tangerine-silver"
-        ],
-        "show_secondary_image": true,
-        "image": "shopify://shop_images/Rectangle_983.jpg",
-        "image_alignment_desktop": "image-left",
-        "image_alignment_mobile": "image-top",
-        "button_link": "shopify://collections/tailored-tangerine",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
     "image_banner_6Yymkw": {
       "type": "image-banner",
-      "blocks": {
-        "heading_DanGtp": {
-          "type": "heading",
-          "settings": {
-            "heading": "Olympia Collection",
-            "heading_size_mobile": 36,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 50
-          }
-        },
-        "buttons_DQDpiQ": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Olympia",
-            "button_link_1": "shopify://collections/olympia-collection",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_DanGtp",
-        "buttons_DQDpiQ"
-      ],
-      "name": "Olympia Collection",
+      "name": "cabana",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -390,9 +202,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12713.jpg",
-        "image_2": "shopify://shop_images/Blueberry-Sortbet-Olympia-Totes.jpg",
-        "image_link": "shopify://collections/olympia-collection",
+        "image": "shopify://shop_images/cabana-desktop_1.jpg",
+        "image_2": "shopify://shop_images/cabana-mob.gif",
+        "image_link": "shopify://collections/cabana-blue",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "bottom-center",
@@ -421,12 +233,12 @@
     },
     "slider_collection_AdR6Ta": {
       "type": "slider-collection",
-      "name": "Erica w",
+      "name": "cabana widget",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "olympia-collection",
+        "collection": "cabana-blue",
         "max_products": 30,
         "show_secondary_image": true,
         "image_ratio": "adapt",
@@ -434,6 +246,9 @@
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
         "padding_top": 20,
         "padding_bottom": 20,
         "mobile_padding_top": 0,
@@ -446,7 +261,7 @@
         "heading_b4WrLj": {
           "type": "heading",
           "settings": {
-            "heading": "Cocoa Raffia",
+            "heading": "Pickle Stripe",
             "heading_size_mobile": 36,
             "heading_size_tablet": 40,
             "heading_size_desktop": 50
@@ -455,8 +270,8 @@
         "buttons_jrMbRD": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop Cocoa Raffia",
-            "button_link_1": "shopify://collections/cocoa-raffia",
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/pickle-stripe",
             "button_style_secondary_1": false
           }
         }
@@ -465,7 +280,7 @@
         "heading_b4WrLj",
         "buttons_jrMbRD"
       ],
-      "name": "erica",
+      "name": "Pickle Stripe",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -478,14 +293,14 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/d-coco-raffia.jpg",
-        "image_2": "shopify://shop_images/strap-banner-new.jpg",
-        "image_link": "shopify://collections/cocoa-raffia",
+        "image": "shopify://shop_images/Group_12872_1.jpg",
+        "image_2": "shopify://shop_images/Group_12873_1.jpg",
+        "image_link": "shopify://collections/pickle-stripe",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
-        "color_scheme": "light",
+        "color_scheme": "dark",
         "mobile_content_alignment": "center",
         "color_scheme_mobile": "dark",
         "show_text_below": true,
@@ -509,12 +324,12 @@
     },
     "slider_collection_tpG8XK": {
       "type": "slider-collection",
-      "name": "Erica w",
+      "name": "Pickle Stripe widget",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "cocoa-raffia",
+        "collection": "pickle-stripe",
         "max_products": 30,
         "show_secondary_image": true,
         "image_ratio": "adapt",
@@ -522,181 +337,13 @@
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
         "padding_top": 20,
         "padding_bottom": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
-      }
-    },
-    "multicolumn_pHaGKK": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_3jXgCB": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/black-travel.jpg",
-            "title": "Black",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/heiress-collection",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_CkgdG6": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/amber-travel.jpg",
-            "title": "Amber",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/heiress-collection",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_fxm7FL": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/jade-travel.jpg",
-            "title": "Jade",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/heiress-collection",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_3jXgCB",
-        "column_CkgdG6",
-        "column_fxm7FL"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "title": "The Heiress Collection",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 3,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "Shop The Heiress Collection",
-        "button_link": "shopify://collections/heiress-collection",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_4wewf9": {
-      "type": "slider-collection",
-      "name": "calla lily raffia w",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "heiress-collection",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "jr_new_5050_product_list_xKknqR": {
-      "type": "jr-new-5050-product-list",
-      "name": "JR Product List & Image",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "Hazy Blue",
-        "padding_bottom_desktop": 0,
-        "padding_bottom_mobile": 0,
-        "allow_sold_out_cards": false,
-        "product_list": [
-          "charlotte-med-shoulder-bag-hazy-blue-gold",
-          "kyle-med-shoulder-bag-hazy-blue-gold",
-          "shelley-clutch-clutch-hazy-blue-gold",
-          "tom-zip-med-hobo-hazy-blue-gold",
-          "vip-med-crossbody-hazy-blue-gold",
-          "bryant-med-satchel-hazy-blue-gold"
-        ],
-        "show_secondary_image": true,
-        "image": "shopify://shop_images/Hazy-block-lp.jpg",
-        "image_alignment_desktop": "image-right",
-        "image_alignment_mobile": "image-top",
-        "button_link": "shopify://collections/hazy-blue",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
       }
     },
     "image_banner_FHHky9": {
@@ -713,31 +360,12 @@
             "text_size_tablet": 14,
             "text_size_desktop": 14
           }
-        },
-        "heading_fABL39": {
-          "type": "heading",
-          "settings": {
-            "heading": "Calla Lily White Raffia",
-            "heading_size_mobile": 26,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 50
-          }
-        },
-        "buttons_KWU66x": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Calla Lily White Raffia",
-            "button_link_1": "shopify://collections/calla-lily-white-raffia-1",
-            "button_style_secondary_1": false
-          }
         }
       },
       "block_order": [
-        "text_CiJeqd",
-        "heading_fABL39",
-        "buttons_KWU66x"
+        "text_CiJeqd"
       ],
-      "name": "calla lily raffia",
+      "name": "midsummer",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -750,9 +378,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/d-calla-raffia.jpg",
-        "image_2": "shopify://shop_images/m-calla-raffia.jpg",
-        "image_link": "shopify://collections/calla-lily-white-raffia-1",
+        "image": "shopify://shop_images/Group_12884_1.jpg",
+        "image_2": "shopify://shop_images/new-midsummer-mob.gif",
+        "image_link": "shopify://collections/midsummer-night",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -781,12 +409,12 @@
     },
     "slider_collection_Wbz9zM": {
       "type": "slider-collection",
-      "name": "calla lily raffia w",
+      "name": "Midsummer widget",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "calla-lily-white-raffia-1",
+        "collection": "midsummer-night",
         "max_products": 30,
         "show_secondary_image": true,
         "image_ratio": "adapt",
@@ -794,69 +422,17 @@
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
         "padding_top": 20,
         "padding_bottom": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
     },
-    "jr_new_5050_product_list_RwyJcY": {
-      "type": "jr-new-5050-product-list",
-      "name": "JR Product List & Image",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "Clubhouse Stripe",
-        "padding_bottom_desktop": 0,
-        "padding_bottom_mobile": 0,
-        "allow_sold_out_cards": false,
-        "product_list": [
-          "meredith-sml-shoulder-bag-clubhouse-stripe-silver",
-          "kyle-shoulder-bag-clubhouse-stripe-silver",
-          "charles-crossbody-lrg-crossbody-clubhouse-stripe-silver",
-          "meredith-med-shoulder-bag-clubhouse-stripe-silver",
-          "kyle-lrg-tote-clubhouse-stripe-silver",
-          "110-north-wallet-clubhouse-stripe-silver"
-        ],
-        "show_secondary_image": true,
-        "image": "shopify://shop_images/clubhouse-block-lp.jpg",
-        "image_alignment_desktop": "image-left",
-        "image_alignment_mobile": "image-top",
-        "button_link": "shopify://collections/clubhouse",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
     "image_banner_njHetj": {
       "type": "image-banner",
-      "blocks": {
-        "heading_JqJ73E": {
-          "type": "heading",
-          "settings": {
-            "heading": "Regatta Stripe",
-            "heading_size_mobile": 36,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 50
-          }
-        },
-        "buttons_A8Nqrg": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Regatta Stripe",
-            "button_link_1": "shopify://collections/regatta",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_JqJ73E",
-        "buttons_A8Nqrg"
-      ],
       "name": "erica",
       "settings": {
         "custom_classes": "",
@@ -870,9 +446,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/d-regatta.jpg",
-        "image_2": "shopify://shop_images/m-regatta.jpg",
-        "image_link": "shopify://collections/regatta",
+        "image": "shopify://shop_images/Group_12881_1.jpg",
+        "image_2": "shopify://shop_images/huntington-mob.gif",
+        "image_link": "shopify://collections/huntington-garden",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "bottom-center",
@@ -901,12 +477,12 @@
     },
     "slider_collection_ULWDbR": {
       "type": "slider-collection",
-      "name": "regatta w",
+      "name": "Huntington Garden widget",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "regatta",
+        "collection": "huntington-garden",
         "max_products": 30,
         "show_secondary_image": true,
         "image_ratio": "adapt",
@@ -914,6 +490,9 @@
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
         "padding_top": 20,
         "padding_bottom": 20,
         "mobile_padding_top": 0,
@@ -926,7 +505,7 @@
         "heading_YanKkg": {
           "type": "heading",
           "settings": {
-            "heading": "Toasty Sand",
+            "heading": "Dill",
             "heading_size_mobile": 36,
             "heading_size_tablet": 40,
             "heading_size_desktop": 50
@@ -935,8 +514,8 @@
         "buttons_NDPEcD": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop Toasty Sand",
-            "button_link_1": "shopify://collections/toasty-sand",
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/dill",
             "button_style_secondary_1": false
           }
         }
@@ -945,7 +524,7 @@
         "heading_YanKkg",
         "buttons_NDPEcD"
       ],
-      "name": "toasty sand",
+      "name": "Dill",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -958,9 +537,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12692.jpg",
-        "image_2": "shopify://shop_images/KYLE_Toasty-Sand_08_CROQUET_4720.jpg",
-        "image_link": "shopify://collections/toasty-sand",
+        "image": "shopify://shop_images/Dill-deskop_1.jpg",
+        "image_2": "shopify://shop_images/Dill-mob.gif",
+        "image_link": "shopify://collections/dill",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -989,12 +568,12 @@
     },
     "slider_collection_HXWA7z": {
       "type": "slider-collection",
-      "name": "Toasty Sand w",
+      "name": "Dill Widget",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "toasty-sand",
+        "collection": "dill",
         "max_products": 30,
         "show_secondary_image": true,
         "image_ratio": "adapt",
@@ -1002,94 +581,9 @@
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "image_banner_QG6rLB": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_9aBGB3": {
-          "type": "heading",
-          "settings": {
-            "heading": "Nautical Navy",
-            "heading_size_mobile": 36,
-            "heading_size_tablet": 40,
-            "heading_size_desktop": 50
-          }
-        },
-        "buttons_FKjGPz": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Nautical Navy",
-            "button_link_1": "shopify://collections/nautical-navy",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_9aBGB3",
-        "buttons_FKjGPz"
-      ],
-      "name": "Nautical Navy",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12699.jpg",
-        "image_2": "shopify://shop_images/210-WEST_BRYANT_Nautical-Navy_12_PSYC_5849.jpg",
-        "image_link": "shopify://collections/nautical-navy",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_exYN8c": {
-      "type": "slider-collection",
-      "name": "Nautical Navy w",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "nautical-navy",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
         "padding_top": 20,
         "padding_bottom": 20,
         "mobile_padding_top": 0,
@@ -1100,27 +594,18 @@
   "order": [
     "main",
     "home_hero_section_hrMDbk",
-    "multicolumn_JGBnJ8",
     "image_banner_hx9Xkx",
-    "slider_collection_3Xx8CU",
     "image_banner_ymqbFj",
     "slider_collection_bMjVQg",
-    "jr_new_5050_product_list_qD9BMk",
     "image_banner_6Yymkw",
     "slider_collection_AdR6Ta",
     "image_banner_hp6T3i",
     "slider_collection_tpG8XK",
-    "multicolumn_pHaGKK",
-    "slider_collection_4wewf9",
-    "jr_new_5050_product_list_xKknqR",
     "image_banner_FHHky9",
     "slider_collection_Wbz9zM",
-    "jr_new_5050_product_list_RwyJcY",
     "image_banner_njHetj",
     "slider_collection_ULWDbR",
     "image_banner_4G4rLA",
-    "slider_collection_HXWA7z",
-    "image_banner_QG6rLB",
-    "slider_collection_exYN8c"
+    "slider_collection_HXWA7z"
   ]
 }

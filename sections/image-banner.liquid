@@ -291,9 +291,9 @@
   {% assign buttons = section.blocks | where: "type","buttons" %}
   {%- for block in buttons -%}
   {%- if block.settings.button_link_1 != blank -%}
-  <a href="{{ block.settings.button_link_1 }}" class="link--fill-parent">
-    <span class="visually-hidden">{{ block.settings.button_label_1 | escape }}</span>
-  </a>
+    <a href="{{ block.settings.button_link_1 }}" class="link--fill-parent">
+      <span class="visually-hidden">{{ block.settings.button_label_1 | escape }}</span>
+    </a>
   {%- endif -%}
   {%- endfor -%}
 </div>
