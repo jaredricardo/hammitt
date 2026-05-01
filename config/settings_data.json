@@ -129,6 +129,16 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_rWU3KJ": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Free Set of 4 Leather Wine Charms with $295+ Orders",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/bestsellers"
+            }
+          },
           "announcement_Tpxzm9": {
             "type": "announcement",
             "settings": {
@@ -178,6 +188,7 @@
           }
         },
         "block_order": [
+          "announcement_rWU3KJ",
           "announcement_Tpxzm9",
           "announcement_eRcyND",
           "announcement_CwR3it",
@@ -220,7 +231,6 @@
           },
           "gwp_tier_DFBBdG": {
             "type": "gwp-tier",
-            "disabled": true,
             "settings": {
               "gwp_product": "sunset-sip-hangtag-multi-none",
               "gwp_tier_is_free_shipping": false,
