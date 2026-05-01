@@ -388,34 +388,16 @@
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
-        "image_carousel_item_hDqCRg": {
-          "type": "image-carousel-item",
-          "name": "GWP",
-          "settings": {
-            "image": "shopify://shop_images/GWP.gif",
-            "eyebrow": "",
-            "title": "Free Gift For Mom",
-            "subcopy": "Sunset Sip leather wine tags (set of 4) with $295+ orders.",
-            "button_text": "SHOP NOW",
-            "collection_url": "bestsellers",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
         "image_carousel_item_RyXzpx": {
           "type": "image-carousel-item",
           "name": "Blueberry",
           "settings": {
-            "image": "shopify://shop_images/Calla-Lily-White-2283_1266x1022_90c84ae4-8e34-43e0-877d-d910905adf21_38.jpg",
+            "image": "shopify://shop_images/westend_01.jpg",
             "eyebrow": "",
-            "title": "Blueberry Sorbet",
-            "subcopy": "Soft weave with leather accents, in three sizes made to move with you.",
-            "button_text": "SHOP Blueberry Sorbet",
-            "collection_url": "blueberry-sorbet",
+            "title": "West End",
+            "subcopy": "",
+            "button_text": "Shop Now",
+            "collection_url": "west-end",
             "enable_image_as_link_out": true,
             "max_products": 10,
             "hide_price": false,
@@ -549,10 +531,27 @@
             "hide_subtitle": false,
             "hide_quick_add": false
           }
+        },
+        "image_carousel_item_hDqCRg": {
+          "type": "image-carousel-item",
+          "name": "GWP",
+          "settings": {
+            "image": "shopify://shop_images/GWP.gif",
+            "eyebrow": "",
+            "title": "Free Gift For Mom",
+            "subcopy": "Sunset Sip leather wine tags (set of 4) with $295+ orders.",
+            "button_text": "SHOP NOW",
+            "collection_url": "bestsellers",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
         }
       },
       "block_order": [
-        "image_carousel_item_hDqCRg",
         "image_carousel_item_RyXzpx",
         "image_carousel_item_fMrt4V",
         "image_carousel_item_46iAtM",
@@ -560,7 +559,8 @@
         "image_carousel_item_QwxQ3j",
         "image_carousel_item_by7dVy",
         "image_carousel_item_i9fMeg",
-        "image_carousel_item_PPdUzN"
+        "image_carousel_item_PPdUzN",
+        "image_carousel_item_hDqCRg"
       ],
       "custom_css": [
         ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
