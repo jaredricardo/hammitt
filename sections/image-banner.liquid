@@ -280,7 +280,7 @@
         {%- when 'buttons' -%}
         <div class="123 banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
           {%- if block.settings.button_label_1 != blank -%}
-          <a{% if block.settings.button_link_1 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_1 | escape }}</a>
+          <a{% if block.settings.button_link_1 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"{% if block.settings.button_text_color_1 != blank %} style="color: {{ block.settings.button_text_color_1 }};"{% endif %}>{{ block.settings.button_label_1 | escape }}</a>
           {%- endif -%}
         </div>
         {%- endcase -%}
@@ -291,9 +291,9 @@
   {% assign buttons = section.blocks | where: "type","buttons" %}
   {%- for block in buttons -%}
   {%- if block.settings.button_link_1 != blank -%}
-  <a href="{{ block.settings.button_link_1 }}" class="link--fill-parent">
-    <span class="visually-hidden">{{ block.settings.button_label_1 | escape }}</span>
-  </a>
+    <a href="{{ block.settings.button_link_1 }}" class="link--fill-parent">
+      <span class="visually-hidden">{{ block.settings.button_label_1 | escape }}</span>
+    </a>
   {%- endif -%}
   {%- endfor -%}
 </div>
@@ -931,6 +931,11 @@
           "id": "button_style_secondary_1",
           "default": false,
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color_1",
+          "label": "Button text color"
         }
       ]
     }
