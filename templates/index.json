@@ -84,6 +84,30 @@
       "name": "Upgraded Hero Banner",
       "settings": {}
     },
+    "slider_collection_L6qdiY": {
+      "type": "slider-collection",
+      "name": "new in widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "portrait",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 10,
+        "padding_bottom": 8,
+        "mobile_padding_top": 4,
+        "mobile_padding_bottom": 4
+      }
+    },
     "silhouette_carousel_Je7Pit": {
       "type": "silhouette-carousel",
       "blocks": {
@@ -296,30 +320,6 @@
         "enable_auto_scroll": true,
         "auto_scroll_speed": 6000,
         "image_ratio": "adapt"
-      }
-    },
-    "slider_collection_L6qdiY": {
-      "type": "slider-collection",
-      "name": "new in widget",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "portrait",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 50,
-        "padding_bottom": 8,
-        "mobile_padding_top": 4,
-        "mobile_padding_bottom": 4
       }
     },
     "home_hero_section_GzUagM": {
@@ -1137,8 +1137,8 @@
   },
   "order": [
     "upgraded_hero_banner_9JtHPR",
-    "silhouette_carousel_Je7Pit",
     "slider_collection_L6qdiY",
+    "silhouette_carousel_Je7Pit",
     "home_hero_section_GzUagM",
     "slider_collection_UVDJXV",
     "home_hero_section_qhL9Xk",
