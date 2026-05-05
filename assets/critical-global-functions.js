@@ -56,10 +56,12 @@ async function buildCompleteTheSetInCart() {
             <path d="M7.37255 7.37255V4H8.60784V7.37255H12V8.60784H8.60784V12H7.37255V8.60784H4V7.37255H7.37255Z" fill="black"/>
           </svg>
         </div>
-        <a href="${product.url}">
-          <div class="upsell__title">${product.title}</div>
-        </a>
-        <div class="upsell__price">${formatPrice(product.price)}</div>
+        <div class="card__heading carlson-semibold">
+          <a href="${product.url}">
+            <div class="upsell__title">${product.title}</div>
+          </a>
+          <div class="upsell__price">${formatPrice(product.price)}</div>
+        </div>
       </upsell-item>
     `
     swiperWrapper.innerHTML += productHtml

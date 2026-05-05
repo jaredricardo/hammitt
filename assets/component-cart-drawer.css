@@ -674,17 +674,26 @@ cart-upsells .upsell__title {
 cart-upsells .tab-item__upsell ul li.tab-item a {
   font-weight: 500;
 }
+cart-upsells .card__heading {
+  justify-content: space-between !important;
+  font-family: Adobe Carlson SemiBold! important;
+  line-height: 1 !important;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 6px !important;
+}
+
 cart-upsells .loading-overlay {right: 0;  margin: auto;}
 cart-upsells .upsell__title,
 .empty-cart-product-upsell-container .upsell__title {font-size: 12px;line-height: 1.2; font-weight: 600;}
 cart-upsells .upsell__price,
-.empty-cart-product-upsell-container .upsell__price {font-family: Sofia Pro;font-weight: 400;font-size: 12px;line-height: 22px;letter-spacing: 1.2;margin-top: 5px; display: block;}
+.empty-cart-product-upsell-container .upsell__price {font-family: Adobe Carlson SemiBold!important;font-weight: 400;font-size: 12px;line-height: 22px;letter-spacing: 1.2;display: block; margin-top: 0px !important;}
 /* cart-upsells .swiper-wrapper {  min-height: 240px;} */
 .drawer__content-items .drawer__content-item:last-child {border-bottom: 0 !important;}
 cart-upsells .upsell__image,
 .empty-cart-product-upsell-container .upsell__image {
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   width: 100%;
   aspect-ratio: 4/5;
   background-color: #f9f8f6;

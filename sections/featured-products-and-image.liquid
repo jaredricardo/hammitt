@@ -10,6 +10,25 @@
         color: {{ section.settings.text_color }};
     }
 
+    {% if section.settings.image_ratio == 'square' %}
+        [data-section-id="{{ section.id }}"] .img-container img {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            object-fit: cover;
+        }
+    {% elsif section.settings.image_ratio == 'portrait' %}
+        [data-section-id="{{ section.id }}"] .img-container img {
+            aspect-ratio: 2 / 3;
+            width: 100%;
+            object-fit: cover;
+        }
+    {% else %}
+        [data-section-id="{{ section.id }}"] .img-container img {
+            width: 100%;
+            height: auto;
+        }
+    {% endif %}
+
 {% endstyle %}
 
 <div data-section-id="{{ section.id }}" {% if section.settings.href %} id="{{ section.settings.href }}" {% endif %}>
@@ -52,7 +71,7 @@
                         {% for product in section.settings.featured_collection.products %}
                             {% if product.available %}
                                 <li>
-                                {% render 'card-product', card_product: product %}
+                                {% render 'card-product', card_product: product, media_aspect_ratio: section.settings.image_ratio %}
                                 </li>
                             {% endif %}
                         {% endfor %}
@@ -61,7 +80,7 @@
                             {% assign product = all_products[product] %}
                             {% if product.available %}
                                 <li>
-                                    {% render 'card-product', card_product: product %}
+                                    {% render 'card-product', card_product: product, media_aspect_ratio: section.settings.image_ratio %}
                                 </li>
                             {% endif %}
                         {% endfor %}
@@ -102,6 +121,17 @@
                 "type": "image_picker",
                 "id": "image",
                 "label": "Featured Image"
+            },
+            {
+                "type": "select",
+                "id": "image_ratio",
+                "label": "Image Ratio",
+                "default": "adapt",
+                "options": [
+                    { "value": "adapt", "label": "Adapt to image" },
+                    { "value": "portrait", "label": "Portrait" },
+                    { "value": "square", "label": "Square" }
+                ]
             },
             {
                 "type": "url",
