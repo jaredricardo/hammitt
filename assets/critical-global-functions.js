@@ -37,6 +37,7 @@ async function buildCompleteTheSetInCart() {
 
   swiperContainer.classList = 'swiper complete-the-set'
   swiperContainer.setAttribute('data-target', 'complete-the-set')
+  swiperContainer.setAttribute('data-json', JSON.stringify(swiperJson))
   swiperWrapper.classList = 'horizontal-scroller__upsell swiper-wrapper'
   swiperScrollbar.classList = 'swiper-scrollbar swiper-scrollbar--complete-the-set'
 
