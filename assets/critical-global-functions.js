@@ -37,12 +37,19 @@ async function buildCompleteTheSetInCart() {
 
   swiperContainer.classList = 'swiper complete-the-set'
   swiperContainer.setAttribute('data-target', 'complete-the-set')
+  swiperContainer.setAttribute('data-json', JSON.stringify(swiperJson))
   swiperWrapper.classList = 'horizontal-scroller__upsell swiper-wrapper'
   swiperScrollbar.classList = 'swiper-scrollbar swiper-scrollbar--complete-the-set'
 
   completeTheSetProducts.forEach((product) => {
 
     if(!product.available || product.id == referenceProductId) return
+
+    const titleParts = product.title.split('|')
+    const primaryTitle = titleParts[0].trim()
+    const subtitleHtml = titleParts.length > 1
+      ? `<div class="card-information"><small class="card__seo-text no-seo-tag" style="margin-top: 0.5rem;">${titleParts[1].trim()}</small></div>`
+      : ''
 
     const productHtml = `
       <upsell-item class="upsell cts relative swiper-slide" data-title="${product.title}">
@@ -56,10 +63,13 @@ async function buildCompleteTheSetInCart() {
             <path d="M7.37255 7.37255V4H8.60784V7.37255H12V8.60784H8.60784V12H7.37255V8.60784H4V7.37255H7.37255Z" fill="black"/>
           </svg>
         </div>
-        <a href="${product.url}">
-          <div class="upsell__title">${product.title}</div>
-        </a>
-        <div class="upsell__price">${formatPrice(product.price)}</div>
+        <h3 class="card__heading carlson-semibold">
+            <a href="${product.url}">
+              <div class="upsell__title">${primaryTitle}</div>
+            </a>
+            <div class="upsell__price">${formatPrice(product.price)}</div>
+        </h3>
+        ${subtitleHtml}
       </upsell-item>
     `
     swiperWrapper.innerHTML += productHtml
