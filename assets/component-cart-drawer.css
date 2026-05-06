@@ -739,6 +739,8 @@ cart-upsells .upsell__image .icon-plus,
   position: absolute;
   right: 5px;
   bottom: 5px;
+  z-index: 3;
+  cursor: pointer;
 }
 
 .dynamic-checkout__content {

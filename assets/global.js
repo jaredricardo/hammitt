@@ -879,15 +879,24 @@ customElements.define('quick-add', QuickAdd);
 class UpsellItem extends HTMLElement {
   constructor() {
     super();
-    this.querySelector('.quick-add-btn').addEventListener('click', this.addItem.bind(this));
+    this.button = this.querySelector('.quick-add-btn');
+    this.button.addEventListener('click', this.addItem.bind(this));
 
+    const plusIcon = this.querySelector('.icon-plus');
+    if (plusIcon) {
+      plusIcon.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        addToCart({ items: [{ id: this.button.getAttribute('data-id'), quantity: 1 }] });
+      });
+    }
   }  
   addItem(event) {
     event.preventDefault();
     const quickAddObj = {
       items: [
         {
-          id: event.target.getAttribute('data-id'),
+          id: event.currentTarget.getAttribute('data-id'),
           quantity: 1
         }
       ]
