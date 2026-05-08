@@ -4,30 +4,12 @@
     assign publish_id_to_use = '4npieotp5bx8x'
     assign downcased_product_type = product.metafields.custom.product_title_type | downcase
 
-    # in the future this should be made dynamic using blocks 
-    if downcased_product_type contains 'kyle'
-        assign publish_id_to_use = '4npieotp5bx8x'
-    elsif downcased_product_type contains 'tim'
-        assign publish_id_to_use = 'sww58zv9ke8rx'
-    elsif downcased_product_type contains 'bryant'
-        assign publish_id_to_use = 'xeu6mwj5i0bei'
-    elsif downcased_product_type contains 'daniel'
-        assign publish_id_to_use = 'z167z46u3guni' 
-    elsif downcased_product_type contains 'charles'
-        assign publish_id_to_use = '1tcv00235xlop'
-    elsif downcased_product_type contains 'tom'
-        assign publish_id_to_use = 'pm5a2uanolh4x'
-    elsif downcased_product_type contains 'evan'
-        assign publish_id_to_use = 'lwrfdehvxk0x5'
-    elsif downcased_product_type contains 'vip'
-        assign publish_id_to_use = '9wlmb1lr5augb'
-    elsif downcased_product_type contains 'tony'
-        assign publish_id_to_use = '02bira1c2rgai'
-    elsif downcased_product_type contains 'meredith'
-        assign publish_id_to_use = 'y0flttquuz1e5'
-    elsif downcased_product_type contains 'erica'
-        assign publish_id_to_use = 'ypfbbox7rasbp'
-    endif
+    for block in section.blocks
+        if block.settings.product_title_type == downcased_product_type
+            assign publish_id_to_use = block.settings.tolstoy_publish_id
+        endif
+    endfor
+
 -%}
 
 <tolstoy-carousel
@@ -41,6 +23,26 @@
 {
     "name": "Tolstoy Manual Section",
     "settings": [],
+    "blocks": [
+        {
+            "type": "tolstoy-id-block",
+            "name": "Tolstoy Publish ID Block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "tolstoy_publish_id",
+                    "label": "Tolstoy Publish ID",
+                    "info": "Add the publish ID that will map to the below product title type metafield. This will be used to determine which Tolstoy video to show for each product. If left blank, it will default to Kyle's publish ID.",
+                },
+                {
+                    "type": "text",
+                    "id": "product_title_type",
+                    "label": "Product Title Type Metafield",
+                    "info": "Add the name of the product title type metafield (lowercase) that will be used to determine which Tolstoy video to show for each product.will default to looking for 'custom.product_title_type'. EX if you need the above carousel publish ID to appear on all Kyles, you would 'kyle' here."
+                }
+            ]
+        }
+    ],
     "presets": [
         {
             "name": "Tolstoy Manual Section"
