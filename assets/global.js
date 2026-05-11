@@ -2008,3 +2008,26 @@ class GiftingTooltipContainer extends HTMLElement {
 }
 
 customElements.define('gifting-tooltip-container', GiftingTooltipContainer)
+
+class HideShowSilhouetteCarouselButton extends HTMLElement {
+    constructor() {
+        super();
+        this.btn = this.querySelector('.silhouette-carousel__hide-btn');
+        this.sectionId = this.dataset.sectionId;
+    }
+
+    connectedCallback() {
+        this.section = document.querySelector(`[data-section-id="${this.sectionId}"]`);
+        this.setAttribute('data-hidden', 'false');
+        this.btn?.addEventListener('click', () => this.toggle());
+        this.querySelector('span')?.addEventListener('click', () => this.toggle());
+    }
+
+    toggle() {
+        const hidden = this.section.classList.toggle('silhouette-carousel--hidden');
+        this.btn.textContent = hidden ? 'View All' : 'Hide';
+        this.setAttribute('data-hidden', hidden ? 'true' : 'false');
+    }
+}
+
+customElements.define('hide-show-silhouette-carousel-button', HideShowSilhouetteCarouselButton);
