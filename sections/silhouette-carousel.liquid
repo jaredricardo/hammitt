@@ -6,6 +6,12 @@
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
   }
 
+  {% if section.settings.top_divider %}
+    [data-section-id="{{ section.id }}"]:not(hide-show-silhouette-carousel-button) {
+      border-top: 1px solid #E8E8E8;
+    }
+  {% endif %}
+
   @media screen and (min-width: 750px) {
     [data-section-id="{{ section.id }}"]:not(hide-show-silhouette-carousel-button) {
       padding-top: {{ section.settings.padding_top_desktop }}px;
@@ -135,6 +141,12 @@
       "id": "card_bg_color",
       "label": "Card Background Color",
       "default": "#FFFFFF"
+    },
+    {
+      "type": "checkbox",
+      "id": "top_divider",
+      "label": "Show top divider",
+      "default": false
     },
     {
       "type": "checkbox",

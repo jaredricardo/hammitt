@@ -308,13 +308,11 @@ minty-fresh-filters li a,
 }
 
 .grid__item:has(.num-slots-1) {
-  width: calc(25% - 9px) !important;
-  max-width: calc(25% - 9px) !important;
+  grid-column: span 1;
 }
 
 .grid__item:has(.num-slots-2) {
-  width: calc(50% - 9px) !important;
-  max-width: calc(50% - 9px) !important;
+  grid-column: span 2;
 }
 
 .merch-box {
@@ -443,12 +441,11 @@ minty-fresh-filters li a,
 
 @media screen and (max-width: 989px) {
   .grid__item:has(.num-slots-1) {
-    width: calc(50% - 3px) !important;
-    max-width: calc(50% - 9px) !important;
+    grid-column: span 2;
   }
   
   .grid__item:has(.num-slots-2) {
-    min-width: 100% !important;
+    grid-column: span 4;
   }
 }
 
@@ -467,6 +464,12 @@ minty-fresh-filters li a,
   .merch-box img,
   .merch-box video {
     aspect-ratio: 8 / 5;
+  }
+  .grid__item:has(.num-slots-1) {
+    grid-column: span 1;
+  }
+  .grid__item:has(.num-slots-2) {
+    grid-column: span 2;
   }
 }
 
@@ -1040,12 +1043,15 @@ a.nav-wishlist-button .heart-count {
   text-align: left !important;
 }
 #product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 8px;
   row-gap: 12px;
 }
 
 #product-grid .grid__item {
-  max-width: calc(25% - 4px);
+  max-width: none;
+  width: 100%;
 }
 
 .product-card {
@@ -1057,8 +1063,11 @@ a.nav-wishlist-button .heart-count {
 }
 
 @media screen and (max-width: 768px) {
+  #product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   #product-grid .grid__item {
-    max-width: 50%;
+    max-width: none;
   }
   .page-width.near-full-width {
     padding: 0 4px;
@@ -1163,7 +1172,7 @@ minty-fresh-filters li a,
 .simple-collection-links li a {
     text-decoration: none;
     color: #626262;
-    padding: 1.5rem 1.5rem 1.5rem 0;
+    padding: 0rem 1.5rem 0rem 0;
 }
 
 minty-fresh-filters li a:hover,
@@ -1838,9 +1847,5 @@ cart-upsells .upsell__image,
   }
   .simple-collection-links {
     padding: 16px 0rem 16px 8px;
-  }
-  minty-fresh-filters li a,
-  .simple-collection-links li a {
-    padding: 1.5rem 0.5rem 1.5rem 0;
   }
 }
