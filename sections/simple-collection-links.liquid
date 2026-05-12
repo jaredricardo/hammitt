@@ -18,18 +18,21 @@
 <section class="simple-collection-links" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
     {% if has_collection_links %}
         <ul>
-            <li>
-                <a href="{{ collection.url }}" class="on-collection">
-                    {{ collection.title }}
-                </a>
-            </li>
+          {% comment %} 
+            {% if request.page_type == "collection" %}
+              <li>
+                  <a href="{{ collection.url }}" class="on-collection">
+                      {{ collection.title }}
+                  </a>
+              </li>
+            {% endif %} 
+            {% endcomment %}
             {% for block in filter_blocks %}
 
                 {% if block.settings.collection.handle == collection.handle %}
                     {% continue %}
                 {% endif %}
 
-                {% assign on_collection = false %}
                 {% assign index_collection_handle = block.settings.collection | handle %}
 
                 <li>
