@@ -147,9 +147,8 @@
         <ul>
             {% for block in filter_blocks %}
                 {% assign on_collection = false %}
-                {% assign index_collection_handle = block.settings.collection | handle %}
 
-                {% if collection.handle == index_collection_handle %}
+                {% if collection.handle == block.settings.collection.handle %}
                     {% assign on_collection = true %}
                 {% endif %}
 
