@@ -46,7 +46,7 @@
 
 {%- capture json -%}
 {
-  "loop": true,
+  "loop": false,
   {% if section.settings.enable_auto_scroll and section.settings.auto_scroll_speed != 0 %}
     "autoplay": { "delay": {{ section.settings.auto_scroll_speed }}, "disableOnInteraction": false },
   {% endif %}
