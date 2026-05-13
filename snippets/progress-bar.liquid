@@ -296,15 +296,15 @@
     {%- endif -%}
     
     {%- comment -%} Handle Next Tier Progress - Always show if next_tier exists {%- endcomment -%}
-    {%- if next_tier_is_member -%}
-      {%- comment -%} Show progress toward $1 member free shipping {%- endcomment -%}
-      <div class="gwp-progress-bar-header gwp-tier-not-reached">
+    {%- if next_tier_is_member and customer -%}
+      {%- comment -%} Show member free shipping success message {%- endcomment -%}
+      <div class="gwp-progress-bar-header gwp-tier-success">
         <span class="h7">
-          You are <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> away from FREE shipping!
+          You get free shipping as a Rivett Club member
         </span>
       </div>
       
-      <div class="progress-bar {% if cart.item_count == 0 %} hidden {% endif %}" style="--scale-x: {{ progress_percentage }}%;">
+      <div class="progress-bar {% if cart.item_count == 0 %} hidden {% endif %}" style="--scale-x: 100%;">
       </div>
     {%- elsif next_tier -%}
       {%- comment -%} Show progress toward next tier {%- endcomment -%}
