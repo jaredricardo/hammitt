@@ -1,0 +1,95 @@
+{% style %}
+
+  [data-section-id="{{ section.id }}"] {
+    background-color: {{ section.settings.bg_color }};
+  }
+
+{% endstyle %}
+
+{% liquid
+    assign has_collection_links = false
+    assign filter_blocks = section.blocks | where: "type", "collection-filter-link"
+
+    if filter_blocks.size > 0
+        assign has_collection_links = true
+    endif
+%}
+
+<section class="simple-collection-links" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
+    {% if has_collection_links %}
+        <ul>
+          {% comment %} 
+            {% if request.page_type == "collection" %}
+              <li>
+                  <a href="{{ collection.url }}" class="on-collection">
+                      {{ collection.title }}
+                  </a>
+              </li>
+            {% endif %} 
+            {% endcomment %}
+            {% for block in filter_blocks %}
+
+                <li>
+                    <a href="{{ block.settings.collection.url }}" {% if block.settings.collection.handle == collection.handle %} class="on-collection"{% endif %}>
+                        {% if block.settings.title != blank %}
+                          {{ block.settings.title | strip }}
+                        {% else %}
+                          {{ block.settings.collection.title | strip }}
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Simple collection links",
+  "enabled_on": {
+    "templates": ["product", "collection", "page", "index", "article", "blog", "404", "cart", "search"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Boilerplate section",
+      "info": "Not for actual use in theme, just for copy-pasting when creating new sections. Delete this json object when creating a new section."
+    },
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section Anchor ID (optional)"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection-filter-link",
+      "name": "Collection Filter Link",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Alternative Collection Title (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Simple collection links"
+    }
+  ]
+}
+{% endschema %}
