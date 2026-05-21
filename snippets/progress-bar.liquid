@@ -314,7 +314,11 @@
             {% if customer %}
                 You get free shipping as a Rivett Club member
               {% else %}
-                Free Shipping if you <a href="/account/register" style="font-size: 11px !important; color: inherit; text-decoration: underline; cursor: pointer; font-weight; 700 !important;">Join Rivett Club</a> or spend <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> more!
+                {% if next_tier.settings.everyone_gets_free_shipping and next_tier.settings.gwp_tier_threshold == 0 %}
+                    Everyone gets free shipping!
+                  {% else %}
+                    Free Shipping if you <a href="/account/register" style="font-size: 11px !important; color: inherit; text-decoration: underline; cursor: pointer; font-weight; 700 !important;">Join Rivett Club</a> or spend <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> more!
+                {% endif %}
             {% endif %}
             {% comment %} You are <strong>{{ amount_remaining_in_cents | money_without_trailing_zeros }}</strong> away from FREE shipping! {% endcomment %}
           {%- else -%}

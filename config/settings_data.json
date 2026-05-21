@@ -132,7 +132,7 @@
           "announcement_Tpxzm9": {
             "type": "announcement",
             "settings": {
-              "text": "Free Shipping: Sign Up Free",
+              "text": "<p>Free Shipping: Sign Up Free</p>",
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "https://www.hammitt.com/pages/loyalty"
@@ -141,7 +141,7 @@
           "announcement_CwR3it": {
             "type": "announcement",
             "settings": {
-              "text": "Shop the Summer Collection",
+              "text": "<p>Shop the Summer Collection</p>",
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "shopify://pages/current-season"
@@ -151,7 +151,7 @@
             "type": "announcement",
             "disabled": true,
             "settings": {
-              "text": "Join the Rivett Club for Free Shipping on $250 orders",
+              "text": "<p>Join the Rivett Club for Free Shipping on $250 orders</p>",
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "https://www.hammitt.com/pages/loyalty"
@@ -161,7 +161,7 @@
             "type": "announcement",
             "disabled": true,
             "settings": {
-              "text": "The Erica has arrived. Shop Now",
+              "text": "<p>The Erica has arrived. Shop Now</p>",
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "shopify://collections/new-arrivals"
@@ -203,7 +203,8 @@
               "gwp_product": "",
               "gwp_tier_is_free_shipping": true,
               "free_shipping_gwp_success_text": "You get FREE shipping",
-              "gwp_tier_threshold": 250,
+              "everyone_gets_free_shipping": true,
+              "gwp_tier_threshold": 0,
               "gwp_tier_not_reached_message": "more to unlock",
               "gwp_tier_reached_message": "You've unlocked",
               "gwp_tier_alternate_reward_title": "FREE Shipping"
@@ -216,6 +217,7 @@
               "gwp_product": "sunset-sip-hangtag-multi-none",
               "gwp_tier_is_free_shipping": false,
               "free_shipping_gwp_success_text": "You get FREE shipping",
+              "everyone_gets_free_shipping": false,
               "gwp_tier_threshold": 295,
               "gwp_tier_not_reached_message": "more to unlock a FREE",
               "gwp_tier_reached_message": "You've unlocked a FREE",

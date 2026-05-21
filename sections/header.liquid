@@ -1218,6 +1218,14 @@
             "default": "You've received FREE shipping!"
           },
           {
+            "type": "checkbox",
+            "id": "everyone_gets_free_shipping",
+            "label": "Everyone Gets Free Shipping",
+            "info": "Check this box to always show 'Everyone gets free shipping!' text regardless of cart total. Only applies when this tier is a free shipping tier with a $0 threshold.",
+            "visible_if": "{{ block.settings.gwp_tier_is_free_shipping }}",
+            "default": false
+          },
+          {
             "type": "number",
             "id": "gwp_tier_threshold",
             "label": "GWP Tier Threshold Amount ($)"

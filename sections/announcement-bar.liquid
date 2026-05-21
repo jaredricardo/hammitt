@@ -23,8 +23,10 @@
     z-index: 3;
   }
   {% for block in section.blocks %}
-    .announcement-bar.block--{{ block.id }} p {
+    .announcement-bar.block--{{ block.id }} p,
+    .announcement-bar.block--{{ block.id }} a {
       color: {{ block.settings.text_color }} !important;
+      margin: 0 !important;
     }
 
     .announcement-bar.block--{{ block.id }} {
@@ -394,9 +396,9 @@
           {%- if block.settings.link != blank -%}
           <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
             {%- endif -%}
-            <p class="announcement-bar__message">
-              {{ block.settings.text | escape }}
-            </p>
+            <div class="announcement-bar__message">
+              {{ block.settings.text }}
+            </div>
             {%- if block.settings.link != blank -%}
           </a>
           {%- endif -%}
@@ -537,10 +539,10 @@
       "name": "t:sections.announcement-bar.blocks.announcement.name",
       "settings": [
         {
-          "type": "text",
+          "type": "richtext",
           "id": "text",
-          "default": "Welcome to our store",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+          "default": "<p>Welcome to our store</p>",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label>"
         },
         {
           "type": "color",
