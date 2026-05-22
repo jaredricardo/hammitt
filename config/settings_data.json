@@ -135,16 +135,7 @@
               "text": "<p>Free Shipping On All Order. <a href=\"/collections/bestsellers\" title=\"Bestsellers\">Shop Now</a></p>",
               "text_color": "#ffffff",
               "background_color": "#000000",
-              "link": "shopify://collections/bestsellers"
-            }
-          },
-          "announcement_hna7BW": {
-            "type": "announcement",
-            "settings": {
-              "text": "<p>Welcome to our store</p>",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": ""
+              "link": "https://www.hammitt.com/pages/loyalty"
             }
           },
           "announcement_CwR3it": {
@@ -179,7 +170,6 @@
         },
         "block_order": [
           "announcement_Tpxzm9",
-          "announcement_hna7BW",
           "announcement_CwR3it",
           "announcement_Yd7Xnr",
           "announcement_a4yGWJ"
@@ -213,8 +203,8 @@
               "gwp_product": "",
               "gwp_tier_is_free_shipping": true,
               "free_shipping_gwp_success_text": "You get FREE shipping",
-              "everyone_gets_free_shipping": true,
-              "gwp_tier_threshold": 0,
+              "everyone_gets_free_shipping": false,
+              "gwp_tier_threshold": 250,
               "gwp_tier_not_reached_message": "more to unlock",
               "gwp_tier_reached_message": "You've unlocked",
               "gwp_tier_alternate_reward_title": "FREE Shipping"
