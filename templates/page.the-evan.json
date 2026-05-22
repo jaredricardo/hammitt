@@ -1,9 +1,19 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
       "disabled": true,
       "settings": {
+        "heading_html_tag": "h1",
         "hide_title": true,
         "width": "page-width--narrow",
         "padding_top": 44,
@@ -12,61 +22,71 @@
         "padding_bottom_mobile": 0
       }
     },
-    "5e444b3d-f694-41a2-ac0e-d948e78ad46e": {
-      "type": "image-banner",
+    "hero_video_banner_8Xigzc": {
+      "type": "hero-video-banner",
+      "name": "Hero Video Banner",
       "settings": {
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/EvanDesktopBanners1.jpg",
-        "image_2": "shopify:\/\/shop_images\/EvanMobile_Banners1.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-right",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": false,
+        "video_height": "auto",
+        "video_height_mobile": "450px",
         "full_width": true,
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/doxie-w:o-logo-16x9.mp4",
+        "video_url": "",
+        "description": "",
+        "video_overlay": 0,
+        "video_overlay_color": "#000",
+        "video_overlay_cb": true,
+        "content_position_align": "bottom_left",
+        "content_text_align": "left",
+        "content_text_align_mobile": "center",
+        "content_padding_tb": 20,
+        "content_padding_rl": 20,
+        "heading": "",
+        "video_title_size": 10,
+        "video_title_size_mobile": 10,
+        "video_title_color": "#fff",
+        "video_title_color_mobile": "#000",
+        "video_text": "",
+        "content_size": 10,
+        "content_size_mobile": 10,
+        "content_color": "#fff",
+        "content_color_mobile": "#000",
+        "content_space_top": 0,
+        "content_space_bottom": 0,
+        "content_space_top_mob": 0,
+        "content_space_bottom_mob": 0,
+        "cta_text": "<p>Shop Doxie</p>",
+        "cta_url": "shopify://collections/doxie",
+        "cta_font_size": 10,
+        "cta_font_size_mobile": 10,
+        "cta_text_decoration": "none",
+        "cta_color": "#000",
+        "cta_color_mobile": "#fff",
+        "cta_bg_color": "#fff",
+        "cta_bg_color_mobile": "#000",
+        "cta_width": 100,
+        "cta_width_mobile": 100,
+        "cta_top_bottom": 0,
+        "cta_top_bottom_mobile": 0,
         "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0
+        "padding_bottom": 0
       }
     },
     "c45c48f9-2620-4957-9321-5b990ead48e0": {
       "type": "rich-text",
       "blocks": {
-        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "YOUR NEW COMPACT CROSSBODY",
-            "heading_size": "h1"
-          }
-        },
-        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-2": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP NOW",
-            "button_link": "shopify:\/\/products\/evan-crossbody-crossbody-black-gunmetal",
-            "button_style_secondary": false
-          }
-        },
         "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Meet Evan, a new everyday style with two looks in one.<\/p>"
+            "text": "<p>Our newest silhouette is hardware-forward and unapologetically bold. Meet your new statement essential.</p>"
           }
         }
       },
       "block_order": [
-        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-0",
-        "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-2",
         "template--15878130139320__c45c48f9-2620-4957-9321-5b990ead48e0-1668631140d726dd2a-1"
       ],
       "settings": {
+        "custom_classes": "",
         "color_scheme": "background-1",
         "full_width": true,
         "padding_top": 40,
@@ -74,178 +94,11 @@
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36
       }
-    },
-    "eba782f9-87a7-4b82-8172-52a896f4eae9": {
-      "type": "featured-product",
-      "blocks": {
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-0": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "text_style": "uppercase"
-          }
-        },
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-1": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-2": {
-          "type": "text",
-          "settings": {
-            "text": "Perfect size. Perfect price point.",
-            "text_style": "subtitle"
-          }
-        },
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-3": {
-          "type": "price",
-          "settings": {}
-        },
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-4": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-5": {
-          "type": "quantity_selector",
-          "disabled": true,
-          "settings": {}
-        },
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-6": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true
-          }
-        },
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-7": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-0",
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-1",
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-2",
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-3",
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-4",
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-5",
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-6",
-        "template--15878130139320__eba782f9-87a7-4b82-8172-52a896f4eae9-1668724538a5bf1e82-7"
-      ],
-      "settings": {
-        "product": "evan-crossbody-crossbody-black-gunmetal",
-        "color_scheme": "background-2",
-        "secondary_background": false,
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "e688e378-dde0-4169-b87d-8427d1564171": {
-      "type": "image-with-text",
-      "blocks": {
-        "template--15878130139320__e688e378-dde0-4169-b87d-8427d1564171-166872453825a8b955-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "THE INSPIRATION",
-            "heading_size": "h1"
-          }
-        },
-        "template--15878130139320__e688e378-dde0-4169-b87d-8427d1564171-166872453825a8b955-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>This camera bag shape was named after our resident photographer. Say cheese.<\/p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "template--15878130139320__e688e378-dde0-4169-b87d-8427d1564171-166872453825a8b955-0",
-        "template--15878130139320__e688e378-dde0-4169-b87d-8427d1564171-166872453825a8b955-1"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/EvanMobile_Banners3.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "overlap",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "left",
-        "color_background": "",
-        "show_color_background": false,
-        "color_background_height": 50,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 12,
-        "padding_bottom_mobile": 0
-      }
-    },
-    "2fa5bbd7-0741-45c5-af57-41d6ab39e749": {
-      "type": "image-banner",
-      "blocks": {
-        "template--15960898240696__2fa5bbd7-0741-45c5-af57-41d6ab39e749-1682104151dc289541-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "TWO LOOKS IN ONE"
-          }
-        },
-        "template--15960898240696__2fa5bbd7-0741-45c5-af57-41d6ab39e749-1682104151dc289541-1": {
-          "type": "text",
-          "settings": {
-            "text": "Carry with a top handle or crossbody strap.",
-            "text_style": "body"
-          }
-        },
-        "template--15960898240696__2fa5bbd7-0741-45c5-af57-41d6ab39e749-1682104151dc289541-2": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify:\/\/products\/evan-crossbody-crossbody-black-gunmetal",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "template--15960898240696__2fa5bbd7-0741-45c5-af57-41d6ab39e749-1682104151dc289541-0",
-        "template--15960898240696__2fa5bbd7-0741-45c5-af57-41d6ab39e749-1682104151dc289541-1",
-        "template--15960898240696__2fa5bbd7-0741-45c5-af57-41d6ab39e749-1682104151dc289541-2"
-      ],
-      "settings": {
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify:\/\/shop_images\/EvanDesktopBanners2.jpg",
-        "image_2": "shopify:\/\/shop_images\/EvanMobile_Banners2.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-right",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
     }
   },
   "order": [
     "main",
-    "5e444b3d-f694-41a2-ac0e-d948e78ad46e",
-    "c45c48f9-2620-4957-9321-5b990ead48e0",
-    "eba782f9-87a7-4b82-8172-52a896f4eae9",
-    "e688e378-dde0-4169-b87d-8427d1564171",
-    "2fa5bbd7-0741-45c5-af57-41d6ab39e749"
+    "hero_video_banner_8Xigzc",
+    "c45c48f9-2620-4957-9321-5b990ead48e0"
   ]
 }
