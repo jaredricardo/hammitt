@@ -348,7 +348,6 @@
             <div class="mobile-img-carousel__bullets" aria-hidden="true"></div>
             <div class="mobile-img-carousel__track">
               {%- for media in product.media -%}
-                
                 {%- liquid
                   assign alt_handle = media.alt | handle
                   if media.alt contains 'Details' or alt_handle == 'details'
@@ -364,7 +363,6 @@
               {%- endfor -%}
             </div>
           </div>
-
         </div>
         <media-gallery style="position: relative;" id="MediaGallery-{{ section.id }}" role="region" class="main-product-media-gallery small-hide {% if section.settings.enable_sticky_info %}product__media-gallery{% endif %}" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
 
@@ -545,7 +543,9 @@
       </div>
       <div data-product-id="{{ product.id }}" class="product__info-wrapper pdp-info-col grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
         <div id="ProductInfo-{{ section.id }}" class="small-page-width product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
-            <button id="mobile-pull-notch" aria-label="Pull info up button"></button>
+            <pull-notch-button aria-label="Pull info up button">
+              <span></span>
+            </pull-notch-button>
             <div class="mobile-pdp-info">
               <div class="flexbox mobile-block-wrap">
                 <div class="col left-col">
@@ -1386,6 +1386,7 @@
     const slides = Array.from(carousel.querySelectorAll('.mobile-img-slide'))
     if (!slides.length || !bulletsContainer || !track) return
 
+    bulletsContainer.classList.remove('is-loaded')
     bulletsContainer.innerHTML = ''
     slides.forEach(function(_, i) {
       const btn = document.createElement('button')
@@ -1396,6 +1397,7 @@
       })
       bulletsContainer.appendChild(btn)
     })
+    requestAnimationFrame(function() { bulletsContainer.classList.add('is-loaded') })
 
     const bullets = Array.from(bulletsContainer.querySelectorAll('.mobile-img-carousel__bullet'))
 
@@ -1414,6 +1416,36 @@
     if (track._mobileCarouselScroll) {
       track.removeEventListener('scroll', track._mobileCarouselScroll)
     }
+    if (track._mobileCarouselTouchStart) {
+      track.removeEventListener('touchstart', track._mobileCarouselTouchStart)
+      track.removeEventListener('touchmove', track._mobileCarouselTouchMove)
+      track.removeEventListener('touchend', track._mobileCarouselTouchEnd)
+    }
+
+    let _overscrollStartY = 0
+    let _peakOverscrollDelta = 0
+    track._mobileCarouselTouchStart = function(e) {
+      _overscrollStartY = e.touches[0].clientY
+      _peakOverscrollDelta = 0
+    }
+    track._mobileCarouselTouchMove = function(e) {
+      const atEnd = track.scrollTop + track.clientHeight >= track.scrollHeight - 5
+      if (!atEnd) return
+      const delta = _overscrollStartY - e.touches[0].clientY
+      if (delta > _peakOverscrollDelta) _peakOverscrollDelta = delta
+    }
+    track._mobileCarouselTouchEnd = function() {
+      const triggered = _peakOverscrollDelta > 20
+      _peakOverscrollDelta = 0
+      if (triggered) {
+        const notch = document.querySelector('pull-notch-button')
+        if (notch && notch.scrollToInfo) notch.scrollToInfo()
+      }
+    }
+    track.addEventListener('touchstart', track._mobileCarouselTouchStart, { passive: true })
+    track.addEventListener('touchmove', track._mobileCarouselTouchMove, { passive: true })
+    track.addEventListener('touchend', track._mobileCarouselTouchEnd, { passive: true })
+
     track._mobileCarouselScroll = onScroll
     track.addEventListener('scroll', onScroll, { passive: true })
     onScroll()

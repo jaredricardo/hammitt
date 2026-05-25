@@ -1849,12 +1849,29 @@ cart-upsells .upsell__image,
   }
 }
 
-#mobile-pull-notch {
-  display: none;
+pull-notch-button {
+  padding: 1rem;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+pull-notch-button span {
+  width: 50px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #B1B1B1;
+  display: block;
 }
 
 @media screen and (max-width: 990px) {
-  #mobile-pull-notch {
-    display: block;
+  pull-notch-button {
+    display: flex;
+  }
+  .mobile-pdp-info {
+    margin-bottom: 0 !important;
   }
 }

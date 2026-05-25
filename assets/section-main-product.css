@@ -1685,7 +1685,7 @@ body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg{f
   .pdp-hero-section #product__mobile-images .swiper-pagination{display:flex;justify-content:flex-end;bottom:20px;}
   .pdp-hero-section #product__mobile-images .swiper-pagination .swiper-pagination-bullet{background-color: #b8b8b8;}
   .pdp-hero-section #product__mobile-images .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{background-color:#000;}
-  .pdp-hero-section .pdp-info-col{padding-top:15px;}
+  .pdp-hero-section .pdp-info-col{padding-top:0px;}
   .pdp-hero-section .product__payment-installments{font-size:13px;}
   .pdp-hero-section .complimentary-products__container .card__heading{font-size:14px;}
   .pdp-hero-section .product__media-wrapper *{touch-action: pinch-zoom !important;  touch-action:pan-y pinch-zoom!important}
@@ -1901,11 +1901,16 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
     position: absolute;
     left: 10px;
     bottom: 5%;
-    z-index: 10;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     gap: 6px;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .mobile-img-carousel__bullets.is-loaded {
+    opacity: 1;
   }
   .mobile-img-carousel__bullet {
     pointer-events: auto;
@@ -1928,6 +1933,7 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
   .pdp-hero-section .only-x-left-container {
     justify-content: start;
     font-size: 14px;
+    padding: 6px 0;
   }
   .mobile-pdp-info .top-text-wrapper {
     flex-direction: column;

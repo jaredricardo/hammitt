@@ -2029,3 +2029,86 @@ class HideShowSilhouetteCarouselButton extends HTMLElement {
 }
 
 customElements.define('hide-show-silhouette-carousel-button', HideShowSilhouetteCarouselButton);
+
+class PullNotchButton extends HTMLElement {
+  _getOffset() {
+    const announcementBar = document.getElementById('shopify-section-announcement-bar')
+    const header = document.getElementById('shopify-section-header')
+    return (announcementBar ? announcementBar.offsetHeight : 0) + (header ? header.offsetHeight : 0)
+  }
+
+  _lockScroll() {
+    this._isTransitioning = true
+    this._scrollLockHandler = (e) => e.preventDefault()
+    document.addEventListener('touchmove', this._scrollLockHandler, { passive: false })
+    clearTimeout(this._transitionTimer)
+    this._transitionTimer = setTimeout(() => {
+      this._isTransitioning = false
+      if (this._scrollLockHandler) {
+        document.removeEventListener('touchmove', this._scrollLockHandler)
+        this._scrollLockHandler = null
+      }
+    }, 700)
+  }
+
+  scrollToInfo() {
+    if (this._isTransitioning) return
+    this._inInfoState = true
+    const top = this.getBoundingClientRect().top + window.scrollY - this._getOffset()
+    window.scrollTo({ top, behavior: 'smooth' })
+    this._lockScroll()
+  }
+
+  scrollToCarousel() {
+    if (this._isTransitioning) return
+    this._inInfoState = false
+    const carousel = document.getElementById('product__mobile-images')
+    if (!carousel) return
+    const top = carousel.getBoundingClientRect().top + window.scrollY - this._getOffset()
+    window.scrollTo({ top, behavior: 'smooth' })
+    this._lockScroll()
+  }
+
+  connectedCallback() {
+    this._isTransitioning = false
+    this._inInfoState = false
+    this._scrollLockHandler = null
+
+    this._scrollToInfo = () => this.scrollToInfo()
+    this._touchStartY = 0
+    this._onTouchStart = (e) => {
+      this._touchStartY = e.touches[0].clientY
+    }
+    this._onTouchEnd = (e) => {
+      const deltaY = this._touchStartY - e.changedTouches[0].clientY
+      if (deltaY > 20) this.scrollToInfo()
+      else if (deltaY < -20) this.scrollToCarousel()
+    }
+    this._onPageScroll = () => {
+      if (!this._inInfoState || this._isTransitioning) return
+      const rect = this.getBoundingClientRect()
+      const offset = this._getOffset()
+      if (rect.top > offset + 40) {
+        this.scrollToCarousel()
+      }
+    }
+
+    this.addEventListener('click', this._scrollToInfo)
+    this.addEventListener('touchstart', this._onTouchStart, { passive: true })
+    this.addEventListener('touchend', this._onTouchEnd, { passive: true })
+    window.addEventListener('scroll', this._onPageScroll, { passive: true })
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('click', this._scrollToInfo)
+    this.removeEventListener('touchstart', this._onTouchStart)
+    this.removeEventListener('touchend', this._onTouchEnd)
+    window.removeEventListener('scroll', this._onPageScroll)
+    clearTimeout(this._transitionTimer)
+    if (this._scrollLockHandler) {
+      document.removeEventListener('touchmove', this._scrollLockHandler)
+    }
+  }
+}
+
+customElements.define('pull-notch-button', PullNotchButton);
