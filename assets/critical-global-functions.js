@@ -120,7 +120,7 @@ customElements.define('inspired-app-opener', InspiredAppOpener)
 
 function initImgModelHeight() {
   const desktopImgContainer = document.querySelector('li.grid__item:has(img[alt*="Model height"])')
-  const mobileImgContainer = document.querySelector('#product__mobile-images .swiper-slide:has(img[alt*="Model height"]) .media')
+  const mobileImgContainer = document.querySelector('#product__mobile-images .mobile-img-slide:has(img[alt*="Model height"]) .media')
   let contentDesktop
   let contentMobile
 

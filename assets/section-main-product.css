@@ -1689,12 +1689,19 @@ body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg{f
   .pdp-hero-section .product__payment-installments{font-size:13px;}
   .pdp-hero-section .complimentary-products__container .card__heading{font-size:14px;}
   .pdp-hero-section .product__media-wrapper *{touch-action: pinch-zoom !important;  touch-action:pan-y pinch-zoom!important}
+  .pdp-hero-section .product__media-wrapper,
+  .pdp-hero-section .product__media-wrapper .swiper-slide {
+    aspect-ratio: 4 / 5;
+  }
   .pdp-hero-section .product__media-wrapper ..swiper-horizontal{  }
 
   .variant-radios__wrapper[data-option=Amount] input+label {
     width: 80px;
   }
-  
+  #product__mobile-images button.swym-add-to-wishlist-view-product.hammitt-custom,
+  #product__mobile-images .tag-badge3 {
+    display: none !important;
+  }
 }
 
 
@@ -1857,8 +1864,64 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
   display: none !important;
 }
 
-
+.mobile-img-carousel__track {
+  aspect-ratio: 4 / 5;
+  overflow-y: scroll;
+}
 @media screen and (max-width: 989px) {
+  #product__mobile-images {
+    position: relative;
+    height: calc(100vw * 1.25);
+  }
+  .mobile-img-carousel__track {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .mobile-img-carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-img-slide {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    position: relative;
+    overflow: hidden;
+  }
+  #product__mobile-images .mobile-img-slide .media {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding-top: 0 !important;
+  }
+  .mobile-img-carousel__bullets {
+    position: absolute;
+    left: 10px;
+    bottom: 5%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    pointer-events: none;
+  }
+  .mobile-img-carousel__bullet {
+    pointer-events: auto;
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1px solid #B1B1B1;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .mobile-img-carousel__bullet.is-active {
+    background-color: #B1B1B1;
+  }
   .pdp-hero-section .product__title:has(.only-x-left-container) {
     flex-direction: column;
   }
@@ -1878,6 +1941,19 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
   }  
+  .pdp-hero-section .top-text-wrapper h3 {
+    margin: 0;  
+  }
+  .yotpo-bottom-line-scroll-panel svg:not(:first-of-type) ,
+  .breadcrumb-block {
+    display: none !important;
+  }
+  #fancy-swatches-wrapper {
+    margin: 0;
+  }
+  .pdp-hero-section .pdp-info-col .custom-variant-options {
+    margin-top: 0;
+  }
 }
 
 

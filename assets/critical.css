@@ -1848,3 +1848,13 @@ cart-upsells .upsell__image,
     padding: 16px 0rem 16px 8px;
   }
 }
+
+#mobile-pull-notch {
+  display: none;
+}
+
+@media screen and (max-width: 990px) {
+  #mobile-pull-notch {
+    display: block;
+  }
+}

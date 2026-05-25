@@ -209,12 +209,12 @@
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <style>
    li.grid__item:has(img[alt*="Model height"]),
-   #product__mobile-images .swiper-slide:has(img[alt*="Model height"]) .media {
+   #product__mobile-images .mobile-img-slide:has(img[alt*="Model height"]) .media {
     position: relative;
    }
 
   li.grid__item:has(img[alt*="Model height"])::before,
-  #product__mobile-images .swiper-slide:has(img[alt*="Model height"]) .media::before {
+  #product__mobile-images .mobile-img-slide:has(img[alt*="Model height"]) .media::before {
     content: var(--content);
     font-size: 12px;
     position: absolute;
@@ -238,9 +238,10 @@
 {%- capture swiper_json -%}
 {
   "loop": true,
-  "autoHeight": true,
+  "direction": "vertical",
   "pagination": {
-    "el": ".swiper-pagination"
+    "el": ".swiper-pagination",
+    "clickable": true
   },
   "navigation": {
     "nextEl": ".swiper-button-next",
@@ -342,9 +343,10 @@
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col ">
       <div class="grid__item product__media-wrapper">
         <div class="medium-up-hide">
-          <div id="product__mobile-images" class="swiper" data-json='{{ swiper_json }}'>
+          <div id="product__mobile-images" class="mobile-img-carousel">
             {% render 'swym-hammitt-custom-favorite-button' %}
-            <div class="swiper-wrapper">
+            <div class="mobile-img-carousel__bullets" aria-hidden="true"></div>
+            <div class="mobile-img-carousel__track">
               {%- for media in product.media -%}
                 
                 {%- liquid
@@ -356,17 +358,11 @@
                     continue
                   endif
                 -%}
-                <div class="swiper-slide">
+                <div class="mobile-img-slide">
                 {%- render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: true, index: forloop.index, show_product_badges: section.settings.enabled_product_badges, isMobile: true -%}
                 </div>
               {%- endfor -%}
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination">&nbsp;</div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev">&nbsp;</div>
-            <div class="swiper-button-next">&nbsp;</div>
           </div>
 
         </div>
@@ -549,7 +545,7 @@
       </div>
       <div data-product-id="{{ product.id }}" class="product__info-wrapper pdp-info-col grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
         <div id="ProductInfo-{{ section.id }}" class="small-page-width product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
-
+            <button id="mobile-pull-notch" aria-label="Pull info up button"></button>
             <div class="mobile-pdp-info">
               <div class="flexbox mobile-block-wrap">
                 <div class="col left-col">
@@ -1382,9 +1378,53 @@
 {% endif %}
 
 <script>
+  window.initMobileCarousel = function() {
+    const carousel = document.getElementById('product__mobile-images')
+    if (!carousel) return
+    const track = carousel.querySelector('.mobile-img-carousel__track')
+    const bulletsContainer = carousel.querySelector('.mobile-img-carousel__bullets')
+    const slides = Array.from(carousel.querySelectorAll('.mobile-img-slide'))
+    if (!slides.length || !bulletsContainer || !track) return
+
+    bulletsContainer.innerHTML = ''
+    slides.forEach(function(_, i) {
+      const btn = document.createElement('button')
+      btn.className = 'mobile-img-carousel__bullet' + (i === 0 ? ' is-active' : '')
+      btn.setAttribute('aria-label', 'Go to image ' + (i + 1))
+      btn.addEventListener('click', function() {
+        track.scrollTo({ top: i * slides[0].offsetHeight, behavior: 'smooth' })
+      })
+      bulletsContainer.appendChild(btn)
+    })
+
+    const bullets = Array.from(bulletsContainer.querySelectorAll('.mobile-img-carousel__bullet'))
+
+    function onScroll() {
+      const slideHeight = slides[0].offsetHeight
+      if (!slideHeight) return
+      const activeIndex = Math.min(
+        Math.floor(track.scrollTop / slideHeight + 0.65),
+        slides.length - 1
+      )
+      bullets.forEach(function(b, i) {
+        b.classList.toggle('is-active', i === activeIndex)
+      })
+    }
+
+    if (track._mobileCarouselScroll) {
+      track.removeEventListener('scroll', track._mobileCarouselScroll)
+    }
+    track._mobileCarouselScroll = onScroll
+    track.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+  }
+</script>
+
+<script>
   document.addEventListener("DOMContentLoaded", (event) => {
 
   window.initImgModelHeight()
+  window.initMobileCarousel()
   class ProductModal extends ModalDialog {
     constructor() {
       super();
