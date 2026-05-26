@@ -2088,7 +2088,7 @@ class PullNotchButton extends HTMLElement {
       if (!this._inInfoState || this._isTransitioning) return
       const rect = this.getBoundingClientRect()
       const offset = this._getOffset()
-      if (rect.top > offset + 40) {
+      if (rect.top > offset + 5) {
         this.scrollToCarousel()
       }
     }
@@ -2112,3 +2112,95 @@ class PullNotchButton extends HTMLElement {
 }
 
 customElements.define('pull-notch-button', PullNotchButton);
+
+class PdpSaveForLaterButton extends HTMLElement {
+  _isSavedByProduct() {
+    const productId = String(this.getAttribute('data-product-id'))
+    const savedItems = JSON.parse(localStorage.getItem('saveForLater') || '{}')
+    return Object.values(savedItems).some(item => String(item.product_level_id) === productId)
+  }
+
+  _updateState() {
+    const textEl = this.querySelector('.pdp-sfl-text')
+    if (!textEl) return
+    if (this._isSavedByProduct()) {
+      this.classList.add('saved')
+      textEl.textContent = 'Saved for later'
+    } else {
+      this.classList.remove('saved')
+      textEl.textContent = 'Save for later'
+    }
+  }
+
+  _openCartWithSFL() {
+    const details = document.getElementById('Details-cart-drawer-container')
+    if (details && !details.hasAttribute('open')) {
+      const summary = details.querySelector('summary')
+      if (summary) summary.click()
+    }
+    setTimeout(() => {
+      const sfl = document.querySelector('saved-for-later-container')
+      if (sfl && !sfl.isOpen) {
+        const toggle = sfl.querySelector('.saved-for-later__toggle')
+        if (toggle) toggle.click()
+      }
+    }, 350)
+  }
+
+  connectedCallback() {
+    if (!this.querySelector('.pdp-sfl-text')) {
+      this.innerHTML = '<span class="pdp-sfl-text">Save for later</span><span class="pdp-sfl-spinner" aria-hidden="true"><svg focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle></svg></span>'
+    }
+
+    this._updateState()
+    this._onSFLUpdated = () => this._updateState()
+    document.addEventListener('saveForLater:updated', this._onSFLUpdated)
+
+    this._onClick = () => {
+      if (this.classList.contains('is-saving') || this.classList.contains('saved')) return
+
+      this.classList.add('is-saving')
+
+      setTimeout(() => {
+        const productId = this.getAttribute('data-product-id')
+        const variantId = this.getAttribute('data-variant-id')
+        const variantUrl = this.getAttribute('data-variant-url')
+        const variantImage = this.getAttribute('data-variant-image')
+        const variantTitle = this.getAttribute('data-variant-title')
+        const variantPrice = this.getAttribute('data-variant-price')
+        const variantColor = this.getAttribute('data-variant-color')
+
+        const savedItems = JSON.parse(localStorage.getItem('saveForLater') || '{}')
+        savedItems[variantId] = {
+          product_level_id: productId,
+          variant_add_to_cart_id: variantId,
+          variant_url: variantUrl,
+          variant_image_string: variantImage,
+          variant_formatted_title: variantTitle,
+          variant_string_price: variantPrice,
+          variant_color: variantColor && variantColor !== '' ? variantColor : null
+        }
+        localStorage.setItem('saveForLater', JSON.stringify(savedItems))
+
+        document.dispatchEvent(new CustomEvent('saveForLater:updated', {
+          detail: { action: 'added', variantId, savedItems }
+        }))
+
+        this.classList.remove('is-saving')
+        this.classList.add('saved')
+        const textEl = this.querySelector('.pdp-sfl-text')
+        if (textEl) textEl.textContent = 'Saved for later'
+
+        this._openCartWithSFL()
+      }, 500)
+    }
+    this.addEventListener('click', this._onClick)
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('click', this._onClick)
+    document.removeEventListener('saveForLater:updated', this._onSFLUpdated)
+  }
+}
+
+customElements.define('pdp-save-for-later-button', PdpSaveForLaterButton);

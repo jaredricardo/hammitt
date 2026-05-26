@@ -1857,6 +1857,7 @@ pull-notch-button {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  display: none;
 }
 
 pull-notch-button span {
@@ -1867,11 +1868,68 @@ pull-notch-button span {
   display: block;
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 751px) {
   pull-notch-button {
     display: flex;
   }
   .mobile-pdp-info {
     margin-bottom: 0 !important;
   }
+}
+
+.after-atc-button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.after-atc-button-container > * {
+  flex: 1;
+  min-height: 35px;
+}
+
+.inverted-hammitt-button {
+  text-transform: uppercase;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: nunito, sans-serif;
+  font-weight: 400;
+}
+
+.inverted-hammitt-button:hover {
+  opacity: 0.5;
+}
+
+.pdp-sfl-spinner {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+pdp-save-for-later-button.is-saving .pdp-sfl-text {
+  display: none;
+}
+
+pdp-save-for-later-button.is-saving .pdp-sfl-spinner {
+  display: flex;
+}
+
+pdp-save-for-later-button.is-saving .pdp-sfl-spinner .spinner {
+  width: 18px;
+  height: 18px;
+}
+
+pdp-save-for-later-button.saved {
+  background-color: black;
+  color: white;
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.7;
 }

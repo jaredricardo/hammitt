@@ -677,6 +677,7 @@
             {%- when 'price' -%}
               <div class="no-js-hidden product__price-wrapper desktop-pdp-price variant_price" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large' -%}
+                {%- render 'product-payment-installments' -%}
                 <!-- start_production_section_review_snippet_seciton -->
                 <div id="pwr-snippets">
                   <div id="pr-reviewsnippet"></div>
@@ -1134,7 +1135,6 @@
                 </p>
               {% endif %}
 
-              {%- render 'product-payment-installments' -%}
                 {% unless product.tags contains 'allow-pdp' and product.metafields.custom.hide_product_all_customers %}
                   <div class="buybutton-block" {{ block.shopify_attributes }}>
                     <product-form class="product-form">
@@ -1232,8 +1232,21 @@
                       {%- endform -%}
                     </product-form>
 
-                          
+                    <div class="after-atc-button-container">
+                      <div id="cta_dropahint" class="inverted-hammitt-button">Drop a hint</div>
+                      <pdp-save-for-later-button
+                        class="inverted-hammitt-button"
+                        data-product-id="{{ product.id }}"
+                        data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                        data-variant-url="{{ product.url }}?variant={{ product.selected_or_first_available_variant.id }}"
+                        data-variant-image="{{ product.selected_or_first_available_variant.featured_media.preview_image | image_url: width: 400 }}"
+                        data-variant-title="{{ product.title | escape }}"
+                        data-variant-price="{{ product.selected_or_first_available_variant.price | money }}"
+                        data-variant-color="{{ product_color | escape }}"
+                      >Save for later</pdp-save-for-later-button>
+                    </div>
                     
+                      
                     
                     {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
 
@@ -1256,8 +1269,13 @@
                       </template>
                     </pickup-availability>
                   </div> 
+                  <div class="mobile-only">
+                    {%- render 'product-payment-installments' -%}
+                  </div>
                 {% endunless %}
               
+
+
               <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
             {%- when 'rating' -%}
               
