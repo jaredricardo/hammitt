@@ -71,9 +71,57 @@
         "product_description_YpcghE": {
           "type": "product_description",
           "settings": {
-            "show_gifting_tooltip": true,
+            "show_gifting_tooltip": false,
             "gifting_tooltip_heading": "Complimentary Hammitt gift box for this bag.",
             "gifting_tooltip_content": "<div class=\"gifting-tooltip-images\">\n    <button class=\"close-btn\">\n        {% render 'icon-close' %}\n    </button>\n    <div class=\"col\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0661/5963/files/20250910_Hammit_2007_BOXS_Output_0083_1.png?v=1761619028\" alt=\"Hammitt Gift Box\">\n        <p>Complimentary Gift Box</p>\n    </div>\n    <div class=\"col\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0661/5963/files/gift-box-wrap_1.jpg?v=1773351951\" alt=\"Hammitt Gift Ribbon\">\n <p>Add a $5 Ribbon</p>\n    </div>\n</div>\n\n<div class=\"gifting-tooltip-copy\">\n    <p>Most items come in our signature white box. Every item is protected by a dust bag and tissue paper. You can select the following gift options on your cart.</p>\n    <ul>\n        <li>Dust bag only, no box.</li>\n        <li>Add ribbon for $5. </li>\n        <li>We also offer the option to ship your order items to multiple addresses.</li>   \n    </ul>\n</div>"
+          }
+        },
+        "4feccff6-ce47-4d0d-b144-fdf6fa022a48": {
+          "type": "product_collapsible",
+          "settings": {
+            "accordion_data_attribute": "",
+            "heading": "NOTES & DIMENSIONS",
+            "content": "",
+            "html_content": "",
+            "page": "",
+            "split_content": true,
+            "split_index": 2
+          }
+        },
+        "product_collapsible_wc7rRx": {
+          "type": "product_collapsible",
+          "settings": {
+            "accordion_data_attribute": "",
+            "heading": "SHIPPING & RETURNS",
+            "content": "<p>We cover shipping on orders within the United States. Need it more quickly? No problem, for info on expedited shipping and 30-day returns, visit our <a href=\"https://www.hammitt.com/pages/faq\">FAQ page</a>. </p><p>Please Note: Limited edition items, Collaborative drop, and any mark down are final sale and marked as such.</p>",
+            "html_content": "",
+            "page": "",
+            "split_content": false,
+            "split_index": 0
+          }
+        },
+        "product_collapsible_b6973x": {
+          "type": "product_collapsible",
+          "settings": {
+            "accordion_data_attribute": "care",
+            "heading": "CARE INSTRUCTIONS",
+            "content": "",
+            "html_content": "",
+            "page": "",
+            "split_content": true,
+            "split_index": 3
+          }
+        },
+        "product_collapsible_tTJicV": {
+          "type": "product_collapsible",
+          "settings": {
+            "accordion_data_attribute": "gifting",
+            "heading": "GIFTING",
+            "content": "",
+            "html_content": "<div class=\"gifting-tooltip-content\">\n    <div class=\"gifting-tooltip-copy\">\n        <p>Most items come in our signature white box. Every item is protected by a dust bag and tissue paper. You can select the following gift options on your cart.</p>\n        <ul>\n            <li>Dust bag only, no box.</li>\n            <li>Add ribbon for $5. </li>\n            <li>We also offer the option to ship your order items to multiple addresses.</li>   \n        </ul>\n    </div>\n    <div class=\"gifting-tooltip-images\">\n        <div class=\"col\">\n            <img src=\"https://cdn.shopify.com/s/files/1/0661/5963/files/20250910_Hammit_2007_BOXS_Output_0083_1.png?v=1761619028\" alt=\"Hammitt Gift Box\">\n            <p>Complimentary Gift Box</p>\n        </div>\n        <div class=\"col\">\n            <img src=\"https://cdn.shopify.com/s/files/1/0661/5963/files/gift-box-wrap_1.jpg?v=1773351951\" alt=\"Hammitt Gift Ribbon\">\n        <p>Add a $5 Ribbon</p>\n        </div>\n    </div>\n</div>",
+            "page": "",
+            "split_content": true,
+            "split_index": 3
           }
         },
         "complimentary_WncCqX": {
@@ -87,39 +135,6 @@
             "hide_tag": false,
             "hide_subtitle": false,
             "products_to_show": 4
-          }
-        },
-        "4feccff6-ce47-4d0d-b144-fdf6fa022a48": {
-          "type": "product_collapsible",
-          "settings": {
-            "accordion_data_attribute": "",
-            "heading": "NOTES & DIMENSIONS",
-            "content": "",
-            "page": "",
-            "split_content": true,
-            "split_index": 2
-          }
-        },
-        "product_collapsible_b6973x": {
-          "type": "product_collapsible",
-          "settings": {
-            "accordion_data_attribute": "care",
-            "heading": "CARE INSTRUCTIONS",
-            "content": "",
-            "page": "",
-            "split_content": true,
-            "split_index": 3
-          }
-        },
-        "product_collapsible_wc7rRx": {
-          "type": "product_collapsible",
-          "settings": {
-            "accordion_data_attribute": "",
-            "heading": "SHIPPING & RETURNS",
-            "content": "<p>We cover shipping on orders within the United States. Need it more quickly? No problem, for info on expedited shipping and 30-day returns, visit our <a href=\"https://www.hammitt.com/pages/faq\">FAQ page</a>. </p><p>Please Note: Limited edition items, Collaborative drop, and any mark down are final sale and marked as such.</p>",
-            "page": "",
-            "split_content": false,
-            "split_index": 0
           }
         },
         "collapsible-row-1": {
@@ -169,10 +184,11 @@
         "icons_block_gC6npw",
         "yotpo_loyalty_rewards_product_points_module_app_block_YDkJVX",
         "product_description_YpcghE",
-        "complimentary_WncCqX",
         "4feccff6-ce47-4d0d-b144-fdf6fa022a48",
-        "product_collapsible_b6973x",
         "product_collapsible_wc7rRx",
+        "product_collapsible_b6973x",
+        "product_collapsible_tTJicV",
+        "complimentary_WncCqX",
         "collapsible-row-1",
         "33eef7f8-e913-4138-826c-895eccbce3c5",
         "signal_icon_text_eyKkp6"
@@ -587,6 +603,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "heading": "More in this Collection",
         "heading_size": "h1",
@@ -604,16 +621,15 @@
         "padding_top": 20,
         "padding_bottom": 20,
         "padding_top_mobile": 10,
-        "padding_bottom_mobile": 100
+        "padding_bottom_mobile": 10
       }
     },
-    "slider_collection_8QrB64": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
+    "slider_collection_with_rv_Cxt8fT": {
+      "type": "slider-collection-with-rv",
+      "name": "Slider Collection + Recently Viewed",
       "settings": {
-        "title": "You May Also Like",
-        "heading_align": "center",
-        "heading_color": "",
+        "tab1_title": "You May Also Like",
+        "tab2_title": "Recently Viewed",
         "collection": "trending",
         "max_products": 10,
         "show_secondary_image": true,
@@ -625,21 +641,10 @@
         "slides_per_view_mobile": 2.2,
         "slides_per_view_tablet": 2.2,
         "slides_per_view_desktop": 4,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 10,
-        "mobile_padding_bottom": 10
-      }
-    },
-    "1652732945762f7cb3": {
-      "type": "recently-viewed",
-      "settings": {
-        "title": "Recently Viewed Products",
-        "image_ratio": "portrait",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 10,
-        "mobile_padding_bottom": 10
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
       }
     }
   },
@@ -653,7 +658,6 @@
     "multicolumn_YpDmQ6",
     "image_with_text_q9fxHx",
     "product-recommendations",
-    "slider_collection_8QrB64",
-    "1652732945762f7cb3"
+    "slider_collection_with_rv_Cxt8fT"
   ]
 }

@@ -886,7 +886,7 @@ a.nav-wishlist-button .heart-count {
 }
 
 .section.pdp-hero-section {
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 
 .mobile-only {
@@ -1730,6 +1730,14 @@ gifting-tooltip-container li {
     left: 0;
 }
 
+.accordion__content .gifting-tooltip-content {
+  display: flex;
+  position: relative;
+  box-shadow: none;
+  max-width: none;
+  z-index: 1;
+}
+
 .gifting-tooltip-content .gifting-tooltip-images {
     flex: 1;
     display: flex;
@@ -1932,4 +1940,13 @@ pdp-save-for-later-button.saved {
   pointer-events: none;
   cursor: default;
   opacity: 0.7;
+}
+
+a.affirm-site-modal,
+a.afterpay-site-modal {
+  cursor: pointer !important;
+}
+
+.afpay {
+  display: none !important;
 }

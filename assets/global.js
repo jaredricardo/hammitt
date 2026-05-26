@@ -2191,7 +2191,15 @@ class PdpSaveForLaterButton extends HTMLElement {
         const textEl = this.querySelector('.pdp-sfl-text')
         if (textEl) textEl.textContent = 'Saved for later'
 
-        this._openCartWithSFL()
+        fetch(window.Shopify.routes.root + 'cart?sections=cart-drawer,cart-icon-bubble,main-cart-items,header', {
+          headers: { 'X-Requested-With': 'xmlhttprequest' }
+        })
+          .then(r => r.json())
+          .then(sections => {
+            cartUpdate({ sections })
+            this._openCartWithSFL()
+          })
+          .catch(() => this._openCartWithSFL())
       }, 500)
     }
     this.addEventListener('click', this._onClick)
@@ -2204,3 +2212,11 @@ class PdpSaveForLaterButton extends HTMLElement {
 }
 
 customElements.define('pdp-save-for-later-button', PdpSaveForLaterButton);
+
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.afterpay-site-modal')) {
+    e.preventDefault();
+    const modal = document.querySelector('afterpay-modal');
+    if (modal) modal.setAttribute('visible', 'visible');
+  }
+});

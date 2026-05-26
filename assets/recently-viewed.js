@@ -39,6 +39,7 @@ class RecentlyViewed extends HTMLElement {
   }
 
   recordRecentlyViewed() {
+    const firstAvailableVariant = (window.productJSON.variants || []).find(v => v.available) || (window.productJSON.variants || [])[0];
     const productObj = {
       id: window.productJSON.id,
       title: window.productJSON.title,
@@ -48,7 +49,10 @@ class RecentlyViewed extends HTMLElement {
       product_title_type: window.productJSON.product_title_type,
       product_title_color_descriptor: window.productJSON.product_title_color_descriptor,
       product_size: window.productJSON.product_size,
-      price: window.productJSON.price
+      price: window.productJSON.price,
+      available: window.productJSON.available,
+      variant_id: firstAvailableVariant ? firstAvailableVariant.id : null,
+      has_only_default_variant: window.productJSON.has_only_default_variant
     };
     if(!this.storage) {
       this.storage = [];
