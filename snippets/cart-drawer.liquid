@@ -347,6 +347,7 @@
           <a href="{{ section.settings.empty_cart_button_link_two }}">{{ section.settings.empty_cart_button_text_two }}</a>
         {% endif %}
       </div>
+      {% render 'save-for-later-container' %}
       <div class="empty-cart-product-upsell-container">
         {% if section.settings.empty_cart_upsells_header %}
           <h5>{{ section.settings.empty_cart_upsells_header }}</h5>
@@ -967,21 +968,20 @@
           </hammitt-gifting-options-drawer>
       {% endif %}
       
-      {% comment %} When cart is empty, show save-for-later first, otherwise show Rivett Club first {% endcomment %}
-      {% if cart.item_count == 0 %}
-        {% render 'save-for-later-container' %}
+      {% comment %} When cart has items: Rivett Club first, then save-for-later {% endcomment %}
+      {% if cart.item_count > 0 %}
         {% if settings.enable_cart_rivett_club %}
           {% unless customer %}
             {% render 'cart-rivett-club-component' %}
           {% endunless %}
         {% endif %}
+        {% render 'save-for-later-container' %}
       {% else %}
         {% if settings.enable_cart_rivett_club %}
           {% unless customer %}
             {% render 'cart-rivett-club-component' %}
           {% endunless %}
         {% endif %}
-        {% render 'save-for-later-container' %}
       {% endif %}
       {% if cart.item_count == 0 %}
         <div class="multicolumns">
