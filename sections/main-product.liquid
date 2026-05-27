@@ -134,6 +134,19 @@
     bottom: -25px;
     left: 0;
   }
+  .new_decs_block {
+    max-height: 75px;
+    overflow: hidden;
+  }
+  @media (min-width: 760px) {
+    .new_decs_block {
+      max-height: none;
+      overflow: visible;
+    }
+    .read-more-desc__overlay {
+      display: none;
+    }
+  }
 
 {%- endstyle -%}
 
@@ -860,7 +873,7 @@
                   </inspired-app-opener> {% endcomment %}
                 {%- if product.description != blank -%}
                   <read-more-description>
-                    <div class="product_description new_decs_block" style="max-height:75px;overflow:hidden;">
+                    <div class="product_description new_decs_block">
                     {% assign description =  product.description | split: '<!--split-->' %}
                     {% for description in description limit:2 %}
                         {{ description }}
