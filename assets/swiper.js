@@ -46,9 +46,9 @@ complimentary();
 // ----------product recommendations slider-------------
 
 function productRecommendations() {
-  if (document.querySelector('.product-recommendations_slider .swiper') != null && document.querySelector('.product-recommendations_slider .swiper') != 'undefined') {
+  if (document.querySelector('.product-recommendations_slider .swiper:not(.swiper-initialized)') != null && document.querySelector('.product-recommendations_slider .swiper:not(.swiper-initialized)') != 'undefined') {
       (function() {
-      const swipers = document.querySelectorAll('.product-recommendations_slider .swiper');
+      const swipers = document.querySelectorAll('.product-recommendations_slider .swiper:not(.swiper-initialized)');
       swipers.forEach((swiper,i) => {
         const json = JSON.parse(swiper.getAttribute('data-json'));
         swipers[i] = new Swiper(swiper, json);

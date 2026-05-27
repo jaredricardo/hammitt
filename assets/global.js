@@ -2074,7 +2074,13 @@ class PullNotchButton extends HTMLElement {
     this._inInfoState = false
     this._scrollLockHandler = null
 
-    this._scrollToInfo = () => this.scrollToInfo()
+    // Click toggles between states
+    this._onClick = () => {
+      if (this._inInfoState) this.scrollToCarousel()
+      else this.scrollToInfo()
+    }
+
+    // Touch on notch: directional swipe
     this._touchStartY = 0
     this._onTouchStart = (e) => {
       this._touchStartY = e.touches[0].clientY
@@ -2084,6 +2090,8 @@ class PullNotchButton extends HTMLElement {
       if (deltaY > 20) this.scrollToInfo()
       else if (deltaY < -20) this.scrollToCarousel()
     }
+
+    // Page scroll: when in info state, detect if user scrolled notch back down
     this._onPageScroll = () => {
       if (!this._inInfoState || this._isTransitioning) return
       const rect = this.getBoundingClientRect()
@@ -2093,17 +2101,43 @@ class PullNotchButton extends HTMLElement {
       }
     }
 
-    this.addEventListener('click', this._scrollToInfo)
+    // Document-level touch: detect upward swipe anywhere on the page
+    this._docTouchStartY = 0
+    this._docTouchStartScrollY = 0
+    this._docTouchStartTarget = null
+    this._onDocTouchStart = (e) => {
+      this._docTouchStartY = e.touches[0].clientY
+      this._docTouchStartScrollY = window.scrollY
+      this._docTouchStartTarget = e.target
+    }
+    this._onDocTouchEnd = (e) => {
+      if (this._inInfoState || this._isTransitioning) return
+      // If touch started inside the carousel, let its own overscroll handler manage it
+      const carousel = document.getElementById('product__mobile-images')
+      if (carousel && carousel.contains(this._docTouchStartTarget)) return
+      const deltaFinger = this._docTouchStartY - e.changedTouches[0].clientY
+      const deltaScroll = window.scrollY - this._docTouchStartScrollY
+      // Snap to info if finger swiped up ≥50px, or page scrolled up ≥30px
+      if (deltaFinger > 50 || deltaScroll > 30) {
+        this.scrollToInfo()
+      }
+    }
+
+    this.addEventListener('click', this._onClick)
     this.addEventListener('touchstart', this._onTouchStart, { passive: true })
     this.addEventListener('touchend', this._onTouchEnd, { passive: true })
     window.addEventListener('scroll', this._onPageScroll, { passive: true })
+    document.addEventListener('touchstart', this._onDocTouchStart, { passive: true })
+    document.addEventListener('touchend', this._onDocTouchEnd, { passive: true })
   }
 
   disconnectedCallback() {
-    this.removeEventListener('click', this._scrollToInfo)
+    this.removeEventListener('click', this._onClick)
     this.removeEventListener('touchstart', this._onTouchStart)
     this.removeEventListener('touchend', this._onTouchEnd)
     window.removeEventListener('scroll', this._onPageScroll)
+    document.removeEventListener('touchstart', this._onDocTouchStart)
+    document.removeEventListener('touchend', this._onDocTouchEnd)
     clearTimeout(this._transitionTimer)
     if (this._scrollLockHandler) {
       document.removeEventListener('touchmove', this._scrollLockHandler)
@@ -2212,6 +2246,21 @@ class PdpSaveForLaterButton extends HTMLElement {
 }
 
 customElements.define('pdp-save-for-later-button', PdpSaveForLaterButton);
+
+class ReadMoreDescription extends HTMLElement {
+  connectedCallback() {
+    const btn = this.querySelector('.read-more-desc__btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const desc = this.querySelector('.product_description');
+      const overlay = this.querySelector('.read-more-desc__overlay');
+      if (desc) { desc.style.maxHeight = ''; desc.style.overflow = ''; }
+      if (overlay) overlay.classList.add('expanded');
+    });
+  }
+}
+customElements.define('read-more-description', ReadMoreDescription);
 
 document.addEventListener('click', function(e) {
   if (e.target.closest('.afterpay-site-modal')) {

@@ -99,6 +99,41 @@
     border-bottom-color: black;
   }
 
+  /* Read-more description */
+  read-more-description {
+    display: block;
+    position: relative;
+  }
+  .read-more-desc__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 30%, rgba(255,255,255,1) 100%);
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0 0 1.2rem 0;
+    pointer-events: none;
+  }
+  .read-more-desc__overlay.expanded {
+    display: none;
+  }
+  .read-more-desc__btn {
+    pointer-events: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Nunito Sans", sans-serif;
+    color: inherit;
+    padding: 0;
+    text-decoration: underline;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+  }
 
 {%- endstyle -%}
 
@@ -796,9 +831,12 @@
                       var tryInitSwiper = function() {
                         if (initDone) return;
                         var sw = ymalEl.querySelector('.swiper:not(.swiper-initialized)');
-                        if (sw && sw.getAttribute('data-json')) {
+                        if (sw) {
                           try {
-                            new Swiper(sw, JSON.parse(sw.getAttribute('data-json')));
+                            var config = {{ complimentary_slider }};
+                            var scrollbarEl = ymalEl.querySelector('.swiper-scrollbar');
+                            if (scrollbarEl) { config.scrollbar = { el: scrollbarEl, draggable: true }; }
+                            new Swiper(sw, config);
                             initDone = true;
                             obs.disconnect();
                           } catch(err) {}
@@ -821,12 +859,17 @@
                     </svg>
                   </inspired-app-opener> {% endcomment %}
                 {%- if product.description != blank -%}
-                  <div class="product_description new_decs_block">
-                  {% assign description =  product.description | split: '<!--split-->' %}
-                  {% for description in description limit:2 %}
-                      {{ description }}
-                    {% endfor %}
-                  </div>
+                  <read-more-description>
+                    <div class="product_description new_decs_block" style="max-height:75px;overflow:hidden;">
+                    {% assign description =  product.description | split: '<!--split-->' %}
+                    {% for description in description limit:2 %}
+                        {{ description }}
+                      {% endfor %}
+                    </div>
+                    <div class="read-more-desc__overlay">
+                      <button type="button" class="read-more-desc__btn">Read more</button>
+                    </div>
+                  </read-more-description>
                     {% if block.settings.show_gifting_tooltip %}
                       {% unless product.tags contains 'sample sale' or product.tags contains 'final sale' %}
                         <gifting-tooltip-container>
