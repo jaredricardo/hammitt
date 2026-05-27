@@ -160,7 +160,7 @@ minty-fresh-filters li a,
 .pdp-hero-wrap .product-collapse-container .accordion__content li,
 .pdp-hero-wrap .product-collapse-container .accordion__content p {
   font-family: "Nunito Sans", sans-serif !important;
-  font-size: 15px !important;
+  font-size: 13px !important;
 }
 
 .pdp-hero-wrap .product_description ul {
@@ -1764,6 +1764,11 @@ gifting-tooltip-container li {
     flex: 1;
 }
 
+.gifting-tooltip-images .col img {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
 
 sticky-atc {
   display: none;
@@ -1883,6 +1888,9 @@ pull-notch-button span {
   .mobile-pdp-info {
     margin-bottom: 0 !important;
   }
+  .pdp-recs-tabs-wrapper {
+    margin-top: 12px !important;
+  }
 }
 
 .after-atc-button-container {
@@ -1907,7 +1915,7 @@ pull-notch-button span {
   align-items: center;
   cursor: pointer;
   font-size: 12px;
-  font-family: nunito, sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 400;
 }
 

@@ -1961,7 +1961,7 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
     overflow-x: auto !important;
   }  
   .pdp-hero-section .top-text-wrapper h3 {
-    margin: 0;  
+    margin: 5px 0 0 0;  
   }
   .yotpo-bottom-line-scroll-panel svg:not(:first-of-type) ,
   .breadcrumb-block {
@@ -1971,16 +1971,16 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
     margin: 0;
   }
   .pdp-hero-section .pdp-info-col .custom-variant-options {
-    margin-top: 0;
+    margin-top: 10px;
   }
 }
 
 
-@media screen and (max-width: 501px) {
+@media screen and (max-width: 760px) {
   .special-care-tooltip-content {
     left: -70%;
   }
   .shopify-block:has(.yotpo-widget-instance) {
-    margin: 0 !important;
+    margin-top: 5px !important;
   }
 }
