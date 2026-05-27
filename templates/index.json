@@ -9,90 +9,81 @@
  */
 {
   "sections": {
-    "upgraded_hero_banner_9JtHPR": {
-      "type": "upgraded-hero-banner",
+    "image_banner_Mnjabb": {
+      "type": "image-banner",
       "blocks": {
-        "slide_xgJEpe": {
-          "type": "slide",
+        "heading_r6iGjn": {
+          "type": "heading",
           "settings": {
-            "background_video_desktop": "shopify://files/videos/may-calypso.mp4",
-            "heading_tag": "h1",
-            "heading_copy": "Summer Collection",
-            "custom_html": "",
-            "heading_size_mobile": 24,
-            "heading_size_desktop": 46,
-            "heading_font": "default",
-            "subheader_tag": "p",
-            "subheader": "",
-            "subheader_size_mobile": 16,
-            "subheader_size_desktop": 20,
-            "subheader_font": "default",
-            "text_color": "#ffffff",
-            "button_text": "SHOP NEW ARRIVALS",
-            "button_link": "shopify://collections/new-arrivals",
-            "button_size_mobile": 12,
-            "button_size_desktop": 13,
-            "button_text_color": "#ffffff",
-            "button_bg_color": "rgba(0,0,0,0)",
-            "button_border_color": "#ffffff",
-            "button_border_width": 1,
-            "button_border_radius": 0,
-            "background_color": "#ffffff",
-            "overlay_opacity": 0,
-            "content_position": "bottom",
-            "content_alignment_desktop": "center",
-            "subcopy_text_align": "center"
+            "heading": "Most Popular For a Reason",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 50
           }
         },
-        "slide_B6A7aF": {
-          "type": "slide",
+        "buttons_r3KUCA": {
+          "type": "buttons",
           "settings": {
-            "background_video_desktop": "shopify://files/videos/Doxie-HP.mp4",
-            "heading_tag": "h1",
-            "heading_copy": "Meet Our Newest Bag",
-            "custom_html": "",
-            "heading_size_mobile": 26,
-            "heading_size_desktop": 54,
-            "heading_font": "default",
-            "subheader_tag": "p",
-            "subheader": "",
-            "subheader_size_mobile": 16,
-            "subheader_size_desktop": 20,
-            "subheader_font": "default",
-            "text_color": "#ffffff",
-            "button_text": "SHOP THE DOXIE",
-            "button_link": "shopify://collections/doxie",
-            "button_size_mobile": 12,
-            "button_size_desktop": 13,
-            "button_text_color": "#ffffff",
-            "button_bg_color": "rgba(0,0,0,0)",
-            "button_border_color": "#ffffff",
-            "button_border_width": 1,
-            "button_border_radius": 1,
-            "background_color": "#ffffff",
-            "overlay_opacity": 0,
-            "content_position": "bottom",
-            "content_alignment_desktop": "center",
-            "subcopy_text_align": "center"
+            "button_label_1": "Shop Bestsellers",
+            "button_link_1": "shopify://collections/bestsellers",
+            "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
-        "slide_xgJEpe",
-        "slide_B6A7aF"
+        "heading_r6iGjn",
+        "buttons_r3KUCA"
       ],
-      "disabled": true,
-      "name": "Upgraded Hero Banner",
-      "settings": {}
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/desktop-banner-kyle.jpg",
+        "image_2": "shopify://shop_images/mobile-kyle.gif",
+        "image_link": "shopify://collections/bestsellers",
+        "image_overlay_opacity": 20,
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": false,
+        "full_width": true,
+        "cta_color_scheme": "light",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
     },
     "slider_collection_L6qdiY": {
       "type": "slider-collection",
-      "name": "new in widget",
+      "name": "bestsellers widget",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "new-arrivals",
+        "collection": "bestsellers",
         "max_products": 30,
         "show_secondary_image": true,
         "image_ratio": "portrait",
@@ -333,6 +324,105 @@
         "padding_bottom_mobile": 4
       }
     },
+    "upgraded_hero_banner_9JtHPR": {
+      "type": "upgraded-hero-banner",
+      "blocks": {
+        "slide_xgJEpe": {
+          "type": "slide",
+          "settings": {
+            "background_video_desktop": "shopify://files/videos/may-calypso.mp4",
+            "heading_tag": "h1",
+            "heading_copy": "Summer Collection",
+            "custom_html": "",
+            "heading_size_mobile": 24,
+            "heading_size_desktop": 46,
+            "heading_font": "default",
+            "subheader_tag": "p",
+            "subheader": "",
+            "subheader_size_mobile": 16,
+            "subheader_size_desktop": 20,
+            "subheader_font": "default",
+            "text_color": "#ffffff",
+            "button_text": "SHOP NEW ARRIVALS",
+            "button_link": "shopify://collections/new-arrivals",
+            "button_size_mobile": 12,
+            "button_size_desktop": 13,
+            "button_text_color": "#ffffff",
+            "button_bg_color": "rgba(0,0,0,0)",
+            "button_border_color": "#ffffff",
+            "button_border_width": 1,
+            "button_border_radius": 0,
+            "background_color": "#ffffff",
+            "overlay_opacity": 0,
+            "content_position": "bottom",
+            "content_alignment_desktop": "center",
+            "subcopy_text_align": "center"
+          }
+        },
+        "slide_B6A7aF": {
+          "type": "slide",
+          "settings": {
+            "background_video_desktop": "shopify://files/videos/Doxie-HP.mp4",
+            "heading_tag": "h1",
+            "heading_copy": "Meet Our Newest Bag",
+            "custom_html": "",
+            "heading_size_mobile": 26,
+            "heading_size_desktop": 54,
+            "heading_font": "default",
+            "subheader_tag": "p",
+            "subheader": "",
+            "subheader_size_mobile": 16,
+            "subheader_size_desktop": 20,
+            "subheader_font": "default",
+            "text_color": "#ffffff",
+            "button_text": "SHOP THE DOXIE",
+            "button_link": "shopify://collections/doxie",
+            "button_size_mobile": 12,
+            "button_size_desktop": 13,
+            "button_text_color": "#ffffff",
+            "button_bg_color": "rgba(0,0,0,0)",
+            "button_border_color": "#ffffff",
+            "button_border_width": 1,
+            "button_border_radius": 1,
+            "background_color": "#ffffff",
+            "overlay_opacity": 0,
+            "content_position": "bottom",
+            "content_alignment_desktop": "center",
+            "subcopy_text_align": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_xgJEpe",
+        "slide_B6A7aF"
+      ],
+      "name": "Upgraded Hero Banner",
+      "settings": {}
+    },
+    "slider_collection_Wih4GR": {
+      "type": "slider-collection",
+      "name": "new in widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals-1",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "portrait",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 10,
+        "padding_bottom": 30,
+        "mobile_padding_top": 4,
+        "mobile_padding_bottom": 20
+      }
+    },
     "home_hero_section_GzUagM": {
       "type": "home-hero-section",
       "disabled": true,
@@ -385,6 +475,42 @@
         "slides_per_view_desktop": 4,
         "padding_top": 10,
         "padding_bottom": 10,
+        "mobile_padding_top": 8,
+        "mobile_padding_bottom": 8
+      }
+    },
+    "jr_new_5050_product_list_zy3tkK": {
+      "type": "jr-new-5050-product-list",
+      "custom_css": [
+        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
+      ],
+      "name": "Bestsellers modal ",
+      "settings": {
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
+        "title": "",
+        "padding_bottom_desktop": 0,
+        "padding_bottom_mobile": 0,
+        "allow_sold_out_cards": false,
+        "product_list": [
+          "kyle-shoulder-bag-calla-lily-white-brushed-gold",
+          "kyle-shoulder-bag-huntington-garden-gold",
+          "kyle-shoulder-bag-midsummer-night-brushed-gold",
+          "kyle-med-shoulder-bag-pickle-stripe-gold",
+          "kyle-med-shoulder-bag-calla-lily-white-brushed-gold",
+          "kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip"
+        ],
+        "show_secondary_image": true,
+        "image_ratio": "portrait",
+        "video": "shopify://files/videos/0502.mp4",
+        "image_alignment_desktop": "image-right",
+        "image_alignment_mobile": "image-top",
+        "button_link": "shopify://collections/kyle",
+        "button_text": "Shop Now",
+        "button_text_color": "#000000",
+        "button_background_color": "#ffffff",
+        "padding_top": 30,
+        "padding_bottom": 30,
         "mobile_padding_top": 8,
         "mobile_padding_bottom": 8
       }
@@ -643,66 +769,6 @@
         "custom_class": ""
       }
     },
-    "jr_new_5050_product_list_zy3tkK": {
-      "type": "jr-new-5050-product-list",
-      "custom_css": [
-        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
-      ],
-      "name": "Bestsellers modal ",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "",
-        "padding_bottom_desktop": 0,
-        "padding_bottom_mobile": 0,
-        "allow_sold_out_cards": false,
-        "product_list": [
-          "kyle-shoulder-bag-calla-lily-white-brushed-gold",
-          "kyle-shoulder-bag-huntington-garden-gold",
-          "kyle-shoulder-bag-midsummer-night-brushed-gold",
-          "kyle-med-shoulder-bag-pickle-stripe-gold",
-          "kyle-med-shoulder-bag-calla-lily-white-brushed-gold",
-          "kyle-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip"
-        ],
-        "show_secondary_image": true,
-        "image_ratio": "portrait",
-        "video": "shopify://files/videos/0502.mp4",
-        "image_alignment_desktop": "image-right",
-        "image_alignment_mobile": "image-top",
-        "button_link": "shopify://collections/kyle",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 30,
-        "padding_bottom": 30,
-        "mobile_padding_top": 8,
-        "mobile_padding_bottom": 8
-      }
-    },
-    "slider_collection_hmKyfG": {
-      "type": "slider-collection",
-      "name": "new in widget",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "bestsellers",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "portrait",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 10,
-        "padding_bottom": 30,
-        "mobile_padding_top": 4,
-        "mobile_padding_bottom": 20
-      }
-    },
     "multicolumn_FmaKEp": {
       "type": "multicolumn",
       "blocks": {
@@ -710,7 +776,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/shop-new.jpg",
+            "image": "shopify://shop_images/new-banner.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -735,7 +801,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/shop-best_dac2fd92-f7e9-49ca-844f-cdbba18ecceb.jpg",
+            "image": "shopify://shop_images/best-banner.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -760,7 +826,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/shop-summer-edit.jpg",
+            "image": "shopify://shop_images/new-summer-banner.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -796,7 +862,7 @@
         "paragraph_color": "",
         "larger_text": false,
         "image_width": "full",
-        "image_ratio": "square",
+        "image_ratio": "adapt",
         "image_padding": false,
         "removed_section_padding": true,
         "columns_desktop": 3,
@@ -1188,102 +1254,24 @@
         "speed": 30,
         "align_icons_row": false
       }
-    },
-    "image_banner_Mnjabb": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_r6iGjn": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
-        },
-        "text_jnweDX": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_area_html_swap": "Give customers details about the banner image(s) <u>or content on the template. </u>",
-            "text_style": "body",
-            "text_size_mobile": 18,
-            "text_size_tablet": 18,
-            "text_size_desktop": 18
-          }
-        },
-        "buttons_r3KUCA": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_r6iGjn",
-        "text_jnweDX",
-        "buttons_r3KUCA"
-      ],
-      "disabled": true,
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image_link": "",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "light",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
     }
   },
   "order": [
-    "upgraded_hero_banner_9JtHPR",
+    "image_banner_Mnjabb",
     "slider_collection_L6qdiY",
     "silhouette_carousel_Je7Pit",
+    "upgraded_hero_banner_9JtHPR",
+    "slider_collection_Wih4GR",
     "home_hero_section_GzUagM",
     "slider_collection_UVDJXV",
+    "jr_new_5050_product_list_zy3tkK",
     "home_hero_section_qhL9Xk",
     "image_banner_md7kAc",
-    "jr_new_5050_product_list_zy3tkK",
-    "slider_collection_hmKyfG",
     "multicolumn_FmaKEp",
     "multicolumn_96rXyy",
     "multicolumn_jQUrg7",
     "homepage_instagram_RrcAhY",
     "1777417324d647b990",
-    "jr_scrolling_text_QzMT7i",
-    "image_banner_Mnjabb"
+    "jr_scrolling_text_QzMT7i"
   ]
 }
