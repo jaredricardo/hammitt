@@ -45,6 +45,7 @@ class CombinedRecentlyViewed extends HTMLElement {
     this._populated = false;
     this._swiperInited = false;
     this._populate();
+    this.lazyInit(); // init eagerly; observer flags handle hidden-panel resize
   }
 
   _abbrevSize(size) {
@@ -194,6 +195,9 @@ class CombinedRecentlyViewed extends HTMLElement {
     if (!jsonStr) return;
     try {
       var config = JSON.parse(jsonStr);
+      // observer + observeParents: Swiper auto-recalculates when hidden panel is revealed
+      config.observer = true;
+      config.observeParents = true;
       new Swiper(this, config);
       this._swiperInited = true;
     } catch (e) {

@@ -2252,6 +2252,14 @@ class ReadMoreDescription extends HTMLElement {
     const btn = this.querySelector('.read-more-desc__btn');
     if (!btn) return;
 
+    if (window.matchMedia('(min-width: 760px)').matches) {
+      const desc = this.querySelector('.product_description');
+      const overlay = this.querySelector('.read-more-desc__overlay');
+      if (desc) { desc.style.maxHeight = ''; desc.style.overflow = ''; }
+      if (overlay) overlay.classList.add('expanded');
+      return;
+    }
+
     btn.addEventListener('click', () => {
       const desc = this.querySelector('.product_description');
       const overlay = this.querySelector('.read-more-desc__overlay');
