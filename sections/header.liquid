@@ -985,10 +985,6 @@
           const cartItems = cart.items || []
           const cartProductIds = cartItems.map((item) => item.product_id)
 
-          // Only one bundle GWP reward per cart — if any reward is already present, do nothing
-          const anyRewardInCart = bundles.some((b) => cartProductIds.indexOf(b.rewardProductId) !== -1)
-          if (anyRewardInCart) return
-
           for (let i = 0; i < bundles.length; i++) {
             const bundle = bundles[i]
             const qualifierInCart = cartProductIds.indexOf(bundle.qualifierProductId) !== -1
