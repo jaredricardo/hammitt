@@ -971,65 +971,30 @@
           {% endif %}
         {% endfor %}
 
-        console.log('/////')
-        console.log(bundles)
-
         if (!bundles.length) return
 
-        let isProcessing = false
+        const pendingBundleRewards = new Set()
 
-        async function handleBundleGwpCartUpdate(cart) {
-          console.log('///././././././ handle bundle GWP')
-          if (isProcessing) return
-
-          const cartItems = cart.items || []
-          const cartProductIds = cartItems.map((item) => item.product_id)
-
-          for (let i = 0; i < bundles.length; i++) {
-            const bundle = bundles[i]
-            const qualifierInCart = cartProductIds.indexOf(bundle.qualifierProductId) !== -1
-            const rewardInCart = cartItems.find((item) => item.product_id === bundle.rewardProductId)
-
-            if (qualifierInCart && !rewardInCart) {
-              isProcessing = true
-              try {
-                const addPayload = {
-                  items: [{ id: bundle.rewardVariantId, quantity: 1 }],
-                  sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header',
-                  sections_url: '/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items,header'
-                }
-                const addRes = await fetch(window.Shopify.routes.root + 'cart/add.js', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(addPayload)
-                })
-                if (addRes.ok) {
-                  const data = await addRes.json()
-                  cartUpdate(data)
-                  const updatedCart = await fetch(window.Shopify.routes.root + 'cart.js').then((r) => r.json())
-                  document.dispatchEvent(new CustomEvent('cart:updated', { detail: { cart: updatedCart } }))
-                }
-              } catch (e) {
-                console.error('Bundle GWP: error adding reward', e)
-              } finally {
-                isProcessing = false
-              }
-              break
-            }
-          }
-        }
-
-        document.addEventListener('cart:updated', (event) => {
-          if (event.detail && event.detail.cart) {
-            handleBundleGwpCartUpdate(event.detail.cart)
-          }
-        })
-
-        // Check on page load in case cart already has a qualifying product
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('cart:updated', () => {
           fetch(window.Shopify.routes.root + 'cart.js')
             .then((r) => r.json())
-            .then((cart) => handleBundleGwpCartUpdate(cart))
+            .then((cart) => {
+              const cartItems = cart.items || []
+
+              for (const bundle of bundles) {
+                if (pendingBundleRewards.has(bundle.rewardVariantId)) continue
+
+                const qualifierQty = cartItems.find((i) => i.product_id === bundle.qualifierProductId)?.quantity ?? 0
+                const rewardQty = cartItems.find((i) => i.product_id === bundle.rewardProductId)?.quantity ?? 0
+                const qtyToAdd = qualifierQty - rewardQty
+
+                if (qtyToAdd > 0) {
+                  pendingBundleRewards.add(bundle.rewardVariantId)
+                  addToCart({ items: [{ id: bundle.rewardVariantId, quantity: qtyToAdd }] })
+                  setTimeout(() => pendingBundleRewards.delete(bundle.rewardVariantId), 3000)
+                }
+              }
+            })
         })
       })()
     </script>
