@@ -985,6 +985,10 @@
           const cartItems = cart.items || []
           const cartProductIds = cartItems.map((item) => item.product_id)
 
+          // Only one bundle GWP reward per cart — if any reward is already present, do nothing
+          const anyRewardInCart = bundles.some((b) => cartProductIds.indexOf(b.rewardProductId) !== -1)
+          if (anyRewardInCart) return
+
           for (let i = 0; i < bundles.length; i++) {
             const bundle = bundles[i]
             const qualifierInCart = cartProductIds.indexOf(bundle.qualifierProductId) !== -1
@@ -1011,32 +1015,6 @@
                 }
               } catch (e) {
                 console.error('Bundle GWP: error adding reward', e)
-              } finally {
-                isProcessing = false
-              }
-              break
-            } else if (!qualifierInCart && rewardInCart) {
-              isProcessing = true
-              try {
-                const removePayload = {
-                  id: rewardInCart.key,
-                  quantity: 0,
-                  sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header',
-                  sections_url: '/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items,header'
-                }
-                const removeRes = await fetch(window.Shopify.routes.root + 'cart/change.js', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(removePayload)
-                })
-                if (removeRes.ok) {
-                  const data = await removeRes.json()
-                  cartUpdate(data)
-                  const updatedCart = await fetch(window.Shopify.routes.root + 'cart.js').then((r) => r.json())
-                  document.dispatchEvent(new CustomEvent('cart:updated', { detail: { cart: updatedCart } }))
-                }
-              } catch (e) {
-                console.error('Bundle GWP: error removing reward', e)
               } finally {
                 isProcessing = false
               }
