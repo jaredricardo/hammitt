@@ -948,6 +948,119 @@
     </script>
   {% endif %}
 
+  {% assign bundle_blocks = section.blocks | where: "type", "bundle-gwp" %}
+
+  {% if bundle_blocks.size > 0 %}
+    <script>
+      (function () {
+        const bundles = []
+
+        {%- assign bundles_data = '' -%}
+        {% for block in bundle_blocks %}
+          {%- assign qualifier = block.settings.bundle_gwp_product_qualifier -%}
+          {%- assign reward = block.settings.bundle_gwp_product_reward -%}
+          {% if qualifier != blank and reward != blank %}
+            {%- assign reward_variant = reward.variants | where: "available", true | first -%}
+            {% if reward_variant != blank %}
+              bundles.push({
+                qualifierProductId: {{ qualifier.id }},
+                rewardProductId: {{ reward.id }},
+                rewardVariantId: {{ reward_variant.id }}
+              })
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+
+        console.log('/////')
+        console.log(bundles)
+
+        if (!bundles.length) return
+
+        let isProcessing = false
+
+        async function handleBundleGwpCartUpdate(cart) {
+          console.log('///././././././ handle bundle GWP')
+          if (isProcessing) return
+
+          const cartItems = cart.items || []
+          const cartProductIds = cartItems.map((item) => item.product_id)
+
+          for (let i = 0; i < bundles.length; i++) {
+            const bundle = bundles[i]
+            const qualifierInCart = cartProductIds.indexOf(bundle.qualifierProductId) !== -1
+            const rewardInCart = cartItems.find((item) => item.product_id === bundle.rewardProductId)
+
+            if (qualifierInCart && !rewardInCart) {
+              isProcessing = true
+              try {
+                const addPayload = {
+                  items: [{ id: bundle.rewardVariantId, quantity: 1 }],
+                  sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header',
+                  sections_url: '/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items,header'
+                }
+                const addRes = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(addPayload)
+                })
+                if (addRes.ok) {
+                  const data = await addRes.json()
+                  cartUpdate(data)
+                  const updatedCart = await fetch(window.Shopify.routes.root + 'cart.js').then((r) => r.json())
+                  document.dispatchEvent(new CustomEvent('cart:updated', { detail: { cart: updatedCart } }))
+                }
+              } catch (e) {
+                console.error('Bundle GWP: error adding reward', e)
+              } finally {
+                isProcessing = false
+              }
+              break
+            } else if (!qualifierInCart && rewardInCart) {
+              isProcessing = true
+              try {
+                const removePayload = {
+                  id: rewardInCart.key,
+                  quantity: 0,
+                  sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header',
+                  sections_url: '/cart?sections=cart-drawer,cart-icon-bubble,main-cart-items,header'
+                }
+                const removeRes = await fetch(window.Shopify.routes.root + 'cart/change.js', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(removePayload)
+                })
+                if (removeRes.ok) {
+                  const data = await removeRes.json()
+                  cartUpdate(data)
+                  const updatedCart = await fetch(window.Shopify.routes.root + 'cart.js').then((r) => r.json())
+                  document.dispatchEvent(new CustomEvent('cart:updated', { detail: { cart: updatedCart } }))
+                }
+              } catch (e) {
+                console.error('Bundle GWP: error removing reward', e)
+              } finally {
+                isProcessing = false
+              }
+              break
+            }
+          }
+        }
+
+        document.addEventListener('cart:updated', (event) => {
+          if (event.detail && event.detail.cart) {
+            handleBundleGwpCartUpdate(event.detail.cart)
+          }
+        })
+
+        // Check on page load in case cart already has a qualifying product
+        document.addEventListener('DOMContentLoaded', () => {
+          fetch(window.Shopify.routes.root + 'cart.js')
+            .then((r) => r.json())
+            .then((cart) => handleBundleGwpCartUpdate(cart))
+        })
+      })()
+    </script>
+  {% endif %}
+
   {% schema %}
   {
     "name": "t:sections.header.name",
@@ -1251,6 +1364,27 @@
             "info": "Optional: Use a custom title for the reward instead of the product name. Leave blank to use the product name."
           }
         ] 
+      },
+      {
+        "type": "bundle-gwp",
+        "name": "Bundle GWP",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Bundle GWP Settings",
+            "info": "Please ensure that if the products that are selected are NOT $0, there is an active automatic discount that makes these items free when the bundle conditions are met. Also, if there is no stock for the given free product with the bundle item, it will not auto add."
+          },
+          {
+            "type": "product",
+            "id": "bundle_gwp_product_qualifier",
+            "label": "Bundle GWP Qualifying Product"
+          },
+          {
+            "type": "product",
+            "id": "bundle_gwp_product_reward",
+            "label": "Bundle GWP Reward Product"
+          }
+        ]
       }
     ]
   }
