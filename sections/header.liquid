@@ -948,6 +948,58 @@
     </script>
   {% endif %}
 
+  {% assign bundle_blocks = section.blocks | where: "type", "bundle-gwp" %}
+
+  {% if bundle_blocks.size > 0 %}
+    <script>
+      (function () {
+        const bundles = []
+
+        {%- assign bundles_data = '' -%}
+        {% for block in bundle_blocks %}
+          {%- assign qualifier = block.settings.bundle_gwp_product_qualifier -%}
+          {%- assign reward = block.settings.bundle_gwp_product_reward -%}
+          {% if qualifier != blank and reward != blank %}
+            {%- assign reward_variant = reward.variants | where: "available", true | first -%}
+            {% if reward_variant != blank %}
+              bundles.push({
+                qualifierProductId: {{ qualifier.id }},
+                rewardProductId: {{ reward.id }},
+                rewardVariantId: {{ reward_variant.id }}
+              })
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+
+        if (!bundles.length) return
+
+        const pendingBundleRewards = new Set()
+
+        document.addEventListener('cart:updated', () => {
+          fetch(window.Shopify.routes.root + 'cart.js')
+            .then((r) => r.json())
+            .then((cart) => {
+              const cartItems = cart.items || []
+
+              for (const bundle of bundles) {
+                if (pendingBundleRewards.has(bundle.rewardVariantId)) continue
+
+                const qualifierQty = cartItems.find((i) => i.product_id === bundle.qualifierProductId)?.quantity ?? 0
+                const rewardQty = cartItems.find((i) => i.product_id === bundle.rewardProductId)?.quantity ?? 0
+                const qtyToAdd = qualifierQty - rewardQty
+
+                if (qtyToAdd > 0) {
+                  pendingBundleRewards.add(bundle.rewardVariantId)
+                  addToCart({ items: [{ id: bundle.rewardVariantId, quantity: qtyToAdd }] })
+                  setTimeout(() => pendingBundleRewards.delete(bundle.rewardVariantId), 3000)
+                }
+              }
+            })
+        })
+      })()
+    </script>
+  {% endif %}
+
   {% schema %}
   {
     "name": "t:sections.header.name",
@@ -1261,6 +1313,27 @@
             "info": "Optional: Use a custom title for the reward instead of the product name. Leave blank to use the product name."
           }
         ] 
+      },
+      {
+        "type": "bundle-gwp",
+        "name": "Bundle GWP",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Bundle GWP Settings",
+            "info": "Please ensure that if the products that are selected are NOT $0, there is an active automatic discount that makes these items free when the bundle conditions are met. Also, if there is no stock for the given free product with the bundle item, it will not auto add."
+          },
+          {
+            "type": "product",
+            "id": "bundle_gwp_product_qualifier",
+            "label": "Bundle GWP Qualifying Product"
+          },
+          {
+            "type": "product",
+            "id": "bundle_gwp_product_reward",
+            "label": "Bundle GWP Reward Product"
+          }
+        ]
       }
     ]
   }
