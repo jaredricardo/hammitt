@@ -129,6 +129,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_Yd7Xnr": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>New! Summer Bundle Shelley Tote + Pouch</p>",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/shelley-tote"
+            }
+          },
           "announcement_Tpxzm9": {
             "type": "announcement",
             "settings": {
@@ -147,16 +156,6 @@
               "link": "shopify://pages/current-season"
             }
           },
-          "announcement_Yd7Xnr": {
-            "type": "announcement",
-            "disabled": true,
-            "settings": {
-              "text": "<p>Join the Rivett Club for Free Shipping on $250 orders</p>",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "https://www.hammitt.com/pages/loyalty"
-            }
-          },
           "announcement_a4yGWJ": {
             "type": "announcement",
             "disabled": true,
@@ -169,9 +168,9 @@
           }
         },
         "block_order": [
+          "announcement_Yd7Xnr",
           "announcement_Tpxzm9",
           "announcement_CwR3it",
-          "announcement_Yd7Xnr",
           "announcement_a4yGWJ"
         ],
         "custom_css": [],
