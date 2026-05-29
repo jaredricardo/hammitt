@@ -24,7 +24,7 @@
         "text_hBpVqB": {
           "type": "text",
           "settings": {
-            "text": "Welcome to Hammitt Heaven. \nOur team can’t wait to see you at our flagship California stores.",
+            "text": "Welcome to Hammitt Heaven. \nOur team can’t wait to see you at one of our retail stores.",
             "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 18,
@@ -293,6 +293,49 @@
         "custom_class": ""
       }
     },
+    "rich_text_GHz7yY": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_iJTVeJ": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "strong",
+            "heading": "Now Open",
+            "heading_size": "h2"
+          }
+        },
+        "text_keebKc": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Chicago</strong></p><p><a href=\"https://www.google.com/search?q=838+West+Armitage+Avenue+Chicago%2C+IL+60614&sca_esv=21346c809d9e5462&sxsrf=ANbL-n6jasg3z-SbNAx0rf6ED6eK2udinA%3A1780018603934&ei=q-0YatTiOMifkPIPt4_lgQY&ved=0ahUKEwiU5NKErt2UAxXID0QIHbdHOWAQ4dUDCBA&uact=5&oq=838+West+Armitage+Avenue+Chicago%2C+IL+60614&gs_lp=Egxnd3Mtd2l6LXNlcnAiKjgzOCBXZXN0IEFybWl0YWdlIEF2ZW51ZSBDaGljYWdvLCBJTCA2MDYxNDIHECMYsAMYJzIIEAAY7wUYsAMyCBAAGO8FGLADMggQABjvBRiwAzILEAAYiQUYogQYsAMyCBAAGO8FGLADSN8BUBZYFnABeACQAQCYATGgAVqqAQEyuAEDyAEA-AEBmAICoAIwmAMA4gMFEgExIECIBgGQBgaSBwEyoAf0C7IHATG4ByzCBwMwLjLIBwSACAE&sclient=gws-wiz-serp\" target=\"_blank\" title=\"https://www.google.com/search?q=838+West+Armitage+Avenue+Chicago%2C+IL+60614&sca_esv=21346c809d9e5462&sxsrf=ANbL-n6jasg3z-SbNAx0rf6ED6eK2udinA%3A1780018603934&ei=q-0YatTiOMifkPIPt4_lgQY&ved=0ahUKEwiU5NKErt2UAxXID0QIHbdHOWAQ4dUDCBA&uact=5&oq=838+West+Armitage+Avenue+Chicago%2C+IL+60614&gs_lp=Egxnd3Mtd2l6LXNlcnAiKjgzOCBXZXN0IEFybWl0YWdlIEF2ZW51ZSBDaGljYWdvLCBJTCA2MDYxNDIHECMYsAMYJzIIEAAY7wUYsAMyCBAAGO8FGLADMggQABjvBRiwAzILEAAYiQUYogQYsAMyCBAAGO8FGLADSN8BUBZYFnABeACQAQCYATGgAVqqAQEyuAEDyAEA-AEBmAICoAIwmAMA4gMFEgExIECIBgGQBgaSBwEyoAf0C7IHATG4ByzCBwMwLjLIBwSACAE&sclient=gws-wiz-serp\">838 West Armitage Avenue<br/>Chicago, IL 60614</a></p><h3></h3>"
+          }
+        },
+        "button_qMPbH4": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_iJTVeJ",
+        "text_keebKc",
+        "button_qMPbH4"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -381,6 +424,7 @@
     "image_with_text_CjptFr",
     "image_banner_tMji4f",
     "1658438551344f72bd",
+    "rich_text_GHz7yY",
     "main",
     "16540189729cdeba5f",
     "store_locations_UmHt6Y",

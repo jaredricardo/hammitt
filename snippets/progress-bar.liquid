@@ -265,7 +265,7 @@
       {%- comment -%} Show success message for member free shipping {%- endcomment -%}
       <div class="gwp-progress-bar-header gwp-tier-success">
         <span class="h7">
-          You get free shipping as a Rivett Club member
+          {{ section.settings.member_free_shipping_text }}
         </span>
       </div>
     {%- elsif previous_tier -%}
@@ -300,7 +300,7 @@
       {%- comment -%} Show member free shipping success message {%- endcomment -%}
       <div class="gwp-progress-bar-header gwp-tier-success">
         <span class="h7">
-          You get free shipping as a Rivett Club member
+          {{ section.settings.member_free_shipping_text }}
         </span>
       </div>
       
@@ -312,7 +312,7 @@
         <span class="h7">
           {%- if next_tier.settings.gwp_tier_is_free_shipping -%}
             {% if customer %}
-                You get free shipping as a Rivett Club member
+                {{ section.settings.member_free_shipping_text }}
               {% else %}
                 {% if next_tier.settings.everyone_gets_free_shipping and next_tier.settings.gwp_tier_threshold == 0 %}
                     You gets free shipping!
