@@ -981,17 +981,33 @@
             .then((cart) => {
               const cartItems = cart.items || []
 
+              // Group bundles by reward product so shared rewards (e.g. GWP C used by
+              // both Bundle 3 and Bundle 4) accumulate their qualifier quantities before
+              // comparing against what is already in the cart.
+              const rewardMap = new Map()
               for (const bundle of bundles) {
-                if (pendingBundleRewards.has(bundle.rewardVariantId)) continue
+                const qualifierQty = cartItems
+                  .filter((i) => i.product_id === bundle.qualifierProductId)
+                  .reduce((sum, i) => sum + i.quantity, 0)
 
-                const qualifierQty = cartItems.find((i) => i.product_id === bundle.qualifierProductId)?.quantity ?? 0
-                const rewardQty = cartItems.find((i) => i.product_id === bundle.rewardProductId)?.quantity ?? 0
-                const qtyToAdd = qualifierQty - rewardQty
+                if (!rewardMap.has(bundle.rewardProductId)) {
+                  rewardMap.set(bundle.rewardProductId, { rewardVariantId: bundle.rewardVariantId, totalNeeded: 0 })
+                }
+                rewardMap.get(bundle.rewardProductId).totalNeeded += qualifierQty
+              }
+
+              for (const [rewardProductId, { rewardVariantId, totalNeeded }] of rewardMap) {
+                if (pendingBundleRewards.has(rewardVariantId)) continue
+
+                const rewardQty = cartItems
+                  .filter((i) => i.product_id === rewardProductId)
+                  .reduce((sum, i) => sum + i.quantity, 0)
+                const qtyToAdd = totalNeeded - rewardQty
 
                 if (qtyToAdd > 0) {
-                  pendingBundleRewards.add(bundle.rewardVariantId)
-                  addToCart({ items: [{ id: bundle.rewardVariantId, quantity: qtyToAdd }] })
-                  setTimeout(() => pendingBundleRewards.delete(bundle.rewardVariantId), 3000)
+                  pendingBundleRewards.add(rewardVariantId)
+                  addToCart({ items: [{ id: rewardVariantId, quantity: qtyToAdd }] })
+                  setTimeout(() => pendingBundleRewards.delete(rewardVariantId), 3000)
                 }
               }
             })
