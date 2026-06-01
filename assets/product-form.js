@@ -445,9 +445,7 @@ class VariantSelects extends HTMLElement {
   }
 
   initSwiper() {
-    const swiper = document.getElementById('product__mobile-images');
-    const json = JSON.parse(swiper.getAttribute('data-json'));
-    const productSwiper = new Swiper(swiper, json);
+    if (window.initMobileCarousel) window.initMobileCarousel();
   }
   
 

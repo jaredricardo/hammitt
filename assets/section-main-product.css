@@ -1408,7 +1408,17 @@ product-thumbnail {
 .product__payment-installments {
   font-size: 1.1rem;
   align-items: baseline;
+  text-align: left;
+  margin-top: 10px;
+  font-family: 'Nunito Sans', sans-serif;
 }
+
+.product__payment-installments .buy-now-text {
+  font-weight: 500;
+  margin-top: 3p;
+  margin-bottom: 6px;
+}
+
 .product__payment-installments .icon {
   display: inline-block;
   margin: 0 0.5rem;
@@ -1508,7 +1518,7 @@ input.iStock-notify-btn {
 .pdp-hero-section .pdp-info-col #RR_PR_Widget_Wrapper *{line-height:1;}
 .pdp-hero-section .pdp-info-col #RR_PR_Widget_Wrapper .acs_score_wrapper{display:flex;align-items:center;}
 .pdp-hero-section .pdp-info-col #RR_PR_Widget_Wrapper .acs_score_wrapper span.acs_widget_rating{margin-top:7px;margin-left:4px;color:#000 !important;}
-.pdp-hero-section .pdp-info-col .product__price-wrapper{margin:12px 0px 25px;}
+.pdp-hero-section .pdp-info-col .product__price-wrapper{margin:12px 0px 25px; flex-direction: column;}
 .pdp-hero-section .pdp-info-col .product__price-wrapper *{line-height:1;}
 .pdp-hero-section .pdp-info-col .product__price-wrapper .price__regular .price-item--regular{ font-size: 22px !important;line-height:1;font-weight: 300;letter-spacing:normal;}
 .pdp-hero-section .pdp-info-col .custom-variant-options{margin-top:25px;}
@@ -1677,7 +1687,9 @@ body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg{f
   .pdp-review-section .page-width{padding-left:10px;padding-right:10px;}
   .pdp-hero-section .pdp-info-col .custom-variant-list .section-productgrid {column-gap:10px;}
  .pdp-hero-section .pdp-info-col .custom-variant-options ul li{margin:0 !important;} 
-
+ .pdp-hero-section .yotpo-sr-bottom-line-text  {
+  font-size: 13px;
+ }
   .pdp-hero-section .product-colors .swiper-scrollbar{width:100%;max-width:cacl(100% - 0px);margin:0px auto;background-color:#e4e4e4;position:relative;overflow:hidden;height:4px;border-radius:0px;}
 .pdp-hero-section .product-colors .swiper-scrollbar .swiper-scrollbar-drag{background-color:#000;height:100%;display:block;border-radius:0px;}
   body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg:before{font-size:23px;}
@@ -1685,16 +1697,24 @@ body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg{f
   .pdp-hero-section #product__mobile-images .swiper-pagination{display:flex;justify-content:flex-end;bottom:20px;}
   .pdp-hero-section #product__mobile-images .swiper-pagination .swiper-pagination-bullet{background-color: #b8b8b8;}
   .pdp-hero-section #product__mobile-images .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{background-color:#000;}
-  .pdp-hero-section .pdp-info-col{padding-top:15px;}
-  .pdp-hero-section .product__payment-installments{font-size:13px;}
+  .pdp-hero-section .pdp-info-col{padding-top:0px;}
+  .pdp-hero-section .product__payment-installments{font-size:13px; border-bottom: 1px solid #ECECEC; padding-bottom: 8px;}
+  .pdp-hero-section .product__payment-installments .buy-now-text {display: block;}
   .pdp-hero-section .complimentary-products__container .card__heading{font-size:14px;}
   .pdp-hero-section .product__media-wrapper *{touch-action: pinch-zoom !important;  touch-action:pan-y pinch-zoom!important}
+  .pdp-hero-section .product__media-wrapper,
+  .pdp-hero-section .product__media-wrapper .swiper-slide {
+    aspect-ratio: 4 / 5;
+  }
   .pdp-hero-section .product__media-wrapper ..swiper-horizontal{  }
 
   .variant-radios__wrapper[data-option=Amount] input+label {
     width: 80px;
   }
-  
+  #product__mobile-images button.swym-add-to-wishlist-view-product.hammitt-custom,
+  #product__mobile-images .tag-badge {
+    /* display: none !important; */
+  }
 }
 
 
@@ -1772,7 +1792,7 @@ a.button.klaviyo-bis-trigger:hover {
 
 .pdp-hero-section .top-text-wrapper h3 {
   color:rgb(48, 48, 48);
-  margin: 0.75rem 0 1.5rem 0;
+  margin: 0.75rem 0 0.5rem 0;
 }
 
 .pdp-hero-section .title-container {
@@ -1857,14 +1877,76 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
   display: none !important;
 }
 
-
+.mobile-img-carousel__track {
+  aspect-ratio: 4 / 5;
+  overflow-y: scroll;
+}
 @media screen and (max-width: 989px) {
+  #product__mobile-images {
+    position: relative;
+    height: calc(100vw * 1.25);
+  }
+  .mobile-img-carousel__track {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .mobile-img-carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-img-slide {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    position: relative;
+    overflow: hidden;
+  }
+  #product__mobile-images .mobile-img-slide .media {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding-top: 0 !important;
+  }
+  .mobile-img-carousel__bullets {
+    position: absolute;
+    left: 10px;
+    bottom: 5%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .mobile-img-carousel__bullets.is-loaded {
+    opacity: 1;
+  }
+  .mobile-img-carousel__bullet {
+    pointer-events: auto;
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1px solid #B1B1B1;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .mobile-img-carousel__bullet.is-active {
+    background-color: #B1B1B1;
+  }
   .pdp-hero-section .product__title:has(.only-x-left-container) {
     flex-direction: column;
   }
   .pdp-hero-section .only-x-left-container {
     justify-content: start;
     font-size: 14px;
+    padding: 6px 0;
   }
   .mobile-pdp-info .top-text-wrapper {
     flex-direction: column;
@@ -1878,14 +1960,27 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
   }  
+  .pdp-hero-section .top-text-wrapper h3 {
+    margin: 5px 0 0 0;  
+  }
+  .yotpo-bottom-line-scroll-panel svg:not(:first-of-type) ,
+  .breadcrumb-block {
+    display: none !important;
+  }
+  #fancy-swatches-wrapper {
+    margin: 0;
+  }
+  .pdp-hero-section .pdp-info-col .custom-variant-options {
+    margin-top: 10px;
+  }
 }
 
 
-@media screen and (max-width: 501px) {
+@media screen and (max-width: 760px) {
   .special-care-tooltip-content {
     left: -70%;
   }
   .shopify-block:has(.yotpo-widget-instance) {
-    margin: 0 !important;
+    margin-top: 5px !important;
   }
 }

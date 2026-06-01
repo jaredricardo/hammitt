@@ -160,7 +160,7 @@ minty-fresh-filters li a,
 .pdp-hero-wrap .product-collapse-container .accordion__content li,
 .pdp-hero-wrap .product-collapse-container .accordion__content p {
   font-family: "Nunito Sans", sans-serif !important;
-  font-size: 15px !important;
+  font-size: 13px !important;
 }
 
 .pdp-hero-wrap .product_description ul {
@@ -886,7 +886,7 @@ a.nav-wishlist-button .heart-count {
 }
 
 .section.pdp-hero-section {
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 
 .mobile-only {
@@ -1730,6 +1730,14 @@ gifting-tooltip-container li {
     left: 0;
 }
 
+.accordion__content .gifting-tooltip-content {
+  display: flex;
+  position: relative;
+  box-shadow: none;
+  max-width: none;
+  z-index: 1;
+}
+
 .gifting-tooltip-content .gifting-tooltip-images {
     flex: 1;
     display: flex;
@@ -1754,6 +1762,11 @@ gifting-tooltip-container li {
 .gifting-tooltip-images .col {
     text-align: center;
     flex: 1;
+}
+
+.gifting-tooltip-images .col img {
+  aspect-ratio: 1/1;
+  object-fit: contain;
 }
 
 
@@ -1847,4 +1860,101 @@ cart-upsells .upsell__image,
   .simple-collection-links {
     padding: 16px 0rem 16px 8px;
   }
+}
+
+pull-notch-button {
+  padding: 1rem;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  display: none;
+}
+
+pull-notch-button span {
+  width: 50px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: #B1B1B1;
+  display: block;
+}
+
+@media screen and (max-width: 751px) {
+  pull-notch-button {
+    display: flex;
+  }
+  .mobile-pdp-info {
+    margin-bottom: 0 !important;
+  }
+  .pdp-recs-tabs-wrapper {
+    margin-top: 12px !important;
+  }
+}
+
+.after-atc-button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.after-atc-button-container > * {
+  flex: 1;
+  min-height: 35px;
+}
+
+.inverted-hammitt-button {
+  text-transform: uppercase;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+}
+
+.inverted-hammitt-button:hover {
+  opacity: 0.5;
+}
+
+.pdp-sfl-spinner {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+pdp-save-for-later-button.is-saving .pdp-sfl-text {
+  display: none;
+}
+
+pdp-save-for-later-button.is-saving .pdp-sfl-spinner {
+  display: flex;
+}
+
+pdp-save-for-later-button.is-saving .pdp-sfl-spinner .spinner {
+  width: 18px;
+  height: 18px;
+}
+
+pdp-save-for-later-button.saved {
+  background-color: black;
+  color: white;
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.7;
+}
+
+a.affirm-site-modal,
+a.afterpay-site-modal {
+  cursor: pointer !important;
+}
+
+.afpay {
+  display: none !important;
 }

@@ -56,25 +56,21 @@
   "mousewheel": false,
   "loop": false,
   "scrollbar":{
-      "el":"#shopify-section-{{ section.id }} .swiper-scrollbar",
+      "el":".rc-slider-wrap .swiper-scrollbar",
       "draggable": true
   },
   "effect":"slide",
-  "navigation": {
-    "nextEl": ".swiper-button-next",
-    "prevEl": ".swiper-button-prev"
-  },
   "breakpoints": {
     "0": {
-      "slidesPerView": "1.4",
+      "slidesPerView": "2.4",
       "spaceBetween": 4
     },
     "750": {
-      "slidesPerView": "2",
+      "slidesPerView": "2.5",
       "spaceBetween": 4
     },
     "990": {
-      "slidesPerView": "3.8",
+      "slidesPerView": "2.8",
       "spaceBetween": 4
     }
   }
@@ -84,8 +80,6 @@
 <div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <product-recommendations class="product-recommendations product-recommendations_slider page-width isolate" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=5">
     {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="product-recommendations__heading {{ section.settings.heading_size }} {{ section.settings.justify_heading }}">{{ section.settings.heading | escape }}</h2>
-
       <div class="rc-slider-wrap">
         <div class="swiper rc-slider" data-json='{{ rc_slider }}'>
           <div class="swiper-wrapper">
@@ -109,8 +103,6 @@
               
             {%- endfor -%}
           </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
         </div>
         <div class="swiper-scrollbar"></div>
       </div>
