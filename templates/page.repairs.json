@@ -105,7 +105,7 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "id_for_scroll_navigator": "",
-        "image": "shopify://shop_images/Group_1013_1.jpg",
+        "image": "shopify://shop_images/6_2.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -158,112 +158,23 @@
         "padding_bottom_mobile": 36
       }
     },
-    "multicolumn_wngqhj": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_9LghBD": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": true,
-            "image": "shopify://shop_images/Rectangle_6.jpg",
-            "title": "<strong>HERE'S WHAT WE COVER</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "<h3><strong>D-Rings</strong></h3><h3><strong>O-Rings</strong></h3><h3><strong>Broken Straps</strong></h3><h3><strong>Defective Magnets</strong></h3><h3><strong>Zipper Pulls</strong></h3>",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_qFmQti": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": true,
-            "image": "shopify://shop_images/Rectangle_4.jpg",
-            "title": "<strong>HERE'S WHAT WE CAN'T FIX AND DON'T COVER</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "<h3><strong>Torn or Stained Lining</strong></h3><h3><strong>Stained Leather</strong></h3><h3><strong>Zipper Tape</strong></h3><h3><strong>Normal Wear + Tear</strong></h3><h3><strong>Cleaning</strong></h3><h3><strong>Refurbishment</strong></h3>",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_9LghBD",
-        "column_qFmQti"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "title_color": "#000000",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "#ffffff",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": true,
-        "removed_section_padding": false,
-        "columns_desktop": 2,
-        "columns_gap": 0,
-        "row_gap": 0,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
-    },
-    "rich_text_khMUeA": {
+    "rich_text_hfAiFn": {
       "type": "rich-text",
       "blocks": {
-        "text_DyGHgw": {
-          "type": "text",
+        "button_eexVyk": {
+          "type": "button",
           "settings": {
-            "text": "<p>*Please note, in select cases, we may no longer be able to replace materials on bags from seasons far past. In this case, our team will assess your unique request and offer an alternative replacement option.</p>"
+            "button_label": "Submit A Request",
+            "button_link": "https://hammitt.com/apps/redo/returns-portal",
+            "button_style_secondary": false
           }
         }
       },
       "block_order": [
-        "text_DyGHgw"
+        "button_eexVyk"
       ],
       "disabled": true,
+      "name": "CTA",
       "settings": {
         "custom_classes": "",
         "color_scheme": "background-1",
@@ -490,8 +401,7 @@
     "image_banner_xgwdR9",
     "image_with_text_JyQNxy",
     "image_with_text_d3mRmj",
-    "multicolumn_wngqhj",
-    "rich_text_khMUeA",
+    "rich_text_hfAiFn",
     "multicolumn_ffXgYG",
     "hero_video_banner_DgUtCb",
     "image_banner_tKn9Ah"
