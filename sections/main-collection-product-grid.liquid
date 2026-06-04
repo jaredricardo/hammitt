@@ -374,6 +374,18 @@
                     
                   {% endif %}
 
+                  {% if merch_box_one.number_of_columns >= 3 %}
+                    {% comment %} Snap to the start of the row the configured position falls in {% endcomment %}
+                    {% assign mb1_grid_width = section.settings.columns_desktop %}
+                    {% assign mb1_row = merch_box_one.position_in_grid | minus: 1 | divided_by: mb1_grid_width %}
+                    {% assign mb1_snapped = mb1_row | times: mb1_grid_width | plus: 1 %}
+                    {% if mb1_snapped == forloop.index %}
+                      <li class="grid__item">
+                        {% render 'merch-box', obj: merch_box_one, index: forloop.index %}
+                      </li>
+                    {% endif %}
+                  {% endif %}
+
                 {% endif %}
 
                 {% comment %} MERCH BOX TWO {% endcomment %}
@@ -417,6 +429,22 @@
                     
                   {% endif %}
 
+                  {% if merch_box_two.number_of_columns >= 3 %}
+                    {% comment %} Snap to the start of the row the configured position falls in {% endcomment %}
+                    {% assign mb2_grid_width = section.settings.columns_desktop %}
+                    {% assign mb2_row = merch_box_two.position_in_grid | minus: 1 | divided_by: mb2_grid_width %}
+                    {% assign mb2_snapped = mb2_row | times: mb2_grid_width | plus: 1 %}
+                    {% assign true_insertion_index = forloop.index %}
+                    {% if merch_box_one and merch_box_one.enable_merch_box %}
+                      {% assign true_insertion_index = true_insertion_index | plus: merch_box_one.number_of_columns %}
+                    {% endif %}
+                    {% if mb2_snapped == true_insertion_index %}
+                      <li class="grid__item">
+                        {% render 'merch-box', obj: merch_box_two, index: true_insertion_index %}
+                      </li>
+                    {% endif %}
+                  {% endif %}
+
                 {% endif %}
               {% endunless %}
 
@@ -447,6 +475,18 @@
                         {% endif %}
 
                         {% if nearest_odd_number == outter_loop_index %}
+                          <li class="grid__item">
+                            {% render 'merch-box', obj: additional_merch_box, index: forloop.index %}
+                          </li>
+                        {% endif %}
+                      {% endif %}
+
+                      {% if additional_merch_box.number_of_columns >= 3 %}
+                        {% comment %} Snap to the start of the row the configured position falls in {% endcomment %}
+                        {% assign amb_grid_width = section.settings.columns_desktop %}
+                        {% assign amb_row = additional_merch_box.position_in_grid | minus: 1 | divided_by: amb_grid_width %}
+                        {% assign amb_snapped = amb_row | times: amb_grid_width | plus: 1 %}
+                        {% if amb_snapped == outter_loop_index %}
                           <li class="grid__item">
                             {% render 'merch-box', obj: additional_merch_box, index: forloop.index %}
                           </li>
