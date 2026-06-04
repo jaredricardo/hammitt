@@ -157,6 +157,7 @@
       display: flex;
       flex-direction: column;
       min-width: 30%;
+      max-width: 130px;
       position: relative;
       cursor: pointer;
       transition: opacity 0.2s;
@@ -172,7 +173,6 @@
     }
 
     .free-multi-gift-select-container .free-multi-gift-select-item-image {
-      aspect-ratio: 1 / 1;
       position: relative;
     }
     .free-multi-gift-select-container img {
@@ -188,23 +188,23 @@
     /* Plus button styling - moved to top-left */
     free-multi-gift-select-item .add-gift-button {
       position: absolute;
-      top: 4px;
-      left: 4px;
-      width: 14px;
-      height: 14px;
+      top: 6px;
+      left: 6px;
+      width: 16px;
       border: none;
-      background: transparent;
+      background: white;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 2;
-      padding: 0;
+      border-radius: 50px;
+      padding: 4px;
       pointer-events: none;
     }
 
     free-multi-gift-select-item .add-gift-button svg {
-      width: 15px;
-      height: 15px;
+      width: 100%;
+      height: 100%;
     }
 
     /* Checkbox styling */
@@ -245,6 +245,27 @@
       border-radius: 50%;
     }
 
+    /* Loading spinner overlay */
+    free-multi-gift-select-item .gift-item-spinner {
+      display: none;
+      position: absolute;
+      inset: 0;
+      justify-content: center;
+      align-items: center;
+      z-index: 4;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 2px;
+    }
+
+    free-multi-gift-select-item.loading .gift-item-spinner {
+      display: flex;
+    }
+
+    free-multi-gift-select-item .gift-item-spinner .spinner {
+      width: 28px;
+      height: 28px;
+    }
+
   </style>
 {% endif %}
 
@@ -259,49 +280,64 @@
 
         connectedCallback() {
           this.querySelectorAll('free-multi-gift-select-item').forEach((select) => {
-            // Listen for clicks on the entire item element
             select.addEventListener('click', async (e) => {
-              // Don't proceed if already loading
-              if (select.classList.contains('loading')) {
-                return
-              }
-              
-              // Add loading class immediately on click
+              if (select.classList.contains('loading')) return
               select.classList.add('loading')
-              
               const variantId = select.dataset.variantId
-              await this.addMultiGiftOptionToCart(variantId, select)
+              await this.handleGiftSelection(variantId, select)
             })
-            
           })
         }
 
-        async addMultiGiftOptionToCart(variantId, selectElement) {
+        getGwpVariantIds() {
+          try {
+            return JSON.parse(this.dataset.gwpVariantIds || '[]')
+          } catch(e) {
+            return []
+          }
+        }
 
-          let formData = {
-            items: [
-              {
-                id: variantId,
-                quantity: 1,
+        async handleGiftSelection(newVariantId, selectElement) {
+          const gwpVariantIds = this.getGwpVariantIds()
+
+          // Check if any GWP from the collection is already in the cart
+          let currentGwpKey = null
+          try {
+            const cartRes = await fetch(window.Shopify.routes.root + 'cart.js')
+            const cart = await cartRes.json()
+            for (const item of cart.items) {
+              if (gwpVariantIds.includes(String(item.variant_id))) {
+                currentGwpKey = item.key
+                break
               }
-            ],
-            sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
+            }
+          } catch(e) {}
+
+          // If a GWP is already in the cart, remove it before adding the new one
+          if (currentGwpKey) {
+            try {
+              await fetch(window.Shopify.routes.root + 'cart/change.js', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: currentGwpKey, quantity: 0 })
+              })
+            } catch(e) {}
+          }
+
+          // Add the newly selected GWP and re-render the cart
+          const formData = {
+            items: [{ id: newVariantId, quantity: 1 }],
+            sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header'
           }
 
           fetch(window.Shopify.routes.root + 'cart/add.js', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
-            })
-            .then((response) => {
-              return response.json()
-            })
-            .then((json) => {
-              cartUpdate(json)
-            })
-          }
+          })
+          .then(res => res.json())
+          .then(json => cartUpdate(json))
+        }
       }
       
       customElements.define('free-multi-gift-select', FreeMultiGiftSelect)
@@ -1056,7 +1092,7 @@
           </div>
         {% endif %}
       {% endif %}
-      <cart-upsells class="cart-drawer-upsells {% if settings.enable_free_multi_gift_select and has_reached_threshold and cart_contains_gift_item == false %} hidden {% endif %}" data-upsell-title="{{ first_cart_item.product.title }}" >
+      <cart-upsells class="cart-drawer-upsells {% if settings.enable_free_multi_gift_select and has_reached_threshold %} hidden {% endif %}" data-upsell-title="{{ first_cart_item.product.title }}" >
         {% if cart.item_count > 0 %}
           <div class="tab-item__upsell">
             <ul>
@@ -1143,26 +1179,43 @@
           </div>
         {% endif %}
       </cart-upsells>
-      {% if settings.enable_free_multi_gift_select and has_reached_threshold and cart_contains_gift_item == false %} 
-        <free-multi-gift-select>
+      {% if settings.enable_free_multi_gift_select and has_reached_threshold %}
+        {% comment %} Collect all GWP variant IDs so the JS swap logic can identify any existing GWP in the cart {% endcomment %}
+        {% capture gwp_variant_ids %}[{% for product in settings.free_multi_gift_select_collection.products %}{% unless forloop.first %},{% endunless %}"{{ product.selected_or_first_available_variant.id }}"{% endfor %}]{% endcapture %}
+        <free-multi-gift-select data-gwp-variant-ids='{{ gwp_variant_ids }}'>
           {% if settings.free_multi_gift_select_text != blank %}
             <h6 style="font-weight: 500; margin: 10px 0;">{{ settings.free_multi_gift_select_text }}</h6>
           {% endif %}
           <div class="free-multi-gift-select-container">
             {% for product in settings.free_multi_gift_select_collection.products %}
               {% if product.available %}
-                <free-multi-gift-select-item data-variant-id="{{ product.selected_or_first_available_variant.id }}">
-                  <button type="button" class="add-gift-button" aria-label="Add free gift">
-                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-plus" fill="none" viewBox="0 0 10 10">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor"></path>
-                    </svg>
-                  </button>
-                  <div class="free-multi-gift-select-item-image">
-                    {{ product.featured_image | image_url: width: 400 | image_tag }} 
-                  </div>
-                  <p>{{ product.title }}</p>
-                  <p class="green">Free</p>
-                </free-multi-gift-select-item>
+                {% comment %} Filter out the already-selected GWP — the remaining options stay visible {% endcomment %}
+                {% assign gwp_already_in_cart = false %}
+                {% for item in cart.items %}
+                  {% if item.product_id == product.id %}
+                    {% assign gwp_already_in_cart = true %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                {% unless gwp_already_in_cart %}
+                  <free-multi-gift-select-item data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                    <div class="gift-item-spinner" aria-hidden="true">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                      </svg>
+                    </div>
+                    <button type="button" class="add-gift-button" aria-label="Add free gift">
+                      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-plus" fill="none" viewBox="0 0 10 10">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor"></path>
+                      </svg>
+                    </button>
+                    <div class="free-multi-gift-select-item-image">
+                      {{ product.featured_image | image_url: width: 400 | image_tag }} 
+                    </div>
+                    <p>{{ product.title }}</p>
+                    <p class="green">Free</p>
+                  </free-multi-gift-select-item>
+                {% endunless %}
               {% endif %}
             {% endfor %}
           </div>

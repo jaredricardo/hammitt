@@ -585,6 +585,7 @@ span.freeRemainShippingMsg,
 
 .progress-bar {
   --scale-x: 0%;
+  display: block !important;
   height: 4px;
   border-radius: var(--progress-bar-radius, 3rem);
   background-color: rgba(0,0,0, .075);
@@ -1003,10 +1004,10 @@ hammitt-cart-level-gift-note {
   padding: 7px 0 5px;
   text-align: center;
   line-height: 1.1;
+  color: #0d8756;
 }
 
 .gwp-progress-bar-header.gwp-tier-success {
-  color: #0d8756;
   margin-bottom: 0;
 }
 
