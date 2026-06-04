@@ -2261,7 +2261,12 @@ input[type='checkbox'] {
   text-align: center;
   padding: 1rem 12px;
   margin: 0;
-  font-size: 1.3rem;
+}
+
+.announcement-bar__message,
+.announcement-bar__message p,
+.announcement-bar__message a {
+  font-size: 13px !important;
 }
 
 .announcement-slider .swiper-button-prev:after,
@@ -3047,6 +3052,12 @@ details-disclosure > details {
     border-radius: 0;
   }
   .content-container--full-width-mobile:after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body:has(.cart-drawer-container[open]) #ps__widget_container {
     display: none;
   }
 }
