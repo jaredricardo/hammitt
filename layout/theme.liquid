@@ -1395,6 +1395,31 @@ template-{{ template.name -}}
         })();
       </script>
     {% endif %}
+
+    <script>
+      // auto add leather pray here:
+      window.addEventListener('DOMContentLoaded', async () => {
+        if (!window.location.search.includes('autoadd=true')) return;
+
+        const cartVariantIds = [{{ cart.items | map: 'variant_id' | join: ',' }}];
+        const targetVariantId = 42662542901432;
+
+        if (cartVariantIds.includes(targetVariantId)) return;
+
+        try {
+          const res = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              items: [{ id: targetVariantId, quantity: 1 }],
+              sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header'
+            })
+          });
+          const data = await res.json();
+          if (typeof cartUpdate === 'function') cartUpdate(data);
+        } catch(e) {}
+      });
+    </script>
     <!-- End of accessiBe -->
 
     {% if template contains 'index' or template contains 'collection' or template contains 'product' %}
