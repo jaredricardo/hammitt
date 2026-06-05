@@ -130,6 +130,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_GJD8h6": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>Free Metro Cardholder with Order of $295+</p>",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/new-arrivals"
+            }
+          },
           "announcement_Yd7Xnr": {
             "type": "announcement",
             "settings": {
@@ -169,6 +178,7 @@
           }
         },
         "block_order": [
+          "announcement_GJD8h6",
           "announcement_Yd7Xnr",
           "announcement_Tpxzm9",
           "announcement_CwR3it",
