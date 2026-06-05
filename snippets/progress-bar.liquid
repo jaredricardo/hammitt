@@ -1,4 +1,44 @@
 
+{% if settings.enable_free_multi_gift_select %}
+  {%- liquid
+    assign multi_threshold_cents = settings.free_multi_gift_select_threshold_price | times: 100
+    assign multi_has_reached = false
+    if cart.total_price >= multi_threshold_cents
+      assign multi_has_reached = true
+    endif
+    assign multi_amount_remaining = multi_threshold_cents | minus: cart.total_price
+    if multi_has_reached
+      assign multi_progress_pct = 100
+    else
+      assign multi_progress_pct = cart.total_price | times: 100 | divided_by: multi_threshold_cents
+    endif
+    assign multi_cart_contains_gift = false
+    for item in cart.items
+      for product in settings.free_multi_gift_select_collection.products
+        if item.product_id == product.id
+          assign multi_cart_contains_gift = true
+        endif
+      endfor
+    endfor
+  -%}
+  <div class="progress-bar-container">
+    <div class="progress-bar-wrapper-a">
+      {%- if multi_has_reached -%}
+        <div class="gwp-progress-bar-header gwp-tier-success">
+          <span class="h7">
+            {%- if multi_cart_contains_gift -%}{{ settings.free_multi_gift_select_success_message }}{%- else -%}{{ settings.free_multi_gift_qualifies_message }}{%- endif -%}
+          </span>
+        </div>
+        <div class="progress-bar" style="--scale-x: 100%;"></div>
+      {%- else -%}
+        <div class="gwp-progress-bar-header gwp-tier-not-reached">
+          <span class="h7">You're only <strong>{{ multi_amount_remaining | money_without_trailing_zeros }}</strong> away from a free gift!</span>
+        </div>
+        <div class="progress-bar{% if cart.item_count == 0 %} hidden{% endif %}" style="--scale-x: {{ multi_progress_pct }}%;"></div>
+      {%- endif -%}
+    </div>
+  </div>
+{% else %}
 {%- comment -%}
   Get GWP Tier blocks from header section
 {%- endcomment -%}
@@ -351,5 +391,7 @@
   </div>
 
 </div>
+
+{% endif %}
 
 

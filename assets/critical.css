@@ -315,6 +315,14 @@ minty-fresh-filters li a,
   grid-column: span 2;
 }
 
+.grid__item:has(.num-slots-3) {
+  grid-column: span 3;
+}
+
+.grid__item:has(.num-slots-4) {
+  grid-column: span 4;
+}
+
 .merch-box {
   position: relative;
 }
@@ -434,7 +442,9 @@ minty-fresh-filters li a,
   font-size: 14px;
 }
 
-.merch-box.num-slots-2 .img-container img {
+.merch-box.num-slots-2 .img-container img,
+.merch-box.num-slots-3 .img-container img,
+.merch-box.num-slots-4 .img-container img {
   aspect-ratio: auto;
 }
 
@@ -446,6 +456,14 @@ minty-fresh-filters li a,
   
   .grid__item:has(.num-slots-2) {
     grid-column: span 4;
+  }
+
+  .grid__item:has(.num-slots-3) {
+    grid-column: span 2;
+  }
+
+  .grid__item:has(.num-slots-4) {
+    grid-column: span 2;
   }
 }
 
@@ -1832,7 +1850,8 @@ sticky-atc button {
 .global-media-settings,
 .pdp-hero-section .pdp-info-col .custom-variant-options ul li .swatch_image-a img,
 cart-upsells .upsell__image,
-.drawer__content-item-image img {
+.drawer__content-item-image img,
+.free-multi-gift-select-container .free-multi-gift-select-item-image {
   background-color: #f9f8f6 !important;
 }
 
