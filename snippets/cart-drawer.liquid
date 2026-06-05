@@ -273,6 +273,46 @@
 {% if settings.enable_free_multi_gift_select %}
   <script>
     window.addEventListener('DOMContentLoaded', () => {
+
+      const GWP_THRESHOLD_CENTS = {{ settings.free_multi_gift_select_threshold_price | times: 100 }};
+      const GWP_VARIANT_IDS = [{% for product in settings.free_multi_gift_select_collection.products %}{% unless forloop.first %},{% endunless %}"{{ product.selected_or_first_available_variant.id }}"{% endfor %}];
+
+      // Called on every cart:updated — removes the GWP if the qualifying total drops below the threshold.
+      // GWP items are $0, so they are excluded from the qualifying total calculation.
+      async function enforceGwpThreshold(cart) {
+        let qualifyingTotal = 0;
+        for (const item of cart.items) {
+          if (item.price === 0) continue;
+          qualifyingTotal += item.final_line_price;
+        }
+
+        if (qualifyingTotal >= GWP_THRESHOLD_CENTS) return;
+
+        // Threshold no longer met — remove any GWP item present in the cart
+        const gwpItem = cart.items.find(item => GWP_VARIANT_IDS.includes(String(item.variant_id)));
+        if (!gwpItem) return;
+
+        try {
+          const res = await fetch(window.Shopify.routes.root + 'cart/change.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: gwpItem.key,
+              quantity: 0,
+              sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header'
+            })
+          });
+          const data = await res.json();
+          if (typeof cartUpdate === 'function') cartUpdate(data);
+        } catch(e) {}
+      }
+
+      document.addEventListener('cart:updated', (e) => {
+        if (e.detail && e.detail.cart) {
+          enforceGwpThreshold(e.detail.cart);
+        }
+      });
+
       class FreeMultiGiftSelect extends HTMLElement {
         constructor() {
           super()
