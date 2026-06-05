@@ -129,6 +129,10 @@ cart-remove-button .button {
   justify-content: end;
 }
 
+.cart-item__multi-gwp cart-remove-button .button {
+  justify-content: start;
+}
+
 cart-remove-button .button:before,
 cart-remove-button .button:after  {
   content: none;
