@@ -32,7 +32,7 @@
         <div class="progress-bar" style="--scale-x: 100%;"></div>
       {%- else -%}
         <div class="gwp-progress-bar-header gwp-tier-not-reached">
-          <span class="h7">Add <strong>{{ multi_amount_remaining | money_without_trailing_zeros }}</strong> to receive a choice of <strong>FREE</strong> gifts!</span>
+          <span class="h7">You're only <strong>{{ multi_amount_remaining | money_without_trailing_zeros }}</strong> away from a free gift!</span>
         </div>
         <div class="progress-bar{% if cart.item_count == 0 %} hidden{% endif %}" style="--scale-x: {{ multi_progress_pct }}%;"></div>
       {%- endif -%}
