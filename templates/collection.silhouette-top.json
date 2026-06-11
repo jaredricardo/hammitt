@@ -11,7 +11,9 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
-      "disabled": true,
+      "custom_css": [
+        ".collection-hero__description {display: none;}"
+      ],
       "settings": {
         "show_collection_title": true,
         "font_size_desktop": 32,
@@ -35,9 +37,9 @@
         "banner_overlay_color": "#000000",
         "banner_overlay_cb": true,
         "color_scheme": "background-1",
-        "padding_top_desktop": 30,
+        "padding_top_desktop": 0,
         "padding_top_mobile": 0,
-        "padding_bottom_desktop": 30,
+        "padding_bottom_desktop": 0,
         "padding_bottom_mobile": 0
       }
     },
@@ -245,6 +247,7 @@
         "silhouette_carousel_item_YkfXmx",
         "silhouette_carousel_item_D78ipT"
       ],
+      "disabled": true,
       "name": "Silhouette Carousel",
       "settings": {
         "section_anchor_id": "",
@@ -367,6 +370,7 @@
         "collection_filter_link_WN3Lzr",
         "collection_filter_link_gWD4zW"
       ],
+      "disabled": true,
       "name": "Simple collection links",
       "settings": {
         "section_anchor_id": "",
