@@ -90,6 +90,15 @@
     "image_banner_3gmnXq": {
       "type": "image-banner",
       "blocks": {
+        "heading_aKDJp4": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Paula",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 60
+          }
+        },
         "text_MfYJiV": {
           "type": "text",
           "settings": {
@@ -100,20 +109,11 @@
             "text_size_tablet": 18,
             "text_size_desktop": 18
           }
-        },
-        "heading_aKDJp4": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Paula",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
         }
       },
       "block_order": [
-        "text_MfYJiV",
-        "heading_aKDJp4"
+        "heading_aKDJp4",
+        "text_MfYJiV"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
