@@ -90,30 +90,30 @@
     "image_banner_3gmnXq": {
       "type": "image-banner",
       "blocks": {
+        "heading_aKDJp4": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Paula",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 60
+          }
+        },
         "text_MfYJiV": {
           "type": "text",
           "settings": {
-            "text": "Coming Soon",
-            "text_area_html_swap": "",
+            "text": "",
+            "text_area_html_swap": "<div class=\"footer-container\">\n    <h3>Be the first to know</h3>\n    <div class=\"klaviyo-form-VACENj\"></div>\n</div>",
             "text_style": "body",
             "text_size_mobile": 18,
             "text_size_tablet": 18,
             "text_size_desktop": 18
           }
-        },
-        "heading_aKDJp4": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Paula",
-            "heading_size_mobile": 25,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 36
-          }
         }
       },
       "block_order": [
-        "text_MfYJiV",
-        "heading_aKDJp4"
+        "heading_aKDJp4",
+        "text_MfYJiV"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -129,6 +129,7 @@
         "video_url_mobile": "",
         "mobile_video_height": "square",
         "image": "shopify://shop_images/Rectangle_1118.jpg",
+        "image_2": "shopify://shop_images/merchbox-calla-sml_01.jpg",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "medium",
@@ -136,7 +137,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
-        "color_scheme_mobile": "light",
+        "color_scheme_mobile": "dark",
         "show_text_below": true,
         "full_width": true,
         "cta_color_scheme": "dark",
