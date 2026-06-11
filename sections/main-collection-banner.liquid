@@ -11,13 +11,14 @@
       color: {{ section.settings.title_color }};
       font-weight: {{ section.settings.title_font_weight }};
       margin: 0 0 1rem 0 !important;
-      text-align: left !important;
+      text-align: {{ section.settings.title_text_alignment_mobile }} !important;
       width: 100%;
     }
     #shopify-section-{{ section.id }} .collection-hero{
       padding-top: {{ section.settings.padding_top_mobile }}px;
       padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
       margin-bottom: 0;
+      {% if section.settings.background_color != blank %}background-color: {{ section.settings.background_color }};{% endif %}
     }
     #shopify-section-{{ section.id }} .collection-hero__description{
       color: {{ section.settings.description_color }};
@@ -53,7 +54,7 @@
         }
         [data-section-id="{{ section.id }}"] .page-width.e5050 {
           padding-left: 0 !important;
-          padding-bottom: 1rem !important;
+          padding-right: 0 !important;
         }
         [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__text-wrapper {
           position: relative !important;
@@ -74,6 +75,14 @@
         [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 .collection-hero__description > div {
           text-align: left !important;
         }
+
+        {% if section.settings.flip_layout_desktop %}
+        @media screen and (min-width: 769px) {
+          [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050 {
+            flex-direction: row;
+          }
+        }
+        {% endif %}
 
         @media screen and (max-width: 768px) {
           [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050  {
@@ -131,6 +140,7 @@
       #shopify-section-{{ section.id }} .collection-title {
         font-size: {{ section.settings.font_size_desktop }}px;
         margin: 0 0 2.5rem 0 !important;
+        text-align: {{ section.settings.title_text_alignment_desktop }} !important;
       }
       #shopify-section-{{ section.id }} .collection-hero__image-container{
         min-height: {{ section.settings.banner_height_desktop }}px;
@@ -279,6 +289,38 @@
       ]
     },
     {
+      "type": "select",
+      "label": "Title Alignment (Desktop)",
+      "id": "title_text_alignment_desktop",
+      "default": "left",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "label": "Title Alignment (Mobile)",
+      "id": "title_text_alignment_mobile",
+      "default": "left",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        }
+      ]
+    },
+    {
       "type": "header",
       "content": "Collection Description"
     },
@@ -318,6 +360,13 @@
       "default": true,
       "label": "Enable 50/50 Layout [image - text]",
       "info": "IMPORTANT: requires a collection image to be set on the individual collections in the admin. If there is no image, the layout will not change."
+    },
+    {
+      "type": "checkbox",
+      "id": "flip_layout_desktop",
+      "default": false,
+      "label": "Flip Desktop Layout (text left, image right)",
+      "info": "Only applies when the 50/50 layout is enabled. Swaps the image and text positions on desktop."
     },
     {
       "type": "checkbox",
@@ -555,6 +604,12 @@
     {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
     },
     {
       "type": "select",
