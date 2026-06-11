@@ -17,11 +17,14 @@
         "font_size_mobile": 16,
         "title_color": "#000000",
         "title_font_weight": "400",
+        "title_text_alignment_desktop": "left",
+        "title_text_alignment_mobile": "left",
         "show_collection_description": true,
         "use_alt_description_only": true,
         "description_color": "#000000",
         "show_collection_image": true,
         "enable_5050": true,
+        "flip_layout_desktop": false,
         "make_full_width": false,
         "enable_banner_natural_ratio": false,
         "banner_height_desktop": "400",
@@ -33,6 +36,7 @@
         "banner_overlay": 0,
         "banner_overlay_color": "#000000",
         "banner_overlay_cb": true,
+        "background_color": "#ffffff",
         "color_scheme": "background-1",
         "padding_top_desktop": 30,
         "padding_top_mobile": 0,
@@ -92,13 +96,6 @@
             "title": "Totes"
           }
         },
-        "collection_filter_link_djJjwe": {
-          "type": "collection-filter-link",
-          "settings": {
-            "collection": "clutch",
-            "title": "Clutches"
-          }
-        },
         "collection_filter_link_FB87Lz": {
           "type": "collection-filter-link",
           "settings": {
@@ -126,6 +123,13 @@
             "collection": "view-all",
             "title": "Shop All"
           }
+        },
+        "collection_filter_link_djJjwe": {
+          "type": "collection-filter-link",
+          "settings": {
+            "collection": "mens-collection",
+            "title": "Men's Collection"
+          }
         }
       },
       "block_order": [
@@ -136,11 +140,11 @@
         "collection_filter_link_kPBBCw",
         "collection_filter_link_AkqQNh",
         "collection_filter_link_Yq77Rz",
-        "collection_filter_link_djJjwe",
         "collection_filter_link_FB87Lz",
         "collection_filter_link_prpfV4",
         "collection_filter_link_WN3Lzr",
-        "collection_filter_link_gWD4zW"
+        "collection_filter_link_gWD4zW",
+        "collection_filter_link_djJjwe"
       ],
       "settings": {
         "use_new_filters": true,
@@ -260,11 +264,14 @@
         "font_size_mobile": 26,
         "title_color": "#000000",
         "title_font_weight": "400",
+        "title_text_alignment_desktop": "left",
+        "title_text_alignment_mobile": "left",
         "show_collection_description": true,
         "use_alt_description_only": true,
         "description_color": "#000000",
         "show_collection_image": false,
         "enable_5050": true,
+        "flip_layout_desktop": false,
         "make_full_width": false,
         "enable_banner_natural_ratio": false,
         "banner_height_desktop": "200",
@@ -276,6 +283,7 @@
         "banner_overlay": 0,
         "banner_overlay_color": "#000000",
         "banner_overlay_cb": true,
+        "background_color": "#ffffff",
         "color_scheme": "background-1",
         "padding_top_desktop": 30,
         "padding_top_mobile": 0,
