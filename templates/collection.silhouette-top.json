@@ -13,7 +13,9 @@
       "type": "main-collection-banner",
       "custom_css": [
         ".collection-hero__description {display: none;}",
-        ".page-width.e5050 {padding-bottom: 0 !important;}"
+        "h1.collection-title {text-align: center !important;}",
+        ".page-width.e5050 {padding: 0 !important;}",
+        ".collection-hero__text-wrapper {padding-left: 0 !important;}"
       ],
       "settings": {
         "show_collection_title": true,
@@ -26,6 +28,7 @@
         "description_color": "#000000",
         "show_collection_image": true,
         "enable_5050": true,
+        "swap_desktop_layout": true,
         "make_full_width": false,
         "enable_banner_natural_ratio": false,
         "banner_height_desktop": "400",
@@ -38,6 +41,7 @@
         "banner_overlay_color": "#000000",
         "banner_overlay_cb": true,
         "color_scheme": "background-1",
+        "banner_bg_color": "#f9f8f6",
         "padding_top_desktop": 0,
         "padding_top_mobile": 0,
         "padding_bottom_desktop": 0,
@@ -509,6 +513,7 @@
         "description_color": "#000000",
         "show_collection_image": false,
         "enable_5050": true,
+        "swap_desktop_layout": false,
         "make_full_width": false,
         "enable_banner_natural_ratio": false,
         "banner_height_desktop": "200",
@@ -521,6 +526,7 @@
         "banner_overlay_color": "#000000",
         "banner_overlay_cb": true,
         "color_scheme": "background-1",
+        "banner_bg_color": "",
         "padding_top_desktop": 30,
         "padding_top_mobile": 0,
         "padding_bottom_desktop": 30,

@@ -18,6 +18,7 @@
       padding-top: {{ section.settings.padding_top_mobile }}px;
       padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
       margin-bottom: 0;
+      {% if section.settings.banner_bg_color != blank %}background-color: {{ section.settings.banner_bg_color }};{% endif %}
     }
     #shopify-section-{{ section.id }} .collection-hero__description{
       color: {{ section.settings.description_color }};
@@ -49,7 +50,7 @@
       {% if section.settings.enable_5050 and collection.image != blank %}
         [data-section-id="{{ section.id }}"] .collection-hero__inner.e5050  {
           display: flex;
-          flex-direction: row-reverse;
+          flex-direction: {% if section.settings.swap_desktop_layout %}row{% else %}row-reverse{% endif %};
         }
         [data-section-id="{{ section.id }}"] .page-width.e5050 {
           padding-left: 0 !important;
@@ -321,6 +322,13 @@
     },
     {
       "type": "checkbox",
+      "id": "swap_desktop_layout",
+      "default": false,
+      "label": "Swap Image/Text on Desktop",
+      "info": "Swaps the image and text positions in the 50/50 layout on desktop."
+    },
+    {
+      "type": "checkbox",
       "id": "make_full_width",
       "default": false,
       "label": "Full Width"
@@ -583,6 +591,12 @@
       ],
       "default": "background-1",
       "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "color",
+      "id": "banner_bg_color",
+      "label": "Background Color",
+      "info": "Overrides the color scheme background. Leave blank to use the color scheme default."
     },
     {
       "type": "range",
