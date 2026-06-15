@@ -142,12 +142,12 @@
               data-test-size="{{ product.images.size }}"
               data-recently-viewed-product-json='{
                 "id": {{ product.id }},
-                "title": {{ product.title | json }},
+                "title": {{ product.title | json | replace: "'", "&#39;" }},
                 "handle": {{ product.handle | json }},
-                "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
-                "product_tags": [{% for tag in product.tags%}{{ tag | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],
-                "product_title_type": {{ product_type | json }},
-                "product_title_color_descriptor": {{ product_color | json }},
+                "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
                 "product_size": {{ product_size | json }},
                 "price": {{ product.selected_or_first_available_variant.price }}
               }'
@@ -221,12 +221,12 @@
                 aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
                 data-recently-viewed-product-json='{
                   "id": {{ product.id }},
-                  "title": {{ product.title | json }},
+                  "title": {{ product.title | json | replace: "'", "&#39;" }},
                   "handle": {{ product.handle | json }},
-                  "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
-                  "product_tags": [{% for tag in product.tags%}{{ tag | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],
-                  "product_title_type": {{ product_type | json }},
-                  "product_title_color_descriptor": {{ product_color | json }},
+                  "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                  "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                  "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                  "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
                   "product_size": {{ product_size | json }},
                   "price": {{ product.selected_or_first_available_variant.price }}
                 }'
@@ -300,12 +300,12 @@
                 aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
                 data-recently-viewed-product-json='{
                   "id": {{ product.id }},
-                  "title": {{ product.title | json }},
+                  "title": {{ product.title | json | replace: "'", "&#39;" }},
                   "handle": {{ product.handle | json }},
-                  "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
-                  "product_tags": [{% for tag in product.tags%}{{ tag | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],
-                  "product_title_type": {{ product_type | json }},
-                  "product_title_color_descriptor": {{ product_color | json }},
+                  "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                  "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                  "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                  "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
                   "product_size": {{ product_size | json }},
                   "price": {{ product.selected_or_first_available_variant.price }}
                 }'
@@ -385,12 +385,12 @@
                 aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
                 data-recently-viewed-product-json='{
                   "id": {{ product.id }},
-                  "title": {{ product.title | json }},
+                  "title": {{ product.title | json | replace: "'", "&#39;" }},
                   "handle": {{ product.handle | json }},
-                  "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
-                  "product_tags": [{% for tag in product.tags%}{{ tag | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],
-                  "product_title_type": {{ product_type | json }},
-                  "product_title_color_descriptor": {{ product_color | json }},
+                  "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                  "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                  "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                  "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
                   "product_size": {{ product_size | json }},
                   "price": {{ product.selected_or_first_available_variant.price }}
                 }'
@@ -470,12 +470,12 @@
                 aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
                 data-recently-viewed-product-json='{
                   "id": {{ product.id }},
-                  "title": {{ product.title | json }},
+                  "title": {{ product.title | json | replace: "'", "&#39;" }},
                   "handle": {{ product.handle | json }},
-                  "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
-                  "product_tags": [{% for tag in product.tags%}{{ tag | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],
-                  "product_title_type": {{ product_type | json }},
-                  "product_title_color_descriptor": {{ product_color | json }},
+                  "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                  "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                  "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                  "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
                   "product_size": {{ product_size | json }},
                   "price": {{ product.selected_or_first_available_variant.price }}
                 }'
@@ -550,12 +550,12 @@
                 aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
                 data-recently-viewed-product-json='{
                   "id": {{ product.id }},
-                  "title": {{ product.title | json }},
+                  "title": {{ product.title | json | replace: "'", "&#39;" }},
                   "handle": {{ product.handle | json }},
-                  "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
-                  "product_tags": [{% for tag in product.tags%}{{ tag | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],
-                  "product_title_type": {{ product_type | json }},
-                  "product_title_color_descriptor": {{ product_color | json }},
+                  "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                  "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                  "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                  "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
                   "product_size": {{ product_size | json }},
                   "price": {{ product.selected_or_first_available_variant.price }}
                 }'
@@ -630,12 +630,12 @@
                 aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
                 data-recently-viewed-product-json='{
                   "id": {{ product.id }},
-                  "title": {{ product.title | json }},
+                  "title": {{ product.title | json | replace: "'", "&#39;" }},
                   "handle": {{ product.handle | json }},
-                  "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
-                  "product_tags": [{% for tag in product.tags%}{{ tag | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],
-                  "product_title_type": {{ product_type | json }},
-                  "product_title_color_descriptor": {{ product_color | json }},
+                  "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                  "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                  "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                  "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
                   "product_size": {{ product_size | json }},
                   "price": {{ product.selected_or_first_available_variant.price }}
                 }'
@@ -710,12 +710,12 @@
                 aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
                 data-recently-viewed-product-json='{
                   "id": {{ product.id }},
-                  "title": {{ product.title | json }},
+                  "title": {{ product.title | json | replace: "'", "&#39;" }},
                   "handle": {{ product.handle | json }},
-                  "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
-                  "product_tags": [{% for tag in product.tags%}{{ tag | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],
-                  "product_title_type": {{ product_type | json }},
-                  "product_title_color_descriptor": {{ product_color | json }},
+                  "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                  "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                  "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                  "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
                   "product_size": {{ product_size | json }},
                   "price": {{ product.selected_or_first_available_variant.price }}
                 }'
@@ -790,12 +790,12 @@
                 aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
                 data-recently-viewed-product-json='{
                   "id": {{ product.id }},
-                  "title": {{ product.title | json }},
+                  "title": {{ product.title | json | replace: "'", "&#39;" }},
                   "handle": {{ product.handle | json }},
-                  "featured_image": "{{ product.featured_image | image_url: width: 700 }}",
-                  "product_tags": [{% for tag in product.tags%}{{ tag | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],
-                  "product_title_type": {{ product_type | json }},
-                  "product_title_color_descriptor": {{ product_color | json }},
+                  "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                  "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                  "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                  "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
                   "product_size": {{ product_size | json }},
                   "price": {{ product.selected_or_first_available_variant.price }}
                 }'
