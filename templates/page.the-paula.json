@@ -94,7 +94,7 @@
         "heading_aKDJp4": {
           "type": "heading",
           "settings": {
-            "heading": "The Paula",
+            "heading": "COMING SOON: PAULA CLEAR",
             "heading_size_mobile": 30,
             "heading_size_tablet": 20,
             "heading_size_desktop": 60
@@ -104,11 +104,11 @@
           "type": "text",
           "settings": {
             "text": "",
-            "text_area_html_swap": "<div class=\"footer-container\">\n    <h3>Be the first to know</h3>\n    <div class=\"klaviyo-form-VACENj\"></div>\n</div>",
+            "text_area_html_swap": "Be first to know when our luxe new clear bag launches. <div class=\"footer-container\">\n    <div class=\"klaviyo-form-RYjqPP\"></div>\n</div>",
             "text_style": "body",
-            "text_size_mobile": 18,
-            "text_size_tablet": 18,
-            "text_size_desktop": 18
+            "text_size_mobile": 12,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
           }
         }
       },
@@ -130,7 +130,7 @@
         "video_url_mobile": "",
         "mobile_video_height": "square",
         "image": "shopify://shop_images/new-desktop-paula-banner-lp.gif",
-        "image_2": "shopify://shop_images/paula-banner-mobile.gif",
+        "image_2": "shopify://shop_images/new-desktop-paula-banner-lp_7f971709-bbaf-40ec-b10a-81aa00fc026a.gif",
         "image_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -154,8 +154,65 @@
         "padding_top": 0,
         "padding_bottom": 0,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 36,
+        "padding_bottom_mobile": 20,
         "custom_class": ""
+      }
+    },
+    "rich_text_b8NrXi": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xbYWFF": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "WHILE YOU WAIT",
+            "heading_size": "h1"
+          }
+        },
+        "text_LGtBAY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore some of our most iconic clear bags, as loved by CBS, Travel & Leisure and beyond.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xbYWFF",
+        "text_LGtBAY"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "slider_collection_WRE3iK": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "clear-bags",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 30,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     }
   },
@@ -163,6 +220,8 @@
     "rich_text_TVxR8H",
     "main",
     "slider_collection_w9UPnP",
-    "image_banner_3gmnXq"
+    "image_banner_3gmnXq",
+    "rich_text_b8NrXi",
+    "slider_collection_WRE3iK"
   ]
 }
