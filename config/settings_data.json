@@ -130,6 +130,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_j3AiGj": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>New! Kyle in Italian Nylon and more.</p>",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/new-arrivals"
+            }
+          },
           "announcement_GJD8h6": {
             "type": "announcement",
             "disabled": true,
@@ -140,15 +149,6 @@
               "link": "shopify://collections/new-arrivals"
             }
           },
-          "announcement_Yd7Xnr": {
-            "type": "announcement",
-            "settings": {
-              "text": "<p>Father's Day Gifts</p>",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://collections/mens-collection"
-            }
-          },
           "announcement_Tpxzm9": {
             "type": "announcement",
             "settings": {
@@ -156,6 +156,15 @@
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": ""
+            }
+          },
+          "announcement_Yd7Xnr": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>Father's Day Gifts</p>",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/mens-collection"
             }
           },
           "announcement_CwR3it": {
@@ -179,9 +188,10 @@
           }
         },
         "block_order": [
+          "announcement_j3AiGj",
           "announcement_GJD8h6",
-          "announcement_Yd7Xnr",
           "announcement_Tpxzm9",
+          "announcement_Yd7Xnr",
           "announcement_CwR3it",
           "announcement_a4yGWJ"
         ],
