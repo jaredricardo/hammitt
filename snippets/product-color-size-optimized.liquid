@@ -78,11 +78,123 @@
       assign isShareholder = true
     endif
   endfor
+
+  assign current_size = product.metafields.hammitt.size.value | downcase | strip
+  assign current_subcategory = product.metafields.custom.product_title_size_subcategory | downcase | strip
+  assign initial_variant_group = 'more-colors'
+
+  if current_size == 'mini'
+    assign initial_variant_group = 'mini'
+  elsif current_size == 'small'
+    assign initial_variant_group = 'small'
+  elsif current_size == 'medium' and current_subcategory == 'short strap'
+    assign initial_variant_group = 'medium-short-strap'
+  elsif current_size == 'medium'
+    assign initial_variant_group = 'medium'
+  elsif current_size == 'large'
+    assign initial_variant_group = 'large'
+  elsif current_size == 'extra large'
+    assign initial_variant_group = 'extra-large'
+  elsif current_size == 'shoulder strap'
+    assign initial_variant_group = 'shoulder-strap'
+  elsif current_size == 'long strap'
+    assign initial_variant_group = 'long-strap'
+  elsif current_size == 'one size' or current_size == blank
+    assign initial_variant_group = 'more-colors'
+  endif
+
+  assign has_mini_products = false
+  assign has_small_products = false
+  assign has_medium_products = false
+  assign has_medium_short_strap_products = false
+  assign has_large_products = false
+  assign has_extra_large_products = false
+  assign has_shoulder_strap_products = false
+  assign has_long_strap_products = false
+
+  for colorway_product in colorway_collection
+    if isShareholder == false and colorway_product.metafields.seo.hidden == 1
+      continue
+    endif
+
+    if colorway_product.metafields.custom.hide_product_all_customers == 1
+      continue
+    endif
+
+    assign loop_size = colorway_product.metafields.hammitt.size.value | downcase | strip
+    assign loop_subcategory = colorway_product.metafields.custom.product_title_size_subcategory | downcase | strip
+
+    if loop_size == 'mini'
+      assign has_mini_products = true
+    elsif loop_size == 'small'
+      assign has_small_products = true
+    elsif loop_size == 'medium' and loop_subcategory == 'short strap'
+      assign has_medium_short_strap_products = true
+    elsif loop_size == 'medium'
+      assign has_medium_products = true
+    elsif loop_size == 'large'
+      assign has_large_products = true
+    elsif loop_size == 'extra large'
+      assign has_extra_large_products = true
+    elsif loop_size == 'shoulder strap'
+      assign has_shoulder_strap_products = true
+    elsif loop_size == 'long strap'
+      assign has_long_strap_products = true
+    endif
+  endfor
+
+  assign has_any_size_products = false
+  if has_mini_products or has_small_products or has_medium_products or has_medium_short_strap_products or has_large_products or has_extra_large_products or has_shoulder_strap_products or has_long_strap_products
+    assign has_any_size_products = true
+  endif
+
+  assign initial_group_is_available = false
+  if initial_variant_group == 'mini' and has_mini_products
+    assign initial_group_is_available = true
+  elsif initial_variant_group == 'small' and has_small_products
+    assign initial_group_is_available = true
+  elsif initial_variant_group == 'medium' and has_medium_products
+    assign initial_group_is_available = true
+  elsif initial_variant_group == 'medium-short-strap' and has_medium_short_strap_products
+    assign initial_group_is_available = true
+  elsif initial_variant_group == 'large' and has_large_products
+    assign initial_group_is_available = true
+  elsif initial_variant_group == 'extra-large' and has_extra_large_products
+    assign initial_group_is_available = true
+  elsif initial_variant_group == 'shoulder-strap' and has_shoulder_strap_products
+    assign initial_group_is_available = true
+  elsif initial_variant_group == 'long-strap' and has_long_strap_products
+    assign initial_group_is_available = true
+  elsif initial_variant_group == 'more-colors'
+    assign initial_group_is_available = true
+  endif
+
+  unless initial_group_is_available
+    if has_mini_products
+      assign initial_variant_group = 'mini'
+    elsif has_small_products
+      assign initial_variant_group = 'small'
+    elsif has_medium_products
+      assign initial_variant_group = 'medium'
+    elsif has_medium_short_strap_products
+      assign initial_variant_group = 'medium-short-strap'
+    elsif has_large_products
+      assign initial_variant_group = 'large'
+    elsif has_extra_large_products
+      assign initial_variant_group = 'extra-large'
+    elsif has_shoulder_strap_products
+      assign initial_variant_group = 'shoulder-strap'
+    elsif has_long_strap_products
+      assign initial_variant_group = 'long-strap'
+    else
+      assign initial_variant_group = 'more-colors'
+    endif
+  endunless
 %}
 
 <div class="product-colors color_group color_group_block custom-variant-options colorway-optimized">
   {% comment %} color products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper{% if initial_variant_group == 'more-colors' %} active{% endif %}" data-variant-group="more-colors">
     <div class="custom-variant-title">
       <span>{{ 'MORE COLORS:' | upcase }}</span> 
       {% comment %} {% if current_product_size == null %}
@@ -163,7 +275,7 @@
     </ul>
   </div>
   {% comment %} Mini products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper{% if initial_variant_group == 'mini' %} active{% endif %}" data-variant-group="mini">
       <div class="custom-variant-title">
         <span>{{ 'Mini:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -242,7 +354,7 @@
     </ul>
   </div>
   {% comment %} Small products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper{% if initial_variant_group == 'small' %} active{% endif %}" data-variant-group="small">
       <div class="custom-variant-title">
         <span>{{ 'Small:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -321,7 +433,7 @@
     </ul>
   </div>
   {% comment %} Medium products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper{% if initial_variant_group == 'medium' %} active{% endif %}" data-variant-group="medium">
       <div class="custom-variant-title">
         <span>{{ 'Medium:' | upcase }}</span> 
 
@@ -406,7 +518,7 @@
     </ul>
   </div>
   {% comment %} Medium Short Strap {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper{% if initial_variant_group == 'medium-short-strap' %} active{% endif %}" data-variant-group="medium-short-strap">
     <div class="custom-variant-title">
       <span>{{ 'Medium Short Strap:' | upcase }}</span> 
 
@@ -491,7 +603,7 @@
     </ul>
   </div>
   {% comment %} Large products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper{% if initial_variant_group == 'large' %} active{% endif %}" data-variant-group="large">
       <div class="custom-variant-title">
         <span>{{ 'Large:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -571,7 +683,7 @@
     </ul>
   </div>
   {% comment %} Extra Large products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper{% if initial_variant_group == 'extra-large' %} active{% endif %}" data-variant-group="extra-large">
       <div class="custom-variant-title">
         <span>{{ 'Extra Large:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -651,7 +763,7 @@
     </ul>
   </div>
   {% comment %} Shoulder Strap (short){% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper{% if initial_variant_group == 'shoulder-strap' %} active{% endif %}" data-variant-group="shoulder-strap">
       <div class="custom-variant-title">
         <span>{{ 'Shoulder Strap:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -731,7 +843,7 @@
     </ul>
   </div>
   {% comment %} Long Strap {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper{% if initial_variant_group == 'long-strap' %} active{% endif %}" data-variant-group="long-strap">
       <div class="custom-variant-title">
         <span>{{ 'Long Strap:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -810,6 +922,21 @@
       {%- endfor -%}
     </ul>
   </div>
+
+  {% comment %} This needs to be kept in sync / hard coded to match the existing possible variants in the swapper on page {% endcomment %}
+  <visible-variant-swapper-buttons{% unless has_any_size_products %} hidden{% endunless %}>
+    <span>Size & Color Options</span>
+    <div class="button-area">
+      <button class="inverted-hammitt-button{% unless has_mini_products %} uneeded-button{% endunless %}{% if initial_variant_group == 'mini' and has_mini_products %} active{% endif %}" aria-pressed="{% if initial_variant_group == 'mini' and has_mini_products %}true{% else %}false{% endif %}">Mini</button>
+      <button class="inverted-hammitt-button{% unless has_small_products %} uneeded-button{% endunless %}{% if initial_variant_group == 'small' and has_small_products %} active{% endif %}" aria-pressed="{% if initial_variant_group == 'small' and has_small_products %}true{% else %}false{% endif %}">Small</button>
+      <button class="inverted-hammitt-button{% unless has_medium_products %} uneeded-button{% endunless %}{% if initial_variant_group == 'medium' and has_medium_products %} active{% endif %}" aria-pressed="{% if initial_variant_group == 'medium' and has_medium_products %}true{% else %}false{% endif %}">Medium</button>
+      <button class="inverted-hammitt-button{% unless has_medium_short_strap_products %} uneeded-button{% endunless %}{% if initial_variant_group == 'medium-short-strap' and has_medium_short_strap_products %} active{% endif %}" aria-pressed="{% if initial_variant_group == 'medium-short-strap' and has_medium_short_strap_products %}true{% else %}false{% endif %}">Medium Short Strap</button>
+      <button class="inverted-hammitt-button{% unless has_large_products %} uneeded-button{% endunless %}{% if initial_variant_group == 'large' and has_large_products %} active{% endif %}" aria-pressed="{% if initial_variant_group == 'large' and has_large_products %}true{% else %}false{% endif %}">Large</button>
+      <button class="inverted-hammitt-button{% unless has_extra_large_products %} uneeded-button{% endunless %}{% if initial_variant_group == 'extra-large' and has_extra_large_products %} active{% endif %}" aria-pressed="{% if initial_variant_group == 'extra-large' and has_extra_large_products %}true{% else %}false{% endif %}">Extra Large</button>
+      <button class="inverted-hammitt-button{% unless has_shoulder_strap_products %} uneeded-button{% endunless %}{% if initial_variant_group == 'shoulder-strap' and has_shoulder_strap_products %} active{% endif %}" aria-pressed="{% if initial_variant_group == 'shoulder-strap' and has_shoulder_strap_products %}true{% else %}false{% endif %}">Shoulder Strap</button>
+      <button class="inverted-hammitt-button{% unless has_long_strap_products %} uneeded-button{% endunless %}{% if initial_variant_group == 'long-strap' and has_long_strap_products %} active{% endif %}" aria-pressed="{% if initial_variant_group == 'long-strap' and has_long_strap_products %}true{% else %}false{% endif %}">Long Strap</button>
+    </div>
+  </visible-variant-swapper-buttons>
 
   <script class="hidden" type="application/json" id="data-product-variant-json">
     {

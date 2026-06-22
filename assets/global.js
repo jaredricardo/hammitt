@@ -2267,6 +2267,122 @@ class ReadMoreDescription extends HTMLElement {
 }
 customElements.define('read-more-description', ReadMoreDescription);
 
+class VisibleVariantSwapperButtons extends HTMLElement {
+  connectedCallback() {
+    this.buttonArea = this.querySelector('.button-area');
+    this.buttons = Array.from(this.querySelectorAll('.button-area button'));
+    this.colorwayContainer = this.closest('.colorway-optimized');
+
+    if (!this.buttonArea || !this.buttons.length || !this.colorwayContainer) return;
+
+    this.groupWrappers = Array.from(
+      this.colorwayContainer.querySelectorAll('.variant-picker-group-wrapper')
+    );
+
+    this.buttonGroupPairs = [];
+
+    this.buttons.forEach((button) => {
+      const targetGroup = this.getGroupForButton(button.textContent || '');
+      const groupHasItems = Boolean(targetGroup && targetGroup.querySelector('li'));
+
+      if (!groupHasItems) {
+        button.hidden = true;
+        button.classList.add('is-hidden');
+        return;
+      }
+
+      button.hidden = false;
+      button.classList.remove('is-hidden');
+
+      const onClick = (event) => {
+        event.preventDefault();
+        this.activate(button, targetGroup);
+      };
+
+      button.addEventListener('click', onClick);
+      this.buttonGroupPairs.push({ button, group: targetGroup, onClick });
+    });
+
+    if (!this.buttonGroupPairs.length) {
+      this.hidden = true;
+      this.showFirstAvailableGroup();
+      return;
+    }
+
+    this.hidden = false;
+
+    const groupWithCurrentProduct = this.buttonGroupPairs.find(({ group }) =>
+      group && group.querySelector('li.current-swatch')
+    );
+
+    if (groupWithCurrentProduct) {
+      this.activate(groupWithCurrentProduct.button, groupWithCurrentProduct.group);
+      return;
+    }
+
+    this.activate(this.buttonGroupPairs[0].button, this.buttonGroupPairs[0].group);
+  }
+
+  disconnectedCallback() {
+    if (!this.buttonGroupPairs || !this.buttonGroupPairs.length) return;
+
+    this.buttonGroupPairs.forEach(({ button, onClick }) => {
+      button.removeEventListener('click', onClick);
+    });
+  }
+
+  normalizeTitle(value) {
+    return value
+      .toLowerCase()
+      .replace(/:/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  getGroupForButton(buttonLabel) {
+    const targetTitle = this.normalizeTitle(buttonLabel);
+
+    return this.groupWrappers.find((groupWrapper) => {
+      const titleEl = groupWrapper.querySelector('.custom-variant-title span');
+      if (!titleEl) return false;
+
+      return this.normalizeTitle(titleEl.textContent || '') === targetTitle;
+    });
+  }
+
+  showFirstAvailableGroup() {
+    const firstGroupWithItems = this.groupWrappers.find((groupWrapper) =>
+      groupWrapper.querySelector('li')
+    );
+
+    this.groupWrappers.forEach((groupWrapper) => {
+      groupWrapper.classList.remove('active');
+    });
+
+    if (firstGroupWithItems) {
+      firstGroupWithItems.classList.add('active');
+    }
+  }
+
+  activate(activeButton, activeGroup) {
+    this.groupWrappers.forEach((groupWrapper) => {
+      groupWrapper.classList.remove('active');
+    });
+
+    this.buttonGroupPairs.forEach(({ button }) => {
+      const isActive = button === activeButton;
+      button.classList.toggle('active', isActive);
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    if (activeGroup) {
+      activeGroup.classList.add('active');
+    }
+  }
+}
+
+customElements.define('visible-variant-swapper-buttons', VisibleVariantSwapperButtons);
+
 document.addEventListener('click', function(e) {
   if (e.target.closest('.afterpay-site-modal')) {
     e.preventDefault();
