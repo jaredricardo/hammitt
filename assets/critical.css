@@ -1942,6 +1942,48 @@ pull-notch-button span {
   opacity: 0.5;
 }
 
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .custom-variant-title,
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .custom-variant-list,
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:not(:has(li)) .special-care-tooltip {
+  display: none !important;
+}
+
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper {
+  display: none;
+}
+
+.pdp-hero-section .colorway-optimized .variant-picker-group-wrapper.initial-active {
+  display: block;
+}
+
+.pdp-hero-section .colorway-optimized.colorway-expanded .variant-picker-group-wrapper:has(li) {
+  display: block;
+}
+
+body.pdp-colorway-options-expanded .pdp-hero-section .colorway-optimized .variant-picker-group-wrapper:has(li) {
+  display: block;
+}
+
+pdp-explore-more-colorways {
+  display: block;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  width: max-content;
+}
+
+pdp-explore-more-colorways[hidden] {
+  display: none !important;
+}
+
+.pdp-hero-section .colorway-optimized.colorway-expanded pdp-explore-more-colorways {
+  display: none;
+}
+
+body.pdp-colorway-options-expanded .pdp-hero-section .colorway-optimized pdp-explore-more-colorways {
+  display: none;
+}
+
 .pdp-sfl-spinner {
   display: none;
   align-items: center;

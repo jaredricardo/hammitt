@@ -78,11 +78,35 @@
       assign isShareholder = true
     endif
   endfor
+
+  assign current_size = product.metafields.hammitt.size.value | downcase | strip
+  assign current_subcategory = product.metafields.custom.product_title_size_subcategory | downcase | strip
+  assign initial_variant_group = 'more-colors'
+
+  if current_size == 'mini'
+    assign initial_variant_group = 'mini'
+  elsif current_size == 'small'
+    assign initial_variant_group = 'small'
+  elsif current_size == 'medium' and current_subcategory == 'short strap'
+    assign initial_variant_group = 'medium-short-strap'
+  elsif current_size == 'medium'
+    assign initial_variant_group = 'medium'
+  elsif current_size == 'large'
+    assign initial_variant_group = 'large'
+  elsif current_size == 'extra large'
+    assign initial_variant_group = 'extra-large'
+  elsif current_size == 'shoulder strap'
+    assign initial_variant_group = 'shoulder-strap'
+  elsif current_size == 'long strap'
+    assign initial_variant_group = 'long-strap'
+  elsif current_size == 'one size' or current_size == blank
+    assign initial_variant_group = 'more-colors'
+  endif
 %}
 
 <div class="product-colors color_group color_group_block custom-variant-options colorway-optimized">
   {% comment %} color products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper group-more-colors{% if initial_variant_group == 'more-colors' %} initial-active{% endif %}" data-variant-group="more-colors">
     <div class="custom-variant-title">
       <span>{{ 'MORE COLORS:' | upcase }}</span> 
       {% comment %} {% if current_product_size == null %}
@@ -163,7 +187,7 @@
     </ul>
   </div>
   {% comment %} Mini products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper group-mini{% if initial_variant_group == 'mini' %} initial-active{% endif %}" data-variant-group="mini">
       <div class="custom-variant-title">
         <span>{{ 'Mini:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -242,7 +266,7 @@
     </ul>
   </div>
   {% comment %} Small products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper group-small{% if initial_variant_group == 'small' %} initial-active{% endif %}" data-variant-group="small">
       <div class="custom-variant-title">
         <span>{{ 'Small:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -321,7 +345,7 @@
     </ul>
   </div>
   {% comment %} Medium products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper group-medium{% if initial_variant_group == 'medium' %} initial-active{% endif %}" data-variant-group="medium">
       <div class="custom-variant-title">
         <span>{{ 'Medium:' | upcase }}</span> 
 
@@ -406,7 +430,7 @@
     </ul>
   </div>
   {% comment %} Medium Short Strap {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper group-medium-short-strap{% if initial_variant_group == 'medium-short-strap' %} initial-active{% endif %}" data-variant-group="medium-short-strap">
     <div class="custom-variant-title">
       <span>{{ 'Medium Short Strap:' | upcase }}</span> 
 
@@ -491,7 +515,7 @@
     </ul>
   </div>
   {% comment %} Large products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper group-large{% if initial_variant_group == 'large' %} initial-active{% endif %}" data-variant-group="large">
       <div class="custom-variant-title">
         <span>{{ 'Large:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -571,7 +595,7 @@
     </ul>
   </div>
   {% comment %} Extra Large products {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper group-extra-large{% if initial_variant_group == 'extra-large' %} initial-active{% endif %}" data-variant-group="extra-large">
       <div class="custom-variant-title">
         <span>{{ 'Extra Large:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -651,7 +675,7 @@
     </ul>
   </div>
   {% comment %} Shoulder Strap (short){% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper group-shoulder-strap{% if initial_variant_group == 'shoulder-strap' %} initial-active{% endif %}" data-variant-group="shoulder-strap">
       <div class="custom-variant-title">
         <span>{{ 'Shoulder Strap:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -731,7 +755,7 @@
     </ul>
   </div>
   {% comment %} Long Strap {% endcomment %}
-  <div class="variant-picker-group-wrapper">
+  <div class="variant-picker-group-wrapper group-long-strap{% if initial_variant_group == 'long-strap' %} initial-active{% endif %}" data-variant-group="long-strap">
       <div class="custom-variant-title">
         <span>{{ 'Long Strap:' | upcase }}</span> 
         {% if on_special_leather %}
@@ -810,6 +834,10 @@
       {%- endfor -%}
     </ul>
   </div>
+
+  <pdp-explore-more-colorways>
+    Explore more size & color
+  </pdp-explore-more-colorways>
 
   <script class="hidden" type="application/json" id="data-product-variant-json">
     {
