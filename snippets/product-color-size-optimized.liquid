@@ -931,7 +931,7 @@
 
     {% comment %} This needs to be kept in sync / hard coded to match the existing possible variants in the swapper on page {% endcomment %}
     <visible-variant-swapper-buttons{% unless has_any_size_products %} hidden{% endunless %}>
-      <span>Size & Color Options</span>
+      <span>Size</span>
       <div class="button-area">
         <button class="inverted-hammitt-button{% unless has_mini_products %} uneeded-button{% endunless %}{% if initial_variant_group == 'mini' and has_mini_products %} active{% endif %}" aria-pressed="{% if initial_variant_group == 'mini' and has_mini_products %}true{% else %}false{% endif %}">Mini</button>
         <button class="inverted-hammitt-button{% unless has_small_products %} uneeded-button{% endunless %}{% if initial_variant_group == 'small' and has_small_products %} active{% endif %}" aria-pressed="{% if initial_variant_group == 'small' and has_small_products %}true{% else %}false{% endif %}">Small</button>
