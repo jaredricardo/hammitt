@@ -28,7 +28,7 @@
       "settings": {
         "section_bg_color": "#fffbf8",
         "media_type": "video",
-        "video": "shopify://files/videos/current-season-vid.mp4",
+        "video": "shopify://files/videos/Cargo_16x9-no-logo.mp4",
         "text_align": "center",
         "text_vertical_align": "bottom",
         "text_horizontal_align": "center",
@@ -37,7 +37,7 @@
         "text_horizontal_align_mobile": "center",
         "show_secondary_image": true,
         "image_ratio": "adapt",
-        "title": "Summer Collection",
+        "title": "Cargo Nylon Collection",
         "make_h1": true,
         "subtitle": "",
         "desktop_font_size": 42,
@@ -47,9 +47,33 @@
         "description_color": "",
         "button": "Shop All New Arrivals",
         "button_enable": true,
-        "link": "shopify://collections/new-arrivals",
+        "link": "shopify://collections/heiress-collection",
         "button_text_color": "#000000",
         "button_bg_color": "#ffffff"
+      }
+    },
+    "slider_collection_tKdRHn": {
+      "type": "slider-collection",
+      "name": "nylon widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "heiress-collection",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     },
     "image_banner_Pg7Y6R": {
@@ -891,6 +915,7 @@
   "order": [
     "main",
     "home_hero_section_hrMDbk",
+    "slider_collection_tKdRHn",
     "image_banner_Pg7Y6R",
     "slider_collection_LPbdVn",
     "image_banner_maC68H",
