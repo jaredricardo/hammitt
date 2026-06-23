@@ -90,6 +90,85 @@
         "custom_class": ""
       }
     },
+    "image_banner_DqQ6dX": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_jHUJQw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Top Items to Buy First",
+            "heading_size_mobile": 22,
+            "heading_size_tablet": 26,
+            "heading_size_desktop": 46
+          }
+        },
+        "text_XBmRPr": {
+          "type": "text",
+          "settings": {
+            "text": "Your Hammitt journey starts here. These are everyone’s the most faves bags.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
+        "buttons_LQ9rxh": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Bestsellers",
+            "button_link_1": "shopify://collections/bestsellers",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_jHUJQw",
+        "text_XBmRPr",
+        "buttons_LQ9rxh"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12924.jpg",
+        "image_2": "shopify://shop_images/mobile-bestsellers.gif",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
     "image_banner_kB3X4W": {
       "type": "image-banner",
       "blocks": {
@@ -1434,6 +1513,7 @@
   "order": [
     "main",
     "image_banner_MMGtjM",
+    "image_banner_DqQ6dX",
     "image_banner_kB3X4W",
     "image_banner_fwqGph",
     "slider_collection_KhBtXH",
