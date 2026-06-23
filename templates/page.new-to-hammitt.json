@@ -442,29 +442,6 @@
         "stars_image": "shopify://shop_images/stars_3.png"
       }
     },
-    "slider_collection_y3eNmL": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "Kyle: Most Loved Bag",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "kyle",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
     "multicolumn_4HmxhC": {
       "type": "multicolumn",
       "blocks": {
@@ -524,7 +501,7 @@
         "column_c3wpEi"
       ],
       "settings": {
-        "title": "Trending Now",
+        "title": "Shop by Category",
         "title_color": "#040404",
         "heading_size": "h1",
         "paragraph": "",
@@ -697,29 +674,6 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
-      }
-    },
-    "slider_collection_DBxcaE": {
-      "type": "slider-collection",
-      "settings": {
-        "title": "Our New Arrivals",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
       }
     },
     "multicolumn_PTMEAP": {
@@ -1707,6 +1661,39 @@
         "padding_bottom_mobile": 0,
         "custom_class": ""
       }
+    },
+    "jr_new_5050_product_list_xiALKN": {
+      "type": "jr-new-5050-product-list",
+      "name": "JR Product List & Image",
+      "settings": {
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
+        "title": "As Seen On",
+        "padding_bottom_desktop": 0,
+        "padding_bottom_mobile": 0,
+        "allow_sold_out_cards": false,
+        "product_list": [
+          "charlotte-sml-crossbody-huntington-garden-gold",
+          "tom-zip-hobo-cocoa-raffia-gold",
+          "paul-mini-bag-charm-noir-smooth-raffia-gunmetal",
+          "erica-sml-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+          "meredith-sml-shoulder-bag-cabana-blue-brushed-gold",
+          "lax-intl-duffel-black-brushed-gold-red-zip"
+        ],
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "image": "shopify://shop_images/Group_12929.jpg",
+        "image_alignment_desktop": "image-left",
+        "image_alignment_mobile": "image-top",
+        "button_link": "",
+        "button_text": "Shop Now",
+        "button_text_color": "#FFFFFF",
+        "button_background_color": "#000000",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -1717,10 +1704,8 @@
     "slider_collection_KhBtXH",
     "image_with_text_mreJHp",
     "jr_customer_reviews_xtfbfq",
-    "slider_collection_y3eNmL",
     "multicolumn_4HmxhC",
     "multicolumn_BYFj4t",
-    "slider_collection_DBxcaE",
     "multicolumn_PTMEAP",
     "multicolumn_MHKEVA",
     "multicolumn_W3KHwQ",
@@ -1729,6 +1714,7 @@
     "image_with_text_JgEBga",
     "value_props_iRGRjp",
     "multicolumn_GLkzy8",
-    "image_banner_kB3X4W"
+    "image_banner_kB3X4W",
+    "jr_new_5050_product_list_xiALKN"
   ]
 }
