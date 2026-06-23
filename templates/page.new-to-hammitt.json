@@ -1508,6 +1508,128 @@
         "padding_bottom_mobile": 36,
         "custom_class": ""
       }
+    },
+    "jr_scrolling_text_PhTibR": {
+      "type": "jr-scrolling-text",
+      "blocks": {
+        "text_QcVhb3": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/Cosmopolitan-logo.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_TnJDaY": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/elle-logo.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_zHj7a4": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/ok-mag.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_iiwTip": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/Brides-logo.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_NAKmkR": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/TravelLeisure-logo.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_L4L6FP": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/glamour-logo.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_TkHm3H": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/Instyle-logo.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_ExEyWK": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/e-logo.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_MRCRhj": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/RollingStone-logo.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_EBgLr4": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/Rectangle_657_1.jpg",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_gfrJ7W": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/usweekly.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        }
+      },
+      "block_order": [
+        "text_QcVhb3",
+        "text_TnJDaY",
+        "text_zHj7a4",
+        "text_iiwTip",
+        "text_NAKmkR",
+        "text_L4L6FP",
+        "text_TkHm3H",
+        "text_ExEyWK",
+        "text_MRCRhj",
+        "text_EBgLr4",
+        "text_gfrJ7W"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 768px) {scrolling-text {padding: 20px 0; } .announcement--icon {width: 100px; }}"
+      ],
+      "name": "JR Scrolling Text",
+      "settings": {
+        "text_margin": 35,
+        "enabled": true,
+        "icon_max_width": 105,
+        "padding_y": 30,
+        "home-page-only": true,
+        "bg_color": "#FFFFFF",
+        "color": "#fff",
+        "alternative-color": true,
+        "speed": 30,
+        "align_icons_row": false
+      }
     }
   },
   "order": [
@@ -1528,6 +1650,7 @@
     "image_with_text_mreJHp",
     "multicolumn_W3KHwQ",
     "value_props_iRGRjp",
-    "multicolumn_GLkzy8"
+    "multicolumn_GLkzy8",
+    "jr_scrolling_text_PhTibR"
   ]
 }
