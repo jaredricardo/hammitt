@@ -49,7 +49,6 @@
         "heading_Vzgbb7",
         "text_TKEhyN"
       ],
-      "disabled": true,
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -214,7 +213,7 @@
         "enabled": true,
         "icon_max_width": 105,
         "padding_y": 30,
-        "home-page-only": true,
+        "home-page-only": false,
         "bg_color": "#ffffff",
         "color": "#fff",
         "alternative-color": true,
@@ -237,7 +236,7 @@
         "text_XBmRPr": {
           "type": "text",
           "settings": {
-            "text": "Your Hammitt journey starts here. These are everyone’s the most faves bags.",
+            "text": "Your Hammitt journey starts here.These are everyone’s the most faves bags.",
             "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 12,
@@ -439,7 +438,11 @@
       "name": "JR Customer Reviews",
       "settings": {
         "background_color": "#ffffff",
-        "text_color": "#000000"
+        "text_color": "#000000",
+        "header": "Top Rated Bags",
+        "url": "shopify://collections/all-products",
+        "url_text": "Shop All",
+        "stars_image": "shopify://shop_images/Group_12933.png"
       }
     },
     "jr_new_5050_product_list_xiALKN": {

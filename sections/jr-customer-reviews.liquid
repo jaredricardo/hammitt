@@ -14,6 +14,14 @@
 
 <div data-section-id="{{ section.id }}">
     <div class="jr-customer-reviews page-width">
+        <div class="top-area">
+            {% if section.settings.header %}
+                <h2>{{ section.settings.header }}</h2>
+            {% endif %}
+            {% if section.settings.url %}
+                <a href="{{ section.settings.url }}">{{ section.settings.url_text }}</a>
+            {% endif %}
+        </div>
         <div class="swiper-reviews">
             <div class="reviews-container swiper-wrapper">
                 {% for block in section.blocks %}
@@ -22,8 +30,7 @@
                             <a href="{{ product.url }}" class="review-card swiper-slide">
                         {% else %}
                             <div class="review-card swiper-slide">
-                    {% endif %}
-
+                        {% endif %}
                             <div class="review-card-inner">
                                 <div class="card-img-container">
                                     {{ block.settings.review_image | image_url: width: 500 | image_tag }}
@@ -60,13 +67,13 @@
         const swiper = new Swiper(sectionSwiper, {
             autoHeight: false,
             speed: 400,
-            spaceBetween: 20,
-            slidesPerView: 1.7,
+            spaceBetween: 8,
+            slidesPerView: 1.2,
             centeredSlides: false,
             breakpoints: {
                 768: {
-                    slidesPerView: 4.5,
-                    spaceBetween: 30,
+                    slidesPerView: 4,
+                    spaceBetween: 12,
                 }
             },
             scrollbar: {
@@ -97,6 +104,23 @@
                 "id": "text_color",
                 "label": "Text Color",
                 "default": "#000000"
+            },
+            {
+                "type": "text",
+                "id": "header",
+                "label": "Header",
+                "default": "Customer Reviews"
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "URL (optional)",
+            },
+            {
+                "type": "text",
+                "id": "url_text",
+                "label": "URL Text",
+                "default": "Shop All"
             },
             {
                 "type": "image_picker",
