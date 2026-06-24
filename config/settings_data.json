@@ -130,15 +130,6 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
-          "announcement_j3AiGj": {
-            "type": "announcement",
-            "settings": {
-              "text": "<p>New! Kyle in Italian Nylon and more.</p>",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://collections/new-arrivals"
-            }
-          },
           "announcement_Tpxzm9": {
             "type": "announcement",
             "settings": {
@@ -146,6 +137,15 @@
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": ""
+            }
+          },
+          "announcement_j3AiGj": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>New! Kyle in Italian Nylon and more.</p>",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/new-arrivals"
             }
           },
           "announcement_CwR3it": {
@@ -192,16 +192,26 @@
               "background_color": "#000000",
               "link": "shopify://collections/clutch"
             }
+          },
+          "announcement_6y3BpK": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>Wallets & Bag Accessories</p>",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/wallets"
+            }
           }
         },
         "block_order": [
-          "announcement_j3AiGj",
           "announcement_Tpxzm9",
+          "announcement_j3AiGj",
           "announcement_CwR3it",
           "announcement_xWwEgK",
           "announcement_C9rBq3",
           "announcement_4HNtgD",
-          "announcement_3Cm3kw"
+          "announcement_3Cm3kw",
+          "announcement_6y3BpK"
         ],
         "custom_css": [],
         "settings": {
