@@ -130,15 +130,6 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
-          "announcement_j3AiGj": {
-            "type": "announcement",
-            "settings": {
-              "text": "<p>New! Kyle in Italian Nylon and more.</p>",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://collections/new-arrivals"
-            }
-          },
           "announcement_Tpxzm9": {
             "type": "announcement",
             "settings": {
@@ -146,6 +137,15 @@
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": ""
+            }
+          },
+          "announcement_j3AiGj": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p>Shoulder Bags and Satchels</p>",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/satchel-shoulder-bag"
             }
           },
           "announcement_CwR3it": {
@@ -159,8 +159,8 @@
           }
         },
         "block_order": [
-          "announcement_j3AiGj",
           "announcement_Tpxzm9",
+          "announcement_j3AiGj",
           "announcement_CwR3it"
         ],
         "custom_css": [],
