@@ -75,14 +75,14 @@
   }
   
   /* On hover when scrolled, return to default colors */
-  #shopify-section-header .header--transparent.header--scrolled:hover .header__desktop-search {
+  #shopify-section-header .header--transparent.header--scrolled:hover .header__desktop-search,
+  #shopify-section-header .header--transparent.header--scrolled:hover .yotpo-rewards-count {
     color: inherit;
     transition: color 300ms ease !important;
   }
   
   /* Keep bubble counts white on hover */
-  #shopify-section-header .header--transparent.header--scrolled:hover .cart-count-bubble,
-  #shopify-section-header .header--transparent.header--scrolled:hover .yotpo-rewards-count {
+  #shopify-section-header .header--transparent.header--scrolled:hover .cart-count-bubble {
     color: white !important;
     transition: color 300ms ease !important;
   }
