@@ -4390,31 +4390,39 @@ minty-fresh-filter-input:has([name="filter.v.availability"][value="0"]),
   overflow: hidden;
 }
 
+.jr-customer-reviews h2 {
+  font-family: "Adobe Carlson Pro" !important;
+  font-size: 26px !important;
+  margin-bottom: 1.5rem;
+}
+
 
 .jr-customer-reviews .card-img-container img {
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/5;
   max-width: 100%;
   height: 100%;
   width: 100%;
   vertical-align: bottom;
+  object-fit: cover;
 }
 
 .jr-customer-reviews .star-img-container img {
   width: 100%;
   height: 100%;
-  max-width: 110px;
+  max-width: 78px;
 }
 
 .jr-customer-reviews .star-img-container {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+  line-height: 1.5;
 }
 
 .jr-customer-reviews .review-card-inner {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   cursor: drag;
 }
 
@@ -4425,22 +4433,44 @@ minty-fresh-filter-input:has([name="filter.v.availability"][value="0"]),
 .jr-customer-reviews .review-content h3 {
   font-weight: 500;
   line-height: 22px;
-  margin: 0.5rem 0;
+  font-size: 20px !important;
+  margin: 0 0 1.25rem 0;
+  font-style: italic;
+  font-family: "Adobe Carlson Pro" !important;
 }
 
 .jr-customer-reviews .review-content p {
   font-weight: 400;
   line-height: 120%;
   margin: 0.25rem 0;
+  font-size: 13px !important;
 }
 
 .jr-customer-reviews .review-content h5 {
   font-weight: 500;
-  margin: 0.5rem 0;
+  margin: 1rem 0 0.5rem 0;
+  font-size: 13px !important;
+  color: #555555;
+}
+
+.jr-customer-reviews .reviews-container {
+  padding-bottom: 1.5rem;
 }
 
 .jr-customer-reviews .swiper-scrollbar {
   height: 4px;
+}
+
+.jr-customer-reviews .top-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jr-customer-reviews .top-area a {
+  color: black;
+  text-decoration: underline;
+  font-size: 15px !important;
 }
 
 .jr-customer-reviews .swiper-scrollbar-drag {
@@ -4475,8 +4505,9 @@ minty-fresh-filter-input:has([name="filter.v.availability"][value="0"]),
   .jr-customer-reviews .review-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  }
+  .jr-customer-reviews h2 {
+    text-align: center;
   }
 }
 
