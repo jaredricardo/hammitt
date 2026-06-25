@@ -526,28 +526,43 @@
         }
         
         @media screen and (min-width: 768px) {
-          /* Show default logo by default, hide inverted */
-          .header__logo--inverted {
+          {% if section.settings.transparent_homepage and template == 'index' %}
+          /* On load (transparent state), show inverted logo and hide default */
+          .header__logo--default {
             display: none;
           }
           
-          /* When scrolled (transparent state), show inverted logo */
-          .header-wrapper.header--scrolled .header__logo--default {
+          .header__logo--inverted {
+            display: inline-block;
+          }
+          
+          /* On hover before scroll, show default logo and hide inverted */
+          .header-wrapper:not(.header--scrolled):hover .header__logo--default {
+            display: inline-block;
+          }
+          
+          .header-wrapper:not(.header--scrolled):hover .header__logo--inverted {
             display: none;
+          }
+          
+          /* After scrolling (white background), show default logo and hide inverted */
+          .header-wrapper.header--scrolled .header__logo--default {
+            display: inline-block;
           }
           
           .header-wrapper.header--scrolled .header__logo--inverted {
-            display: inline-block;
-          }
-          
-          /* On hover when scrolled, show default logo again */
-          .header-wrapper.header--scrolled:hover .header__logo--default {
-            display: inline-block;
-          }
-          
-          .header-wrapper.header--scrolled:hover .header__logo--inverted {
             display: none;
           }
+          {% else %}
+          /* On non-homepage pages, always show default logo */
+          .header__logo--default {
+            display: inline-block;
+          }
+          
+          .header__logo--inverted {
+            display: none;
+          }
+          {% endif %}
         }
         
         @media screen and (max-width: 749px) {
