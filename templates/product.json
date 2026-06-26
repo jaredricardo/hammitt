@@ -606,7 +606,6 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "disabled": true,
       "settings": {
         "heading": "More in this Collection",
         "heading_size": "h1",
@@ -631,8 +630,8 @@
       "type": "slider-collection-with-rv",
       "name": "Slider Collection + Recently Viewed",
       "settings": {
-        "tab1_title": "You May Also Like",
-        "tab2_title": "Recently Viewed",
+        "tab1_title": "Featured Collection",
+        "tab2_title": "Featured Collection",
         "collection": "trending",
         "max_products": 10,
         "show_secondary_image": true,
