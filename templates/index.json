@@ -79,6 +79,39 @@
         "slide_xgJEpe": {
           "type": "slide",
           "settings": {
+            "background_video_desktop": "shopify://files/videos/Wide_shot_of_a_tranquil_outdoo_Kling_30__71881.mp4",
+            "background_video_mobile": "shopify://files/videos/Wide_shot_of_a_tranquil_outdoo_Kling_30__31659.mp4",
+            "heading_tag": "h1",
+            "heading_copy": "Summer Favorite",
+            "custom_html": "",
+            "heading_size_mobile": 24,
+            "heading_size_desktop": 46,
+            "heading_font": "default",
+            "subheader_tag": "p",
+            "subheader": "The perfect neutral for all your summer outfits.",
+            "subheader_size_mobile": 13,
+            "subheader_size_desktop": 15,
+            "subheader_font": "default",
+            "text_color": "#ffffff",
+            "button_text": "SHOP NOW",
+            "button_link": "shopify://collections/calla-lily-white",
+            "button_size_mobile": 12,
+            "button_size_desktop": 13,
+            "button_text_color": "#ffffff",
+            "button_bg_color": "rgba(0,0,0,0)",
+            "button_border_color": "#ffffff",
+            "button_border_width": 1,
+            "button_border_radius": 0,
+            "background_color": "#ffffff",
+            "overlay_opacity": 0,
+            "content_position": "bottom",
+            "content_alignment_desktop": "center",
+            "subcopy_text_align": "center"
+          }
+        },
+        "slide_YX4xMe": {
+          "type": "slide",
+          "settings": {
             "background_video_desktop": "shopify://files/videos/Cargo_16x9-no-logo.mp4",
             "heading_tag": "h1",
             "heading_copy": "Effortless Utility",
@@ -144,6 +177,7 @@
       "block_order": [
         "slide_B6A7aF",
         "slide_xgJEpe",
+        "slide_YX4xMe",
         "slide_eMnF39"
       ],
       "name": "Upgraded Hero Banner",
@@ -634,7 +668,7 @@
             "hide_quick_add": false
           }
         },
-        "image_carousel_item_yUfUmz": {
+        "image_carousel_item_xHHU7t": {
           "type": "image-carousel-item",
           "name": "Calypso Suede",
           "settings": {
@@ -644,6 +678,24 @@
             "subcopy": "From weekend getaways to everyday commutes, these cargo-inspired silhouettes are built for the journey.",
             "button_text": "Shop Now",
             "collection_url": "travel",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_RCPV8A": {
+          "type": "image-carousel-item",
+          "name": "Calla Lily White",
+          "settings": {
+            "image": "shopify://shop_images/0Calla_Lily_White_Kyle_-_9x16_-_Amon.jpg",
+            "eyebrow": "The Bright Side",
+            "title": "Calla Lily White",
+            "subcopy": "Crisp white hue. Soft pebbled leather. The perfect summer sidekick has never been more polished.",
+            "button_text": "SHOP Now",
+            "collection_url": "calla-lily-white-1",
             "enable_image_as_link_out": true,
             "max_products": 10,
             "hide_price": false,
@@ -831,29 +883,12 @@
             "hide_subtitle": false,
             "hide_quick_add": false
           }
-        },
-        "image_carousel_item_RCPV8A": {
-          "type": "image-carousel-item",
-          "name": "Calla Lily White",
-          "settings": {
-            "image": "shopify://shop_images/0Calla_Lily_White_Kyle_-_9x16_-_Amon.jpg",
-            "eyebrow": "The Bright Side",
-            "title": "Calla Lily White",
-            "subcopy": "Crisp white hue. Soft pebbled leather. The perfect summer sidekick has never been more polished.",
-            "button_text": "SHOP Now",
-            "collection_url": "calla-lily-white-1",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
         }
       },
       "block_order": [
         "image_carousel_item_ApNxyT",
-        "image_carousel_item_yUfUmz",
+        "image_carousel_item_xHHU7t",
+        "image_carousel_item_RCPV8A",
         "image_carousel_item_prJC3r",
         "image_carousel_item_jCcAeD",
         "image_carousel_item_RyXzpx",
@@ -863,8 +898,7 @@
         "image_carousel_item_46iAtM",
         "image_carousel_item_QwxQ3j",
         "image_carousel_item_3kt837",
-        "image_carousel_item_by7dVy",
-        "image_carousel_item_RCPV8A"
+        "image_carousel_item_by7dVy"
       ],
       "custom_css": [
         ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
