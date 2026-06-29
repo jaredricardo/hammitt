@@ -1850,7 +1850,7 @@ window.addEventListener('load', () => {
         document.querySelector('#shopify-section-header').style.setProperty('--announcement-sticky', `${announcementContent.offsetHeight}px`);
       }
     }
-  }, 3000);
+  }, 1000);
 });
 
 window.addEventListener("resize", () => {
