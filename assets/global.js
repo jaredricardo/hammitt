@@ -1832,12 +1832,25 @@ if(window.transparentHeader) {
 
 }
 
-if(window.announcementSticky) {
+// Wait for full page load to ensure header has reached final size
+window.addEventListener('load', () => {
+  if(window.announcementSticky) {
     let announcementContent = document.getElementById('shopify-section-announcement-bar');
     if(announcementContent) {
       document.querySelector('#shopify-section-header').style.setProperty('--announcement-sticky', `${announcementContent.offsetHeight}px`);
     }
-}
+  }
+  
+  // Recalculate after 3 seconds to account for any delayed asset loading
+  setTimeout(() => {
+    if(window.announcementSticky) {
+      let announcementContent = document.getElementById('shopify-section-announcement-bar');
+      if(announcementContent) {
+        document.querySelector('#shopify-section-header').style.setProperty('--announcement-sticky', `${announcementContent.offsetHeight}px`);
+      }
+    }
+  }, 1000);
+});
 
 window.addEventListener("resize", () => {
   if(window.announcementSticky) {

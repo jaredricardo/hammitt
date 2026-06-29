@@ -1,49 +1,391 @@
-#shopify-section-header,
-#shopify-section-header .header--transparent {
-  background: transparent !important;
-  transition: all .3s ease;
-  border-bottom: 0 !important;
-}
-#MainContent {
-  margin-top: -97px;
-}
-
-#shopify-section-header:not(:hover) .header--invert-colors .header__desktop-search,
-#shopify-section-header:not(:hover) .header--invert-colors .cart-count-bubble {
-  color: white;
-  transition: all .3s ease;
-}
-
-#shopify-section-header:not(:hover) .header--invert-colors #Search-In-Header {
-  border-color: white;
-  color: white;
-  transition: all .3s ease;
-}
-
-  #shopify-section-header:hover {
-    transition: all .3s ease;
-    background: var(--color-bg) !important;
+@media screen and (min-width: 768px) {
+  /* Clear any inherited transitions first - exclude cart-drawer */
+  #shopify-section-header .header--transparent svg *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .header__icon svg *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .header__icon .icon *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .modal__toggle-open *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .modal__toggle-close *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .icon-search *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .icon-cart *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *) {
+    transition: none !important;
+  }
+  
+  /* Aggressively clear modal toggle transitions that might be inherited - exclude cart-drawer */
+  #shopify-section-header .header--transparent .modal__toggle:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .modal__toggle *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .modal__toggle svg:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .modal__toggle svg *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent details-modal:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent details-modal *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *) {
+    transition: none !important;
+  }
+  
+  /* Ensure all SVGs have transitions in default state - exclude cart-drawer */
+  #shopify-section-header .header--transparent .header__icon--account svg,
+  #shopify-section-header .header--transparent .header__icon--account svg path,
+  #shopify-section-header .header--transparent a.nav-wishlist-button svg,
+  #shopify-section-header .header--transparent a.nav-wishlist-button svg path,
+  #shopify-section-header .header--transparent svg:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent svg path:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *) {
+    transition: fill 300ms ease !important;
+  }
+  
+  /* Explicitly set search icon transition after clearing inherited ones - exclude cart-drawer */
+  #shopify-section-header .header--transparent .modal__toggle svg:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .modal__toggle svg *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .modal__toggle-open:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .modal__toggle-open *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .icon-search:not(cart-drawer *):not(.cart-drawer *),
+  #shopify-section-header .header--transparent .icon-search *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *) {
+    transition: fill 300ms ease !important;
+  }
+  
+  /* On load, header is transparent with white text/icons */
+  #shopify-section-header,
+  #shopify-section-header .header--transparent {
+    background: transparent !important;
+    transition: background 300ms ease !important;
+  }
+  
+  /* On hover before scroll, show white background */
+  #shopify-section-header:not(.header--scrolled):hover,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover {
+    background: rgb(var(--color-background)) !important;
+    transition: background 300ms ease !important;
+  }
+  
+  /* After scrolling past threshold, return to white background with black text/icons */
+  #shopify-section-header.header--scrolled,
+  #shopify-section-header .header--transparent.header--scrolled {
+    background: rgb(var(--color-background)) !important;
+    transition: background 300ms ease !important;
+  }
+  
+  #MainContent {
+    margin-top: -97px;
   }
 
-
-#shopify-section-header:not(:hover) .header--invert-colors .header__link--rewards,
-#shopify-section-header:not(:hover) .header--invert-colors .header__menu-item {
-  color: white !important;
-  transition: all .3s ease;
-}
-
-#shopify-section-header:not(:hover) .header--invert-colors .icon-logo g,
-#shopify-section-header:not(:hover) .header--invert-colors .header__icon svg,
-#shopify-section-header:not(:hover) .header--invert-colors .icon-search-path,
-#shopify-section-header:not(:hover) .header--invert-colors .icon-search {
-  fill: #ffffff !important;
-  transition: all .3s ease;
-}
-
-#shopify-section-header:not(:hover) .header--invert-colors .icon-hamburger path {
-  stroke: #ffffff !important;
-}
-
-@media screen and (max-width: 749px) {
+  /* On load - white text and icons */
+  #shopify-section-header .header--transparent .header__desktop-search,
+  #shopify-section-header .header--transparent .cart-count-bubble,
+  #shopify-section-header .header--transparent .yotpo-rewards-count {
+    color: white;
+    transition: color 300ms ease !important;
+  }
   
+  /* On hover before scroll - black text */
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .header__desktop-search,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .yotpo-rewards-count {
+    color: inherit;
+    transition: color 300ms ease !important;
+  }
+  
+  /* Keep cart bubble white on hover before scroll */
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .cart-count-bubble {
+    color: white !important;
+    transition: color 300ms ease !important;
+  }
+  
+  /* After scrolling - return to default colors */
+  #shopify-section-header .header--transparent.header--scrolled .header__desktop-search,
+  #shopify-section-header .header--transparent.header--scrolled .yotpo-rewards-count {
+    color: inherit;
+    transition: color 300ms ease !important;
+  }
+  
+  /* Keep cart bubble white after scroll */
+  #shopify-section-header .header--transparent.header--scrolled .cart-count-bubble {
+    color: white !important;
+    transition: color 300ms ease !important;
+  }
+  
+
+
+  /* On load - white search input */
+  #shopify-section-header .header--transparent #Search-In-Header {
+    border-color: white;
+    color: white;
+    transition: border-color 300ms ease, color 300ms ease !important;
+  }
+  
+  /* On hover before scroll - default search input */
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover #Search-In-Header {
+    border-color: inherit;
+    color: inherit;
+    transition: border-color 300ms ease, color 300ms ease !important;
+  }
+  
+  /* After scrolling - return search input to default */
+  #shopify-section-header .header--transparent.header--scrolled #Search-In-Header {
+    border-color: inherit;
+    color: inherit;
+    transition: border-color 300ms ease, color 300ms ease !important;
+  }
+
+  /* On load - white menu items */
+  #shopify-section-header .header--transparent .header__link--rewards,
+  #shopify-section-header .header--transparent .header__menu-item {
+    color: white !important;
+    transition: color 300ms ease !important;
+  }
+  
+  /* On hover before scroll - default menu items */
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .header__link--rewards,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .header__menu-item {
+    color: inherit !important;
+    transition: color 300ms ease !important;
+  }
+  
+  /* After scrolling - return menu items to default */
+  #shopify-section-header .header--transparent.header--scrolled .header__link--rewards,
+  #shopify-section-header .header--transparent.header--scrolled .header__menu-item {
+    color: inherit !important;
+    transition: color 300ms ease !important;
+  }
+
+  /* All SVGs white on load (before scroll) - exclude cart-drawer */
+  #shopify-section-header .header--transparent:not(.header--scrolled) svg:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled) svg path:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled) svg g:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled) svg circle:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled) svg rect:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled) svg polygon:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled) svg polyline:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-logo g,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .header__icon svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .header__icon svg *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .header__icon .icon,  
+  #shopify-section-header .header--transparent:not(.header--scrolled) .header__icon .icon *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-search,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-search *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-cart,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-cart *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-account,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-account *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-account path,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-clock,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-clock *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .nav-wishlist-button svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .nav-wishlist-button svg *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .nav-wishlist-button svg path,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .nav-wishlist-button .heart-empty path,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .recently-viewed-button svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .recently-viewed-button svg * {
+    fill: #ffffff !important;
+    transition: fill 300ms ease !important;
+  }
+  
+  /* On hover before scroll - black SVGs */
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover svg:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover svg path:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover svg g:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover svg circle:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover svg rect:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover svg polygon:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover svg polyline:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-logo g,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .header__icon svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .header__icon svg *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .header__icon .icon,  
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .header__icon .icon *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-search,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-search *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-cart,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-cart *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-account,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-account *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-account path,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-clock,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-clock *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .nav-wishlist-button svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .nav-wishlist-button svg *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .nav-wishlist-button svg path,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .nav-wishlist-button .heart-empty path,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .recently-viewed-button svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .recently-viewed-button svg * {
+    fill: #000000 !important;
+    transition: fill 300ms ease !important;
+  }
+  
+  /* All SVGs black after scroll - exclude cart-drawer */
+  #shopify-section-header .header--transparent.header--scrolled svg:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent.header--scrolled svg path:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent.header--scrolled svg g:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent.header--scrolled svg circle:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent.header--scrolled svg rect:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent.header--scrolled svg polygon:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent.header--scrolled svg polyline:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+  #shopify-section-header .header--transparent.header--scrolled .icon-logo g,
+  #shopify-section-header .header--transparent.header--scrolled .header__icon svg,
+  #shopify-section-header .header--transparent.header--scrolled .header__icon svg *,
+  #shopify-section-header .header--transparent.header--scrolled .header__icon .icon,  
+  #shopify-section-header .header--transparent.header--scrolled .header__icon .icon *,
+  #shopify-section-header .header--transparent.header--scrolled .icon-search,
+  #shopify-section-header .header--transparent.header--scrolled .icon-search *,
+  #shopify-section-header .header--transparent.header--scrolled .icon-cart,
+  #shopify-section-header .header--transparent.header--scrolled .icon-cart *,
+  #shopify-section-header .header--transparent.header--scrolled .icon-account,
+  #shopify-section-header .header--transparent.header--scrolled .icon-account *,
+  #shopify-section-header .header--transparent.header--scrolled .icon-account path,
+  #shopify-section-header .header--transparent.header--scrolled .icon-clock,
+  #shopify-section-header .header--transparent.header--scrolled .icon-clock *,
+  #shopify-section-header .header--transparent.header--scrolled .nav-wishlist-button svg,
+  #shopify-section-header .header--transparent.header--scrolled .nav-wishlist-button svg *,
+  #shopify-section-header .header--transparent.header--scrolled .nav-wishlist-button svg path,
+  #shopify-section-header .header--transparent.header--scrolled .nav-wishlist-button .heart-empty path,
+  #shopify-section-header .header--transparent.header--scrolled .recently-viewed-button svg,
+  #shopify-section-header .header--transparent.header--scrolled .recently-viewed-button svg * {
+    fill: #000000 !important;
+    transition: fill 300ms ease !important;
+  }
+  
+  /* Cart icon bubble - white on load */
+  #shopify-section-header .header--transparent:not(.header--scrolled) #cart-icon-bubble svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled) #cart-icon-bubble svg * {
+    fill: #ffffff !important;
+    transition: fill 300ms ease !important;
+  }
+  
+  /* Cart icon bubble - black on hover before scroll */
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover #cart-icon-bubble svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover #cart-icon-bubble svg * {
+    fill: #000000 !important;
+    transition: fill 300ms ease !important;
+  }
+  
+  /* Cart icon bubble - black after scroll */
+  #shopify-section-header .header--transparent.header--scrolled #cart-icon-bubble svg,
+  #shopify-section-header .header--transparent.header--scrolled #cart-icon-bubble svg * {
+    fill: #000000 !important;
+    transition: fill 300ms ease !important;
+  }
+  
+  /* Account icon and heart - white on load */
+  #shopify-section-header .header--transparent:not(.header--scrolled) .header__icon--account svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .header__icon--account svg path,
+  #shopify-section-header .header--transparent:not(.header--scrolled) a.nav-wishlist-button svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled) a.nav-wishlist-button svg path {
+    fill: #ffffff !important;
+    transition: fill 300ms ease !important;
+  }
+  
+  /* Account icon and heart - black on hover before scroll */
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .header__icon--account svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .header__icon--account svg path,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover a.nav-wishlist-button svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover a.nav-wishlist-button svg path {
+    fill: #000000 !important;
+    transition: fill 300ms ease !important;
+  }
+  
+  /* Account icon and heart - black after scroll */
+  #shopify-section-header .header--transparent.header--scrolled .header__icon--account svg,
+  #shopify-section-header .header--transparent.header--scrolled .header__icon--account svg path,
+  #shopify-section-header .header--transparent.header--scrolled a.nav-wishlist-button svg,
+  #shopify-section-header .header--transparent.header--scrolled a.nav-wishlist-button svg path {
+    fill: #000000 !important;
+    transition: fill 300ms ease !important;
+  }
+  
+  /* Force search icon - white on load */
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-search,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-search *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-search svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-search svg *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .modal__toggle .icon-search,
+  #shopify-section-header .header--transparent:not(.header--scrolled) .modal__toggle .icon-search * {
+    fill: #ffffff !important;
+    transition: fill 300ms ease !important;
+    transition-duration: 300ms !important;
+  }
+  
+  /* Force search icon - black on hover before scroll */
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-search,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-search *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-search svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-search svg *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .modal__toggle .icon-search,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .modal__toggle .icon-search * {
+    fill: #000000 !important;
+    transition: fill 300ms ease !important;
+    transition-duration: 300ms !important;
+  }
+  
+  /* Force search icon - black after scroll */
+  #shopify-section-header .header--transparent.header--scrolled .icon-search,
+  #shopify-section-header .header--transparent.header--scrolled .icon-search *,
+  #shopify-section-header .header--transparent.header--scrolled .icon-search svg,
+  #shopify-section-header .header--transparent.header--scrolled .icon-search svg *,
+  #shopify-section-header .header--transparent.header--scrolled .modal__toggle .icon-search,
+  #shopify-section-header .header--transparent.header--scrolled .modal__toggle .icon-search * {
+    fill: #000000 !important;
+    transition: fill 300ms ease !important;
+    transition-duration: 300ms !important;
+  }
+  
+  /* Force cart icon - white on load */
+  #shopify-section-header .header--transparent:not(.header--scrolled) #cart-icon-bubble,
+  #shopify-section-header .header--transparent:not(.header--scrolled) #cart-icon-bubble *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) #cart-icon-bubble svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled) #cart-icon-bubble svg *,
+  #shopify-section-header .header--transparent:not(.header--scrolled) #cart-icon-bubble .icon-cart,
+  #shopify-section-header .header--transparent:not(.header--scrolled) #cart-icon-bubble .icon-cart * {
+    fill: #ffffff !important;
+    transition: fill 300ms ease !important;
+    transition-duration: 300ms !important;
+  }
+  
+  /* Force cart icon - black on hover before scroll */
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover #cart-icon-bubble,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover #cart-icon-bubble *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover #cart-icon-bubble svg,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover #cart-icon-bubble svg *,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover #cart-icon-bubble .icon-cart,
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover #cart-icon-bubble .icon-cart * {
+    fill: #000000 !important;
+    transition: fill 300ms ease !important;
+    transition-duration: 300ms !important;
+  }
+  
+  /* Force cart icon - black after scroll */
+  #shopify-section-header .header--transparent.header--scrolled #cart-icon-bubble,
+  #shopify-section-header .header--transparent.header--scrolled #cart-icon-bubble *,
+  #shopify-section-header .header--transparent.header--scrolled #cart-icon-bubble svg,
+  #shopify-section-header .header--transparent.header--scrolled #cart-icon-bubble svg *,
+  #shopify-section-header .header--transparent.header--scrolled #cart-icon-bubble .icon-cart,
+  #shopify-section-header .header--transparent.header--scrolled #cart-icon-bubble .icon-cart * {
+    fill: #000000 !important;
+    transition: fill 300ms ease !important;
+    transition-duration: 300ms !important;
+  }
+  
+  /* Hamburger icon - white on load */
+  #shopify-section-header .header--transparent:not(.header--scrolled) .icon-hamburger path {
+    stroke: #ffffff !important;
+    transition: stroke 300ms ease !important;
+  }
+  
+  /* Hamburger icon - black on hover before scroll */
+  #shopify-section-header .header--transparent:not(.header--scrolled):hover .icon-hamburger path {
+    stroke: #000000 !important;
+    transition: stroke 300ms ease !important;
+  }
+  
+  /* Hamburger icon - black after scroll */
+  #shopify-section-header .header--transparent.header--scrolled .icon-hamburger path {
+    stroke: #000000 !important;
+    transition: stroke 300ms ease !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* Disable transparent header on mobile */
+  #shopify-section-header,
+  #shopify-section-header .header--transparent {
+    background: var(--color-bg) !important;
+  }
+  
+  #MainContent {
+    margin-top: 0;
+  }
 }

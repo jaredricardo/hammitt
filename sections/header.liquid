@@ -510,7 +510,10 @@
       {%- endif -%}
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" data-acsb-clickable="true"  data-acsb-navigable="true" data-acsb-now-navigable="true">
             <span class="acsb-sr-only" dataacsb-sr-only="true" data-acsb-force-visible="true" aria-hidden="false" data-acsbhidden="false">
-              <img src="{{ section.settings.logo | img_url: 'master' }}" alt="{{ shop.name }}" class="header__logo" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
+              <img src="{{ section.settings.logo | img_url: 'master' }}" alt="{{ shop.name }}" class="header__logo header__logo--default" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
+              {% if section.settings.logo_inverted and section.settings.transparent_homepage and template == 'index' %}
+                <img src="{{ section.settings.logo_inverted | img_url: 'master' }}" alt="{{ shop.name }}" class="header__logo header__logo--inverted" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
+              {% endif %}
             </span>
           </a>
       {%- if request.page_type == 'index' -%}
@@ -522,10 +525,54 @@
           height: auto;
         }
         
+        @media screen and (min-width: 768px) {
+          {% if section.settings.transparent_homepage and template == 'index' %}
+          /* On load (transparent state), show inverted logo and hide default */
+          .header__logo--default {
+            display: none;
+          }
+          
+          .header__logo--inverted {
+            display: inline-block;
+          }
+          
+          /* On hover before scroll, show default logo and hide inverted */
+          .header-wrapper:not(.header--scrolled):hover .header__logo--default {
+            display: inline-block;
+          }
+          
+          .header-wrapper:not(.header--scrolled):hover .header__logo--inverted {
+            display: none;
+          }
+          
+          /* After scrolling (white background), show default logo and hide inverted */
+          .header-wrapper.header--scrolled .header__logo--default {
+            display: inline-block;
+          }
+          
+          .header-wrapper.header--scrolled .header__logo--inverted {
+            display: none;
+          }
+          {% else %}
+          /* On non-homepage pages, always show default logo */
+          .header__logo--default {
+            display: inline-block;
+          }
+          
+          .header__logo--inverted {
+            display: none;
+          }
+          {% endif %}
+        }
+        
         @media screen and (max-width: 749px) {
           .icon-logo,
           .header__logo {
             width: {{ section.settings.logo__mobile_width }}px;
+          }
+          
+          .header__logo--inverted {
+            display: none !important;
           }
         }
       </style>
@@ -826,20 +873,66 @@
   
   {% if template == 'index' and section.settings.transparent_homepage %}
   <script type="text/javascript">
-    let firstSection = document.querySelector('.shopify-section');
-    let headerWrapper = document.querySelector('.header-wrapper');
-  
-    let observer = new IntersectionObserver((entries, observer) => { 
-      entries.forEach(entry => {
-        if(entry.intersectionRatio <= 0){
-          headerWrapper.classList.remove('header--transparent'{% if section.settings.invert_colors %},'header--invert-colors'{% endif %});
-        } else {
-          headerWrapper.classList.add('header--transparent'{% if section.settings.invert_colors %},'header--invert-colors'{% endif %});
+    (function() {
+      // Only run on desktop (>768px)
+      if (window.innerWidth <= 768) {
+        return;
+      }
+      
+      const headerWrapper = document.querySelector('.header-wrapper');
+      const headerSection = document.getElementById('shopify-section-header');
+      const announcementBar = document.getElementById('shopify-section-announcement-bar');
+      
+      let scrollThreshold = 0;
+      
+      function calculateScrollThreshold() {
+        const announcementHeight = announcementBar ? announcementBar.offsetHeight : 0;
+        const headerHeight = headerSection ? headerSection.offsetHeight : 0;
+        scrollThreshold = announcementHeight + headerHeight;
+      }
+      
+      function handleScroll() {
+        // Double check we're still on desktop
+        if (window.innerWidth <= 768) {
+          headerWrapper.classList.remove('header--scrolled');
+          headerSection.classList.remove('header--scrolled');
+          return;
         }
+        
+        const scrollPosition = window.scrollY || window.pageYOffset;
+        
+        // REVERSED: Add header--scrolled class (transparent) AFTER scrolling past threshold
+        if (scrollPosition > scrollThreshold) {
+          headerWrapper.classList.add('header--scrolled');
+          headerSection.classList.add('header--scrolled');
+        } else {
+          headerWrapper.classList.remove('header--scrolled');
+          headerSection.classList.remove('header--scrolled');
+        }
+      }
+      
+      // Calculate initial threshold
+      calculateScrollThreshold();
+      
+      // Handle scroll
+      window.addEventListener('scroll', handleScroll);
+      
+      // Recalculate on resize and check if still desktop
+      window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+          headerWrapper.classList.remove('header--scrolled');
+          headerSection.classList.remove('header--scrolled');
+          return;
+        }
+        calculateScrollThreshold();
+        handleScroll();
       });
-    }, { threshold: [0,0.5,1] });
-    observer.observe(firstSection);
-    window.transparentHeader = true;
+      
+      // Run once on load
+      handleScroll();
+      
+      window.transparentHeader = true;
+    })();
   </script>
   {% endif %}
   <script type="text/javascript">
@@ -1053,6 +1146,11 @@
         "type": "image_picker",
         "id": "logo",
         "label": "t:sections.header.settings.logo.label"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_inverted",
+        "label": "inverted logo (for transparent header)"
       },
       {
         "type": "range",
