@@ -1845,7 +1845,6 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     if(window.announcementSticky) {
       let announcementContent = document.getElementById('shopify-section-announcement-bar');
-      console.log(announcementContent.offsetHeight)
       if(announcementContent) {
         document.querySelector('#shopify-section-header').style.setProperty('--announcement-sticky', `${announcementContent.offsetHeight}px`);
       }
