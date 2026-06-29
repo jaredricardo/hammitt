@@ -226,9 +226,14 @@ class CombinedProductRecommendations extends HTMLElement {
     this._showSecondaryImage = this.dataset.showSecondaryImage === 'true';
     this._populated = false;
     this._swiperInited = false;
+    this._swiperInstance = null;
     
     // Fetch recommendations on load
     this._fetchRecommendations();
+    
+    // Listen for variant swap events
+    this._boundHandleVariantSwap = this._handleVariantSwap.bind(this);
+    document.addEventListener('pdp:variant-swapped', this._boundHandleVariantSwap);
   }
 
   _fetchRecommendations() {
@@ -284,11 +289,52 @@ class CombinedProductRecommendations extends HTMLElement {
       // observer + observeParents: Swiper auto-recalculates when needed
       config.observer = true;
       config.observeParents = true;
-      new Swiper(this, config);
+      this._swiperInstance = new Swiper(this, config);
       this._swiperInited = true;
     } catch (e) {
       console.error('CombinedProductRecommendations: Swiper init failed', e);
     }
+  }
+  
+  _handleVariantSwap(event) {
+    // Extract new product ID from the event detail
+    const newProductId = event.detail?.productId;
+    if (!newProductId) {
+      console.warn('CombinedProductRecommendations: No product ID found in event detail');
+      return;
+    }
+    
+    console.log('CombinedProductRecommendations: Reloading with product ID:', newProductId);
+    
+    // Update the data-url with new product ID
+    const baseUrl = this.dataset.url.split('?')[0];
+    const urlParams = new URLSearchParams(this.dataset.url.split('?')[1]);
+    urlParams.set('product_id', newProductId);
+    this.dataset.url = `${baseUrl}?${urlParams.toString()}`;
+    
+    // Destroy existing swiper if it exists
+    if (this._swiperInstance && typeof this._swiperInstance.destroy === 'function') {
+      this._swiperInstance.destroy(true, true);
+      this._swiperInstance = null;
+    }
+    
+    // Clear the wrapper
+    const wrapper = this.querySelector('.swiper-wrapper');
+    if (wrapper) {
+      wrapper.innerHTML = '';
+    }
+    
+    // Reset flags
+    this._populated = false;
+    this._swiperInited = false;
+    
+    // Fetch new recommendations
+    this._fetchRecommendations();
+  }
+  
+  disconnectedCallback() {
+    // Clean up event listener when element is removed
+    document.removeEventListener('pdp:variant-swapped', this._boundHandleVariantSwap);
   }
 }
 
