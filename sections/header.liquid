@@ -525,45 +525,43 @@
           height: auto;
         }
         
-        @media screen and (min-width: 768px) {
-          {% if section.settings.transparent_homepage and template == 'index' %}
-          /* On load (transparent state), show inverted logo and hide default */
-          .header__logo--default {
-            display: none;
-          }
-          
-          .header__logo--inverted {
-            display: inline-block;
-          }
-          
-          /* On hover before scroll, show default logo and hide inverted */
-          .header-wrapper:not(.header--scrolled):hover .header__logo--default {
-            display: inline-block;
-          }
-          
-          .header-wrapper:not(.header--scrolled):hover .header__logo--inverted {
-            display: none;
-          }
-          
-          /* After scrolling (white background), show default logo and hide inverted */
-          .header-wrapper.header--scrolled .header__logo--default {
-            display: inline-block;
-          }
-          
-          .header-wrapper.header--scrolled .header__logo--inverted {
-            display: none;
-          }
-          {% else %}
-          /* On non-homepage pages, always show default logo */
-          .header__logo--default {
-            display: inline-block;
-          }
-          
-          .header__logo--inverted {
-            display: none;
-          }
-          {% endif %}
+        {% if section.settings.transparent_homepage and template == 'index' %}
+        /* On load (transparent state), show inverted logo and hide default */
+        .header__logo--default {
+          display: none;
         }
+        
+        .header__logo--inverted {
+          display: inline-block;
+        }
+        
+        /* On hover before scroll, show default logo and hide inverted */
+        .header-wrapper:not(.header--scrolled):hover .header__logo--default {
+          display: inline-block;
+        }
+        
+        .header-wrapper:not(.header--scrolled):hover .header__logo--inverted {
+          display: none;
+        }
+        
+        /* After scrolling (white background), show default logo and hide inverted */
+        .header-wrapper.header--scrolled .header__logo--default {
+          display: inline-block;
+        }
+        
+        .header-wrapper.header--scrolled .header__logo--inverted {
+          display: none;
+        }
+        {% else %}
+        /* On non-homepage pages, always show default logo */
+        .header__logo--default {
+          display: inline-block;
+        }
+        
+        .header__logo--inverted {
+          display: none;
+        }
+        {% endif %}
         
         @media screen and (max-width: 749px) {
           .icon-logo,
@@ -571,9 +569,13 @@
             width: {{ section.settings.logo__mobile_width }}px;
           }
           
+          {% if section.settings.transparent_homepage and template == 'index' %}
+          /* Allow inverted logo on mobile transparent homepage */
+          {% else %}
           .header__logo--inverted {
             display: none !important;
           }
+          {% endif %}
         }
       </style>
       {%- if section.settings.menu != blank -%}
@@ -874,11 +876,6 @@
   {% if template == 'index' and section.settings.transparent_homepage %}
   <script type="text/javascript">
     (function() {
-      // Only run on desktop (>768px)
-      if (window.innerWidth <= 768) {
-        return;
-      }
-      
       const headerWrapper = document.querySelector('.header-wrapper');
       const headerSection = document.getElementById('shopify-section-header');
       const announcementBar = document.getElementById('shopify-section-announcement-bar');
@@ -892,13 +889,6 @@
       }
       
       function handleScroll() {
-        // Double check we're still on desktop
-        if (window.innerWidth <= 768) {
-          headerWrapper.classList.remove('header--scrolled');
-          headerSection.classList.remove('header--scrolled');
-          return;
-        }
-        
         const scrollPosition = window.scrollY || window.pageYOffset;
         
         // REVERSED: Add header--scrolled class (transparent) AFTER scrolling past threshold
@@ -917,13 +907,8 @@
       // Handle scroll
       window.addEventListener('scroll', handleScroll);
       
-      // Recalculate on resize and check if still desktop
-      window.addEventListener('resize', function() {
-        if (window.innerWidth <= 768) {
-          headerWrapper.classList.remove('header--scrolled');
-          headerSection.classList.remove('header--scrolled');
-          return;
-        }
+// Recalculate on resize
+    window.addEventListener('resize', function() {
         calculateScrollThreshold();
         handleScroll();
       });
