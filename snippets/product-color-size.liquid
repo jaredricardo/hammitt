@@ -95,6 +95,7 @@
             <div class="image customSwatch">
               <a 
                 href="{{ product.url }}" 
+                data-product-id="{{ product.id }}"
                 data-product-title="{{ product.title }}" 
                 data-sku="{{ product.selected_or_first_available_variant.sku }}"
                 data-product-img="{{ product.featured_image | img_url: 'medium' }}"
@@ -239,7 +240,7 @@
               {% assign sml = true %}{% assign smalls_colors_list = smalls_colors_list | plus: 1 %}
               <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
                 <div class="image customSwatch">
-                  <a href="{{ product.url }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
+                  <a href="{{ product.url }}" data-product-id="{{ product.id }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
                     {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
                   </a>
                 </div>
@@ -290,7 +291,7 @@
               {% assign med = true %}{% assign meds_colors_list = meds_colors_list | plus: 1 %}
               <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
                 <div class="image customSwatch">
-                  <a href="{{ product.url }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
+                  <a href="{{ product.url }}" data-product-id="{{ product.id }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
                     {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
                   </a>
                 </div>
@@ -345,7 +346,7 @@
               {% assign lrg = true %}{% assign lrgs_colors_list = lrgs_colors_list | plus: 1 %}
               <li class="swiper-slide" data-tooltip="{{ reltitle[1] }}">
                 <div class="image customSwatch">
-                  <a href="{{ product.url }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
+                  <a href="{{ product.url }}" data-product-id="{{ product.id }}" aria-label="{{ reltitle[1] }}" class="swatch_image-a">
                     {{ product.featured_image | image_url: width: 80 | image_url: height: 80 | image_tag: preload: true }}
                   </a>
                 </div>

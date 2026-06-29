@@ -1149,6 +1149,7 @@ const productSwatchReload = () => {
       const productSKU = event.currentTarget.getAttribute('data-sku');
       const productTitle = event.currentTarget.getAttribute('data-product-title');
       const productImage = event.currentTarget.getAttribute('data-product-img');
+      const newProductId = event.currentTarget.getAttribute('data-product-id');
       const recentlyViewedJson = card.dataset.recentlyViewedProductJson ? JSON.parse(card.dataset.recentlyViewedProductJson) : null
 
       // record recetly viewed json
@@ -1173,22 +1174,6 @@ const productSwatchReload = () => {
       .then(data => { 
         var parser = new DOMParser();
         var doc = parser.parseFromString(data,'text/html');
-        
-        // Extract product ID from the fetched HTML before updating DOM
-        let newProductId = null;
-        const scriptTags = doc.querySelectorAll('script:not([src])');
-        for (let script of scriptTags) {
-          const match = script.textContent.match(/window\.productJSON\s*=\s*({[^;]+})/);
-          if (match) {
-            try {
-              const productData = JSON.parse(match[1]);
-              newProductId = productData.id;
-              break;
-            } catch (e) {
-              console.warn('Failed to parse product ID from fetched HTML', e);
-            }
-          }
-        }
         
         elementsToUpdate.forEach(el => {
           const currentEl = document.querySelector(el);
@@ -1215,7 +1200,7 @@ const productSwatchReload = () => {
         document.dispatchEvent(new CustomEvent('pdp:variant-swapped', {
           detail: { 
             productURL: productURL,
-            productId: newProductId || (window.productJSON ? window.productJSON.id : null)
+            productId: newProductId
           }
         }));
       }).finally(() => {

@@ -300,11 +300,8 @@ class CombinedProductRecommendations extends HTMLElement {
     // Extract new product ID from the event detail
     const newProductId = event.detail?.productId;
     if (!newProductId) {
-      console.warn('CombinedProductRecommendations: No product ID found in event detail');
       return;
     }
-    
-    console.log('CombinedProductRecommendations: Reloading with product ID:', newProductId);
     
     // Update the data-url with new product ID
     const baseUrl = this.dataset.url.split('?')[0];
