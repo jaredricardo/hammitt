@@ -1840,6 +1840,17 @@ window.addEventListener('load', () => {
       document.querySelector('#shopify-section-header').style.setProperty('--announcement-sticky', `${announcementContent.offsetHeight}px`);
     }
   }
+  
+  // Recalculate after 3 seconds to account for any delayed asset loading
+  setTimeout(() => {
+    if(window.announcementSticky) {
+      let announcementContent = document.getElementById('shopify-section-announcement-bar');
+      console.log(announcementContent.offsetHeight)
+      if(announcementContent) {
+        document.querySelector('#shopify-section-header').style.setProperty('--announcement-sticky', `${announcementContent.offsetHeight}px`);
+      }
+    }
+  }, 3000);
 });
 
 window.addEventListener("resize", () => {
