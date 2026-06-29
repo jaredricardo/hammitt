@@ -2280,6 +2280,72 @@ class ReadMoreDescription extends HTMLElement {
 }
 customElements.define('read-more-description', ReadMoreDescription);
 
+class PdpExploreMoreColorways extends HTMLElement {
+  static expandedBodyClass = 'pdp-colorway-options-expanded';
+
+  connectedCallback() {
+    this.colorwayContainer = this.closest('.colorway-optimized');
+    if (!this.colorwayContainer) return;
+
+    this.groupWrappers = Array.from(
+      this.colorwayContainer.querySelectorAll('.variant-picker-group-wrapper')
+    );
+    this.availableGroups = this.groupWrappers.filter((groupWrapper) => groupWrapper.querySelector('li'));
+
+    if (this.availableGroups.length <= 1) {
+      this.hidden = true;
+      return;
+    }
+
+    this.setAttribute('role', 'button');
+    this.setAttribute('tabindex', '0');
+    this.setAttribute('aria-expanded', 'false');
+
+    const shouldStayExpanded = this.shouldStartExpanded();
+    if (shouldStayExpanded) {
+      this.expandOptions();
+    }
+
+    this.onExpand = () => {
+      this.expandOptions();
+    };
+
+    this.onKeydown = (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      this.onExpand();
+    };
+
+    this.addEventListener('click', this.onExpand);
+    this.addEventListener('keydown', this.onKeydown);
+  }
+
+  disconnectedCallback() {
+    if (this.onExpand) {
+      this.removeEventListener('click', this.onExpand);
+    }
+
+    if (this.onKeydown) {
+      this.removeEventListener('keydown', this.onKeydown);
+    }
+  }
+
+  shouldStartExpanded() {
+    return document.body.classList.contains(PdpExploreMoreColorways.expandedBodyClass);
+  }
+
+  expandOptions() {
+    if (!this.colorwayContainer.classList.contains('colorway-expanded')) {
+      this.colorwayContainer.classList.add('colorway-expanded');
+    }
+
+    this.setAttribute('aria-expanded', 'true');
+    document.body.classList.add(PdpExploreMoreColorways.expandedBodyClass);
+  }
+}
+
+customElements.define('pdp-explore-more-colorways', PdpExploreMoreColorways);
+
 document.addEventListener('click', function(e) {
   if (e.target.closest('.afterpay-site-modal')) {
     e.preventDefault();
