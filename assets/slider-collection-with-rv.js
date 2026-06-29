@@ -214,3 +214,82 @@ class CombinedRecentlyViewed extends HTMLElement {
 }
 
 customElements.define('combined-recently-viewed', CombinedRecentlyViewed);
+
+// Product Recommendations custom element for combined slider section
+class CombinedProductRecommendations extends HTMLElement {
+  connectedCallback() {
+    this._imageRatio = this.dataset.imageRatio || 'adapt';
+    this._hidePrice = this.dataset.hidePrice === 'true';
+    this._hideTag = this.dataset.hideTag === 'true';
+    this._hideSubtitle = this.dataset.hideSubtitle === 'true';
+    this._hideQuickAdd = this.dataset.hideQuickAdd === 'true';
+    this._showSecondaryImage = this.dataset.showSecondaryImage === 'true';
+    this._populated = false;
+    this._swiperInited = false;
+    
+    // Fetch recommendations on load
+    this._fetchRecommendations();
+  }
+
+  _fetchRecommendations() {
+    const url = this.dataset.url;
+    if (!url) {
+      console.warn('CombinedProductRecommendations: No data-url provided');
+      return;
+    }
+
+    fetch(url)
+      .then(response => response.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        
+        // Extract product cards from the response
+        const productCards = doc.querySelectorAll('.swiper-slide');
+        
+        if (!productCards || productCards.length === 0) {
+          console.warn('CombinedProductRecommendations: No products found');
+          return;
+        }
+
+        // Insert cards into the swiper wrapper
+        const wrapper = this.querySelector('.swiper-wrapper');
+        productCards.forEach(card => {
+          wrapper.appendChild(card.cloneNode(true));
+        });
+
+        this._populated = true;
+        
+        // Initialize lazy loading for images
+        if (typeof lazyImages === 'function') {
+          lazyImages();
+        }
+        
+        // Initialize the swiper
+        this._initSwiper();
+      })
+      .catch(error => {
+        console.error('CombinedProductRecommendations: Fetch failed', error);
+      });
+  }
+
+  _initSwiper() {
+    if (this._swiperInited || !this._populated) return;
+    
+    const jsonStr = this.dataset.json;
+    if (!jsonStr) return;
+    
+    try {
+      const config = JSON.parse(jsonStr);
+      // observer + observeParents: Swiper auto-recalculates when needed
+      config.observer = true;
+      config.observeParents = true;
+      new Swiper(this, config);
+      this._swiperInited = true;
+    } catch (e) {
+      console.error('CombinedProductRecommendations: Swiper init failed', e);
+    }
+  }
+}
+
+customElements.define('combined-product-recommendations', CombinedProductRecommendations);

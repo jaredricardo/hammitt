@@ -114,6 +114,48 @@
 <div class="combined-slider-section section-wrap section-{{ section.id }}-padding">
   <div class="">
 
+    {% comment %} When fetched via AJAX for product recommendations, only render the products {% endcomment %}
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+      {%- liquid
+        assign isShareholder = false
+        for tag in customer.tags
+          if tag == 'shareholder'
+            assign isShareholder = true
+          endif
+        endfor
+      -%}
+      
+      {%- for recommendation in recommendations.products -%}
+        {%- if isShareholder == false and recommendation.metafields.seo.hidden == 1 -%}
+          {%- continue -%}
+        {%- endif -%}
+        
+        {%- liquid
+          assign isPreOrderProduct = false
+          for tag in recommendation.tags
+            if tag == "ee-pre-order"
+              assign isPreOrderProduct = true
+            endif
+          endfor
+        -%}
+        
+        <div id="block-{{ recommendation.id }}" class="swiper-slide">
+          {%- render 'card-product',
+            card_product: recommendation,
+            show_secondary_image: section.settings.show_secondary_image,
+            media_aspect_ratio: section.settings.image_ratio,
+            hide_price: section.settings.hide_price,
+            hide_tag: section.settings.hide_tag,
+            hide_subtitle: section.settings.hide_subtitle,
+            hide_quick_add: section.settings.hide_quick_add,
+            isPreOrderProduct: isPreOrderProduct
+          -%}
+        </div>
+      {%- endfor -%}
+      
+    {% else %}
+      {% comment %} Normal page load - render the full UI {% endcomment %}
+
     <ul class="combined-slider__tabs">
       <li class="tab-item active">
         <button type="button" data-href="collection">{{ section.settings.tab1_title | default: 'You May Also Like' }}</button>
@@ -123,37 +165,24 @@
       </li>
     </ul>
 
-    <!-- Collection panel (default active) -->
+    <!-- Product Recommendations panel (default active) -->
     <div data-panel="collection">
       <div class="section-productgrid-wrap">
-        <div class="swiper" data-json='{{ sc_json }}'>
-          <div class="section-productgrid swiper-wrapper">
-            {% for product in section.settings.collection.products limit: section.settings.max_products %}
-              {%- liquid
-                assign isPreOrderProduct = false
-                for tag in product.tags
-                  if tag == "ee-pre-order"
-                    assign isPreOrderProduct = true
-                  endif
-                endfor
-              -%}
-              <div id="block-{{ product.id }}" class="swiper-slide">
-                {%- render 'card-product',
-                  card_product: product,
-                  show_secondary_image: section.settings.show_secondary_image,
-                  media_aspect_ratio: section.settings.image_ratio,
-                  hide_price: section.settings.hide_price,
-                  hide_tag: section.settings.hide_tag,
-                  hide_subtitle: section.settings.hide_subtitle,
-                  hide_quick_add: section.settings.hide_quick_add,
-                  isPreOrderProduct: isPreOrderProduct
-                -%}
-              </div>
-            {% endfor %}
-          </div>
+        <combined-product-recommendations
+          class="swiper special-init-swiper"
+          data-json='{{ sc_json }}'
+          data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.max_products }}"
+          data-image-ratio='{{ section.settings.image_ratio }}'
+          data-hide-price='{{ section.settings.hide_price }}'
+          data-hide-tag='{{ section.settings.hide_tag }}'
+          data-hide-subtitle='{{ section.settings.hide_subtitle }}'
+          data-hide-quick-add='{{ section.settings.hide_quick_add }}'
+          data-show-secondary-image='{{ section.settings.show_secondary_image }}'
+        >
+          <div class="section-productgrid swiper-wrapper"></div>
           <div class="swiper-button-next" id="sc-next-{{ section.id }}"></div>
           <div class="swiper-button-prev" id="sc-prev-{{ section.id }}"></div>
-        </div>
+        </combined-product-recommendations>
         <div class="swiper-scrollbar" id="sc-scrollbar-{{ section.id }}"></div>
       </div>
     </div>
@@ -177,6 +206,9 @@
       </div>
     </div>
 
+    {% endif %}
+    {% comment %} End of normal page load vs AJAX conditional {% endcomment %}
+
   </div>
 </div>
 
@@ -184,7 +216,7 @@
 
 {% schema %}
 {
-  "name": "Slider Collection + RV",
+  "name": "Product Recs + RV",
   "class": "slider-collection-with-rv",
   "tag": "section",
   "settings": [
@@ -201,17 +233,12 @@
       "default": "Recently Viewed"
     },
     {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
-    {
       "type": "range",
       "id": "max_products",
       "min": 1,
       "max": 30,
       "step": 1,
-      "label": "Max products",
+      "label": "Max product recommendations",
       "default": 10
     },
     {
@@ -337,7 +364,7 @@
   ],
   "presets": [
     {
-      "name": "Slider Collection + Recently Viewed"
+      "name": "Product Recs + Recently Viewed"
     }
   ]
 }

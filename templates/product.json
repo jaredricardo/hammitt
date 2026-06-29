@@ -404,6 +404,9 @@
         "paragraph_gJnMDg",
         "feed_gFmXww"
       ],
+      "custom_css": [
+        ".fs-timeline {display: flex; flex-wrap: wrap;}"
+      ],
       "settings": {
         "width": "page-width",
         "padding_top": 40,
@@ -603,9 +606,8 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "disabled": true,
       "settings": {
-        "heading": "More in this Collection",
+        "heading": "You May also like",
         "heading_size": "h1",
         "justify_heading": "center",
         "columns_desktop": 4,
@@ -628,7 +630,7 @@
       "type": "slider-collection-with-rv",
       "name": "Slider Collection + Recently Viewed",
       "settings": {
-        "tab1_title": "You May Also Like",
+        "tab1_title": "Featured Collection",
         "tab2_title": "Recently Viewed",
         "collection": "trending",
         "max_products": 10,
