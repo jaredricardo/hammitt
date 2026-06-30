@@ -580,42 +580,6 @@
         "custom_class": ""
       }
     },
-    "jr_new_5050_product_list_zy3tkK": {
-      "type": "jr-new-5050-product-list",
-      "custom_css": [
-        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
-      ],
-      "name": "Bestsellers modal ",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "",
-        "padding_bottom_desktop": 0,
-        "padding_bottom_mobile": 0,
-        "allow_sold_out_cards": false,
-        "product_list": [
-          "kyle-med-shoulder-bag-amber-nylon-gold",
-          "josie-tote-tote-bag-black-nylon-cargo-gold",
-          "tom-zip-hobo-cocoa-raffia-gold",
-          "andersen-revival-tote-silverlake-antique-gold",
-          "hunter-med-backpack-black-nylon-cargo-gold",
-          "olympia-tote-tote-bag-cabana-blue-brushed-gold"
-        ],
-        "show_secondary_image": true,
-        "image_ratio": "portrait",
-        "image": "shopify://shop_images/Rectangle-1119.gif",
-        "image_alignment_desktop": "image-right",
-        "image_alignment_mobile": "image-top",
-        "button_link": "shopify://collections/travel",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 30,
-        "padding_bottom": 30,
-        "mobile_padding_top": 8,
-        "mobile_padding_bottom": 8
-      }
-    },
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
@@ -1014,11 +978,47 @@
         "swipe_on_mobile": false,
         "enable_peek": false,
         "show_mobile_slider": false,
-        "padding_top": 0,
+        "padding_top": 24,
         "padding_bottom": 8,
         "padding_top_mobile": 8,
         "padding_bottom_mobile": 8,
         "custom_class": ""
+      }
+    },
+    "jr_new_5050_product_list_zy3tkK": {
+      "type": "jr-new-5050-product-list",
+      "custom_css": [
+        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
+      ],
+      "name": "Bestsellers modal ",
+      "settings": {
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
+        "title": "",
+        "padding_bottom_desktop": 0,
+        "padding_bottom_mobile": 0,
+        "allow_sold_out_cards": false,
+        "product_list": [
+          "kyle-med-shoulder-bag-amber-nylon-gold",
+          "josie-tote-tote-bag-black-nylon-cargo-gold",
+          "tom-zip-hobo-cocoa-raffia-gold",
+          "andersen-revival-tote-silverlake-antique-gold",
+          "hunter-med-backpack-black-nylon-cargo-gold",
+          "olympia-tote-tote-bag-cabana-blue-brushed-gold"
+        ],
+        "show_secondary_image": true,
+        "image_ratio": "portrait",
+        "image": "shopify://shop_images/Rectangle-1119.gif",
+        "image_alignment_desktop": "image-right",
+        "image_alignment_mobile": "image-top",
+        "button_link": "shopify://collections/travel",
+        "button_text": "Shop Now",
+        "button_text_color": "#000000",
+        "button_background_color": "#ffffff",
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "mobile_padding_top": 8,
+        "mobile_padding_bottom": 8
       }
     },
     "homepage_instagram_RrcAhY": {
@@ -1408,9 +1408,9 @@
     "slider_collection_L6qdiY",
     "silhouette_carousel_Je7Pit",
     "image_banner_md7kAc",
-    "jr_new_5050_product_list_zy3tkK",
     "home_hero_section_qhL9Xk",
     "multicolumn_FmaKEp",
+    "jr_new_5050_product_list_zy3tkK",
     "homepage_instagram_RrcAhY",
     "multicolumn_tX9BVq",
     "1777417324d647b990",
