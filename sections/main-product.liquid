@@ -1787,6 +1787,26 @@
     // Close modal
     if (closeBtn) {
       closeBtn.addEventListener('click', function() {
+        // Get current modal index
+        const scrollTop = modalImages.scrollTop
+        const viewportHeight = modalImages.clientHeight
+        const scrollMidpoint = scrollTop + (viewportHeight / 2)
+        
+        let currentIndex = 0
+        modalSlides.forEach(function(slide, i) {
+          const slideTop = slide.offsetTop
+          const slideBottom = slideTop + slide.offsetHeight
+          if (scrollMidpoint >= slideTop && scrollMidpoint < slideBottom) {
+            currentIndex = i
+          }
+        })
+        
+        // Sync main carousel to this index
+        if (slides[currentIndex]) {
+          track.scrollTo({ top: currentIndex * slides[0].offsetHeight, behavior: 'instant' })
+        }
+        
+        // Close modal
         modal.style.display = 'none'
         document.body.style.overflow = ''
       })
