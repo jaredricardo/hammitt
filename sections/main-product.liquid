@@ -154,6 +154,102 @@
     }
   }
 
+  /* Mobile PDP Carousel Expand Button */
+  .mobile-img-carousel {
+    position: relative;
+  }
+  .mobile-img-carousel__expand-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .mobile-img-carousel__expand-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  .mobile-img-carousel__expand-btn svg {
+    color: #000;
+  }
+
+  /* Mobile PDP Images Modal */
+  .mobile-pdp-images__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: white;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  .mobile-pdp-images__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-pdp-images__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0;
+  }
+  .mobile-pdp-images__counter {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+  }
+  .mobile-pdp-images__close {
+    background: none;
+    border: none;
+    padding: 8px 0 8px 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+  }
+  .mobile-pdp-images__close svg {
+    width: 20px;
+    height: 20px;
+  }
+  .mobile-pdp-images__images {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-pdp-images__slide {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .mobile-pdp-images__slide img,
+  .mobile-pdp-images__slide .media {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
 {%- endstyle -%}
 
 {%- liquid
@@ -440,6 +536,44 @@
                 {%- render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: true, index: forloop.index, show_product_badges: section.settings.enabled_product_badges, isMobile: true -%}
                 </div>
               {%- endfor -%}
+            </div>
+            <button class="mobile-img-carousel__expand-btn" aria-label="Expand image gallery" style="display: none;">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div id="mobile-pdp-images-modal" class="mobile-pdp-images__modal" style="display: none;">
+            <div class="mobile-pdp-images__container">
+              <div class="mobile-pdp-images__header">
+                <span class="mobile-pdp-images__counter"><span class="mobile-pdp-images__current">1</span> / <span class="mobile-pdp-images__total">0</span></span>
+                <button class="mobile-pdp-images__close" aria-label="Close gallery">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="mobile-pdp-images__images">
+                {%- for media in product.media -%}
+                  {%- liquid
+                    assign alt_handle = media.alt | handle
+                    if media.alt contains 'Details' or alt_handle == 'details'
+                    continue
+                    endif
+                    if media.alt contains 'size-comparison'
+                      continue
+                    endif
+                  -%}
+                  <div class="mobile-pdp-images__slide" data-index="{{ forloop.index }}">
+                    {%- if media.media_type == 'image' -%}
+                      <img src="{{ media | img_url: '1000x' }}" alt="{{ media.alt | escape }}" loading="lazy">
+                    {%- elsif media.media_type == 'video' or media.media_type == 'external_video' -%}
+                      {%- render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: true, index: forloop.index -%}
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              </div>
             </div>
           </div>
         </div>
@@ -1546,6 +1680,7 @@
     if (!carousel) return
     const track = carousel.querySelector('.mobile-img-carousel__track')
     const bulletsContainer = carousel.querySelector('.mobile-img-carousel__bullets')
+    const expandBtn = carousel.querySelector('.mobile-img-carousel__expand-btn')
     const slides = Array.from(carousel.querySelectorAll('.mobile-img-slide'))
     if (!slides.length || !bulletsContainer || !track) return
 
@@ -1575,6 +1710,11 @@
       bullets.forEach(function(b, i) {
         b.classList.toggle('is-active', i === activeIndex)
       })
+      
+      // Show/hide expand button based on scroll position (show after 4th image, index 3)
+      if (expandBtn) {
+        expandBtn.style.display = activeIndex >= 3 ? 'flex' : 'none'
+      }
     }
 
     if (track._mobileCarouselScroll) {
@@ -1613,6 +1753,71 @@
     track._mobileCarouselScroll = onScroll
     track.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
+    
+    // Modal functionality
+    const modal = document.getElementById('mobile-pdp-images-modal')
+    const modalImages = modal.querySelector('.mobile-pdp-images__images')
+    const modalSlides = Array.from(modal.querySelectorAll('.mobile-pdp-images__slide'))
+    const closeBtn = modal.querySelector('.mobile-pdp-images__close')
+    const currentCounter = modal.querySelector('.mobile-pdp-images__current')
+    const totalCounter = modal.querySelector('.mobile-pdp-images__total')
+    
+    // Set total count
+    totalCounter.textContent = modalSlides.length
+    
+    // Open modal
+    if (expandBtn) {
+      expandBtn.addEventListener('click', function() {
+        modal.style.display = 'block'
+        document.body.style.overflow = 'hidden'
+        
+        // Scroll to current active slide
+        const slideHeight = slides[0].offsetHeight
+        const currentIndex = Math.min(
+          Math.floor(track.scrollTop / slideHeight + 0.5),
+          slides.length - 1
+        )
+        if (modalSlides[currentIndex]) {
+          modalSlides[currentIndex].scrollIntoView({ behavior: 'instant' })
+        }
+        updateModalCounter()
+      })
+    }
+    
+    // Close modal
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none'
+        document.body.style.overflow = ''
+      })
+    }
+    
+    // Update counter on scroll
+    function updateModalCounter() {
+      if (!modalImages) return
+      const scrollTop = modalImages.scrollTop
+      const viewportHeight = modalImages.clientHeight
+      const scrollMidpoint = scrollTop + (viewportHeight / 2)
+      
+      let currentIndex = 0
+      modalSlides.forEach(function(slide, i) {
+        const slideTop = slide.offsetTop
+        const slideBottom = slideTop + slide.offsetHeight
+        if (scrollMidpoint >= slideTop && scrollMidpoint < slideBottom) {
+          currentIndex = i
+        }
+      })
+      
+      currentCounter.textContent = currentIndex + 1
+    }
+    
+    if (modalImages) {
+      let modalScrollTimeout
+      modalImages.addEventListener('scroll', function() {
+        clearTimeout(modalScrollTimeout)
+        modalScrollTimeout = setTimeout(updateModalCounter, 50)
+      }, { passive: true })
+    }
   }
 </script>
 
