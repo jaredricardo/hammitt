@@ -518,10 +518,10 @@
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col ">
       <div class="grid__item product__media-wrapper">
         <div class="medium-up-hide">
-          <div id="product__mobile-images" class="mobile-img-carousel">
+          <div id="product__mobile-images" class="mobile-img-carousel swiper">
             {% render 'swym-hammitt-custom-favorite-button' %}
-            <div class="mobile-img-carousel__bullets" aria-hidden="true"></div>
-            <div class="mobile-img-carousel__track">
+            <div class="mobile-img-carousel__bullets swiper-pagination" aria-hidden="true"></div>
+            <div class="mobile-img-carousel__track swiper-wrapper">
               {%- for media in product.media -%}
                 {%- liquid
                   assign alt_handle = media.alt | handle
@@ -532,12 +532,12 @@
                     continue
                   endif
                 -%}
-                <div class="mobile-img-slide">
+                <div class="mobile-img-slide swiper-slide">
                 {%- render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: true, index: forloop.index, show_product_badges: section.settings.enabled_product_badges, isMobile: true -%}
                 </div>
               {%- endfor -%}
             </div>
-            <button class="mobile-img-carousel__expand-btn" aria-label="Expand image gallery" style="display: none;">
+            <button class="mobile-img-carousel__expand-btn" aria-label="Expand image gallery">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               </svg>
@@ -1682,77 +1682,28 @@
     const bulletsContainer = carousel.querySelector('.mobile-img-carousel__bullets')
     const expandBtn = carousel.querySelector('.mobile-img-carousel__expand-btn')
     const slides = Array.from(carousel.querySelectorAll('.mobile-img-slide'))
-    if (!slides.length || !bulletsContainer || !track) return
+    if (!slides.length || !track || !bulletsContainer) return
 
-    bulletsContainer.classList.remove('is-loaded')
-    bulletsContainer.innerHTML = ''
-    slides.forEach(function(_, i) {
-      const btn = document.createElement('button')
-      btn.className = 'mobile-img-carousel__bullet' + (i === 0 ? ' is-active' : '')
-      btn.setAttribute('aria-label', 'Go to image ' + (i + 1))
-      btn.addEventListener('click', function() {
-        track.scrollTo({ top: i * slides[0].offsetHeight, behavior: 'smooth' })
-      })
-      bulletsContainer.appendChild(btn)
+    // Destroy existing Swiper instance if it exists
+    if (carousel.swiper) {
+      carousel.swiper.destroy(true, true)
+    }
+
+    // Initialize Swiper
+    const swiper = new Swiper(carousel, {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      speed: 300,
+      watchSlidesProgress: true,
+      observer: true,
+      observeParents: true,
+      pagination: {
+        el: bulletsContainer,
+        clickable: true,
+        bulletClass: 'mobile-img-carousel__bullet',
+        bulletActiveClass: 'is-active'
+      }
     })
-    requestAnimationFrame(function() { bulletsContainer.classList.add('is-loaded') })
-
-    const bullets = Array.from(bulletsContainer.querySelectorAll('.mobile-img-carousel__bullet'))
-
-    function onScroll() {
-      console.log('firing !!')
-      const slideHeight = slides[0].offsetHeight
-      if (!slideHeight) return
-      const activeIndex = Math.min(
-        Math.floor(track.scrollTop / slideHeight + 0.65),
-        slides.length - 1
-      )
-      bullets.forEach(function(b, i) {
-        b.classList.toggle('is-active', i === activeIndex)
-      })
-      
-      // Show/hide expand button based on scroll position (show after 4th image, index 3)
-      if (expandBtn) {
-        expandBtn.style.display = activeIndex >= 3 ? 'flex' : 'none'
-      }
-    }
-
-    if (track._mobileCarouselScroll) {
-      track.removeEventListener('scroll', track._mobileCarouselScroll)
-    }
-    if (track._mobileCarouselTouchStart) {
-      track.removeEventListener('touchstart', track._mobileCarouselTouchStart)
-      track.removeEventListener('touchmove', track._mobileCarouselTouchMove)
-      track.removeEventListener('touchend', track._mobileCarouselTouchEnd)
-    }
-
-    let _overscrollStartY = 0
-    let _peakOverscrollDelta = 0
-    track._mobileCarouselTouchStart = function(e) {
-      _overscrollStartY = e.touches[0].clientY
-      _peakOverscrollDelta = 0
-    }
-    track._mobileCarouselTouchMove = function(e) {
-      const atEnd = track.scrollTop + track.clientHeight >= track.scrollHeight - 5
-      if (!atEnd) return
-      const delta = _overscrollStartY - e.touches[0].clientY
-      if (delta > _peakOverscrollDelta) _peakOverscrollDelta = delta
-    }
-    track._mobileCarouselTouchEnd = function() {
-      const triggered = _peakOverscrollDelta > 20
-      _peakOverscrollDelta = 0
-      if (triggered) {
-        const notch = document.querySelector('pull-notch-button')
-        if (notch && notch.offsetParent !== null && notch.scrollToInfo) notch.scrollToInfo()
-      }
-    }
-    track.addEventListener('touchstart', track._mobileCarouselTouchStart, { passive: true })
-    track.addEventListener('touchmove', track._mobileCarouselTouchMove, { passive: true })
-    track.addEventListener('touchend', track._mobileCarouselTouchEnd, { passive: true })
-
-    track._mobileCarouselScroll = onScroll
-    track.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
     
     // Modal functionality
     const modal = document.getElementById('mobile-pdp-images-modal')
@@ -1771,12 +1722,8 @@
         modal.style.display = 'block'
         document.body.style.overflow = 'hidden'
         
-        // Scroll to current active slide
-        const slideHeight = slides[0].offsetHeight
-        const currentIndex = Math.min(
-          Math.floor(track.scrollTop / slideHeight + 0.5),
-          slides.length - 1
-        )
+        // Scroll to current active slide from Swiper
+        const currentIndex = swiper.activeIndex
         if (modalSlides[currentIndex]) {
           modalSlides[currentIndex].scrollIntoView({ behavior: 'instant' })
         }
@@ -1803,7 +1750,7 @@
         
         // Sync main carousel to this index
         if (slides[currentIndex]) {
-          track.scrollTo({ top: currentIndex * slides[0].offsetHeight, behavior: 'instant' })
+          swiper.slideTo(currentIndex, 0)
         }
         
         // Close modal
