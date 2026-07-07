@@ -1081,26 +1081,22 @@
                                 {% if accordion_data_att == "care" %}
                                   {% if stripped_material == 'suede' %}
                                     {{ settings.pdp_care_suede }}
+                                    <p>Please see our <a href="https://www.hammitt.com/pages/hammitt-leather-care" title="Care Page">Care Page</a> for care instructions.</p>
                                   {% elsif stripped_material == 'raffia' %}
                                     {{ settings.pdp_care_raffia }}
+                                    <p>Please see our <a href="https://www.hammitt.com/pages/hammitt-leather-care" title="Care Page">Care Page</a> for care instructions.</p>
                                   {% elsif stripped_material == 'woven leather' %}
                                     {{ settings.pdp_care_weaves_fabrics }}
+                                    <p>Please see our <a href="https://www.hammitt.com/pages/hammitt-leather-care" title="Care Page">Care Page</a> for care instructions.</p>
                                   {% elsif stripped_material == 'pewter' %}
                                     {{ settings.pdp_care_pewter }}
+                                    <p>Please see our <a href="https://www.hammitt.com/pages/hammitt-leather-care" title="Care Page">Care Page</a> for care instructions.</p>
                                   {% elsif stripped_material == 'acrylic' %}
                                     {{ settings.pdp_care_acrylic }}
+                                    <p>Please see our <a href="https://www.hammitt.com/pages/hammitt-leather-care" title="Care Page">Care Page</a> for care instructions.</p>
                                   {% else %}
-                                    {% if inner_block.settings.html_content != blank %}
-                                      {{ inner_block.settings.html_content }}
-                                    {% else %}
-                                      {{ inner_block.settings.content }}
-                                      {{ inner_block.settings.page.content }}
-                                      {% if inner_block.settings.split_content %}
-                                        {{ product_description[inner_block.settings.split_index] }}
-                                      {% endif %}
-                                    {% endif %}
+                                    <p>Please see our <a href="https://www.hammitt.com/pages/hammitt-leather-care" title="Care Page">Care Page</a> for care instructions.</p>
                                   {% endif %}
-                                  <p>Please see our <a href="https://www.hammitt.com/pages/hammitt-leather-care" title="Care Page">Care Page</a> for care instructions.</p>
                                 {% else %}
                                   {% if inner_block.settings.html_content != blank %}
                                     {{ inner_block.settings.html_content }}
