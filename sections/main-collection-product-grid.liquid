@@ -168,6 +168,122 @@
 
 {%- endstyle -%}
 
+{% if section.settings.use_silhouette_carousel %}
+<style>
+  /* Grid Silhouette Carousel Styles */
+  .grid-silhouette-carousel-wrapper {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .grid-silhouette-carousel-left {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .grid-silhouette-carousel-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: var(--font-heading-family);
+    margin: 0;
+  }
+
+  .grid-silhouette-carousel-link {
+    font-size: 1.4rem;
+    text-decoration: underline;
+    color: #333;
+  }
+
+  .grid-silhouette-carousel-right {
+    width: 80%;
+  }
+
+  .grid-silhouette-carousel {
+    padding: 8px 0 8px 4px;
+    opacity: 0;
+    transition: 300ms ease;
+  }
+
+  .grid-silhouette-carousel:has(.swiper-initialized) {
+    opacity: 1;
+  }
+
+  .grid-silhouette-carousel .swiper:not(.swiper-initialized) {
+    overflow: hidden;
+  }
+
+  .grid-silhouette-carousel .swiper:not(.swiper-initialized) .swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .grid-silhouette-carousel .swiper:not(.swiper-initialized) .swiper-slide {
+    width: calc(100% / 3.6);
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 750px) {
+    .grid-silhouette-carousel .swiper:not(.swiper-initialized) .swiper-slide {
+      width: calc(100% / 6.5);
+    }
+  }
+
+  .grid-silhouette-carousel .silhouette-carousel__hover-text {
+    opacity: 1;
+    text-align: center;
+    transition: 300ms ease;
+    padding-left: 5px;
+    color: black;
+    font-weight: 500 !important;
+  }
+
+  .grid-silhouette-carousel a {
+    text-decoration: none !important;
+    display: block;
+  }
+
+  .grid-silhouette-carousel .silhouette-carousel__image {
+    max-width: 100%;
+  }
+
+  .grid-silhouette-card {
+    display: block;
+  }
+
+  /* Mobile Styles */
+  @media screen and (max-width: 749px) {
+    .grid-silhouette-carousel-wrapper {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .grid-silhouette-carousel-left {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .grid-silhouette-carousel-right {
+      width: 100%;
+    }
+
+    .grid-silhouette-carousel-title {
+      font-size: 1.4rem;
+    }
+
+    .grid-silhouette-carousel-link {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+{% endif %}
+
 {% liquid
 
   assign isShareholder = false
@@ -498,6 +614,59 @@
                 {% endif %}
               {% endunless %}
 
+              {% comment %} SILHOUETTE CAROUSEL {% endcomment %}
+              {% unless filters_are_active or paginate.current_page > 1 %}
+                {% if section.settings.use_silhouette_carousel and forloop.index == 9 %}
+                  <li class="grid__item grid-silhouette-carousel-wrapper">
+                    <div class="grid-silhouette-carousel-left">
+                      {% if section.settings.silhouette_carousel_title != blank %}
+                        <h3 class="grid-silhouette-carousel-title">{{ section.settings.silhouette_carousel_title }}</h3>
+                      {% endif %}
+                      {% if section.settings.silhouette_carousel_link_url != blank and section.settings.silhouette_carousel_link_text != blank %}
+                        <a href="{{ section.settings.silhouette_carousel_link_url }}" class="grid-silhouette-carousel-link">{{ section.settings.silhouette_carousel_link_text }}</a>
+                      {% endif %}
+                    </div>
+                    <div class="grid-silhouette-carousel-right">
+                      {%- capture json -%}
+                      {
+                        "loop": false,
+                        "allowSlideNext": true,
+                        "allowSlidePrev": true,
+                        "autoHeight": true,
+                        "grabCursor": true,
+                        "mousewheel": { "forceToAxis": true },
+                        "slidesPerView": 3.6,
+                        "spaceBetween": 4,
+                        "breakpoints": {
+                          "750": {
+                            "slidesPerView": 6.5
+                          }
+                        }
+                      }
+                      {%- endcapture -%}
+                      <div class="grid-silhouette-carousel always-show-titles">
+                        <div class="swiper" data-json='{{ json }}'>
+                          <div class="swiper-wrapper">
+                            {% for block in section.blocks %}
+                              {% if block.type == 'silhouette-carousel-item' %}
+                                <a class="swiper-slide grid-silhouette-card" href="{{ block.settings.silhouette_url }}">
+                                  {% if block.settings.image != blank %}
+                                    <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="silhouette-carousel__image" loading="lazy" />
+                                  {% endif %}
+                                  {% if block.settings.title != blank %}
+                                    <h6 class="silhouette-carousel__hover-text carlson-italic always-visible">{{ block.settings.title }}</h6>
+                                  {% endif %}
+                                </a>
+                              {% endif %}
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                {% endif %}
+              {% endunless %}
+
               <li class="grid__item">
                 {% render 'card-product',
                   card_product: product,
@@ -616,6 +785,30 @@
     {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_silhouette_carousel",
+      "label": "Use Silhouette Carousel",
+      "default": false,
+      "info": "If enabled, the Silhouette Carousel will be displayed above the product grid (always at index 9, i.e. the start of the 3rd row on desktop). *** If this is enabled, you must add at least 1 Silhouette Carousel Item block to the section for it to display. ***"
+    },
+    {
+      "type": "text", 
+      "id": "silhouette_carousel_title",
+      "label": "Silhouette Carousel Title",
+      "default": "Shop By Collection"
+    },
+    {
+      "type": "text", 
+      "id": "silhouette_carousel_link_text",
+      "label": "Silhouette Carousel Link Text",
+      "default": "Explore All"
+    },
+    {
+      "type": "url", 
+      "id": "silhouette_carousel_link_url",
+      "label": "Silhouette Carousel Link URL"
     },
     {
       "type": "checkbox",
@@ -761,73 +954,45 @@
     }
   ],
   "blocks": [
-	{
-	    "type":"marketing_tile",
-        "name":"Marketing Tile",
-        "settings":[
-            {
-                "type":"image_picker",
-                "id":"image",
-                "label":"Image"
-            },
-            {
-                "type":"url",
-                "id":"link",
-                "label":"Link"
-            },
-            {
-                "type": "range",
-                "id": "position",
-                "min": 0,
-                "max": 48,
-                "step": 1,
-                "label": "Position",
-                "default": 3
-            },
-            {
-                "type": "select",
-                "id": "width",
-                "label": "Width",
-                "default":"1x",
-                "options": [
-                    { "value":"1x","label":"1x" },
-                    { "value":"2x","label":"2x" }
-                ]
-            },
-            {
-                "type":"text",
-                "id":"title",
-                "label":"Heading"
-            },
-            {
-                "type":"richtext",
-                "id":"paragraph",
-                "label":"Paragraph"
-            },
-            {
-                "type":"text",
-                "id":"button_text",
-                "label":"Button text"
-            }
-            ]
-            },
-            {
-            "type": "collection-filter-link",
-            "name": "Collection Filter Link",
-            "limit": 12,
-            "settings": [
-                {
-                    "type":"collection",
-                    "id": "collection",
-                    "label": "Collection URL"
-                },
-                {
-                    "type": "text",
-                    "id": "title",
-                    "label": "Alternative Collection Title (optional)"
-                }
-            ]
+    {
+      "type": "silhouette-carousel-item",
+      "name": "Silhouette Carousel Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Silhouette Image"
+        },
+        {
+          "type": "url",
+          "id": "silhouette_url",
+          "label": "Silhouette URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Silhouette Image Title",
+          "default": "Image Title"
         }
-    ]
+      ]
+    },
+    {
+      "type": "collection-filter-link",
+      "name": "Collection Filter Link",
+      "limit": 12,
+      "settings": [
+        {
+          "type":"collection",
+          "id": "collection",
+          "label": "Collection URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Alternative Collection Title (optional)"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

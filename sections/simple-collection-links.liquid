@@ -15,9 +15,9 @@
     endif
 %}
 
-<section class="simple-collection-links" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
+<section class="simple-collection-links pa" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
     {% if has_collection_links %}
-        <ul>
+        <ul class="page-width">
           {% comment %} 
             {% if request.page_type == "collection" %}
               <li>
