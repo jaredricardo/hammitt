@@ -285,7 +285,6 @@
     .grid-silhouette-carousel-link {
       font-size: 12px;
     }
-    
   }
 </style>
 {% endif %}
@@ -369,6 +368,99 @@
   endif
 
 -%}
+
+
+{% if section.settings.use_silhouette_carousel %}
+
+  <style>
+    #scroll-to-silhouette-carousel-btn {
+      position: fixed;
+      top: 12vh;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      color: white;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 4;
+      border: 1px solid black;
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+      padding: 0 0 0 8px !important;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 0;
+    }
+
+    #scroll-to-silhouette-carousel-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      display: flex !important;
+    }
+    #scroll-to-silhouette-carousel-btn svg {
+      width: 50%;
+      height: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+      #scroll-to-silhouette-carousel-btn {
+        top: auto;
+        bottom: 5vh;
+      }
+    }
+  </style>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const scrollButton = document.getElementById('scroll-to-silhouette-carousel-btn');
+      const carouselElement = document.getElementById('grid-silhouette-carousel-wrapper');
+
+      if (!scrollButton || !carouselElement) return;
+
+      // Function to check if carousel is past viewport
+      function checkCarouselPosition() {
+        const carouselRect = carouselElement.getBoundingClientRect();
+        const carouselBottom = carouselRect.bottom;
+        
+        // Show button only if user has scrolled past the carousel
+        // (carousel is above the viewport)
+        if (carouselBottom < 0) {
+          scrollButton.classList.add('visible');
+        } else {
+          scrollButton.classList.remove('visible');
+        }
+      }
+
+      // Check position on scroll
+      window.addEventListener('scroll', checkCarouselPosition);
+      
+      // Check position on load
+      checkCarouselPosition();
+
+      // Scroll to carousel on button click
+      scrollButton.addEventListener('click', () => {
+        carouselElement.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        });
+      });
+    });
+  </script>
+
+  <button id="scroll-to-silhouette-carousel-btn">
+    <svg width="119" height="129" viewBox="0 0 119 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M39.3803 86.0891C34.3848 79.2302 27.9322 74.3977 25.3303 72.8389H19.8662C14.9227 86.8685 4.56747 115.863 2.69413 119.604C0.820791 123.346 3.47469 125.32 5.0358 125.84C36.7785 126.1 102.137 126.463 109.631 125.84C117.124 125.216 117.436 121.423 116.656 119.604L97.1416 72.8389H90.8971C87.7749 72.8389 83.8721 79.0743 79.9693 86.0891C76.8471 91.701 66.0555 95.4422 59.6748 95.4422C52.0055 95.4422 44.3759 92.948 39.3803 86.0891Z" fill="black"/>
+      <path d="M25.3343 70.7891L25.6108 70.8091C25.8842 70.8466 26.1498 70.9388 26.3882 71.0816C29.1826 72.7562 35.8541 77.7645 41.0389 84.8827C45.5315 91.0512 52.4361 93.3943 59.6768 93.3943C62.5378 93.3943 66.5581 92.536 70.2481 90.9819C74.0049 89.3994 76.957 87.2896 78.1786 85.0951C80.1306 81.5866 82.1423 78.1576 84.0934 75.5938C85.0676 74.3138 86.0878 73.1666 87.1389 72.3239C88.163 71.5029 89.4425 70.7895 90.8978 70.7891H97.1451L97.4497 70.8131C98.1515 70.9189 98.7577 71.3829 99.0366 72.0514L118.544 118.797L118.749 119.362C119.172 120.756 119.164 122.659 117.903 124.383C116.482 126.324 113.825 127.55 109.804 127.885C105.944 128.206 87.597 128.271 66.4251 128.226C45.1756 128.18 20.8952 128.023 5.02124 127.893C4.80666 127.891 4.5917 127.857 4.38809 127.789C3.2881 127.422 1.76996 126.551 0.825595 125C-0.209788 123.298 -0.351394 121.111 0.861661 118.688C1.27165 117.87 2.2273 115.473 3.55457 111.968C4.86127 108.517 6.4838 104.113 8.20304 99.3812C11.6409 89.9196 15.4625 79.1704 17.9328 72.1596C18.222 71.3387 18.998 70.7891 19.8683 70.7891H25.3343ZM21.3189 74.8925C18.8482 81.8925 15.2849 91.9028 12.0581 100.784C10.3369 105.521 8.70959 109.943 7.39357 113.419C6.09875 116.838 5.05925 119.471 4.53235 120.524C3.87305 121.84 4.1187 122.513 4.33199 122.864C4.58383 123.278 5.03401 123.602 5.44201 123.79C21.3165 123.919 45.3665 124.077 66.4332 124.122C87.7492 124.168 105.831 124.1 109.464 123.798C112.934 123.509 114.179 122.528 114.593 121.962C114.985 121.426 114.948 120.823 114.773 120.416L114.765 120.395L95.7746 74.8925H90.8978C90.7906 74.8931 90.4116 74.9614 89.7076 75.5257C89.0271 76.0712 88.2387 76.923 87.3593 78.0783C85.6036 80.3854 83.7149 83.5823 81.7651 87.0868C79.864 90.5038 75.8571 93.0739 71.843 94.7648C67.7619 96.4838 63.1962 97.4977 59.6768 97.4977C51.5792 97.4977 43.2233 94.8482 37.7248 87.2992C33.1997 81.0861 27.4054 76.601 24.7332 74.8925H21.3189Z" fill="black"/>
+      <path d="M57.0735 0C61.4736 0 65.1804 1.0224 68.322 2.97743C71.4367 4.9159 73.8049 7.65165 75.7355 10.7877C78.5483 15.357 80.661 21.2139 82.7964 27.3498L84.9683 33.5411L85.0444 33.7856L95.3031 72.0393C95.7434 73.681 94.7688 75.3699 93.1272 75.8102C91.4855 76.2504 89.7966 75.2758 89.3563 73.6342L79.1217 35.4767C75.9682 26.6808 73.784 19.3581 70.4939 14.0135C68.8957 11.4176 67.144 9.49269 65.072 8.20295C63.0261 6.92966 60.4741 6.15522 57.0735 6.15522C53.7577 6.1555 51.308 7.01458 49.3474 8.3953C47.3392 9.80961 45.6566 11.9047 44.1339 14.6587C42.6059 17.4226 41.322 20.6925 40.0224 24.3283C38.7688 27.8355 37.4696 31.7729 35.9951 35.5528L25.54 73.6502C25.0902 75.2888 23.3957 76.2551 21.7571 75.8061C20.1185 75.3563 19.1523 73.6619 19.6012 72.0233L30.1043 33.7655L30.2045 33.461C31.6617 29.7418 32.8771 26.0244 34.2238 22.2566C35.5411 18.5712 36.9648 14.9068 38.7481 11.6813C40.5364 8.44678 42.7706 5.49654 45.8009 3.36213C48.879 1.19432 52.59 0.000290982 57.0735 0Z" fill="black"/>
+    </svg>
+  </button>
+
+{% endif %}
 
 <div class="section-{{ section.id }}-padding col-wrap" id="product-grid-container">
   {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
@@ -699,7 +791,7 @@
                   {% endif %}
                   
                   {% if should_render_carousel %}
-                    <li class="grid__item grid-silhouette-carousel-wrapper">
+                    <li class="grid__item grid-silhouette-carousel-wrapper" id="grid-silhouette-carousel-wrapper">
                     <div class="grid-silhouette-carousel-left">
                       {% if section.settings.silhouette_carousel_title != blank %}
                         <h3 class="grid-silhouette-carousel-title">{{ section.settings.silhouette_carousel_title }}</h3>
