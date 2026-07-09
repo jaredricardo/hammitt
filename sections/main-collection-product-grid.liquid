@@ -184,19 +184,23 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    padding: 1.5rem 2.5rem;
+    justify-content: center;;
   }
 
   .grid-silhouette-carousel-title {
-    font-size: 1.6rem;
-    font-weight: 600;
-    font-family: var(--font-heading-family);
+    font-size: 30px !important;
+    font-style: italic;
+    font-family: 'Adobe Caslon Pro' !important;
+    font-weight: 400;
     margin: 0;
   }
 
   .grid-silhouette-carousel-link {
-    font-size: 1.4rem;
+    font-size: 16px;
     text-decoration: underline;
-    color: #333;
+    color: black;
+    font-weight: 500;
   }
 
   .grid-silhouette-carousel-right {
@@ -227,7 +231,7 @@
     flex-shrink: 0;
   }
 
-  @media (min-width: 750px) {
+  @media (min-width: 769px) {
     .grid-silhouette-carousel .swiper:not(.swiper-initialized) .swiper-slide {
       width: calc(100% / 6.5);
     }
@@ -256,7 +260,7 @@
   }
 
   /* Mobile Styles */
-  @media screen and (max-width: 749px) {
+  @media screen and (max-width: 768px) {
     .grid-silhouette-carousel-wrapper {
       flex-direction: column;
       gap: 1rem;
@@ -267,6 +271,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      padding: 0rem 0.5rem;
     }
 
     .grid-silhouette-carousel-right {
@@ -274,12 +279,13 @@
     }
 
     .grid-silhouette-carousel-title {
-      font-size: 1.4rem;
+      font-size: 22px !important;
     }
 
     .grid-silhouette-carousel-link {
-      font-size: 1.2rem;
+      font-size: 12px;
     }
+    
   }
 </style>
 {% endif %}
@@ -614,10 +620,86 @@
                 {% endif %}
               {% endunless %}
 
-              {% comment %} SILHOUETTE CAROUSEL {% endcomment %}
+              <li class="grid__item">
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  lazy_load: lazy_load,
+                  index: forloop.index,
+                  isPreOrderProduct: isPreOrderProduct,
+                  currentPage: paginate.current_page,
+                  enable_gifting_card: section.settings.enable_gifting_grid,
+                  has_reached_gift_threshold: has_reached_gift_threshold,
+                  cart_contains_gift_item: cart_contains_gift_item,
+                  converted_threshold_price: converted_threshold_price
+                %}
+              </li>
+
+              {% comment %} SILHOUETTE CAROUSEL - Render after products {% endcomment %}
               {% unless filters_are_active or paginate.current_page > 1 %}
-                {% if section.settings.use_silhouette_carousel and forloop.index == 9 %}
-                  <li class="grid__item grid-silhouette-carousel-wrapper">
+                {% if section.settings.use_silhouette_carousel %}
+                  {% comment %} Calculate cumulative grid slots used so far {% endcomment %}
+                  {% assign cumulative_slots = forloop.index %}
+                  
+                  {% comment %} Add merch box one columns if it has rendered (at or before current position) {% endcomment %}
+                  {% if merch_box_one and merch_box_one.enable_merch_box %}
+                    {% if merch_box_one.number_of_columns == 1 and merch_box_one.position_in_grid <= forloop.index %}
+                      {% assign cumulative_slots = cumulative_slots | plus: 1 %}
+                    {% elsif merch_box_one.number_of_columns == 2 %}
+                      {% assign mb1_nearest_odd = merch_box_one.position_in_grid %}
+                      {% assign mb1_mod = mb1_nearest_odd | modulo: 2 %}
+                      {% if mb1_mod == 0 %}
+                        {% assign mb1_nearest_odd = mb1_nearest_odd | minus: 1 %}
+                      {% endif %}
+                      {% if mb1_nearest_odd <= forloop.index %}
+                        {% assign cumulative_slots = cumulative_slots | plus: 2 %}
+                      {% endif %}
+                    {% elsif merch_box_one.number_of_columns >= 3 %}
+                      {% assign mb1_grid_width = section.settings.columns_desktop %}
+                      {% assign mb1_row = merch_box_one.position_in_grid | minus: 1 | divided_by: mb1_grid_width %}
+                      {% assign mb1_snapped = mb1_row | times: mb1_grid_width | plus: 1 %}
+                      {% if mb1_snapped <= forloop.index %}
+                        {% assign cumulative_slots = cumulative_slots | plus: merch_box_one.number_of_columns %}
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                  
+                  {% comment %} Add merch box two columns if it has rendered {% endcomment %}
+                  {% if merch_box_two and merch_box_two.enable_merch_box %}
+                    {% if merch_box_two.number_of_columns == 1 and merch_box_two.position_in_grid <= forloop.index %}
+                      {% assign cumulative_slots = cumulative_slots | plus: 1 %}
+                    {% elsif merch_box_two.number_of_columns == 2 %}
+                      {% assign mb2_nearest_odd = merch_box_two.position_in_grid %}
+                      {% assign mb2_mod = mb2_nearest_odd | modulo: 2 %}
+                      {% if mb2_mod == 0 %}
+                        {% assign mb2_nearest_odd = mb2_nearest_odd | minus: 1 %}
+                      {% endif %}
+                      {% if mb2_nearest_odd <= forloop.index %}
+                        {% assign cumulative_slots = cumulative_slots | plus: 2 %}
+                      {% endif %}
+                    {% elsif merch_box_two.number_of_columns >= 3 %}
+                      {% assign mb2_grid_width = section.settings.columns_desktop %}
+                      {% assign mb2_row = merch_box_two.position_in_grid | minus: 1 | divided_by: mb2_grid_width %}
+                      {% assign mb2_snapped = mb2_row | times: mb2_grid_width | plus: 1 %}
+                      {% if mb2_snapped <= forloop.index %}
+                        {% assign cumulative_slots = cumulative_slots | plus: merch_box_two.number_of_columns %}
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                  
+                  {% comment %} Render at slot 9 (after 8 slots filled) or at the end {% endcomment %}
+                  {% assign should_render_carousel = false %}
+                  {% if cumulative_slots == 8 %}
+                    {% assign should_render_carousel = true %}
+                  {% elsif forloop.last and cumulative_slots < 8 %}
+                    {% assign should_render_carousel = true %}
+                  {% endif %}
+                  
+                  {% if should_render_carousel %}
+                    <li class="grid__item grid-silhouette-carousel-wrapper">
                     <div class="grid-silhouette-carousel-left">
                       {% if section.settings.silhouette_carousel_title != blank %}
                         <h3 class="grid-silhouette-carousel-title">{{ section.settings.silhouette_carousel_title }}</h3>
@@ -638,7 +720,7 @@
                         "slidesPerView": 3.6,
                         "spaceBetween": 4,
                         "breakpoints": {
-                          "750": {
+                          "768": {
                             "slidesPerView": 6.5
                           }
                         }
@@ -664,26 +746,9 @@
                       </div>
                     </div>
                   </li>
+                  {% endif %}
                 {% endif %}
               {% endunless %}
-
-              <li class="grid__item">
-                {% render 'card-product',
-                  card_product: product,
-                  media_aspect_ratio: section.settings.image_ratio,
-                  show_secondary_image: section.settings.show_secondary_image,
-                  show_vendor: section.settings.show_vendor,
-                  show_rating: section.settings.show_rating,
-                  lazy_load: lazy_load,
-                  index: forloop.index,
-                  isPreOrderProduct: isPreOrderProduct,
-                  currentPage: paginate.current_page,
-                  enable_gifting_card: section.settings.enable_gifting_grid,
-                  has_reached_gift_threshold: has_reached_gift_threshold,
-                  cart_contains_gift_item: cart_contains_gift_item,
-                  converted_threshold_price: converted_threshold_price
-                %}
-              </li>
             
               {%- liquid 
               for block in section.blocks 
