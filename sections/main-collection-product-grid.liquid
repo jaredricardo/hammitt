@@ -367,6 +367,16 @@
     endif
   endif
 
+  assign active_on_collection = false
+  assign split_silhouette_carousel_handles = section.settings.carousel_active_handles | split: ','
+
+  for handle in split_silhouette_carousel_handles
+    if handle == collection.handle
+      assign active_on_collection = true
+    endif
+  endfor
+
+
 -%}
 
 
@@ -732,7 +742,7 @@
 
               {% comment %} SILHOUETTE CAROUSEL - Render after products {% endcomment %}
               {% unless filters_are_active or paginate.current_page > 1 %}
-                {% if section.settings.use_silhouette_carousel %}
+                {% if section.settings.use_silhouette_carousel and active_on_collection %}
                   {% comment %} Calculate cumulative grid slots used so far {% endcomment %}
                   {% assign cumulative_slots = forloop.index %}
                   
@@ -949,6 +959,12 @@
       "label": "Use Silhouette Carousel",
       "default": false,
       "info": "If enabled, the Silhouette Carousel will be displayed above the product grid (always at index 9, i.e. the start of the 3rd row on desktop). *** If this is enabled, you must add at least 1 Silhouette Carousel Item block to the section for it to display. ***"
+    },
+    {
+      "type": "text",
+      "id": "carousel_active_handles",
+      "label": "Active Collection Handles",
+      "info": "Comma-separated list of collection handles where the Silhouette Carousel should be active. Silhouette carousel will only display on these collections."
     },
     {
       "type": "text", 
