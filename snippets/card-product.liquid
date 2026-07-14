@@ -77,7 +77,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper" id="{{ card_product.id }}" data-current-page="{{ currentPage }}">
+  <div class="card-wrapper new-badge-styling-overrides" id="{{ card_product.id }}" data-current-page="{{ currentPage }}">
     {% render 'icon-spinner' %}
     <div class="card
       card--{{ settings.card_style }}
@@ -139,6 +139,15 @@
             </div>
             
           </div>
+          {%- unless hide_quick_add or card_product.variants.size > 1 -%}
+            {%- if settings.enable_quick_add and card_product.has_only_default_variant and card_product.available -%}
+              <quick-add-trigger class="quick-add-trigger">
+                <button type="button" class="quick-add-trigger__btn" aria-label="{{ 'products.product.add_to_cart' | t }}">
+                  {%- render 'icon-quick-add' -%}
+                </button>
+              </quick-add-trigger>
+            {%- endif -%}
+          {%- endunless -%}
         {%- endif -%}
         <div class="card__content">
           <div class="card__information">

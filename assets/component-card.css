@@ -149,6 +149,35 @@
   width: 100%;
 }
 
+quick-add-trigger {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+.quick-add-trigger__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: background 200ms ease-in-out;
+}
+
+.quick-add-trigger__btn:hover {
+  background: #000;
+}
+
+.quick-add-trigger__btn:hover svg path {
+  fill: #fff;
+}
+
 .card__inner:not(.ratio) > .card__content {
   height: 100%;
 }
@@ -546,6 +575,22 @@ quick-add .label {
   .custom-grid #product-grid .card__content.card__main-content{
     min-height: 9.3rem;
   }
+}
+
+.quick-add__wrapper {
+  opacity: 0;
+}
+
+.new-badge-styling-overrides .badge {
+  border: none !important;
+  font-style: italic !important;
+  font-family: 'Adobe Carlson Pro', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 300;
+}
+
+.new-badge-styling-overrides .badge.red-badge {
+  background-color: transparent !important;
 }
 
 .quick-add__wrapper .label.gift-card-atc{
