@@ -65,6 +65,20 @@
 
 -%}
 
+{% if settings.use_new_product_card_quick_add %}
+  <style>
+    .quick-add__wrapper {
+      opacity: 0;
+    }
+  </style>
+{% else %}
+  <style>
+    quick-add-trigger {
+      display: none;
+    }
+  </style>
+{% endif %}
+
 {%- if card_product and card_product != empty -%}
   {%- liquid
     assign ratio = 1
