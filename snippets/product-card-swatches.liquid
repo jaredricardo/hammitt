@@ -1,0 +1,41 @@
+{% liquid 
+
+  assign colorway_collection_handle = product.metafields.custom.colorway_collection.value.handle
+  assign colorway_collection = collections[colorway_collection_handle].products
+  assign count = 1
+  assign limit_to_show = 5
+  assign show_more_left = colorway_collection.size | minus: limit_to_show
+
+-%}
+
+<product-card-swatch>
+    <button class="active">
+        {% if product.metafields.custom.card_swatch %}
+            <img src="{{ product.metafields.custom.card_swatch | image_url: width: 50  }}" alt="Hammitt {{ product.title }} color swatch" />
+        {% else %}
+            <span class="empty-swatch" aria-label="{{ product.title }}"></span>
+        {% endif %}
+    </button>
+    {% for swatch_product in colorway_collection %}
+        {% unless swatch_product.id == product.id %}
+
+            {% if count >= limit_to_show %}
+                {% break %}
+            {% endif %}
+
+            <button data-image-to-preview="{{ swatch_product.featured_image | image_url: width: 600  }}">
+                {% if swatch_product.metafields.custom.card_swatch %}
+                    <img src="{{ swatch_product.metafields.custom.card_swatch | image_url: width: 50  }}" alt="Hammitt {{ swatch_product.title }} color swatch" />
+                    {% else %}
+                    <span class="empty-swatch" aria-label="{{ swatch_product.title }}">X</span>
+                {% endif %}
+            </button>
+            {% assign count = count | plus: 1 %}
+        {% endunless %}
+    {% endfor %}
+    {% if show_more_left > 0 %}
+        <a class="more-colors-link-out" href="{{ product.url }}">
+            + {{ show_more_left }}
+        </a>
+    {% endif %}
+</product-card-swatch>

@@ -238,10 +238,15 @@
 
             
           </div>
+          {% if settings.enable_product_card_swatches %}
+            {% if card_product.metafields.custom.colorway_collection %}
+              {% render 'product-card-swatches', product: card_product %}
+            {% endif %}
+          {% endif %}
         </div>
         
         {% if settings.enable_total_colors %}
-        <div class="total-colors" data-style="{{ formatted_product_title }}" data-color="{{ formatted_product_title }}"><span>+</span></div>
+          <div class="total-colors" data-style="{{ formatted_product_title }}" data-color="{{ formatted_product_title }}"><span>+</span></div>
         {% endif %}
         {% unless enable_gifting_card == true %}
           <div class="card__badge hidden {{ settings.badge_position }}">
@@ -253,10 +258,7 @@
           </div>
         {% endunless %}
       </div>
-      
-      {% if settings.enable_card_swatches %}
-      {%- render 'card-swatches', product: card_product -%}
-      {% endif %}
+
     </div>
   </div>
 {%- endif -%}
