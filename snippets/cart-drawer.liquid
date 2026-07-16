@@ -751,6 +751,21 @@
         <p class="visually-hidden cart-live-region-text"  aria-live="polite" role="status"></p>
         <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
       </cart-items>
+      {% if cart.item_count > 0 %}
+        <discount-code-input>
+          <div class="discount-input-wrapper">
+            <input
+              type="text"
+              name="discount"
+              placeholder="Discount code"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button type="button" data-apply>Apply</button>
+          </div>
+          <p class="discount-error" style="display:none;"></p>
+        </discount-code-input>
+      {% endif %}
       <div class="cart-level-gift-options-container {% if cart.item_count == 0 %} hidden {% endif %}">
         <div class="options-text" style="margin-bottom: 5px;">Gifting Options</div>
         <div class="options-text">Most items arrive in a complimentary Hammitt gift box.
