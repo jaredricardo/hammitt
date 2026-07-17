@@ -110,13 +110,37 @@
         "custom_class": ""
       }
     },
+    "slider_collection_L6qdiY": {
+      "type": "slider-collection",
+      "name": "bestsellers widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "bestsellers",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "portrait",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 10,
+        "padding_bottom": 30,
+        "mobile_padding_top": 4,
+        "mobile_padding_bottom": 20
+      }
+    },
     "upgraded_hero_banner_9JtHPR": {
       "type": "upgraded-hero-banner",
       "blocks": {
         "slide_eMnF39": {
           "type": "slide",
           "settings": {
-            "background_video_desktop": "shopify://files/videos/chiliredEestend-no-logo_16x9.mp4",
+            "background_video_desktop": "shopify://files/videos/chiliredEestend-no-logo_16x9 (1).mp4",
             "heading_tag": "h1",
             "heading_copy": "New July Drop",
             "custom_html": "",
@@ -181,7 +205,7 @@
         "slide_YX4xMe": {
           "type": "slide",
           "settings": {
-            "background_video_desktop": "shopify://files/videos/Cargo_16x9-no-logo.mp4",
+            "background_video_desktop": "shopify://files/videos/Cargo_16x9-no-logo (1).mp4",
             "heading_tag": "h1",
             "heading_copy": "Effortless Utility",
             "custom_html": "",
@@ -246,28 +270,43 @@
         "mobile_padding_bottom": 20
       }
     },
-    "slider_collection_L6qdiY": {
-      "type": "slider-collection",
-      "name": "bestsellers widget",
+    "jr_new_5050_product_list_zy3tkK": {
+      "type": "jr-new-5050-product-list",
+      "custom_css": [
+        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
+      ],
+      "name": "Bestsellers modal ",
       "settings": {
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
         "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "bestsellers",
-        "max_products": 30,
+        "padding_bottom_desktop": 0,
+        "padding_bottom_mobile": 0,
+        "allow_sold_out_cards": false,
+        "product_list": [
+          "tom-zip-hobo-cocoa-raffia-gold",
+          "andersen-revival-tote-silverlake-antique-gold",
+          "olympia-tote-tote-bag-cabana-blue-brushed-gold",
+          "hunter-med-backpack-black-nylon-cargo-gold",
+          "shelley-resort-tote-calla-lily-white-raffia-brushed-gold-hammered",
+          "shelley-clutch-clutch-sienna-flora-brushed-gold"
+        ],
         "show_secondary_image": true,
         "image_ratio": "portrait",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
+        "image": "shopify://shop_images/Rectangle-1119.gif",
+        "image_alignment_desktop": "image-right",
+        "image_alignment_mobile": "image-top",
+        "button_link": "shopify://collections/travel",
+        "button_text": "Shop Now",
+        "button_text_color": "#000000",
+        "button_background_color": "#ffffff",
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "mobile_padding_top": 8,
+        "mobile_padding_bottom": 8,
         "slides_per_view_mobile": 2.2,
         "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 10,
-        "padding_bottom": 30,
-        "mobile_padding_top": 4,
-        "mobile_padding_bottom": 20
+        "slides_per_view_desktop": 4
       }
     },
     "silhouette_carousel_Je7Pit": {
@@ -1008,45 +1047,6 @@
         "padding_top_mobile": 8,
         "padding_bottom_mobile": 8,
         "custom_class": ""
-      }
-    },
-    "jr_new_5050_product_list_zy3tkK": {
-      "type": "jr-new-5050-product-list",
-      "custom_css": [
-        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
-      ],
-      "name": "Bestsellers modal ",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "",
-        "padding_bottom_desktop": 0,
-        "padding_bottom_mobile": 0,
-        "allow_sold_out_cards": false,
-        "product_list": [
-          "tom-zip-hobo-cocoa-raffia-gold",
-          "andersen-revival-tote-silverlake-antique-gold",
-          "olympia-tote-tote-bag-cabana-blue-brushed-gold",
-          "hunter-med-backpack-black-nylon-cargo-gold",
-          "shelley-resort-tote-calla-lily-white-raffia-brushed-gold-hammered",
-          "shelley-clutch-clutch-sienna-flora-brushed-gold"
-        ],
-        "show_secondary_image": true,
-        "image_ratio": "portrait",
-        "image": "shopify://shop_images/Rectangle-1119.gif",
-        "image_alignment_desktop": "image-right",
-        "image_alignment_mobile": "image-top",
-        "button_link": "shopify://collections/travel",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 30,
-        "padding_bottom": 30,
-        "mobile_padding_top": 8,
-        "mobile_padding_bottom": 8,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4
       }
     },
     "homepage_instagram_RrcAhY": {
