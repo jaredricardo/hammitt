@@ -226,7 +226,7 @@
         <div class="hammitt-silhouettes-grid">
             {% for block in section.blocks %}
                 <a href="{{ block.settings.silhouette_link }}" class="silhouette-grid-card">
-                    <img src="{{ block.settings.silhouette_image | img_url: 'master' }}" alt="{{ block.settings.silhouette_name }}">
+                    <img src="{{ block.settings.silhouette_image | image_url: width: 800 }}" alt="{{ block.settings.silhouette_name }}">
                     <span>{{ block.settings.silhouette_name }}</span>
                 </a>
             {% endfor %}

@@ -52,7 +52,7 @@
         {% if merch_media.value.media_type == "video" %}
             <video src="{{ merch_media | file_url }}" loop="true" autoplay="true" muted playsinline type="video/mp4"></video>
         {% else %}
-            {{ merch_media | image_url: width: 1200 | image_tag: widths: '600, 900, 1100' }}
+            {{ merch_media | image_url: width: 1200 | image_tag: widths: '600, 900, 1100', alt: title | default: 'Hammitt Product Image' }}
         {% endif %}
     </div>
     <div class="content-container y-alignment--{{ content_y_position }} x-alignment--{{ content_x_position }}">

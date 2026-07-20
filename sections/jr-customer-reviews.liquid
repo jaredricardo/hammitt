@@ -33,11 +33,11 @@
                         {% endif %}
                             <div class="review-card-inner">
                                 <div class="card-img-container">
-                                    {{ block.settings.review_image | image_url: width: 500 | image_tag }}
+                                    {{ block.settings.review_image | image_url: width: 500 | image_tag: alt: block.settings.title | default: 'Hammitt Product Image' }}
                                 </div>
                                 {% if section.settings.stars_image %}
                                     <div class="star-img-container">
-                                        {{ section.settings.stars_image | image_url: width: 300 | image_tag }}
+                                        {{ section.settings.stars_image | image_url: width: 300 | image_tag: alt: 'Star Rating' }}
                                     </div>
                                 {% endif %}
                                 <div class="review-content">

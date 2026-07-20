@@ -1115,7 +1115,8 @@
                           class: image_class,
                           sizes: sizes,
                           widths: widths,
-                          fetchpriority: fetch_priority
+                          fetchpriority: fetch_priority,
+                          alt: column.heading | default: 'Hammitt Product Image'
                       }}
                     </div>
                   {% endif %}
@@ -1272,7 +1273,7 @@
                       </svg>
                     </button>
                     <div class="free-multi-gift-select-item-image">
-                      {{ product.featured_image | image_url: width: 400 | image_tag }} 
+                      {{ product.featured_image | image_url: width: 400 | image_tag: alt: product.title | default: 'Hammitt Product Image' }} 
                     </div>
                     <p>{{ product.title }}</p>
                     <p class="green">Free</p>

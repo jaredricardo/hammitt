@@ -9,7 +9,7 @@
 <div data-section-id="{{ section.id }}">
     <div class="page-width jr-leather-cleaner">
         <div class="col">
-            {{ section.settings.main_image | image_url: width: 800 |  image_tag }}
+            {{ section.settings.main_image | image_url: width: 800 |  image_tag: alt: section.settings.title | default: 'Hammitt Product Image' }}
         </div>
         <div class="col">
             {% if section.settings.title %}
@@ -30,7 +30,7 @@
                         {% endif %}
 
                             {% if block.settings.leather_image %}
-                                {{ block.settings.leather_image | image_url: width: 500 | image_tag }}
+                                {{ block.settings.leather_image | image_url: width: 500 | image_tag: alt: block.settings.leather_name | default: 'Hammitt Product Image' }}
                             {% endif %}
                             <h5>{{ block.settings.leather_name }}</h5>
 
