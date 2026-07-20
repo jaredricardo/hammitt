@@ -37,11 +37,11 @@
             {% if section.settings.image != blank %}
                 {% if section.settings.image_link != blank %}
                     <a href="{{ section.settings.image_link }}" class="img-container">
-                        {{ section.settings.image | image_url: width: 1200 | image_tag }}
+                        {{ section.settings.image | image_url: width: 1200 | image_tag: alt: section.settings.image.alt | default: 'Hammitt Product Image' }}
                     </a>
                 {% else %}
                     <div class="img-container">
-                        {{ section.settings.image | image_url: width: 1200 | image_tag }}
+                        {{ section.settings.image | image_url: width: 1200 | image_tag: alt: section.settings.image.alt | default: 'Hammitt Product Image' }}
                     </div>
                 {% endif %}
             {% endif %}
