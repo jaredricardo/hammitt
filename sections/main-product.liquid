@@ -1310,15 +1310,14 @@
                         <div class="product-form__buttons">
                           {% if product.selected_or_first_available_variant.available %}
                             <button
-                              {% if product.tags contains "retired" %}
-                                disabled
-                              {% endif %}
                               type="submit"
                               name="add"
                               class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}">
                                 <span>
                                   {%- if product.selected_or_first_available_variant.available -%}
-                                    {% if isPreOrderProduct and product.metafields.custom.preorder_key%}
+                                    {% if product.metafields.custom.atc_override_text %}
+                                      {{ product.metafields.custom.atc_override_text }}
+                                    {% elsif isPreOrderProduct and product.metafields.custom.preorder_key%}
                                       {% if product.metafields.custom.preorder_cta_text %} {{ product.metafields.custom.preorder_cta_text }} {% else %} Pre Order {% endif %}
                                     {% else %}
                                         {% if has_reached_gift_threshold == false %}
@@ -1331,9 +1330,7 @@
                                             {{ 'products.product.add_to_cart' | t }}
                                         {% endif %}
                                     {% endif %}
-                                  {%- else -%}
-                                    {{ 'products.product.sold_out' | t }}
-                                  {%- endif -%}
+                                  {% endif  %}
                                 </span>
                                 <div class="loading-overlay__spinner hidden">
                                   <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -1349,14 +1346,16 @@
                               data-title="{{ product.title }}" 
                               data-variant-title="{{ product.selected_or_first_available_variant.title | prepend:" " }}" 
                               class="{% if product.selected_or_first_available_variant.available %}hidden{% endif %} button button--full-width button--primary klaviyo_button_product"
-                              {% if product.tags contains "retired" %} disabled {% endif %}
+                              {% unless product.tags contains "will_restock" %} disabled {% endunless %}
                               >
-                              {% if product.tags contains 'retired' %}
-                                {{ 'products.product.sold_out' | t }}
+                              {% if product.metafields.custom.atc_override_text %}
+                                  {{ product.metafields.custom.atc_override_text }}
                               {% elsif product.metafields.custom.restock_date_text %}
                                   {{ 'Notify me | ' | append: product.metafields.custom.restock_date_text  }} 
+                              {% elsif product.tags contains 'will_restock' %}
+                                  {{ 'Notify me when back in stock' }}
                                 {% else %}
-                                  {{ 'Notify me when available' }}
+                                  {{ 'products.product.sold_out' | t }}
                               {% endif %}
                             </button>
                           {% endif %}
