@@ -693,7 +693,7 @@
                 <div class="block-wrap flexbox align-center" style="--bg-color:{{ block.settings.background_color }};--text-color:{{ block.settings.text_color }}">
                   {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" class="blocklink"></a>{%- endif -%}
                   <div class="block-icon">
-                    <img src="{{ block.settings.icon | img_url: '55x' }}">
+                    <img src="{{ block.settings.icon | img_url: '55x' }}" alt="{{ block.settings.title | default: 'Hammitt Product Image' }}">
                   </div>
                   <h4 class="p-large">{{ block.settings.title }}</h4>
                 </div>
@@ -706,7 +706,7 @@
                 <div class="col flexbox align-center justify-center">
                   {% if block.settings.link1 != blank %}<a href="{{ block.settings.link1 }}" class="collink"></a>{% endif %}
                   <div class="col-icon">
-                    <img src="{{ block.settings.icon1 | img_url: "35x" }}">
+                    <img src="{{ block.settings.icon1 | img_url: "35x" }}" alt="{{ block.settings.title1 | default: 'Hammitt Product Image' }}">
                   </div>
                   <p class="coltitle">{{ block.settings.title1 }}</p>
                 </div>
@@ -715,7 +715,7 @@
                 <div class="col flexbox align-center justify-center">
                   {% if block.settings.link2 != blank %}<a href="{{ block.settings.link2 }}" class="collink"></a>{% endif %}
                   <div class="col-icon">
-                    <img src="{{ block.settings.icon2 | img_url: "35x" }}">
+                    <img src="{{ block.settings.icon2 | img_url: "35x" }}" alt="{{ block.settings.title2 | default: 'Hammitt Product Image' }}">
                   </div>
                   <p class="coltitle">{{ block.settings.title2 }}</p>
                 </div>

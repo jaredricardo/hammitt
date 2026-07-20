@@ -80,7 +80,7 @@
         {% else %}
         {% if block.settings.icon_image != blank %}
         <div class="value-prop__icon">
-          <img src="{{ block.settings.icon_image | img_url: '100x' }}">  
+          <img src="{{ block.settings.icon_image | img_url: '100x' }}" alt="{{ block.settings.title | default: 'Hammitt Product Image' }}">  
         </div>
         {% endif %}
         {% endif %}
