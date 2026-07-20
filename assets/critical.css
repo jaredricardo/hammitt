@@ -1046,8 +1046,9 @@ a.nav-wishlist-button .heart-count {
     max-width: 100%;
   }
 .card__heading {
-  justify-content: start !important;
+  justify-content: space-between !important;
   margin-bottom: 0.75rem !important;
+  padding-right: 1rem;
 }
 
 /* orginally this was a setting with text-align: var(--card-text-alignment), but it was broken at some point so now its just hard coded */
