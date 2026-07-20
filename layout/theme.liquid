@@ -1286,7 +1286,9 @@ template-{{ template.name -}}
           }
 
           _activate(btn) {
-            const src = btn.dataset.imageToPreview;
+            const src = window.innerWidth >= 768
+              ? (btn.dataset.imageToPreviewLg || btn.dataset.imageToPreview)
+              : btn.dataset.imageToPreview;
             if (src) {
               this._cardImage.src = src;
               this._cardImage.srcset = '';

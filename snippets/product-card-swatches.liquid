@@ -23,7 +23,10 @@
                 {% break %}
             {% endif %}
 
-            <button data-image-to-preview="{{ swatch_product.featured_image | image_url: width: 600  }}">
+            <button
+              data-image-to-preview="{{ swatch_product.featured_image | image_url: width: 400 }}"
+              data-image-to-preview-lg="{{ swatch_product.featured_image | image_url: width: 600 }}"
+            >
                 {% if swatch_product.metafields.custom.card_swatch %}
                     <img src="{{ swatch_product.metafields.custom.card_swatch | image_url: width: 50  }}" alt="Hammitt {{ swatch_product.title }} color swatch" />
                     {% else %}
