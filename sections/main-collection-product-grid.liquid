@@ -168,6 +168,127 @@
 
 {%- endstyle -%}
 
+{% if section.settings.use_silhouette_carousel %}
+<style>
+  /* Grid Silhouette Carousel Styles */
+  .grid-silhouette-carousel-wrapper {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .grid-silhouette-carousel-left {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem 2.5rem;
+    justify-content: center;;
+  }
+
+  .grid-silhouette-carousel-title {
+    font-size: 30px !important;
+    font-style: italic;
+    font-family: 'Adobe Caslon Pro' !important;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .grid-silhouette-carousel-link {
+    font-size: 16px;
+    text-decoration: underline;
+    color: black;
+    font-weight: 500;
+  }
+
+  .grid-silhouette-carousel-right {
+    width: 80%;
+  }
+
+  .grid-silhouette-carousel {
+    padding: 8px 0 8px 4px;
+    opacity: 0;
+    transition: 300ms ease;
+  }
+
+  .grid-silhouette-carousel:has(.swiper-initialized) {
+    opacity: 1;
+  }
+
+  .grid-silhouette-carousel .swiper:not(.swiper-initialized) {
+    overflow: hidden;
+  }
+
+  .grid-silhouette-carousel .swiper:not(.swiper-initialized) .swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .grid-silhouette-carousel .swiper:not(.swiper-initialized) .swiper-slide {
+    width: calc(100% / 3.6);
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 769px) {
+    .grid-silhouette-carousel .swiper:not(.swiper-initialized) .swiper-slide {
+      width: calc(100% / 6.5);
+    }
+  }
+
+  .grid-silhouette-carousel .silhouette-carousel__hover-text {
+    opacity: 1;
+    text-align: center;
+    transition: 300ms ease;
+    padding-left: 5px;
+    color: black;
+    font-weight: 500 !important;
+  }
+
+  .grid-silhouette-carousel a {
+    text-decoration: none !important;
+    display: block;
+  }
+
+  .grid-silhouette-carousel .silhouette-carousel__image {
+    max-width: 100%;
+  }
+
+  .grid-silhouette-card {
+    display: block;
+  }
+
+  /* Mobile Styles */
+  @media screen and (max-width: 768px) {
+    .grid-silhouette-carousel-wrapper {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .grid-silhouette-carousel-left {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0rem 0.5rem;
+    }
+
+    .grid-silhouette-carousel-right {
+      width: 100%;
+    }
+
+    .grid-silhouette-carousel-title {
+      font-size: 22px !important;
+    }
+
+    .grid-silhouette-carousel-link {
+      font-size: 12px;
+    }
+  }
+</style>
+{% endif %}
+
 {% liquid
 
   assign isShareholder = false
@@ -246,7 +367,110 @@
     endif
   endif
 
+  assign active_on_collection = false
+  assign split_silhouette_carousel_handles = section.settings.carousel_active_handles | split: ','
+
+  for handle in split_silhouette_carousel_handles
+    if handle == collection.handle
+      assign active_on_collection = true
+    endif
+  endfor
+
+
 -%}
+
+
+{% if section.settings.use_silhouette_carousel %}
+
+  <style>
+    #scroll-to-silhouette-carousel-btn {
+      position: fixed;
+      top: 12vh;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      color: white;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 4;
+      border: 1px solid black;
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+      padding: 0 0 0 8px !important;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 0;
+    }
+
+    #scroll-to-silhouette-carousel-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      display: flex !important;
+    }
+    #scroll-to-silhouette-carousel-btn svg {
+      width: 50%;
+      height: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+      #scroll-to-silhouette-carousel-btn {
+        top: auto;
+        bottom: 5vh;
+      }
+    }
+  </style>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const scrollButton = document.getElementById('scroll-to-silhouette-carousel-btn');
+      const carouselElement = document.getElementById('grid-silhouette-carousel-wrapper');
+
+      if (!scrollButton || !carouselElement) return;
+
+      // Function to check if carousel is past viewport
+      function checkCarouselPosition() {
+        const carouselRect = carouselElement.getBoundingClientRect();
+        const carouselBottom = carouselRect.bottom;
+        
+        // Show button only if user has scrolled past the carousel
+        // (carousel is above the viewport)
+        if (carouselBottom < 0) {
+          scrollButton.classList.add('visible');
+        } else {
+          scrollButton.classList.remove('visible');
+        }
+      }
+
+      // Check position on scroll
+      window.addEventListener('scroll', checkCarouselPosition);
+      
+      // Check position on load
+      checkCarouselPosition();
+
+      // Scroll to carousel on button click
+      scrollButton.addEventListener('click', () => {
+        carouselElement.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        });
+      });
+    });
+  </script>
+
+  <button id="scroll-to-silhouette-carousel-btn">
+    <svg width="119" height="129" viewBox="0 0 119 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M39.3803 86.0891C34.3848 79.2302 27.9322 74.3977 25.3303 72.8389H19.8662C14.9227 86.8685 4.56747 115.863 2.69413 119.604C0.820791 123.346 3.47469 125.32 5.0358 125.84C36.7785 126.1 102.137 126.463 109.631 125.84C117.124 125.216 117.436 121.423 116.656 119.604L97.1416 72.8389H90.8971C87.7749 72.8389 83.8721 79.0743 79.9693 86.0891C76.8471 91.701 66.0555 95.4422 59.6748 95.4422C52.0055 95.4422 44.3759 92.948 39.3803 86.0891Z" fill="black"/>
+      <path d="M25.3343 70.7891L25.6108 70.8091C25.8842 70.8466 26.1498 70.9388 26.3882 71.0816C29.1826 72.7562 35.8541 77.7645 41.0389 84.8827C45.5315 91.0512 52.4361 93.3943 59.6768 93.3943C62.5378 93.3943 66.5581 92.536 70.2481 90.9819C74.0049 89.3994 76.957 87.2896 78.1786 85.0951C80.1306 81.5866 82.1423 78.1576 84.0934 75.5938C85.0676 74.3138 86.0878 73.1666 87.1389 72.3239C88.163 71.5029 89.4425 70.7895 90.8978 70.7891H97.1451L97.4497 70.8131C98.1515 70.9189 98.7577 71.3829 99.0366 72.0514L118.544 118.797L118.749 119.362C119.172 120.756 119.164 122.659 117.903 124.383C116.482 126.324 113.825 127.55 109.804 127.885C105.944 128.206 87.597 128.271 66.4251 128.226C45.1756 128.18 20.8952 128.023 5.02124 127.893C4.80666 127.891 4.5917 127.857 4.38809 127.789C3.2881 127.422 1.76996 126.551 0.825595 125C-0.209788 123.298 -0.351394 121.111 0.861661 118.688C1.27165 117.87 2.2273 115.473 3.55457 111.968C4.86127 108.517 6.4838 104.113 8.20304 99.3812C11.6409 89.9196 15.4625 79.1704 17.9328 72.1596C18.222 71.3387 18.998 70.7891 19.8683 70.7891H25.3343ZM21.3189 74.8925C18.8482 81.8925 15.2849 91.9028 12.0581 100.784C10.3369 105.521 8.70959 109.943 7.39357 113.419C6.09875 116.838 5.05925 119.471 4.53235 120.524C3.87305 121.84 4.1187 122.513 4.33199 122.864C4.58383 123.278 5.03401 123.602 5.44201 123.79C21.3165 123.919 45.3665 124.077 66.4332 124.122C87.7492 124.168 105.831 124.1 109.464 123.798C112.934 123.509 114.179 122.528 114.593 121.962C114.985 121.426 114.948 120.823 114.773 120.416L114.765 120.395L95.7746 74.8925H90.8978C90.7906 74.8931 90.4116 74.9614 89.7076 75.5257C89.0271 76.0712 88.2387 76.923 87.3593 78.0783C85.6036 80.3854 83.7149 83.5823 81.7651 87.0868C79.864 90.5038 75.8571 93.0739 71.843 94.7648C67.7619 96.4838 63.1962 97.4977 59.6768 97.4977C51.5792 97.4977 43.2233 94.8482 37.7248 87.2992C33.1997 81.0861 27.4054 76.601 24.7332 74.8925H21.3189Z" fill="black"/>
+      <path d="M57.0735 0C61.4736 0 65.1804 1.0224 68.322 2.97743C71.4367 4.9159 73.8049 7.65165 75.7355 10.7877C78.5483 15.357 80.661 21.2139 82.7964 27.3498L84.9683 33.5411L85.0444 33.7856L95.3031 72.0393C95.7434 73.681 94.7688 75.3699 93.1272 75.8102C91.4855 76.2504 89.7966 75.2758 89.3563 73.6342L79.1217 35.4767C75.9682 26.6808 73.784 19.3581 70.4939 14.0135C68.8957 11.4176 67.144 9.49269 65.072 8.20295C63.0261 6.92966 60.4741 6.15522 57.0735 6.15522C53.7577 6.1555 51.308 7.01458 49.3474 8.3953C47.3392 9.80961 45.6566 11.9047 44.1339 14.6587C42.6059 17.4226 41.322 20.6925 40.0224 24.3283C38.7688 27.8355 37.4696 31.7729 35.9951 35.5528L25.54 73.6502C25.0902 75.2888 23.3957 76.2551 21.7571 75.8061C20.1185 75.3563 19.1523 73.6619 19.6012 72.0233L30.1043 33.7655L30.2045 33.461C31.6617 29.7418 32.8771 26.0244 34.2238 22.2566C35.5411 18.5712 36.9648 14.9068 38.7481 11.6813C40.5364 8.44678 42.7706 5.49654 45.8009 3.36213C48.879 1.19432 52.59 0.000290982 57.0735 0Z" fill="black"/>
+    </svg>
+  </button>
+
+{% endif %}
 
 <div class="section-{{ section.id }}-padding col-wrap" id="product-grid-container">
   {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
@@ -515,19 +739,119 @@
                   converted_threshold_price: converted_threshold_price
                 %}
               </li>
+
+              {% comment %} SILHOUETTE CAROUSEL - Render after products {% endcomment %}
+              {% unless filters_are_active or paginate.current_page > 1 %}
+                {% if section.settings.use_silhouette_carousel and active_on_collection %}
+                  {% comment %} Calculate cumulative grid slots used so far {% endcomment %}
+                  {% assign cumulative_slots = forloop.index %}
+                  
+                  {% comment %} Add merch box one columns if it has rendered (at or before current position) {% endcomment %}
+                  {% if merch_box_one and merch_box_one.enable_merch_box %}
+                    {% if merch_box_one.number_of_columns == 1 and merch_box_one.position_in_grid <= forloop.index %}
+                      {% assign cumulative_slots = cumulative_slots | plus: 1 %}
+                    {% elsif merch_box_one.number_of_columns == 2 %}
+                      {% assign mb1_nearest_odd = merch_box_one.position_in_grid %}
+                      {% assign mb1_mod = mb1_nearest_odd | modulo: 2 %}
+                      {% if mb1_mod == 0 %}
+                        {% assign mb1_nearest_odd = mb1_nearest_odd | minus: 1 %}
+                      {% endif %}
+                      {% if mb1_nearest_odd <= forloop.index %}
+                        {% assign cumulative_slots = cumulative_slots | plus: 2 %}
+                      {% endif %}
+                    {% elsif merch_box_one.number_of_columns >= 3 %}
+                      {% assign mb1_grid_width = section.settings.columns_desktop %}
+                      {% assign mb1_row = merch_box_one.position_in_grid | minus: 1 | divided_by: mb1_grid_width %}
+                      {% assign mb1_snapped = mb1_row | times: mb1_grid_width | plus: 1 %}
+                      {% if mb1_snapped <= forloop.index %}
+                        {% assign cumulative_slots = cumulative_slots | plus: merch_box_one.number_of_columns %}
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                  
+                  {% comment %} Add merch box two columns if it has rendered {% endcomment %}
+                  {% if merch_box_two and merch_box_two.enable_merch_box %}
+                    {% if merch_box_two.number_of_columns == 1 and merch_box_two.position_in_grid <= forloop.index %}
+                      {% assign cumulative_slots = cumulative_slots | plus: 1 %}
+                    {% elsif merch_box_two.number_of_columns == 2 %}
+                      {% assign mb2_nearest_odd = merch_box_two.position_in_grid %}
+                      {% assign mb2_mod = mb2_nearest_odd | modulo: 2 %}
+                      {% if mb2_mod == 0 %}
+                        {% assign mb2_nearest_odd = mb2_nearest_odd | minus: 1 %}
+                      {% endif %}
+                      {% if mb2_nearest_odd <= forloop.index %}
+                        {% assign cumulative_slots = cumulative_slots | plus: 2 %}
+                      {% endif %}
+                    {% elsif merch_box_two.number_of_columns >= 3 %}
+                      {% assign mb2_grid_width = section.settings.columns_desktop %}
+                      {% assign mb2_row = merch_box_two.position_in_grid | minus: 1 | divided_by: mb2_grid_width %}
+                      {% assign mb2_snapped = mb2_row | times: mb2_grid_width | plus: 1 %}
+                      {% if mb2_snapped <= forloop.index %}
+                        {% assign cumulative_slots = cumulative_slots | plus: merch_box_two.number_of_columns %}
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                  
+                  {% comment %} Render at slot 9 (after 8 slots filled) or at the end {% endcomment %}
+                  {% assign should_render_carousel = false %}
+                  {% if cumulative_slots == 8 %}
+                    {% assign should_render_carousel = true %}
+                  {% elsif forloop.last and cumulative_slots < 8 %}
+                    {% assign should_render_carousel = true %}
+                  {% endif %}
+                  
+                  {% if should_render_carousel %}
+                    <li class="grid__item grid-silhouette-carousel-wrapper" id="grid-silhouette-carousel-wrapper">
+                    <div class="grid-silhouette-carousel-left">
+                      {% if section.settings.silhouette_carousel_title != blank %}
+                        <h3 class="grid-silhouette-carousel-title">{{ section.settings.silhouette_carousel_title }}</h3>
+                      {% endif %}
+                      {% if section.settings.silhouette_carousel_link_url != blank and section.settings.silhouette_carousel_link_text != blank %}
+                        <a href="{{ section.settings.silhouette_carousel_link_url }}" class="grid-silhouette-carousel-link">{{ section.settings.silhouette_carousel_link_text }}</a>
+                      {% endif %}
+                    </div>
+                    <div class="grid-silhouette-carousel-right">
+                      {%- capture json -%}
+                      {
+                        "loop": false,
+                        "allowSlideNext": true,
+                        "allowSlidePrev": true,
+                        "autoHeight": true,
+                        "grabCursor": true,
+                        "mousewheel": { "forceToAxis": true },
+                        "slidesPerView": 3.6,
+                        "spaceBetween": 4,
+                        "breakpoints": {
+                          "768": {
+                            "slidesPerView": 6.5
+                          }
+                        }
+                      }
+                      {%- endcapture -%}
+                      <div class="grid-silhouette-carousel always-show-titles">
+                        <div class="swiper" data-json='{{ json }}'>
+                          <div class="swiper-wrapper">
+                            {% for block in section.blocks %}
+                              {% if block.type == 'silhouette-carousel-item' %}
+                                <a class="swiper-slide grid-silhouette-card" href="{{ block.settings.silhouette_url }}">
+                                  {% if block.settings.image != blank %}
+                                    <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="silhouette-carousel__image" loading="lazy" />
+                                  {% endif %}
+                                  {% if block.settings.title != blank %}
+                                    <h6 class="silhouette-carousel__hover-text carlson-italic always-visible">{{ block.settings.title }}</h6>
+                                  {% endif %}
+                                </a>
+                              {% endif %}
+                            {% endfor %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  {% endif %}
+                {% endif %}
+              {% endunless %}
             
-              {%- liquid 
-              for block in section.blocks 
-                assign block_position = block.settings.position | plus: 0
-                if block_position == myIndex
-                  include 'card-marketing-tile', block: block, media_size: section.settings.image_ratio
-                  assign myIndex = myIndex | plus: 1
-                  if block.settings.width == '2x' 
-                  assign myIndex = myIndex | plus: 1
-                  endif
-                endif
-              endfor 
-              -%}
             
             {%- endfor -%}
           </ul>
@@ -616,6 +940,36 @@
     {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_silhouette_carousel",
+      "label": "Use Silhouette Carousel",
+      "default": false,
+      "info": "If enabled, the Silhouette Carousel will be displayed above the product grid (always at index 9, i.e. the start of the 3rd row on desktop). *** If this is enabled, you must add at least 1 Silhouette Carousel Item block to the section for it to display. ***"
+    },
+    {
+      "type": "text",
+      "id": "carousel_active_handles",
+      "label": "Active Collection Handles",
+      "info": "Comma-separated list of collection handles where the Silhouette Carousel should be active. Silhouette carousel will only display on these collections."
+    },
+    {
+      "type": "text", 
+      "id": "silhouette_carousel_title",
+      "label": "Silhouette Carousel Title",
+      "default": "Shop By Collection"
+    },
+    {
+      "type": "text", 
+      "id": "silhouette_carousel_link_text",
+      "label": "Silhouette Carousel Link Text",
+      "default": "Explore All"
+    },
+    {
+      "type": "url", 
+      "id": "silhouette_carousel_link_url",
+      "label": "Silhouette Carousel Link URL"
     },
     {
       "type": "checkbox",
@@ -761,73 +1115,45 @@
     }
   ],
   "blocks": [
-	{
-	    "type":"marketing_tile",
-        "name":"Marketing Tile",
-        "settings":[
-            {
-                "type":"image_picker",
-                "id":"image",
-                "label":"Image"
-            },
-            {
-                "type":"url",
-                "id":"link",
-                "label":"Link"
-            },
-            {
-                "type": "range",
-                "id": "position",
-                "min": 0,
-                "max": 48,
-                "step": 1,
-                "label": "Position",
-                "default": 3
-            },
-            {
-                "type": "select",
-                "id": "width",
-                "label": "Width",
-                "default":"1x",
-                "options": [
-                    { "value":"1x","label":"1x" },
-                    { "value":"2x","label":"2x" }
-                ]
-            },
-            {
-                "type":"text",
-                "id":"title",
-                "label":"Heading"
-            },
-            {
-                "type":"richtext",
-                "id":"paragraph",
-                "label":"Paragraph"
-            },
-            {
-                "type":"text",
-                "id":"button_text",
-                "label":"Button text"
-            }
-            ]
-            },
-            {
-            "type": "collection-filter-link",
-            "name": "Collection Filter Link",
-            "limit": 12,
-            "settings": [
-                {
-                    "type":"collection",
-                    "id": "collection",
-                    "label": "Collection URL"
-                },
-                {
-                    "type": "text",
-                    "id": "title",
-                    "label": "Alternative Collection Title (optional)"
-                }
-            ]
+    {
+      "type": "silhouette-carousel-item",
+      "name": "Silhouette Carousel Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Silhouette Image"
+        },
+        {
+          "type": "url",
+          "id": "silhouette_url",
+          "label": "Silhouette URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Silhouette Image Title",
+          "default": "Image Title"
         }
-    ]
+      ]
+    },
+    {
+      "type": "collection-filter-link",
+      "name": "Collection Filter Link",
+      "limit": 12,
+      "settings": [
+        {
+          "type":"collection",
+          "id": "collection",
+          "label": "Collection URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Alternative Collection Title (optional)"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

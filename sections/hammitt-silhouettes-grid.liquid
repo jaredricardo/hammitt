@@ -1,0 +1,291 @@
+{% style %}
+
+    [data-section-id="{{ section.id }}"] {
+        background-color: {{ section.settings.bg_color }};
+    }
+
+{% endstyle %}
+
+<style>
+    .hammitt-silhouettes-grid-section .inner-area {
+        padding: 0 8px;
+    }
+
+    .hammitt-silhouettes-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding: 0rem 2rem;
+    }
+
+    .hammitt-silhouettes-header h1 {
+        margin: 0;
+        font-size: 30x !important;
+    }
+
+    /* Toggle Grid Button Styles - matching existing pattern */
+    .hammitt-silhouettes-grid-section #toggle-grid {
+        display: flex;
+        gap: 8px;
+        background: transparent;
+        border: none;
+        padding: 0.8rem;
+        cursor: pointer;
+        align-items: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .hammitt-silhouettes-grid-section #toggle-grid .grid-view-svg {
+        height: 14px;
+        width: 14px;
+    }
+
+    .hammitt-silhouettes-grid-section #toggle-grid .collection-view {
+        display: block;
+        height: 14px;
+        width: 14px;
+    }
+
+    /* Collection view (mosaic) - default state */
+    .hammitt-silhouettes-grid-section #toggle-grid.collection-view .grid-view-svg rect {
+        fill: #D8D8D8;
+    }
+
+    .hammitt-silhouettes-grid-section #toggle-grid.collection-view .collection-view {
+        background-color: black;
+    }
+
+    /* Grid view (uniform) - toggled state */
+    .hammitt-silhouettes-grid-section #toggle-grid.grid-view .grid-view-svg rect {
+        fill: black;
+    }
+
+    .hammitt-silhouettes-grid-section #toggle-grid.grid-view .collection-view {
+        background-color: #D8D8D8;
+    }
+
+    .hammitt-silhouettes-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        padding: 2px;
+    }
+
+    .silhouette-grid-card {
+        background-color: #f9f8f6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: black;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .silhouette-grid-card:hover {
+        opacity: 0.85;
+    }
+
+    .silhouette-grid-card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .silhouette-grid-card span {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #000;
+        font-family: "Adobe Caslon Pro" !important;
+        font-size: 18px !important;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 150%; /* 33px */
+    }
+
+    /* Mosaic pattern - large cards span 2x2 */
+    .silhouette-grid-card.large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    /* Uniform grid view (toggled) */
+    .hammitt-silhouettes-grid.uniform-view {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .hammitt-silhouettes-grid.uniform-view .silhouette-grid-card.large {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .hammitt-silhouettes-grid.uniform-view .silhouette-grid-card span {
+        display: none;
+    }
+
+    /* Mobile styles */
+    @media screen and (max-width: 768px) {
+        .hammitt-silhouettes-header h1 {
+            font-size: 20px !important;
+        }
+        .hammitt-silhouettes-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hammitt-silhouettes-grid.uniform-view {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .silhouette-grid-card {
+            padding: 1rem;
+        }
+
+        .silhouette-grid-card.large {
+            margin: 15px;
+        }
+
+        .silhouette-grid-card span {
+            font-size: 14px;
+            margin-bottom: 1rem;
+        }
+        .hammitt-silhouettes-header {
+            padding: 0rem 1rem;
+        }
+    }
+</style>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const grid = document.querySelector('.hammitt-silhouettes-grid')
+        const toggleButton = document.getElementById('toggle-grid')
+        const cards = document.querySelectorAll('.silhouette-grid-card')
+
+        if (!grid || !toggleButton || cards.length === 0) return
+
+        // Function to apply mosaic pattern
+        function applyMosaicPattern() {
+            cards.forEach((card, index) => {
+                card.classList.remove('large')
+                
+                const position = index + 1 // 1-based position
+                const patternPosition = ((position - 1) % 23) + 1 // Pattern repeats every 23 items
+                
+                // Items at positions 7, 10, and 21 in the pattern are large
+                if (patternPosition === 7 || patternPosition === 10 || patternPosition === 21) {
+                    card.classList.add('large')
+                }
+            })
+        }
+
+        // Function to remove mosaic pattern
+        function removeMosaicPattern() {
+            cards.forEach(card => {
+                card.classList.remove('large')
+            })
+        }
+
+        // Apply mosaic pattern on load
+        applyMosaicPattern()
+
+        // Set initial button state to collection-view (mosaic)
+        toggleButton.classList.add('collection-view')
+
+        // Toggle button functionality
+        toggleButton.addEventListener('click', () => {
+            // Toggle between collection-view and grid-view classes
+            if (toggleButton.classList.contains('collection-view')) {
+                // Switch to uniform grid view
+                toggleButton.classList.remove('collection-view')
+                toggleButton.classList.add('grid-view')
+                grid.classList.add('uniform-view')
+                removeMosaicPattern()
+            } else {
+                // Switch back to mosaic collection view
+                toggleButton.classList.remove('grid-view')
+                toggleButton.classList.add('collection-view')
+                grid.classList.remove('uniform-view')
+                applyMosaicPattern()
+            }
+        })
+    })
+</script>
+
+<section data-section-id="{{ section.id }}" class="hammitt-silhouettes-grid-section" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
+    <div class="inner-area">
+        <div class="hammitt-silhouettes-header">
+            {% if section.settings.header %}
+                <h1>{{ section.settings.header }}</h1>
+            {% endif %}
+            <button id="toggle-grid" class="collection-view">
+                {% render 'grid-view-svg' %}
+                <span class="collection-view"></span>   
+            </button>
+        </div>
+        <div class="hammitt-silhouettes-grid">
+            {% for block in section.blocks %}
+                <a href="{{ block.settings.silhouette_link }}" class="silhouette-grid-card">
+                    <img src="{{ block.settings.silhouette_image | image_url: width: 800 }}" alt="{{ block.settings.silhouette_name }}">
+                    <span>{{ block.settings.silhouette_name }}</span>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Hammitt Silhouettes Grid",
+    "enabled_on": {
+        "templates": ["page"]
+    },
+    "settings": [
+        {
+            "type": "text",
+            "id": "section_anchor_id",
+            "label": "Section Anchor ID (optional)"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default": "#FFFFFF"
+        },
+        {
+            "type": "text",
+            "id": "header",
+            "label": "Header",
+            "default": "Shop By Collection"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "silhouette",
+            "name": "Silhouette",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "silhouette_image",
+                    "label": "Silhouette Image"
+                },
+                {
+                    "type": "text",
+                    "id": "silhouette_name",
+                    "label": "Silhouette Name"
+                },
+                {
+                    "type": "url",
+                    "id": "silhouette_link",
+                    "label": "Silhouette Link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hammitt Silhouettes Grid"
+        }
+    ]
+}
+{% endschema %}

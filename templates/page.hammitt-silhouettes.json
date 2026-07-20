@@ -53,6 +53,7 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "heading_html_tag": "h1",
         "hide_title": true,
@@ -72,21 +73,453 @@
         "heading_color": "",
         "collection": "tom-zip",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
         "padding_top": 20,
         "padding_bottom": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
+      }
+    },
+    "hammitt_silhouettes_grid_DQbLRq": {
+      "type": "hammitt-silhouettes-grid",
+      "blocks": {
+        "silhouette_gkPMik": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Kyle-Sml-Calla-Lily-White-BG-1.png",
+            "silhouette_name": "Kyle Sml",
+            "silhouette_link": "shopify://products/kyle-shoulder-bag-mahogany-pebble-brushed-gold-red-zip"
+          }
+        },
+        "silhouette_qiFEih": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Kyle-Med-Pickle-Stripe-G-1.png",
+            "silhouette_name": "Kyle Med",
+            "silhouette_link": "shopify://products/kyle-med-shoulder-bag-pickle-stripe-gold"
+          }
+        },
+        "silhouette_WKrkRe": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_4a8a3a4b-b0b8-4d75-b51e-7e5f9e699656.png",
+            "silhouette_name": "Kyle Lrg",
+            "silhouette_link": "shopify://products/kyle-lrg-chili-red-gold"
+          }
+        },
+        "silhouette_XdyLmb": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Doxie-Med-Black-GS-1.png",
+            "silhouette_name": "Doxie",
+            "silhouette_link": "shopify://products/doxie-med-satchel-black-gold-silver"
+          }
+        },
+        "silhouette_G7xgmY": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Charles-Crossbody-Mahogany-Pebble_1A.png",
+            "silhouette_name": "Charles Med",
+            "silhouette_link": "shopify://products/charles-crossbody-crossbody-mahogany-pebble-brushed-gold-red-zip"
+          }
+        },
+        "silhouette_qNw6Ua": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_211515c7-5f1b-4979-b4b4-535b44ded624.png",
+            "silhouette_name": "Charles Lrg",
+            "silhouette_link": "shopify://products/charles-crossbody-lrg-crossbody-east-end-antique-gold"
+          }
+        },
+        "silhouette_hnQhjn": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Beverly-Med-Mahogany-Pebble-BG-Red-Zip-1.png",
+            "silhouette_name": "Beverly",
+            "silhouette_link": "shopify://products/beverly-med-crossbody-mahogany-pebble-brushed-gold-red-zip"
+          }
+        },
+        "silhouette_fBxgpC": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Paul-Mini-Calypso-Suede-G-1.png",
+            "silhouette_name": "Paul Mini",
+            "silhouette_link": "shopify://products/paul-mini-crossbody-calypso-suede-gold"
+          }
+        },
+        "silhouette_ffXeCk": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_b9a87b84-1f53-4647-b50c-bce79334a088.png",
+            "silhouette_name": "Andersen",
+            "silhouette_link": "shopify://products/andersen-revival-tote-silverlake-antique-gold"
+          }
+        },
+        "silhouette_BNRMLc": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Shelley-Resort-Tote-Calla-Lily-Raffia-BGH_1.png",
+            "silhouette_name": "Shelley Tote",
+            "silhouette_link": "shopify://products/shelley-resort-tote-calla-lily-white-raffia-brushed-gold-hammered"
+          }
+        },
+        "silhouette_6MzQ3A": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_bb6a8335-8a27-44e2-81eb-c10a971e4532.png",
+            "silhouette_name": "Meredith Sml",
+            "silhouette_link": "shopify://products/meredith-sml-shoulder-bag-calypso-suede-gold"
+          }
+        },
+        "silhouette_fzKEF7": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Meredith-Med-Dune-S_1A.png",
+            "silhouette_name": "Meredith Med",
+            "silhouette_link": "shopify://products/meredith-med-dune-silver"
+          }
+        },
+        "silhouette_PQxtJw": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_dfc3cec3-0d16-4c35-8600-d3bc5d440df7.png",
+            "silhouette_name": "Shelley Crossbody",
+            "silhouette_link": "shopify://products/shelley-clutch-clutch-flamingo-flora-brushed-gold"
+          }
+        },
+        "silhouette_GzJipj": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Erica-Sml-Dill-G-5.png",
+            "silhouette_name": "Erica",
+            "silhouette_link": "shopify://products/erica-sml-shoulder-bag-dill-gold"
+          }
+        },
+        "silhouette_jPxnxm": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Olympia-Tote-Pickle-Stripe-G-1.png",
+            "silhouette_name": "Olympia Tote",
+            "silhouette_link": "shopify://products/olympia-tote-tote-bag-pickle-stripe-gold"
+          }
+        },
+        "silhouette_6mn9Mt": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_20dc65d3-5822-42b4-9afc-3f1ed7e338fe.png",
+            "silhouette_name": "Olympia Crossbody",
+            "silhouette_link": "shopify://products/olympia-tote-mini-crossbody-sienna-flora-brushed-gold"
+          }
+        },
+        "silhouette_GJ76AA": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Charlotte-Sml-Huntington-Garden-G-1.png",
+            "silhouette_name": "Charlotte Sml",
+            "silhouette_link": "shopify://products/charlotte-sml-crossbody-huntington-garden-gold"
+          }
+        },
+        "silhouette_cWPpGJ": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Charlotte-Med-Cabana-Blue-BG_1A.png",
+            "silhouette_name": "Charlotte Med",
+            "silhouette_link": "shopify://products/charlotte-med-shoulder-bag-cabana-blue-brushed-gold"
+          }
+        },
+        "silhouette_VJrUwG": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Tom-Zip-Silverlake-Antique_Gold-Med-5.png",
+            "silhouette_name": "Tom Med",
+            "silhouette_link": "shopify://products/tom-zip-med-hobo-silverlake-antique-gold"
+          }
+        },
+        "silhouette_4MjhAp": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_79e8b447-3656-495f-b0b3-93aaf7162da5.png",
+            "silhouette_name": "Tom Lrg",
+            "silhouette_link": "shopify://products/tom-zip-hobo-cocoa-raffia-gold"
+          }
+        },
+        "silhouette_z9Ye6j": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_c081451b-4c75-4684-a512-755007de1583.png",
+            "silhouette_name": "Elle",
+            "silhouette_link": "shopify://products/elle-work-carry-tote-calypso-pebble-gold"
+          }
+        },
+        "silhouette_gW8Q7b": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Daniel-med-tote_623f428d-8262-4fd8-b2c7-c3030735f987.png",
+            "silhouette_name": "Daniel Med",
+            "silhouette_link": "shopify://products/daniel-med-satchel-mahogany-pebble-brushed-gold-red-zip"
+          }
+        },
+        "silhouette_8cAT4W": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/daniel-lrg-tote.png",
+            "silhouette_name": "Daniel Lrg",
+            "silhouette_link": "shopify://products/daniel-lrg-black-bg-r-zip-tote-bag"
+          }
+        },
+        "silhouette_ehrNnK": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_fedab964-89f0-4387-9dc8-c16035bab281.png",
+            "silhouette_name": "Tim",
+            "silhouette_link": "shopify://products/tim-med-shoulder-bag-noir-smooth-raffia-gunmetal"
+          }
+        },
+        "silhouette_DQh6r3": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_VIP-Med-Calla-Lily-White-BG_1.png",
+            "silhouette_name": "VIP Med",
+            "silhouette_link": "shopify://products/vip-med-clutch-calla-lily-white-brushed-gold"
+          }
+        },
+        "silhouette_TKMgWF": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_VIP-Lrg-Black-BG-R-Zip_1A_1f15c2be-1343-4092-a958-7ce7be62076d.png",
+            "silhouette_name": "VIP Lrg",
+            "silhouette_link": "shopify://products/vip-lrg-blk-bg-r-zip-clutch"
+          }
+        },
+        "silhouette_jQxCGB": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_5931c7bf-5d1e-42bf-acc7-313660660646.png",
+            "silhouette_name": "VIP Mobile",
+            "silhouette_link": "shopify://products/vip-mobile-crossbody-tailored-tangerine-silver"
+          }
+        },
+        "silhouette_76yAYg": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Grace-Med-Cabana-Blue-BG-1.png",
+            "silhouette_name": "Grace",
+            "silhouette_link": "shopify://products/grace-med-satchel-cabana-blue-brushed-gold"
+          }
+        },
+        "silhouette_xH3PEt": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_615000b6-bfa1-41c4-99d9-69027f388d3e.png",
+            "silhouette_name": "Zoe",
+            "silhouette_link": "shopify://products/zoe-tote-tote-black-nylon-gold-red-zip"
+          }
+        },
+        "silhouette_RWUKw8": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_74cf1bd9-7780-4882-b9dd-0727dec1a1e1.png",
+            "silhouette_name": "Eden",
+            "silhouette_link": "shopify://products/eden-backpack-backpack-jade-nylon-gunmetal"
+          }
+        },
+        "silhouette_WtVxP9": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_36f9fbeb-a54f-4092-be84-5262f0ab5873.png",
+            "silhouette_name": "Ivy",
+            "silhouette_link": "shopify://products/ivy-weekender-duffel-amber-nylon-gold"
+          }
+        },
+        "silhouette_jQr7fc": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_5933047a-2972-4d93-98ae-447202def217.png",
+            "silhouette_name": "Hunter Med",
+            "silhouette_link": "shopify://products/hunter-med-backpack-black-nylon-cargo-gold"
+          }
+        },
+        "silhouette_pcUebF": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_ebf91409-72ad-4dfd-a850-222601140d02.png",
+            "silhouette_name": "Josie",
+            "silhouette_link": "shopify://products/josie-tote-tote-bag-black-nylon-cargo-gold"
+          }
+        },
+        "silhouette_RbahB3": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_7cebfc06-ed06-491f-aff6-f6a8b01a1e66.png",
+            "silhouette_name": "Hunter Lrg",
+            "silhouette_link": "shopify://products/hunter-backpack-backpack-dune-silver"
+          }
+        },
+        "silhouette_bKChYr": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_14056b53-af30-4f88-9cfe-869e837ef871.png",
+            "silhouette_name": "Bryant Med",
+            "silhouette_link": "shopify://products/bryant-med-shoulder-bag-mahogany-pebble-brushed-gold-red-zip"
+          }
+        },
+        "silhouette_TJ6bPG": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_bryant-lrg-crossbody-pewter-brushed-gold-1.png",
+            "silhouette_name": "Bryant Lrg",
+            "silhouette_link": "shopify://products/bryant-lrg-crossbody-pewter-brushed-gold"
+          }
+        },
+        "silhouette_Q4QdQX": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_0e97db79-c455-41e4-ae73-7ee557bd00df.png",
+            "silhouette_name": "Miranda 14",
+            "silhouette_link": "shopify://products/miranda-laptop-sleeve-14-tech-calypso-pebble-gold"
+          }
+        },
+        "silhouette_MBBAzL": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Miranda-Laptop-Sleeve-16-Calypso-Pebble-G_1A.png",
+            "silhouette_name": "Miranda 16",
+            "silhouette_link": "shopify://products/miranda-laptop-sleeve-16-tech-calypso-pebble-gold"
+          }
+        },
+        "silhouette_PFppTW": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Montana-Backpack---Black-Brushed-Gold-Red-Zip---XL-6.png",
+            "silhouette_name": "Montana Backpack",
+            "silhouette_link": "shopify://products/montana-backpack-xl-backpack-black-brushed-gold-red-zip"
+          }
+        },
+        "silhouette_8QpyWU": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/zebra-montana-pendant.png",
+            "silhouette_name": "Montana Pendant",
+            "silhouette_link": "shopify://products/montana-pendant-zebra-brushed-gold"
+          }
+        },
+        "silhouette_aJBPtx": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/B-media_884b7b7e-9c16-4bbe-9e4a-6db52a0e1577.png",
+            "silhouette_name": "Daniel Crossbody",
+            "silhouette_link": "shopify://products/daniel-crossbody-clutch-sml-clutch-black-brushed-gold-red-zip"
+          }
+        },
+        "silhouette_FCTPWX": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Evan-Crossbody-Sml-Mahogany-Pebble_1.png",
+            "silhouette_name": "Evan",
+            "silhouette_link": "shopify://products/evan-crossbody-sml-crossbody-mahogany-pebble-brushed-gold-red-zip"
+          }
+        },
+        "silhouette_phgJcJ": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Oliver-Zip-Blk-GM_1A_1-_1.png",
+            "silhouette_name": "Oliver",
+            "silhouette_link": "shopify://products/oliver-zip-black-gunmetal-tote-bag"
+          }
+        },
+        "silhouette_mhdWpc": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_LAX-Black-BG_R-Zip_1A_f3b8f2af-15e2-4ad9-a152-49bcf93602ed-_1.png",
+            "silhouette_name": "LAX",
+            "silhouette_link": "shopify://products/lax-intl-duffel-black-brushed-gold-red-zip"
+          }
+        },
+        "silhouette_eazjKc": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/media_e2626bc7-b10d-4e8a-a986-a535d489974a.png",
+            "silhouette_name": "Shelley Pouch",
+            "silhouette_link": "shopify://products/shelley-pouch-pouch-tailored-tangerine-silver"
+          }
+        },
+        "silhouette_TRb7GM": {
+          "type": "silhouette",
+          "settings": {
+            "silhouette_image": "shopify://shop_images/Hammitt_Invitation-Clutch-Calla-Lily-White-Raffia-BGH_1A_1.png",
+            "silhouette_name": "Invitation",
+            "silhouette_link": "shopify://products/invitation-clutch-clutch-calla-lily-white-brushed-gold"
+          }
+        }
+      },
+      "block_order": [
+        "silhouette_gkPMik",
+        "silhouette_qiFEih",
+        "silhouette_WKrkRe",
+        "silhouette_XdyLmb",
+        "silhouette_G7xgmY",
+        "silhouette_qNw6Ua",
+        "silhouette_hnQhjn",
+        "silhouette_fBxgpC",
+        "silhouette_ffXeCk",
+        "silhouette_BNRMLc",
+        "silhouette_6MzQ3A",
+        "silhouette_fzKEF7",
+        "silhouette_PQxtJw",
+        "silhouette_GzJipj",
+        "silhouette_jPxnxm",
+        "silhouette_6mn9Mt",
+        "silhouette_GJ76AA",
+        "silhouette_cWPpGJ",
+        "silhouette_VJrUwG",
+        "silhouette_4MjhAp",
+        "silhouette_z9Ye6j",
+        "silhouette_gW8Q7b",
+        "silhouette_8cAT4W",
+        "silhouette_ehrNnK",
+        "silhouette_DQh6r3",
+        "silhouette_TKMgWF",
+        "silhouette_jQxCGB",
+        "silhouette_76yAYg",
+        "silhouette_xH3PEt",
+        "silhouette_RWUKw8",
+        "silhouette_WtVxP9",
+        "silhouette_jQr7fc",
+        "silhouette_pcUebF",
+        "silhouette_RbahB3",
+        "silhouette_bKChYr",
+        "silhouette_TJ6bPG",
+        "silhouette_Q4QdQX",
+        "silhouette_MBBAzL",
+        "silhouette_PFppTW",
+        "silhouette_8QpyWU",
+        "silhouette_aJBPtx",
+        "silhouette_FCTPWX",
+        "silhouette_phgJcJ",
+        "silhouette_mhdWpc",
+        "silhouette_eazjKc",
+        "silhouette_TRb7GM"
+      ],
+      "name": "Hammitt Silhouettes Grid",
+      "settings": {
+        "section_anchor_id": "",
+        "bg_color": "#ffffff",
+        "header": "Shop By Collection"
       }
     }
   },
   "order": [
     "rich_text_TVxR8H",
     "main",
-    "slider_collection_w9UPnP"
+    "slider_collection_w9UPnP",
+    "hammitt_silhouettes_grid_DQbLRq"
   ]
 }

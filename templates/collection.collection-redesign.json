@@ -30,38 +30,6 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "blocks": {
-        "34d755a1-706f-405f-a512-6c4181dc41b3": {
-          "type": "marketing_tile",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Shop_Banner-New_Arrivals.jpg",
-            "link": "shopify:\/\/collections\/clear-bags",
-            "position": 5,
-            "width": "2x",
-            "title": "Discover the Clear Collection",
-            "paragraph": "",
-            "button_text": "Shop Now"
-          }
-        },
-        "85229bcf-4cde-4412-bfe7-13f29f14a127": {
-          "type": "marketing_tile",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Perfect_Additions.jpg",
-            "link": "shopify:\/\/collections\/bottoms-skimpy",
-            "position": 12,
-            "width": "1x",
-            "title": "Perfect Additions",
-            "paragraph": "",
-            "button_text": "Shop Now"
-          }
-        }
-      },
-      "block_order": [
-        "34d755a1-706f-405f-a512-6c4181dc41b3",
-        "85229bcf-4cde-4412-bfe7-13f29f14a127"
-      ],
       "disabled": true,
       "settings": {
         "products_per_page": 24,
@@ -193,33 +161,6 @@
     },
     "grid_collection_custom_AhNzGL": {
       "type": "grid-collection-custom",
-      "blocks": {
-        "marketing_tile_iKQebU": {
-          "type": "marketing_tile",
-          "settings": {
-            "image": "{{ collection.metafields.ecom.grid_featured_banner.value }}",
-            "link": "{{ collection.metafields.custom.cta_button_url.value }}",
-            "position": 7,
-            "width": "2x",
-            "content_block_full_width": false,
-            "title": "{{ collection.metafields.custom.content_block_heading.value }}",
-            "heading_font_size": 28,
-            "heading_font_size_mobile": 22,
-            "color_heading": "#000000",
-            "button_text": "{{ collection.metafields.custom.cta_button_text.value }}",
-            "button_font_size": 16,
-            "button_font_size_mobile": 14,
-            "color_button": "rgba(0,0,0,0)",
-            "color_button_text": "#000000",
-            "color_button_border": "#000000",
-            "text_alignment": "center",
-            "content_position": "left"
-          }
-        }
-      },
-      "block_order": [
-        "marketing_tile_iKQebU"
-      ],
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
