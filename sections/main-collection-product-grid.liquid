@@ -852,18 +852,6 @@
                 {% endif %}
               {% endunless %}
             
-              {%- liquid 
-              for block in section.blocks 
-                assign block_position = block.settings.position | plus: 0
-                if block_position == myIndex
-                  include 'card-marketing-tile', block: block, media_size: section.settings.image_ratio
-                  assign myIndex = myIndex | plus: 1
-                  if block.settings.width == '2x' 
-                  assign myIndex = myIndex | plus: 1
-                  endif
-                endif
-              endfor 
-              -%}
             
             {%- endfor -%}
           </ul>
