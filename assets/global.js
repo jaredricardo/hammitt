@@ -876,6 +876,24 @@ class QuickAdd extends HTMLElement {
 }
 customElements.define('quick-add', QuickAdd);
 
+class QuickAddTrigger extends HTMLElement {
+  connectedCallback() {
+    this._button = this.querySelector('button');
+    if (this._button) {
+      this._button.addEventListener('click', this._handleClick.bind(this));
+    }
+  }
+
+  _handleClick(event) {
+    event.preventDefault();
+    const cardWrapper = this.closest('.card-wrapper');
+    if (!cardWrapper) return;
+    const quickAddBtn = cardWrapper.querySelector('.quick-add-btn');
+    if (quickAddBtn) quickAddBtn.click();
+  }
+}
+customElements.define('quick-add-trigger', QuickAddTrigger);
+
 class UpsellItem extends HTMLElement {
   constructor() {
     super();
