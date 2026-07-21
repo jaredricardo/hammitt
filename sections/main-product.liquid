@@ -1381,7 +1381,7 @@
                         data-product-id="{{ product.id }}"
                         data-variant-id="{{ product.selected_or_first_available_variant.id }}"
                         data-variant-url="{{ product.url }}?variant={{ product.selected_or_first_available_variant.id }}"
-                        data-variant-image="{{ product.featured_image |  img_url: 'master' }}"
+                        data-variant-image="{{ product.featured_image | image_url: width: 600 }}"
                         data-variant-title="{{ product.title | escape }}"
                         data-variant-price="{{ product.selected_or_first_available_variant.price | money }}"
                         data-variant-color="{{ product_color | escape }}"

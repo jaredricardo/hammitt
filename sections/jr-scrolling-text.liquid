@@ -102,7 +102,7 @@
                               <div class="announcement--wrapper">
                                   {% if block.settings.icon %}
                                       <div class="announcement--icon">
-                                          {{ block.settings.icon | img_url: 'master' | img_tag: block.settings.icon.alt }}
+                                          {{ block.settings.icon | image_url: width: 80 | image_tag: alt: block.settings.icon.alt }}
                                       </div>
                                   {% endif %}
   

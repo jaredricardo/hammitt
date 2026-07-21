@@ -68,7 +68,20 @@
                     <div class="swiper-slide">
                       <div class="collection-image-wrapper">
                               {%- if block.settings.image != blank -%}
-                                  <img alt="Collection Image" class="collection-image" src="{{ block.settings.image | img_url: 'master' }}" width="710px" height="710px" />
+                                  <img
+                                    alt="Collection Image"
+                                    class="collection-image"
+                                    srcset="{{ block.settings.image | image_url: width: 375 }} 375w,
+                                            {{ block.settings.image | image_url: width: 550 }} 550w,
+                                            {{ block.settings.image | image_url: width: 750 }} 750w,
+                                            {{ block.settings.image | image_url: width: 1100 }} 1100w,
+                                            {{ block.settings.image | image_url: width: 1500 }} 1500w"
+                                    sizes="(min-width: 990px) 38vw, 50vw"
+                                    src="{{ block.settings.image | image_url: width: 750 }}"
+                                    width="{{ block.settings.image.width }}"
+                                    height="{{ block.settings.image.height }}"
+                                    loading="lazy"
+                                  />
                               {%- endif -%}
                       </div>
                       <div class="collection-link-wrapper collection-link-if-{{ block.id }} {% if section.settings.column_alignment == 'center' %} center{% endif %} small--color-{{ section.settings.color_scheme_mobile }} medium-up--color-{{ section.settings.text_color_scheme }}">
@@ -90,7 +103,18 @@
                 <div class="grid_width relative">
                    <div class="collection-image-wrapper">
                         {%- if block.settings.image != blank -%}
-                            <img alt="Collection Image" class="collection-image" src="{{ block.settings.image | img_url: 'master' }}" />
+                            <img
+                              alt="Collection Image"
+                              class="collection-image"
+                              srcset="{{ block.settings.image | image_url: width: 375 }} 375w,
+                                      {{ block.settings.image | image_url: width: 550 }} 550w,
+                                      {{ block.settings.image | image_url: width: 750 }} 750w"
+                              sizes="(min-width: 541px) 50vw, 100vw"
+                              src="{{ block.settings.image | image_url: width: 550 }}"
+                              width="{{ block.settings.image.width }}"
+                              height="{{ block.settings.image.height }}"
+                              loading="lazy"
+                            />
                         {%- endif -%}
                    </div>
                    <div class="collection-link-wrapper {% if section.settings.mobile_column_alignment == 'center' %} center{% endif %} small--color-{{ section.settings.color_scheme_mobile }} medium-up--color-{{ section.settings.text_color_scheme }}">

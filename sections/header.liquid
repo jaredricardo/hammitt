@@ -510,9 +510,9 @@
       {%- endif -%}
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" data-acsb-clickable="true"  data-acsb-navigable="true" data-acsb-now-navigable="true">
             <span class="acsb-sr-only" dataacsb-sr-only="true" data-acsb-force-visible="true" aria-hidden="false" data-acsbhidden="false">
-              <img src="{{ section.settings.logo | img_url: 'master' }}" alt="{{ shop.name }}" class="header__logo header__logo--default" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
+              <img src="{{ section.settings.logo | image_url: width: 400 }}" alt="{{ shop.name }}" class="header__logo header__logo--default" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
               {% if section.settings.logo_inverted and section.settings.transparent_homepage and template == 'index' %}
-                <img src="{{ section.settings.logo_inverted | img_url: 'master' }}" alt="{{ shop.name }}" class="header__logo header__logo--inverted" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
+                <img src="{{ section.settings.logo_inverted | image_url: width: 400 }}" alt="{{ shop.name }}" class="header__logo header__logo--inverted" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
               {% endif %}
             </span>
           </a>
