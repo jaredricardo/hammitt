@@ -42,7 +42,8 @@
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
     <link rel="stylesheet" href="{{ 'critical.css' | asset_url }}" fetchPriority="high">
-    <link rel="stylesheet" href="{{ 'ab-test.css' | asset_url }}">
+    <link rel="preload" as="style" href="{{ 'ab-test.css' | asset_url }}" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'ab-test.css' | asset_url }}"></noscript>
     <script src="{{ 'critical-global-functions.js' | asset_url }}" defer></script>
     {% unless is_admin_interface %}
       {% render '__opt-theme-observer' %}
@@ -69,7 +70,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"></noscript>
     {% comment  %} end font stuff {% endcomment %}
 
     <meta charset="utf-8">
@@ -179,8 +181,8 @@
     {% endif %}
 
     {% style %}
-       {{ settings.type_body_font | font_face }}
-       {{ settings.type_header_font | font_face }}
+       {{ settings.type_body_font | font_face: font_display: 'swap' }}
+       {{ settings.type_header_font | font_face: font_display: 'swap' }}
         #powrIframeLoader {
           display: none !important;
         }
@@ -393,7 +395,8 @@
   {{ 'gifting-options-drawer.js' | asset_url | script_tag }}
 {% endif %}
 
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
+<link rel="preload" as="style" href="{{ 'component-card.css' | asset_url }}" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}"></noscript>
     {% if template contains 'index' %}
       {% render '__index-css' %}
       <link data-href="{{ 'base.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
@@ -485,13 +488,19 @@
       });
     </script>
     <!-- Flip Chat Widget -->
-    <script src="https://chat.flipcx.com/cdn/hammit-chat-widget.min.js"></script>
     <script>
-      FlipChat.init({
-        clientId: '28d859bb-753c-4a01-83e4-18745ecdbe3a',
-        apiUrl: 'https://chat.flipcx.com',
-        wsUrl: 'wss://chat.flipcx.com/ws',
-        primaryColor: '#000000',
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://chat.flipcx.com/cdn/hammit-chat-widget.min.js';
+        s.onload = function() {
+          FlipChat.init({
+            clientId: '28d859bb-753c-4a01-83e4-18745ecdbe3a',
+            apiUrl: 'https://chat.flipcx.com',
+            wsUrl: 'wss://chat.flipcx.com/ws',
+            primaryColor: '#000000',
+          });
+        };
+        document.head.appendChild(s);
       });
     </script>
 
@@ -1272,7 +1281,7 @@ template-{{ template.name -}}
     {%- endcomment -%}
 
     {{ 'swiper-new.css' | asset_url | stylesheet_tag }}
-    {{ 'swiper.js' | asset_url | script_tag }}
+    <script src="{{ 'swiper.js' | asset_url }}" defer></script>
     
     {% if template contains 'index' or template contains 'collection' %}
       <link href="{{ 'component-cart-drawer.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
@@ -1410,9 +1419,9 @@ template-{{ template.name -}}
     {%- if template.name == 'product' -%}
 
       {% render 'klaviyo_popup' %} 
-      {{ 'klaviyo.js' | asset_url | script_tag }}
+      <script src="{{ 'klaviyo.js' | asset_url }}" defer></script>
       
-      <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+      <script src="https://a.klaviyo.com/media/js/onsite/onsite.js" async></script>
   
     {%- endif -%}
 
