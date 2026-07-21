@@ -1591,11 +1591,16 @@ input.iStock-notify-btn {
 .pdp-hero-section .signal-icontext-block .block-wrap:hover h4 strong{text-decoration:underline;text-underline-offset: 2px;}
 .pdp-hero-section .signal-icontext-block .block-icon{width:50px;height:50px;display:block;position:relative;overflow:hidden;}
 .pdp-hero-section .signal-icontext-block .block-icon img{position:absolute;top:0px;left:0px;width:100%;height:100%;object-fit:contain;}
-.pdp-hero-section .card__badge-wrapper .badge{text-transform:capitalize;font-family:var(--semi-bold-family);font-weight:var(--semi-bold-weight);padding: 3px 10px;color: #000;line-height: 2;border:1px solid #000;}
+.pdp-hero-section .card__badge-wrapper .badge{text-transform:capitalize; font-style: italic;font-family:'Adobe Carlson Pro';font-weight: 300;padding: 3px 10px;color: #000;line-height: 2;border:none !important; font-size: 14px;}
 .pdp-hero-section .card__badge-wrapper{top: 10px !important;left: 10px !important;}
 .pdp-hero-section .pdp-info-col .shopify-app-block[id*="shopify-block-yotpo_loyalty_rewards_product_points"]{margin-top:10px;}
 .pdp-hero-section .pdp-info-col .shopify-app-block[id*="shopify-block-yotpo_loyalty_rewards_product_points"] .yotpo-product-points-widget .yotpo-product-points-widget-potential-earning-points{justify-content:center;}
 
+@media screen and (max-width: 768px) {
+  .pdp-hero-section .card__badge-wrapper .badge {
+    font-size: 12px;
+  }
+}
 
 .pdp-image-grid h2.multicolumn-title{font-size:32px;font-family:var(--semi-bold-family);font-weight:var(--semi-bold-weight);margin:0px;line-height:1.0625}
 .pdp-image-grid .multicolumn-paragraph *{font-size:16px;line-height:1.25;}
