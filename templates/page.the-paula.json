@@ -64,30 +64,6 @@
         "padding_bottom_mobile": 0
       }
     },
-    "slider_collection_w9UPnP": {
-      "type": "slider-collection",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "tom-zip",
-        "max_products": 30,
-        "show_secondary_image": false,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
     "image_banner_3gmnXq": {
       "type": "image-banner",
       "blocks": {
@@ -116,6 +92,7 @@
         "heading_aKDJp4",
         "text_MfYJiV"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "custom_classes": "",
@@ -180,6 +157,7 @@
         "heading_xbYWFF",
         "text_LGtBAY"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_classes": "",
@@ -193,6 +171,7 @@
     },
     "slider_collection_WRE3iK": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "",
@@ -214,14 +193,93 @@
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
+    },
+    "image_banner_THF6Gm": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_cnBXcX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet the Paula Clear",
+            "heading_size_mobile": 34,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_Wtiwff": {
+          "type": "text",
+          "settings": {
+            "text": "Over a year in the making, our brand-new Paula Clear has arrived.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 12,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_TpNYLP": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop The Paula Clear",
+            "button_link_1": "shopify://collections/paula-clear",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cnBXcX",
+        "text_Wtiwff",
+        "buttons_TpNYLP"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12946.jpg",
+        "image_2": "shopify://shop_images/Rectangle_1132.jpg",
+        "image_link": "shopify://collections/paula-clear",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "rich_text_TVxR8H",
     "main",
-    "slider_collection_w9UPnP",
     "image_banner_3gmnXq",
     "rich_text_b8NrXi",
-    "slider_collection_WRE3iK"
+    "slider_collection_WRE3iK",
+    "image_banner_THF6Gm"
   ]
 }
