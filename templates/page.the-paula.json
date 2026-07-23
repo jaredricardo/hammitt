@@ -313,7 +313,7 @@
         "color_scheme": "background-1",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 0,
+        "padding_bottom": 20,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 20
       }
@@ -338,8 +338,87 @@
         "slides_per_view_desktop": 4,
         "padding_top": 30,
         "padding_bottom": 0,
-        "mobile_padding_top": 0,
+        "mobile_padding_top": 40,
         "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_Mh6RN6": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_eybyrK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet the Paula Clear",
+            "heading_size_mobile": 32,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_WkYtyF": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_area_html_swap": "Over a year in the making, our brand-new Paula Clear has arrived.",
+            "text_style": "body",
+            "text_size_mobile": 12,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_iY9awD": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Paula Clear",
+            "button_link_1": "shopify://collections/paula-clear",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_eybyrK",
+        "text_WkYtyF",
+        "buttons_iY9awD"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/desktop-paula-banner-2.jpg",
+        "image_2": "shopify://shop_images/mobile-paula-banner-2.jpg",
+        "image_link": "shopify://collections/paula-clear",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
       }
     }
   },
@@ -352,6 +431,7 @@
     "slider_collection_WRE3iK",
     "image_banner_GPti4e",
     "rich_text_z8ddUA",
-    "slider_collection_9rBzh9"
+    "slider_collection_9rBzh9",
+    "image_banner_Mh6RN6"
   ]
 }
