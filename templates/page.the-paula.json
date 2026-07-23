@@ -383,6 +383,50 @@
         "padding_bottom_mobile": 20,
         "custom_class": ""
       }
+    },
+    "image_with_text_NRF4nk": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_ABGt8d": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>Add a colorful webbed strap to show some team spirit, and complete your set with a coordinating Viva Pouch. Perfect for stowing your smallest<br/>best kept secrets.</h4>",
+            "text_style": "body"
+          }
+        },
+        "button_d3rLjM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Straps",
+            "button_link": "shopify://collections/straps",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "text_ABGt8d",
+        "button_d3rLjM"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/desktop-paula-banner-4.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
     }
   },
   "order": [
@@ -394,6 +438,7 @@
     "rich_text_dM4c7z",
     "slider_collection_WRE3iK",
     "image_banner_FhmYey",
-    "image_banner_nncXif"
+    "image_banner_nncXif",
+    "image_with_text_NRF4nk"
   ]
 }
