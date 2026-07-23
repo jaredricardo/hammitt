@@ -344,41 +344,6 @@
     },
     "image_banner_Mh6RN6": {
       "type": "image-banner",
-      "blocks": {
-        "heading_eybyrK": {
-          "type": "heading",
-          "settings": {
-            "heading": "Meet the Paula Clear",
-            "heading_size_mobile": 32,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 60
-          }
-        },
-        "text_WkYtyF": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "text_area_html_swap": "Over a year in the making, our brand-new Paula Clear has arrived.",
-            "text_style": "body",
-            "text_size_mobile": 12,
-            "text_size_tablet": 14,
-            "text_size_desktop": 15
-          }
-        },
-        "buttons_iY9awD": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Paula Clear",
-            "button_link_1": "shopify://collections/paula-clear",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_eybyrK",
-        "text_WkYtyF",
-        "buttons_iY9awD"
-      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "custom_classes": "",
@@ -390,12 +355,12 @@
         "heading_html_tag": "h2",
         "video_url": "",
         "video_height": "16-9",
-        "video_url_mobile": "",
+        "video_url_mobile": "shopify://collections/paula-clear",
         "mobile_video_height": "square",
         "image": "shopify://shop_images/desktop-paula-banner-2.jpg",
         "image_2": "shopify://shop_images/mobile-paula-banner-2.jpg",
         "image_link": "shopify://collections/paula-clear",
-        "image_overlay_opacity": 10,
+        "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
