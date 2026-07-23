@@ -158,6 +158,63 @@
         "custom_class": ""
       }
     },
+    "rich_text_b8NrXi": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xbYWFF": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "WHILE YOU WAIT",
+            "heading_size": "h1"
+          }
+        },
+        "text_LGtBAY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore some of our most iconic clear bags, as loved by CBS, Travel & Leisure and beyond.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xbYWFF",
+        "text_LGtBAY"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "slider_collection_WRE3iK": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "clear-bags",
+        "max_products": 30,
+        "show_secondary_image": false,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 30,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
     "image_banner_GPti4e": {
       "type": "image-banner",
       "blocks": {
@@ -237,27 +294,18 @@
         "custom_class": ""
       }
     },
-    "rich_text_b8NrXi": {
+    "rich_text_z8ddUA": {
       "type": "rich-text",
       "blocks": {
-        "heading_xbYWFF": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "WHILE YOU WAIT",
-            "heading_size": "h1"
-          }
-        },
-        "text_LGtBAY": {
+        "text_MeHLiw": {
           "type": "text",
           "settings": {
-            "text": "<p>Explore some of our most iconic clear bags, as loved by CBS, Travel & Leisure and beyond.</p>"
+            "text": "<h6>Here just in time for football season and late summer concerts, this trend-forward style features glimmering rivets and soft leather trim - the perfect accents for durable TPU.</h6>"
           }
         }
       },
       "block_order": [
-        "heading_xbYWFF",
-        "text_LGtBAY"
+        "text_MeHLiw"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -270,14 +318,14 @@
         "padding_bottom_mobile": 20
       }
     },
-    "slider_collection_WRE3iK": {
+    "slider_collection_9rBzh9": {
       "type": "slider-collection",
       "name": "Slider Collection",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "clear-bags",
+        "collection": "paula-clear",
         "max_products": 30,
         "show_secondary_image": false,
         "image_ratio": "adapt",
@@ -300,8 +348,10 @@
     "main",
     "slider_collection_w9UPnP",
     "image_banner_3gmnXq",
-    "image_banner_GPti4e",
     "rich_text_b8NrXi",
-    "slider_collection_WRE3iK"
+    "slider_collection_WRE3iK",
+    "image_banner_GPti4e",
+    "rich_text_z8ddUA",
+    "slider_collection_9rBzh9"
   ]
 }
