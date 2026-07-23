@@ -410,6 +410,50 @@
         "custom_class": ""
       }
     },
+    "image_with_text_rehABr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_TyUpkw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Build a Clear Set",
+            "heading_size": "h1"
+          }
+        },
+        "button_ErK8PK": {
+          "type": "button",
+          "settings": {
+            "button_label": "Complete The Set",
+            "button_link": "shopify://collections/straps",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TyUpkw",
+        "button_ErK8PK"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "id_for_scroll_navigator": "",
+        "video": "shopify://files/videos/0722-11 (1).mp4",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "image_with_text_ydyaqe": {
       "type": "image-with-text",
       "blocks": {
@@ -437,50 +481,6 @@
       "settings": {
         "id_for_scroll_navigator": "",
         "image": "shopify://shop_images/desktop-paula-banner-4.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "left",
-        "color_background": "",
-        "show_color_background": false,
-        "color_background_height": 50,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
-      }
-    },
-    "image_with_text_rehABr": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_TyUpkw": {
-          "type": "heading",
-          "settings": {
-            "heading": "Build A Clear Set",
-            "heading_size": "h1"
-          }
-        },
-        "button_ErK8PK": {
-          "type": "button",
-          "settings": {
-            "button_label": "Complete The Set",
-            "button_link": "shopify://collections/straps",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_TyUpkw",
-        "button_ErK8PK"
-      ],
-      "disabled": true,
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "id_for_scroll_navigator": "",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -534,8 +534,8 @@
     "slider_collection_9rBzh9",
     "image_banner_Mh6RN6",
     "image_banner_bJJXgE",
-    "image_with_text_ydyaqe",
     "image_with_text_rehABr",
+    "image_with_text_ydyaqe",
     "slider_collection_KpjUmW"
   ]
 }
