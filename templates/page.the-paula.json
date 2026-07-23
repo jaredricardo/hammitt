@@ -439,19 +439,10 @@
             "text": "<p>Add a colorful webbed strap to show some team spirit, and complete your set with a coordinating Viva Pouch. Perfect for stowing your smallest<br/>best kept secrets.</p>",
             "text_style": "body"
           }
-        },
-        "button_yQEmnm": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Strap",
-            "button_link": "shopify://collections/straps",
-            "button_style_secondary": false
-          }
         }
       },
       "block_order": [
-        "text_qGdh6T",
-        "button_yQEmnm"
+        "text_qGdh6T"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
@@ -473,6 +464,30 @@
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36
       }
+    },
+    "slider_collection_KpjUmW": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "straps",
+        "max_products": 30,
+        "show_secondary_image": false,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 30,
+        "padding_bottom": 0,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -487,6 +502,7 @@
     "slider_collection_9rBzh9",
     "image_banner_Mh6RN6",
     "image_banner_bJJXgE",
-    "image_with_text_ydyaqe"
+    "image_with_text_ydyaqe",
+    "slider_collection_KpjUmW"
   ]
 }
