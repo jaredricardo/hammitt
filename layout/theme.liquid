@@ -41,7 +41,7 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
-    <link rel="stylesheet" href="{{ 'critical.css' | asset_url }}" fetchPriority="high">
+    {% render 'critical-styles' %}
     <link rel="preload" as="style" href="{{ 'ab-test.css' | asset_url }}" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ 'ab-test.css' | asset_url }}"></noscript>
     <script src="{{ 'critical-global-functions.js' | asset_url }}" defer></script>
@@ -395,8 +395,7 @@
   {{ 'gifting-options-drawer.js' | asset_url | script_tag }}
 {% endif %}
 
-<link rel="preload" as="style" href="{{ 'component-card.css' | asset_url }}" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}"></noscript>
+{% render 'component-card-styles' %}
     {% if template contains 'index' %}
       {% render '__index-css' %}
       <link data-href="{{ 'base.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
