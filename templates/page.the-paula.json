@@ -92,6 +92,7 @@
         "heading_aKDJp4",
         "text_MfYJiV"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "custom_classes": "",
@@ -156,6 +157,7 @@
         "heading_xbYWFF",
         "text_LGtBAY"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_classes": "",
@@ -169,6 +171,7 @@
     },
     "slider_collection_WRE3iK": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "",
@@ -228,7 +231,6 @@
         "text_BhhpRP",
         "buttons_XGx4ey"
       ],
-      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "custom_classes": "",
@@ -285,7 +287,6 @@
       "block_order": [
         "text_MeHLiw"
       ],
-      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_classes": "",
@@ -299,7 +300,6 @@
     },
     "slider_collection_9rBzh9": {
       "type": "slider-collection",
-      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "",
@@ -324,7 +324,6 @@
     },
     "image_banner_Mh6RN6": {
       "type": "image-banner",
-      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "custom_classes": "",
@@ -369,7 +368,6 @@
     },
     "image_banner_bJJXgE": {
       "type": "image-banner",
-      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "custom_classes": "",
@@ -435,7 +433,6 @@
         "text_qGdh6T",
         "button_AgBqWw"
       ],
-      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "id_for_scroll_navigator": "",
@@ -457,9 +454,52 @@
         "padding_bottom_mobile": 36
       }
     },
+    "image_with_text_rehABr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_TyUpkw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Build A Clear Set",
+            "heading_size": "h1"
+          }
+        },
+        "button_ErK8PK": {
+          "type": "button",
+          "settings": {
+            "button_label": "Complete The Set",
+            "button_link": "shopify://collections/straps",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TyUpkw",
+        "button_ErK8PK"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "id_for_scroll_navigator": "",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "slider_collection_KpjUmW": {
       "type": "slider-collection",
-      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "",
@@ -495,6 +535,7 @@
     "image_banner_Mh6RN6",
     "image_banner_bJJXgE",
     "image_with_text_ydyaqe",
+    "image_with_text_rehABr",
     "slider_collection_KpjUmW"
   ]
 }
