@@ -184,7 +184,11 @@
     {% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}
     {% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}">
     {%- if section.settings.image_link != blank -%}
-    <a href="{{ section.settings.image_link }}" class="imagelink"></a>
+    <a
+      href="{{ section.settings.image_link }}"
+      class="imagelink"
+      aria-label="{{ section.settings.title | default: 'Shop now' | escape }}"
+    ></a>
     {%- endif -%}
     {% if section.settings.video_url != blank %}
     <div class="small-hide video-container video-container--{{  section.settings.video_height }}">

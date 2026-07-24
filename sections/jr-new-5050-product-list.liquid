@@ -120,7 +120,22 @@
                 {% if section.settings.video != blank %}
                     {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'media-video' }}
                 {% elsif section.settings.image != blank %}
-                    <img src="{{ section.settings.image | image_url: width: '1000' }}" alt="Hammitt Section Image">
+                    <img
+                      srcset="
+                        {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                        {%- if section.settings.image.width >= 550 -%}{{ section.settings.image | image_url: width: 550 }} 550w,{%- endif -%}
+                        {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if section.settings.image.width >= 990 -%}{{ section.settings.image | image_url: width: 990 }} 990w,{%- endif -%}
+                        {%- if section.settings.image.width >= 1200 -%}{{ section.settings.image | image_url: width: 1200 }} 1200w,{%- endif -%}
+                        {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {{ section.settings.image | image_url }} {{ section.settings.image.width }}w"
+                      sizes="(max-width: 970px) 100vw, 50vw"
+                      src="{{ section.settings.image | image_url: width: 990 }}"
+                      alt="{{ section.settings.image.alt | escape }}"
+                      width="{{ section.settings.image.width }}"
+                      height="{{ section.settings.image.height }}"
+                      loading="lazy"
+                    >
                 {% endif %}
                 {% if section.settings.button_link != blank %}
                     <a href="{{ section.settings.button_link }}" class="button abs" style="background-color: {{ section.settings.button_background_color }}; color: {{ section.settings.button_text_color }};">{{ section.settings.button_text }}</a>

@@ -79,7 +79,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
     {% if product and product.tags contains 'GWP' %}
       <meta http-equiv="refresh" content="0; url={{ shop.url }}">
@@ -537,7 +536,6 @@ template-{{ template.name -}}
       class="content-for-layout focus-none"
       role="main"
       tabindex="-1"
-      aria-hidden="true"
       data-acsb-main="true"
     >
       {{ content_for_layout }}
