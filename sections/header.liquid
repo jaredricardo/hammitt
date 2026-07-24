@@ -1,5 +1,6 @@
 {% if section.settings.transparent_homepage and template == 'index' %}
-  {{ 'header-transparent.css' | asset_url | stylesheet_tag }}
+  <link rel="preload" as="style" href="{{ 'header-transparent.css' | asset_url }}" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ 'header-transparent.css' | asset_url }}"></noscript>
   {% endif %}
   <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -8,10 +9,8 @@
   <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
   
   {%- if settings.predictive_search_enabled -%}
-    {%- comment -%}
     <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
-    {%- endcomment -%}
-    {{ 'component-price.css' | asset_url | stylesheet_tag }}
+    <noscript><link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}"></noscript>
     <link rel="stylesheet" href="{{ 'component-loading-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
   {%- endif -%}
   
@@ -510,9 +509,9 @@
       {%- endif -%}
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" data-acsb-clickable="true"  data-acsb-navigable="true" data-acsb-now-navigable="true">
             <span class="acsb-sr-only" dataacsb-sr-only="true" data-acsb-force-visible="true" aria-hidden="false" data-acsbhidden="false">
-              <img src="{{ section.settings.logo | img_url: 'master' }}" alt="{{ shop.name }}" class="header__logo header__logo--default" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
+              <img src="{{ section.settings.logo | image_url: width: 400 }}" alt="{{ shop.name }}" class="header__logo header__logo--default" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
               {% if section.settings.logo_inverted and section.settings.transparent_homepage and template == 'index' %}
-                <img src="{{ section.settings.logo_inverted | img_url: 'master' }}" alt="{{ shop.name }}" class="header__logo header__logo--inverted" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
+                <img src="{{ section.settings.logo_inverted | image_url: width: 400 }}" alt="{{ shop.name }}" class="header__logo header__logo--inverted" data-acsb-image="true" data-acsb-image-alt="{{ shop.name }}"/>
               {% endif %}
             </span>
           </a>
@@ -771,7 +770,7 @@
             {% endif %}
           </a>
         {%- endif -%}
-        <a href="{{ section.settings.wishlist_page }}" class="nav-wishlist-button">
+        <a href="{{ section.settings.wishlist_page }}" class="nav-wishlist-button" aria-label="Wishlist">
           {% render 'heart-empty-thick'  %}
           <span style="display:none;" class="heart-count"></span>
         </a>

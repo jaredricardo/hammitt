@@ -374,6 +374,7 @@ function buildXGenSearchResultsForSearchHeader(response, searchTerm) {
 
     const simpleProductCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
 
+    simpleProductCard.querySelector('.card-image img').removeAttribute('srcset')
     simpleProductCard.querySelector('.card-image img').src = result.featured_image.src
     simpleProductCard.querySelector('.card-image img').alt = result.prod_name
     simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
@@ -411,7 +412,9 @@ function buildXGenSearchResultsForSearchHeader(response, searchTerm) {
 function buildRedirectCard(targetContainer, response, searchTerm){
   const simplePageResultCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
   simplePageResultCard.classList.remove('inactive')
-  simplePageResultCard.querySelector('.card-image img').src = 'https://cdn.shopify.com/s/files/1/0661/5963/files/Group_1010.png?v=1753809853'
+  const _pageResultImg = simplePageResultCard.querySelector('.card-image img')
+  _pageResultImg.removeAttribute('srcset')
+  _pageResultImg.src = 'https://cdn.shopify.com/s/files/1/0661/5963/files/Group_1010.png?v=1753809853'
   simplePageResultCard.querySelector('.product-title').innerText = `${response.keyword}`
   simplePageResultCard.querySelector('a').href = response.urlRedirect
   document.querySelector('.initial-search-modal-content .recent-or-trending-products h4').innerText = `Other results for "${searchTerm}"`
@@ -473,6 +476,7 @@ function buildXGenSearchResults(xGenResponse, searchTerm) {
 
     const simpleProductCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
 
+    simpleProductCard.querySelector('.card-image img').removeAttribute('srcset')
     simpleProductCard.querySelector('.card-image img').src = result.featured_image.src
     simpleProductCard.querySelector('.card-image img').alt = result.prod_name
     simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle
@@ -540,6 +544,7 @@ function buildShopifySearchResults(shopifyResponse, searchTerm) {
   shopifyResults.slice(0, 4).forEach((product, i) => {
     const simpleProductCard = cardTemplate.cloneNode(true)
 
+    simpleProductCard.querySelector('.card-image img').removeAttribute('srcset')
     simpleProductCard.querySelector('.card-image img').src = product.featured_image?.url || product.image
     simpleProductCard.querySelector('.card-image img').alt = product.title
     simpleProductCard.querySelector('.product-title').innerText = product.title
@@ -644,6 +649,7 @@ function buildXGenSearchResults_UNUSED(xGenResponse, searchTerm) {
 
     const simpleProductCard = document.querySelector('[data-basic-card-template]:not(.trending-now-product)').cloneNode(true)
 
+    simpleProductCard.querySelector('.card-image img').removeAttribute('srcset')
     simpleProductCard.querySelector('.card-image img').src = result.featured_image.src
     simpleProductCard.querySelector('.card-image img').alt = result.prod_name
     simpleProductCard.querySelector('.product-title').innerText = formattedProductTitle

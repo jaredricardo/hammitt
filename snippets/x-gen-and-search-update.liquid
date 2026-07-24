@@ -211,7 +211,7 @@
             if(tags.includes('top gift') || tags.includes('tag: top gift')) {
                 return `
                     <span class="badge red-badge">
-                        <div class="gift-gif" style="background-image: url('{{ 'gift-gif.gif' | asset_url }}');" aria-label="Gift Icon"></div>
+                        <div class="gift-gif" role="img" style="background-image: url('{{ 'gift-gif.gif' | asset_url }}');" aria-label="Gift Icon"></div>
                         Top Gift
                     </span>
                 `
@@ -457,6 +457,8 @@
             <div class="card card--{{ settings.card_style }}  product-card"  style="--ratio-percent: 100%;">
             {% comment %} kept display none until base.css loads {% endcomment %}
                 <button
+                    aria-hidden="true"
+                    tabindex="-1"
                     class="swym-button hammitt-custom swym-add-to-wishlist-view-product product_{{product.id}}"
                     data-with-epi="true"
                     data-swaction="addToWishlist"

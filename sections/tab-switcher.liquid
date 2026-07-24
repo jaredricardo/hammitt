@@ -99,7 +99,7 @@
 
             <div class="product-card swiper-slide" style="width: calc(100% / {{ widthCalculate }});">
               <div class="product-image">
-                <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+                <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title }}">
               </div>
               <div class="product-content">
                 <p class="product-title">{{ product.title }}</p>
