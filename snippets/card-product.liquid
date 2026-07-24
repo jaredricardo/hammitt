@@ -65,6 +65,20 @@
 
 -%}
 
+{% if settings.use_new_product_card_quick_add %}
+  <style>
+    .quick-add__wrapper {
+      opacity: 0;
+    }
+  </style>
+{% else %}
+  <style>
+    quick-add-trigger {
+      display: none;
+    }
+  </style>
+{% endif %}
+
 {%- if card_product and card_product != empty -%}
   {%- liquid
     assign ratio = 1
@@ -77,7 +91,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper" id="{{ card_product.id }}" data-current-page="{{ currentPage }}">
+  <div class="card-wrapper new-badge-styling-overrides" id="{{ card_product.id }}" data-current-page="{{ currentPage }}">
     {% render 'icon-spinner' %}
     <div class="card
       card--{{ settings.card_style }}
@@ -141,6 +155,15 @@
             </div>
             
           </div>
+          {%- unless hide_quick_add or card_product.variants.size > 1 -%}
+            {%- if settings.enable_quick_add and card_product.has_only_default_variant and card_product.available -%}
+              <quick-add-trigger class="quick-add-trigger">
+                <button type="button" class="quick-add-trigger__btn" aria-label="{{ 'products.product.add_to_cart' | t }}">
+                  {%- render 'icon-quick-add' -%}
+                </button>
+              </quick-add-trigger>
+            {%- endif -%}
+          {%- endunless -%}
         {%- endif -%}
         <div class="card__content">
           <div class="card__information">
@@ -231,10 +254,15 @@
 
             
           </div>
+          {% if settings.enable_product_card_swatches %}
+            {% if card_product.metafields.custom.colorway_collection %}
+              {% render 'product-card-swatches', product: card_product %}
+            {% endif %}
+          {% endif %}
         </div>
         
         {% if settings.enable_total_colors %}
-        <div class="total-colors" data-style="{{ formatted_product_title }}" data-color="{{ formatted_product_title }}"><span>+</span></div>
+          <div class="total-colors" data-style="{{ formatted_product_title }}" data-color="{{ formatted_product_title }}"><span>+</span></div>
         {% endif %}
         {% unless enable_gifting_card == true %}
           <div class="card__badge hidden {{ settings.badge_position }}">
@@ -246,10 +274,7 @@
           </div>
         {% endunless %}
       </div>
-      
-      {% if settings.enable_card_swatches %}
-      {%- render 'card-swatches', product: card_product -%}
-      {% endif %}
+
     </div>
   </div>
 {%- endif -%}

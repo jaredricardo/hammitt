@@ -1257,7 +1257,67 @@ template-{{ template.name -}}
         })
       </script>
     {% endif %}
-    {% comment %} should be moved into a js file {% endcomment %}
+
+    {% if settings.enable_product_card_swatches %}
+      <script>
+        class ProductCardSwatch extends HTMLElement {
+          connectedCallback() {
+            this._cardWrapper = this.closest('.card-wrapper');
+            if (!this._cardWrapper) return;
+            this._cardImage = this._cardWrapper.querySelector('.card__media img');
+            if (!this._cardImage) return;
+
+            this._originalSrc = this._cardImage.src;
+            this._originalSrcset = this._cardImage.srcset;
+            this._lockedBtn = null;
+
+            this.addEventListener('click', e => e.stopPropagation());
+
+            this.querySelectorAll('button').forEach(btn => {
+              btn.addEventListener('mouseenter', () => this._activate(btn));
+              btn.addEventListener('click', e => {
+                e.stopPropagation();
+                this._lockedBtn = this._lockedBtn === btn ? null : btn;
+                this._activate(btn);
+              });
+            });
+
+            this.addEventListener('mouseleave', () => {
+              if (this._lockedBtn) {
+                this._activate(this._lockedBtn);
+              } else {
+                this._restoreOriginal();
+              }
+            });
+          }
+
+          _activate(btn) {
+            const src = window.innerWidth >= 768
+              ? (btn.dataset.imageToPreviewLg || btn.dataset.imageToPreview)
+              : btn.dataset.imageToPreview;
+            if (src) {
+              this._cardImage.src = src;
+              this._cardImage.srcset = '';
+            } else {
+              this._cardImage.src = this._originalSrc;
+              this._cardImage.srcset = this._originalSrcset;
+            }
+            this.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          }
+
+          _restoreOriginal() {
+            this._cardImage.src = this._originalSrc;
+            this._cardImage.srcset = this._originalSrcset;
+            this.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            const initialBtn = this.querySelector('button');
+            if (initialBtn) initialBtn.classList.add('active');
+          }
+        }
+
+        customElements.define('product-card-swatch', ProductCardSwatch);
+      </script>
+    {% endif %}
 
     {%- comment -%}
     <link

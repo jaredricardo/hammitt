@@ -49,13 +49,116 @@
         "heading_r6iGjn": {
           "type": "heading",
           "settings": {
+            "heading": "Clear the Way",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_Xbkw3n": {
+          "type": "text",
+          "settings": {
+            "text": "Over a year in the making, the Paula Clear has arrived.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 18,
+            "text_size_desktop": 16
+          }
+        },
+        "buttons_r3KUCA": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/paula-clear",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_r6iGjn",
+        "text_Xbkw3n",
+        "buttons_r3KUCA"
+      ],
+      "name": "Paula Clear",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/homepage-paula-desktop_3d760640-3a10-4e44-bbeb-d72c651bddc4.jpg",
+        "image_2": "shopify://shop_images/homepage-paula-mob_c48e8875-2058-4673-b1d8-3641096f516a.gif",
+        "image_link": "shopify://pages/the-paula",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": false,
+        "full_width": true,
+        "cta_color_scheme": "light",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_Ygje4j": {
+      "type": "slider-collection",
+      "name": "bestsellers widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "portrait",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 10,
+        "padding_bottom": 30,
+        "mobile_padding_top": 4,
+        "mobile_padding_bottom": 20
+      }
+    },
+    "image_banner_pmFXfq": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_BXHkLX": {
+          "type": "heading",
+          "settings": {
             "heading": "Most Popular for a Reason",
             "heading_size_mobile": 25,
             "heading_size_tablet": 20,
             "heading_size_desktop": 50
           }
         },
-        "buttons_r3KUCA": {
+        "buttons_X9UUf6": {
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop Bestsellers",
@@ -65,10 +168,10 @@
         }
       },
       "block_order": [
-        "heading_r6iGjn",
-        "buttons_r3KUCA"
+        "heading_BXHkLX",
+        "buttons_X9UUf6"
       ],
-      "name": "t:sections.image-banner.presets.name",
+      "name": "Kyle",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -134,498 +237,28 @@
         "mobile_padding_bottom": 20
       }
     },
-    "upgraded_hero_banner_9JtHPR": {
-      "type": "upgraded-hero-banner",
-      "blocks": {
-        "slide_eMnF39": {
-          "type": "slide",
-          "settings": {
-            "background_video_desktop": "shopify://files/videos/chiliredEestend-no-logo_16x9 (1).mp4",
-            "heading_tag": "h1",
-            "heading_copy": "New July Drop",
-            "custom_html": "",
-            "heading_size_mobile": 24,
-            "heading_size_desktop": 46,
-            "heading_font": "default",
-            "subheader_tag": "p",
-            "subheader": "",
-            "subheader_size_mobile": 12,
-            "subheader_size_desktop": 14,
-            "subheader_font": "default",
-            "text_color": "#ffffff",
-            "button_text": "SHOP NEW ARRIVALS",
-            "button_link": "shopify://collections/new-arrivals",
-            "button_size_mobile": 12,
-            "button_size_desktop": 13,
-            "button_text_color": "#ffffff",
-            "button_bg_color": "rgba(0,0,0,0)",
-            "button_border_color": "#ffffff",
-            "button_border_width": 1,
-            "button_border_radius": 0,
-            "background_color": "#ffffff",
-            "overlay_opacity": 0,
-            "content_position": "bottom",
-            "content_alignment_desktop": "center",
-            "subcopy_text_align": "center"
-          }
-        },
-        "slide_B6A7aF": {
-          "type": "slide",
-          "settings": {
-            "background_video_desktop": "shopify://files/videos/Wide_shot_of_a_tranquil_outdoo_Kling_30__71881.mp4",
-            "background_video_mobile": "shopify://files/videos/0717(2).mp4",
-            "heading_tag": "h1",
-            "heading_copy": "Summer Favorite",
-            "custom_html": "",
-            "heading_size_mobile": 26,
-            "heading_size_desktop": 54,
-            "heading_font": "default",
-            "subheader_tag": "p",
-            "subheader": "The perfect neutral for all your summer outfits.",
-            "subheader_size_mobile": 16,
-            "subheader_size_desktop": 20,
-            "subheader_font": "default",
-            "text_color": "#ffffff",
-            "button_text": "SHOP CALLA LILY WHITE",
-            "button_link": "shopify://collections/calla-lily-white",
-            "button_size_mobile": 12,
-            "button_size_desktop": 13,
-            "button_text_color": "#ffffff",
-            "button_bg_color": "rgba(0,0,0,0)",
-            "button_border_color": "#ffffff",
-            "button_border_width": 1,
-            "button_border_radius": 1,
-            "background_color": "#ffffff",
-            "overlay_opacity": 0,
-            "content_position": "bottom",
-            "content_alignment_desktop": "center",
-            "subcopy_text_align": "center"
-          }
-        },
-        "slide_YX4xMe": {
-          "type": "slide",
-          "settings": {
-            "background_video_desktop": "shopify://files/videos/Cargo_16x9-no-logo (1).mp4",
-            "heading_tag": "h1",
-            "heading_copy": "Effortless Utility",
-            "custom_html": "",
-            "heading_size_mobile": 24,
-            "heading_size_desktop": 46,
-            "heading_font": "default",
-            "subheader_tag": "p",
-            "subheader": "Lightweight Italian nylon bags with cargo pockets for all your extras.",
-            "subheader_size_mobile": 13,
-            "subheader_size_desktop": 15,
-            "subheader_font": "default",
-            "text_color": "#ffffff",
-            "button_text": "SHOP TRAVEL",
-            "button_link": "shopify://collections/travel",
-            "button_size_mobile": 12,
-            "button_size_desktop": 13,
-            "button_text_color": "#ffffff",
-            "button_bg_color": "rgba(0,0,0,0)",
-            "button_border_color": "#ffffff",
-            "button_border_width": 1,
-            "button_border_radius": 0,
-            "background_color": "#ffffff",
-            "overlay_opacity": 0,
-            "content_position": "bottom",
-            "content_alignment_desktop": "center",
-            "subcopy_text_align": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_eMnF39",
-        "slide_B6A7aF",
-        "slide_YX4xMe"
-      ],
-      "custom_css": [
-        "@media screen and (max-width: 768px) {.swiper {aspect-ratio: 4/5; } .swiper-wrapper, .hero-slide {height: 100% !important; }}"
-      ],
-      "name": "Upgraded Hero Banner",
-      "settings": {}
-    },
-    "slider_collection_Wih4GR": {
-      "type": "slider-collection",
-      "name": "new in widget",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "new-arrivals",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "portrait",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 10,
-        "padding_bottom": 30,
-        "mobile_padding_top": 4,
-        "mobile_padding_bottom": 20
-      }
-    },
-    "jr_new_5050_product_list_zy3tkK": {
-      "type": "jr-new-5050-product-list",
-      "custom_css": [
-        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
-      ],
-      "name": "Bestsellers modal ",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "",
-        "padding_bottom_desktop": 0,
-        "padding_bottom_mobile": 0,
-        "allow_sold_out_cards": false,
-        "product_list": [
-          "tom-zip-hobo-cocoa-raffia-gold",
-          "andersen-revival-tote-silverlake-antique-gold",
-          "olympia-tote-tote-bag-cabana-blue-brushed-gold",
-          "hunter-med-backpack-black-nylon-cargo-gold",
-          "shelley-resort-tote-calla-lily-white-raffia-brushed-gold-hammered",
-          "shelley-clutch-clutch-sienna-flora-brushed-gold"
-        ],
-        "show_secondary_image": true,
-        "image_ratio": "portrait",
-        "image": "shopify://shop_images/minus_39.gif",
-        "image_alignment_desktop": "image-right",
-        "image_alignment_mobile": "image-top",
-        "button_link": "shopify://collections/travel",
-        "button_text": "Shop Now",
-        "button_text_color": "#000000",
-        "button_background_color": "#ffffff",
-        "padding_top": 30,
-        "padding_bottom": 30,
-        "mobile_padding_top": 8,
-        "mobile_padding_bottom": 8,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4
-      }
-    },
-    "silhouette_carousel_Je7Pit": {
-      "type": "silhouette-carousel",
-      "blocks": {
-        "silhouette_carousel_item_HCWKe9": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_04dad90e-dc14-4fd0-923a-15c759d2b8eb_1_1.png",
-            "url": "shopify://products/kyle-shoulder-bag-calla-lily-white-brushed-gold",
-            "title": "Kyle Sml"
-          }
-        },
-        "silhouette_carousel_item_JNthXJ": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_a315f371-5781-430d-841f-d4a92ff68dbe.png",
-            "url": "shopify://products/kyle-med-shoulder-bag-silverlake-antique-gold",
-            "title": "Kyle Med"
-          }
-        },
-        "silhouette_carousel_item_JjMxTK": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_d0922013-c66a-4dda-b496-28c7c082c237.png",
-            "url": "shopify://products/kyle-lrg-chili-red-gold",
-            "title": "Kyle Lrg"
-          }
-        },
-        "silhouette_carousel_item_9LPhqK": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_703da465-c11d-4c3a-b203-4d63420f4102.png",
-            "url": "shopify://products/charles-crossbody-med-crossbody-west-end-antique-gold",
-            "title": "Charles Med"
-          }
-        },
-        "silhouette_carousel_item_qVyyJQ": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/Hammitt_Doxie-Med-Chili-Red-G-1.png",
-            "url": "shopify://products/doxie-med-satchel-chili-red-gold",
-            "title": "Doxie Med"
-          }
-        },
-        "silhouette_carousel_item_fV3Cig": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/Hammitt_VIP-Med-Calla-Lily-White-BG_1.png",
-            "url": "shopify://products/vip-med-clutch-calla-lily-white-brushed-gold",
-            "title": "VIP Med"
-          }
-        },
-        "silhouette_carousel_item_kUnEDx": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/Hammitt_Grace-Med-Calypso-Suede-G-1.png",
-            "url": "shopify://products/grace-med-satchel-calypso-suede-gold",
-            "title": "Grace Med"
-          }
-        },
-        "silhouette_carousel_item_GriKWn": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/Hammitt_Paul-Mini-Calypso-Suede-G-1.png",
-            "url": "shopify://products/paul-mini-crossbody-calypso-suede-gold",
-            "title": "Paul Crossbody"
-          }
-        },
-        "silhouette_carousel_item_dkYX6k": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_e8d58c8a-ec73-41f3-a25a-6b021b25917b.png",
-            "url": "shopify://products/erica-sml-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
-            "title": "Erica Sml"
-          }
-        },
-        "silhouette_carousel_item_kKdmTg": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/Hammitt_Bryant-Med-Pickle-Stripe-G-1_1_1.png",
-            "url": "shopify://products/bryant-med-satchel-pickle-stripe-gold",
-            "title": "Bryant Med"
-          }
-        },
-        "silhouette_carousel_item_wNKQXF": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_b2d622d9-3997-4f6b-b466-79c509f46c08.png",
-            "url": "shopify://products/beverly-med-crossbody-east-end-antique-gold",
-            "title": "Beverly Med"
-          }
-        },
-        "silhouette_carousel_item_EhVMTq": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/BB--Hammitt_Daniel-Med-Mahogany-Pebble_1A_1.png",
-            "url": "shopify://products/daniel-med-satchel-black-brushed-gold-red-zip",
-            "title": "Daniel Med"
-          }
-        },
-        "silhouette_carousel_item_erqGc6": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_3a635a24-7fd9-41d9-9dc6-081c09d1e0d0_1_1.png",
-            "url": "shopify://products/olympia-tote-tote-bag-pink-lemonade-g",
-            "title": "Olympia Tote"
-          }
-        },
-        "silhouette_carousel_item_PKH8Fn": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_1c28d701-6100-47ab-b23b-47187a0231c3.png",
-            "url": "shopify://products/olympia-tote-mini-crossbody-sienna-flora-brushed-gold",
-            "title": "Olympia Crossbody"
-          }
-        },
-        "silhouette_carousel_item_T3fgQb": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_971bf6f4-ab82-4c38-aa6c-13ab274d3589.png",
-            "url": "shopify://products/tom-zip-hobo-cocoa-raffia-gold",
-            "title": "Tom Lrg"
-          }
-        },
-        "silhouette_carousel_item_FXUQBV": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_8208b42e-58e1-4a58-9dc8-22dfbbf8c976_1.png",
-            "url": "shopify://products/tom-zip-med-hobo-mahogany-pebble-brushed-gold-red-zip",
-            "title": "Tom Med"
-          }
-        },
-        "silhouette_carousel_item_crfH4P": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/CH-media_884b7b7e-9c16-4bbe-9e4a-6db52a0e1577.png",
-            "url": "shopify://products/daniel-crossbody-clutch-sml-clutch-chaparral-raffia-gunmetal",
-            "title": "Daniel Crossbody Clutch"
-          }
-        },
-        "silhouette_carousel_item_DW6BqX": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_5931c7bf-5d1e-42bf-acc7-313660660646_1.png",
-            "url": "shopify://products/vip-mobile-crossbody-tailored-tangerine-silver",
-            "title": "VIP Mobile"
-          }
-        },
-        "silhouette_carousel_item_r6xhHN": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/Hammitt_Meredith-Sml-Cabana-Blue-BG-6_1.png",
-            "url": "shopify://products/meredith-sml-shoulder-bag-cabana-blue-brushed-gold",
-            "title": "Meredith Sml"
-          }
-        },
-        "silhouette_carousel_item_xwRNLU": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_9975c343-8435-46af-b863-8cc06643b285_1.png",
-            "url": "shopify://products/tim-med-shoulder-bag-catamaran-cream-brushed-gold",
-            "title": "Tim Med"
-          }
-        },
-        "silhouette_carousel_item_rKqxxq": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_8e64c444-cbdf-4364-977b-7a6777433e78.png",
-            "url": "shopify://products/charlotte-med-shoulder-bag-hazy-blue-gold",
-            "title": "Charlotte Med"
-          }
-        },
-        "silhouette_carousel_item_rr8Wby": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_772e7921-9edd-4c3c-b24d-44a507ad6cb5_1.png",
-            "url": "shopify://products/andersen-revival-tote-bag-espresso-pebble-silver",
-            "title": "Andersen Revival"
-          }
-        },
-        "silhouette_carousel_item_49qmke": {
-          "type": "silhouette-carousel-item",
-          "settings": {
-            "image": "shopify://shop_images/media_4f5dfb18-bbba-4031-ab98-6f91fbd8c9b7_1_1.png",
-            "url": "shopify://products/shelley-clutch-clutch-hazy-blue-gold",
-            "title": "Shelley Clutch"
-          }
-        }
-      },
-      "block_order": [
-        "silhouette_carousel_item_HCWKe9",
-        "silhouette_carousel_item_JNthXJ",
-        "silhouette_carousel_item_JjMxTK",
-        "silhouette_carousel_item_9LPhqK",
-        "silhouette_carousel_item_qVyyJQ",
-        "silhouette_carousel_item_fV3Cig",
-        "silhouette_carousel_item_kUnEDx",
-        "silhouette_carousel_item_GriKWn",
-        "silhouette_carousel_item_dkYX6k",
-        "silhouette_carousel_item_kKdmTg",
-        "silhouette_carousel_item_wNKQXF",
-        "silhouette_carousel_item_EhVMTq",
-        "silhouette_carousel_item_erqGc6",
-        "silhouette_carousel_item_PKH8Fn",
-        "silhouette_carousel_item_T3fgQb",
-        "silhouette_carousel_item_FXUQBV",
-        "silhouette_carousel_item_crfH4P",
-        "silhouette_carousel_item_DW6BqX",
-        "silhouette_carousel_item_r6xhHN",
-        "silhouette_carousel_item_xwRNLU",
-        "silhouette_carousel_item_rKqxxq",
-        "silhouette_carousel_item_rr8Wby",
-        "silhouette_carousel_item_49qmke"
-      ],
-      "name": "Silhouette Carousel",
-      "settings": {
-        "section_anchor_id": "",
-        "bg_color": "#ffffff",
-        "card_bg_color": "rgba(0,0,0,0)",
-        "top_divider": false,
-        "enable_auto_scroll": true,
-        "auto_scroll_speed": 6000,
-        "always_show_titles": false,
-        "enable_hide_button": false,
-        "slides_per_view_mobile": "3.7",
-        "slides_per_view_tablet": "6.4",
-        "slides_per_view_desktop": "6.4",
-        "image_ratio": "adapt",
-        "padding_top_desktop": 40,
-        "padding_bottom_desktop": 40,
-        "padding_top_mobile": 4,
-        "padding_bottom_mobile": 4
-      }
-    },
-    "image_banner_md7kAc": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_rgQaaM": {
-          "type": "heading",
-          "settings": {
-            "heading": "Father's Day Gifts",
-            "heading_size_mobile": 26,
-            "heading_size_tablet": 32,
-            "heading_size_desktop": 46
-          }
-        },
-        "text_z96cEr": {
-          "type": "text",
-          "settings": {
-            "text": "Fine Leather Goods for Your Guy",
-            "text_area_html_swap": "",
-            "text_style": "body",
-            "text_size_mobile": 12,
-            "text_size_tablet": 13,
-            "text_size_desktop": 14
-          }
-        },
-        "buttons_NyARTV": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify://collections/mens-collection",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_rgQaaM",
-        "text_z96cEr",
-        "buttons_NyARTV"
-      ],
-      "disabled": true,
-      "name": "Father's day",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/model-bag-men_1.jpg",
-        "image_2": "shopify://shop_images/Rectangle-1121-_1.gif",
-        "image_link": "shopify://collections/mens-collection",
-        "image_overlay_opacity": 30,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 8,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
         "image_carousel_item_ApNxyT": {
+          "type": "image-carousel-item",
+          "name": "Paula ",
+          "settings": {
+            "image": "shopify://shop_images/0WATERFALL_4345_2.jpg",
+            "eyebrow": "Clear the way",
+            "title": "The Paula Clear",
+            "subcopy": "Over a year in the making, our brand-new Paula Clear has arrived.",
+            "button_text": "Shop Now",
+            "collection_url": "paula-clear",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_xkVwqM": {
           "type": "image-carousel-item",
           "name": "Calypso Suede",
           "settings": {
@@ -880,6 +513,7 @@
       },
       "block_order": [
         "image_carousel_item_ApNxyT",
+        "image_carousel_item_xkVwqM",
         "image_carousel_item_8JhAaa",
         "image_carousel_item_xHHU7t",
         "image_carousel_item_RCPV8A",
@@ -926,6 +560,184 @@
         "link": "shopify://collections/stormy",
         "button_text_color": "#000000",
         "button_bg_color": "#000000",
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4
+      }
+    },
+    "upgraded_hero_banner_9JtHPR": {
+      "type": "upgraded-hero-banner",
+      "blocks": {
+        "slide_eMnF39": {
+          "type": "slide",
+          "settings": {
+            "background_video_desktop": "shopify://files/videos/chiliredEestend-no-logo_16x9 (1).mp4",
+            "heading_tag": "h1",
+            "heading_copy": "New July Drop",
+            "custom_html": "",
+            "heading_size_mobile": 24,
+            "heading_size_desktop": 46,
+            "heading_font": "default",
+            "subheader_tag": "p",
+            "subheader": "",
+            "subheader_size_mobile": 12,
+            "subheader_size_desktop": 14,
+            "subheader_font": "default",
+            "text_color": "#ffffff",
+            "button_text": "SHOP NEW ARRIVALS",
+            "button_link": "shopify://collections/new-arrivals",
+            "button_size_mobile": 12,
+            "button_size_desktop": 13,
+            "button_text_color": "#ffffff",
+            "button_bg_color": "rgba(0,0,0,0)",
+            "button_border_color": "#ffffff",
+            "button_border_width": 1,
+            "button_border_radius": 0,
+            "background_color": "#ffffff",
+            "overlay_opacity": 0,
+            "content_position": "bottom",
+            "content_alignment_desktop": "center",
+            "subcopy_text_align": "center"
+          }
+        },
+        "slide_B6A7aF": {
+          "type": "slide",
+          "settings": {
+            "background_video_desktop": "shopify://files/videos/Wide_shot_of_a_tranquil_outdoo_Kling_30__71881.mp4",
+            "background_video_mobile": "shopify://files/videos/0717(2).mp4",
+            "heading_tag": "h1",
+            "heading_copy": "Summer Favorite",
+            "custom_html": "",
+            "heading_size_mobile": 26,
+            "heading_size_desktop": 54,
+            "heading_font": "default",
+            "subheader_tag": "p",
+            "subheader": "The perfect neutral for all your summer outfits.",
+            "subheader_size_mobile": 16,
+            "subheader_size_desktop": 20,
+            "subheader_font": "default",
+            "text_color": "#ffffff",
+            "button_text": "SHOP CALLA LILY WHITE",
+            "button_link": "shopify://collections/calla-lily-white",
+            "button_size_mobile": 12,
+            "button_size_desktop": 13,
+            "button_text_color": "#ffffff",
+            "button_bg_color": "rgba(0,0,0,0)",
+            "button_border_color": "#ffffff",
+            "button_border_width": 1,
+            "button_border_radius": 1,
+            "background_color": "#ffffff",
+            "overlay_opacity": 0,
+            "content_position": "bottom",
+            "content_alignment_desktop": "center",
+            "subcopy_text_align": "center"
+          }
+        },
+        "slide_YX4xMe": {
+          "type": "slide",
+          "settings": {
+            "background_video_desktop": "shopify://files/videos/Cargo_16x9-no-logo (1).mp4",
+            "heading_tag": "h1",
+            "heading_copy": "Effortless Utility",
+            "custom_html": "",
+            "heading_size_mobile": 24,
+            "heading_size_desktop": 46,
+            "heading_font": "default",
+            "subheader_tag": "p",
+            "subheader": "Lightweight Italian nylon bags with cargo pockets for all your extras.",
+            "subheader_size_mobile": 13,
+            "subheader_size_desktop": 15,
+            "subheader_font": "default",
+            "text_color": "#ffffff",
+            "button_text": "SHOP TRAVEL",
+            "button_link": "shopify://collections/travel",
+            "button_size_mobile": 12,
+            "button_size_desktop": 13,
+            "button_text_color": "#ffffff",
+            "button_bg_color": "rgba(0,0,0,0)",
+            "button_border_color": "#ffffff",
+            "button_border_width": 1,
+            "button_border_radius": 0,
+            "background_color": "#ffffff",
+            "overlay_opacity": 0,
+            "content_position": "bottom",
+            "content_alignment_desktop": "center",
+            "subcopy_text_align": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_eMnF39",
+        "slide_B6A7aF",
+        "slide_YX4xMe"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (max-width: 768px) {.swiper {aspect-ratio: 4/5; } .swiper-wrapper, .hero-slide {height: 100% !important; }}"
+      ],
+      "name": "Upgraded Hero Banner",
+      "settings": {}
+    },
+    "slider_collection_Wih4GR": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "new in widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "portrait",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 10,
+        "padding_bottom": 30,
+        "mobile_padding_top": 4,
+        "mobile_padding_bottom": 20
+      }
+    },
+    "jr_new_5050_product_list_zy3tkK": {
+      "type": "jr-new-5050-product-list",
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (max-width: 751px) {.jr-new-5050-product-list .columns {flex-direction: column-reverse; }}"
+      ],
+      "name": "Bestsellers modal ",
+      "settings": {
+        "background_color": "#ffffff",
+        "header_text_color": "#000000",
+        "title": "",
+        "padding_bottom_desktop": 0,
+        "padding_bottom_mobile": 0,
+        "allow_sold_out_cards": false,
+        "product_list": [
+          "tom-zip-hobo-cocoa-raffia-gold",
+          "andersen-revival-tote-silverlake-antique-gold",
+          "olympia-tote-tote-bag-cabana-blue-brushed-gold",
+          "hunter-med-backpack-black-nylon-cargo-gold",
+          "shelley-resort-tote-calla-lily-white-raffia-brushed-gold-hammered",
+          "shelley-clutch-clutch-sienna-flora-brushed-gold"
+        ],
+        "show_secondary_image": true,
+        "image_ratio": "portrait",
+        "image": "shopify://shop_images/Rectangle-1119.gif",
+        "image_alignment_desktop": "image-right",
+        "image_alignment_mobile": "image-top",
+        "button_link": "shopify://collections/travel",
+        "button_text": "Shop Now",
+        "button_text_color": "#000000",
+        "button_background_color": "#ffffff",
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "mobile_padding_top": 8,
+        "mobile_padding_bottom": 8,
         "slides_per_view_mobile": 2.2,
         "slides_per_view_tablet": 2.2,
         "slides_per_view_desktop": 4
@@ -1049,20 +861,237 @@
         "custom_class": ""
       }
     },
-    "homepage_instagram_RrcAhY": {
-      "type": "homepage-instagram",
-      "disabled": true,
+    "silhouette_carousel_Je7Pit": {
+      "type": "silhouette-carousel",
+      "blocks": {
+        "silhouette_carousel_item_HCWKe9": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_04dad90e-dc14-4fd0-923a-15c759d2b8eb_1_1.png",
+            "url": "shopify://products/kyle-shoulder-bag-calla-lily-white-brushed-gold",
+            "title": "Kyle Sml"
+          }
+        },
+        "silhouette_carousel_item_JNthXJ": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_a315f371-5781-430d-841f-d4a92ff68dbe.png",
+            "url": "shopify://products/kyle-med-shoulder-bag-silverlake-antique-gold",
+            "title": "Kyle Med"
+          }
+        },
+        "silhouette_carousel_item_JjMxTK": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_d0922013-c66a-4dda-b496-28c7c082c237.png",
+            "url": "shopify://products/kyle-lrg-chili-red-gold",
+            "title": "Kyle Lrg"
+          }
+        },
+        "silhouette_carousel_item_9LPhqK": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_703da465-c11d-4c3a-b203-4d63420f4102.png",
+            "url": "shopify://products/charles-crossbody-med-crossbody-west-end-antique-gold",
+            "title": "Charles Med"
+          }
+        },
+        "silhouette_carousel_item_qVyyJQ": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Doxie-Med-Chili-Red-G-1.png",
+            "url": "shopify://products/doxie-med-satchel-chili-red-gold",
+            "title": "Doxie Med"
+          }
+        },
+        "silhouette_carousel_item_fV3Cig": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_VIP-Med-Calla-Lily-White-BG_1.png",
+            "url": "shopify://products/vip-med-clutch-calla-lily-white-brushed-gold",
+            "title": "VIP Med"
+          }
+        },
+        "silhouette_carousel_item_kUnEDx": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Grace-Med-Calypso-Suede-G-1.png",
+            "url": "shopify://products/grace-med-satchel-calypso-suede-gold",
+            "title": "Grace Med"
+          }
+        },
+        "silhouette_carousel_item_GriKWn": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Paul-Mini-Calypso-Suede-G-1.png",
+            "url": "shopify://products/paul-mini-crossbody-calypso-suede-gold",
+            "title": "Paul Crossbody"
+          }
+        },
+        "silhouette_carousel_item_dkYX6k": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_e8d58c8a-ec73-41f3-a25a-6b021b25917b.png",
+            "url": "shopify://products/erica-sml-shoulder-bag-mahogany-pebble-brushed-gold-red-zip",
+            "title": "Erica Sml"
+          }
+        },
+        "silhouette_carousel_item_kKdmTg": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Bryant-Med-Pickle-Stripe-G-1_1_1.png",
+            "url": "shopify://products/bryant-med-satchel-pickle-stripe-gold",
+            "title": "Bryant Med"
+          }
+        },
+        "silhouette_carousel_item_wNKQXF": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_b2d622d9-3997-4f6b-b466-79c509f46c08.png",
+            "url": "shopify://products/beverly-med-crossbody-east-end-antique-gold",
+            "title": "Beverly Med"
+          }
+        },
+        "silhouette_carousel_item_EhVMTq": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/BB--Hammitt_Daniel-Med-Mahogany-Pebble_1A_1.png",
+            "url": "shopify://products/daniel-med-satchel-black-brushed-gold-red-zip",
+            "title": "Daniel Med"
+          }
+        },
+        "silhouette_carousel_item_erqGc6": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_3a635a24-7fd9-41d9-9dc6-081c09d1e0d0_1_1.png",
+            "url": "shopify://products/olympia-tote-tote-bag-pink-lemonade-g",
+            "title": "Olympia Tote"
+          }
+        },
+        "silhouette_carousel_item_PKH8Fn": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_1c28d701-6100-47ab-b23b-47187a0231c3.png",
+            "url": "shopify://products/olympia-tote-mini-crossbody-sienna-flora-brushed-gold",
+            "title": "Olympia Crossbody"
+          }
+        },
+        "silhouette_carousel_item_T3fgQb": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_971bf6f4-ab82-4c38-aa6c-13ab274d3589.png",
+            "url": "shopify://products/tom-zip-hobo-cocoa-raffia-gold",
+            "title": "Tom Lrg"
+          }
+        },
+        "silhouette_carousel_item_FXUQBV": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_8208b42e-58e1-4a58-9dc8-22dfbbf8c976_1.png",
+            "url": "shopify://products/tom-zip-med-hobo-mahogany-pebble-brushed-gold-red-zip",
+            "title": "Tom Med"
+          }
+        },
+        "silhouette_carousel_item_crfH4P": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/CH-media_884b7b7e-9c16-4bbe-9e4a-6db52a0e1577.png",
+            "url": "shopify://products/daniel-crossbody-clutch-sml-clutch-chaparral-raffia-gunmetal",
+            "title": "Daniel Crossbody Clutch"
+          }
+        },
+        "silhouette_carousel_item_DW6BqX": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_5931c7bf-5d1e-42bf-acc7-313660660646_1.png",
+            "url": "shopify://products/vip-mobile-crossbody-tailored-tangerine-silver",
+            "title": "VIP Mobile"
+          }
+        },
+        "silhouette_carousel_item_r6xhHN": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Meredith-Sml-Cabana-Blue-BG-6_1.png",
+            "url": "shopify://products/meredith-sml-shoulder-bag-cabana-blue-brushed-gold",
+            "title": "Meredith Sml"
+          }
+        },
+        "silhouette_carousel_item_xwRNLU": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_9975c343-8435-46af-b863-8cc06643b285_1.png",
+            "url": "shopify://products/tim-med-shoulder-bag-catamaran-cream-brushed-gold",
+            "title": "Tim Med"
+          }
+        },
+        "silhouette_carousel_item_rKqxxq": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_8e64c444-cbdf-4364-977b-7a6777433e78.png",
+            "url": "shopify://products/charlotte-med-shoulder-bag-hazy-blue-gold",
+            "title": "Charlotte Med"
+          }
+        },
+        "silhouette_carousel_item_rr8Wby": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_772e7921-9edd-4c3c-b24d-44a507ad6cb5_1.png",
+            "url": "shopify://products/andersen-revival-tote-bag-espresso-pebble-silver",
+            "title": "Andersen Revival"
+          }
+        },
+        "silhouette_carousel_item_49qmke": {
+          "type": "silhouette-carousel-item",
+          "settings": {
+            "image": "shopify://shop_images/media_4f5dfb18-bbba-4031-ab98-6f91fbd8c9b7_1_1.png",
+            "url": "shopify://products/shelley-clutch-clutch-hazy-blue-gold",
+            "title": "Shelley Clutch"
+          }
+        }
+      },
+      "block_order": [
+        "silhouette_carousel_item_HCWKe9",
+        "silhouette_carousel_item_JNthXJ",
+        "silhouette_carousel_item_JjMxTK",
+        "silhouette_carousel_item_9LPhqK",
+        "silhouette_carousel_item_qVyyJQ",
+        "silhouette_carousel_item_fV3Cig",
+        "silhouette_carousel_item_kUnEDx",
+        "silhouette_carousel_item_GriKWn",
+        "silhouette_carousel_item_dkYX6k",
+        "silhouette_carousel_item_kKdmTg",
+        "silhouette_carousel_item_wNKQXF",
+        "silhouette_carousel_item_EhVMTq",
+        "silhouette_carousel_item_erqGc6",
+        "silhouette_carousel_item_PKH8Fn",
+        "silhouette_carousel_item_T3fgQb",
+        "silhouette_carousel_item_FXUQBV",
+        "silhouette_carousel_item_crfH4P",
+        "silhouette_carousel_item_DW6BqX",
+        "silhouette_carousel_item_r6xhHN",
+        "silhouette_carousel_item_xwRNLU",
+        "silhouette_carousel_item_rKqxxq",
+        "silhouette_carousel_item_rr8Wby",
+        "silhouette_carousel_item_49qmke"
+      ],
+      "name": "Silhouette Carousel",
       "settings": {
-        "enabled_slider": false,
-        "feed_id": "hammitt_2",
-        "heading": "As Seen On Social",
-        "page_size": "5",
-        "image_margin": "0",
-        "paragraph": "Tag #HammittLA for a chance to be featured on our feed.",
-        "text_align": "center",
-        "show_link_to_page": true,
-        "link_to_page": "shopify://pages/shop-insta",
-        "link_to_page_text": "Shop Insta"
+        "section_anchor_id": "",
+        "bg_color": "#ffffff",
+        "card_bg_color": "rgba(0,0,0,0)",
+        "top_divider": false,
+        "enable_auto_scroll": true,
+        "auto_scroll_speed": 6000,
+        "always_show_titles": false,
+        "enable_hide_button": false,
+        "slides_per_view_mobile": "3.7",
+        "slides_per_view_tablet": "6.4",
+        "slides_per_view_desktop": "6.4",
+        "image_ratio": "adapt",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 4,
+        "padding_bottom_mobile": 4
       }
     },
     "multicolumn_tX9BVq": {
@@ -1097,7 +1126,7 @@
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12933.jpg",
+            "image": "shopify://shop_images/Group_12933_39a864a5-98c1-4a6a-a84f-27279dc97f69.jpg",
             "title": "<strong>Shoulder Bags</strong>",
             "b_title_color": "#000",
             "b_title_font_desktop": 20,
@@ -1118,36 +1147,11 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_8ackWz": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_1196_0d3ae23d-19a4-43e1-a9c4-ff1123ee726b.jpg",
-            "title": "<strong>Travel Collection</strong>",
-            "b_title_color": "#000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/travel",
-            "cta_color": "#fff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
         "column_RjJWyc": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_1195.jpg",
+            "image": "shopify://shop_images/Rectangle_1195_1.jpg",
             "title": "<strong>Totes and Weekenders</strong>",
             "b_title_color": "#000",
             "b_title_font_desktop": 20,
@@ -1168,36 +1172,11 @@
             "cta_bottom_spacing": 5
           }
         },
-        "column_yLnbGG": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_1198_2.jpg",
-            "title": "<strong>Clutches & Evening Bags</strong>",
-            "b_title_color": "#000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/clutch",
-            "cta_color": "#fff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
         "column_gcVg84": {
           "type": "column",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_1198.jpg",
+            "image": "shopify://shop_images/Rectangle_1198_1.jpg",
             "title": "<strong>Wallets & Bag Accessories</strong>",
             "b_title_color": "#000",
             "b_title_font_desktop": 20,
@@ -1222,9 +1201,7 @@
       "block_order": [
         "column_4MYXcd",
         "column_fDamCx",
-        "column_8ackWz",
         "column_RjJWyc",
-        "column_yLnbGG",
         "column_gcVg84"
       ],
       "name": "t:sections.multicolumn.presets.name",
@@ -1239,7 +1216,7 @@
         "image_ratio": "square",
         "image_padding": false,
         "removed_section_padding": true,
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "columns_gap": 1,
         "row_gap": 1,
         "mobile_columns_gap": 1,
@@ -1282,6 +1259,14 @@
       "type": "jr-scrolling-text",
       "blocks": {
         "text_gjLtj3": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/vogue-logo.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_qprcL4": {
           "type": "text",
           "settings": {
             "icon": "shopify://shop_images/Cosmopolitan-logo.png",
@@ -1396,6 +1381,7 @@
       },
       "block_order": [
         "text_gjLtj3",
+        "text_qprcL4",
         "text_DPBf4P",
         "text_URPC6X",
         "text_aUXCkX",
@@ -1431,15 +1417,15 @@
   "order": [
     "home_hero_section_GzUagM",
     "image_banner_Mnjabb",
+    "slider_collection_Ygje4j",
+    "image_banner_pmFXfq",
     "slider_collection_L6qdiY",
+    "home_hero_section_qhL9Xk",
     "upgraded_hero_banner_9JtHPR",
     "slider_collection_Wih4GR",
     "jr_new_5050_product_list_zy3tkK",
-    "silhouette_carousel_Je7Pit",
-    "image_banner_md7kAc",
-    "home_hero_section_qhL9Xk",
     "multicolumn_FmaKEp",
-    "homepage_instagram_RrcAhY",
+    "silhouette_carousel_Je7Pit",
     "multicolumn_tX9BVq",
     "1777417324d647b990",
     "jr_scrolling_text_QzMT7i"

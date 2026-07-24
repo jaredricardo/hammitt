@@ -64,30 +64,6 @@
         "padding_bottom_mobile": 0
       }
     },
-    "slider_collection_w9UPnP": {
-      "type": "slider-collection",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "tom-zip",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
     "image_banner_3gmnXq": {
       "type": "image-banner",
       "blocks": {
@@ -116,6 +92,7 @@
         "heading_aKDJp4",
         "text_MfYJiV"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "custom_classes": "",
@@ -180,6 +157,7 @@
         "heading_xbYWFF",
         "text_LGtBAY"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_classes": "",
@@ -193,6 +171,7 @@
     },
     "slider_collection_WRE3iK": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Slider Collection",
       "settings": {
         "title": "",
@@ -214,14 +193,348 @@
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
+    },
+    "image_banner_GPti4e": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_jiEiQy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet The Paula Clear",
+            "heading_size_mobile": 32,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_BhhpRP": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_area_html_swap": "Over a year in the making, our brand-new Paula Clear has arrived.",
+            "text_style": "body",
+            "text_size_mobile": 12,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_XGx4ey": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Paula Clear",
+            "button_link_1": "shopify://collections/paula-clear",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_jiEiQy",
+        "text_BhhpRP",
+        "buttons_XGx4ey"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12946.jpg",
+        "image_2": "shopify://shop_images/Rectangle_1132.jpg",
+        "image_link": "shopify://collections/paula-clear",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
+    },
+    "rich_text_z8ddUA": {
+      "type": "rich-text",
+      "blocks": {
+        "text_MeHLiw": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>Here just in time for football season and late summer concerts, this trend-forward style features glimmering rivets and soft leather trim - the perfect accents for durable TPU.</h6>"
+          }
+        }
+      },
+      "block_order": [
+        "text_MeHLiw"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "slider_collection_9rBzh9": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "paula-clear",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 30,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_Mh6RN6": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_12959.jpg",
+        "image_2": "shopify://shop_images/Group_12972.jpg",
+        "image_link": "shopify://collections/paula-clear",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
+    },
+    "image_banner_bJJXgE": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/desktop-paula-banner-3.jpg",
+        "image_2": "shopify://shop_images/mobile-paula-banner-3.jpg",
+        "image_link": "shopify://collections/paula-clear",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": false,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
+    },
+    "image_with_text_rehABr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_TyUpkw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Build a Clear Set",
+            "heading_size": "h1"
+          }
+        },
+        "button_ErK8PK": {
+          "type": "button",
+          "settings": {
+            "button_label": "Complete The Set",
+            "button_link": "shopify://collections/clear-bag-accessories",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TyUpkw",
+        "button_ErK8PK"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "id_for_scroll_navigator": "",
+        "video": "shopify://files/videos/0722-11 (1).mp4",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 30,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "image_with_text_ydyaqe": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_qGdh6T": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>Add a colorful webbed strap to show some team spirit, and complete your set with a coordinating Viva Pouch. Perfect for stowing your smallest<br/>best kept secrets.</h4>",
+            "text_style": "body"
+          }
+        },
+        "button_AgBqWw": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Accessories",
+            "button_link": "shopify://collections/clear-bag-accessories",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "text_qGdh6T",
+        "button_AgBqWw"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/Group_12976.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "slider_collection_KpjUmW": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "clear-bag-accessories",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 30,
+        "padding_bottom": 0,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 0
+      }
     }
   },
   "order": [
     "rich_text_TVxR8H",
     "main",
-    "slider_collection_w9UPnP",
     "image_banner_3gmnXq",
     "rich_text_b8NrXi",
-    "slider_collection_WRE3iK"
+    "slider_collection_WRE3iK",
+    "image_banner_GPti4e",
+    "rich_text_z8ddUA",
+    "slider_collection_9rBzh9",
+    "image_banner_Mh6RN6",
+    "image_banner_bJJXgE",
+    "image_with_text_rehABr",
+    "image_with_text_ydyaqe",
+    "slider_collection_KpjUmW"
   ]
 }
