@@ -5,7 +5,8 @@
     assign downcased_product_type = product.metafields.custom.product_title_type | downcase
 
     for block in section.blocks
-        if block.settings.product_title_type == downcased_product_type
+        assign downcased_block_type = block.settings.product_title_type | downcase
+        if downcased_block_type == downcased_product_type
             assign publish_id_to_use = block.settings.tolstoy_publish_id
         endif
     endfor
