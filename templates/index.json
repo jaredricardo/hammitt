@@ -49,13 +49,116 @@
         "heading_r6iGjn": {
           "type": "heading",
           "settings": {
+            "heading": "Clear the Way",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_Xbkw3n": {
+          "type": "text",
+          "settings": {
+            "text": "Over a year in the making, the Paula Clear has arrived.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 18,
+            "text_size_desktop": 16
+          }
+        },
+        "buttons_r3KUCA": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/paula-clear",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_r6iGjn",
+        "text_Xbkw3n",
+        "buttons_r3KUCA"
+      ],
+      "name": "Paula Clear",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/homepage-paula-desktop_3d760640-3a10-4e44-bbeb-d72c651bddc4.jpg",
+        "image_2": "shopify://shop_images/homepage-paula-mob_c48e8875-2058-4673-b1d8-3641096f516a.gif",
+        "image_link": "shopify://pages/the-paula",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": false,
+        "full_width": true,
+        "cta_color_scheme": "light",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_Ygje4j": {
+      "type": "slider-collection",
+      "name": "bestsellers widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "new-arrivals",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "portrait",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 10,
+        "padding_bottom": 30,
+        "mobile_padding_top": 4,
+        "mobile_padding_bottom": 20
+      }
+    },
+    "image_banner_pmFXfq": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_BXHkLX": {
+          "type": "heading",
+          "settings": {
             "heading": "Most Popular for a Reason",
             "heading_size_mobile": 25,
             "heading_size_tablet": 20,
             "heading_size_desktop": 50
           }
         },
-        "buttons_r3KUCA": {
+        "buttons_X9UUf6": {
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop Bestsellers",
@@ -65,10 +168,10 @@
         }
       },
       "block_order": [
-        "heading_r6iGjn",
-        "buttons_r3KUCA"
+        "heading_BXHkLX",
+        "buttons_X9UUf6"
       ],
-      "name": "t:sections.image-banner.presets.name",
+      "name": "Kyle",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -138,6 +241,24 @@
       "type": "home-hero-section",
       "blocks": {
         "image_carousel_item_ApNxyT": {
+          "type": "image-carousel-item",
+          "name": "Paula ",
+          "settings": {
+            "image": "shopify://shop_images/0WATERFALL_4345_2.jpg",
+            "eyebrow": "Clear the way",
+            "title": "The Paula Clear",
+            "subcopy": "Over a year in the making, our brand-new Paula Clear has arrived.",
+            "button_text": "Shop Now",
+            "collection_url": "paula-clear",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_xkVwqM": {
           "type": "image-carousel-item",
           "name": "Calypso Suede",
           "settings": {
@@ -392,6 +513,7 @@
       },
       "block_order": [
         "image_carousel_item_ApNxyT",
+        "image_carousel_item_xkVwqM",
         "image_carousel_item_8JhAaa",
         "image_carousel_item_xHHU7t",
         "image_carousel_item_RCPV8A",
@@ -1139,15 +1261,15 @@
         "text_gjLtj3": {
           "type": "text",
           "settings": {
-            "icon": "shopify://shop_images/Cosmopolitan-logo.png",
+            "icon": "shopify://shop_images/vogue-logo.png",
             "text": "",
             "link": "shopify://pages/in-the-press"
           }
         },
-        "text_pXCUYq": {
+        "text_qprcL4": {
           "type": "text",
           "settings": {
-            "icon": "shopify://shop_images/vogue-logo.png",
+            "icon": "shopify://shop_images/Cosmopolitan-logo.png",
             "text": "",
             "link": "shopify://pages/in-the-press"
           }
@@ -1259,7 +1381,7 @@
       },
       "block_order": [
         "text_gjLtj3",
-        "text_pXCUYq",
+        "text_qprcL4",
         "text_DPBf4P",
         "text_URPC6X",
         "text_aUXCkX",
@@ -1295,6 +1417,8 @@
   "order": [
     "home_hero_section_GzUagM",
     "image_banner_Mnjabb",
+    "slider_collection_Ygje4j",
+    "image_banner_pmFXfq",
     "slider_collection_L6qdiY",
     "home_hero_section_qhL9Xk",
     "upgraded_hero_banner_9JtHPR",
