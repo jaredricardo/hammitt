@@ -211,7 +211,7 @@
             if(tags.includes('top gift') || tags.includes('tag: top gift')) {
                 return `
                     <span class="badge red-badge">
-                        <div class="gift-gif" style="background-image: url('{{ 'gift-gif.gif' | asset_url }}');" aria-label="Gift Icon"></div>
+                        <div class="gift-gif" role="img" style="background-image: url('{{ 'gift-gif.gif' | asset_url }}');" aria-label="Gift Icon"></div>
                         Top Gift
                     </span>
                 `

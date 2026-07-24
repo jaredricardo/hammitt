@@ -96,13 +96,14 @@
                   {% for block in section.blocks %}
                       <div class="announcement__item">
                       {% if block.settings.link != blank %}
-                          <a class="announcement--link" href="{{ block.settings.link }}">
+                          <a class="announcement--link" aria-label="{{ block.settings.text | default: 'View page' | escape }}" href="{{ block.settings.link }}">
                               {% endif %}
   
                               <div class="announcement--wrapper">
                                   {% if block.settings.icon %}
                                       <div class="announcement--icon">
-                                          {{ block.settings.icon | image_url: width: 80 | image_tag: alt: block.settings.icon.alt }}
+                                          {% assign _icon_alt = block.settings.icon.alt | default: '' %}
+                                          {{ block.settings.icon | image_url: width: 120 | image_tag: alt: _icon_alt }}
                                       </div>
                                   {% endif %}
   

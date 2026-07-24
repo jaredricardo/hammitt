@@ -138,7 +138,7 @@
         {% elsif has_top_gift_tag == true %}
             <span class="badge red-badge">
                 {% comment %} {% render 'icon-gift' %} {% endcomment %}
-                <div class="gift-gif" style="background-image: url('{{ 'gift-gif.gif' | asset_url }}');" aria-label="Gift Icon"></div>
+                <div class="gift-gif" role="img" style="background-image: url('{{ 'gift-gif.gif' | asset_url }}');" aria-label="Gift Icon"></div>
                 {{ badge_tag }}
             </span>
         {% else %}
