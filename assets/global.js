@@ -1853,9 +1853,10 @@ document.addEventListener('shopify:section:load', event => {
 if(window.transparentHeader) {
   window.onload = (event) => {
     let mainContent = document.getElementById('MainContent');
-    mainContent.style.marginTop = `-${headerWrapper.offsetHeight}px`;
-    
-
+    let headerWrapper = document.querySelector('.header-wrapper');
+    if (mainContent && headerWrapper) {
+      mainContent.style.marginTop = `-${headerWrapper.offsetHeight}px`;
+    }
   };
 
 }
