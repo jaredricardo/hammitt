@@ -54,8 +54,6 @@
    (via transform) corrects the stacking order for both rendering and touch events. */
 #shopify-section-header {
   z-index: 100 !important;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
 }
 
 /* On hover before scroll, show white background */
