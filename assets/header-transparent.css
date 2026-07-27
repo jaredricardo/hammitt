@@ -46,6 +46,16 @@
   transition: background 300ms ease !important;
 }
 
+/* Fix: ensure transparent header always sits above hero section content on mobile.
+   The hero section uses a swiper with position:relative + z-index:1 and
+   transform:translateZ(0) on the wrapper (GPU compositor layer). On iOS Safari,
+   composited hero layers can win touch hit-testing over a non-composited sticky
+   header. Raising z-index and promoting the header to its own compositor layer
+   (via transform) corrects the stacking order for both rendering and touch events. */
+#shopify-section-header {
+  z-index: 100 !important;
+}
+
 /* On hover before scroll, show white background */
 #shopify-section-header:not(.header--scrolled):hover,
 #shopify-section-header .header--transparent:not(.header--scrolled):hover {
