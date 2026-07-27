@@ -4,7 +4,7 @@
 {% style %}
     .login-shareholder-section {
         height: {{ section.settings.banner_height }}vh;
-        background-image: url({% if section.settings.banner_desktop == blank %}https://www.hammitt.com/cdn/shop/files/TryNow_Page_Banner_3_1.jpg?v=1710349083{% else %}{{ section.settings.banner_desktop | image_url }}{% endif %});
+        {% if section.settings.banner_desktop != blank %}background-image: url({{ section.settings.banner_desktop | image_url }});{% endif %}
     }
     .login-shareholder-section .customer-heading{
         font-size: {{ section.settings.heading_font_size }}px;
@@ -36,7 +36,7 @@
     @media screen and (max-width: 768px){
         .login-shareholder-section {
             height: {{ section.settings.banner_height_mobile }}vh;
-            background-image: url({% if section.settings.banner_mobile == blank %}https://www.hammitt.com/cdn/shop/files/TryNow_Page_Banner_3_1.jpg?v=1710349083{% else %}{{ section.settings.banner_mobile | image_url }}{% endif %});
+            {% if section.settings.banner_mobile != blank %}background-image: url({{ section.settings.banner_mobile | image_url }});{% endif %}
         }
         .login-shareholder-section .customer-heading{
             font-size: {{ section.settings.heading_font_size_mobile }}px;

@@ -1306,7 +1306,6 @@
                           <input class="badgeProperties__field" type="hidden" name="Sample Sale" value="Final Sale">
                         {% endif %}
 
-                        {% comment %} Duplicated and hide Add to Bag CTA to prevent conflict with Trynow CTA for EE GWP promotional products {% endcomment %}
                         <div class="product-form__buttons">
                           {% if product.selected_or_first_available_variant.available %}
                             <button
@@ -1381,7 +1380,7 @@
                         data-product-id="{{ product.id }}"
                         data-variant-id="{{ product.selected_or_first_available_variant.id }}"
                         data-variant-url="{{ product.url }}?variant={{ product.selected_or_first_available_variant.id }}"
-                        data-variant-image="{{ product.featured_image |  img_url: 'master' }}"
+                        data-variant-image="{{ product.featured_image | image_url: width: 600 }}"
                         data-variant-title="{{ product.title | escape }}"
                         data-variant-price="{{ product.selected_or_first_available_variant.price | money }}"
                         data-variant-color="{{ product_color | escape }}"

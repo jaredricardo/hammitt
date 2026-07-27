@@ -681,7 +681,7 @@
                         data-product-id="{{ item.product_id }}" 
                         data-variant-id="{{ item.variant_id }}"
                         data-variant-url="{{ item.url }}"
-                        data-variant-image="{{ item.image | img_url: 'master' }}"
+                        data-variant-image="{{ item.image | image_url: width: 600 }}"
                         data-line-title="{{ product_type }}" 
                         data-line-string-price="{{ item.price | money_without_trailing_zeros }}" 
                         data-item-variant-color="{{ product_color }}"

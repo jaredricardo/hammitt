@@ -41,8 +41,9 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
-    <link rel="stylesheet" href="{{ 'critical.css' | asset_url }}" fetchPriority="high">
-    <link rel="stylesheet" href="{{ 'ab-test.css' | asset_url }}">
+    {% render 'critical-styles' %}
+    <link rel="preload" as="style" href="{{ 'ab-test.css' | asset_url }}" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'ab-test.css' | asset_url }}"></noscript>
     <script src="{{ 'critical-global-functions.js' | asset_url }}" defer></script>
     {% unless is_admin_interface %}
       {% render '__opt-theme-observer' %}
@@ -66,10 +67,13 @@
     <link rel="preload" href="{{ 'SofiaProLight.woff' | asset_url   }}" as="font" type="font/woff" crossorigin="anonymous" >
     <link rel="preload" href="{{ 'SofiaProMedium.woff2' | asset_url   }}" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="{{ 'SofiaProMedium.woff' | asset_url   }}" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="https://cdn.shopify.com/s/files/1/0661/5963/files/adobe-carlson-pro.otf?v=1761249156" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="https://cdn.shopify.com/s/files/1/0661/5963/files/adobe-carlson-italic.otf?v=1761288415" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="https://cdn.shopify.com/s/files/1/0661/5963/files/acaslonpro-semibold.otf?v=1761426507" as="font" type="font/otf" crossorigin="anonymous">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"></noscript>
     {% comment  %} end font stuff {% endcomment %}
 
     <meta charset="utf-8">
@@ -77,7 +81,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
     {% if product and product.tags contains 'GWP' %}
       <meta http-equiv="refresh" content="0; url={{ shop.url }}">
@@ -179,8 +182,8 @@
     {% endif %}
 
     {% style %}
-       {{ settings.type_body_font | font_face }}
-       {{ settings.type_header_font | font_face }}
+       {{ settings.type_body_font | font_face: font_display: 'swap' }}
+       {{ settings.type_header_font | font_face: font_display: 'swap' }}
         #powrIframeLoader {
           display: none !important;
         }
@@ -393,7 +396,7 @@
   {{ 'gifting-options-drawer.js' | asset_url | script_tag }}
 {% endif %}
 
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{% render 'component-card-styles' %}
     {% if template contains 'index' %}
       {% render '__index-css' %}
       <link data-href="{{ 'base.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
@@ -485,13 +488,26 @@
       });
     </script>
     <!-- Flip Chat Widget -->
-    <script src="https://chat.flipcx.com/cdn/hammit-chat-widget.min.js"></script>
     <script>
-      FlipChat.init({
-        clientId: '28d859bb-753c-4a01-83e4-18745ecdbe3a',
-        apiUrl: 'https://chat.flipcx.com',
-        wsUrl: 'wss://chat.flipcx.com/ws',
-        primaryColor: '#000000',
+      window.addEventListener('load', function() {
+        var initFlipChat = function() {
+          var s = document.createElement('script');
+          s.src = 'https://chat.flipcx.com/cdn/hammit-chat-widget.min.js';
+          s.onload = function() {
+            FlipChat.init({
+              clientId: '28d859bb-753c-4a01-83e4-18745ecdbe3a',
+              apiUrl: 'https://chat.flipcx.com',
+              wsUrl: 'wss://chat.flipcx.com/ws',
+              primaryColor: '#000000',
+            });
+          };
+          document.head.appendChild(s);
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(initFlipChat, { timeout: 5000 });
+        } else {
+          setTimeout(initFlipChat, 2000);
+        }
       });
     </script>
 
@@ -529,7 +545,6 @@ template-{{ template.name -}}
       class="content-for-layout focus-none"
       role="main"
       tabindex="-1"
-      aria-hidden="true"
       data-acsb-main="true"
     >
       {{ content_for_layout }}
@@ -1332,7 +1347,7 @@ template-{{ template.name -}}
     {%- endcomment -%}
 
     {{ 'swiper-new.css' | asset_url | stylesheet_tag }}
-    {{ 'swiper.js' | asset_url | script_tag }}
+    <script src="{{ 'swiper.js' | asset_url }}" defer></script>
     
     {% if template contains 'index' or template contains 'collection' %}
       <link href="{{ 'component-cart-drawer.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
@@ -1470,9 +1485,9 @@ template-{{ template.name -}}
     {%- if template.name == 'product' -%}
 
       {% render 'klaviyo_popup' %} 
-      {{ 'klaviyo.js' | asset_url | script_tag }}
+      <script src="{{ 'klaviyo.js' | asset_url }}" defer></script>
       
-      <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+      <script src="https://a.klaviyo.com/media/js/onsite/onsite.js" async></script>
   
     {%- endif -%}
 

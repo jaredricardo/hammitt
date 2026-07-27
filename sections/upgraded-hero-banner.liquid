@@ -372,6 +372,13 @@
       {% endif %}
       <div class="hero-slide hero-slide-{{ block.id }}{% if block_count > 1 %} swiper-slide{% endif %}" {{ block.shopify_attributes }}>
         <div class="hero-banner__background">
+          {% comment %}
+            Mobile video: always CSS show/hide (no picture equivalent for video).
+            Mobile image alone (no desktop image): standalone img with mobile-image class.
+            Both mobile + desktop images, no videos: use <picture> so the browser only
+            downloads the image appropriate for the current viewport — not both.
+          {% endcomment %}
+
           {% if block.settings.background_video_mobile %}
             <video
               {% unless lazy_video %}autoplay{% endunless %}
@@ -379,7 +386,7 @@
               loop
               playsinline
               disablepictureinpicture
-              poster="{{ block.settings.background_video_mobile.preview_image | image_url: width: 1200 }}"
+              poster="{{ block.settings.background_video_mobile.preview_image | image_url: width: 800 }}"
               class="mobile-image"
               {% if lazy_video %}data-lazy-video{% endif %}
             >
@@ -387,11 +394,13 @@
                 <source {% if lazy_video %}data-src{% else %}src{% endif %}="{{ source.url }}" type="{{ source.mime_type }}">
               {% endfor %}
             </video>
-          {% elsif block.settings.background_image_mobile %}
+          {% elsif block.settings.background_image_mobile and block.settings.background_image_desktop == blank %}
+            {% comment %} Mobile image only — no desktop image is set {% endcomment %}
             <img
-              src="{{ block.settings.background_image_mobile | image_url: width: 1200 }}"
+              src="{{ block.settings.background_image_mobile | image_url: width: 900 }}"
               srcset="{{ block.settings.background_image_mobile | image_url: width: 600 }} 600w,
                       {{ block.settings.background_image_mobile | image_url: width: 800 }} 800w,
+                      {{ block.settings.background_image_mobile | image_url: width: 900 }} 900w,
                       {{ block.settings.background_image_mobile | image_url: width: 1200 }} 1200w"
               sizes="100vw"
               alt=""
@@ -400,6 +409,7 @@
               class="mobile-image"
             >
           {% endif %}
+
           {% if block.settings.background_video_desktop %}
             <video
               {% unless lazy_video %}autoplay{% endunless %}
@@ -416,17 +426,50 @@
               {% endfor %}
             </video>
           {% elsif block.settings.background_image_desktop %}
-            <img
-              src="{{ block.settings.background_image_desktop | image_url: width: 2400 }}"
-              srcset="{{ block.settings.background_image_desktop | image_url: width: 1200 }} 1200w,
-                      {{ block.settings.background_image_desktop | image_url: width: 1800 }} 1800w,
-                      {{ block.settings.background_image_desktop | image_url: width: 2400 }} 2400w"
-              sizes="100vw"
-              alt=""
-              loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
-              fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}"
-              class="{% unless has_mobile_media %}mobile-image {% endunless %}desktop-image"
-            >
+            {% if block.settings.background_image_mobile and block.settings.background_video_mobile == blank %}
+              {% comment %}
+                Both desktop and mobile images, no videos.
+                <picture> lets the browser pick the right image for the viewport
+                and only download that one — prevents fetching both the mobile
+                and desktop image on every device.
+              {% endcomment %}
+              <picture>
+                <source
+                  media="(min-width: 1024px)"
+                  srcset="{{ block.settings.background_image_desktop | image_url: width: 1200 }} 1200w,
+                          {{ block.settings.background_image_desktop | image_url: width: 1800 }} 1800w,
+                          {{ block.settings.background_image_desktop | image_url: width: 2400 }} 2400w"
+                  sizes="100vw"
+                >
+                <img
+                  src="{{ block.settings.background_image_mobile | image_url: width: 900 }}"
+                  srcset="{{ block.settings.background_image_mobile | image_url: width: 600 }} 600w,
+                          {{ block.settings.background_image_mobile | image_url: width: 800 }} 800w,
+                          {{ block.settings.background_image_mobile | image_url: width: 900 }} 900w,
+                          {{ block.settings.background_image_mobile | image_url: width: 1200 }} 1200w"
+                  sizes="100vw"
+                  alt=""
+                  loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                  fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}"
+                >
+              </picture>
+            {% else %}
+              {% comment %}
+                Desktop image only, or mobile is using a video (handled above).
+                Show on all viewports when no mobile-specific media is set.
+              {% endcomment %}
+              <img
+                src="{{ block.settings.background_image_desktop | image_url: width: 1800 }}"
+                srcset="{{ block.settings.background_image_desktop | image_url: width: 1200 }} 1200w,
+                        {{ block.settings.background_image_desktop | image_url: width: 1800 }} 1800w,
+                        {{ block.settings.background_image_desktop | image_url: width: 2400 }} 2400w"
+                sizes="100vw"
+                alt=""
+                loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}"
+                class="{% unless has_mobile_media %}mobile-image {% endunless %}desktop-image"
+              >
+            {% endif %}
           {% endif %}
         </div>
         <div class="hero-banner__overlay" style="background-color: rgba(0, 0, 0, {{ block.settings.overlay_opacity | divided_by: 100.0 }});"></div>

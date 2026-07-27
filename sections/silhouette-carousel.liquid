@@ -80,6 +80,11 @@
 
 -%}
 
+{%- assign _sizes_mobile = 'calc(100vw / ' | append: section.settings.slides_per_view_mobile | append: ')' -%}
+{%- assign _sizes_tablet = 'calc(100vw / ' | append: section.settings.slides_per_view_tablet | append: ')' -%}
+{%- assign _sizes_desktop = 'calc(1440px / ' | append: section.settings.slides_per_view_desktop | append: ')' -%}
+{%- assign _img_sizes = '(min-width: 1025px) ' | append: _sizes_desktop | append: ', (min-width: 640px) ' | append: _sizes_tablet | append: ', ' | append: _sizes_mobile -%}
+
 <section data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
     {% if section.settings.enable_hide_button %}
         <hide-show-silhouette-carousel-button data-section-id="{{ section.id }}">
@@ -94,7 +99,17 @@
                 {% for item in collection.metafields.custom.silhouette_carousel_items.value %}
                   <a class="swiper-slide silhouette-card" href="{{ item.silhouette_url.value }}">
                     {% if item.silhouette_image != blank %}
-                      <img src="{{ item.silhouette_image.value | image_url: width: 800 }}" alt="{{ item.silhouette_title.value }}" class="silhouette-carousel__image" />
+                      <img
+                        srcset="{{ item.silhouette_image.value | image_url: width: 200 }} 200w,
+                                {{ item.silhouette_image.value | image_url: width: 300 }} 300w,
+                                {{ item.silhouette_image.value | image_url: width: 400 }} 400w,
+                                {{ item.silhouette_image.value | image_url: width: 600 }} 600w"
+                        sizes="{{ _img_sizes }}"
+                        src="{{ item.silhouette_image.value | image_url: width: 400 }}"
+                        alt="{{ item.silhouette_title.value }}"
+                        class="silhouette-carousel__image"
+                        loading="lazy"
+                      />
                     {% endif %}
                     {% if item.silhouette_title != blank %}
                       <h6 class="silhouette-carousel__hover-text carlson-italic{% if section.settings.always_show_titles %} always-visible{% endif %}">{{ item.silhouette_title.value }}</h6>
@@ -105,7 +120,17 @@
                 {% for block in section.blocks %}
                   <a class="swiper-slide silhouette-card" href="{{ block.settings.url }}">
                       {% if block.settings.image != blank %}
-                        <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}" class="silhouette-carousel__image" />
+                        <img
+                          srcset="{{ block.settings.image | image_url: width: 200 }} 200w,
+                                  {{ block.settings.image | image_url: width: 300 }} 300w,
+                                  {{ block.settings.image | image_url: width: 400 }} 400w,
+                                  {{ block.settings.image | image_url: width: 600 }} 600w"
+                          sizes="{{ _img_sizes }}"
+                          src="{{ block.settings.image | image_url: width: 400 }}"
+                          alt="{{ block.settings.title }}"
+                          class="silhouette-carousel__image"
+                          loading="lazy"
+                        />
                       {% endif %}
                       {% if block.settings.title %}
                         <h6 class="silhouette-carousel__hover-text carlson-italic{% if section.settings.always_show_titles %} always-visible{% endif %}">{{ block.settings.title }}</h6>
