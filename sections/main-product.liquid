@@ -622,7 +622,7 @@
       </div>
       <div data-product-id="{{ product.id }}" class="product__info-wrapper pdp-info-col grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
         <div id="ProductInfo-{{ section.id }}" class="small-page-width product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
-            <pull-notch-button aria-label="Pull info up button">
+            <pull-notch-button role="button" aria-label="Pull info up button">
               <span></span>
             </pull-notch-button>
             <div class="mobile-pdp-info">
