@@ -18,6 +18,7 @@
         assign has_coming_soon_tag = false
         assign has_best_seller_tag = false
         assign has_final_sale_tag = false
+        assign has_back_in_stock_tag = false
         assign badge_tag = ''
         
         if product.tags contains 'coming-soon'
@@ -65,6 +66,12 @@
         if product.tags contains 'celebrity-fav' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign badge_tag = 'Celebrity Fave'
+        endif
+
+        if product.tags contains 'back-in-stock' and special_tag_assigned == false
+            assign special_tag_assigned = true
+            assign has_back_in_stock_tag = true
+            assign badge_tag = 'Back in Stock'
         endif
 
         if product.tags contains 'new-arrival' and special_tag_assigned == false
@@ -133,6 +140,10 @@
         {% elsif has_limited_edition_tag == true %}
             <span class="badge gray-badge">
                 {% render 'icon-limited-edition' %}
+                {{ badge_tag }}
+            </span>
+        {% elsif has_back_in_stock_tag == true %}
+            <span class="badge tag-badge badge--top-right">
                 {{ badge_tag }}
             </span>
         {% elsif has_top_gift_tag == true %}
