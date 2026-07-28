@@ -408,3 +408,13 @@ transition: stroke 300ms ease !important;
 }
 
 /* Mobile transparent header now enabled - removed viewport restriction */
+
+/* Exempt predictive spinner from transparent header fill overrides - all states.
+   Uses the same :not() exclusions as the header rules to match their specificity,
+   then wins by source order (being last). No :hover/:not(.header--scrolled) needed —
+   the single rule covers on-load, hover, and scrolled states. */
+#shopify-section-header .header--transparent .initial-search-modal-content .predictive-search-spinner svg:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *),
+#shopify-section-header .header--transparent .initial-search-modal-content .predictive-search-spinner svg circle:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *) {
+  fill: white !important;
+  transition: none !important;
+}
