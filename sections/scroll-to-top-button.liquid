@@ -1,0 +1,27 @@
+{% style %}
+  #scroll-top-button {
+    position: fixed;
+    bottom: 12%;
+    left: 1%;
+    z-index: 100;
+  }
+{% endstyle %}
+
+<a id="scroll-top-button" href="#MainContent">
+  {% render 'icon-to-top' %}
+</a>
+
+{% schema %}
+{
+  "name": "Scroll To Top Button",
+  "enabled_on": {
+    "templates": ["page", "index", "collection", "product", "article", "blog", "404", "cart", "search"]
+  },
+  "presets": [
+    {
+      "name": "Scroll To Top Button"
+    }
+  ],
+  "settings": []
+}
+{% endschema %}

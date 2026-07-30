@@ -3784,10 +3784,13 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   aspect-ratio: 1/1;
 }
 
-#care-lp-scroll-top {
-  position: absolute;
-  bottom: -75vh;
-  left: 1rem;
+html:has(#scroll-top-button) {
+  scroll-behavior: smooth;
+}
+
+.shopify-section:has(#scroll-top-button) {
+  width: 0 !important;
+  height: 0 !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -3808,9 +3811,6 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   }
   .jr-leather-cleaner .leather-container {
     gap: 1rem;
-  }
-  #care-lp-scroll-top {
-    bottom: -65vh;
   }
   .jr-leather-cleaner .leather-container .leather-block {
     width: 40%;
