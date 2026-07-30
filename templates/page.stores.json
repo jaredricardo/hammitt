@@ -24,6 +24,7 @@
     },
     "stores_header_new_DagNPq": {
       "type": "stores-header-new",
+      "disabled": true,
       "name": "New Stores Header",
       "settings": {
         "section_anchor_id": "",
@@ -90,16 +91,115 @@
         "store_xxJVPM",
         "store_A3jKda"
       ],
+      "disabled": true,
       "name": "New Stores Grid",
       "settings": {
         "section_anchor_id": "hammitt-stores",
         "bg_color": "#ffffff"
+      }
+    },
+    "store_events_new_nyqkLU": {
+      "type": "store-events-new",
+      "blocks": {
+        "event_NEYgdx": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_1.png",
+            "event_name": "Event Name",
+            "date": "Event Date",
+            "time": "Event Time",
+            "event_tags": "tag9,tagspace",
+            "description": "Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet tincidunt, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl."
+          }
+        },
+        "event_4V4BGq": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_1.png",
+            "event_name": "Event Name",
+            "date": "Event Date",
+            "time": "Event Time",
+            "event_tags": "tag2,tag7,tag5",
+            "description": "Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet tincidunt, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl."
+          }
+        },
+        "event_Gp4wja": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_1.png",
+            "event_name": "Event Name",
+            "date": "Event Date",
+            "time": "Event Time",
+            "event_tags": "tag2,tag7,tag5",
+            "description": "Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet tincidunt, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl."
+          }
+        },
+        "event_pYLgyw": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_1.png",
+            "event_name": "Event Name",
+            "date": "Event Date",
+            "time": "Event Time",
+            "event_tags": "tag1",
+            "description": "Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet tincidunt, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl."
+          }
+        },
+        "event_JaQmwr": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_1.png",
+            "event_name": "Event Name",
+            "date": "Event Date",
+            "time": "Event Time",
+            "event_tags": "tag, tag2, tag space, TAGCAPS, tagcaps",
+            "description": "Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet tincidunt, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl."
+          }
+        },
+        "event_gnUxzA": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_1.png",
+            "event_name": "Event Name",
+            "date": "Event Date",
+            "time": "Event Time",
+            "event_tags": "tag, tag2, tag space, TAGCAPS, tagcaps",
+            "description": "Lorum ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut laoreet tincidunt, nunc nisl aliquam nunc, eget aliquam nisl nunc vel nisl."
+          }
+        },
+        "event_bjgBHb": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_1.png",
+            "event_name": "Event Name",
+            "date": "Event Date",
+            "time": "Event Time",
+            "event_tags": "tag1, tag2, tag3, tag space, TAGCAPS, tagcaps",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "event_NEYgdx",
+        "event_4V4BGq",
+        "event_Gp4wja",
+        "event_pYLgyw",
+        "event_JaQmwr",
+        "event_gnUxzA",
+        "event_bjgBHb"
+      ],
+      "name": "Store Events",
+      "settings": {
+        "section_anchor_id": "",
+        "bg_color": "#ffffff",
+        "header": "Store Events"
       }
     }
   },
   "order": [
     "main",
     "stores_header_new_DagNPq",
-    "stores_grid_new_MT7zWf"
+    "stores_grid_new_MT7zWf",
+    "store_events_new_nyqkLU"
   ]
 }
