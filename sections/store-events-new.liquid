@@ -2,6 +2,12 @@
 
   [data-section-id="{{ section.id }}"] {
     background-color: {{ section.settings.bg_color }};
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  [data-section-id="{{ section.id }}"]:has(.swiper-initialized) {
+    opacity: 1;
   }
 
 {% endstyle %}
