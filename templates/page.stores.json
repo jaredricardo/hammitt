@@ -27,7 +27,7 @@
       "name": "New Stores Header",
       "settings": {
         "section_anchor_id": "",
-        "bg_color": "#D9D9D9",
+        "bg_color": "#d9d9d9",
         "header": "Our Stores & Events",
         "subheader": "Experience our handcrafted bags in person. Visit a Hammitt store, shop with one of our trusted retail partners, or meet us at upcoming events.",
         "button_one_text": "Find a Store",
@@ -35,10 +35,71 @@
         "button_two_text": "View Events",
         "button_two_link": "#hammitt-events"
       }
+    },
+    "stores_grid_new_MT7zWf": {
+      "type": "stores-grid-new",
+      "blocks": {
+        "store_K44biq": {
+          "type": "store",
+          "settings": {
+            "store_image": "shopify://shop_images/Rectangle_1.png",
+            "store_title": "Hammitt Store",
+            "hours_rich_text": "<p>Mon-Fri: 10am - 6pm<br/>Sat: 10am - 5pm<br/>Sun: Closed</p>",
+            "store_address": "123 Main St, Los Angeles, CA 90001",
+            "store_phone": "(123) 456-7890",
+            "get_directions": "https://www.google.com/maps/place/227+Manhattan+Beach+Blvd,+Manhattan+Beach,+CA+90266/@33.8851312,-118.4126127,17z/data=!3m1!4b1!4m6!3m5!1s0x80c2b3ec84173e93:0x994ebd78896e2af1!8m2!3d33.8851268!4d-118.4100378!16s%2Fg%2F11csd39smz?entry=ttu&g_ep=EgoyMDI2MDcyNy4wIKXMDSoASAFQAw%3D%3D"
+          }
+        },
+        "store_6rjcCH": {
+          "type": "store",
+          "settings": {
+            "store_image": "shopify://shop_images/Rectangle_1.png",
+            "store_title": "Hammitt Store",
+            "hours_rich_text": "<p>Mon-Fri: 10am - 6pm<br/>Sat: 10am - 5pm<br/>Sun: Closed</p>",
+            "store_address": "123 Main St, Los Angeles, CA 90001",
+            "store_phone": "(123) 456-7890",
+            "get_directions": "https://www.google.com/maps/place/227+Manhattan+Beach+Blvd,+Manhattan+Beach,+CA+90266/@33.8851312,-118.4126127,17z/data=!3m1!4b1!4m6!3m5!1s0x80c2b3ec84173e93:0x994ebd78896e2af1!8m2!3d33.8851268!4d-118.4100378!16s%2Fg%2F11csd39smz?entry=ttu&g_ep=EgoyMDI2MDcyNy4wIKXMDSoASAFQAw%3D%3D"
+          }
+        },
+        "store_xxJVPM": {
+          "type": "store",
+          "settings": {
+            "store_image": "shopify://shop_images/Rectangle_1.png",
+            "store_title": "Hammitt Store",
+            "hours_rich_text": "<p>Mon-Fri: 10am - 6pm<br/>Sat: 10am - 5pm<br/>Sun: Closed</p>",
+            "store_address": "123 Main St, Los Angeles, CA 90001",
+            "store_phone": "(123) 456-7890",
+            "get_directions": "https://www.google.com/maps/place/227+Manhattan+Beach+Blvd,+Manhattan+Beach,+CA+90266/@33.8851312,-118.4126127,17z/data=!3m1!4b1!4m6!3m5!1s0x80c2b3ec84173e93:0x994ebd78896e2af1!8m2!3d33.8851268!4d-118.4100378!16s%2Fg%2F11csd39smz?entry=ttu&g_ep=EgoyMDI2MDcyNy4wIKXMDSoASAFQAw%3D%3D"
+          }
+        },
+        "store_A3jKda": {
+          "type": "store",
+          "settings": {
+            "store_image": "shopify://shop_images/Rectangle_1.png",
+            "store_title": "Hammitt Store",
+            "hours_rich_text": "<p>Mon-Fri: 10am - 6pm<br/>Sat: 10am - 5pm<br/>Sun: Closed</p>",
+            "store_address": "123 Main St, Los Angeles, CA 90001",
+            "store_phone": "(123) 456-7890",
+            "get_directions": "https://www.google.com/maps/place/227+Manhattan+Beach+Blvd,+Manhattan+Beach,+CA+90266/@33.8851312,-118.4126127,17z/data=!3m1!4b1!4m6!3m5!1s0x80c2b3ec84173e93:0x994ebd78896e2af1!8m2!3d33.8851268!4d-118.4100378!16s%2Fg%2F11csd39smz?entry=ttu&g_ep=EgoyMDI2MDcyNy4wIKXMDSoASAFQAw%3D%3D"
+          }
+        }
+      },
+      "block_order": [
+        "store_K44biq",
+        "store_6rjcCH",
+        "store_xxJVPM",
+        "store_A3jKda"
+      ],
+      "name": "New Stores Grid",
+      "settings": {
+        "section_anchor_id": "hammitt-stores",
+        "bg_color": "#ffffff"
+      }
     }
   },
   "order": [
     "main",
-    "stores_header_new_DagNPq"
+    "stores_header_new_DagNPq",
+    "stores_grid_new_MT7zWf"
   ]
 }
