@@ -2454,6 +2454,7 @@ input[type='checkbox'] {
   display: flex;
   grid-area: icons;
   justify-self: end;
+  gap: 1.5rem;
 }
 
 .header__link--rewards {
@@ -2538,7 +2539,7 @@ span.yotpo-rewards-count {
 }
 
 @media screen and (max-width: 989px) {
-  .header__icon, .header__icon--cart .icon {width: 3.4rem;}
+  .header__icon, .header__icon--cart .icon {width: 3rem;}
   .header__icons .header__icon--account svg {  width: 3rem;}
   menu-drawer ~ .header__icons .header__icon--account {
     display: none;
@@ -4520,3 +4521,4 @@ minty-fresh-filter-input:has([name="filter.v.availability"][value="0"]),
   position: relative;
   z-index: 1;
 }
+

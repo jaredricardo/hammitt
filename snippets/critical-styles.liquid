@@ -2021,4 +2021,28 @@ a.afterpay-site-modal {
   letter-spacing: .06em;
   transition: .6s all ease;
   padding: 1.5rem !important;
-}</style>
+}
+
+.desktop-nav-store-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+  padding: 0 !important;
+}
+
+.mobile-nav-store-link {
+  display: none;
+}
+
+@media screen and (max-width: 989px) {
+  .desktop-nav-store-link {
+    display: none !important;
+  }
+  .mobile-nav-store-link {
+    display: block;
+  }
+}
+
+</style>
