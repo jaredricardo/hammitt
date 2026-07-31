@@ -1,0 +1,170 @@
+{% style %}
+
+  [data-section-id="{{ section.id }}"] {
+    background-color: {{ section.settings.bg_color }};
+  }
+
+{% endstyle %}
+
+<style>
+  .stores-grid-new-section {
+    padding: 6rem 0 8rem;
+  }
+
+
+  .new-store-card {
+    width: 100%;
+  }
+
+  .new-store-card .store-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    text-align: left;
+    max-width: 350px;
+    margin: 1rem auto 0 auto;
+  }
+
+  .new-store-card .store-info h1 {
+    font-style: italic;
+    font-family: 'Adobe Carlson Italic' !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem;
+    font-size: 32px !important;
+  }
+
+  .new-store-card img {
+    width: 100%;
+  }
+
+  .new-store-card .phone {
+    color: black;
+    text-decoration: none;
+  }
+
+  .new-store-card .store-hours-rich-text * {
+    font-style: italic;
+    font-family: 'Adobe Carlson Italic' !important;
+    font-size: 20px !important;
+  }
+
+  .stores-grid-new-section .button {
+    min-width: unset;
+    width: 160px;
+    padding: 0;
+  }
+
+  .store-buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 3.5rem;
+    margin-top: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .stores-grid-new-section {
+      padding: 2rem 0 3rem;
+    }
+
+    .stores-grid-new-section {
+      grid-template-columns: 1fr;
+      column-gap: 1rem;
+      row-gap: 3.5rem;
+    }
+
+    .new-store-card .store-info {
+      align-items: flex-start;
+    }
+
+    .stores-grid-new-section .button {
+      width: 130px;
+    }
+    .store-buttons-container  {
+      gap: 1.5rem;
+    }
+    .new-store-card .store-info h3  {
+      font-size: 26px;
+    }
+    .new-store-card .store-hours-rich-text * {
+      font-size: 16px !important;
+    }
+    .new-store-card .store-info .p-large {
+      font-size: 13px !important;
+      margin: 1.25rem 0;
+    }
+  }
+</style>
+
+<section data-section-id="{{ section.id }}" class="stores-grid-new-section" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
+    <div class="page-width">
+        <a href="/pages/our-stores">
+            Back to Our Stores
+        </a>
+        <div class="new-store-card">
+        <div class="store-info">
+            {% if page.title %}
+                <h1>{{ page.title }}</h1>
+            {% endif %}
+            {% if page.metafields.custom.hours_rich_text %}
+            <div class="store-hours-rich-text">
+                <h3>Store Hours</h3>
+                <p>{{ page.metafields.custom.hours_rich_text }}</p>
+            </div>
+            {% endif %}
+            {% if page.metafields.custom.store_phone %}
+                <div class="contact-area">
+                    <h3>Contact</h3>    
+                    <p class="p-large">
+                        <a class="phone" href="tel:{{ page.metafields.custom.store_phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}">{{ page.metafields.custom.store_phone }}</a>
+                    </p>
+                </div>
+            {% endif %}
+            {% if page.metafields.custom.store_address %}
+                <div class="address-area">
+                    <h3>Address</h3>
+                    <p class="p-large">{{ page.metafields.custom.store_address }}</p>
+                </div>
+            {% endif %}
+            <div class="store-buttons-container">
+                {% if page.metafields.custom.get_directions %}
+                    <a href="{{ page.metafields.custom.get_directions }}" class="button transparent-button" target="_blank">
+                    Get Directions
+                    </a>
+                {% endif %}
+                <a href="/pages/our-stores#store-events" class="button transparent-button">
+                    View Events
+                </a>
+            </div>
+        </div>
+        {% if page.description != blank %}
+            <div class="description-area">
+                {{ page.description }}
+            </div>
+        {% endif %}
+        {% if page.metafields.custom.store_image %}
+            <img src="{{ page.metafields.custom.store_image | image_url: width: 800 }}" alt="{{ page.metafields.custom.store_image.alt | default: 'Hammitt Store' }}">
+        {% endif %}
+        </div>
+        <div class="triple-image-grid">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "New Individual Store Page",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [],
+  "presets": [
+    {
+      "name": "New Individual Store Page"
+    }
+  ]
+}
+{% endschema %}

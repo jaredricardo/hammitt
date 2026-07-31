@@ -33,6 +33,10 @@
     "slidesPerView": 1.3,
     "spaceBetween": 20,
     "slidesOffsetAfter": 20,
+    "navigation": {
+      "prevEl": ".image-and-link-scroller .swiper-prev",
+      "nextEl": ".image-and-link-scroller .swiper-next"
+    },
     "scrollbar": {
       "el": ".image-and-link-scroller .swiper-scrollbar",
       "draggable": true
@@ -62,7 +66,6 @@
     font-family: 'Adobe Carlson Italic' !important;
     font-style: italic;
     font-weight: 600 !important;
-    margin-bottom: 3rem;
 	font-size: 32px !important;
   }
 
@@ -113,6 +116,48 @@
     text-decoration: underline;
   }
 
+  .carousel-scroll-container {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 1rem;
+    font-size: inherit;
+    font-family: inherit;
+    width: 130px;
+    height: 48px;
+	justify-content: space-between;
+  }
+
+    .carousel-scroll-container button {
+		background: none;
+		border: none;
+		width: 44px;
+		height: 44px;
+		padding: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		box-sizing: border-box;
+	}
+
+  .carousel-scroll-container .swiper-prev {
+	transform: rotate(90deg);
+  }
+    .carousel-scroll-container .swiper-next {
+	transform: rotate(270deg);
+  }
+
+  .image-and-link-scroller > .row:first-child {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 3rem;
+	align-items: center;
+  }
+
   @media screen and (max-width: 768px) {
     .image-and-link-scroller {
       padding: 3rem 0 2rem;
@@ -120,8 +165,14 @@
 	.image-and-link-scroller__h1,
 	.image-and-link-scroller__h2  {
 		font-size: 22px !important;
-		margin-bottom: 1.5rem;
 	}
+	  .image-and-link-scroller > .row:first-child  {
+		margin-bottom: 1.5rem;
+	  }
+	  .carousel-scroll-container button {
+		width: 38px;
+		height: 38px;
+	  }
   }
 
 </style>
@@ -135,6 +186,16 @@
 			{% else %}
 				<h2 class="image-and-link-scroller__h2">{{ section.settings.header }}</h2>
 			{% endif %}
+		{% endif %}
+		{% if section.blocks.size > 0 %}
+			<div class="carousel-scroll-container">
+				<button class="swiper-prev">
+					{% render 'icon-caret' %}
+				</button>
+				<button class="swiper-next">
+					{% render 'icon-caret' %}
+				</button>
+			</div>
 		{% endif %}
 	</div>
 	{% if section.blocks.size > 0 %}
