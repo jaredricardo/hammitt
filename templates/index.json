@@ -794,23 +794,35 @@
         "heading_pkXj9H": {
           "type": "heading",
           "settings": {
-            "heading": "Most Popular for a Reason",
-            "heading_size_mobile": 25,
+            "heading": "Come Visit Us",
+            "heading_size_mobile": 32,
             "heading_size_tablet": 20,
             "heading_size_desktop": 50
+          }
+        },
+        "text_dGnEGc": {
+          "type": "text",
+          "settings": {
+            "text": "Feel the leather. Experience the functionality.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 16
           }
         },
         "buttons_8Tegb3": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop Bestsellers",
-            "button_link_1": "shopify://collections/bestsellers",
+            "button_label_1": "FIND A STORE",
+            "button_link_1": "shopify://pages/our-stores",
             "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
         "heading_pkXj9H",
+        "text_dGnEGc",
         "buttons_8Tegb3"
       ],
       "disabled": true,
@@ -832,14 +844,14 @@
         "image_link": "shopify://pages/our-stores",
         "image_overlay_opacity": 20,
         "image_height": "adapt",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-right",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
-        "color_scheme_mobile": "light",
-        "show_text_below": false,
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
         "full_width": true,
-        "cta_color_scheme": "light",
+        "cta_color_scheme": "dark",
         "custom_content_spacing": false,
         "content_padding_top": 0,
         "content_padding_bottom": 0,
