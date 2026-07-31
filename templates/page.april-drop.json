@@ -37,8 +37,8 @@
         "text_gXhyYP": {
           "type": "text",
           "settings": {
-            "text": "is here. A warm toasted-brown suede to add a little spice.",
-            "text_area_html_swap": "",
+            "text": "",
+            "text_area_html_swap": "THE SPICE OF LIFE. <br>Get set for fall with rich Italian suede.",
             "text_style": "body",
             "text_size_mobile": 13,
             "text_size_tablet": 14,
@@ -261,99 +261,6 @@
         "mobile_padding_bottom": 0
       }
     },
-    "image_banner_maC68H": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_cqYKt7": {
-          "type": "heading",
-          "settings": {
-            "heading": "Silverlake",
-            "heading_size_mobile": 30,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 70
-          }
-        },
-        "buttons_8nNqTi": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Silverlake",
-            "button_link_1": "shopify://collections/silverlake",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_cqYKt7",
-        "buttons_8nNqTi"
-      ],
-      "disabled": true,
-      "name": "Travel",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "square",
-        "image": "shopify://shop_images/LP-august-travel-desktop.jpg",
-        "image_2": "shopify://shop_images/LP-august-travel-mobile.jpg",
-        "image_link": "shopify://collections/silverlake",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "dark",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 16,
-        "padding_bottom": 12,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_hfDM4E": {
-      "type": "slider-collection",
-      "disabled": true,
-      "name": "Travel widget",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "silverlake",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
     "multicolumn_UzxNpT": {
       "type": "multicolumn",
       "blocks": {
@@ -473,6 +380,7 @@
         "heading_zUrDgL",
         "buttons_ip48jU"
       ],
+      "disabled": true,
       "name": "Doxie",
       "settings": {
         "custom_classes": "",
@@ -517,12 +425,106 @@
     },
     "slider_collection_WqThBX": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Doxie widget",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
         "collection": "doxie",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_maC68H": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_cqYKt7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Silverlake",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 70
+          }
+        },
+        "buttons_8nNqTi": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Silverlake",
+            "button_link_1": "shopify://collections/silverlake",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cqYKt7",
+        "buttons_8nNqTi"
+      ],
+      "disabled": true,
+      "name": "Travel",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/LP-august-travel-desktop.jpg",
+        "image_2": "shopify://shop_images/LP-august-travel-mobile.jpg",
+        "image_link": "shopify://collections/silverlake",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 16,
+        "padding_bottom": 12,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_hfDM4E": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Travel widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "silverlake",
         "max_products": 30,
         "show_secondary_image": true,
         "image_ratio": "adapt",
@@ -618,11 +620,11 @@
     "slider_collection_WyxHUY",
     "image_banner_Pg7Y6R",
     "slider_collection_LPbdVn",
-    "image_banner_maC68H",
-    "slider_collection_hfDM4E",
     "multicolumn_UzxNpT",
     "image_banner_CMcChP",
     "slider_collection_WqThBX",
+    "image_banner_maC68H",
+    "slider_collection_hfDM4E",
     "image_banner_hx9Xkx",
     "slider_collection_rdXUNC"
   ]
