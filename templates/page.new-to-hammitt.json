@@ -96,6 +96,14 @@
         "text_QcVhb3": {
           "type": "text",
           "settings": {
+            "icon": "shopify://shop_images/vogue-logo.png",
+            "text": "",
+            "link": "shopify://pages/in-the-press"
+          }
+        },
+        "text_xCgtRB": {
+          "type": "text",
+          "settings": {
             "icon": "shopify://shop_images/Cosmopolitan-logo.png",
             "text": "",
             "link": "shopify://pages/in-the-press"
@@ -192,6 +200,7 @@
       },
       "block_order": [
         "text_QcVhb3",
+        "text_xCgtRB",
         "text_TnJDaY",
         "text_zHj7a4",
         "text_iiwTip",
@@ -236,7 +245,7 @@
         "text_XBmRPr": {
           "type": "text",
           "settings": {
-            "text": "Your Hammitt journey starts here.These are everyone’s the most faves bags.",
+            "text": "Your Hammitt journey starts here. These are everyone’s the most faves bags.",
             "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 12,
@@ -475,7 +484,10 @@
         "padding_top": 100,
         "padding_bottom": 36,
         "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
+        "mobile_padding_bottom": 36,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4
       }
     },
     "multicolumn_MHKEVA": {
@@ -586,7 +598,7 @@
           "settings": {
             "reverse_image_and_text_order": false,
             "image": "shopify://shop_images/Ellipse_7.png",
-            "title": "<strong>Cool Tone</strong>",
+            "title": "<strong>Cool Tones</strong>",
             "b_title_color": "#000000",
             "b_title_font_desktop": 16,
             "b_title_font_mobile": 14,
