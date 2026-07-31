@@ -28,16 +28,27 @@
         "heading_Q7JTYx": {
           "type": "heading",
           "settings": {
-            "heading": "Chili Red",
-            "heading_size_mobile": 30,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 70
+            "heading": "Cinnamon Suede",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 36,
+            "heading_size_desktop": 56
+          }
+        },
+        "text_gXhyYP": {
+          "type": "text",
+          "settings": {
+            "text": "is here. A warm toasted-brown suede to add a little spice.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
           }
         },
         "buttons_8H6nJ4": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop Chili Red",
+            "button_label_1": "Shop Cinnamon Suede",
             "button_link_1": "shopify://collections/chili-red",
             "button_style_secondary_1": false
           }
@@ -45,9 +56,10 @@
       },
       "block_order": [
         "heading_Q7JTYx",
+        "text_gXhyYP",
         "buttons_8H6nJ4"
       ],
-      "name": "Chili red",
+      "name": "Cinnamon Suede",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -60,14 +72,14 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12930_18122ac1-a83b-4e29-a922-6d2b045087c5.jpg",
-        "image_2": "shopify://shop_images/Group_12927_9f35ff39-b448-4c0e-b9de-f6e1f051a423.jpg",
+        "image": "shopify://shop_images/LP-august-cinnamon-desktop.jpg",
+        "image_2": "shopify://shop_images/LP-august-cinnamon-mobile.jpg",
         "image_link": "shopify://collections/chili-red",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 10,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
-        "color_scheme": "dark",
+        "color_scheme": "light",
         "mobile_content_alignment": "center",
         "color_scheme_mobile": "dark",
         "show_text_below": true,
@@ -115,30 +127,7 @@
     },
     "image_banner_DcF4Jn": {
       "type": "image-banner",
-      "blocks": {
-        "heading_WjMfyn": {
-          "type": "heading",
-          "settings": {
-            "heading": "East End",
-            "heading_size_mobile": 30,
-            "heading_size_tablet": 20,
-            "heading_size_desktop": 70
-          }
-        },
-        "buttons_pXk7fV": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop East End",
-            "button_link_1": "shopify://collections/east-end",
-            "button_style_secondary_1": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_WjMfyn",
-        "buttons_pXk7fV"
-      ],
-      "name": "East End",
+      "name": "Cherrywood",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -151,8 +140,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12929_d0751b97-d6d0-4097-b18f-7786793e6466.jpg",
-        "image_2": "shopify://shop_images/Group_12928_198f5103-3a75-499d-b724-62c7eea80452.jpg",
+        "image": "shopify://shop_images/LP-august-cherrywood-desktop.jpg",
+        "image_2": "shopify://shop_images/LP-august-cherrywood-mobile.jpg",
         "image_link": "shopify://collections/east-end",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -182,69 +171,12 @@
     },
     "slider_collection_WyxHUY": {
       "type": "slider-collection",
-      "name": "East End widget",
+      "name": "Cherrywood widget",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
         "collection": "east-end",
-        "max_products": 30,
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "home_hero_section_hrMDbk": {
-      "type": "home-hero-section",
-      "name": "Hero section",
-      "settings": {
-        "section_bg_color": "#fffbf8",
-        "media_type": "video",
-        "video": "shopify://files/videos/Cargo_16x9-no-logo.mp4",
-        "text_align": "center",
-        "text_vertical_align": "bottom",
-        "text_horizontal_align": "center",
-        "text_align_mobile": "center",
-        "text_vertical_align_mobile": "center",
-        "text_horizontal_align_mobile": "center",
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "title": "Cargo Nylon Collection",
-        "make_h1": true,
-        "subtitle": "",
-        "desktop_font_size": 42,
-        "mobile_font_size": 30,
-        "title_color": "#ffffff",
-        "description": "",
-        "description_color": "",
-        "button": "Shop All New Arrivals",
-        "button_enable": true,
-        "link": "shopify://collections/heiress-collection",
-        "button_text_color": "#000000",
-        "button_bg_color": "#ffffff",
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4
-      }
-    },
-    "slider_collection_tKdRHn": {
-      "type": "slider-collection",
-      "name": "nylon widget",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "heiress-collection",
         "max_products": 30,
         "show_secondary_image": true,
         "image_ratio": "adapt",
@@ -286,7 +218,7 @@
         "heading_iriRJe",
         "buttons_qLqbDT"
       ],
-      "name": "calypso",
+      "name": "Apple",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -299,8 +231,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12909.jpg",
-        "image_2": "shopify://shop_images/NASH_POCHETTE_HABANERO_1097_2.jpg",
+        "image": "shopify://shop_images/LP-august-apple-desktop.jpg",
+        "image_2": "shopify://shop_images/LP-august-apple-mobile.jpg",
         "image_link": "shopify://collections/calypso",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -1012,8 +944,6 @@
     "slider_collection_VGjDbT",
     "image_banner_DcF4Jn",
     "slider_collection_WyxHUY",
-    "home_hero_section_hrMDbk",
-    "slider_collection_tKdRHn",
     "image_banner_Pg7Y6R",
     "slider_collection_LPbdVn",
     "image_banner_maC68H",
