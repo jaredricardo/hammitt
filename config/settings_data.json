@@ -141,15 +141,6 @@
               "link": "shopify://collections/bestsellers"
             }
           },
-          "announcement_Qifxkc": {
-            "type": "announcement",
-            "settings": {
-              "text": "<p><strong>Shop Newest Drop</strong></p>",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://collections/new-arrivals"
-            }
-          },
           "announcement_gtphpC": {
             "type": "announcement",
             "settings": {
@@ -158,12 +149,21 @@
               "background_color": "#5C2B14",
               "link": "shopify://collections/new-arrivals"
             }
+          },
+          "announcement_Qifxkc": {
+            "type": "announcement",
+            "settings": {
+              "text": "<p><strong>Meet the Newest Styles</strong></p>",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/new-arrivals"
+            }
           }
         },
         "block_order": [
           "announcement_Tpxzm9",
-          "announcement_Qifxkc",
-          "announcement_gtphpC"
+          "announcement_gtphpC",
+          "announcement_Qifxkc"
         ],
         "custom_css": [],
         "settings": {
