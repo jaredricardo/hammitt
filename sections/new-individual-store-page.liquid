@@ -56,6 +56,7 @@
    .new-store-card .contact-area,
    .new-store-card .address-area {
         margin-top: 3rem;
+        width: 100%;
    }
 
   .new-store-card .store-info h1 {
@@ -101,7 +102,7 @@
   }
 
   .new-individual-store-page .button {
-    width: 160px;
+    width: 50%;
     padding: 0;
   }
 
@@ -240,6 +241,7 @@
                                 {% render 'icon-chat-bubble' %}
                                 <a class="phone" href="tel:{{ page.metafields.custom.store_phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}">{{ page.metafields.custom.store_phone }}</a>
                             </p>
+                            <a style="width: 100% !important; margin-top: 1rem;" class="button transparent-button" href="sms:{{ page.metafields.custom.store_phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}">Chat with us</a>
                         </div>
                     {% endif %}
                     {% if page.metafields.custom.store_address %}
