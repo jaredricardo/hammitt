@@ -345,6 +345,11 @@
             </details>
           </header-drawer>
         {%- endif -%}
+        <a class="mobile-nav-store-link" href="/pages/our-stores" aria-label="Hammitt Physical Store Link">
+          <span class="header__icon">
+            {% render 'icon-map-pin-no-outline' %}
+          </span>
+        </a>
         <fake-details-modal class="header__search">
           <fake-details>
             <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle new-x-gen-mobile-search-opener" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
@@ -758,7 +763,9 @@
             
           </details>
         </details-modal>
-  
+        <a class="main-nav-item desktop-nav-store-link" href="/pages/our-stores" aria-label="Hammitt Physical Store Link">
+          <span class="nav-store-link-text">Store</span>
+        </a>
         {%- if shop.customer_accounts_enabled -%}
           <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset" data-acsb-clickable="true" data-acsb-navigable="true" data-acsb-now-navigable="true">
             {% render 'icon-account' %}

@@ -7,38 +7,40 @@
 {% endstyle %}
 
 <section data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
-
+  <div class="page-width">
+    
+  </div>
 </section>
 
 {% schema %}
 {
-  "name": "Section Name",
-  "enabled_on": {
-    "templates": ["product", "collection", "page", "index", "article", "blog", "404", "cart", "search"]
-  },
-  "settings": [
-    {
-      "type": "header",
-      "content": "Boilerplate section",
-      "info": "Not for actual use in theme, just for copy-pasting when creating new sections. Delete this json object when creating a new section."
-    },
-    {
-      "type": "text",
-      "id": "section_anchor_id",
-      "label": "Section Anchor ID (optional)"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#FFFFFF"
-    }
-  ],
-  "blocks": [],
-  "presets": [
-    {
-      "name": "Section Name"
-    }
-  ]
+	"name": "Section Name",
+  	"enabled_on": {
+    	"templates": ["product", "collection", "page", "index", "article", "blog", "404", "cart", "search"]
+  	},
+	"settings": [
+		{
+			"type": "header",
+			"content": "Boilerplate section",
+			"info": "Not for actual use in theme, just for copy-pasting when creating new sections. Delete this json object when creating a new section."
+		},
+		{
+			"type": "text",
+			"id": "section_anchor_id",
+			"label": "Section Anchor ID (optional)"
+		},
+		{
+			"type": "color",
+			"id": "bg_color",
+			"label": "Background Color",
+			"default": "#FFFFFF"
+		}
+  	],
+	"blocks": [],
+  	"presets": [
+		{
+			"name": "Section Name"
+		}
+  	]
 }
 {% endschema %}

@@ -78,9 +78,17 @@
 #shopify-section-header .header--transparent .header__desktop-search,
 #shopify-section-header .header--transparent .cart-count-bubble,
 #shopify-section-header .header--transparent .yotpo-rewards-count,
-#shopify-section-header .header--transparent .yotpo-rewards-count-mobile {
+#shopify-section-header .header--transparent .yotpo-rewards-count-mobile,
+#shopify-section-header .header--transparent .desktop-nav-store-link {
   color: white;
   transition: color 300ms ease !important;
+}
+
+/* On load - white stroke for map pin icon */
+#shopify-section-header .header--transparent .mobile-nav-store-link svg path,
+#shopify-section-header .header--transparent .mobile-nav-store-link svg rect {
+  stroke: white;
+  transition: stroke 300ms ease !important;
 }
 
 /* On load - transparent background for mobile rewards */
@@ -89,10 +97,18 @@
   transition: background-color 300ms ease !important;
 }
 
+/* On hover before scroll - black stroke for map pin icon */
+#shopify-section-header .header--transparent:not(.header--scrolled):hover .mobile-nav-store-link svg path,
+#shopify-section-header .header--transparent:not(.header--scrolled):hover .mobile-nav-store-link svg rect {
+  stroke: black;
+  transition: stroke 300ms ease !important;
+}
+
 /* On hover before scroll - black text */
 #shopify-section-header .header--transparent:not(.header--scrolled):hover .header__desktop-search,
 #shopify-section-header .header--transparent:not(.header--scrolled):hover .yotpo-rewards-count,
-#shopify-section-header .header--transparent:not(.header--scrolled):hover .yotpo-rewards-count-mobile {
+#shopify-section-header .header--transparent:not(.header--scrolled):hover .yotpo-rewards-count-mobile,
+#shopify-section-header .header--transparent:not(.header--scrolled):hover .desktop-nav-store-link {
   color: inherit;
   transition: color 300ms ease !important;
 }
@@ -109,10 +125,18 @@
   transition: color 300ms ease !important;
 }
 
+/* After scrolling - black stroke for map pin icon */
+#shopify-section-header .header--transparent.header--scrolled .mobile-nav-store-link svg path,
+#shopify-section-header .header--transparent.header--scrolled .mobile-nav-store-link svg rect {
+  stroke: black;
+  transition: stroke 300ms ease !important;
+}
+
 /* After scrolling - return to default colors */
 #shopify-section-header .header--transparent.header--scrolled .header__desktop-search,
 #shopify-section-header .header--transparent.header--scrolled .yotpo-rewards-count,
-#shopify-section-header .header--transparent.header--scrolled .yotpo-rewards-count-mobile {
+#shopify-section-header .header--transparent.header--scrolled .yotpo-rewards-count-mobile,
+#shopify-section-header .header--transparent.header--scrolled .desktop-nav-store-link {
   color: inherit;
   transition: color 300ms ease !important;
 }

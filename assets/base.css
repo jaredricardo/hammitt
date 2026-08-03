@@ -2454,6 +2454,7 @@ input[type='checkbox'] {
   display: flex;
   grid-area: icons;
   justify-self: end;
+  gap: 1.5rem;
 }
 
 .header__link--rewards {
@@ -2538,7 +2539,7 @@ span.yotpo-rewards-count {
 }
 
 @media screen and (max-width: 989px) {
-  .header__icon, .header__icon--cart .icon {width: 3.4rem;}
+  .header__icon, .header__icon--cart .icon {width: 3rem;}
   .header__icons .header__icon--account svg {  width: 3rem;}
   menu-drawer ~ .header__icons .header__icon--account {
     display: none;
@@ -3783,10 +3784,13 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   aspect-ratio: 1/1;
 }
 
-#care-lp-scroll-top {
-  position: absolute;
-  bottom: -75vh;
-  left: 1rem;
+html:has(#scroll-top-button) {
+  scroll-behavior: smooth;
+}
+
+.shopify-section:has(#scroll-top-button) {
+  width: 0 !important;
+  height: 0 !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -3807,9 +3811,6 @@ body:has(.header__inline-menu details[open="true"]) .shopify-section:has(.jr-ima
   }
   .jr-leather-cleaner .leather-container {
     gap: 1rem;
-  }
-  #care-lp-scroll-top {
-    bottom: -65vh;
   }
   .jr-leather-cleaner .leather-container .leather-block {
     width: 40%;
@@ -4520,3 +4521,4 @@ minty-fresh-filter-input:has([name="filter.v.availability"][value="0"]),
   position: relative;
   z-index: 1;
 }
+
