@@ -479,7 +479,7 @@
     },
     "slider_collection_qRyDJi": {
       "type": "slider-collection",
-      "name": "Apple widget",
+      "name": "Shop All New",
       "settings": {
         "title": "Shop New Arrivals",
         "heading_align": "center",
@@ -663,6 +663,32 @@
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
+    },
+    "rich_text_UTCkRG": {
+      "type": "rich-text",
+      "blocks": {
+        "button_HxFpp4": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop All New Arrivals",
+            "button_link": "shopify://collections/new-arrivals",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "button_HxFpp4"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
     }
   },
   "order": [
@@ -682,6 +708,7 @@
     "image_banner_CMcChP",
     "slider_collection_WqThBX",
     "image_banner_hx9Xkx",
-    "slider_collection_rdXUNC"
+    "slider_collection_rdXUNC",
+    "rich_text_UTCkRG"
   ]
 }
