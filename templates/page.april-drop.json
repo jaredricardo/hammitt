@@ -42,7 +42,7 @@
         "text_gXhyYP": {
           "type": "text",
           "settings": {
-            "text": "is here. A warm toasted-brown suede to add a little spice.",
+            "text": "A warm toasted-brown suede to add a little spice.",
             "text_area_html_swap": "",
             "text_style": "body",
             "text_size_mobile": 13,
@@ -408,6 +408,32 @@
         "mobile_padding_bottom": 0
       }
     },
+    "rich_text_UTCkRG": {
+      "type": "rich-text",
+      "blocks": {
+        "button_HxFpp4": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop All New Arrivals",
+            "button_link": "shopify://collections/new-arrivals",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "button_HxFpp4"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "image_banner_maC68H": {
       "type": "image-banner",
       "blocks": {
@@ -662,32 +688,6 @@
         "padding_bottom": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
-      }
-    },
-    "rich_text_UTCkRG": {
-      "type": "rich-text",
-      "blocks": {
-        "button_HxFpp4": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop All New Arrivals",
-            "button_link": "shopify://collections/new-arrivals",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "button_HxFpp4"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "custom_classes": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
       }
     }
   },
