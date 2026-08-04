@@ -189,7 +189,7 @@ quick-add-trigger {
   margin-bottom: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: space-between !important;
   align-items: center;
   font-weight: 500;
 }
@@ -201,6 +201,7 @@ quick-add-trigger {
 .card__heading .price {
   margin-left: 0.5rem;
   line-height: 18.2px;
+  padding-right: 1rem;
 }
 
 .card__badge:has(.badge.red-badge) .tag-badge {
