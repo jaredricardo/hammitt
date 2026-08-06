@@ -1277,8 +1277,13 @@ template-{{ template.name -}}
             this._cardImage = this._cardWrapper.querySelector('.card__media img');
             if (!this._cardImage) return;
 
+            // Track secondary image (shown on card hover when show_secondary_image is enabled)
+            this._cardImageSecondary = this._cardWrapper.querySelector('.card__media img + img');
+
             this._originalSrc = this._cardImage.src;
             this._originalSrcset = this._cardImage.srcset;
+            this._originalSecondarySrc = this._cardImageSecondary ? this._cardImageSecondary.src : null;
+            this._originalSecondarySrcset = this._cardImageSecondary ? this._cardImageSecondary.srcset : null;
             this._lockedBtn = null;
 
             this.addEventListener('click', e => e.stopPropagation());
@@ -1308,9 +1313,19 @@ template-{{ template.name -}}
             if (src) {
               this._cardImage.src = src;
               this._cardImage.srcset = '';
+              // Also update secondary image so the swatch preview is visible
+              // regardless of which image the CSS hover effect is displaying
+              if (this._cardImageSecondary) {
+                this._cardImageSecondary.src = src;
+                this._cardImageSecondary.srcset = '';
+              }
             } else {
               this._cardImage.src = this._originalSrc;
               this._cardImage.srcset = this._originalSrcset;
+              if (this._cardImageSecondary) {
+                this._cardImageSecondary.src = this._originalSecondarySrc || '';
+                this._cardImageSecondary.srcset = this._originalSecondarySrcset || '';
+              }
             }
             this.querySelectorAll('button').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -1319,6 +1334,10 @@ template-{{ template.name -}}
           _restoreOriginal() {
             this._cardImage.src = this._originalSrc;
             this._cardImage.srcset = this._originalSrcset;
+            if (this._cardImageSecondary) {
+              this._cardImageSecondary.src = this._originalSecondarySrc || '';
+              this._cardImageSecondary.srcset = this._originalSecondarySrcset || '';
+            }
             this.querySelectorAll('button').forEach(b => b.classList.remove('active'));
             const initialBtn = this.querySelector('button');
             if (initialBtn) initialBtn.classList.add('active');
