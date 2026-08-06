@@ -2978,18 +2978,14 @@ details-disclosure > details {
 }
 
 .badge {
-  border: 1px solid currentColor;
   border-radius: var(--badge-corner-radius);
   display: inline-block;
-  font-size: 1.0rem;
   line-height: 1;
   padding: 0.8rem 1.1rem;
   text-align: center;
   background-color: transparent;
   color: currentColor;
   word-break: break-word;
-  font-family: var(--semi-bold-family);
-  font-weight: var(--semi-bold-weight);
   text-transform: capitalize;
 }
 
