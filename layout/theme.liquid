@@ -1268,6 +1268,42 @@ template-{{ template.name -}}
       </script>
     {% endif %}
 
+
+    {% if settings.enable_ip_address_grabber %}
+      <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+          console.log('////')
+          // 1. Check sessionStorage for a cached IP
+          let ipAddress = sessionStorage.getItem('current_ip_address')
+
+          // 2. If no cached IP, fetch it from ipwhois and store it
+          if (!ipAddress) {
+            try {
+              const res = await fetch('https://ipwhois.app/json/')
+              const data = await res.json()
+              ipAddress = data.ip
+              sessionStorage.setItem('current_ip_address', ipAddress)
+            } catch (err) {
+              console.error('ipwhois: failed to fetch IP', err)
+              return
+            }
+          }
+
+          // 3. Log the IP address
+          console.log('IP address:', ipAddress)
+
+          // 4. Pass the IP back into ipwhois for the full JSON response and log it
+          try {
+            const res = await fetch(`https://ipwhois.app/json/${ipAddress}`)
+            const locationData = await res.json()
+            console.log('ipwhois data:', locationData)
+          } catch (err) {
+            console.error('ipwhois: failed to fetch location data', err)
+          }
+        })
+      </script>
+    {% endif %}
+
     {% if settings.enable_product_card_swatches %}
       <script>
         class ProductCardSwatch extends HTMLElement {
