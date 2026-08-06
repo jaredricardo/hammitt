@@ -877,3 +877,129 @@ class SaveForLaterItem extends HTMLElement {
 
 customElements.define('save-for-later-item', SaveForLaterItem)
 
+class DiscountCodeInput extends HTMLElement {
+  // Map of discount code prefixes to the variant ID that must be added to cart first.
+  // Add additional prefix entries here as needed.
+  static SPECIAL_PREFIXES = {
+    'leather-': '42662542901432'
+  };
+
+  connectedCallback() {
+    this._input = this.querySelector('input[name="discount"]');
+    this._button = this.querySelector('[data-apply]');
+    this._error = this.querySelector('.discount-error');
+
+    this._button.addEventListener('click', () => this._handleApply());
+    this._input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') this._handleApply();
+    });
+  }
+
+  async _handleApply() {
+    const code = this._input.value.trim();
+    if (!code) return;
+
+    this._setLoading(true);
+    this._clearError();
+
+    let succeeded = false;
+    try {
+      // Check if this code matches a special prefix that requires adding a product first
+      const prefixMatch = Object.entries(DiscountCodeInput.SPECIAL_PREFIXES)
+        .find(([prefix]) => code.toLowerCase().startsWith(prefix));
+
+      if (prefixMatch) {
+        const [, variantId] = prefixMatch;
+        await this._addVariantToCart(variantId);
+      }
+
+      const applied = await this._applyDiscountCode(code);
+
+      if (applied) {
+        succeeded = true;
+        this._input.value = '';
+        await this._refreshCart();
+        // Spinner stays — cart DOM replacement will clean it up
+      } else {
+        this._showError();
+      }
+    } catch (e) {
+      console.error('DiscountCodeInput:', e);
+      this._showError();
+    } finally {
+      if (!succeeded) this._setLoading(false);
+    }
+  }
+
+  async _addVariantToCart(variantId) {
+    // Check the already-parsed cart items from the DOM before making any network request
+    const drawerItems = document.querySelector('.drawer__items');
+    if (drawerItems) {
+      try {
+        const cartItems = JSON.parse(drawerItems.dataset.json || '[]');
+        const alreadyInCart = cartItems.some(item => String(item.variant_id) === String(variantId));
+        if (alreadyInCart) return;
+      } catch (e) {}
+    }
+
+    const res = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ id: Number(variantId), quantity: 1 }] })
+    });
+    if (!res.ok) throw new Error('Failed to add product to cart');
+    return res.json();
+  }
+
+  async _applyDiscountCode(code) {
+    // Apply the discount code via Shopify's session discount endpoint
+    await fetch(`${window.Shopify.routes.root}discount/${encodeURIComponent(code)}`, {
+      method: 'GET',
+      redirect: 'manual'
+    });
+
+    // Verify the discount is reflected in the cart
+    const cartRes = await fetch(window.Shopify.routes.root + 'cart.js', {
+      headers: { 'Accept': 'application/json' }
+    });
+    const cart = await cartRes.json();
+
+    return (
+      (Array.isArray(cart.cart_level_discount_applications) && cart.cart_level_discount_applications.length > 0) ||
+      cart.total_discount > 0
+    );
+  }
+
+  async _refreshCart() {
+    const sections = 'cart-drawer,cart-icon-bubble,main-cart-items,header';
+    const res = await fetch(window.Shopify.routes.root + 'cart/update.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sections })
+    });
+    const data = await res.json();
+    if (typeof cartUpdate === 'function') cartUpdate(data);
+  }
+
+  _setLoading(isLoading) {
+    this._button.disabled = isLoading;
+    if (isLoading) {
+      this._button.innerHTML = `<svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg"><circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle></svg>`;
+    } else {
+      this._button.textContent = 'Apply';
+    }
+  }
+
+  _showError() {
+    this._error.textContent = 'This code is not valid for your current cart.';
+    this._error.style.display = 'block';
+  }
+
+  _clearError() {
+    this._error.textContent = '';
+    this._error.style.display = 'none';
+  }
+}
+
+customElements.define('discount-code-input', DiscountCodeInput);
+
