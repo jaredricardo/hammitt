@@ -13,12 +13,29 @@
     if filter_blocks.size > 0
         assign has_collection_links = true
     endif
+
+    assign h = collection.handle
+
+    assign is_collection_group = false
+    if h == 'kyle' or h == 'doxie' or h == 'erica' or h == 'beverly' or h == 'meredith' or h == 'charles-crossbody' or h == 'vip' or h == 'daniel' or h == 'bryant' or h == 'heiress-collection'
+      assign is_collection_group = true
+    endif
+
+    assign is_color_group = false
+    if h == 'suede' or h == 'black' or h == 'brown' or h == 'holiday-neutrals' or h == 'clear-bags' or h == 'warm-tones' or h == 'cool-tones' or h == 'white' or h == 'gold-collection' or h == 'silver-collection' or h == 'gunmetal-collection'
+      assign is_color_group = true
+    endif
+
+    assign is_occasion_group = false
+    if h == 'travel' or h == 'work-bags' or h == 'everyday-bags' or h == 'clutch' or h == 'wedding'
+      assign is_occasion_group = true
+    endif
 %}
 
 <section class="simple-collection-links" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
     {% if has_collection_links %}
         <ul>
-          {% if collection.handle contains 'kyle' %}
+          {% if is_collection_group %}
 
             {%- comment -%} COLLECTION links for Kyle pages {%- endcomment -%}
             <li><a href="/collections/kyle"{% if collection.handle == 'kyle' %} class="on-collection"{% endif %}>The Kyle</a></li>
@@ -32,7 +49,7 @@
             <li><a href="/collections/bryant"{% if collection.handle == 'bryant' %} class="on-collection"{% endif %}>The Bryant</a></li>
             <li><a href="/collections/heiress-collection"{% if collection.handle == 'heiress-collection' %} class="on-collection"{% endif %}>Heiress Travel</a></li>
 
-          {% elsif collection.handle contains 'black' %}
+          {% elsif is_color_group %}
 
             {%- comment -%} COLOR & FABRIC links for Black pages {%- endcomment -%}
             <li><a href="/collections/suede"{% if collection.handle == 'suede' %} class="on-collection"{% endif %}>Suede</a></li>
@@ -48,7 +65,7 @@
             <li><a href="/collections/gunmetal-collection"{% if collection.handle == 'gunmetal-collection' %} class="on-collection"{% endif %}>Gunmetal</a></li>
             <li><a href="https://www.hammitt.com/products/kyle-revival-clutch-black-press-gold-silver-red-zip">Gold &amp; Silver</a></li>
 
-          {% elsif collection.handle contains 'work-bags' %}
+          {% elsif is_occasion_group %}
 
             {%- comment -%} OCCASION links for Work Bags pages {%- endcomment -%}
             <li><a href="/collections/travel"{% if collection.handle == 'travel' %} class="on-collection"{% endif %}>Travel</a></li>
