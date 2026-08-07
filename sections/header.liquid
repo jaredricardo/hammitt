@@ -764,7 +764,10 @@
           </details>
         </details-modal>
         <a class="main-nav-item desktop-nav-store-link" href="/pages/our-stores" aria-label="Hammitt Physical Store Link">
-          <span class="nav-store-link-text">Stores</span>
+          <span class="nav-store-link-text">
+            {% render 'icon-map-pin-no-outline' %}
+            Stores
+          </span>
         </a>
         {%- if shop.customer_accounts_enabled -%}
           <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset" data-acsb-clickable="true" data-acsb-navigable="true" data-acsb-now-navigable="true">

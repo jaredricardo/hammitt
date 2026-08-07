@@ -442,3 +442,21 @@ transition: stroke 300ms ease !important;
   fill: white !important;
   transition: none !important;
 }
+
+/* Store link ellipse - white on load (transparent, not scrolled) */
+#shopify-section-header .header--transparent:not(.header--scrolled) .nav-store-link-text svg ellipse {
+  fill: #ffffff !important;
+  transition: fill 300ms ease !important;
+}
+
+/* Store link ellipse - black on hover before scroll */
+#shopify-section-header .header--transparent:not(.header--scrolled):hover .nav-store-link-text svg ellipse {
+  fill: #000000 !important;
+  transition: fill 300ms ease !important;
+}
+
+/* Store link ellipse - black after scroll */
+#shopify-section-header .header--transparent.header--scrolled .nav-store-link-text svg ellipse {
+  fill: #000000 !important;
+  transition: fill 300ms ease !important;
+}

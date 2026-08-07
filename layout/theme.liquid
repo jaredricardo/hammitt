@@ -1269,34 +1269,108 @@ template-{{ template.name -}}
     {% endif %}
 
 
-    {% if settings.enable_ip_address_grabber %}
+    {% if settings.enable_hammitt_store_geo_location %}
       <script>
-        window.addEventListener('DOMContentLoaded', async () => {
-          console.log('////')
-          // 1. Check sessionStorage for a cached IP
-          let ipAddress = sessionStorage.getItem('current_ip_address')
+        const storeDataJson = {
+          "la_jolla": {
+            "store_name": "La Jolla",
+            "store_lat":  32.8459313,
+            "store_lng": -117.2741033,
+            "store_link": "/pages/la-jolla"
+          },
+          "scottsdale": {
+            "store_name": "Scottsdale",
+            "store_lat":  33.6244839,
+            "store_lng": -111.9300552,
+            "store_link": "/pages/scottsdale" 
+          },
+          "chicago": {
+            "store_name": "Chicago",
+            "store_lat":  41.9182894,
+            "store_lng": -87.6500613,
+            "store_link": "/pages/chicago"
+          },
+          "manhattan_beach": {
+            "store_name": "Manhattan Beach",
+            "store_lat":  33.8851268,
+            "store_lng": -118.4100378,
+            "store_link": "/pages/manhattan-beach"
+          }
+        }
 
-          // 2. If no cached IP, fetch it from ipwhois and store it
-          if (!ipAddress) {
-            try {
-              const res = await fetch('https://ipwhois.app/json/')
-              const data = await res.json()
-              ipAddress = data.ip
-              sessionStorage.setItem('current_ip_address', ipAddress)
-            } catch (err) {
-              console.error('ipwhois: failed to fetch IP', err)
-              return
+        window.addEventListener('DOMContentLoaded', async () => {
+          const IPWHOIS_KEY = 'zN7xj7k2xvxgGIMk'
+
+          function getDistanceKm(lat1, lng1, lat2, lng2) {
+            const R = 6371
+            const dLat = (lat2 - lat1) * Math.PI / 180
+            const dLng = (lng2 - lng1) * Math.PI / 180
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLng / 2) * Math.sin(dLng / 2)
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+          }
+
+          function applyNearestStore(locationData) {
+            const userLat = locationData.latitude
+            const userLng = locationData.longitude
+            if (!userLat || !userLng) return
+
+            // ~5000 km covers all of Canada + Mexico; anything farther (Europe, Asia) is ignored
+            const MAX_DISTANCE_KM = 20000
+
+            let nearestStore = null
+            let minDistance = Infinity
+            for (const key in storeDataJson) {
+              const store = storeDataJson[key]
+              const dist = getDistanceKm(userLat, userLng, store.store_lat, store.store_lng)
+              if (dist < minDistance) {
+                minDistance = dist
+                nearestStore = store
+              }
+            }
+            if (!nearestStore || minDistance > MAX_DISTANCE_KM) return
+
+            // Desktop: update text and href
+            const desktopLink = document.querySelector('.desktop-nav-store-link')
+            const desktopLinkText = desktopLink && desktopLink.querySelector('.nav-store-link-text')
+            if (desktopLinkText && desktopLink) {
+              Array.from(desktopLinkText.childNodes)
+                .filter(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim() !== '')
+                .forEach(n => { n.textContent = ` ${nearestStore.store_name} Store` })
+              desktopLinkText.style.textDecoration = 'underline'
+              desktopLink.href = nearestStore.store_link
+            }
+
+            // Mobile: update href only
+            const mobileLink = document.querySelector('.mobile-nav-store-link')
+            if (mobileLink) {
+              mobileLink.href = nearestStore.store_link
             }
           }
 
-          // 3. Log the IP address
-          console.log('IP address:', ipAddress)
+          // 1. Check sessionStorage for a cached location data object
+          const cached = sessionStorage.getItem('ipwhois_data')
+          if (cached) {
+            console.log('DID NOT use a call')
+            const locationData = JSON.parse(cached)
+            console.log('ipwhois data (cached):', locationData)
+            applyNearestStore(locationData)
+            return
+          }
 
-          // 4. Pass the IP back into ipwhois for the full JSON response and log it
+          // 2. Fetch full location data (includes IP) in one request using API key
+          console.log('USED AN API CALL')
           try {
-            const res = await fetch(`https://ipwhois.app/json/${ipAddress}`)
+            const res = await fetch(`https://ipwhois.pro/json/?key=${IPWHOIS_KEY}`)
             const locationData = await res.json()
+            if (!locationData.success && locationData.success !== undefined) {
+              console.error('ipwhois: request failed', locationData.message)
+              return
+            }
+            sessionStorage.setItem('ipwhois_data', JSON.stringify(locationData))
             console.log('ipwhois data:', locationData)
+            applyNearestStore(locationData)
           } catch (err) {
             console.error('ipwhois: failed to fetch location data', err)
           }
@@ -1305,7 +1379,7 @@ template-{{ template.name -}}
     {% endif %}
 
     {% if settings.enable_product_card_swatches %}
-      <script>
+      <script>  
         class ProductCardSwatch extends HTMLElement {
           connectedCallback() {
             this._cardWrapper = this.closest('.card-wrapper');
