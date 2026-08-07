@@ -1317,7 +1317,7 @@ template-{{ template.name -}}
             if (!userLat || !userLng) return
 
             // ~5000 km covers all of Canada + Mexico; anything farther (Europe, Asia) is ignored
-            const MAX_DISTANCE_KM = 20000
+            const MAX_DISTANCE_KM = 5000
 
             let nearestStore = null
             let minDistance = Infinity
