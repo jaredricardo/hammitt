@@ -1317,7 +1317,7 @@ template-{{ template.name -}}
             if (!userLat || !userLng) return
 
             // ~5000 km covers all of Canada + Mexico; anything farther (Europe, Asia) is ignored
-            const MAX_DISTANCE_KM = 5000
+            const MAX_DISTANCE_KM = 25000
 
             let nearestStore = null
             let minDistance = Infinity
@@ -1354,15 +1354,12 @@ template-{{ template.name -}}
           // 1. Check sessionStorage for a cached location data object
           const cached = sessionStorage.getItem('ipwhois_data')
           if (cached) {
-            console.log('DID NOT use a call')
             const locationData = JSON.parse(cached)
-            console.log('ipwhois data (cached):', locationData)
             applyNearestStore(locationData)
             return
           }
 
           // 2. Fetch full location data (includes IP) in one request using API key
-          console.log('USED AN API CALL')
           try {
             const res = await fetch(`https://ipwhois.pro/json/?key=${IPWHOIS_KEY}`)
             const locationData = await res.json()
@@ -1371,7 +1368,6 @@ template-{{ template.name -}}
               return
             }
             sessionStorage.setItem('ipwhois_data', JSON.stringify(locationData))
-            console.log('ipwhois data:', locationData)
             applyNearestStore(locationData)
           } catch (err) {
             console.error('ipwhois: failed to fetch location data', err)
