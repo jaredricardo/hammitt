@@ -7,101 +7,52 @@
 {% endstyle %}
 
 {% liquid
-    assign has_collection_links = false
-    assign filter_blocks = section.blocks | where: "type", "collection-filter-link"
+  assign filter_blocks = section.blocks | where: "type", "collection-filter-link"
+  assign menu_group_blocks = section.blocks | where: "type", "menu-group"
 
-    if filter_blocks.size > 0
-        assign has_collection_links = true
-    endif
-
-    assign h = collection.handle
-
-    assign is_collection_group = false
-    if h == 'kyle' or h == 'doxie' or h == 'erica' or h == 'beverly' or h == 'meredith' or h == 'charles-crossbody' or h == 'vip' or h == 'daniel' or h == 'bryant' or h == 'heiress-collection'
-      assign is_collection_group = true
-    endif
-
-    assign is_color_group = false
-    if h == 'suede' or h == 'black' or h == 'brown' or h == 'holiday-neutrals' or h == 'clear-bags' or h == 'warm-tones' or h == 'cool-tones' or h == 'white' or h == 'gold-collection' or h == 'silver-collection' or h == 'gunmetal-collection'
-      assign is_color_group = true
-    endif
-
-    assign is_occasion_group = false
-    if h == 'travel' or h == 'work-bags' or h == 'everyday-bags' or h == 'clutch' or h == 'wedding'
-      assign is_occasion_group = true
-    endif
+  assign active_menu = nil
+  assign matched_block_found = false
+  for block in menu_group_blocks
+    unless matched_block_found
+      assign menu = linklists[block.settings.menu]
+      for link in menu.links
+        unless matched_block_found
+          if link.url == collection.url
+            assign active_menu = menu
+            assign matched_block_found = true
+          endif
+        endunless
+      endfor
+    endunless
+  endfor
 %}
 
 <section class="simple-collection-links" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
-    {% if has_collection_links %}
-        <ul>
-          {% if is_collection_group %}
-
-            {%- comment -%} COLLECTION links for Kyle pages {%- endcomment -%}
-            <li><a href="/collections/kyle"{% if collection.handle == 'kyle' %} class="on-collection"{% endif %}>The Kyle</a></li>
-            <li><a href="/collections/doxie"{% if collection.handle == 'doxie' %} class="on-collection"{% endif %}>The Doxie</a></li>
-            <li><a href="/collections/erica"{% if collection.handle == 'erica' %} class="on-collection"{% endif %}>The Erica</a></li>
-            <li><a href="/collections/beverly"{% if collection.handle == 'beverly' %} class="on-collection"{% endif %}>The Beverly</a></li>
-            <li><a href="/collections/meredith"{% if collection.handle == 'meredith' %} class="on-collection"{% endif %}>The Meredith</a></li>
-            <li><a href="/collections/charles-crossbody"{% if collection.handle == 'charles-crossbody' %} class="on-collection"{% endif %}>The Charles</a></li>
-            <li><a href="/collections/vip"{% if collection.handle == 'vip' %} class="on-collection"{% endif %}>The VIP</a></li>
-            <li><a href="/collections/daniel"{% if collection.handle == 'daniel' %} class="on-collection"{% endif %}>The Daniel</a></li>
-            <li><a href="/collections/bryant"{% if collection.handle == 'bryant' %} class="on-collection"{% endif %}>The Bryant</a></li>
-            <li><a href="/collections/heiress-collection"{% if collection.handle == 'heiress-collection' %} class="on-collection"{% endif %}>Heiress Travel</a></li>
-
-          {% elsif is_color_group %}
-
-            {%- comment -%} COLOR & FABRIC links for Black pages {%- endcomment -%}
-            <li><a href="/collections/suede"{% if collection.handle == 'suede' %} class="on-collection"{% endif %}>Suede</a></li>
-            <li><a href="/collections/black"{% if collection.handle == 'black' %} class="on-collection"{% endif %}>Black</a></li>
-            <li><a href="/collections/brown"{% if collection.handle == 'brown' %} class="on-collection"{% endif %}>Brown</a></li>
-            <li><a href="/collections/holiday-neutrals"{% if collection.handle == 'holiday-neutrals' %} class="on-collection"{% endif %}>Neutrals</a></li>
-            <li><a href="/collections/clear-bags"{% if collection.handle == 'clear-bags' %} class="on-collection"{% endif %}>Clear</a></li>
-            <li><a href="/collections/warm-tones"{% if collection.handle == 'warm-tones' %} class="on-collection"{% endif %}>Warm Tones</a></li>
-            <li><a href="/collections/cool-tones"{% if collection.handle == 'cool-tones' %} class="on-collection"{% endif %}>Cool Tones</a></li>
-            <li><a href="/collections/white"{% if collection.handle == 'white' %} class="on-collection"{% endif %}>White</a></li>
-            <li><a href="/collections/gold-collection"{% if collection.handle == 'gold-collection' %} class="on-collection"{% endif %}>Gold</a></li>
-            <li><a href="/collections/silver-collection"{% if collection.handle == 'silver-collection' %} class="on-collection"{% endif %}>Silver</a></li>
-            <li><a href="/collections/gunmetal-collection"{% if collection.handle == 'gunmetal-collection' %} class="on-collection"{% endif %}>Gunmetal</a></li>
-            <li><a href="https://www.hammitt.com/products/kyle-revival-clutch-black-press-gold-silver-red-zip">Gold &amp; Silver</a></li>
-
-          {% elsif is_occasion_group %}
-
-            {%- comment -%} OCCASION links for Work Bags pages {%- endcomment -%}
-            <li><a href="/collections/travel"{% if collection.handle == 'travel' %} class="on-collection"{% endif %}>Travel</a></li>
-            <li><a href="/collections/work-bags"{% if collection.handle == 'work-bags' %} class="on-collection"{% endif %}>Work</a></li>
-            <li><a href="/collections/everyday-bags"{% if collection.handle == 'everyday-bags' %} class="on-collection"{% endif %}>Everyday</a></li>
-            <li><a href="/collections/clear-bags"{% if collection.handle == 'clear-bags' %} class="on-collection"{% endif %}>Events</a></li>
-            <li><a href="/collections/clutch"{% if collection.handle == 'clutch' %} class="on-collection"{% endif %}>Evening</a></li>
-            <li><a href="/collections/wedding"{% if collection.handle == 'wedding' %} class="on-collection"{% endif %}>Wedding</a></li>
-
-          {% else %}
-
-            {%- comment -%} Default: render blocks configured in the theme editor {%- endcomment -%}
-            {% comment %} 
-              {% if request.page_type == "collection" %}
-                <li>
-                    <a href="{{ collection.url }}" class="on-collection">
-                        {{ collection.title }}
-                    </a>
-                </li>
-              {% endif %} 
-            {% endcomment %}
-            {% for block in filter_blocks %}
-                <li>
-                    <a href="{{ block.settings.collection.url }}" {% if block.settings.collection.handle == collection.handle %} class="on-collection"{% endif %}>
-                        {% if block.settings.title != blank %}
-                          {{ block.settings.title | strip }}
-                        {% else %}
-                          {{ block.settings.collection.title | strip }}
-                        {% endif %}
-                    </a>
-                </li>
-            {% endfor %}
-
-          {% endif %}
-        </ul>
-    {% endif %}
+  {% if active_menu %}
+    <ul>
+      {% for link in active_menu.links %}
+        <li>
+          <a href="{{ link.url }}"{% if link.url == collection.url %} class="on-collection"{% endif %}>
+            {{ link.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% elsif filter_blocks.size > 0 %}
+    <ul>
+      {% for block in filter_blocks %}
+        <li>
+          <a href="{{ block.settings.collection.url }}"{% if block.settings.collection.handle == collection.handle %} class="on-collection"{% endif %}>
+            {% if block.settings.title != blank %}
+              {{ block.settings.title | strip }}
+            {% else %}
+              {{ block.settings.collection.title | strip }}
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </section>
 
 {% schema %}
@@ -129,6 +80,18 @@
     }
   ],
   "blocks": [
+    {
+      "type": "menu-group",
+      "name": "Menu Group",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "info": "Each link in this menu should point to a collection. If the visitor is on any of those collections, this menu's links will be rendered as the nav strip."
+        }
+      ]
+    },
     {
       "type": "collection-filter-link",
       "name": "Collection Filter Link",
