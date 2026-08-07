@@ -7,40 +7,52 @@
 {% endstyle %}
 
 {% liquid
-    assign has_collection_links = false
-    assign filter_blocks = section.blocks | where: "type", "collection-filter-link"
+  assign filter_blocks = section.blocks | where: "type", "collection-filter-link"
+  assign menu_group_blocks = section.blocks | where: "type", "menu-group"
 
-    if filter_blocks.size > 0
-        assign has_collection_links = true
-    endif
+  assign active_menu = nil
+  assign matched_block_found = false
+  for block in menu_group_blocks
+    unless matched_block_found
+      assign menu = linklists[block.settings.menu]
+      for link in menu.links
+        unless matched_block_found
+          if link.url == collection.url
+            assign active_menu = menu
+            assign matched_block_found = true
+          endif
+        endunless
+      endfor
+    endunless
+  endfor
 %}
 
 <section class="simple-collection-links" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
-    {% if has_collection_links %}
-        <ul>
-          {% comment %} 
-            {% if request.page_type == "collection" %}
-              <li>
-                  <a href="{{ collection.url }}" class="on-collection">
-                      {{ collection.title }}
-                  </a>
-              </li>
-            {% endif %} 
-            {% endcomment %}
-            {% for block in filter_blocks %}
-
-                <li>
-                    <a href="{{ block.settings.collection.url }}" {% if block.settings.collection.handle == collection.handle %} class="on-collection"{% endif %}>
-                        {% if block.settings.title != blank %}
-                          {{ block.settings.title | strip }}
-                        {% else %}
-                          {{ block.settings.collection.title | strip }}
-                        {% endif %}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+  {% if active_menu %}
+    <ul>
+      {% for link in active_menu.links %}
+        <li>
+          <a href="{{ link.url }}"{% if link.url == collection.url %} class="on-collection"{% endif %}>
+            {{ link.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% elsif filter_blocks.size > 0 %}
+    <ul>
+      {% for block in filter_blocks %}
+        <li>
+          <a href="{{ block.settings.collection.url }}"{% if block.settings.collection.handle == collection.handle %} class="on-collection"{% endif %}>
+            {% if block.settings.title != blank %}
+              {{ block.settings.title | strip }}
+            {% else %}
+              {{ block.settings.collection.title | strip }}
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </section>
 
 {% schema %}
@@ -68,6 +80,18 @@
     }
   ],
   "blocks": [
+    {
+      "type": "menu-group",
+      "name": "Menu Group",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "info": "Each link in this menu should point to a collection. If the visitor is on any of those collections, this menu's links will be rendered as the nav strip."
+        }
+      ]
+    },
     {
       "type": "collection-filter-link",
       "name": "Collection Filter Link",

@@ -59,14 +59,14 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/aug-1-hp-desktop.jpg",
-        "image_2": "shopify://shop_images/aug-1-hp-desktop-_1.gif",
+        "image": "shopify://shop_images/Group_13018_9addee37-bebe-48ce-a73f-b9f66da9a861.jpg",
+        "image_2": "shopify://shop_images/Group-13017_500a4dcf-56a1-4cd7-ad75-8f2c4942d23a.gif",
         "image_link": "shopify://collections/bestsellers",
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 10,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
-        "color_scheme": "light",
+        "color_scheme": "dark",
         "mobile_content_alignment": "center",
         "color_scheme_mobile": "dark",
         "show_text_below": true,
@@ -115,6 +115,24 @@
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
+        "image_carousel_item_NhR8z7": {
+          "type": "image-carousel-item",
+          "name": "Cherrywood",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Erica_Med-Cinnamon_Suede-AG_6_1.jpg",
+            "eyebrow": "",
+            "title": "Meet Cherrywood",
+            "subcopy": "Rich, understated, and destined to define the season.",
+            "button_text": "SHOP Cherrywood",
+            "collection_url": "cherrywood",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
         "image_carousel_item_GfcXtm": {
           "type": "image-carousel-item",
           "name": "Cinnamon ",
@@ -125,24 +143,6 @@
             "subcopy": "Get set for fall with rich Italian suede.",
             "button_text": "SHOP CINNAMON SUEDE",
             "collection_url": "cinnamon-suede",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
-        "image_carousel_item_NhR8z7": {
-          "type": "image-carousel-item",
-          "name": "Cherrywood",
-          "settings": {
-            "image": "shopify://shop_images/aug-1-carousel-cherrywood.jpg",
-            "eyebrow": "",
-            "title": "Meet Cherrywood",
-            "subcopy": "Rich, understated, and destined to define the season.",
-            "button_text": "SHOP Cherrywood",
-            "collection_url": "cherrywood",
             "enable_image_as_link_out": true,
             "max_products": 10,
             "hide_price": false,
@@ -225,8 +225,8 @@
         }
       },
       "block_order": [
-        "image_carousel_item_GfcXtm",
         "image_carousel_item_NhR8z7",
+        "image_carousel_item_GfcXtm",
         "image_carousel_item_yEyrcC",
         "image_carousel_item_NKAmWd",
         "image_carousel_item_pREGr3",
