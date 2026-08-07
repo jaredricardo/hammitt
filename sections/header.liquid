@@ -57,6 +57,26 @@
     .menu__margin-custom{
       margin: 21.71px 0;
     }
+
+    .store-found-map-icon {
+      display: none;
+    }
+
+    .nav-store-link-text.store-found .icon-map-pin {
+      display: none;
+    }
+
+    .nav-store-link-text.store-found .store-found-map-icon {
+      display: block;
+    }
+
+    .mobile-nav-store-link.store-found .icon-map-pin {
+      display: none;
+    }
+
+    .mobile-nav-store-link.store-found .store-found-map-icon {
+      display: block;
+    }
   
     .list-menu__item--link {
       text-decoration: none;
@@ -348,6 +368,7 @@
         <a class="mobile-nav-store-link" href="/pages/our-stores" aria-label="Hammitt Physical Store Link">
           <span class="header__icon">
             {% render 'icon-map-pin-no-outline' %}
+            {% render 'icon-map-pin-store-found' %}
           </span>
         </a>
         <fake-details-modal class="header__search">
@@ -766,6 +787,7 @@
         <a class="main-nav-item desktop-nav-store-link" href="/pages/our-stores" aria-label="Hammitt Physical Store Link">
           <span class="nav-store-link-text">
             {% render 'icon-map-pin-no-outline' %}
+            {% render 'icon-map-pin-store-found' %}
             Stores
           </span>
         </a>

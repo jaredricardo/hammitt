@@ -1331,7 +1331,7 @@ template-{{ template.name -}}
             }
             if (!nearestStore || minDistance > MAX_DISTANCE_KM) return
 
-            // Desktop: update text and href
+            // Desktop: update text, href, and swap icons
             const desktopLink = document.querySelector('.desktop-nav-store-link')
             const desktopLinkText = desktopLink && desktopLink.querySelector('.nav-store-link-text')
             if (desktopLinkText && desktopLink) {
@@ -1340,12 +1340,14 @@ template-{{ template.name -}}
                 .forEach(n => { n.textContent = ` ${nearestStore.store_name} Store` })
               desktopLinkText.style.textDecoration = 'underline'
               desktopLink.href = nearestStore.store_link
+              desktopLinkText.classList.add('store-found')
             }
 
-            // Mobile: update href only
+            // Mobile: update href and swap icons
             const mobileLink = document.querySelector('.mobile-nav-store-link')
             if (mobileLink) {
               mobileLink.href = nearestStore.store_link
+              mobileLink.classList.add('store-found')
             }
           }
 
