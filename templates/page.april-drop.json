@@ -29,6 +29,41 @@
     },
     "image_banner_DcF4Jn": {
       "type": "image-banner",
+      "blocks": {
+        "heading_R7qzk9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cherrywood",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 56
+          }
+        },
+        "text_XiJFyr": {
+          "type": "text",
+          "settings": {
+            "text": "Rich, understated, and destined to define the season.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_Y3ejUN": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Cherrywood",
+            "button_link_1": "shopify://collections/cherrywood",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_R7qzk9",
+        "text_XiJFyr",
+        "buttons_Y3ejUN"
+      ],
       "name": "Cherrywood",
       "settings": {
         "custom_classes": "",
@@ -42,10 +77,10 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/LP-2-august-cherrywood-desktop.jpg",
-        "image_2": "shopify://shop_images/LP-2-august-cherrywood-mobile.jpg",
+        "image": "shopify://shop_images/Group_13017.jpg",
+        "image_2": "shopify://shop_images/PDP_26.3_0734_2.jpg",
         "image_link": "shopify://collections/cherrywood",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 20,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
@@ -64,11 +99,35 @@
         "content_padding_bottom_mobile": 0,
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
-        "padding_top": 12,
+        "padding_top": 0,
         "padding_bottom": 12,
-        "padding_top_mobile": 20,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 0,
         "custom_class": ""
+      }
+    },
+    "slider_collection_WyxHUY": {
+      "type": "slider-collection",
+      "name": "Cherrywood widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "cherrywood",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     },
     "image_banner_mKEG8W": {
@@ -143,9 +202,9 @@
         "content_padding_bottom_mobile": 0,
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
-        "padding_top": 0,
+        "padding_top": 20,
         "padding_bottom": 12,
-        "padding_top_mobile": 0,
+        "padding_top_mobile": 20,
         "padding_bottom_mobile": 0,
         "custom_class": ""
       }
@@ -158,30 +217,6 @@
         "heading_align": "center",
         "heading_color": "",
         "collection": "cinnamon-suede",
-        "max_products": 10,
-        "show_secondary_image": true,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "slides_per_view_mobile": 2.2,
-        "slides_per_view_tablet": 2.2,
-        "slides_per_view_desktop": 4,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "slider_collection_WyxHUY": {
-      "type": "slider-collection",
-      "name": "Cherrywood widget",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "cherrywood",
         "max_products": 10,
         "show_secondary_image": true,
         "image_ratio": "adapt",
