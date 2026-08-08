@@ -10,6 +10,22 @@
     opacity: 1;
   }
 
+  [data-section-id="{{ section.id }}"] .swiper {
+    --swiper-scrollbar-bg-color: #EDEDED;
+    --swiper-scrollbar-drag-bg-color: #9C9C9C;
+    --swiper-scrollbar-border-radius: 0px;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper-scrollbar {
+    height: 1.5px;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper-scrollbar-drag {
+    background: #9C9C9C;
+    border-radius: 0;
+    display: block;
+  }
+
 {% endstyle %}
 
 <style>
@@ -40,6 +56,10 @@
 
   .store-events-swiper {
     overflow: hidden;
+  }
+
+  .store-events-swiper .swiper-wrapper {
+    padding-bottom: 3rem !important;
   }
 
   .events-card {
@@ -284,6 +304,10 @@
           mousewheel: {
             forceToAxis: true
           },
+          scrollbar: {
+            el: section.querySelector('.swiper-scrollbar'),
+            draggable: true
+          },
           breakpoints: {
             769: {
               slidesPerView: 3.4,
@@ -415,6 +439,7 @@
                 </div>
             {% endfor %}
             </div>
+            <div class="swiper-scrollbar"></div>
         </div>
         <div class="row-concierge">
             <p class="concierge-callout page-width">
