@@ -77,6 +77,25 @@
     .mobile-nav-store-link.store-found .store-found-map-icon {
       display: block;
     }
+
+    .mobile-nav-store-link {
+      position: relative;
+    }
+
+    .store-finding-tooltip {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      white-space: nowrap;
+      background: #ffffff;
+      color: #000000;
+      font-size: 12px;
+      font-family: inherit;
+      padding: 5px 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      pointer-events: none;
+      z-index: 10;
+    }
   
     .list-menu__item--link {
       text-decoration: none;
@@ -788,7 +807,7 @@
           <span class="nav-store-link-text">
             {% render 'icon-map-pin-no-outline' %}
             {% render 'icon-map-pin-store-found' %}
-            Stores
+            <span>Stores</span>
           </span>
         </a>
         {%- if shop.customer_accounts_enabled -%}

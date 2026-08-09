@@ -1335,9 +1335,8 @@ template-{{ template.name -}}
             const desktopLink = document.querySelector('.desktop-nav-store-link')
             const desktopLinkText = desktopLink && desktopLink.querySelector('.nav-store-link-text')
             if (desktopLinkText && desktopLink) {
-              Array.from(desktopLinkText.childNodes)
-                .filter(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim() !== '')
-                .forEach(n => { n.textContent = ` ${nearestStore.store_name} Store` })
+              const storeTextSpan = desktopLinkText.querySelector('span:last-child')
+            if (storeTextSpan) storeTextSpan.textContent = `${nearestStore.store_name} Store`
               desktopLinkText.style.textDecoration = 'underline'
               desktopLink.href = nearestStore.store_link
               desktopLinkText.classList.add('store-found')
@@ -1359,7 +1358,23 @@ template-{{ template.name -}}
             return
           }
 
-          // 2. Fetch full location data (includes IP) in one request using API key
+          // 2. No cache — show loading state before making the API call
+          const desktopStoreTextEl = document.querySelector('.nav-store-link-text > span:last-child')
+          if (desktopStoreTextEl) desktopStoreTextEl.textContent = 'Finding nearest store...'
+
+          const mobileStoreLink = document.querySelector('.mobile-nav-store-link')
+          let mobileTooltip = null
+          if (mobileStoreLink) {
+            mobileTooltip = document.createElement('div')
+            mobileTooltip.className = 'store-finding-tooltip'
+            mobileTooltip.textContent = 'Finding nearest store...'
+            mobileStoreLink.appendChild(mobileTooltip)
+          }
+
+          // Artificial delay so users can see the "Finding nearest store..." state
+          await new Promise(resolve => setTimeout(resolve, 1500))
+
+          // 3. Fetch full location data (includes IP) in one request using API key
           try {
             const res = await fetch(`https://ipwhois.pro/json/?key=${IPWHOIS_KEY}`)
             const locationData = await res.json()
@@ -1371,6 +1386,13 @@ template-{{ template.name -}}
             applyNearestStore(locationData)
           } catch (err) {
             console.error('ipwhois: failed to fetch location data', err)
+          } finally {
+            // Remove mobile tooltip
+            if (mobileTooltip) mobileTooltip.remove()
+            // Revert desktop text if applyNearestStore didn't update it (no store found)
+            if (desktopStoreTextEl && desktopStoreTextEl.textContent === 'Finding nearest store...') {
+              desktopStoreTextEl.textContent = 'Stores'
+            }
           }
         })
       </script>
