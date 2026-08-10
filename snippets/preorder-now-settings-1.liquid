@@ -1,4 +1,5 @@
-<script type="text/javascript" defer>
+{%- comment -%} Edgemesh: window.pn.cart is per-session cart JSON, make script dynamic {%- endcomment -%}
+<script type="text/javascript" defer dynamic>
   {% if cart %}
     window.pn.cart = {};
   	window.pn.cart = {{cart | json}}

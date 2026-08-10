@@ -817,12 +817,15 @@
               <div id="cart-icon-bubble">
                 {% render 'icon-cart' %}
                 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-                <div class="cart-count-bubble" {% if cart == empty %}style="display: none;"{% endif %}>
-                  {%- if cart.item_count < 100 -%}
-                  <span aria-hidden="true">{{ cart.item_count }}</span>
-                  {%- endif -%}
-                  <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-                </div>
+                {%- comment -%} Edgemesh: cart.item_count is per-session {%- endcomment -%}
+                <dynamic>
+                  <div class="cart-count-bubble" {% if cart == empty %}style="display: none;"{% endif %}>
+                    {%- if cart.item_count < 100 -%}
+                    <span aria-hidden="true">{{ cart.item_count }}</span>
+                    {%- endif -%}
+                    <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                  </div>
+                </dynamic>
               </div>
             </summary>
             <div id="cart-drawer" class="cart-drawer motion-reduce" tabindex="-1">
@@ -964,7 +967,8 @@
     }
   </script>
   
-  <script class="restructure">
+  {% comment %} Edgemesh - elements being bound by this script are inside of another dynamic tag, script must also be dynamic {% endcomment %}
+  <script class="restructure" dynamic>
     window.jsLoad = false;
     document.querySelector('#Details-menu-drawer-container').addEventListener('click', function(){
       if(!jsLoad){
@@ -974,7 +978,8 @@
 
   </script>
 
-  <script class="restructure">
+  {% comment %} Edgemesh - elements being bound by this script are inside of another dynamic tag, script must also be dynamic {% endcomment %}
+  <script class="restructure" dynamic>
     window.jsWNWLoad = false;
 
     {% comment %} Open Cart Drawer  {% endcomment %}
