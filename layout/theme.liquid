@@ -1348,6 +1348,8 @@ template-{{ template.name -}}
               mobileLink.href = nearestStore.store_link
               mobileLink.classList.add('store-found')
             }
+
+            return nearestStore
           }
 
           // 1. Check sessionStorage for a cached location data object
@@ -1375,24 +1377,31 @@ template-{{ template.name -}}
           await new Promise(resolve => setTimeout(resolve, 1500))
 
           // 3. Fetch full location data (includes IP) in one request using API key
+          let foundStore = null
           try {
             const res = await fetch(`https://ipwhois.pro/json/?key=${IPWHOIS_KEY}`)
             const locationData = await res.json()
             if (!locationData.success && locationData.success !== undefined) {
               console.error('ipwhois: request failed', locationData.message)
-              return
+            } else {
+              sessionStorage.setItem('ipwhois_data', JSON.stringify(locationData))
+              foundStore = applyNearestStore(locationData)
             }
-            sessionStorage.setItem('ipwhois_data', JSON.stringify(locationData))
-            applyNearestStore(locationData)
           } catch (err) {
             console.error('ipwhois: failed to fetch location data', err)
-          } finally {
-            // Remove mobile tooltip
-            if (mobileTooltip) mobileTooltip.remove()
-            // Revert desktop text if applyNearestStore didn't update it (no store found)
-            if (desktopStoreTextEl && desktopStoreTextEl.textContent === 'Finding nearest store...') {
-              desktopStoreTextEl.textContent = 'Stores'
-            }
+          }
+
+          // Mobile tooltip phase 2: show store name for 1500ms before disappearing
+          if (mobileTooltip && foundStore) {
+            mobileTooltip.innerHTML = `<u>${foundStore.store_name} Store</u>`
+            await new Promise(resolve => setTimeout(resolve, 1500))
+          }
+
+          // Cleanup
+          if (mobileTooltip) mobileTooltip.remove()
+          // Revert desktop text if applyNearestStore didn't update it (no store found)
+          if (desktopStoreTextEl && desktopStoreTextEl.textContent === 'Finding nearest store...') {
+            desktopStoreTextEl.textContent = 'Stores'
           }
         })
       </script>
