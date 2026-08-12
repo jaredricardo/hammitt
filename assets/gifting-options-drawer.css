@@ -82,17 +82,26 @@ hammitt-gifting-options-drawer-trigger {
     flex-direction: row;
     align-items: center;
     justify-content: start;
-    gap: 1.5rem;
     margin-top: 15px;
+    border: 1px solid #EBEBEB;
+    padding: 1rem;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+hammitt-gifting-options-drawer-trigger .icon-caret {
+    width: 12px;
+    transform: rotate(270deg);
+    margin-left: auto;
 }
 
 hammitt-gifting-options-drawer-trigger button {
     padding: .25rem 1.25rem;
     border: none;
-    background: black;
     font-size: 12px;
-    color: #fff;
+    color: black;
     cursor: pointer;
+    background-color: transparent;
 }
 
 hammitt-gifting-options-drawer p,
@@ -134,9 +143,9 @@ hammitt-gifting-options-drawer hammitt-gifting-broken-out-line-item {
 }
 
 hammitt-gifting-options-drawer .broken-out-line-items li img {
-    width: 90px;
+    width: 125px;
     object-fit: cover;
-    aspect-ratio: 1 / 1;
+    background-color: #f9f8f6 !important;
 }
 
 hammitt-gifting-options-drawer h5 {
@@ -170,6 +179,10 @@ hammitt-gifting-options-drawer .checkbox-container input[type="checkbox"] {
     height: 13px;
     width: 13px;
     cursor: pointer;
+}
+
+.broken-out-line-item .hammitt-gift-note-area {
+    display: none;
 }
 
 .broken-out-line-item:has(.line-item-hand-written-note:checked) .hammitt-gift-note-area {

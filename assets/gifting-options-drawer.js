@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     class HammittGiftingOptionsDrawerTrigger extends HTMLElement {
         constructor() {
             super()
-            this.querySelector('#open-btn').addEventListener('click', this.openGiftingDrawer)
+            this.addEventListener('click', this.openGiftingDrawer)
         }
         openGiftingDrawer(){
             document.querySelector('hammitt-gifting-options-drawer')?.classList.add('active')
@@ -190,7 +190,12 @@ window.addEventListener('DOMContentLoaded', () => {
             })
 
             // add sections to update so cart updates properly
-            postUpdateFormData.sections = "cart-drawer,cart-icon-bubble,main-cart-items"
+            // 'header' is required so cartUpdate() can refresh .drawer__items and related cart elements
+            postUpdateFormData.sections = "cart-drawer,cart-icon-bubble,main-cart-items,header"
+
+            const stopSpinner = () => {
+                document.querySelector('hammitt-gifting-options-drawer .loading-spinner-container .spinner')?.classList.remove('active')
+            }
 
             // use change.js to decrement existing line items via the updates object
       
@@ -223,15 +228,29 @@ window.addEventListener('DOMContentLoaded', () => {
                         const doc = parser.parseFromString(json.sections['cart-drawer'], "text/html")
                         const elOld = document.querySelector('free-shipping-goal')
                         const elNew = doc.querySelector('free-shipping-goal')
-                        if(elOld == null || elNew == null) return
                         if(elOld && elNew) {
                             elOld.outerHTML = elNew.outerHTML
                         }
                     })
+                    .catch((error) => {
+                        console.error('Error adding to cart:', error)
+                        saveBtn.innerText = 'Save'
+                        saveBtn.disabled = false
+                    })
+                    .finally(() => {
+                        stopSpinner()
+                    })
+                } else {
+                    stopSpinner()
+                    saveBtn.innerText = 'Save'
+                    saveBtn.disabled = false
                 }
             })
             .catch((error) => {
-                console.error('Error:', error);
+                console.error('Error:', error)
+                stopSpinner()
+                saveBtn.innerText = 'Save'
+                saveBtn.disabled = false
             })
         }
     }

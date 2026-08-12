@@ -229,6 +229,7 @@ cart-drawer > details[open] > summary::before {
   text-align:center;
   aspect-ratio: 4/5;
   background-color: #F9F8F6;
+  object-fit: contain;
 }
 .drawer_product-info{
   margin:0;
@@ -1118,7 +1119,7 @@ save-for-later-item {
 }
 
 .saved-for-later-item .drawer__content-item-image img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .saved-for-later-item .drawer__content-item-info {
