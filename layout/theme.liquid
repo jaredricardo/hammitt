@@ -526,6 +526,8 @@
     {% render 'prerender' %}
   </head>
 
+  {% render 'tie_loader' %}
+
 {%- capture bodyClass -%}
 template-{{ template.name -}}
 {%- if template.suffix %} template-{{ template.suffix | replace: '.', ' ' | truncatewords: 1, '' | handle -}}{%- endif -%}
