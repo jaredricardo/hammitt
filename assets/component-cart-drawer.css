@@ -97,7 +97,7 @@ cart-drawer > details[open] > summary::before {
 
 .drawer__header {
   text-align: center;
-  border-bottom: 1px solid #e8e8e1;
+  padding: 0;
 }
 
 /* 
@@ -105,7 +105,6 @@ cart-drawer > details[open] > summary::before {
   Instead of editing them all, we will override them here and then add padding to the parent element.
 */
 
-.drawer__header,
 .drawer__header h4,
 .drawer__final,
 .drawer__items {
@@ -233,18 +232,22 @@ cart-drawer > details[open] > summary::before {
 }
 .drawer_product-info{
   margin:0;
-  margin-bottom: 0rem;
+  height: 100%;
   line-height: 1;
   font-weight: 500;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
-.drawer_product-info .exclusion-span {
-  color:#C74141; 
+.drawer_product-info .line-item-callout {
   font-size: 11px; 
   margin-top: 5px; 
-  margin-bottom: 3px;
+  color: #A20000
+}
+
+.drawer_product-info .line-item-callout.green {
+  color: #1E9907;
 }
 
 .drawer__content-item-info{
@@ -586,8 +589,7 @@ span.freeRemainShippingMsg,
 .progress-bar {
   --scale-x: 0%;
   display: block !important;
-  height: 4px;
-  border-radius: var(--progress-bar-radius, 3rem);
+  height: 1.5px;
   background-color: rgba(0,0,0, .075);a
   position: relative;
   overflow: hidden;
@@ -598,7 +600,7 @@ span.freeRemainShippingMsg,
 
 .progress-bar:before {
   content: "";
-  background: #0d8756;
+  background: black;
   border-radius: inherit;
   display: block;
   height: 100%;
@@ -1001,10 +1003,10 @@ hammitt-cart-level-gift-note {
   padding-top: 10px !important;
 }
 .gwp-progress-bar-header {
-  padding: 7px 0 5px;
-  text-align: center;
+  padding: 10px 1rem 10px;
+  text-align: start;
   line-height: 1.1;
-  color: #0d8756;
+  color: black;
 }
 
 .gwp-progress-bar-header.gwp-tier-success {

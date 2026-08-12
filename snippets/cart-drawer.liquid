@@ -561,10 +561,10 @@
             > 
             {% assign appear_delay = appear_delay | plus: 1 %}
             <div class="drawer__content-item-image"> 
-              <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.image.alt }}"> 
+              <img src="{{ item.image | image_url: width: 700 }}" alt="{{ item.image.alt }}"> 
             </div> 
             <div class="drawer__content-item-info"> 
-              <div> 
+              <div style="height: 100%; display: flex; flex-direction: column;"> 
                 <div class="drawer__content-item-and-price">
                     {% if noLink %}
                     <p class="cart-item__title" style="margin:0;">{{ product_type }} x {{ item.quantity }}</p>
@@ -586,57 +586,34 @@
                 </div> 
                 <div class="drawer_product-info"> 
                   <span class="product-option">{{ product_color }}</span>
-                  {% comment %} needs to be deleted after red TLC promo {% endcomment %}
 
-                  {% if item.product.tags contains 'sample sale' or item.product.tags contains 'final sale' %}
-                    <span class="exclusion-span"> Final Sale</span>
+                  {% comment %} only allowing one of the second span callouts to render at once {% endcomment %}
+                  {% if item.product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and item.product.available %}
+                      <span class="line-item-callout">Only a few left</span>
+                    {% elsif item.product.tags contains 'sample sale' or item.product.tags contains 'final sale' or item.product.tags contains 'no-returns' %}
+                      <span class="line-item-callout"> Final Sale</span>
+                    {% else %}
+                      {% unless item.product.id == settings.hammitt_gift_wrap_product_cart_level.id %}
+                        {% unless item.product.tags contains 'excluded-from-gifting-both-options' or item.product.tags contains 'excluded-from-gifting' %}
+                          <span class="line-item-callout green">White box and dust bag included</span>
+                        {% endunless %}
+                      {% endunless %}
                   {% endif %}
 
-                  {% unless item.product.id == settings.hammitt_gift_wrap_product_cart_level.id %}
-                    {% if item.product.tags contains 'excluded-from-gifting-both-options' %}
-                        <span class="exclusion-span">Box, dust bag, and gift wrap not available.</span>
-                      {% elsif item.product.tags contains 'excluded-from-gifting' %}
-                        <span class="exclusion-span">Box not included, gift wrap not available.</span>
-                    {% endif %}
-                  {% endunless %}
                   
                   {% unless item.product.has_only_default_variant %}
-                  {% for option in item.options_with_values %}
-                    <div class="product-option">                      
-                      <dt>{{ option.name }}:</dt>
-                      <dd>{{ option.value }}</dd>
-                    </div> 
+                    {% for option in item.options_with_values %}
+                      <div class="product-option">                      
+                        <dt>{{ option.name }}:</dt>
+                        <dd>{{ option.value }}</dd>
+                      </div> 
                     {% endfor %}
                   {% endunless %}
-                  {% if item.selling_plan_allocation.selling_plan.name %}
-                  <div class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</div>
-                  {% endif %}
-                  {% for property in item.properties %}
 
-                      {% comment %} EE GWP PROPERTY {% endcomment %}
-                      {%- assign property_addon_promotion = property.first | slice: 0, 13 -%}
-                      {% if property_addon_promotion == "_IDPromotion" %}
-                        <div style="display: none;" class="{% if property.last == "IDPromotion" %} id-promotion_property{% else %}id-addon_property{% endif %}">
-                          {{ property.last }}
-                        </div>
-                      {% endif %}
-                      {% assign isBadgeProductProperties = false %}
-                      {% for tag in item.product.tags %}
-                        {% if tag == 'no-returns' %}
-                          {% if item.product.metafields.custom.badge_properties %}
-                            {% assign isBadgeProductProperties = true %}
-                          {% endif %}
-                        {% endif %}
-                      {% endfor %}  
-                    {% if property.first.first == "_" %}{% continue %}{% endif %}
-                    {% if property.first == "Sample Sale" %}{% continue %}{% endif %}
-                    {% unless property.first == "tn_enabled" %}
-                      <div style="margin-top: 5px;" class="product-option product-option--{{ property.first | handle }} {% if isBadgeProductProperties %} product-properties__option {% endif %}">                      
-                        <dt>{{ property.first }}:</dt>
-                        <dd>{{ property.last }}</dd>
-                      </div> 
-                    {% endunless %}
-                  {% endfor %}
+                  {% if item.selling_plan_allocation.selling_plan.name %}
+                    <div class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</div>
+                  {% endif %}
+
                 </div> 
                 <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
                   {%- for discount in item.discounts -%}
