@@ -822,12 +822,14 @@
                 endif
               -%}
             </span>
-            {% if customer %}
-              <span class="yotpo-rewards-count"> </span>
-              <script>
-                window.customerName = `{{ customer.first_name }}`;
-              </script>
-            {% endif %}
+            {% comment %} 
+              {% if customer %}
+                <span class="yotpo-rewards-count"> </span>
+                <script>
+                  window.customerName = `{{ customer.first_name }}`;
+                </script>
+              {% endif %}
+            {% endcomment %}
           </a>
         {%- endif -%}
         <a href="{{ section.settings.wishlist_page }}" class="nav-wishlist-button" aria-label="Wishlist">
@@ -876,17 +878,19 @@
         </cart-drawer>
       </div>
     </header>
-    {% if customer %}    
-      <yotpo-points>
-        {% style %}
-        yotpo-points {
-          --bgColor: {{ section.settings.yotpo_bgColor }};
-          --textColor: {{ section.settings.yotpo_text_Color }};
-        }
-        {% endstyle %}
-        <div class="yotpo-rewards-count-mobile"></div>
-      </yotpo-points>
-    {% endif %}
+    {% comment %} 
+      {% if customer %}    
+        <yotpo-points>
+          {% style %}
+          yotpo-points {
+            --bgColor: {{ section.settings.yotpo_bgColor }};
+            --textColor: {{ section.settings.yotpo_text_Color }};
+          }
+          {% endstyle %}
+          <div class="yotpo-rewards-count-mobile"></div>
+        </yotpo-points>
+      {% endif %} 
+    {% endcomment %}
   </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
   
   
@@ -996,16 +1000,16 @@
     }
   });
 
-  const myInterval = setInterval(yotpoRewards, 1000);
+  // const myInterval = setInterval(yotpoRewards, 1000);
 
-    function yotpoRewards() {
-      if(document.querySelector('.yotpo-rewards-count') != null && window.swellConfig && window.swellConfig.customer.points_balance > 0) {
-        document.querySelector('.yotpo-rewards-count').innerHTML = `${window.customerName} | ${window.swellConfig.customer.points_balance} PTS`;
-        document.querySelector('.yotpo-rewards-count-mobile').innerHTML = `<span>${window.customerName}</span> <span>${window.swellConfig.customer.points_balance} PTS</span>`;
-        document.querySelector('.header__icon--account').classList.add('yotpo-added');
-        clearInterval(myInterval);
-      }
-    }
+  //   function yotpoRewards() {
+  //     if(document.querySelector('.yotpo-rewards-count') != null && window.swellConfig && window.swellConfig.customer.points_balance > 0) {
+  //       document.querySelector('.yotpo-rewards-count').innerHTML = `${window.customerName} | ${window.swellConfig.customer.points_balance} PTS`;
+  //       document.querySelector('.yotpo-rewards-count-mobile').innerHTML = `<span>${window.customerName}</span> <span>${window.swellConfig.customer.points_balance} PTS</span>`;
+  //       document.querySelector('.header__icon--account').classList.add('yotpo-added');
+  //       clearInterval(myInterval);
+  //     }
+  //   }
   </script>
   
   <script class="restructure">
