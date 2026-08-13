@@ -145,10 +145,6 @@
   </style>
 {% endif %}
 
-<script>
-  console.log({{ cart | json }})
-</script>
-
 {% if settings.enable_free_multi_gift_select or settings.enable_free_gift_wrap %}
   <style>
     .discounts.list-unstyled {
@@ -610,7 +606,9 @@
 
                   {% comment %} only allowing one of the second span callouts to render at once {% endcomment %}
                   {% if item.product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and item.product.available %}
-                      <span class="line-item-callout">Only a few left</span>
+                      {% unless item.product.id == settings.hammitt_gift_wrap_product_cart_level.id %}
+                        <span class="line-item-callout">Only a few left {{ item.product.id }} !</span>
+                      {% endunless %}
                     {% elsif item.product.tags contains 'sample sale' or item.product.tags contains 'final sale' or item.product.tags contains 'no-returns' %}
                       <span class="line-item-callout"> Final Sale</span>
                     {% else %}
