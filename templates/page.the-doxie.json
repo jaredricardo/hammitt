@@ -22,8 +22,76 @@
         "padding_bottom_mobile": 0
       }
     },
+    "image_banner_amHYEP": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_XATrHJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Doxie",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 50,
+            "heading_size_desktop": 60
+          }
+        },
+        "buttons_TbpAcP": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Doxie",
+            "button_link_1": "shopify://collections/doxie",
+            "button_style_secondary_1": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_XATrHJ",
+        "buttons_TbpAcP"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "portrait",
+        "image": "shopify://shop_images/Group_13023.jpg",
+        "image_2": "shopify://shop_images/Rectangle_1207.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
     "hero_video_banner_8Xigzc": {
       "type": "hero-video-banner",
+      "disabled": true,
       "name": "Hero Video Banner",
       "settings": {
         "video_height": "auto",
@@ -117,6 +185,38 @@
         "padding_bottom": 36,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36
+      }
+    },
+    "rich_text_rTntNH": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zGkDN8": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "The Details",
+            "heading_size": "h1"
+          }
+        },
+        "text_M8QYUc": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>Mixed metal O-rings, rivet accents, and tassel zipper pulls give Doxie its edge, while triple zippers and a detachable 40\" crossbody strap keep it as functional as it is striking.</h6>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zGkDN8",
+        "text_M8QYUc"
+      ],
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 52,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 36
       }
     },
     "multicolumn_wCLcFh": {
@@ -236,92 +336,15 @@
         "padding_bottom_mobile": 36,
         "custom_class": ""
       }
-    },
-    "image_banner_amHYEP": {
-      "type": "image-banner",
-      "disabled": true,
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "custom_classes": "",
-        "custom_id": "",
-        "title": "",
-        "title_color": "",
-        "description": "",
-        "description_color": "",
-        "heading_html_tag": "h2",
-        "video_url": "",
-        "video_height": "16-9",
-        "video_url_mobile": "",
-        "mobile_video_height": "portrait",
-        "image": "shopify://shop_images/doxie-info-desk.jpg",
-        "image_2": "shopify://shop_images/doxie-info-mob.jpg",
-        "image_link": "",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "color_scheme": "light",
-        "mobile_content_alignment": "center",
-        "color_scheme_mobile": "light",
-        "show_text_below": true,
-        "full_width": true,
-        "cta_color_scheme": "dark",
-        "custom_content_spacing": false,
-        "content_padding_top": 0,
-        "content_padding_bottom": 0,
-        "content_padding_left": 0,
-        "content_padding_right": 0,
-        "content_padding_top_mobile": 0,
-        "content_padding_bottom_mobile": 0,
-        "content_padding_left_mobile": 0,
-        "content_padding_right_mobile": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
-      }
-    },
-    "rich_text_rTntNH": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_zGkDN8": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "The Details",
-            "heading_size": "h1"
-          }
-        },
-        "text_M8QYUc": {
-          "type": "text",
-          "settings": {
-            "text": "<h6>Mixed metal O-rings, rivet accents, and tassel zipper pulls give Doxie its edge, while triple zippers and a detachable 40\" crossbody strap keep it as functional as it is striking.</h6>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_zGkDN8",
-        "text_M8QYUc"
-      ],
-      "settings": {
-        "custom_classes": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 28,
-        "padding_bottom": 52,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 36
-      }
     }
   },
   "order": [
     "main",
+    "image_banner_amHYEP",
     "hero_video_banner_8Xigzc",
     "c45c48f9-2620-4957-9321-5b990ead48e0",
     "slider_collection_ETRwMM",
     "rich_text_rTntNH",
-    "multicolumn_wCLcFh",
-    "image_banner_amHYEP"
+    "multicolumn_wCLcFh"
   ]
 }
