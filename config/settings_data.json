@@ -9,8 +9,9 @@
  */
 {
   "current": {
-    "enable_product_card_swatches": false,
+    "enable_product_card_swatches": true,
     "use_new_product_card_quick_add": false,
+    "enable_hammitt_store_geo_location": true,
     "colors_solid_button_labels": "#ffffff",
     "colors_accent_1": "#000000",
     "colors_accent_2": "#fcf7f5",
@@ -144,9 +145,9 @@
           "announcement_gtphpC": {
             "type": "announcement",
             "settings": {
-              "text": "<p><strong>New In: Cherrywood</strong></p>",
+              "text": "<p><strong>New Travel Drop</strong></p>",
               "text_color": "#ffffff",
-              "background_color": "#600106",
+              "background_color": "#000000",
               "link": "shopify://pages/current-season"
             }
           },
@@ -243,14 +244,6 @@
               "gwp_tier_alternate_reward_title": "set of 4 wine charms"
             }
           },
-          "visual_menu_item_EpM8Ep": {
-            "type": "visual-menu-item",
-            "settings": {
-              "nav_link": "shopify://collections/new-arrivals",
-              "title": "New",
-              "nav_image": "shopify://shop_images/PLP_10.jpg"
-            }
-          },
           "visual_menu_item_KWAJ7F": {
             "type": "visual-menu-item",
             "settings": {
@@ -259,8 +252,17 @@
               "nav_image": "shopify://shop_images/PLP_6.jpg"
             }
           },
+          "visual_menu_item_EpM8Ep": {
+            "type": "visual-menu-item",
+            "settings": {
+              "nav_link": "shopify://collections/new-arrivals",
+              "title": "New",
+              "nav_image": "shopify://shop_images/Hammitt_Kyle-Med-Lrg-Wine-Nylon-G_5A2_5.jpg"
+            }
+          },
           "visual_menu_item_PmYb6N": {
             "type": "visual-menu-item",
+            "disabled": true,
             "settings": {
               "nav_link": "shopify://collections/kyle",
               "title": "Kyle",
@@ -287,6 +289,7 @@
           },
           "visual_menu_item_dnfE94": {
             "type": "visual-menu-item",
+            "disabled": true,
             "settings": {
               "nav_link": "shopify://collections/satchel-shoulder-bag",
               "title": "Shoulder Bags",
@@ -295,6 +298,7 @@
           },
           "visual_menu_item_9xHkTW": {
             "type": "visual-menu-item",
+            "disabled": true,
             "settings": {
               "nav_link": "shopify://collections/small-leather-goods",
               "title": "Small Leather Goods",
@@ -303,6 +307,7 @@
           },
           "visual_menu_item_YfRjF6": {
             "type": "visual-menu-item",
+            "disabled": true,
             "settings": {
               "nav_link": "shopify://collections/view-all",
               "title": "Shop All",
@@ -345,8 +350,8 @@
           "bundle_gwp_BiUNEP",
           "gwp_tier_HBiUJD",
           "gwp_tier_DFBBdG",
-          "visual_menu_item_EpM8Ep",
           "visual_menu_item_KWAJ7F",
+          "visual_menu_item_EpM8Ep",
           "visual_menu_item_PmYb6N",
           "visual_menu_item_jwtCLw",
           "visual_menu_item_dFdi9e",
@@ -385,7 +390,7 @@
           "empty_cart_upsells_header": "You Might Like",
           "empty_cart_upsells": [
             "kyle-shoulder-bag-cinnamon-suede-antique-gold",
-            "beverly-med-crossbody-cherrywood-pebble-brushed-gold",
+            "beverly-med-crossbody-black-brushed-gold",
             "paul-mini-bag-charm-speckle-calf-brushed-gold",
             "meryl-carryall-tote-cinnamon-suede-antique-gold"
           ],
@@ -399,7 +404,7 @@
             "type": "custom_section",
             "settings": {
               "heading": "Come Visit Us",
-              "footer_image": "shopify://shop_images/la_jolla.jpg",
+              "footer_image": "shopify://shop_images/image_1.png",
               "footer_image_link": "shopify://pages/our-stores",
               "footer_paragraph": "Store Locations"
             }
@@ -668,7 +673,7 @@
               "image_caption": "",
               "image_link": "",
               "submenu_reference": "menu",
-              "menu": "silhouettes",
+              "menu": "featured-1",
               "show_heading": true,
               "submenu_menu": ""
             }
@@ -680,13 +685,14 @@
               "image_caption": "",
               "image_link": "",
               "submenu_reference": "menu",
-              "menu": "hardware",
+              "menu": "by-occasion",
               "show_heading": true,
               "submenu_menu": ""
             }
           },
           "5756ebe0-ea7a-4159-93dd-aee128363f04": {
             "type": "column",
+            "disabled": true,
             "settings": {
               "image_ratio": "default",
               "image_caption": "",
@@ -697,15 +703,6 @@
               "submenu_menu": ""
             }
           },
-          "image_gY6exJ": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/new-in-img.jpg",
-              "image_ratio": "portrait",
-              "image_caption": "New Arrivals",
-              "image_link": "shopify://pages/current-season"
-            }
-          },
           "932cbe61-75a2-429c-9030-3aeff4a6ae9f": {
             "type": "image",
             "settings": {
@@ -714,6 +711,24 @@
               "image_caption": "Bestsellers",
               "image_link": "shopify://collections/bestsellers"
             }
+          },
+          "image_gY6exJ": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/new-in-img.jpg",
+              "image_ratio": "portrait",
+              "image_caption": "Cherrywood",
+              "image_link": "shopify://collections/cherrywood"
+            }
+          },
+          "image_mK9Xtm": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/doxie-new-section.jpg",
+              "image_ratio": "portrait",
+              "image_caption": "New Arrivals",
+              "image_link": "shopify://pages/current-season"
+            }
           }
         },
         "block_order": [
@@ -721,12 +736,13 @@
           "fe8f8a8f-f6af-45ed-84a4-6fc6b6ebb111",
           "5c68e212-1635-4d0c-9ee3-090bf539fed0",
           "5756ebe0-ea7a-4159-93dd-aee128363f04",
+          "932cbe61-75a2-429c-9030-3aeff4a6ae9f",
           "image_gY6exJ",
-          "932cbe61-75a2-429c-9030-3aeff4a6ae9f"
+          "image_mK9Xtm"
         ],
         "settings": {
           "enable_mega_menu": true,
-          "parent": "Shop",
+          "parent": "Bags",
           "background_color": "#ffffff",
           "padding_top": 15,
           "padding_bottom": 50,
@@ -875,7 +891,7 @@
               "image_caption": "",
               "image_link": "",
               "submenu_reference": "menu",
-              "menu": "about",
+              "menu": "our-story-new",
               "show_heading": true,
               "submenu_menu": ""
             }
@@ -887,7 +903,7 @@
               "image_caption": "",
               "image_link": "",
               "submenu_reference": "menu",
-              "menu": "community",
+              "menu": "",
               "show_heading": true,
               "submenu_menu": ""
             }
@@ -929,7 +945,7 @@
         ],
         "settings": {
           "enable_mega_menu": true,
-          "parent": "Explore",
+          "parent": "Our Story",
           "background_color": "#ffffff",
           "padding_top": 15,
           "padding_bottom": 50,

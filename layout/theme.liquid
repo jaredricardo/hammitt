@@ -529,6 +529,8 @@
     {% render 'prerender' %}
   </head>
 
+  {% render 'tie_loader' %}
+
 {%- capture bodyClass -%}
 template-{{ template.name -}}
 {%- if template.suffix %} template-{{ template.suffix | replace: '.', ' ' | truncatewords: 1, '' | handle -}}{%- endif -%}
@@ -1273,8 +1275,147 @@ template-{{ template.name -}}
       </script>
     {% endif %}
 
-    {% if settings.enable_product_card_swatches %}
+
+    {% if settings.enable_hammitt_store_geo_location %}
       <script>
+        const storeDataJson = {
+          "la_jolla": {
+            "store_name": "La Jolla",
+            "store_lat":  32.8459313,
+            "store_lng": -117.2741033,
+            "store_link": "/pages/la-jolla"
+          },
+          "scottsdale": {
+            "store_name": "Scottsdale",
+            "store_lat":  33.6244839,
+            "store_lng": -111.9300552,
+            "store_link": "/pages/scottsdale" 
+          },
+          "chicago": {
+            "store_name": "Chicago",
+            "store_lat":  41.9182894,
+            "store_lng": -87.6500613,
+            "store_link": "/pages/chicago"
+          },
+          "manhattan_beach": {
+            "store_name": "Manhattan Beach",
+            "store_lat":  33.8851268,
+            "store_lng": -118.4100378,
+            "store_link": "/pages/manhattan-beach"
+          }
+        }
+
+        window.addEventListener('DOMContentLoaded', async () => {
+          const IPWHOIS_KEY = 'zN7xj7k2xvxgGIMk'
+
+          function getDistanceKm(lat1, lng1, lat2, lng2) {
+            const R = 6371
+            const dLat = (lat2 - lat1) * Math.PI / 180
+            const dLng = (lng2 - lng1) * Math.PI / 180
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLng / 2) * Math.sin(dLng / 2)
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+          }
+
+          function applyNearestStore(locationData) {
+            const userLat = locationData.latitude
+            const userLng = locationData.longitude
+            if (!userLat || !userLng) return
+
+            // ~5000 km covers all of Canada + Mexico; anything farther (Europe, Asia) is ignored
+            const MAX_DISTANCE_KM = 25000
+
+            let nearestStore = null
+            let minDistance = Infinity
+            for (const key in storeDataJson) {
+              const store = storeDataJson[key]
+              const dist = getDistanceKm(userLat, userLng, store.store_lat, store.store_lng)
+              if (dist < minDistance) {
+                minDistance = dist
+                nearestStore = store
+              }
+            }
+            if (!nearestStore || minDistance > MAX_DISTANCE_KM) return
+
+            // Desktop: update text, href, and swap icons
+            const desktopLink = document.querySelector('.desktop-nav-store-link')
+            const desktopLinkText = desktopLink && desktopLink.querySelector('.nav-store-link-text')
+            if (desktopLinkText && desktopLink) {
+              const storeTextSpan = desktopLinkText.querySelector('span:last-child')
+            if (storeTextSpan) storeTextSpan.textContent = `${nearestStore.store_name} Store`
+              desktopLinkText.style.textDecoration = 'underline'
+              desktopLink.href = nearestStore.store_link
+              desktopLinkText.classList.add('store-found')
+            }
+
+            // Mobile: update href and swap icons
+            const mobileLink = document.querySelector('.mobile-nav-store-link')
+            if (mobileLink) {
+              mobileLink.href = nearestStore.store_link
+              mobileLink.classList.add('store-found')
+            }
+
+            return nearestStore
+          }
+
+          // 1. Check sessionStorage for a cached location data object
+          const cached = sessionStorage.getItem('ipwhois_data')
+          if (cached) {
+            const locationData = JSON.parse(cached)
+            applyNearestStore(locationData)
+            return
+          }
+
+          // 2. No cache — show loading state before making the API call
+          const desktopStoreTextEl = document.querySelector('.nav-store-link-text > span:last-child')
+          if (desktopStoreTextEl) desktopStoreTextEl.textContent = 'Finding nearest store...'
+
+          const mobileStoreLink = document.querySelector('.mobile-nav-store-link')
+          let mobileTooltip = null
+          if (mobileStoreLink) {
+            mobileTooltip = document.createElement('div')
+            mobileTooltip.className = 'store-finding-tooltip'
+            mobileTooltip.textContent = 'Finding nearest store...'
+            mobileStoreLink.appendChild(mobileTooltip)
+          }
+
+          // Artificial delay so users can see the "Finding nearest store..." state
+          await new Promise(resolve => setTimeout(resolve, 1500))
+
+          // 3. Fetch full location data (includes IP) in one request using API key
+          let foundStore = null
+          try {
+            const res = await fetch(`https://ipwhois.pro/json/?key=${IPWHOIS_KEY}`)
+            const locationData = await res.json()
+            if (!locationData.success && locationData.success !== undefined) {
+              console.error('ipwhois: request failed', locationData.message)
+            } else {
+              sessionStorage.setItem('ipwhois_data', JSON.stringify(locationData))
+              foundStore = applyNearestStore(locationData)
+            }
+          } catch (err) {
+            console.error('ipwhois: failed to fetch location data', err)
+          }
+
+          // Mobile tooltip phase 2: show store name for 1500ms before disappearing
+          if (mobileTooltip && foundStore) {
+            mobileTooltip.innerHTML = `<u>${foundStore.store_name} Store</u>`
+            await new Promise(resolve => setTimeout(resolve, 1500))
+          }
+
+          // Cleanup
+          if (mobileTooltip) mobileTooltip.remove()
+          // Revert desktop text if applyNearestStore didn't update it (no store found)
+          if (desktopStoreTextEl && desktopStoreTextEl.textContent === 'Finding nearest store...') {
+            desktopStoreTextEl.textContent = 'Stores'
+          }
+        })
+      </script>
+    {% endif %}
+
+    {% if settings.enable_product_card_swatches %}
+      <script>  
         class ProductCardSwatch extends HTMLElement {
           connectedCallback() {
             this._cardWrapper = this.closest('.card-wrapper');

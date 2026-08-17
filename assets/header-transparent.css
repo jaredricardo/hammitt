@@ -1,4 +1,4 @@
-/* Clear any inherited transitions first - exclude cart-drawer */
+Clear any inherited transitions first - exclude cart-drawer
 #shopify-section-header .header--transparent svg *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
 #shopify-section-header .header--transparent .header__icon svg *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
 #shopify-section-header .header--transparent .header__icon .icon *:not(cart-drawer):not(cart-drawer *):not(.cart-drawer):not(.cart-drawer *),
@@ -441,4 +441,60 @@ transition: stroke 300ms ease !important;
 #shopify-section-header .header--transparent .initial-search-modal-content .predictive-search-spinner svg circle:not(cart-drawer svg):not(cart-drawer *):not(.cart-drawer svg):not(.cart-drawer *) {
   fill: white !important;
   transition: none !important;
+}
+
+/* Store link ellipse - white on load (transparent, not scrolled) */
+#shopify-section-header .header--transparent:not(.header--scrolled) .nav-store-link-text svg ellipse {
+  fill: #ffffff !important;
+  transition: fill 300ms ease !important;
+}
+
+/* Store link ellipse - black on hover before scroll */
+#shopify-section-header .header--transparent:not(.header--scrolled):hover .nav-store-link-text svg ellipse {
+  fill: #000000 !important;
+  transition: fill 300ms ease !important;
+}
+
+/* Store link ellipse - black after scroll */
+#shopify-section-header .header--transparent.header--scrolled .nav-store-link-text svg ellipse {
+  fill: #000000 !important;
+  transition: fill 300ms ease !important;
+}
+
+/* -------------------------------------------------------
+   Store-found icon overrides.
+   Using #store-found-pin gives specificity a=2, which beats
+   the broad svg path rule at a=1 regardless of b/c values.
+   ------------------------------------------------------- */
+
+/* Transparent, not scrolled — ellipse + cross black (contrast against white pin/badge) */
+#shopify-section-header .header--transparent:not(.header--scrolled) #store-found-pin .pin-ellipse,
+#shopify-section-header .header--transparent:not(.header--scrolled) #store-found-pin .pin-cross {
+  fill: #000000 !important;
+  stroke: transparent !important;
+  transition: fill 300ms ease !important;
+}
+
+/* Hover before scroll + scrolled — restore natural white fills */
+#shopify-section-header .header--transparent:not(.header--scrolled):hover #store-found-pin .pin-ellipse,
+#shopify-section-header .header--transparent:not(.header--scrolled):hover #store-found-pin .pin-cross,
+#shopify-section-header .header--transparent.header--scrolled #store-found-pin .pin-ellipse,
+#shopify-section-header .header--transparent.header--scrolled #store-found-pin .pin-cross {
+  fill: #ffffff !important;
+  stroke: transparent !important;
+  transition: fill 300ms ease !important;
+}
+
+/* pin-body — always stroke transparent on transparent header */
+#shopify-section-header .header--transparent #store-found-pin .pin-body {
+  stroke: transparent !important;
+}
+
+/* Hover before scroll + scrolled — restore natural black fills for body + badge */
+#shopify-section-header .header--transparent:not(.header--scrolled):hover #store-found-pin .pin-body,
+#shopify-section-header .header--transparent:not(.header--scrolled):hover #store-found-pin .badge-circle,
+#shopify-section-header .header--transparent.header--scrolled #store-found-pin .pin-body,
+#shopify-section-header .header--transparent.header--scrolled #store-found-pin .badge-circle {
+  fill: #000000 !important;
+  transition: fill 300ms ease !important;
 }

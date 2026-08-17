@@ -241,7 +241,7 @@
                                 {% render 'icon-chat-bubble' %}
                                 <a class="phone" href="tel:{{ page.metafields.custom.store_phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}">{{ page.metafields.custom.store_phone }}</a>
                             </p>
-                            <a style="width: 100% !important; margin-top: 1rem;" class="button transparent-button" href="sms:{{ page.metafields.custom.store_phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}">Chat with us</a>
+                            <a style="width: 100% !important; margin-top: 1rem;" class="button transparent-button" href="tel:{{ page.metafields.custom.store_phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}">Call Us</a>
                         </div>
                     {% endif %}
                     {% if page.metafields.custom.store_address %}
