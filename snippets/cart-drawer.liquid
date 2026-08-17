@@ -693,13 +693,19 @@
                       {% if opted_out_of_box == true or has_line_level_ribbon == true or has_line_level_gift_note == true %}
                         <div class="gifting-options-icons-container">
                           {% if opted_out_of_box == true %}
-                            <span class="gifting-options-icon">🚫📦</span>
+                            <span class="gifting-options-icon">
+                              {% render 'icon-no-box' %}
+                            </span>
                           {% endif %}
                           {% if has_line_level_ribbon == true %}
-                            <span class="gifting-options-icon">🎁</span>
+                            <span class="gifting-options-icon">
+                              {% render 'icon-gift-box-new' %}
+                            </span>
                           {% endif %}
                           {% if has_line_level_gift_note == true %}
-                            <span class="gifting-options-icon">💌</span>
+                            <span class="gifting-options-icon">
+                              {% render 'icon-gift-note' %}
+                            </span>
                           {% endif %}
                         </div>
                       {% endif %}
