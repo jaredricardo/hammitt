@@ -688,9 +688,9 @@ template-{{ template.name -}}
                   this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
                   this.saveButton.classList.add('saved')
                   this.saveButton.innerText = 'Saved'
-                  document.querySelector('input#hammitt-gift-message-form-input').value = this.currentNote
-                  this.textAreaPlaceholder = this.currentNote
-                  localStorage.setItem('giftNote', this.currentNote)
+                  document.querySelector('input#hammitt-gift-message-form-input').value = this.currentNote.trim()
+                  this.textAreaPlaceholder = this.currentNote.trim()
+                  localStorage.setItem('giftNote', this.currentNote.trim())
                 })
 
                 this.giftNoteCheckbox.addEventListener('change', (e) => {
@@ -717,19 +717,22 @@ template-{{ template.name -}}
                   }
                 })
            
-                if(localStorage.getItem('giftNote')){
+                const savedNote = (localStorage.getItem('giftNote') || '').trim()
+                if(savedNote) {
                   if(this.giftNoteValue) {
-                    this.giftNoteValue.value = localStorage.getItem('giftNote')
-                    this.giftNoteTextArea.value = localStorage.getItem('giftNote')
+                    this.giftNoteValue.value = savedNote
+                    this.giftNoteTextArea.value = savedNote
+                    this.currentNote = savedNote
                     this.giftNoteCheckbox.checked = true
-                    this.giftNoteCharLimit.innerText = `${localStorage.getItem('giftNote').length}/500`
+                    this.giftNoteCharLimit.innerText = `${savedNote.length}/500`
                     this.saveButton.classList.add('saved')
                     this.saveButton.innerText = 'Saved'
                   }
+                } else {
+                  localStorage.removeItem('giftNote')
                 }
 
-                if(this.giftNoteInitData.dataset.serverHasNote === 'false' && !localStorage.getItem('giftNote')){
-                  localStorage.removeItem('giftNote')
+                if(this.giftNoteInitData.dataset.serverHasNote === 'false' && !savedNote){
                   this.giftNoteCheckbox.checked = false
                 }
 

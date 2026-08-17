@@ -82,17 +82,26 @@ hammitt-gifting-options-drawer-trigger {
     flex-direction: row;
     align-items: center;
     justify-content: start;
-    gap: 1.5rem;
     margin-top: 15px;
+    border: 1px solid #EBEBEB;
+    padding: 1rem;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+hammitt-gifting-options-drawer-trigger .icon-caret {
+    width: 12px;
+    transform: rotate(270deg);
+    margin-left: auto;
 }
 
 hammitt-gifting-options-drawer-trigger button {
     padding: .25rem 1.25rem;
     border: none;
-    background: black;
     font-size: 12px;
-    color: #fff;
+    color: black;
     cursor: pointer;
+    background-color: transparent;
 }
 
 hammitt-gifting-options-drawer p,
@@ -134,9 +143,9 @@ hammitt-gifting-options-drawer hammitt-gifting-broken-out-line-item {
 }
 
 hammitt-gifting-options-drawer .broken-out-line-items li img {
-    width: 90px;
+    width: 125px;
     object-fit: cover;
-    aspect-ratio: 1 / 1;
+    background-color: #f9f8f6 !important;
 }
 
 hammitt-gifting-options-drawer h5 {
@@ -172,20 +181,19 @@ hammitt-gifting-options-drawer .checkbox-container input[type="checkbox"] {
     cursor: pointer;
 }
 
-.broken-out-line-item:has(.line-item-hand-written-note:checked) .hammitt-gift-note-area {
+.broken-out-line-item .hammitt-gift-note-area {
+    display: none;
+}
+
+.broken-out-line-item:has(.add-gift-message:checked) .hammitt-gift-note-area {
     display: flex;  
 }
 
-/* .broken-out-line-item:has(.no-box:checked) label[for="line-item-hand-written-note"],
-.broken-out-line-item:has(.line-item-hand-written-note:checked) label[for="no-box"] {
+/* Disable ribbon option when no-box is selected */
+.broken-out-line-item:has(.no-box:checked) .add-ribbon-container {
     opacity: 0.4;
-} */
-
-/* 
-.broken-out-line-item:has(#line-item-hand-written-note:checked) #no-box
-.broken-out-line-item:has(#no-box:checked) line-item-hand-written-note
-*/
-
+    pointer-events: none;
+}
 
 hammitt-gifting-options-drawer #save-btn {
     color: #000;
@@ -210,9 +218,22 @@ hammitt-gifting-options-drawer #save-btn:hover {
     color: #fff;
 }
 
-.gifting-options-icon {
+.gifting-options-icons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
     margin-right: auto;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
+}
+
+.gifting-options-icon {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.gifting-options-icons-container:has(.gifting-options-icon:nth-child(2)) .gifting-options-icon {
+    font-size: 12px;
 }
 
 hammitt-gifting-options-drawer .excluded-container {

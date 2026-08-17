@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     class HammittGiftingOptionsDrawerTrigger extends HTMLElement {
         constructor() {
             super()
-            this.querySelector('#open-btn').addEventListener('click', this.openGiftingDrawer)
+            this.addEventListener('click', this.openGiftingDrawer)
         }
         openGiftingDrawer(){
             document.querySelector('hammitt-gifting-options-drawer')?.classList.add('active')
@@ -96,6 +96,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
             */
          
+            let numberOfRibbonsToAdd = 0
+
             brokenOutLineItems.forEach((item) => {
 
                 /* 
@@ -114,7 +116,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 const preExistingProperties = item.dataset.preExistingPropertiesKeys
                 const preExistingPropertiesValues = item.dataset.preExistingPropertiesValues
                 let consolidatedExistingProperties = null
-                let numberOfGiftNotesToAdd = 0
 
                 // must check false as string since data attributes return strings
                 if(preExistingProperties != 'false' && preExistingPropertiesValues != 'false') {
@@ -125,72 +126,85 @@ window.addEventListener('DOMContentLoaded', () => {
                         consolidatedExistingProperties[key] = valuesArray[index]
                     })
                 }
-                   
-                if(item.querySelector('.no-box')?.checked || item.querySelector('.line-item-hand-written-note')?.checked || item.dataset.giftingModified === "true") {
-                    // create object to decrement existing variant by the number of modified items
+
+                const noBoxChecked     = item.querySelector('.no-box')?.checked ?? false
+                const ribbonChecked    = item.querySelector('.add-ribbon')?.checked ?? false
+                const giftMsgChecked   = item.querySelector('.add-gift-message')?.checked ?? false
+                const giftingModified  = item.dataset.giftingModified === 'true'
+
+                // Ribbon is blocked when no-box is selected
+                const needsRibbon         = ribbonChecked && !noBoxChecked
+                // Line item must be re-added whenever any property changes, resets, OR ribbon is
+                // toggled — so the _line_item_ribbon property stays in sync with the cart and the
+                // global.js gift-wrap reconciliation logic doesn't remove the ribbon product.
+                const needsLineItemUpdate = noBoxChecked || giftMsgChecked || giftingModified || needsRibbon
+
+                if (!needsLineItemUpdate && !needsRibbon) return
+
+                // Zero out all gift wrap — correct ribbon count re-added after loop
+                updates[giftNoteVid] = 0
+
+                if (needsLineItemUpdate) {
                     const lineKey = item.dataset.lineKey
                     const variantFromLineKey = parseInt(item.dataset.vid)
                     const fullQuantity = parseInt(item.dataset.fullQuantity)
 
-                    if(!updates[lineKey]) {
-                        updates[lineKey] = fullQuantity - 1 
+                    if (!updates[lineKey]) {
+                        updates[lineKey] = fullQuantity - 1
                     } else {
                         updates[lineKey] = updates[lineKey] - 1
                     }
 
-                    // remove all gift wrap 
-                    updates[giftNoteVid] = 0
+                    const itemProperties = {}
 
-                    // create object to add new line items with modified properties
-                    if(item.querySelector('.no-box').checked) {
-                        if(postUpdateFormData.items.find((i) => i.id === lineKey)){
-                            postUpdateFormData.items.find((i) => i.id === lineKey).quantity += 1
-                        } else {
-                            postUpdateFormData.items.push({
-                                id: variantFromLineKey,
-                                quantity: 1,
-                                properties: {
-                                    [testMode ? 'test_mode_line_item_box_opt_out' : '_line_item_box_opt_out']: true
-                                }
-                            })
-                        }
-                    } else if(item.querySelector('.line-item-hand-written-note')?.checked) {
-                        const giftNote = item.querySelector('.line-item-gift-note-text-area').value 
-                        postUpdateFormData.items.push({
-                            id: variantFromLineKey,
-                            quantity: 1,
-                            properties: {
-                                [testMode ? 'test_mode_line_item_gift_note' : '_line_item_gift_note']: giftNote
-                            }
-                        })
-                        numberOfGiftNotesToAdd++
-                    } else if (item.dataset.giftingModified === "true") {
-                        postUpdateFormData.items.push({
-                            id: variantFromLineKey,
-                            quantity: 1,
-                            properties: {}
-                        })
+                    if (noBoxChecked) {
+                        itemProperties[testMode ? 'test_mode_line_item_box_opt_out' : '_line_item_box_opt_out'] = true
                     }
+
+                    if (giftMsgChecked) {
+                        const giftNote = item.querySelector('.line-item-gift-note-text-area')?.value ?? ''
+                        itemProperties[testMode ? 'test_mode_line_item_gift_note' : '_line_item_gift_note'] = giftNote
+                    }
+
+                    if (needsRibbon) {
+                        itemProperties[testMode ? 'test_mode_line_item_ribbon' : '_line_item_ribbon'] = true
+                    }
+
+                    postUpdateFormData.items.push({
+                        id: variantFromLineKey,
+                        quantity: 1,
+                        properties: itemProperties
+                    })
+
                     // merge in any pre-existing properties
-                    if(consolidatedExistingProperties) {
-                        const currentItemIndex = postUpdateFormData.items.length -1
+                    if (consolidatedExistingProperties) {
+                        const currentItemIndex = postUpdateFormData.items.length - 1
                         postUpdateFormData.items[currentItemIndex].properties = {
                             ...postUpdateFormData.items[currentItemIndex].properties,
                             ...consolidatedExistingProperties
                         }
                     }
-                    if(numberOfGiftNotesToAdd > 0) {
-                        // add gift wrap items for each gift note added
-                        postUpdateFormData.items.push({
-                            id: parseInt(giftNoteVid),
-                            quantity: numberOfGiftNotesToAdd
-                        })
-                    }
+                }
+
+                if (needsRibbon) {
+                    numberOfRibbonsToAdd++
                 }
             })
 
             // add sections to update so cart updates properly
-            postUpdateFormData.sections = "cart-drawer,cart-icon-bubble,main-cart-items"
+            // 'header' is required so cartUpdate() can refresh .drawer__items and related cart elements
+            if (numberOfRibbonsToAdd > 0) {
+                postUpdateFormData.items.push({
+                    id: parseInt(giftNoteVid),
+                    quantity: numberOfRibbonsToAdd
+                })
+            }
+
+            postUpdateFormData.sections = "cart-drawer,cart-icon-bubble,main-cart-items,header"
+
+            const stopSpinner = () => {
+                document.querySelector('hammitt-gifting-options-drawer .loading-spinner-container .spinner')?.classList.remove('active')
+            }
 
             // use change.js to decrement existing line items via the updates object
       
@@ -223,15 +237,29 @@ window.addEventListener('DOMContentLoaded', () => {
                         const doc = parser.parseFromString(json.sections['cart-drawer'], "text/html")
                         const elOld = document.querySelector('free-shipping-goal')
                         const elNew = doc.querySelector('free-shipping-goal')
-                        if(elOld == null || elNew == null) return
                         if(elOld && elNew) {
                             elOld.outerHTML = elNew.outerHTML
                         }
                     })
+                    .catch((error) => {
+                        console.error('Error adding to cart:', error)
+                        saveBtn.innerText = 'Save'
+                        saveBtn.disabled = false
+                    })
+                    .finally(() => {
+                        stopSpinner()
+                    })
+                } else {
+                    stopSpinner()
+                    saveBtn.innerText = 'Save'
+                    saveBtn.disabled = false
                 }
             })
             .catch((error) => {
-                console.error('Error:', error);
+                console.error('Error:', error)
+                stopSpinner()
+                saveBtn.innerText = 'Save'
+                saveBtn.disabled = false
             })
         }
     }
@@ -239,46 +267,14 @@ window.addEventListener('DOMContentLoaded', () => {
     class HammittGiftingBrokenOutLineItem extends HTMLElement {
         constructor() {
             super()
-            this.querySelector('.no-box')?.addEventListener('change', this.handleLineItemNoBoxClick)
-            this.querySelector('.line-item-hand-written-note')?.addEventListener('change', this.handleLineItemGiftNoteClick)
-            this.querySelector('.default-box')?.addEventListener('change', this.handleLineItemDefaultBoxClick)
+            this.querySelector('.no-box')?.addEventListener('change', this.handleNoBoxClick)
         }
 
-        handleLineItemDefaultBoxClick() {
-            const defaultBoxChecked = this.checked
-            const boxOptOut = this.closest('.broken-out-line-item').querySelector('.no-box')
-            if(defaultBoxChecked) {
-                boxOptOut.checked = false
-            }
-            if(!defaultBoxChecked && !boxOptOut.checked) {
-                this.checked = true
-            }
-        }
-        
-        handleLineItemNoBoxClick() {
-            const optOutOfBox = this.checked
-            const giftNoteCheckbox = this.closest('.broken-out-line-item').querySelector('.line-item-hand-written-note')
-            const defaultBoxCheckbox = this.closest('.broken-out-line-item').querySelector('.default-box')
-            const defaultBoxCheckboxChecked = this.closest('.broken-out-line-item').querySelector('.default-box').checked
-           
-            if(optOutOfBox) {
-                if(giftNoteCheckbox) {
-                    giftNoteCheckbox.checked = false
-                }
-                defaultBoxCheckbox.checked = false
-            }
-            if(!optOutOfBox && !defaultBoxCheckboxChecked) {
-                defaultBoxCheckbox.checked = true
-            }
-        }
-
-        handleLineItemGiftNoteClick() {
-            const giftNoteChecked = this.checked
-            const boxOptOut = this.closest('.broken-out-line-item').querySelector('.no-box')
-            const defaultBoxCheckbox = this.closest('.broken-out-line-item').querySelector('.default-box')
-            if(giftNoteChecked) {
-                boxOptOut.checked = false
-                defaultBoxCheckbox.checked = true
+        handleNoBoxClick() {
+            const noBoxChecked = this.checked
+            const ribbonCheckbox = this.closest('.broken-out-line-item').querySelector('.add-ribbon')
+            if (noBoxChecked && ribbonCheckbox) {
+                ribbonCheckbox.checked = false
             }
         }
     }
