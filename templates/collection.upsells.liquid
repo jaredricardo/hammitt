@@ -14,6 +14,7 @@
   endfor
 %}
 
+<dynamic>
 <div class="collection-upsells">
 {% liquid 
 for product in collection.products limit: 20
@@ -39,3 +40,4 @@ for product in collection.products limit: 20
 endfor
 %}
 </div>
+</dynamic>

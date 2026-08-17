@@ -140,14 +140,17 @@
 
     {% render 'meta-tags' %}
 
-    <script
-      {% if template contains 'index' %}
-        type="noscript-s" data-
-      {% endif -%}
-      src="{{ 'global.js' | asset_url }}"
-      defer="defer"
-    ></script>
-    <script src="{{ 'on-load.js' | asset_url }}" defer></script>
+    {% comment %} Edgemesh - elements being bound by these scripts are inside of other dynamic tags, script must also be dynamic {% endcomment %}
+    <dynamic>
+      <script
+        {% if template contains 'index' %}
+          type="noscript-s" data-
+        {% endif -%}
+        src="{{ 'global.js' | asset_url }}"
+        defer="defer"
+      ></script>
+      <script src="{{ 'on-load.js' | asset_url }}" defer></script>
+    </dynamic>
 
     {{ content_for_header }}
 
@@ -594,7 +597,8 @@ template-{{ template.name -}}
 
     {% if settings.enable_cart_rivett_club %}
       {% unless customer %}
-        <script>
+        {% comment %} Edgemesh - elements being bound by these scripts are inside of other dynamic tags, script must also be dynamic {% endcomment %}
+        <script dynamic>
           window.addEventListener('DOMContentLoaded', () => {
             const cartRivettClub = document.querySelector('cart-rivett-club')
             if(!cartRivettClub) return
@@ -643,7 +647,8 @@ template-{{ template.name -}}
     {%- endif -%}
 
     {% if settings.enable_hammitt_gift_messaging %}
-      <script>
+      {% comment %} Edgemesh - elements being bound by script are inside of other dynamic tags, script must also be dynamic {% endcomment %}
+      <script dynamic>
         window.addEventListener('DOMContentLoaded', () => {
           // lazy wat of persisting this data
           document.addEventListener('cart:updated', (event) => {
@@ -1521,6 +1526,8 @@ template-{{ template.name -}}
       {% endif -%}
       src="{{ 'cart.js' | asset_url }}"
       defer="defer"
+      {% comment %} Edgemesh - elements being bound by these scripts are inside of other dynamic tags, script must also be dynamic {% endcomment %}
+      dynamic
     ></script>
     
     {% section 'mega-menu-1' %}

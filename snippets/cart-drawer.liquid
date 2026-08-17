@@ -128,7 +128,10 @@
   </style>
 {% endif %}
 
-<script>
+{%- comment -%}
+  Edgemesh: tagged dynamic cart content
+{%- endcomment -%}
+<script dynamic>
   console.log({{ cart | json }})
 </script>
 
@@ -270,6 +273,10 @@
 {% endif %}
 
 
+{%- comment -%}
+  Edgemesh: tagged dynamic
+{%- endcomment -%}
+<dynamic>
 {% if settings.enable_free_multi_gift_select %}
   <script>
     window.addEventListener('DOMContentLoaded', () => {
@@ -384,7 +391,9 @@
     })
   </script>
 {% endif %}  
+</dynamic>
 
+<dynamic>
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
   <div class="drawer__content">
@@ -1363,6 +1372,8 @@
   </div>
   
 </div>
+</dynamic>
+
 <style>
   .cart_shipping_notes {
     text-align: center;
