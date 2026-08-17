@@ -9,6 +9,342 @@
  */
 {
   "sections": {
+    "image_banner_Mnjabb": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_r6iGjn": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Most-Loved Bag",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_Xbkw3n": {
+          "type": "text",
+          "settings": {
+            "text": "Find your Kyle in timeless leathers and exclusive seasonal colors.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 18,
+            "text_size_desktop": 16
+          }
+        },
+        "buttons_r3KUCA": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/bestsellers",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_r6iGjn",
+        "text_Xbkw3n",
+        "buttons_r3KUCA"
+      ],
+      "name": "Hero banner",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/desktop-travel-hero.jpg",
+        "image_2": "shopify://shop_images/mobile-travel-hero.jpg",
+        "image_link": "shopify://collections/bestsellers",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_Ygje4j": {
+      "type": "slider-collection",
+      "name": "bestsellers widget",
+      "settings": {
+        "title": "Bestsellers",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "bestsellers",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "portrait",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 29,
+        "padding_bottom": 30,
+        "mobile_padding_top": 4,
+        "mobile_padding_bottom": 20
+      }
+    },
+    "home_hero_section_qhL9Xk": {
+      "type": "home-hero-section",
+      "blocks": {
+        "image_carousel_item_NhR8z7": {
+          "type": "image-carousel-item",
+          "name": "Cherrywood",
+          "settings": {
+            "image": "shopify://shop_images/Pckle_Stripe_-_9x16_5e51d50f-83c9-40d2-b109-6f88cd626df5.jpg",
+            "eyebrow": "",
+            "title": "Travel Got A Refresh",
+            "subcopy": "Wine, a rich warm pop of color, and Black nylon with sleek gunmetal accents.",
+            "button_text": "SHOP Travel",
+            "collection_url": "travel",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_LEGA8f": {
+          "type": "image-carousel-item",
+          "name": "Cherrywood",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Erica_Med-Cinnamon_Suede-AG_6_1.jpg",
+            "eyebrow": "",
+            "title": "Meet Cherrywood",
+            "subcopy": "Rich, understated, and destined to define the season.",
+            "button_text": "SHOP Cherrywood",
+            "collection_url": "cherrywood",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_GfcXtm": {
+          "type": "image-carousel-item",
+          "name": "Cinnamon ",
+          "settings": {
+            "image": "shopify://shop_images/aug-1-carousel-cinnamon.jpg",
+            "eyebrow": "",
+            "title": "The Spice Of Life",
+            "subcopy": "Get set for fall with rich Italian suede.",
+            "button_text": "SHOP CINNAMON SUEDE",
+            "collection_url": "cinnamon-suede",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_mbYbHT": {
+          "type": "image-carousel-item",
+          "name": "Double Yellow ",
+          "settings": {
+            "image": "shopify://shop_images/double-yellow.jpg",
+            "eyebrow": "",
+            "title": "Double Yellow",
+            "subcopy": "The Season's Brightest Statement.",
+            "button_text": "SHOP Double Yellow",
+            "collection_url": "double-yellow",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_yEyrcC": {
+          "type": "image-carousel-item",
+          "name": "Caramel apple",
+          "settings": {
+            "image": "shopify://shop_images/aug-1-carousel-caraamel-apple.jpg",
+            "eyebrow": "",
+            "title": "Treat Yourself",
+            "subcopy": "This month’s sweetest color story, featuring soft red leather and warm brown trim.",
+            "button_text": "SHOP CARAMEL APPLE",
+            "collection_url": "caramel-apple",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_NKAmWd": {
+          "type": "image-carousel-item",
+          "name": "Speckle Calf",
+          "settings": {
+            "image": "shopify://shop_images/aug-1-carousel-speackle.jpg",
+            "eyebrow": "",
+            "title": "Spot On",
+            "subcopy": "Indulge in luxe Italian calf with elegant speckled details.",
+            "button_text": "SHOP SPECKLED CALF",
+            "collection_url": "speckle-calf",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_pREGr3": {
+          "type": "image-carousel-item",
+          "name": "Belted Parchment",
+          "settings": {
+            "image": "shopify://shop_images/aug-1-carousel-belted-patchment.jpg",
+            "eyebrow": "",
+            "title": "Details, Details",
+            "subcopy": "Meet Belted Parchment, a creamy neutral leather with elevated finishing touches.",
+            "button_text": "SHOP Parchment",
+            "collection_url": "belted-parchment",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_ApNxyT": {
+          "type": "image-carousel-item",
+          "name": "Paula ",
+          "settings": {
+            "image": "shopify://shop_images/0WATERFALL_4345_2.jpg",
+            "eyebrow": "",
+            "title": "The Paula Clear",
+            "subcopy": "Over a year in the making, our brand-new Paula Clear has arrived.",
+            "button_text": "Shop Paula Clear",
+            "collection_url": "paula-clear",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_CJ4ijP": {
+          "type": "image-carousel-item",
+          "name": "Beverly",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_1123.jpg",
+            "eyebrow": "",
+            "title": "The Beverly",
+            "subcopy": "An iconic new edition.",
+            "button_text": "Shop Beverly",
+            "collection_url": "beverly",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
+        "image_carousel_item_6WkHhU": {
+          "type": "image-carousel-item",
+          "name": "Doxie ",
+          "settings": {
+            "image": "shopify://shop_images/doxie-new-section.jpg",
+            "eyebrow": "",
+            "title": "Effortless Rocker Energy",
+            "subcopy": "Rock-chic and restocked: Doxie's back in bold new colors.",
+            "button_text": "SHOP Doxie",
+            "collection_url": "doxie",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        }
+      },
+      "block_order": [
+        "image_carousel_item_NhR8z7",
+        "image_carousel_item_LEGA8f",
+        "image_carousel_item_GfcXtm",
+        "image_carousel_item_mbYbHT",
+        "image_carousel_item_yEyrcC",
+        "image_carousel_item_NKAmWd",
+        "image_carousel_item_pREGr3",
+        "image_carousel_item_ApNxyT",
+        "image_carousel_item_CJ4ijP",
+        "image_carousel_item_6WkHhU"
+      ],
+      "custom_css": [
+        ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
+        ".home-hero-section .section-image {/* aspect-ratio: 22/10; */}",
+        "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: 1/1; } .home-hero-section .section-content {position: relative; } p, h1, h2, h4 {color: black !important; } .section-button a {color: white; background-color: black; }}"
+      ],
+      "name": "New Hero section",
+      "settings": {
+        "section_bg_color": "#ffffff",
+        "media_type": "image",
+        "image": "shopify://shop_images/Group_12642.jpg",
+        "mobile_image": "shopify://shop_images/Rectangle-1001.gif",
+        "text_align": "center",
+        "text_vertical_align": "center",
+        "text_horizontal_align": "center",
+        "text_align_mobile": "center",
+        "text_vertical_align_mobile": "center",
+        "text_horizontal_align_mobile": "center",
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "title": "Meet Stormy",
+        "make_h1": true,
+        "subtitle": "",
+        "desktop_font_size": 40,
+        "mobile_font_size": 30,
+        "title_color": "#ffffff",
+        "description": "",
+        "description_color": "#000000",
+        "button": "Shop Now",
+        "button_enable": true,
+        "link": "shopify://collections/stormy",
+        "button_text_color": "#000000",
+        "button_bg_color": "#000000",
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4
+      }
+    },
     "multicolumn_4iCEyq": {
       "type": "multicolumn",
       "blocks": {
@@ -17,7 +353,7 @@
           "name": "Shoulder & Satchel ",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/shoulder-8-11.jpg",
+            "image": "shopify://shop_images/shoulder-813_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -43,7 +379,7 @@
           "name": "Crossbody",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/aug-1-category-crossbody.jpg",
+            "image": "shopify://shop_images/crossbody-0813.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -69,7 +405,7 @@
           "name": "Travel & Tote",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/PDP_26.3_3368_1.jpg",
+            "image": "shopify://shop_images/Travel_1248_1.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -95,7 +431,7 @@
           "name": "Small Leather Goods",
           "settings": {
             "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/aug-1-category-wallet.jpg",
+            "image": "shopify://shop_images/SLG-0813.jpg",
             "title": "",
             "b_title_color": "#000000",
             "b_title_font_desktop": 20,
@@ -330,6 +666,9 @@
     }
   },
   "order": [
+    "image_banner_Mnjabb",
+    "slider_collection_Ygje4j",
+    "home_hero_section_qhL9Xk",
     "multicolumn_4iCEyq",
     "image_banner_Jg9bxM",
     "multicolumn_tX9BVq"
