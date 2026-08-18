@@ -162,6 +162,13 @@
               sublinkContainer.style.height = '0px'
         })
       })
+
+      // Open the first sublink-opener by default
+      const firstSublinkContainer = document.querySelector('.sublink-opener .sublinks-container')
+      if (firstSublinkContainer) {
+        firstSublinkContainer.classList.add('open')
+        firstSublinkContainer.style.height = `${firstSublinkContainer.scrollHeight}px`
+      }
     })
   </script>
   
