@@ -1533,8 +1533,6 @@ template-{{ template.name -}}
       {% endif -%}
       src="{{ 'cart.js' | asset_url }}"
       defer="defer"
-      {% comment %} Edgemesh - elements being bound by these scripts are inside of other dynamic tags, script must also be dynamic {% endcomment %}
-      dynamic
     ></script>
     
     {% section 'mega-menu-1' %}
