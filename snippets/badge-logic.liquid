@@ -94,6 +94,11 @@
             assign badge_tag = 'Best Seller'
         endif
 
+        if product.tags contains 'tag: Celebrity Fave' and special_tag_assigned == false
+            assign special_tag_assigned = true
+            assign badge_tag = 'Celebrity Fave'
+        endif
+
 
         unless special_tag_assigned
             for tag in product.tags
