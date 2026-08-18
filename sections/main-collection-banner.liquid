@@ -187,7 +187,7 @@
       {% endif %}
 
       {%- if section.settings.show_collection_image and collection.image -%}
-        {% unless collection.metafields.custom.enable_collection_image %}
+        {% unless collection.metafields.custom.enable_collection_image == false %}
           {% assign aspect_ratio = collection.image.width | append: '/' | append: collection.image.height %}
 
           <div class="collection-hero__image-container media gradient" {% if section.settings.enable_banner_natural_ratio %} style="aspect-ratio: {{ aspect_ratio }}; min-height: revert !important;" {% endif %} >
