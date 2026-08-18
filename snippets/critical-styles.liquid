@@ -1859,10 +1859,13 @@ cart-upsells .upsell__image,
 }
 
 .simple-collection-links {
-  padding: 1.5rem 0rem 1.5rem 3rem;
+  /* importants for overrding page-width x axis on element */
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
   border-top: 1px solid #E8E8E8;
   border-bottom: 1px solid #E8E8E8;
 }
+
 
 @media screen and (max-width: 768px) {
   sticky-atc h2,
@@ -1880,7 +1883,8 @@ cart-upsells .upsell__image,
     width: 100vw;
   }
   .simple-collection-links {
-    padding: 16px 0rem 16px 8px;
+    padding-top: 16px !important; 
+    padding-bottom: 16px !important;
   }
 }
 

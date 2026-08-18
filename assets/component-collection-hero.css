@@ -14,7 +14,13 @@
 .collection-hero__text-wrapper{
   position: absolute;
   z-index: 1;
-  padding: 16.75px;
+  padding: 3rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .collection-hero__text-wrapper {
+    padding: 2rem 0;
+  }
 }
 
 .collection-hero__title {
@@ -31,12 +37,6 @@
 @media screen and (min-width: 750px) {
   .collection-hero__title + .collection-hero__description {
     font-size: 14px;
-  }
-
-  .collection-hero__description {
-    max-width: 325px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .collection-hero--with-image .collection-hero__description {

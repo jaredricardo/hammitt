@@ -27,7 +27,7 @@
   endfor
 %}
 
-<section class="simple-collection-links" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
+<section class="simple-collection-links page-width" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
   {% if active_menu %}
     <ul>
       {% for link in active_menu.links %}
