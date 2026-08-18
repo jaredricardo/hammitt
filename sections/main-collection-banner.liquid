@@ -130,7 +130,7 @@
       }
       #shopify-section-{{ section.id }} .collection-title {
         font-size: {{ section.settings.font_size_desktop }}px;
-        margin: 0 0 2.5rem 0 !important;
+        margin: 0 0 0.5rem 0 !important;
       }
       #shopify-section-{{ section.id }} .collection-hero__image-container{
         min-height: {{ section.settings.banner_height_desktop }}px;
@@ -187,27 +187,29 @@
       {% endif %}
 
       {%- if section.settings.show_collection_image and collection.image -%}
+        {% unless collection.metafields.custom.enable_collection_image == false %}
+          {% assign aspect_ratio = collection.image.width | append: '/' | append: collection.image.height %}
 
-      {% assign aspect_ratio = collection.image.width | append: '/' | append: collection.image.height %}
-
-      <div class="collection-hero__image-container media gradient" {% if section.settings.enable_banner_natural_ratio %} style="aspect-ratio: {{ aspect_ratio }}; min-height: revert !important;" {% endif %} >
-          <img
-            srcset="
-              {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
-              {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
-              {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
-              {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
-              {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
-              {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
-              {{ collection.image | image_url }} {{ collection.image.width }}w
-            "
-            src="{{ collection.image | image_url: width: 750 }}"
-            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
-            alt="{{ collection.title | escape }}"
-            width="{{ collection.image.width }}"
-            height="{{ collection.image.height }}"
-          >
-        </div>
+          <div class="collection-hero__image-container media gradient" {% if section.settings.enable_banner_natural_ratio %} style="aspect-ratio: {{ aspect_ratio }}; min-height: revert !important;" {% endif %} >
+            
+            <img
+              srcset="
+                {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
+                {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
+                {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
+                {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {{ collection.image | image_url }} {{ collection.image.width }}w
+              "
+              src="{{ collection.image | image_url: width: 750 }}"
+              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+              alt="{{ collection.title | escape }}"
+              width="{{ collection.image.width }}"
+              height="{{ collection.image.height }}"
+            >
+          </div>
+        {% endunless %}
       {%- endif -%}
     </div>
   </div>

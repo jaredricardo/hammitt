@@ -11,6 +11,10 @@
   elsif request.page_type == 'password'
     assign og_url = request.origin
   endif
+
+  if request.page_type == 'collection'
+    assign page_image = collection.image | default: collection.products.first.featured_image
+  endif
 %}
 
 <meta property="og:site_name" content="{{ shop.name }}">
