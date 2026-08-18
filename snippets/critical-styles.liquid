@@ -659,12 +659,12 @@ body:has(inspired-floating-widget) .inspired-app-opener {
 }
 
 body:has(.cart-drawer-container[open]) #flip-chat-widget,
-body:has(sticky-atc.active) #flip-chat-widget {
+body:has(sticky-atc.active) #flip-chat-widget,
+body:has(.cart-drawer-container[open]) access-widget-ui {
   z-index: -99999 !important;
   pointer-events: none !important;
   opacity: 0;
 }
-
 
 @media screen and (max-width: 751px) {
   .search-modal__content.x-gen-search {
