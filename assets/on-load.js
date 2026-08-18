@@ -45,4 +45,21 @@ window.addEventListener('DOMContentLoaded', () => {
     //     })
     //     localStorage.setItem('dateOfLastXGenCookieFlush', new Date().toISOString());
     // } 
+
+    // Hide all access-widget-ui shadow root containers when the cart drawer is open
+    const cartDrawerDetails = document.getElementById('Details-cart-drawer-container')
+    if (cartDrawerDetails) {
+      const setAccessWidgetVisibility = () => {
+        const isOpen = cartDrawerDetails.hasAttribute('open');
+        document.querySelectorAll('access-widget-ui').forEach((widget) => {
+          const container = widget.shadowRoot?.querySelector('[part="container"]')
+          if (container) container.style.display = isOpen ? 'none' : ''
+        })
+      }
+
+      new MutationObserver(setAccessWidgetVisibility).observe(cartDrawerDetails, {
+        attributes: true,
+        attributeFilter: ['open']
+      })
+    }
 })
