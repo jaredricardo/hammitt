@@ -120,6 +120,22 @@
       background: rgb(var(--color-background));
     }
     {% endif %}
+
+    /* Sublink accordion — details/summary CSS-only implementation */
+    .sublink-opener details > summary {
+      list-style: none;
+      cursor: pointer;
+    }
+    .sublink-opener details > summary::-webkit-details-marker {
+      display: none;
+    }
+    .sublink-opener details .sublinks-container {
+      height: auto !important;
+      overflow: visible !important;
+    }
+    .sublink-opener .icon-minus { display: none; }
+    .sublink-opener details[open] .icon-plus { display: none; }
+    .sublink-opener details[open] .icon-minus { display: block; }
   </style>
   
   {%- style -%}
@@ -144,33 +160,7 @@
   
   <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
 
-      const sublinkOpenerButtons = document.querySelectorAll('.sublink-opener .sublink-accordion-button')
-
-      if(!sublinkOpenerButtons) return
-
-      sublinkOpenerButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const sublinkContainer = button.closest('.sublink-opener').querySelector('.sublinks-container')
-          sublinkContainer.classList.toggle('open')
-          sublinkContainer.classList.contains('open') 
-            ? 
-              sublinkContainer.style.height = `${sublinkContainer.scrollHeight}px`
-            :
-              sublinkContainer.style.height = '0px'
-        })
-      })
-
-      // Open the first sublink-opener by default
-      const firstSublinkContainer = document.querySelector('.sublink-opener .sublinks-container')
-      if (firstSublinkContainer) {
-        firstSublinkContainer.classList.add('open')
-        firstSublinkContainer.style.height = `${firstSublinkContainer.scrollHeight}px`
-      }
-    })
-  </script>
   
   <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
     <symbol id="icon-search" viewbox="0 0 13 17">
@@ -277,20 +267,22 @@
                         {% for link in section.settings.menu_under_visual_menu.links %}
                           {% if link.links.size > 0 %}
                             <li class="sublink-opener">
-                              <span class="sublink-accordion-button" tabindex=0>
-                                {{ link.title }}
-                                {% render 'icon-plus' %}
-                                {% render 'icon-minus' %}
-                              </span>
-                              <ul class="sublinks-container">
-                                {% for sublink in link.links %}
-                                  <li class="sublink">
-                                    <a class="sublink-link"href="{{ sublink.url }}">
-                                      {{ sublink.title }}
-                                    </a>
-                                  </li>
-                                {% endfor %}
-                              </ul>
+                              <details{% if forloop.first %} open{% endif %}>
+                                <summary class="sublink-accordion-button">
+                                  {{ link.title }}
+                                  {% render 'icon-plus' %}
+                                  {% render 'icon-minus' %}
+                                </summary>
+                                <ul class="sublinks-container">
+                                  {% for sublink in link.links %}
+                                    <li class="sublink">
+                                      <a class="sublink-link" href="{{ sublink.url }}">
+                                        {{ sublink.title }}
+                                      </a>
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                              </details>
                             </li>
                             {% else %}
                             <li>
