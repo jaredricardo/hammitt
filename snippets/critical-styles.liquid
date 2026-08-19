@@ -1229,6 +1229,10 @@ main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer 
   z-index: -1;
 }
 
+main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card {
+  padding-bottom: 0 !important;
+} 
+
 @media screen and (max-width: 576px) {
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) .swym-button.hammitt-custom {
         width: 20px;
@@ -1654,7 +1658,7 @@ main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainerX
 @media screen and (max-width: 768px) {
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid,
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainerXGen {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         column-gap: 2px;
         row-gap: 2px;
     }
