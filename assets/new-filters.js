@@ -24,8 +24,10 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 window.onload = function () {
-  slideMin()
-  slideMax()
+  if (minVal && maxVal) {
+    slideMin()
+    slideMax()
+  }
 }
 
 const minVal = document.querySelector("minty-fresh-price-range .min-val")
@@ -40,8 +42,8 @@ const minTooltip = document.querySelector("minty-fresh-price-range .min-tooltip"
 const maxTooltip = document.querySelector("minty-fresh-price-range .max-tooltip")
 const minGap = 0
 const range = document.querySelector("minty-fresh-price-range .slider-track")
-const sliderMinValue = parseInt(minVal.min)
-const sliderMaxValue = parseInt(maxVal.max)
+const sliderMinValue = minVal ? parseInt(minVal.min) : 0
+const sliderMaxValue = maxVal ? parseInt(maxVal.max) : 0
 
 function slideMin() {
   let gap = parseInt(maxVal.value) - parseInt(minVal.value)
