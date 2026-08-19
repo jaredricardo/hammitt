@@ -1214,7 +1214,7 @@ main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer 
 main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .quick-add__wrapper,
 main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card__badge,
 main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .quick-add__wrapper {
-    display: none;
+  display: none;
 }
 
 main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__heading,
@@ -1222,8 +1222,11 @@ main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer 
 main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__seo-text,
 main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card__heading,
 main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .price,
-main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card__seo-tex {
-    color: transparent;
+main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card__seo-text,
+main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__information  {
+  color: transparent;
+  opacity: 0;
+  z-index: -1;
 }
 
 @media screen and (max-width: 576px) {
