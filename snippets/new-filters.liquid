@@ -166,7 +166,8 @@
     {% endif %}
     <div class="filter-actions-container">
         <button id="toggle-grid" class="collection-view">
-            {% render 'grid-view-svg' %}
+            <span class="desktop-only" style="height: 14px; width: 14px;">{% render 'grid-view-svg' %}</span>
+            <span class="mobile-only" style="height: 14px; width: 14px;">{% render 'icon-2-per-grid' %}</span>
             <span class="collection-view"></span>   
         </button>
         <div class="filter-sort-button-container {% if request.page_type == "search" %} search-page-filters {% endif %}">
