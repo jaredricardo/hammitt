@@ -430,6 +430,12 @@ minty-fresh-filters li a,
   display: none;
 }
 
+@media screen and (max-width: 768px) {
+  #MainContent:has(.grid-view) .grid__item:has(.merch-box) {
+    display: block;
+  }
+}
+
 .merch-box.use-bottom-text {
   display: flex;
   flex-direction: column;
@@ -493,6 +499,9 @@ minty-fresh-filters li a,
   }
   .grid__item:has(.num-slots-2) {
     grid-column: span 2;
+  }
+  #MainContent:has(.grid-view) .grid__item:has(.merch-box) {
+    display: flex;
   }
 }
 
@@ -1180,6 +1189,14 @@ minty-fresh-filters #toggle-grid.grid-view .grid-view-svg rect {
     fill: black;
 }
 
+minty-fresh-filters #toggle-grid.collection-view .mobile-only svg rect {
+    fill: #D8D8D8;
+}
+
+minty-fresh-filters #toggle-grid.grid-view .mobile-only svg rect {
+    fill: black;
+}
+
 minty-fresh-filters #toggle-grid.collection-view .collection-view {
     background-color: black;
 }
@@ -1240,6 +1257,7 @@ main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer 
         top: 0.65rem;
         right: 0.65rem;
     }
+    
 }
 
 main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card--standard > .card__content,
@@ -1658,9 +1676,48 @@ main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainerX
 @media screen and (max-width: 768px) {
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #product-grid,
     main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainerXGen {
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 2px;
-        row-gap: 2px;
+        grid-template-columns: repeat(1, 1fr);
+        column-gap: 4px;
+        row-gap: 12px;
+    }
+    /* Force merch boxes to single column in mobile grid view */
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .grid__item:has(.merch-box),
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .grid__item:has(.merch-box) {
+      grid-column: span 1 !important;
+    }
+    /* Mobile grid view: restore full card appearance */
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__heading,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .price,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__seo-text,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card__heading,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .price,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card__seo-text,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__information {
+      color: unset;
+      opacity: 1;
+      z-index: auto;
+    }
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card--standard > .card__content,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card--standard > .card__content {
+      position: static;
+      color: unset;
+      height: auto;
+    }
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .product-card,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .product-card {
+      padding-bottom: 1.5rem;
+    }
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card {
+      padding-bottom: unset !important;
+    }
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .card__badge,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainer .quick-add__wrapper,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .card__badge,
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #x-gen-search-results-container .quick-add__wrapper {
+      display: revert;
+    }
+    main:has(minty-fresh-filters):has(#toggle-grid.grid-view) #ProductGridContainerXGen .card-information {
+      display: block;
     }
     minty-fresh-filters {
         flex-direction: column;
@@ -1883,15 +1940,18 @@ cart-upsells .upsell__image,
   sticky-atc {
     min-height: 40px;
     width: 100%;
-    padding: 0;
+    padding: 1rem;
   }
   sticky-atc .col,
   sticky-atc button  {
-    width: 100vw;
+    width: 100%;
   }
   .simple-collection-links {
     padding-top: 16px !important; 
     padding-bottom: 16px !important;
+  }
+  sticky-atc .col:first-of-type {
+    display: none;
   }
 }
 
