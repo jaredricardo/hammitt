@@ -393,7 +393,7 @@
 {% endif %}  
 </dynamic>
 
-<dynamic>
+{%- comment -%} Edgemesh: keep drawer chrome static; hole-punch cartUpdate targets as dynamic hosts {%- endcomment -%}
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
   <div class="drawer__content">
@@ -419,7 +419,7 @@
     </div>
 
   {% assign cartSubTotal = cart.items_subtotal_price %}
-  <div class="drawer__items {% if cart.items == 0 %} hidden {% endif %}" data-cart-can-have-gift-wrap="{{ cart_can_have_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>    
+  <div class="drawer__items {% if cart.items == 0 %} hidden {% endif %}" dynamic data-cart-can-have-gift-wrap="{{ cart_can_have_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
     {% if cart.item_count == 0 %}
       <div class="your-cart-is-empty">
           {{ section.settings.empty_cart_message }}
@@ -1296,7 +1296,7 @@
     </div>
   </div>
     
-    <div class="drawer__final appear-animation appear-delay-{{ appear_delay }} {% if cart.item_count == 0 %} drawerEmptyState {% endif %}">
+    <div class="drawer__final appear-animation appear-delay-{{ appear_delay }} {% if cart.item_count == 0 %} drawerEmptyState {% endif %}" dynamic>
       {%- liquid
          assign has_gift_note = false
          for item in cart.items
@@ -1372,7 +1372,6 @@
   </div>
   
 </div>
-</dynamic>
 
 <style>
   .cart_shipping_notes {

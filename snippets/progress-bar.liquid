@@ -21,7 +21,7 @@
       endfor
     endfor
   -%}
-  <div class="progress-bar-container">
+  <div class="progress-bar-container" dynamic>
     <div class="progress-bar-wrapper-a">
       {%- if multi_has_reached -%}
         <div class="gwp-progress-bar-header gwp-tier-success">
@@ -296,7 +296,7 @@
 ]
 {% endcapture %}
 
-<div class="progress-bar-container" data-gwp-tiers='{{ gwp_tiers_data | strip_newlines | strip }}'>
+<div class="progress-bar-container" dynamic data-gwp-tiers='{{ gwp_tiers_data | strip_newlines | strip }}'>
   
   {%- comment -%} PROGRESS BAR A - Dynamic GWP Tiers (Control) {%- endcomment -%}
   <div class="progress-bar-wrapper-a">

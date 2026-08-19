@@ -14,7 +14,12 @@
   endfor
 %}
 
-<dynamic>
+{%- comment -%}
+  Edgemesh: this template is only used for ?view=upsells (layout none).
+  Do not wrap in <dynamic> — cart.js / product-form fetch it as text + DOMParser,
+  so hydrate never runs. Skip edge cache so cart-filtered upsells stay per-session.
+{%- endcomment -%}
+<meta name="em-cache" content="no-cache">
 <div class="collection-upsells">
 {% liquid 
 for product in collection.products limit: 20
@@ -40,4 +45,3 @@ for product in collection.products limit: 20
 endfor
 %}
 </div>
-</dynamic>
