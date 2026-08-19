@@ -862,15 +862,13 @@
               <div id="cart-icon-bubble">
                 {% render 'icon-cart' %}
                 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-                {%- comment -%} Edgemesh: cart.item_count is per-session {%- endcomment -%}
-                <dynamic>
-                  <div class="cart-count-bubble" {% if cart == empty %}style="display: none;"{% endif %}>
-                    {%- if cart.item_count < 100 -%}
-                    <span aria-hidden="true">{{ cart.item_count }}</span>
-                    {%- endif -%}
-                    <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-                  </div>
-                </dynamic>
+                {%- comment -%} Edgemesh: cart.item_count is per-session; keep .cart-count-bubble host so cartUpdate can find it before hydrate {%- endcomment -%}
+                <div class="cart-count-bubble" dynamic {% if cart == empty %}style="display: none;"{% endif %}>
+                  {%- if cart.item_count < 100 -%}
+                  <span aria-hidden="true">{{ cart.item_count }}</span>
+                  {%- endif -%}
+                  <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                </div>
               </div>
             </summary>
             <div id="cart-drawer" class="cart-drawer motion-reduce" tabindex="-1">
