@@ -46,6 +46,27 @@ window.addEventListener('DOMContentLoaded', () => {
     //     localStorage.setItem('dateOfLastXGenCookieFlush', new Date().toISOString());
     // } 
 
+    // Style access-widget-ui shadow root buttons to be positioned bottom-left
+    // Retries up to 10 times (every 1000ms) in case the widget renders late
+    let accessWidgetStyleAttempts = 0
+    const styleAccessWidgetButtons = () => {
+      accessWidgetStyleAttempts++
+      console.log(`styleAccessWidgetButtons attempt ${accessWidgetStyleAttempts}`)
+      let found = false
+      document.querySelectorAll('access-widget-ui').forEach((widget) => {
+        const button = widget.shadowRoot?.querySelector('[part="container"] button')
+        if (button) {
+          button.style.left = '16px'
+          button.style.bottom = '16px'
+          found = true
+        }
+      })
+      if (!found && accessWidgetStyleAttempts < 20) {
+        setTimeout(styleAccessWidgetButtons, 1000)
+      }
+    }
+    styleAccessWidgetButtons()
+
     // Hide all access-widget-ui shadow root containers when the cart drawer is open
     const cartDrawerDetails = document.getElementById('Details-cart-drawer-container')
     if (cartDrawerDetails) {
