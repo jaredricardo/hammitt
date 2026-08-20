@@ -431,16 +431,6 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    <script>
-      (function() {
-        var script = document.createElement('script');
-        script.id = 'minty-onsite-script';
-        script.src = 'https://cdn.addshoppers.com/minty/shopify-onsite/executeminty.js';
-        script.async = true;
-        script.defer = true;
-        document.head.appendChild(script);
-      })();
-    </script>
     <script
       {%- if template contains 'index' or template contains 'collection' or template contains 'product' -%}
         type="noscript-s" data-
@@ -475,18 +465,6 @@
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "mxhjomr8jg");
-    </script>
-
-    <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript" defer></script>
-    <script type="text/javascript">
-      document.addEventListener('DOMContentLoaded', function(){
-        ttd_dom_ready( function() {
-            if (typeof TTDUniversalPixelApi === 'function') {
-                var universalPixelApi = new TTDUniversalPixelApi();
-                universalPixelApi.init("q8f583o", ["aqkc9jq"], "https://insight.adsrvr.org/track/up");
-            }
-        });
-      });
     </script>
     <!-- Flip Chat Widget -->
     <script>
@@ -1705,13 +1683,7 @@ template-{{ template.name -}}
         };
     </script>
   {% endif %}
-    <img width="1" height="1" src="//action.dstillery.com/orbserv/nspix?adv=cl171899756252500&ns=8682&nc=Hammitt-Site-Visitor&ncv=68" alt="" />
     {% render 'swym-custom' %}
-    <script>
-      window.ALBSS = {
-        event_key: 'a61558c9-6f06-4a2f-9229-e9724f3935b7'
-      };
-    </script>
     <script src="https://res4.applovin.com/p/l/loader.iife.js" async></script>
   </body>
 </html>
