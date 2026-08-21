@@ -163,15 +163,6 @@
       </script>
     {% endif %}
 
-    {% if request.page_type == "index" or request.page_type == "product" or request.page_type == "collection" %}
-      <style>
-        #flip-chat-widget {
-          display: none !important;
-        }
-      </style>
-    {% endif %}
-
-
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
@@ -475,29 +466,31 @@
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "mxhjomr8jg");
     </script>
-    <!-- Flip Chat Widget -->
-    <script>
-      window.addEventListener('load', function() {
-        var initFlipChat = function() {
-          var s = document.createElement('script');
-          s.src = 'https://chat.flipcx.com/cdn/hammit-chat-widget.min.js';
-          s.onload = function() {
-            FlipChat.init({
-              clientId: '28d859bb-753c-4a01-83e4-18745ecdbe3a',
-              apiUrl: 'https://chat.flipcx.com',
-              wsUrl: 'wss://chat.flipcx.com/ws',
-              primaryColor: '#000000',
-            });
+    {% unless request.page_type == "index" or request.page_type == "product" or request.page_type == "collection" %}
+      <!-- Flip Chat Widget -->
+      <script>
+        window.addEventListener('load', function() {
+          var initFlipChat = function() {
+            var s = document.createElement('script');
+            s.src = 'https://chat.flipcx.com/cdn/hammit-chat-widget.min.js';
+            s.onload = function() {
+              FlipChat.init({
+                clientId: '28d859bb-753c-4a01-83e4-18745ecdbe3a',
+                apiUrl: 'https://chat.flipcx.com',
+                wsUrl: 'wss://chat.flipcx.com/ws',
+                primaryColor: '#000000',
+              });
+            };
+            document.head.appendChild(s);
           };
-          document.head.appendChild(s);
-        };
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(initFlipChat, { timeout: 5000 });
-        } else {
-          setTimeout(initFlipChat, 2000);
-        }
-      });
-    </script>
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(initFlipChat, { timeout: 5000 });
+          } else {
+            setTimeout(initFlipChat, 2000);
+          }
+        });
+      </script>
+    {% endunless %}
 
     <img
       alt="icon"
