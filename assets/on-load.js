@@ -58,6 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if (button) {
           button.style.left = '16px'
           button.style.bottom = '16px'
+          button.style.display = "none" 
           found = true
         }
       })
