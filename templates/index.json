@@ -59,8 +59,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_13025.jpg",
-        "image_2": "shopify://shop_images/KYLE-cherrywood-sml-bgPDP_26.3_0999_5.jpg",
+        "image": "shopify://shop_images/Group_13026.jpg",
+        "image_2": "shopify://shop_images/PDP_26.3_1653_2.jpg",
         "image_link": "shopify://collections/bestsellers",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -115,6 +115,24 @@
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
+        "image_carousel_item_GfcXtm": {
+          "type": "image-carousel-item",
+          "name": "Cinnamon ",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Erica_Med-Cinnamon_Suede-AG_6_8.jpg",
+            "eyebrow": "",
+            "title": "The Spice of Life",
+            "subcopy": "Get set for fall with rich Italian suede.",
+            "button_text": "SHOP CINNAMON SUEDE",
+            "collection_url": "cinnamon-suede",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
         "image_carousel_item_NhR8z7": {
           "type": "image-carousel-item",
           "name": "Cherrywood",
@@ -143,24 +161,6 @@
             "subcopy": "Rich, understated, and destined to define the season.",
             "button_text": "SHOP Cherrywood",
             "collection_url": "cherrywood",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
-        "image_carousel_item_GfcXtm": {
-          "type": "image-carousel-item",
-          "name": "Cinnamon ",
-          "settings": {
-            "image": "shopify://shop_images/aug-1-carousel-cinnamon.jpg",
-            "eyebrow": "",
-            "title": "The Spice of Life",
-            "subcopy": "Get set for fall with rich Italian suede.",
-            "button_text": "SHOP CINNAMON SUEDE",
-            "collection_url": "cinnamon-suede",
             "enable_image_as_link_out": true,
             "max_products": 10,
             "hide_price": false,
@@ -297,9 +297,9 @@
         }
       },
       "block_order": [
+        "image_carousel_item_GfcXtm",
         "image_carousel_item_NhR8z7",
         "image_carousel_item_LEGA8f",
-        "image_carousel_item_GfcXtm",
         "image_carousel_item_mbYbHT",
         "image_carousel_item_yEyrcC",
         "image_carousel_item_NKAmWd",
