@@ -249,13 +249,23 @@ cart-drawer > details[open] > summary::before {
   margin-bottom: 3px;
 }
 
+.line-item-callout {
+  font-size: 11px;
+  margin-top: auto;
+  color: #C74141;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.line-item-callout.green {
+  color: #1E9907;
+}
+
 .drawer__content-item-info{
   flex-direction:column;
   flex:1 1 0%;
   display:flex;
   margin-bottom:0rem;
   justify-content:space-between;
-  gap: 0.15rem;
 }
 .drawer__content-item-top{
   display:flex;
