@@ -672,7 +672,7 @@ template-{{ template.name -}}
                   })
                 }
     
-                this.querySelector('button#gift-note-save-button').addEventListener('click', () => {
+                document.querySelector('button#gift-note-save-button').addEventListener('click', () => {
 
                   this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
                   this.saveButton.classList.add('saved')
