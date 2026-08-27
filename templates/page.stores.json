@@ -158,19 +158,32 @@
     "store_events_new_nyqkLU": {
       "type": "store-events-new",
       "blocks": {
+        "event_K7eRVt": {
+          "type": "event",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/cropped_4_5_dog_with_bandana_bw.png",
+            "event_name": "Pup Appreciation",
+            "date": "August 22-26, 2026",
+            "time": "",
+            "event_tags": "Scottsdale,Chicago,Manhattan Beach,La Jolla",
+            "description": "Celebrate National Dog Day with us — we’re handing out dog-friendly treats and complimentary bandanas Saturday through Wednesday."
+          }
+        },
         "event_m4QgtL": {
           "type": "event",
           "settings": {
             "image": "shopify://shop_images/Hammitt_Happy_Hour-_1_1.jpg",
             "event_name": "Happy Hour at Hammitt",
-            "date": "August 21, 2026",
+            "date": "August 28, 2026",
             "time": "3PM - 6PM",
-            "event_tags": "Scottsdale,Chicago,Manhattan Beach,La Jolla",
+            "event_tags": "Scottsdale,Chicago,Manhattan Beach",
             "description": "Join us every Friday this month for Happy Hour at Hammitt — an evening especially for sipping and shopping new arrivals, alongside exclusive finds."
           }
         },
         "event_PfyGNt": {
           "type": "event",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/goody_two_scoops_final_image.png",
             "event_name": "Scoop & Shop",
@@ -180,15 +193,37 @@
             "description": "Enjoy freshly scooped organic ice cream from Goody Two Scoops Natural Creamery while you shop new arrivals, alongside exclusive finds."
           }
         },
-        "event_K7eRVt": {
+        "event_dTVfWJ": {
           "type": "event",
           "settings": {
-            "image": "shopify://shop_images/cropped_4_5_dog_with_bandana_bw.png",
-            "event_name": "Pup Appreciation",
-            "date": "August 22-26, 2026",
+            "image": "shopify://shop_images/LJ_spritz_shop_cheers.png",
+            "event_name": "Spritz & Shop",
+            "date": "August 28-29, 2026",
             "time": "",
-            "event_tags": "Scottsdale,Chicago,Manhattan Beach,La Jolla",
-            "description": "Celebrate National Dog Day with us — we’re handing out dog-friendly treats and complimentary bandanas Saturday through Wednesday."
+            "event_tags": "La Jolla",
+            "description": "Need to beat the heat? Join us all weekend for Aperol Spritzes while you shop new arrivals and exclusive finds."
+          }
+        },
+        "event_4V4BGq": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/MB_Birthday.jpg",
+            "event_name": "Manhattan Beach Turns 5",
+            "date": "August 29-30, 2026",
+            "time": "10AM - 6PM",
+            "event_tags": "Manhattan Beach",
+            "description": "Join us to celebrate five years by the sea with a weekend of complimentary activations, sweet treats, champagne tasting and beyond."
+          }
+        },
+        "event_NDke8C": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/permanent_jewelry.png",
+            "event_name": "Permanent Jewelry",
+            "date": "August 30, 2026",
+            "time": "12PM - 4PM",
+            "event_tags": "La Jolla",
+            "description": "Add a little glamour to your everyday with permanent jewelry, available for purchase."
           }
         },
         "event_NEYgdx": {
@@ -214,26 +249,17 @@
             "event_tags": "Scottsdale,Chicago,Manhattan Beach,La Jolla",
             "description": "Need to beat the heat? We'll have our coolers stocked with nostalgic treats, from soda pop bottles to vintage ice cream."
           }
-        },
-        "event_4V4BGq": {
-          "type": "event",
-          "settings": {
-            "image": "shopify://shop_images/MB_Birthday.jpg",
-            "event_name": "Manhattan Beach Turns 5",
-            "date": "August 29-30, 2026",
-            "time": "10AM - 6PM",
-            "event_tags": "Manhattan Beach",
-            "description": "Join us to celebrate five years by the sea with a weekend of complimentary activations, sweet treats, champagne tasting and beyond."
-          }
         }
       },
       "block_order": [
+        "event_K7eRVt",
         "event_m4QgtL",
         "event_PfyGNt",
-        "event_K7eRVt",
+        "event_dTVfWJ",
+        "event_4V4BGq",
+        "event_NDke8C",
         "event_NEYgdx",
-        "event_VMJXAk",
-        "event_4V4BGq"
+        "event_VMJXAk"
       ],
       "name": "Store Events",
       "settings": {
