@@ -97,7 +97,6 @@ cart-drawer > details[open] > summary::before {
 
 .drawer__header {
   text-align: center;
-  border-bottom: 1px solid #e8e8e1;
 }
 
 /* 
@@ -105,11 +104,14 @@ cart-drawer > details[open] > summary::before {
   Instead of editing them all, we will override them here and then add padding to the parent element.
 */
 
-.drawer__header,
 .drawer__header h4,
 .drawer__final,
 .drawer__items {
   padding: 0 10px !important;
+}
+
+.drawer__header {
+  padding: 0 !important;
 }
 
 .drawer__items:has(.drawer_empty) {
@@ -213,12 +215,12 @@ cart-drawer > details[open] > summary::before {
 .drawer__content-items .drawer__content-item{
   display:flex;
   padding-top: 0.75rem;
-  padding-bottom:0.75rem;
+  padding-bottom:2rem;
   margin-bottom:0rem !important;
   gap:15px;
   border-bottom: none;
 }
-.drawer__content-item-image{
+.drawer__content-item-image {
   text-align: center;
   align-items: center;
   display: flex;
@@ -247,13 +249,24 @@ cart-drawer > details[open] > summary::before {
   margin-bottom: 3px;
 }
 
+.line-item-callout {
+  font-size: 11.5px;
+  font-weight: 500;
+  margin-top: auto;
+  color: #C74141;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.line-item-callout.green {
+  color: #1E9907;
+}
+
 .drawer__content-item-info{
   flex-direction:column;
   flex:1 1 0%;
   display:flex;
   margin-bottom:0rem;
   justify-content:space-between;
-  gap: 0.15rem;
 }
 .drawer__content-item-top{
   display:flex;
@@ -586,19 +599,19 @@ span.freeRemainShippingMsg,
 .progress-bar {
   --scale-x: 0%;
   display: block !important;
-  height: 4px;
+  height: 2px;
   border-radius: var(--progress-bar-radius, 3rem);
   background-color: rgba(0,0,0, .075);a
   position: relative;
   overflow: hidden;
   display: block;
-  color: rgb(13,135,86);
+  color: black;
 }
 
 
 .progress-bar:before {
   content: "";
-  background: #0d8756;
+  background: black;
   border-radius: inherit;
   display: block;
   height: 100%;
@@ -785,7 +798,8 @@ div#dynamic-checkout-cart {
 
 
 .hammitt-gift-note-area .note-area-container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .hammitt-gift-note-area textarea {
@@ -798,22 +812,24 @@ div#dynamic-checkout-cart {
 
 .hammitt-gift-note-area #gift-note-char-limit,
 .gift-note-char-limit {
-  position: absolute;
-  bottom: 8px;
-  right: 10px;
   color: #9e9e9e;
-  z-index: 2;
   font-size: 12px;
+}
+
+.note-area-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
 }
 
 .hammitt-gift-note-area #gift-note-save-button {
   color: black;
-  font-size: 14px;
-  text-transform: uppercase;
-  border: 1.5px solid black;
+  font-size: 12px;
+  text-decoration: underline;
   background-color: white;
+  border: none;
   padding: 3px 6px;
-  margin-left: auto;
   cursor: pointer;
 }
 
@@ -833,6 +849,7 @@ div#dynamic-checkout-cart {
 .cart-drawer-gift-note .checkbox-message-area div {
   display: flex;
   flex-direction: row;
+  gap: 1rem;
 }
 
 .checkbox-message-area #hammitt-gift-message-checkbox {
@@ -841,23 +858,17 @@ div#dynamic-checkout-cart {
   margin-left: 0px;
 }
 
-.cart-drawer-gift-note .hammitt-gift-note-area {
+.cart-level-gift-options-container .hammitt-gift-note-area {
   display: none;
   margin-top: 8px;
 }
 
-.cart-drawer-gift-note:has(#hammitt-gift-message-checkbox:checked) .hammitt-gift-note-area {
-  display: flex;
-}
-
-.hammitt-gift-note-area #gift-note-save-button.saved,
-.hammit-gift-note-area #gift-note-save-button:hover {
-  color: white;
-  background-color: black;
+.cart-level-gift-options-container:has(#hammitt-gift-message-checkbox:checked) .hammitt-gift-note-area {
+  display: block;
 }
 
 .hammit-checkbox-message {
-  font-size: 11.5px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -908,6 +919,7 @@ hammitt-cart-level-gift-note {
 .cart-drawer-gift-wrap-upsell .checkbox-message-area div {
   display: flex;
   flex-direction: row;
+  gap: 1rem;
 }
 
 .cart-drawer-gift-wrap-upsell #hammitt-gift-wrap-upsell-checkbox {
@@ -1001,10 +1013,10 @@ hammitt-cart-level-gift-note {
   padding-top: 10px !important;
 }
 .gwp-progress-bar-header {
-  padding: 7px 0 5px;
-  text-align: center;
+  padding: 7px 7px 5px;
+  text-align: start;
   line-height: 1.1;
-  color: #0d8756;
+  color: black;
 }
 
 .gwp-progress-bar-header.gwp-tier-success {
@@ -1043,7 +1055,8 @@ save-for-later {
   font-style: normal;
   font-weight: 500;
   line-height: 100%; /* 12px */
-  border: 0.5px solid #CACACA;;
+  /* border: 0.5px solid #CACACA; off for now */
+  text-decoration: underline;
   border-radius: 2px;
   min-height: 20px;
   padding: 0 10px;
@@ -1051,7 +1064,6 @@ save-for-later {
   justify-content: center;
   align-items: center;
   margin-right: auto;
-  margin-left: 15px;
 }
 
 /* Saved for Later Container Styles */
@@ -1182,7 +1194,8 @@ save-for-later-item {
   font-style: normal;
   font-weight: 500;
   line-height: 100%;
-  border: 0.5px solid #CACACA;
+  border: none;
+  text-decoration: underline;
   border-radius: 2px;
   min-height: 20px;
   padding: 0 10px;
@@ -1245,7 +1258,7 @@ remove-from-save-for-later {
 }
 
 .cart-level-gift-options-container {
-  padding: 8px 6px;
+  padding: 1.25rem 1.5rem;
   margin-bottom: 1rem;
   border: 0.5px solid #CACACA;
   border-radius: 5px;
@@ -1294,10 +1307,82 @@ gifting-options-tooltip .tooltip-content {
 .options-text {
   color: #000;
   font-family: "Nunito Sans";
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 120%; /* 14.4px */
+}
+
+/* Gifting accordion */
+.gifting-accordion {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gifting-accordion-summary {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  list-style: none;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.gifting-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.gifting-accordion-icon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+  margin-left: auto;
+}
+
+.gifting-accordion-icon svg {
+  width: 10px;
+  height: 10px;
+}
+
+.gifting-accordion[open] .gifting-accordion-icon {
+  transform: rotate(90deg);
+}
+
+.gifting-accordion[open] .gifting-accordion-summary {
+  margin-bottom: 10px;
+}
+
+.gifting-accordion-content {
+  overflow: hidden;
+}
+
+/* Gifting accordion column layout */
+.gifting-checkboxes-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.gifting-checkbox-col {
+  flex: 1;
+  min-width: 0;
+  width: 50%;
+}
+
+.gifting-wrap-image-col {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+.gifting-wrap-image-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  object-fit: contain;
+  max-height: 80px;
 }
 
 gifting-options-tooltip.is-open .tooltip-content {
