@@ -1,4 +1,5 @@
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+{{ 'gifting-accordion.js' | asset_url | script_tag }}
 
 {%- liquid
 
@@ -419,7 +420,7 @@
     </div>
 
   {% assign cartSubTotal = cart.items_subtotal_price %}
-  <div class="drawer__items {% if cart.items == 0 %} hidden {% endif %}" dynamic data-cart-can-have-gift-wrap="{{ cart_can_have_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
+  <div class="drawer__items {% if cart.items == 0 %} hidden {% endif %}" dynamic data-cart-can-have-gift-wrap="{{ cart_can_have_gift_wrap }}" data-gift-wrap-eligible-count="{{ items_that_allow_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" data-json='{{ cart.items | json | escape }}'>
     {% if cart.item_count == 0 %}
       <div class="your-cart-is-empty">
           {{ section.settings.empty_cart_message }}
@@ -737,12 +738,14 @@
         <p class="visually-hidden shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
       </cart-items>
       <div class="cart-level-gift-options-container {% if cart.item_count == 0 %} hidden {% endif %}">
+        <hammitt-gifting-accordion>
         <details class="gifting-accordion">
           <summary class="options-text gifting-accordion-summary">
             {% render 'icon-gift-box-complex' %}
             Gifting Options
             <span class="gifting-accordion-icon">{% render 'icon-chevron-right' %}</span>
           </summary>
+        <div class="gifting-accordion-content">
         {% comment %} 
           <div class="options-text">Most items arrive in a complimentary Hammitt gift box.
             <gifting-options-tooltip>
@@ -839,7 +842,9 @@
           </div>
         {% endif %}
 
+        </div>
         </details>
+        </hammitt-gifting-accordion>
       </div>
       {% if settings.enable_hammitt_gifting_drawer %}
 
