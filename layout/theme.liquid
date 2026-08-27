@@ -672,7 +672,7 @@ template-{{ template.name -}}
                   })
                 }
     
-                this.querySelector('button#gift-note-save-button').addEventListener('click', () => {
+                document.querySelector('button#gift-note-save-button').addEventListener('click', () => {
 
                   this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
                   this.saveButton.classList.add('saved')
@@ -987,6 +987,17 @@ template-{{ template.name -}}
               return true
             }
 
+            getEligibleGiftWrapCount() {
+              // The eligible count (quantity of items that allow gift wrap) is computed
+              // server-side and rendered fresh on every cart-drawer section update
+              const drawerItems = document.querySelector('.drawer__items')
+              if(drawerItems && drawerItems.dataset.giftWrapEligibleCount !== undefined) {
+                const count = parseInt(drawerItems.dataset.giftWrapEligibleCount, 10)
+                return isNaN(count) ? 0 : count
+              }
+              return 0
+            }
+
             async checkGiftWrapEligibility() {
               if(window.giftWrapManager.isProcessing) return
               
@@ -1024,10 +1035,52 @@ template-{{ template.name -}}
                 }
                 
                 // Update checkbox state based on cart contents
-                const hasGiftWrap = cartItems.some(item => String(item.variant_id) === String(window.giftWrapManager.giftWrapVid))
+                const giftWrapLineItem = cartItems.find(item => String(item.variant_id) === String(window.giftWrapManager.giftWrapVid))
+                const hasGiftWrap = !!giftWrapLineItem
                 if(checkbox) {
                   checkbox.checked = hasGiftWrap
                 }
+
+                // If gift wrap is present in the cart, treat the checkbox as active and
+                // make sure the gift wrap quantity always matches the number of eligible items
+                if(hasGiftWrap) {
+                  await this.syncGiftWrapQuantity(giftWrapLineItem)
+                }
+              }
+            }
+
+            async syncGiftWrapQuantity(giftWrapLineItem) {
+              const eligibleCount = this.getEligibleGiftWrapCount()
+
+              if(eligibleCount === giftWrapLineItem.quantity) return
+
+              window.giftWrapManager.isProcessing = true
+              this.showLoading()
+
+              try {
+                const response = await fetch('/cart/change.js', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    id: window.giftWrapManager.giftWrapVid,
+                    quantity: Math.max(eligibleCount, 0),
+                    sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
+                  })
+                })
+
+                if(response.ok) {
+                  const data = await response.json()
+                  if(typeof cartUpdate === 'function') {
+                    await cartUpdate(data)
+                  }
+                }
+              } catch(error) {
+                console.error('Error syncing gift wrap quantity:', error)
+              } finally {
+                this.hideLoading()
+                window.giftWrapManager.isProcessing = false
               }
             }
 
@@ -1110,6 +1163,8 @@ template-{{ template.name -}}
               this.showLoading()
               
               try {
+                // Add one gift wrap for every gift-wrap-eligible item currently in the cart
+                const quantity = Math.max(this.getEligibleGiftWrapCount(), 1)
                 const response = await fetch('/cart/add.js', {
                   method: 'POST',
                   headers: {
@@ -1118,9 +1173,9 @@ template-{{ template.name -}}
                   body: JSON.stringify({
                     items: [{
                       id: window.giftWrapManager.giftWrapVid,
-                      quantity: 1
+                      quantity
                     }],
-                    sections: "cart-icon-bubble,header"
+                    sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
                   })
                 })
 
