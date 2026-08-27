@@ -1,6 +1,11 @@
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 {{ 'gifting-accordion.js' | asset_url | script_tag }}
 
+<script>
+  console.log('////////')
+  console.log({{ cart | json }})
+</script>
+
 {%- liquid
 
   assign appear_delay = 1
@@ -739,111 +744,111 @@
       </cart-items>
       <div class="cart-level-gift-options-container {% if cart.item_count == 0 %} hidden {% endif %}">
         <hammitt-gifting-accordion>
-        <details class="gifting-accordion">
-          <summary class="options-text gifting-accordion-summary">
-            {% render 'icon-gift-box-complex' %}
-            Gifting Options
-            <span class="gifting-accordion-icon">{% render 'icon-chevron-right' %}</span>
-          </summary>
-        <div class="gifting-accordion-content">
-        {% comment %} 
-          <div class="options-text">Most items arrive in a complimentary Hammitt gift box.
-            <gifting-options-tooltip>
-              <span class="tooltip-trigger">{% render 'icon-exclamation' %}</span>
-              <div class="tooltip-content">
-                Some items ie. accessories, travel, backpacks, and bags with large shoulder straps, are not eligible for complimentary gift boxes or ribbon.
-                {% render 'icon-close' %}
-              </div>
-            </gifting-options-tooltip>
-          </div> 
-        {% endcomment %}
-        <div class="gifting-checkboxes-row">
-        {% if settings.enable_hammitt_box_opt_out_cart_level %}
-          <hammitt-box-opt-out class="cart-drawer-box-opt-out gifting-checkbox-col{% unless cart_can_have_gift_wrap %} hidden {% endunless %}"
-            {% if cart.attributes['opt_out_of_gift_box'] %}
-              data-server-has-opt-out="true"
-            {% else %}
-              data-server-has-opt-out="false"
-            {% endif %}
-          >
-            <div class="checkbox-message-area">
-              <div>
-                <input type="checkbox" id="hammitt-box-opt-out-checkbox">
-                <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message">{{ settings.hammitt_box_opt_out_message_cart_level }}</label>
-              </div>
-            </div>
-          </hammitt-box-opt-out>
-        {% endif %}
-
-          <div class="gifting-checkbox-col gifting-middle-checkboxes">
-            {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}
-              {%- liquid
-                assign cart_has_gift_wrap = false
-                for item in cart.items
-                  if item.product.id == settings.hammitt_gift_wrap_product_cart_level.id
-                    assign cart_has_gift_wrap = true
-                    break
-                  endif
-                endfor
-              -%}
-              <hammitt-gift-wrap-upsell class="cart-drawer-gift-wrap-upsell{% unless cart_can_have_gift_wrap %} hidden {% endunless %}"
-                data-gift-wrap-vid="{{ settings.hammitt_gift_wrap_product_cart_level.selected_or_first_available_variant.id }}"
-                data-cart-has-gift-wrap="{{ cart_has_gift_wrap }}"
-              >
-                <div class="checkbox-message-area">
-                  <div>
-                    <input type="checkbox" id="hammitt-gift-wrap-upsell-checkbox" {% if cart_has_gift_wrap %}checked{% endif %}>
-                    <label for="hammitt-gift-wrap-upsell-checkbox" class="hammit-checkbox-message">{{ settings.hammitt_gift_wrap_upsell_message_cart_level }}</label>
-                  </div>
+          <details class="gifting-accordion">
+            <summary class="options-text gifting-accordion-summary">
+              {% render 'icon-gift-box-complex' %}
+              Gifting Options
+              <span class="gifting-accordion-icon">{% render 'icon-chevron-right' %}</span>
+            </summary>
+          <div class="gifting-accordion-content">
+          {% comment %} 
+            <div class="options-text">Most items arrive in a complimentary Hammitt gift box.
+              <gifting-options-tooltip>
+                <span class="tooltip-trigger">{% render 'icon-exclamation' %}</span>
+                <div class="tooltip-content">
+                  Some items ie. accessories, travel, backpacks, and bags with large shoulder straps, are not eligible for complimentary gift boxes or ribbon.
+                  {% render 'icon-close' %}
                 </div>
-              </hammitt-gift-wrap-upsell>
-            {% endif %}
+              </gifting-options-tooltip>
+            </div> 
+          {% endcomment %}
+          <div class="gifting-checkboxes-row">
+          {% if settings.enable_hammitt_box_opt_out_cart_level %}
+            <hammitt-box-opt-out class="cart-drawer-box-opt-out gifting-checkbox-col{% unless cart_can_have_gift_wrap %} hidden {% endunless %}"
+              {% if cart.attributes['opt_out_of_gift_box'] %}
+                data-server-has-opt-out="true"
+              {% else %}
+                data-server-has-opt-out="false"
+              {% endif %}
+            >
+              <div class="checkbox-message-area">
+                <div>
+                  <input type="checkbox" id="hammitt-box-opt-out-checkbox">
+                  <label for="hammitt-box-opt-out-checkbox" class="hammit-checkbox-message">{{ settings.hammitt_box_opt_out_message_cart_level }}</label>
+                </div>
+              </div>
+            </hammitt-box-opt-out>
+          {% endif %}
 
-            {% if settings.enable_hammitt_gift_messaging %}
-              <hammitt-cart-level-gift-note class="cart-drawer-gift-note"
-                {% if cart.attributes['Gift Note'] %}
-                  data-server-has-note="true"
-                  {% else %}
-                  data-server-has-note="false"
-                {% endif %}
+            <div class="gifting-checkbox-col gifting-middle-checkboxes">
+              {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}
+                {%- liquid
+                  assign cart_has_gift_wrap = false
+                  for item in cart.items
+                    if item.product.id == settings.hammitt_gift_wrap_product_cart_level.id
+                      assign cart_has_gift_wrap = true
+                      break
+                    endif
+                  endfor
+                -%}
+                <hammitt-gift-wrap-upsell class="cart-drawer-gift-wrap-upsell{% unless cart_can_have_gift_wrap %} hidden {% endunless %}"
+                  data-gift-wrap-vid="{{ settings.hammitt_gift_wrap_product_cart_level.selected_or_first_available_variant.id }}"
+                  data-cart-has-gift-wrap="{{ cart_has_gift_wrap }}"
                 >
-                <div class="checkbox-message-area">
-                  <div>
-                    <input type="checkbox" id="hammitt-gift-message-checkbox">
-                    <label for="hammit-gift-message-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_gift_message }}</label>
-                    {% if settings.gifting_drawer_trigger_after_gifting_label != blank %}
-                      <hammitt-gifting-options-drawer-trigger-no-button style="margin: 0;text-decoration: underline;font-size: 13px;margin-left: 5px;cursor: pointer;">
-                        {{ settings.gifting_drawer_trigger_after_gifting_label }}
-                      </hammitt-gifting-options-drawer-trigger-no-button>
-                    {% endif %}
+                  <div class="checkbox-message-area">
+                    <div>
+                      <input type="checkbox" id="hammitt-gift-wrap-upsell-checkbox" {% if cart_has_gift_wrap %}checked{% endif %}>
+                      <label for="hammitt-gift-wrap-upsell-checkbox" class="hammit-checkbox-message">{{ settings.hammitt_gift_wrap_upsell_message_cart_level }}</label>
+                    </div>
                   </div>
+                </hammitt-gift-wrap-upsell>
+              {% endif %}
+
+              {% if settings.enable_hammitt_gift_messaging %}
+                <hammitt-cart-level-gift-note class="cart-drawer-gift-note"
+                  {% if cart.attributes['Gift Note'] %}
+                    data-server-has-note="true"
+                    {% else %}
+                    data-server-has-note="false"
+                  {% endif %}
+                  >
+                  <div class="checkbox-message-area">
+                    <div>
+                      <input type="checkbox" id="hammitt-gift-message-checkbox">
+                      <label for="hammit-gift-message-checkbox" class="hammit-checkbox-message "> {{ settings.hammitt_gift_message }}</label>
+                      {% if settings.gifting_drawer_trigger_after_gifting_label != blank %}
+                        <hammitt-gifting-options-drawer-trigger-no-button style="margin: 0;text-decoration: underline;font-size: 13px;margin-left: 5px;cursor: pointer;">
+                          {{ settings.gifting_drawer_trigger_after_gifting_label }}
+                        </hammitt-gifting-options-drawer-trigger-no-button>
+                      {% endif %}
+                    </div>
+                  </div>
+                </hammitt-cart-level-gift-note>
+              {% endif %}
+            </div>
+
+          {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}
+            <div class="gifting-wrap-image-col">
+              <img src="https://cdn.shopify.com/s/files/1/0661/5963/files/cropped_giftbox.png?v=1787594832" alt="Gift wrap">
+            </div>
+          {% endif %}
+          </div>
+
+          {% if settings.enable_hammitt_gift_messaging %}
+            <div class="hammitt-gift-note-area">
+              <label for="gift-note" class="visually-hidden">Add gift note?</label>
+              <div class="note-area-container">
+                <textarea maxlength="500" placeholder="Type here" name="note" id="gift-note-text-area"></textarea>
+                <div class="note-area-footer">
+                  <span id="gift-note-char-limit">0/500</span>
+                  <button type="button" id="gift-note-save-button">Save</button>
                 </div>
-              </hammitt-cart-level-gift-note>
-            {% endif %}
-          </div>
-
-        {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}
-          <div class="gifting-wrap-image-col">
-            <img src="https://cdn.shopify.com/s/files/1/0661/5963/files/cropped_giftbox.png?v=1787594832" alt="Gift wrap">
-          </div>
-        {% endif %}
-        </div>
-
-        {% if settings.enable_hammitt_gift_messaging %}
-          <div class="hammitt-gift-note-area">
-            <label for="gift-note" class="visually-hidden">Add gift note?</label>
-            <div class="note-area-container">
-              <textarea maxlength="500" placeholder="Type here" name="note" id="gift-note-text-area"></textarea>
-              <div class="note-area-footer">
-                <span id="gift-note-char-limit">0/500</span>
-                <button type="button" id="gift-note-save-button">Save</button>
               </div>
             </div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-        </div>
-        </details>
+          </div>
+          </details>
         </hammitt-gifting-accordion>
       </div>
       {% if settings.enable_hammitt_gifting_drawer %}
