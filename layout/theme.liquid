@@ -602,7 +602,8 @@ template-{{ template.name -}}
     {% if settings.enable_cart_rivett_club %}
       {% unless customer %}
         {% comment %} Edgemesh - elements being bound by these scripts are inside of other dynamic tags, script must also be dynamic {% endcomment %}
-        <script dynamic>
+        <dynamic>
+        <script>
           window.addEventListener('DOMContentLoaded', () => {
             const cartRivettClub = document.querySelector('cart-rivett-club')
             if(!cartRivettClub) return
@@ -636,6 +637,7 @@ template-{{ template.name -}}
 
           customElements.define('cart-rivett-club', CartRivettClub)
         </script>
+        </dynamic>
         <link rel="stylesheet" href="{{ 'cart-rivett-club.css' | asset_url }}">
       {% endunless %}
     {% endif %}
@@ -652,7 +654,8 @@ template-{{ template.name -}}
 
     {% if settings.enable_hammitt_gift_messaging %}
       {% comment %} Edgemesh - elements being bound by script are inside of other dynamic tags, script must also be dynamic {% endcomment %}
-      <script dynamic>
+      <dynamic>
+      <script>
         window.addEventListener('DOMContentLoaded', () => {
           // lazy wat of persisting this data
           document.addEventListener('cart:updated', (event) => {
@@ -747,6 +750,7 @@ template-{{ template.name -}}
           customElements.define('hammitt-cart-level-gift-note', hammittGiftNote)  
         })
       </script>
+      </dynamic>
     {% endif %}
 
     {% if settings.enable_hammitt_box_opt_out_cart_level %}
