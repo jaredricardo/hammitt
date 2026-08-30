@@ -1552,6 +1552,9 @@ template-{{ template.name -}}
       <!-- End of Conversion Pixel -->
     {% endif %}
 
+    {% comment %} Keynes LAL Pixel: {% endcomment %}
+    <img width="1" height="1" src="//action.dstillery.com/orbserv/nspix?adv=cl172935946111751&ns=9078&nc=Hammitt-Site-Visitor&ncv=58" />
+
     {% if template == 'cart' %}
       <!-- Conversion Pixel for [lead]- DO NOT MODIFY -->
       <img
@@ -1563,6 +1566,27 @@ template-{{ template.name -}}
       >
       <!-- End of Conversion Pixel -->
     {% endif %}
+      {% comment %} Keynes Universal Pixel: {% endcomment %}
+    <script async src="https://js.adsrvr.org/up_loader.3.0.0.js"></script>
+    <script>
+        window.ttdConversionEventsLayer = window.ttdConversionEventsLayer || [];
+        function ttdConversionEvents() {
+            window.ttdConversionEventsLayer.push(arguments);
+        }
+        
+        ttdConversionEvents("init", {
+            advertiserId: "q8f583o",
+            pixelIds: ["hr7kvr2"]
+        });
+
+        ttdConversionEvents("event", {
+            advertiserId: "q8f583o",
+            pixelIds: ["hr7kvr2"]
+        });
+    </script>
+    
+
+
     {% comment %}
     {% render 'preorder-now' %}
     {% endcomment %}
