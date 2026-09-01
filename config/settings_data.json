@@ -142,15 +142,6 @@
               "link": "shopify://collections/bestsellers"
             }
           },
-          "announcement_gtphpC": {
-            "type": "announcement",
-            "settings": {
-              "text": "<p><strong>New Travel Drop</strong></p>",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://pages/current-season"
-            }
-          },
           "announcement_Qifxkc": {
             "type": "announcement",
             "settings": {
@@ -158,6 +149,16 @@
               "text_color": "#ffffff",
               "background_color": "#000000",
               "link": "shopify://collections/new-arrivals"
+            }
+          },
+          "announcement_gtphpC": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "<p><strong>New September Drop</strong></p>",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://pages/current-season"
             }
           },
           "announcement_xNQNPE": {
@@ -172,8 +173,8 @@
         },
         "block_order": [
           "announcement_Tpxzm9",
-          "announcement_gtphpC",
           "announcement_Qifxkc",
+          "announcement_gtphpC",
           "announcement_xNQNPE"
         ],
         "custom_css": [],
