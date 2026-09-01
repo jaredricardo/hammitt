@@ -1,5 +1,6 @@
 {%- comment -%} Edgemesh: window.pn.cart is per-session cart JSON, make script dynamic {%- endcomment -%}
-<script type="text/javascript" defer dynamic>
+<dynamic>
+<script type="text/javascript" defer>
   {% if cart %}
     window.pn.cart = {};
   	window.pn.cart = {{cart | json}}
@@ -23,6 +24,7 @@
     }
   {% endif %}
 </script>
+</dynamic>
 
 {% raw %}
 <script>

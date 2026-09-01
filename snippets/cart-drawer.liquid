@@ -131,9 +131,11 @@
 {%- comment -%}
   Edgemesh: tagged dynamic cart content
 {%- endcomment -%}
-<script dynamic>
+<dynamic>
+<script>
   console.log({{ cart | json }})
 </script>
+</dynamic>
 
 {% if settings.enable_free_multi_gift_select or settings.enable_free_gift_wrap %}
   <style>

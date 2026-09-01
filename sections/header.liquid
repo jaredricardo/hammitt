@@ -1013,7 +1013,8 @@
   </script>
   
   {% comment %} Edgemesh - elements being bound by this script are inside of another dynamic tag, script must also be dynamic {% endcomment %}
-  <script class="restructure" dynamic>
+  <dynamic>
+  <script class="restructure">
     window.jsLoad = false;
     document.querySelector('#Details-menu-drawer-container').addEventListener('click', function(){
       if(!jsLoad){
@@ -1022,9 +1023,11 @@
     }); 
 
   </script>
+  </dynamic>
 
   {% comment %} Edgemesh - elements being bound by this script are inside of another dynamic tag, script must also be dynamic {% endcomment %}
-  <script class="restructure" dynamic>
+  <dynamic>
+  <script class="restructure">
     window.jsWNWLoad = false;
 
     {% comment %} Open Cart Drawer  {% endcomment %}
@@ -1041,6 +1044,7 @@
       }
     });
   </script>
+  </dynamic>
 
   {% comment %} Function to scroll to the target product via breadcrums {% endcomment %}
   {% if template contains 'collection' %}
