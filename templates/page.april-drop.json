@@ -33,35 +33,23 @@
         "heading_R7qzk9": {
           "type": "heading",
           "settings": {
-            "heading": "Meet Starlight",
+            "heading": "Twin Crest Collection",
             "heading_size_mobile": 30,
             "heading_size_tablet": 40,
             "heading_size_desktop": 56
           }
         },
-        "text_XiJFyr": {
-          "type": "text",
-          "settings": {
-            "text": "For the first time ever, mini rivets have arrived.",
-            "text_area_html_swap": "",
-            "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 15
-          }
-        },
         "buttons_Y3ejUN": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop Starlight",
-            "button_link_1": "shopify://collections/starlight",
+            "button_label_1": "Shop Twin Crest",
+            "button_link_1": "shopify://collections/twin-crest-collection",
             "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
         "heading_R7qzk9",
-        "text_XiJFyr",
         "buttons_Y3ejUN"
       ],
       "name": "starlight",
@@ -77,9 +65,9 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_13057.jpg",
-        "image_2": "shopify://shop_images/Group_13058.jpg",
-        "image_link": "shopify://collections/starlight",
+        "image": "shopify://shop_images/Group_13061_1.jpg",
+        "image_2": "shopify://shop_images/Group_13061_1.jpg",
+        "image_link": "shopify://collections/twin-crest-collection",
         "image_overlay_opacity": 20,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -107,6 +95,109 @@
       }
     },
     "slider_collection_77dtaL": {
+      "type": "slider-collection",
+      "name": "starlight widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "collection": "twin-crest-collection",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_44qCHq": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_krNMYK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meet Starlight",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 56
+          }
+        },
+        "text_4tzcjF": {
+          "type": "text",
+          "settings": {
+            "text": "For the first time ever, mini rivets have arrived.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_9WRbx3": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Starlight",
+            "button_link_1": "shopify://collections/starlight",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_krNMYK",
+        "text_4tzcjF",
+        "buttons_9WRbx3"
+      ],
+      "name": "starlight",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_13065.jpg",
+        "image_2": "shopify://shop_images/PDP_26.3_1653_1_bf0abe55-5e22-499c-84fc-30ca6536bffc.jpg",
+        "image_link": "shopify://collections/starlight",
+        "image_overlay_opacity": 20,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_tE6kUa": {
       "type": "slider-collection",
       "name": "starlight widget",
       "settings": {
@@ -911,6 +1002,8 @@
     "scroll_to_top_button_mTtDQh",
     "image_banner_DcF4Jn",
     "slider_collection_77dtaL",
+    "image_banner_44qCHq",
+    "slider_collection_tE6kUa",
     "multicolumn_PU4yiz",
     "image_banner_BfbxGw",
     "slider_collection_aP9BbU",
