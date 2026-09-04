@@ -1600,6 +1600,44 @@ const cartUpdate = (json = false) => {
           }
           
         }
+
+        // Keep the merged cart-level gift ribbon quantity in sync with how many units across the cart
+        // currently have ribbon selected. Source line items are tagged with a "_gift_wrap_selected"
+        // property (set/cleared via cart/change.js when the per-line checkbox is toggled) - each unit
+        // of a flagged line counts as one ribbon needed. We reuse the cart data already fetched above
+        // instead of making another request, then issue at most one /cart/update.js call to correct
+        // the single merged ribbon line's quantity if it doesn't match what's needed.
+        const lineRibbonGiftWrapVid = document.querySelector('.drawer__items') ? document.querySelector('.drawer__items').getAttribute('data-line-ribbon-gift-wrap-vid') : null
+
+        if(lineRibbonGiftWrapVid) {
+          const giftWrapVidNum = parseInt(lineRibbonGiftWrapVid, 10)
+          const { items } = data
+
+          let totalGiftWrapsNeeded = 0
+          let totalGiftWrapsCurrentlyInCart = 0
+
+          items.forEach((item) => {
+            if(item.id === giftWrapVidNum) {
+              totalGiftWrapsCurrentlyInCart += item.quantity
+              return
+            }
+            if(item.properties && item.properties['_gift_wrap_selected']) {
+              totalGiftWrapsNeeded += item.quantity
+            }
+          })
+
+          if(totalGiftWrapsNeeded !== totalGiftWrapsCurrentlyInCart) {
+            updateCart({
+              url: '/cart/update.js',
+              data: JSON.stringify({
+                updates: { [giftWrapVidNum]: totalGiftWrapsNeeded },
+                sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
+              })
+            })
+            return
+          }
+        }
+
         // remove all product card spinner
         document.querySelectorAll('.card-wrapper .loading-overlay__spinner.active').forEach(spinner => {
           spinner.classList.remove('active')
@@ -2374,6 +2412,124 @@ class PdpExploreMoreColorways extends HTMLElement {
 }
 
 customElements.define('pdp-explore-more-colorways', PdpExploreMoreColorways);
+
+// Per-line-item gift ribbon upsell, rendered inside each eligible cart line's gifting
+// accordion. Checking the box sets a "_gift_wrap_selected" property on the SOURCE line item
+// via cart/change.js (existing properties are preserved by reading the line's rendered
+// data-json). The merged cart-level gift wrap product line's quantity is kept in sync
+// separately, centrally, inside cartUpdate() in this file - it sums the quantity of every
+// line flagged with "_gift_wrap_selected" and corrects the single merged line to match.
+class CartLevelLineRibbonUpsell extends HTMLElement {
+  connectedCallback() {
+    this.checkbox = this.querySelector('input[type="checkbox"]')
+    if(!this.checkbox) return
+
+    this.lineKey = this.dataset.lineKey
+    this.isProcessing = false
+
+    this.onChange = this.onChange.bind(this)
+    this.checkbox.addEventListener('change', this.onChange)
+  }
+
+  disconnectedCallback() {
+    if(this.checkbox) {
+      this.checkbox.removeEventListener('change', this.onChange)
+    }
+  }
+
+  getLineData() {
+    const lineEl = document.querySelector(`[data-key="${this.lineKey}"]`)
+    let properties = {}
+    let quantity = parseInt(this.dataset.lineQuantity, 10)
+
+    if(lineEl) {
+      const domQty = parseInt(lineEl.dataset.qty, 10)
+      if(!isNaN(domQty)) quantity = domQty
+
+      const rawJson = lineEl.getAttribute('data-json')
+      if(rawJson) {
+        try {
+          const lineData = JSON.parse(rawJson)
+          properties = { ...(lineData.properties || {}) }
+          if(typeof lineData.quantity === 'number') quantity = lineData.quantity
+        } catch(e) {}
+      }
+    }
+
+    if(isNaN(quantity) || quantity < 1) quantity = 1
+
+    return { properties, quantity }
+  }
+
+  showLoading() {
+    const loadingOverlay = document.querySelector('cart-items .loading-overlay')
+    if(loadingOverlay) loadingOverlay.classList.remove('hidden')
+
+    const cartItemsEl = document.querySelector('cart-items')
+    if(cartItemsEl) cartItemsEl.classList.add('cart__items--disabled')
+  }
+
+  hideLoading() {
+    const loadingOverlay = document.querySelector('cart-items .loading-overlay')
+    if(loadingOverlay) loadingOverlay.classList.add('hidden')
+
+    const cartItemsEl = document.querySelector('cart-items')
+    if(cartItemsEl) cartItemsEl.classList.remove('cart__items--disabled')
+  }
+
+  async onChange(event) {
+    if(this.isProcessing) {
+      event.preventDefault()
+      event.target.checked = !event.target.checked
+      return
+    }
+
+    this.isProcessing = true
+    this.showLoading()
+
+    try {
+      await this.setGiftWrapSelected(event.target.checked)
+    } finally {
+      this.isProcessing = false
+      this.hideLoading()
+    }
+  }
+
+  async setGiftWrapSelected(selected) {
+    const { properties, quantity } = this.getLineData()
+
+    if(selected) {
+      properties['_gift_wrap_selected'] = 'true'
+    } else {
+      delete properties['_gift_wrap_selected']
+    }
+
+    try {
+      const response = await fetch(window.Shopify.routes.root + 'cart/change.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: this.lineKey,
+          quantity,
+          properties,
+          sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header'
+        })
+      })
+
+      if(response.ok) {
+        const data = await response.json()
+        if(typeof cartUpdate === 'function') await cartUpdate(data)
+      }
+    } catch(error) {
+      console.error('Error updating gift ribbon selection for line item:', error)
+      this.checkbox.checked = !selected
+    }
+  }
+}
+
+if(!customElements.get('cart-level-line-ribbon-upsell')) {
+  customElements.define('cart-level-line-ribbon-upsell', CartLevelLineRibbonUpsell)
+}
 
 document.addEventListener('click', function(e) {
   if (e.target.closest('.afterpay-site-modal')) {
