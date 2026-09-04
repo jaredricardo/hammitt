@@ -15,6 +15,15 @@
     }
   }
 
+  {% if section.settings.heading_link != blank %}
+    #shopify-section-{{section.id}} .section-header a,
+    #shopify-section-{{section.id}} .section-header a {
+      text-decoration: none;
+      width: max-content;
+      display: block;
+      margin: 0 auto;
+    }
+  {% endif %}
   @media screen and (min-width: 750px) {
     .swiper .swiper-button-next {
       right: var(--swiper-navigation-sides-offset, 25px);
@@ -76,7 +85,13 @@
   <div class="section-wrap section-{{ section.id }}-padding">
   {%- if section.settings.title != blank -%}
   <div class="section-header">
-    <h2 class="h1 section-title {{ section.settings.heading_align }}">{{ section.settings.title }}</h2>
+    {%- if section.settings.heading_link != blank -%}
+      <a href="{{ section.settings.heading_link }}">
+        <h2 class="h1 section-title {{ section.settings.heading_align }}">{{ section.settings.title }}</h2>
+      </a>
+    {%- else -%}
+      <h2 class="h1 section-title {{ section.settings.heading_align }}">{{ section.settings.title }}</h2>
+    {%- endif -%}
   </div>
   {%- endif -%}
   <div class="section-productgrid-wrap">
@@ -150,6 +165,12 @@
       "type": "color",
       "id": "heading_color",
       "label": "Heading color"
+    },
+    {
+      "type": "url",
+      "id": "heading_link",
+      "label": "Heading link",
+      "info": "Optional. Makes the heading clickable when set."
     },
     {
       "type":"collection",
