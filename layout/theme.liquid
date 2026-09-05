@@ -672,7 +672,7 @@ template-{{ template.name -}}
                   })
                 }
     
-                this.querySelector('button#gift-note-save-button').addEventListener('click', () => {
+                document.querySelector('button#gift-note-save-button').addEventListener('click', () => {
 
                   this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
                   this.saveButton.classList.add('saved')
@@ -840,6 +840,45 @@ template-{{ template.name -}}
       </script>
     {% endif %}
 
+    {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}
+      {% comment %}
+        Keeps the "Gift Wrap Information" cart attribute (a plain-text, comma-separated list of which
+        products need a gifting ribbon) in sync with the per-line "_gift_wrap_for_line" associations
+        whenever the cart changes via AJAX, without any extra Shopify API calls - it's derived entirely
+        from the cart data already included in the cart:updated event.
+      {% endcomment %}
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          function buildGiftWrapInfoText(cart) {
+            const giftWrapVid = parseInt('{{ settings.hammitt_gift_wrap_product_cart_level.selected_or_first_available_variant.id }}', 10)
+            const titles = []
+
+            cart.items.forEach((wrapItem) => {
+              if(wrapItem.id !== giftWrapVid) return
+              const forLineKey = wrapItem.properties && wrapItem.properties['_gift_wrap_for_line']
+              if(!forLineKey) return
+
+              const sourceItem = cart.items.find((i) => i.key === forLineKey)
+              if(!sourceItem) return
+
+              for(let i = 0; i < wrapItem.quantity; i++) {
+                titles.push(sourceItem.product_title || sourceItem.title)
+              }
+            })
+
+            if(titles.length === 0) return ''
+            return 'The following products need to receive gifting ribbons: ' + titles.join(' AND ')
+          }
+
+          document.addEventListener('cart:updated', (event) => {
+            const giftWrapInfoInput = document.querySelector('#hammitt-gift-wrap-info-form-input')
+            if(!giftWrapInfoInput || !event.detail || !event.detail.cart) return
+            giftWrapInfoInput.value = buildGiftWrapInfoText(event.detail.cart)
+          })
+        })
+      </script>
+    {% endif %}
+
     <script>
       window.addEventListener('DOMContentLoaded', () => {
         class GiftingOptionsTooltip extends HTMLElement {
@@ -896,300 +935,6 @@ template-{{ template.name -}}
         customElements.define('gifting-options-tooltip', GiftingOptionsTooltip)
       })
     </script>
-
-    {% if settings.enable_hammitt_gift_wrap_upsell_cart_level %}
-      <script>
-        window.addEventListener('DOMContentLoaded', () => {
-          // Singleton pattern to prevent multiple instances from interfering
-          if(!window.giftWrapManager) {
-            window.giftWrapManager = {
-              isProcessing: false,
-              giftWrapVid: null,
-              initialized: false
-            }
-          }
-
-          class HammittGiftWrapUpsell extends HTMLElement {
-            constructor() {
-              super()
-            }
-
-            connectedCallback() {
-              // Only set up the global event listener once
-              if(!window.giftWrapManager.initialized) {
-                window.giftWrapManager.initialized = true
-                
-                // Listen for cart updates
-                document.addEventListener('cart:updated', async () => {
-                  await this.checkAndRemoveGiftWrapIfOnlyItem()
-                  await this.checkGiftWrapEligibility()
-                })
-              }
-
-              // Initialize from data attributes
-              window.giftWrapManager.giftWrapVid = this.dataset.giftWrapVid
-              
-              // Setup checkbox listener
-              this.setupCheckboxListener()
-              
-              // Set initial checkbox state
-              const checkbox = this.getCheckbox()
-              if(checkbox) {
-                const cartHasGiftWrap = this.dataset.cartHasGiftWrap === 'true'
-                checkbox.checked = cartHasGiftWrap
-              }
-            }
-
-            getCheckbox() {
-              return document.querySelector('input#hammitt-gift-wrap-upsell-checkbox')
-            }
-
-            setupCheckboxListener() {
-              const checkbox = this.getCheckbox()
-              if(!checkbox) return
-
-              // Remove old listener if exists
-              if(this.boundCheckboxChangeHandler) {
-                checkbox.removeEventListener('change', this.boundCheckboxChangeHandler)
-              }
-              
-              // Create bound handler
-              this.boundCheckboxChangeHandler = async (e) => {
-                if(window.giftWrapManager.isProcessing) {
-                  e.preventDefault()
-                  e.target.checked = !e.target.checked
-                  return
-                }
-                
-                if(e.target.checked) {
-                  await this.addGiftWrapToCart()
-                } else {
-                  await this.removeGiftWrapFromCart()
-                }
-              }
-              
-              checkbox.addEventListener('change', this.boundCheckboxChangeHandler)
-            }
-
-            getCartElements() {
-              // Always get fresh references since cart DOM gets replaced on update
-              return {
-                drawerWrapper: document.querySelector('.drawer__wrapper'),
-                loadingOverlay: document.querySelector('cart-items .loading-overlay')
-              }
-            }
-
-            canCartHaveGiftWrap() {
-              const drawerItems = document.querySelector('.drawer__items')
-              if(drawerItems && drawerItems.dataset.cartCanHaveGiftWrap !== undefined) {
-                return drawerItems.dataset.cartCanHaveGiftWrap === 'true'
-              }
-              return true
-            }
-
-            async checkGiftWrapEligibility() {
-              if(window.giftWrapManager.isProcessing) return
-              
-              const canHaveGiftWrap = this.canCartHaveGiftWrap()
-              const cartItems = this.getCartData()
-              const giftWrapElement = document.querySelector('hammitt-gift-wrap-upsell')
-              const checkbox = this.getCheckbox()
-              
-              // Re-setup listener after DOM replacement
-              if(checkbox) {
-                this.setupCheckboxListener()
-              }
-              
-              if(!canHaveGiftWrap) {
-                // Hide the gift wrap option
-                if(giftWrapElement) {
-                  giftWrapElement.classList.add('hidden')
-                }
-                
-                // Check if cart has gift wrap and remove it
-                const hasGiftWrap = cartItems.some(item => String(item.variant_id) === String(window.giftWrapManager.giftWrapVid))
-                if(hasGiftWrap) {
-                  console.log('Cart is ineligible for gift wrap but contains it - removing...')
-                  window.giftWrapManager.isProcessing = true
-                  try {
-                    await this.removeGiftWrapFromCart()
-                  } finally {
-                    window.giftWrapManager.isProcessing = false
-                  }
-                }
-              } else {
-                // Show the gift wrap option
-                if(giftWrapElement) {
-                  giftWrapElement.classList.remove('hidden')
-                }
-                
-                // Update checkbox state based on cart contents
-                const hasGiftWrap = cartItems.some(item => String(item.variant_id) === String(window.giftWrapManager.giftWrapVid))
-                if(checkbox) {
-                  checkbox.checked = hasGiftWrap
-                }
-              }
-            }
-
-            showLoading() {
-              const { drawerWrapper, loadingOverlay } = this.getCartElements()
-              
-              if(drawerWrapper) {
-                drawerWrapper.classList.add('is-loading')
-                drawerWrapper.style.opacity = '0.65'
-                drawerWrapper.style.pointerEvents = 'none'
-              }
-              if(loadingOverlay) {
-                loadingOverlay.classList.remove('hidden')
-              }
-            }
-
-            hideLoading() {
-              const { drawerWrapper, loadingOverlay } = this.getCartElements()
-              
-              if(drawerWrapper) {
-                drawerWrapper.classList.remove('is-loading')
-                drawerWrapper.style.opacity = '1'
-                drawerWrapper.style.pointerEvents = 'initial'
-              }
-              if(loadingOverlay) {
-                loadingOverlay.classList.add('hidden')
-              }
-            }
-
-            getCartData() {
-              // Get cart data from drawer__items data attribute instead of API call
-              const drawerItems = document.querySelector('.drawer__items')
-              if(drawerItems && drawerItems.dataset.json) {
-                try {
-                  const cartData = JSON.parse(drawerItems.dataset.json)
-                  return cartData
-                } catch(error) {
-                  console.error('Error parsing cart data:', error)
-                  return []
-                }
-              }
-              return []
-            }
-
-            async checkAndRemoveGiftWrapIfOnlyItem() {
-              if(window.giftWrapManager.isProcessing) return
-              
-              try {
-                const cartItems = this.getCartData()
-                const checkbox = this.getCheckbox()
-                
-                // Check if cart only contains gift wrap (and nothing else)
-                if(cartItems.length === 1) {
-                  const onlyItem = cartItems[0]
-                  if(String(onlyItem.variant_id) === String(window.giftWrapManager.giftWrapVid)) {
-                    // Cart only has gift wrap, remove it
-                    window.giftWrapManager.isProcessing = true
-                    try {
-                      await this.removeGiftWrapFromCart()
-                    } finally {
-                      window.giftWrapManager.isProcessing = false
-                    }
-                  }
-                } else if(cartItems.length === 0) {
-                  // Cart is empty, just uncheck the box
-                  if(checkbox) {
-                    checkbox.checked = false
-                  }
-                }
-              } catch(error) {
-                console.error('Error checking gift wrap status:', error)
-                window.giftWrapManager.isProcessing = false
-              }
-            }
-
-            async addGiftWrapToCart() {
-              if(window.giftWrapManager.isProcessing) return
-              
-              window.giftWrapManager.isProcessing = true
-              this.showLoading()
-              
-              try {
-                const response = await fetch('/cart/add.js', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    items: [{
-                      id: window.giftWrapManager.giftWrapVid,
-                      quantity: 1
-                    }],
-                    sections: "cart-icon-bubble,header"
-                  })
-                })
-
-                if(response.ok) {
-                  const data = await response.json()
-                  if(typeof cartUpdate === 'function') {
-                    await cartUpdate(data)
-                  }
-                }
-              } catch(error) {
-                console.error('Error adding gift wrap to cart:', error)
-                const checkbox = this.getCheckbox()
-                if(checkbox) {
-                  checkbox.checked = false
-                }
-              } finally {
-                this.hideLoading()
-                window.giftWrapManager.isProcessing = false
-              }
-            }
-
-            async removeGiftWrapFromCart() {
-              // Note: This can be called from checkGiftWrapEligibility which already sets isProcessing
-              // So we only set it here if it's not already set
-              const wasProcessing = window.giftWrapManager.isProcessing
-              if(!wasProcessing) {
-                window.giftWrapManager.isProcessing = true
-              }
-              
-              this.showLoading()
-              
-              try {
-                const response = await fetch('/cart/change.js', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    id: window.giftWrapManager.giftWrapVid,
-                    quantity: 0,
-                    sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
-                  })
-                })
-
-                if(response.ok) {
-                  const data = await response.json()
-                  if(typeof cartUpdate === 'function') {
-                    await cartUpdate(data)
-                  }
-                }
-              } catch(error) {
-                console.error('Error removing gift wrap from cart:', error)
-                const checkbox = this.getCheckbox()
-                if(checkbox) {
-                  checkbox.checked = true
-                }
-              } finally {
-                this.hideLoading()
-                if(!wasProcessing) {
-                  window.giftWrapManager.isProcessing = false
-                }
-              }
-            }
-          }
-
-          customElements.define('hammitt-gift-wrap-upsell', HammittGiftWrapUpsell)
-        })
-      </script>
-    {% endif %}
 
     {% comment %} should be moved into a js file {% endcomment %}
     {% if settings.zest_multi_checkout_enabled %}
@@ -1343,15 +1088,33 @@ template-{{ template.name -}}
             return nearestStore
           }
 
-          // 1. Check sessionStorage for a cached location data object
-          const cached = sessionStorage.getItem('ipwhois_data')
-          if (cached) {
-            const locationData = JSON.parse(cached)
-            applyNearestStore(locationData)
+          // 1. Check localStorage for a cached location data object. localStorage (unlike sessionStorage)
+          // persists across tabs/sessions, so a returning visitor's device only needs to hit the ipwhois
+          // API once per CACHE_TTL_MS window instead of once per browser session/tab - this is what was
+          // blowing through the monthly request quota.
+          const CACHE_KEY = 'ipwhois_data'
+          const CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000 // 7 days
+          const FAILURE_BACKOFF_MS = 60 * 60 * 1000 // 1 hour - avoid hammering the API again shortly after a failed/rate-limited attempt
+
+          let cachedEntry = null
+          try {
+            const rawCache = localStorage.getItem(CACHE_KEY)
+            if (rawCache) cachedEntry = JSON.parse(rawCache)
+          } catch (e) {
+            cachedEntry = null
+          }
+
+          if (cachedEntry && cachedEntry.data && (Date.now() - cachedEntry.timestamp) < CACHE_TTL_MS) {
+            applyNearestStore(cachedEntry.data)
             return
           }
 
-          // 2. No cache — show loading state before making the API call
+          if (cachedEntry && cachedEntry.failed && (Date.now() - cachedEntry.timestamp) < FAILURE_BACKOFF_MS) {
+            // Recently failed (e.g. rate limited) - skip retrying until the backoff window passes
+            return
+          }
+
+          // 2. No usable cache — show loading state before making the API call
           const desktopStoreTextEl = document.querySelector('.nav-store-link-text > span:last-child')
           if (desktopStoreTextEl) desktopStoreTextEl.textContent = 'Finding nearest store...'
 
@@ -1374,12 +1137,20 @@ template-{{ template.name -}}
             const locationData = await res.json()
             if (!locationData.success && locationData.success !== undefined) {
               console.error('ipwhois: request failed', locationData.message)
+              try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify({ failed: true, timestamp: Date.now() }))
+              } catch (e) {}
             } else {
-              sessionStorage.setItem('ipwhois_data', JSON.stringify(locationData))
+              try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify({ data: locationData, timestamp: Date.now() }))
+              } catch (e) {}
               foundStore = applyNearestStore(locationData)
             }
           } catch (err) {
             console.error('ipwhois: failed to fetch location data', err)
+            try {
+              localStorage.setItem(CACHE_KEY, JSON.stringify({ failed: true, timestamp: Date.now() }))
+            } catch (e) {}
           }
 
           // Mobile tooltip phase 2: show store name for 1500ms before disappearing
