@@ -840,6 +840,45 @@ template-{{ template.name -}}
       </script>
     {% endif %}
 
+    {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}
+      {% comment %}
+        Keeps the "Gift Wrap Information" cart attribute (a plain-text, comma-separated list of which
+        products need a gifting ribbon) in sync with the per-line "_gift_wrap_for_line" associations
+        whenever the cart changes via AJAX, without any extra Shopify API calls - it's derived entirely
+        from the cart data already included in the cart:updated event.
+      {% endcomment %}
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          function buildGiftWrapInfoText(cart) {
+            const giftWrapVid = parseInt('{{ settings.hammitt_gift_wrap_product_cart_level.selected_or_first_available_variant.id }}', 10)
+            const titles = []
+
+            cart.items.forEach((wrapItem) => {
+              if(wrapItem.id !== giftWrapVid) return
+              const forLineKey = wrapItem.properties && wrapItem.properties['_gift_wrap_for_line']
+              if(!forLineKey) return
+
+              const sourceItem = cart.items.find((i) => i.key === forLineKey)
+              if(!sourceItem) return
+
+              for(let i = 0; i < wrapItem.quantity; i++) {
+                titles.push(sourceItem.product_title || sourceItem.title)
+              }
+            })
+
+            if(titles.length === 0) return ''
+            return 'The following products need to receive gifting ribbons: ' + titles.join(' AND ')
+          }
+
+          document.addEventListener('cart:updated', (event) => {
+            const giftWrapInfoInput = document.querySelector('#hammitt-gift-wrap-info-form-input')
+            if(!giftWrapInfoInput || !event.detail || !event.detail.cart) return
+            giftWrapInfoInput.value = buildGiftWrapInfoText(event.detail.cart)
+          })
+        })
+      </script>
+    {% endif %}
+
     <script>
       window.addEventListener('DOMContentLoaded', () => {
         class GiftingOptionsTooltip extends HTMLElement {

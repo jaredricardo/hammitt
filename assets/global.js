@@ -1523,6 +1523,11 @@ const cartUpdate = (json = false) => {
     json = JSON.parse(document.querySelector('.drawer__items').getAttribute('data-json'));
   };
 
+  // Captured below while swapping in the "header" section's markup - .drawer__items already carries
+  // the full, current cart.items array (server-rendered) as its data-json attribute, so it can be
+  // reused for reconciliation and the cart:updated event without any extra cart.js request.
+  let latestCartItems = null;
+
   cartUpdates.forEach(update => {
     if(!json.sections[update.section]) return;
     update.elements.forEach(element => {
@@ -1530,7 +1535,16 @@ const cartUpdate = (json = false) => {
       const doc = parser.parseFromString(json.sections[update.section], "text/html");
       const elOld = document.querySelector(element);
       const elNew = doc.querySelector(element);
-      
+
+      if(element === '.drawer__items' && elNew) {
+        const rawItemsJson = elNew.getAttribute('data-json');
+        if(rawItemsJson) {
+          try {
+            latestCartItems = JSON.parse(rawItemsJson);
+          } catch(e) {}
+        }
+      }
+
       if(elOld == null || elNew == null) return
 
 
@@ -1558,102 +1572,113 @@ const cartUpdate = (json = false) => {
     }
 
     cartUpsellSwiper();
-
-   fetch(window.Shopify.routes.root + 'cart.js')
-    .then(response =>
-      response.json(),
-    )
-    .then(data => {
-        // check if gifting drawer is active, update to the correct number of gift wraps in cart given the number of line items with gift notes
-        const giftingOptionsActive = document.querySelector('hammitt-gifting-options-drawer') != null
-
-        if(giftingOptionsActive) {
-
-          const giftWrapProductVid = parseInt(document.querySelector('hammitt-gifting-options-drawer').getAttribute('data-gift-note-vid'))
-          const { items } = data
-
-          let totalGiftWrapsCurrentlyInCart = 0
-          let totalItemsWithGiftWrapPropertyInCart = 0
-
-          items.forEach((item) => {
-            if(item.id === giftWrapProductVid) {
-              totalGiftWrapsCurrentlyInCart += item.quantity
-            }
-            if(item.properties && item.properties['_line_item_gift_note'] !== undefined) {
-              totalItemsWithGiftWrapPropertyInCart += item.quantity
-            }
-          })
-
-          if(totalItemsWithGiftWrapPropertyInCart != totalGiftWrapsCurrentlyInCart) {
-
-            let updatesObj = {
-              updates: {},
-              sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
-            }
-
-            updatesObj.updates[giftWrapProductVid] = totalItemsWithGiftWrapPropertyInCart
-            updateCart({
-              url: '/cart/update.js',
-              data: JSON.stringify(updatesObj)
-            })
-            return
-          }
-          
-        }
-
-        // Keep the merged cart-level gift ribbon quantity in sync with how many units across the cart
-        // currently have ribbon selected. Source line items are tagged with a "_gift_wrap_selected"
-        // property (set/cleared via cart/change.js when the per-line checkbox is toggled) - each unit
-        // of a flagged line counts as one ribbon needed. We reuse the cart data already fetched above
-        // instead of making another request, then issue at most one /cart/update.js call to correct
-        // the single merged ribbon line's quantity if it doesn't match what's needed.
-        const lineRibbonGiftWrapVid = document.querySelector('.drawer__items') ? document.querySelector('.drawer__items').getAttribute('data-line-ribbon-gift-wrap-vid') : null
-
-        if(lineRibbonGiftWrapVid) {
-          const giftWrapVidNum = parseInt(lineRibbonGiftWrapVid, 10)
-          const { items } = data
-
-          let totalGiftWrapsNeeded = 0
-          let totalGiftWrapsCurrentlyInCart = 0
-
-          items.forEach((item) => {
-            if(item.id === giftWrapVidNum) {
-              totalGiftWrapsCurrentlyInCart += item.quantity
-              return
-            }
-            if(item.properties && item.properties['_gift_wrap_selected']) {
-              totalGiftWrapsNeeded += item.quantity
-            }
-          })
-
-          if(totalGiftWrapsNeeded !== totalGiftWrapsCurrentlyInCart) {
-            updateCart({
-              url: '/cart/update.js',
-              data: JSON.stringify({
-                updates: { [giftWrapVidNum]: totalGiftWrapsNeeded },
-                sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
-              })
-            })
-            return
-          }
-        }
-
-        // remove all product card spinner
-        document.querySelectorAll('.card-wrapper .loading-overlay__spinner.active').forEach(spinner => {
-          spinner.classList.remove('active')
-        });
-
-        document.dispatchEvent(
-          new CustomEvent('cart:updated', {
-            detail: {
-              cart: data,
-            },
-          })
-        );
-      }
-    );
-
   });
+
+  // NOTE: this reconciliation + cart:updated dispatch must run exactly ONCE per cartUpdate() call,
+  // not once per entry in cartUpdates above - it was previously nested inside the forEach loop,
+  // which fired it 2-4 times concurrently and could cause an early `return` in one reconciliation
+  // block (e.g. the legacy gifting-options-drawer sync) to skip the line-ribbon gift wrap sync below
+  // on every one of those firings.
+  const finishCartUpdate = (cart) => {
+    // check if gifting drawer is active, update to the correct number of gift wraps in cart given the number of line items with gift notes
+    const giftingOptionsActive = document.querySelector('hammitt-gifting-options-drawer') != null
+
+    if(giftingOptionsActive) {
+
+      const giftWrapProductVid = parseInt(document.querySelector('hammitt-gifting-options-drawer').getAttribute('data-gift-note-vid'))
+      const { items } = cart
+
+      let totalGiftWrapsCurrentlyInCart = 0
+      let totalItemsWithGiftWrapPropertyInCart = 0
+
+      items.forEach((item) => {
+        if(item.id === giftWrapProductVid) {
+          totalGiftWrapsCurrentlyInCart += item.quantity
+        }
+        if(item.properties && item.properties['_line_item_gift_note'] !== undefined) {
+          totalItemsWithGiftWrapPropertyInCart += item.quantity
+        }
+      })
+
+      if(totalItemsWithGiftWrapPropertyInCart != totalGiftWrapsCurrentlyInCart) {
+
+        let updatesObj = {
+          updates: {},
+          sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
+        }
+
+        updatesObj.updates[giftWrapProductVid] = totalItemsWithGiftWrapPropertyInCart
+        updateCart({
+          url: '/cart/update.js',
+          data: JSON.stringify(updatesObj)
+        })
+        return
+      }
+
+    }
+
+    // Keep each gift-wrap-product cart line in sync with its associated source line item, matched
+    // via a "_gift_wrap_for_line" property (set to the source line's key when its ribbon checkbox is
+    // checked - see CartLevelLineRibbonUpsell). Handles quantity changes and removals of the source
+    // line, reconciled here using the cart data already available above (no extra request needed).
+    const lineRibbonGiftWrapVid = document.querySelector('.drawer__items') ? document.querySelector('.drawer__items').getAttribute('data-line-ribbon-gift-wrap-vid') : null
+
+    if(lineRibbonGiftWrapVid) {
+      const giftWrapVidNum = parseInt(lineRibbonGiftWrapVid, 10)
+      const { items } = cart
+      const updates = {}
+
+      items.forEach((wrapItem) => {
+        if(wrapItem.id !== giftWrapVidNum) return
+        const forLineKey = wrapItem.properties && wrapItem.properties['_gift_wrap_for_line']
+        if(!forLineKey) return
+
+        const sourceItem = items.find((i) => i.key === forLineKey)
+
+        if(!sourceItem) {
+          // Source line was removed entirely - remove the now-orphaned gift wrap line
+          updates[wrapItem.key] = 0
+        } else if(sourceItem.quantity !== wrapItem.quantity) {
+          // Source line's quantity changed (incremented/decremented) - match it
+          updates[wrapItem.key] = sourceItem.quantity
+        }
+      })
+
+      if(Object.keys(updates).length > 0) {
+        updateCart({
+          url: '/cart/update.js',
+          data: JSON.stringify({
+            updates,
+            sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
+          })
+        })
+        return
+      }
+    }
+
+    // remove all product card spinner
+    document.querySelectorAll('.card-wrapper .loading-overlay__spinner.active').forEach(spinner => {
+      spinner.classList.remove('active')
+    });
+
+    document.dispatchEvent(
+      new CustomEvent('cart:updated', {
+        detail: {
+          cart,
+        },
+      })
+    );
+  };
+
+  if(latestCartItems) {
+    finishCartUpdate({ ...json, items: latestCartItems });
+  } else {
+    // Fallback - should be rare (only if the "header" section wasn't part of this response). A
+    // single cart.js request is unavoidable here since there's no other source of truth available.
+    fetch(window.Shopify.routes.root + 'cart.js')
+      .then(response => response.json())
+      .then(data => finishCartUpdate(data));
+  }
 
   // Get the currUpdatedItemID from window and add scrollIntoView()
   let selector = `.drawer__items [data-variant-id="${window.currUpdatedItemID}"]`;
@@ -2414,17 +2439,18 @@ class PdpExploreMoreColorways extends HTMLElement {
 customElements.define('pdp-explore-more-colorways', PdpExploreMoreColorways);
 
 // Per-line-item gift ribbon upsell, rendered inside each eligible cart line's gifting
-// accordion. Checking the box sets a "_gift_wrap_selected" property on the SOURCE line item
-// via cart/change.js (existing properties are preserved by reading the line's rendered
-// data-json). The merged cart-level gift wrap product line's quantity is kept in sync
-// separately, centrally, inside cartUpdate() in this file - it sums the quantity of every
-// line flagged with "_gift_wrap_selected" and corrects the single merged line to match.
+// accordion. Checking the box adds (or reuses) a distinct gift-wrap product cart line tagged
+// with a "_gift_wrap_for_line" property set to the SOURCE line's key - the source line itself
+// is never mutated, so its key stays stable. Unchecking looks up that associated gift-wrap
+// line (via the current cart data, no extra request) and removes it. Quantity changes/removals
+// of the source line are reconciled separately, centrally, inside cartUpdate() in this file.
 class CartLevelLineRibbonUpsell extends HTMLElement {
   connectedCallback() {
     this.checkbox = this.querySelector('input[type="checkbox"]')
     if(!this.checkbox) return
 
     this.lineKey = this.dataset.lineKey
+    this.giftWrapVid = parseInt(this.dataset.giftWrapVid, 10)
     this.isProcessing = false
 
     this.onChange = this.onChange.bind(this)
@@ -2437,28 +2463,40 @@ class CartLevelLineRibbonUpsell extends HTMLElement {
     }
   }
 
-  getLineData() {
+  getSourceLineQuantity() {
     const lineEl = document.querySelector(`[data-key="${this.lineKey}"]`)
-    let properties = {}
     let quantity = parseInt(this.dataset.lineQuantity, 10)
 
     if(lineEl) {
       const domQty = parseInt(lineEl.dataset.qty, 10)
       if(!isNaN(domQty)) quantity = domQty
-
-      const rawJson = lineEl.getAttribute('data-json')
-      if(rawJson) {
-        try {
-          const lineData = JSON.parse(rawJson)
-          properties = { ...(lineData.properties || {}) }
-          if(typeof lineData.quantity === 'number') quantity = lineData.quantity
-        } catch(e) {}
-      }
     }
 
     if(isNaN(quantity) || quantity < 1) quantity = 1
 
-    return { properties, quantity }
+    return quantity
+  }
+
+  // Finds the gift-wrap product line already associated with this source line, reading the
+  // current cart state straight out of the DOM (.drawer__items data-json), avoiding any
+  // extra network request.
+  findAssociatedGiftWrapLine() {
+    const drawerItemsEl = document.querySelector('.drawer__items')
+    if(!drawerItemsEl) return null
+
+    const rawJson = drawerItemsEl.getAttribute('data-json')
+    if(!rawJson) return null
+
+    try {
+      const items = JSON.parse(rawJson)
+      return items.find((item) => (
+        item.id === this.giftWrapVid &&
+        item.properties &&
+        item.properties['_gift_wrap_for_line'] === this.lineKey
+      )) || null
+    } catch(e) {
+      return null
+    }
   }
 
   showLoading() {
@@ -2496,25 +2534,54 @@ class CartLevelLineRibbonUpsell extends HTMLElement {
   }
 
   async setGiftWrapSelected(selected) {
-    const { properties, quantity } = this.getLineData()
+    const quantity = this.getSourceLineQuantity()
+    const existingGiftWrapLine = this.findAssociatedGiftWrapLine()
 
-    if(selected) {
-      properties['_gift_wrap_selected'] = 'true'
-    } else {
-      delete properties['_gift_wrap_selected']
-    }
+    // Nothing to do if the cart already matches the desired state (e.g. a stale re-click)
+    if(selected && existingGiftWrapLine && existingGiftWrapLine.quantity === quantity) return
+    if(!selected && !existingGiftWrapLine) return
 
     try {
-      const response = await fetch(window.Shopify.routes.root + 'cart/change.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: this.lineKey,
-          quantity,
-          properties,
-          sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header'
+      let response
+
+      if(selected) {
+        if(existingGiftWrapLine) {
+          // Already exists (e.g. stale state) - set its quantity to match rather than adding more
+          response = await fetch(window.Shopify.routes.root + 'cart/change.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: existingGiftWrapLine.key,
+              quantity,
+              properties: { '_gift_wrap_for_line': this.lineKey },
+              sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header'
+            })
+          })
+        } else {
+          response = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              items: [{
+                id: this.giftWrapVid,
+                quantity,
+                properties: { '_gift_wrap_for_line': this.lineKey }
+              }],
+              sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header'
+            })
+          })
+        }
+      } else {
+        response = await fetch(window.Shopify.routes.root + 'cart/change.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: existingGiftWrapLine.key,
+            quantity: 0,
+            sections: 'cart-drawer,cart-icon-bubble,main-cart-items,header'
+          })
         })
-      })
+      }
 
       if(response.ok) {
         const data = await response.json()

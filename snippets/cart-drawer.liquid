@@ -30,6 +30,35 @@
     assign cart_can_have_gift_wrap = true
   endif
 
+  # Builds a plain-text summary of which line items have the per-line gift ribbon selected, so the
+  # warehouse can read it directly off the order via a cart attribute (see hammitt-gift-wrap-info-form-input).
+  # Each gift-wrap product line is associated with its source line item via a "_gift_wrap_for_line"
+  # property (set to the source line's key), rather than merging all ribbons into one cart line.
+  assign gift_wrap_info_text = ''
+  if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank
+    assign gift_wrap_info_titles = ''
+    for wrap_item in cart.items
+      if wrap_item.product.id == settings.hammitt_gift_wrap_product_cart_level.id and wrap_item.properties['_gift_wrap_for_line'] != blank
+        assign for_line_key = wrap_item.properties['_gift_wrap_for_line']
+        for source_item in cart.items
+          if source_item.key == for_line_key
+            for i in (1..wrap_item.quantity)
+              if gift_wrap_info_titles == ''
+                assign gift_wrap_info_titles = source_item.product_title
+              else
+                assign gift_wrap_info_titles = gift_wrap_info_titles | append: ' AND ' | append: source_item.product_title
+              endif
+            endfor
+            break
+          endif
+        endfor
+      endif
+    endfor
+    if gift_wrap_info_titles != ''
+      assign gift_wrap_info_text = 'The following products need to receive gifting ribbons: ' | append: gift_wrap_info_titles
+    endif
+  endif
+
   if settings.free_multi_gift_use_qualifying_tag
 
     assign qualifying_tag = settings.free_multi_gift_qualifying_tag
@@ -527,9 +556,18 @@
               endif
             endif
 
+            # Detects gift wrap via a distinct gift-wrap product cart line associated with THIS source
+            # line's key through a "_gift_wrap_for_line" property, rather than a property on the source
+            # line itself - keeps the source line's key stable and allows each ribboned line to have its
+            # own gift-wrap cart line (visible individually) instead of one merged line for the whole cart.
             assign line_has_gift_wrap = false
-            if line_allows_gift_wrap and item.properties['_gift_wrap_selected']
-              assign line_has_gift_wrap = true
+            if line_allows_gift_wrap
+              for wrap_check_item in cart.items
+                if wrap_check_item.product.id == settings.hammitt_gift_wrap_product_cart_level.id and wrap_check_item.properties['_gift_wrap_for_line'] == item.key
+                  assign line_has_gift_wrap = true
+                  break
+                endif
+              endfor
             endif
 
             for property in item.properties
@@ -1366,6 +1404,9 @@
           {% endif %}
           {% if settings.enable_hammitt_box_opt_out_cart_level %}
             <input id="hammitt-box-opt-out-form-input" type="hidden" name="attributes[opt_out_of_gift_box]" value="">
+          {% endif %}
+          {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}
+            <input id="hammitt-gift-wrap-info-form-input" type="hidden" name="attributes[Gift Wrap Information]" value="{{ gift_wrap_info_text | escape }}">
           {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>
