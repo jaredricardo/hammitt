@@ -842,8 +842,8 @@ template-{{ template.name -}}
 
     {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}
       {% comment %}
-        Keeps the "Gift Wrap Information" cart attribute (a plain-text, comma-separated list of which
-        products need a gifting ribbon) in sync with the per-line "_gift_wrap_for_line" associations
+        Keeps the "gift_wrap_information" cart attribute (a plain-text, " AND "-separated list of which
+        product SKUs need a gifting ribbon) in sync with the per-line "_gift_wrap_for_line" associations
         whenever the cart changes via AJAX, without any extra Shopify API calls - it's derived entirely
         from the cart data already included in the cart:updated event.
       {% endcomment %}
@@ -862,7 +862,7 @@ template-{{ template.name -}}
               if(!sourceItem) return
 
               for(let i = 0; i < wrapItem.quantity; i++) {
-                titles.push(sourceItem.product_title || sourceItem.title)
+                titles.push(sourceItem.sku)
               }
             })
 

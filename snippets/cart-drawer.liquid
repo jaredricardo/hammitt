@@ -44,9 +44,9 @@
           if source_item.key == for_line_key
             for i in (1..wrap_item.quantity)
               if gift_wrap_info_titles == ''
-                assign gift_wrap_info_titles = source_item.product_title
+                assign gift_wrap_info_titles = source_item.sku
               else
-                assign gift_wrap_info_titles = gift_wrap_info_titles | append: ' AND ' | append: source_item.product_title
+                assign gift_wrap_info_titles = gift_wrap_info_titles | append: ' AND ' | append: source_item.sku
               endif
             endfor
             break
@@ -1406,7 +1406,7 @@
             <input id="hammitt-box-opt-out-form-input" type="hidden" name="attributes[opt_out_of_gift_box]" value="">
           {% endif %}
           {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}
-            <input id="hammitt-gift-wrap-info-form-input" type="hidden" name="attributes[Gift Wrap Information]" value="{{ gift_wrap_info_text | escape }}">
+            <input id="hammitt-gift-wrap-info-form-input" type="hidden" name="attributes[gift_wrap_information]" value="{{ gift_wrap_info_text | escape }}">
           {% endif %}
           <button type="submit" name="checkout" class="button button--full-width cart-drawer-btn">Checkout</button>
         </form>
