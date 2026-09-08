@@ -1580,6 +1580,14 @@ const cartUpdate = (json = false) => {
   // block (e.g. the legacy gifting-options-drawer sync) to skip the line-ribbon gift wrap sync below
   // on every one of those firings.
   const finishCartUpdate = (cart) => {
+    // Both reconciliation checks below write into this single shared `updates` object and are
+    // flushed with ONE updateCart() call at the end. They used to each `return` early on their own
+    // fetch, which meant that whichever check ran first (the legacy gifting-options-drawer sync)
+    // could permanently block the line-ribbon gift wrap sync from ever running whenever its own
+    // count happened to be mismatched (e.g. after a "save for later" removal, unrelated to ribbons) -
+    // orphaned ribbon gift-wrap lines were left in the cart forever as a result.
+    const updates = {}
+
     // check if gifting drawer is active, update to the correct number of gift wraps in cart given the number of line items with gift notes
     const giftingOptionsActive = document.querySelector('hammitt-gifting-options-drawer') != null
 
@@ -1601,18 +1609,7 @@ const cartUpdate = (json = false) => {
       })
 
       if(totalItemsWithGiftWrapPropertyInCart != totalGiftWrapsCurrentlyInCart) {
-
-        let updatesObj = {
-          updates: {},
-          sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
-        }
-
-        updatesObj.updates[giftWrapProductVid] = totalItemsWithGiftWrapPropertyInCart
-        updateCart({
-          url: '/cart/update.js',
-          data: JSON.stringify(updatesObj)
-        })
-        return
+        updates[giftWrapProductVid] = totalItemsWithGiftWrapPropertyInCart
       }
 
     }
@@ -1626,7 +1623,6 @@ const cartUpdate = (json = false) => {
     if(lineRibbonGiftWrapVid) {
       const giftWrapVidNum = parseInt(lineRibbonGiftWrapVid, 10)
       const { items } = cart
-      const updates = {}
 
       items.forEach((wrapItem) => {
         if(wrapItem.id !== giftWrapVidNum) return
@@ -1643,17 +1639,17 @@ const cartUpdate = (json = false) => {
           updates[wrapItem.key] = sourceItem.quantity
         }
       })
+    }
 
-      if(Object.keys(updates).length > 0) {
-        updateCart({
-          url: '/cart/update.js',
-          data: JSON.stringify({
-            updates,
-            sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
-          })
+    if(Object.keys(updates).length > 0) {
+      updateCart({
+        url: '/cart/update.js',
+        data: JSON.stringify({
+          updates,
+          sections: "cart-drawer,cart-icon-bubble,main-cart-items,header"
         })
-        return
-      }
+      })
+      return
     }
 
     // remove all product card spinner
