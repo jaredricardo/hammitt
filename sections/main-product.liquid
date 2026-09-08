@@ -756,7 +756,6 @@
             {%- when 'price' -%}
               <div class="no-js-hidden product__price-wrapper desktop-pdp-price variant_price" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large' -%}
-                {%- render 'product-payment-installments' -%}
                 <!-- start_production_section_review_snippet_seciton -->
                 <div id="pwr-snippets">
                   <div id="pr-reviewsnippet"></div>
@@ -1408,9 +1407,6 @@
                       </template>
                     </pickup-availability>
                   </div> 
-                  <div class="mobile-only">
-                    {%- render 'product-payment-installments' -%}
-                  </div>
                 {% endunless %}
               
 
