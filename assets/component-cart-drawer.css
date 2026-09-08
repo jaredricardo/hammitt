@@ -97,7 +97,6 @@ cart-drawer > details[open] > summary::before {
 
 .drawer__header {
   text-align: center;
-  border-bottom: 1px solid #e8e8e1;
 }
 
 /* 
@@ -105,11 +104,14 @@ cart-drawer > details[open] > summary::before {
   Instead of editing them all, we will override them here and then add padding to the parent element.
 */
 
-.drawer__header,
 .drawer__header h4,
 .drawer__final,
 .drawer__items {
   padding: 0 10px !important;
+}
+
+.drawer__header {
+  padding: 0 !important;
 }
 
 .drawer__items:has(.drawer_empty) {
@@ -210,15 +212,39 @@ cart-drawer > details[open] > summary::before {
   margin:0;
   padding:0 0 5px 0;
 }
+/* Locks the cart drawer from being interacted with while a request (e.g. gift ribbon add/remove) is in flight.
+   The !important is required because .drawer__content-items has an inline pointer-events:initial style. */
+cart-items.cart__items--disabled .drawer__content-items {
+  pointer-events: none !important;
+  opacity: 0.5;
+}
+/* The cart-lock spinner shown while a gift ribbon add/remove request is in flight - centers it over the
+   whole cart drawer instead of the corner-pinned positioning used by the generic .loading-overlay rules. */
+cart-items {
+  position: relative;
+}
+cart-items > .loading-overlay {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  width: 3rem;
+  z-index: 10;
+}
+cart-items > .loading-overlay .loading-overlay__spinner {
+  width: 3rem;
+}
 .drawer__content-items .drawer__content-item{
   display:flex;
+  flex-wrap: wrap;
   padding-top: 0.75rem;
-  padding-bottom:0.75rem;
+  padding-bottom:2rem;
   margin-bottom:0rem !important;
   gap:15px;
   border-bottom: none;
 }
-.drawer__content-item-image{
+.drawer__content-item-image {
   text-align: center;
   align-items: center;
   display: flex;
@@ -247,13 +273,23 @@ cart-drawer > details[open] > summary::before {
   margin-bottom: 3px;
 }
 
+.line-item-callout {
+  font-size: 11.5px;
+  font-weight: 500;
+  margin-top: auto;
+  color: #C74141;
+}
+
+.line-item-callout.green {
+  color: #1E9907;
+}
+
 .drawer__content-item-info{
   flex-direction:column;
   flex:1 1 0%;
   display:flex;
   margin-bottom:0rem;
   justify-content:space-between;
-  gap: 0.15rem;
 }
 .drawer__content-item-top{
   display:flex;
@@ -586,19 +622,19 @@ span.freeRemainShippingMsg,
 .progress-bar {
   --scale-x: 0%;
   display: block !important;
-  height: 4px;
+  height: 2px;
   border-radius: var(--progress-bar-radius, 3rem);
   background-color: rgba(0,0,0, .075);a
   position: relative;
   overflow: hidden;
   display: block;
-  color: rgb(13,135,86);
+  color: black;
 }
 
 
 .progress-bar:before {
   content: "";
-  background: #0d8756;
+  background: black;
   border-radius: inherit;
   display: block;
   height: 100%;
@@ -785,7 +821,8 @@ div#dynamic-checkout-cart {
 
 
 .hammitt-gift-note-area .note-area-container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .hammitt-gift-note-area textarea {
@@ -793,27 +830,28 @@ div#dynamic-checkout-cart {
   min-height: 90px;
   border: 0.5px solid #D4D4D4;
   border-radius: 2px;
-  font-family: "Nunito Sans", sans-serif;
 }
 
 .hammitt-gift-note-area #gift-note-char-limit,
 .gift-note-char-limit {
-  position: absolute;
-  bottom: 8px;
-  right: 10px;
   color: #9e9e9e;
-  z-index: 2;
   font-size: 12px;
+}
+
+.note-area-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
 }
 
 .hammitt-gift-note-area #gift-note-save-button {
   color: black;
-  font-size: 14px;
-  text-transform: uppercase;
-  border: 1.5px solid black;
+  font-size: 12px;
+  text-decoration: underline;
   background-color: white;
+  border: none;
   padding: 3px 6px;
-  margin-left: auto;
   cursor: pointer;
 }
 
@@ -833,6 +871,7 @@ div#dynamic-checkout-cart {
 .cart-drawer-gift-note .checkbox-message-area div {
   display: flex;
   flex-direction: row;
+  gap: 1rem;
 }
 
 .checkbox-message-area #hammitt-gift-message-checkbox {
@@ -841,28 +880,22 @@ div#dynamic-checkout-cart {
   margin-left: 0px;
 }
 
-.cart-drawer-gift-note .hammitt-gift-note-area {
+.cart-level-gift-options-container .hammitt-gift-note-area {
   display: none;
   margin-top: 8px;
 }
 
-.cart-drawer-gift-note:has(#hammitt-gift-message-checkbox:checked) .hammitt-gift-note-area {
-  display: flex;
-}
-
-.hammitt-gift-note-area #gift-note-save-button.saved,
-.hammit-gift-note-area #gift-note-save-button:hover {
-  color: white;
-  background-color: black;
+.cart-level-gift-options-container:has(#hammitt-gift-message-checkbox:checked) .hammitt-gift-note-area {
+  display: block;
 }
 
 .hammit-checkbox-message {
-  font-size: 11.5px;
+  font-size: 12px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: start;
   line-height: 1.2;
-  font-family: Sofia Pro;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
 hammitt-box-opt-out,
@@ -893,38 +926,6 @@ hammitt-cart-level-gift-note {
   margin-left: 0;
 }
 
-/* Gift Wrap Upsell Checkbox Styles */
-.cart-drawer-gift-wrap-upsell {
-  display: block;
-  width: 100%;
-}
-
-.cart-drawer-gift-wrap-upsell .checkbox-message-area {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-.cart-drawer-gift-wrap-upsell .checkbox-message-area div {
-  display: flex;
-  flex-direction: row;
-}
-
-.cart-drawer-gift-wrap-upsell #hammitt-gift-wrap-upsell-checkbox {
-  accent-color: black;
-  margin-left: 0px;
-}
-
-/* Mutual exclusivity: Box opt-out disables gift wrap upsell and vice versa */
-.cart-level-gift-options-container:has(#hammitt-box-opt-out-checkbox:checked) .cart-drawer-gift-wrap-upsell {
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.cart-level-gift-options-container:has(#hammitt-gift-wrap-upsell-checkbox:checked) .cart-drawer-box-opt-out {
-  opacity: 0.5;
-  pointer-events: none;
-}
 
 .cart-item .quantity__input {
   padding: 0;
@@ -1001,10 +1002,10 @@ hammitt-cart-level-gift-note {
   padding-top: 10px !important;
 }
 .gwp-progress-bar-header {
-  padding: 7px 0 5px;
-  text-align: center;
+  padding: 7px 7px 5px;
+  text-align: start;
   line-height: 1.1;
-  color: #0d8756;
+  color: black;
 }
 
 .gwp-progress-bar-header.gwp-tier-success {
@@ -1043,7 +1044,8 @@ save-for-later {
   font-style: normal;
   font-weight: 500;
   line-height: 100%; /* 12px */
-  border: 0.5px solid #CACACA;;
+  /* border: 0.5px solid #CACACA; off for now */
+  text-decoration: underline;
   border-radius: 2px;
   min-height: 20px;
   padding: 0 10px;
@@ -1051,7 +1053,6 @@ save-for-later {
   justify-content: center;
   align-items: center;
   margin-right: auto;
-  margin-left: 15px;
 }
 
 /* Saved for Later Container Styles */
@@ -1182,7 +1183,8 @@ save-for-later-item {
   font-style: normal;
   font-weight: 500;
   line-height: 100%;
-  border: 0.5px solid #CACACA;
+  border: none;
+  text-decoration: underline;
   border-radius: 2px;
   min-height: 20px;
   padding: 0 10px;
@@ -1245,7 +1247,7 @@ remove-from-save-for-later {
 }
 
 .cart-level-gift-options-container {
-  padding: 8px 6px;
+  padding: 1.25rem 1.5rem;
   margin-bottom: 1rem;
   border: 0.5px solid #CACACA;
   border-radius: 5px;
@@ -1298,6 +1300,157 @@ gifting-options-tooltip .tooltip-content {
   font-style: normal;
   font-weight: 500;
   line-height: 120%; /* 14.4px */
+}
+
+/* Gifting accordion */
+.gifting-accordion {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gifting-accordion-summary {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  list-style: none;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.gifting-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.gifting-accordion-icon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+  margin-left: auto;
+}
+
+.gifting-accordion-icon svg {
+  width: 10px;
+  height: 10px;
+}
+
+.gifting-accordion[open] .gifting-accordion-icon {
+  transform: rotate(90deg);
+}
+
+.gifting-accordion[open] .gifting-accordion-summary {
+  margin-bottom: 10px;
+}
+
+.gifting-accordion-content {
+  overflow: hidden;
+}
+
+/* Gifting accordion column layout */
+.gifting-checkboxes-row {
+  display: flex;
+  gap: 8px;
+  align-items: start;
+  margin-bottom: 4px;
+}
+
+.gifting-checkbox-col {
+  flex: 1;
+  min-width: 0;
+  width: 50%;
+}
+
+.gifting-wrap-image-col {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+.gifting-wrap-image-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: #F9F8F6;
+  padding: 5px;
+}
+
+/* Per-line-item gift ribbon upsell accordion (renders beneath each eligible cart line item) */
+.line-item-gift-wrap-accordion {
+  display: block;
+  flex: 1 0 100%;
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid #EBEBEB;
+}
+
+.line-item-gift-wrap-accordion .gifting-accordion-summary {
+  gap: 12px;
+}
+
+.line-item-gift-wrap-accordion .gifting-accordion-summary svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Chevron points down when closed, up when open */
+.line-item-gift-wrap-accordion .gifting-accordion-icon {
+  transform: rotate(90deg);
+}
+
+.line-item-gift-wrap-accordion .gifting-accordion[open] .gifting-accordion-icon {
+  transform: rotate(-90deg);
+}
+
+.line-ribbon-upsell {
+  display: block;
+  width: 100%;
+}
+
+.line-ribbon-upsell .gifting-checkboxes-row {
+  margin-bottom: 0;
+}
+
+.line-ribbon-upsell .gifting-wrap-image-col {
+  flex-shrink: 0;
+  width: 90px;
+  aspect-ratio: 1/1;
+}
+
+.line-ribbon-upsell .checkbox-message-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.line-ribbon-upsell .checkbox-message-area div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.line-ribbon-upsell .checkbox-message-area input[type="checkbox"] {
+  accent-color: black;
+  margin: 3px 0 0 0;
+  flex-shrink: 0;
+}
+
+.line-ribbon-upsell .checkbox-message-area label {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.line-ribbon-upsell .hammit-checkbox-submessage {
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.line-ribbon-upsell-price {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: auto;
 }
 
 gifting-options-tooltip.is-open .tooltip-content {

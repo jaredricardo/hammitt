@@ -141,20 +141,6 @@ class CartItems extends HTMLElement {
           document.querySelector('.cart__checkout-button').disabled = false;  
         }
       }, 1000)
-
-      fetch(window.Shopify.routes.root + 'cart.js')
-      .then(response => response.json())
-      .then(data => 
-        {
-          document.dispatchEvent(
-            new CustomEvent('cart:updated', {
-              detail: {
-                cart: data,
-              },
-            })
-          );
-        }
-      );
     }).catch((e) => {
       this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
       this.querySelector('.cart-errors').textContent = window.cartStrings.error;
