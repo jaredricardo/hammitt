@@ -158,10 +158,6 @@
   </style>
 {% endif %}
 
-{%- comment -%}
-  Edgemesh: tagged dynamic cart content
-{%- endcomment -%}
-
 {% if settings.enable_free_multi_gift_select or settings.enable_free_gift_wrap %}
   <style>
     .discounts.list-unstyled {
@@ -300,10 +296,6 @@
 {% endif %}
 
 
-{%- comment -%}
-  Edgemesh: tagged dynamic
-{%- endcomment -%}
-<dynamic>
 {% if settings.enable_free_multi_gift_select %}
   <script>
     window.addEventListener('DOMContentLoaded', () => {
@@ -418,9 +410,12 @@
     })
   </script>
 {% endif %}  
-</dynamic>
 
-{%- comment -%} Edgemesh: keep drawer chrome static; hole-punch cartUpdate targets as dynamic hosts {%- endcomment -%}
+{%- comment -%}
+  Edgemesh: drawer chrome stays static; the shopper-specific regions below are separate sibling holes.
+  emptyDrawerSection is left cached on purpose: hole-punching this node would nest every other hole
+  inside it, and the class only feeds `.emptyDrawerSection .drawer__items { padding-bottom: 0 }`.
+{%- endcomment -%}
 <div class="drawer__wrapper {% if cart.item_count == 0 %} emptyDrawerSection {% endif %}">
   
   <div class="drawer__content">
@@ -446,7 +441,16 @@
     </div>
 
   {% assign cartSubTotal = cart.items_subtotal_price %}
-  <div class="drawer__items {% if cart.items == 0 %} hidden {% endif %}" dynamic data-cart-can-have-gift-wrap="{{ cart_can_have_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}data-line-ribbon-gift-wrap-vid="{{ settings.hammitt_gift_wrap_product_cart_level.selected_or_first_available_variant.id }}"{% endif %} data-json='{{ cart.items | json | escape }}'>
+  {%- comment -%}
+    Edgemesh: this node's own attributes (data-json, totals, gift-wrap flags) are per-session, and
+    checkOrderProtection(), cartUpdate(), CartLevelLineRibbonUpsell and cart-upsells all read them.
+    A dynamic attribute only hydrates children and would serve another shopper's data-json from the
+    cached shell, so the whole node is wrapped. The default placeholder mirrors an empty-cart render so
+    .drawer__items stays queryable before hydrate; display:contents keeps it the flex child of
+    .drawer__content (flex-grow / overflow-y depend on that).
+  {%- endcomment -%}
+  <dynamic default="<div class='drawer__items' data-cart-can-have-gift-wrap='false' data-total-items='0' data-cart-total='0' data-subtotal='0' data-json='[]'></div>" style="display: contents">
+  <div class="drawer__items {% if cart.items == 0 %} hidden {% endif %}" data-cart-can-have-gift-wrap="{{ cart_can_have_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}data-line-ribbon-gift-wrap-vid="{{ settings.hammitt_gift_wrap_product_cart_level.selected_or_first_available_variant.id }}"{% endif %} data-json='{{ cart.items | json | escape }}'>
     {% if cart.item_count == 0 %}
       <div class="your-cart-is-empty">
           {{ section.settings.empty_cart_message }}
@@ -1370,7 +1374,13 @@
       {% endif %}
     </div>
   </div>
+  </dynamic>
     
+    {%- comment -%}
+      Edgemesh: attribute form is enough here. The only per-session attributes are the appear-delay
+      and drawerEmptyState classes (cosmetic: `.drawer__final.drawerEmptyState { padding: 0 }`),
+      nothing reads this node before hydrate, and cartUpdate() replaces it outright.
+    {%- endcomment -%}
     <div class="drawer__final appear-animation appear-delay-{{ appear_delay }} {% if cart.item_count == 0 %} drawerEmptyState {% endif %}" dynamic>
       {%- liquid
          assign has_gift_note = false
