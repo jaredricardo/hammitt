@@ -1565,37 +1565,8 @@ input.iStock-notify-btn {
 .pdp-hero-section ul.product__media-list li:nth-child(n + 4){width:100%;max-width:calc(50% - 10px / 2);}
 .pdp-hero-section .product__media-wrapper  slider-component{display:none;}
 
-/* Desktop PDP gallery: collapse beyond 4 images behind a "View more" trigger */
+/* Desktop gallery layout: 1st and 2nd images full width, 3rd and 4th side-by-side at half width */
 @media screen and (min-width: 750px) {
-  .product__media-list .product__media-item.pdp-gallery-extra {
-    display: none;
-  }
-
-  .product__media-list.pdp-gallery-expanded .product__media-item.pdp-gallery-extra {
-    display: block;
-  }
-
-  /* pdp-gallery-view-more now sits as a sibling after the gallery <ul> (inside the same
-     media-gallery), not nested inside it, so use a general sibling combinator here. */
-  .product__media-list.pdp-gallery-expanded ~ .pdp-gallery-view-more-item {
-    display: none;
-  }
-
-  /* Take the "view more" trigger out of the grid flow so it no longer occupies a
-     product__media-item slot, and instead float it centered ~2rem beneath the gallery. */
-  .pdp-gallery-view-more-item {
-    position: absolute;
-    left: 50%;
-    bottom: -3%;
-    transform: translateX(-50%);
-    aspect-ratio: auto;
-    width: auto;
-    text-align: center;
-    padding: 10px 20px;
-    height: fit-content;
-  }
-
-  /* Desktop gallery layout: 1st and 2nd images full width, 3rd and 4th side-by-side at half width */
   .pdp-hero-section ul.product__media-list li.product__media-item:nth-child(1),
   .pdp-hero-section ul.product__media-list li.product__media-item:nth-child(2) {
     width: 100%;
@@ -1607,39 +1578,6 @@ input.iStock-notify-btn {
     width: 100%;
     max-width: calc(50% - 10px / 2);
   }
-}
-
-pdp-gallery-view-more {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.pdp-gallery-view-more__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  min-height: 3rem;
-  padding: 10px 20px;
-  background-color: #fff;
-  border: 1px solid #000;
-  color: #000;
-  text-align: center;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 136%;
-  letter-spacing: 0.28px;
-  cursor: pointer;
-  transition: background-color var(--duration-short) ease, color var(--duration-short) ease;
-}
-
-.pdp-gallery-view-more__btn:hover {
-  background-color: #000;
-  color: #fff;
 }
 
 
@@ -1956,6 +1894,212 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
 
 .variant-picker-group-wrapper:not(:has(li.current-swatch)) .special-care-tooltip {
   display: none !important;
+}
+
+/* "Explore more colorways" drawer (enable_variant_drawer section setting) */
+pdp-explore-more-colorways-drawer-trigger[hidden] {
+  display: none !important;
+}
+
+body.pdp-colorway-drawer-open {
+  overflow: hidden;
+}
+
+.pdp-colorway-drawer__underlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(var(--color-foreground), 0.5);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 5;
+  transition: opacity var(--duration-default) ease, visibility var(--duration-default) ease;
+}
+
+.pdp-colorway-drawer__panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  background: rgb(var(--color-background));
+  z-index: 6;
+  transform: translateX(100%);
+  transition: transform var(--duration-default) ease;
+}
+
+@media screen and (max-width: 768px) {
+  .pdp-colorway-drawer__panel {
+    max-width: none;
+  }
+}
+
+.pdp-colorway-drawer.is-open .pdp-colorway-drawer__underlay {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  cursor: pointer;
+}
+
+.pdp-colorway-drawer.is-open .pdp-colorway-drawer__panel {
+  transform: translateX(0);
+}
+
+.pdp-colorway-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+  flex-shrink: 0;
+}
+
+.pdp-colorway-drawer__title {
+  margin: 0;
+  font-size: 1rem;
+  font-family: 'Adobe Carlson Italic' !important;
+}
+
+.pdp-colorway-drawer__close {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.pdp-colorway-drawer__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+  flex-shrink: 0;
+}
+
+.pdp-colorway-drawer__category-btn {
+  background: none;
+  border: none;
+  padding: 0 0 2px;
+  cursor: pointer;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 13px;
+  text-transform: Capitalize;
+  text-underline-offset: 4px;
+  color: rgb(var(--color-foreground));
+}
+
+.pdp-colorway-drawer__category-btn.active {
+  text-decoration: underline;
+}
+
+.pdp-colorway-drawer__swatch-groups {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+/* Disables interaction with the drawer while a variant swap fetch is in flight - the
+   clicked swatch's own `.btn--loading` spinner is the only loading indicator, this just
+   prevents further clicks until the new content has loaded. */
+.pdp-colorway-drawer.is-loading .pdp-colorway-drawer__panel {
+  pointer-events: none;
+}
+
+.pdp-colorway-drawer__swatch-list {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 6px;
+  row-gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .pdp-colorway-drawer__swatch-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pdp-colorway-drawer__swatch-list.active {
+  display: grid;
+}
+
+.pdp-colorway-drawer__swatch-list li {
+  list-style: none;
+  display: block;
+  border: none;
+  margin: 0;
+}
+
+.pdp-colorway-drawer__swatch-list .swatch_image-a.drawerSwatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.pdp-colorway-drawer__swatch-list .swatch_image-a.drawerSwatch:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1.5px solid #000;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.pdp-colorway-drawer__swatch-list li:has([style="outline: 1px solid black;"]) .swatch_image-a.drawerSwatch:before {
+  opacity: 1;
+}
+
+.pdp-colorway-drawer__swatch-list .swatch_image-a.drawerSwatch img {
+  width: 100%;
+  height: auto;
+  background-color: #efefef;
+}
+
+/* The swatch label is already shown as visible text in the drawer, so the global
+   [data-tooltip] hover tooltip (which duplicates that same text) is unnecessary here. */
+.pdp-colorway-drawer__swatch-list [data-tooltip]:before,
+.pdp-colorway-drawer__swatch-list [data-tooltip]:after {
+  display: none !important;
+}
+
+.drawerSwatch__label {
+  display: block;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: rgb(var(--color-foreground));
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+@media screen and (max-width: 767px) {
+  .drawerSwatch__label {
+    font-size: 11px;
+  }
 }
 
 .mobile-img-carousel__track {

@@ -1159,78 +1159,101 @@ function refreshYotpoVariant() {
 productCardHovers();
 
 const productSwatchReload = () => {
-  const swatchCards = document.querySelectorAll('.swatch_image-a');
+  // Guard against double-binding: this is called again after AJAX morphs replace
+  // `.pdp-hero-wrap` wholesale (fresh nodes, safe to bind), but it's also called by
+  // `pdp-colorway-drawer` after cloning swatch buttons into the drawer, where the
+  // original (already-bound) swatches are still present alongside the new clones.
+  const swatchCards = document.querySelectorAll('.swatch_image-a:not([data-swatch-bound])');
   swatchCards.forEach(card => {
+    card.setAttribute('data-swatch-bound', 'true');
     card.addEventListener('click', (event) => {
       event.preventDefault();
-      const productURL = event.currentTarget.getAttribute('href');
-      const productSKU = event.currentTarget.getAttribute('data-sku');
-      const productTitle = event.currentTarget.getAttribute('data-product-title');
-      const productImage = event.currentTarget.getAttribute('data-product-img');
-      const newProductId = event.currentTarget.getAttribute('data-product-id');
-      const recentlyViewedJson = card.dataset.recentlyViewedProductJson ? JSON.parse(card.dataset.recentlyViewedProductJson) : null
 
-      // record recetly viewed json
-
-      if (recentlyViewedJson) {
-        recordRecentlyViewed(recentlyViewedJson)
-      }
-      
-      if(event.currentTarget.closest('.customSwatch') != null) {
-        event.currentTarget.closest('.customSwatch').classList.add('btn--loading');  
-      }
-
-      const elementsToUpdate = [
-        '.pdp-hero-wrap',
-        '.pdp-review-section',
-        '.pdp-rc-section',
-        'product-modal'
-      ];
-
-      fetch(productURL)
-      .then(response => response.text())
-      .then(data => { 
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(data,'text/html');
-        
-        elementsToUpdate.forEach(el => {
-          const currentEl = document.querySelector(el);
-          const newEl = doc.querySelector(el);
-          if(currentEl && newEl) {
-            currentEl.innerHTML = newEl.innerHTML;
-          }
-          if(document.querySelector('.pdp-hero-wrap .yotpo-widget-instance')) {
-            yotpoWidgetsContainer.initWidgets()
-          }
+      // Swatches clicked from inside the "explore more colorways" drawer stay open while the
+      // variant swap fetch is in flight - a loading overlay (dimmed + spinner) is shown over
+      // the drawer so it's clear the click registered and a response is pending, then the
+      // drawer closes once the new content has loaded, letting its closing transition finish
+      // before `.pdp-hero-wrap` (which contains the drawer itself) gets swapped out from under
+      // it - otherwise the closing transition gets cut short and the drawer appears to glitch/jump.
+      const drawer = card.closest('pdp-colorway-drawer');
+      if (drawer && typeof drawer.showLoading === 'function') {
+        drawer.showLoading();
+        swapProductVariant(card).finally(() => {
+          drawer.hideLoading();
+          if (typeof drawer.close === 'function') drawer.close();
         });
+        return;
+      }
 
-        lazyImages();
-        complimentary();
-        productRecommendations();
-        productSwatchReload();
-        changeSwiperSlider();
-
-        if (window.initMobileCarousel) window.initMobileCarousel();
-        
-        history.replaceState(null, "", `${productURL}`);
-        
-        // Dispatch event for product recommendations reload
-        document.dispatchEvent(new CustomEvent('pdp:variant-swapped', {
-          detail: { 
-            productURL: productURL,
-            productId: newProductId
-          }
-        }));
-      }).finally(() => {
-          if(document.querySelector('.swym-button.hammitt-custom')) {
-            document.dispatchEvent(new CustomEvent("swym:collections-loaded"))
-          }
-          refreshYotpoVariant()
-          window.initImgModelHeight()
-      });
+      swapProductVariant(card);
     });
   });
 };
+
+function swapProductVariant(card) {
+  const productURL = card.getAttribute('href');
+  const newProductId = card.getAttribute('data-product-id');
+  const recentlyViewedJson = card.dataset.recentlyViewedProductJson ? JSON.parse(card.dataset.recentlyViewedProductJson) : null
+
+  // record recetly viewed json
+
+  if (recentlyViewedJson) {
+    recordRecentlyViewed(recentlyViewedJson)
+  }
+
+  if(card.closest('.customSwatch') != null) {
+    card.closest('.customSwatch').classList.add('btn--loading');
+  }
+
+  const elementsToUpdate = [
+    '.pdp-hero-wrap',
+    '.pdp-review-section',
+    '.pdp-rc-section',
+    'product-modal'
+  ];
+
+  return fetch(productURL)
+  .then(response => response.text())
+  .then(data => { 
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(data,'text/html');
+    
+    elementsToUpdate.forEach(el => {
+      const currentEl = document.querySelector(el);
+      const newEl = doc.querySelector(el);
+      if(currentEl && newEl) {
+        currentEl.innerHTML = newEl.innerHTML;
+      }
+      if(document.querySelector('.pdp-hero-wrap .yotpo-widget-instance')) {
+        yotpoWidgetsContainer.initWidgets()
+      }
+    });
+
+    lazyImages();
+    complimentary();
+    productRecommendations();
+    productSwatchReload();
+    changeSwiperSlider();
+
+    if (window.initMobileCarousel) window.initMobileCarousel();
+    
+    history.replaceState(null, "", `${productURL}`);
+    
+    // Dispatch event for product recommendations reload
+    document.dispatchEvent(new CustomEvent('pdp:variant-swapped', {
+      detail: { 
+        productURL: productURL,
+        productId: newProductId
+      }
+    }));
+  }).finally(() => {
+      if(document.querySelector('.swym-button.hammitt-custom')) {
+        document.dispatchEvent(new CustomEvent("swym:collections-loaded"))
+      }
+      refreshYotpoVariant()
+      window.initImgModelHeight()
+  });
+}
 
 productSwatchReload();
 
@@ -2454,34 +2477,144 @@ class PdpExploreMoreColorways extends HTMLElement {
 
 customElements.define('pdp-explore-more-colorways', PdpExploreMoreColorways);
 
-class PdpGalleryViewMore extends HTMLElement {
+// Trigger for the "explore more colorways" drawer variant (used instead of
+// `pdp-explore-more-colorways` when the `enable_variant_drawer` section setting is on).
+// Mirrors `PdpExploreMoreColorways`'s "hide if there's nothing to explore" logic: if there's
+// only one (or zero) colorway "type" (size/strap category) available, don't offer the drawer.
+class PdpExploreMoreColorwaysDrawerTrigger extends HTMLElement {
   connectedCallback() {
-    if (!this.querySelector('.pdp-gallery-view-more__btn')) {
-      const remaining = this.getAttribute('data-remaining-count') || ''
-      const btn = document.createElement('button')
-      btn.type = 'button'
-      btn.className = 'pdp-gallery-view-more__btn'
-      btn.textContent = `View more (${remaining})`
-      this.appendChild(btn)
+    this.colorwayContainer = this.closest('.colorway-optimized');
+    if (!this.colorwayContainer) return;
+
+    const groupWrappers = Array.from(this.colorwayContainer.querySelectorAll('.variant-picker-group-wrapper'));
+    const availableGroups = groupWrappers.filter((groupWrapper) => groupWrapper.querySelector('li'));
+
+    if (availableGroups.length <= 1) {
+      this.hidden = true;
+      return;
     }
 
-    this._onClick = () => {
-      // This element now lives as a sibling of `.product__media-list` (inside the same
-      // <media-gallery>) rather than nested inside it as an <li>, so look the gallery up
-      // via the shared media-gallery ancestor instead of `.closest('.product__media-list')`.
-      const gallery = this.closest('media-gallery')?.querySelector('.product__media-list')
-      if (gallery) gallery.classList.add('pdp-gallery-expanded')
-    }
+    this.setAttribute('role', 'button');
+    this.setAttribute('tabindex', '0');
 
-    this.addEventListener('click', this._onClick)
+    this._onOpen = () => {
+      // The drawer portals itself to <body> (see `PdpColorwayDrawer`), so it's no longer a
+      // descendant of `.colorway-optimized` - look it up globally instead.
+      const drawer = document.querySelector('pdp-colorway-drawer');
+      if (drawer && typeof drawer.open === 'function') drawer.open();
+    };
+
+    this._onKeydown = (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      this._onOpen();
+    };
+
+    this.addEventListener('click', this._onOpen);
+    this.addEventListener('keydown', this._onKeydown);
   }
 
   disconnectedCallback() {
-    this.removeEventListener('click', this._onClick)
+    if (this._onOpen) this.removeEventListener('click', this._onOpen);
+    if (this._onKeydown) this.removeEventListener('keydown', this._onKeydown);
   }
 }
 
-customElements.define('pdp-gallery-view-more', PdpGalleryViewMore);
+customElements.define('pdp-explore-more-colorways-drawer-trigger', PdpExploreMoreColorwaysDrawerTrigger);
+
+// The drawer opened by `pdp-explore-more-colorways-drawer-trigger`. Acts as a variant
+// picker: Row 1 is the product title + close button, Row 2 is a set of category tabs (one
+// per available colorway group), Row 3 is a swatch grid for the active category. Rows 2 & 3
+// are rendered entirely server-side by the Liquid snippet (same product-filtering loops that
+// build the main picker also build these, capturing a parallel copy of each qualifying `<li>`
+// as they go) - this element just wires up interaction (open/close/tab-switching) on top of
+// markup that's already fully formed by the time it reaches the browser.
+class PdpColorwayDrawer extends HTMLElement {
+  static openBodyClass = 'pdp-colorway-drawer-open';
+
+  connectedCallback() {
+    // Move this element to <body>. It uses `position: fixed`, which was being clipped/
+    // mis-positioned under the header because a transformed/positioned PDP ancestor
+    // (carousels/sliders elsewhere on the page use CSS transforms) becomes the fixed-position
+    // containing block instead of the viewport. Portaling avoids that entirely. Because the
+    // whole snippet (including this element's already-populated markup) is re-rendered fresh
+    // by the server on every variant swap, the stale copy left behind in <body> is removed
+    // here in favor of the freshly-arrived one, which then portals itself the same way.
+    if (this.parentElement !== document.body) {
+      document.querySelectorAll('pdp-colorway-drawer').forEach((el) => {
+        if (el !== this) el.remove();
+      });
+      document.body.appendChild(this);
+      return; // appendChild re-triggers disconnectedCallback + connectedCallback on `this`
+    }
+
+    this.categoriesEl = this.querySelector('.pdp-colorway-drawer__categories');
+    this.groupsEl = this.querySelector('.pdp-colorway-drawer__swatch-groups');
+    this.underlay = this.querySelector('.pdp-colorway-drawer__underlay');
+    this.closeBtn = this.querySelector('.pdp-colorway-drawer__close');
+
+    this.setAttribute('aria-hidden', 'true');
+
+    // The swatch anchors below need the same click-to-swap behavior as the regular
+    // customSwatch buttons. `productSwatchReload` skips already-bound elements, so it's safe
+    // to call again here without double-binding the ones in the main picker.
+    if (typeof productSwatchReload === 'function') productSwatchReload();
+
+    this._onUnderlayClick = () => this.close();
+    this._onCloseClick = () => this.close();
+    this._onKeydown = (event) => {
+      if (event.key === 'Escape') this.close();
+    };
+    this._onCategoryClick = (event) => {
+      const btn = event.target.closest('.pdp-colorway-drawer__category-btn');
+      if (!btn) return;
+      this._setActiveGroup(btn.dataset.drawerGroup);
+    };
+
+    if (this.underlay) this.underlay.addEventListener('click', this._onUnderlayClick);
+    if (this.closeBtn) this.closeBtn.addEventListener('click', this._onCloseClick);
+    if (this.categoriesEl) this.categoriesEl.addEventListener('click', this._onCategoryClick);
+    document.addEventListener('keydown', this._onKeydown);
+  }
+
+  disconnectedCallback() {
+    if (this.underlay) this.underlay.removeEventListener('click', this._onUnderlayClick);
+    if (this.closeBtn) this.closeBtn.removeEventListener('click', this._onCloseClick);
+    if (this.categoriesEl) this.categoriesEl.removeEventListener('click', this._onCategoryClick);
+    document.removeEventListener('keydown', this._onKeydown);
+  }
+
+  _setActiveGroup(groupKey) {
+    this.categoriesEl.querySelectorAll('.pdp-colorway-drawer__category-btn').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.drawerGroup === groupKey);
+    });
+    this.groupsEl.querySelectorAll('.pdp-colorway-drawer__swatch-list').forEach((list) => {
+      list.classList.toggle('active', list.dataset.drawerGroup === groupKey);
+    });
+  }
+
+  open() {
+    this.classList.add('is-open');
+    this.setAttribute('aria-hidden', 'false');
+    document.body.classList.add(PdpColorwayDrawer.openBodyClass);
+  }
+
+  close() {
+    this.classList.remove('is-open');
+    this.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove(PdpColorwayDrawer.openBodyClass);
+  }
+
+  showLoading() {
+    this.classList.add('is-loading');
+  }
+
+  hideLoading() {
+    this.classList.remove('is-loading');
+  }
+}
+
+customElements.define('pdp-colorway-drawer', PdpColorwayDrawer);
 
 // Relocated "Drop a hint" triggers (mobile carousel + desktop gallery). The real button
 // the Drop-Hint app binds to lives in the product form (`.main-drop-a-hint-button`,

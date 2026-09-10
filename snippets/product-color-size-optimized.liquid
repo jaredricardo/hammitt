@@ -110,6 +110,15 @@
 %}
 
 {% if has_variant_swaps %}
+  {% comment %}
+    These accumulate the drawer's category-tab buttons + swatch-list markup as each
+    `.variant-picker-group-wrapper` loop below runs, so the "explore more colorways" drawer
+    can be rendered directly by Liquid (same as the rest of this snippet) instead of being
+    cloned/mutated from the main picker's DOM at runtime via JS.
+  {% endcomment %}
+  {% assign drawer_categories_html = '' %}
+  {% assign drawer_swatch_groups_html = '' %}
+
   <div class="product-colors color_group color_group_block custom-variant-options colorway-optimized">
     {% comment %} color products {% endcomment %}
     <div class="variant-picker-group-wrapper group-more-colors{% if initial_variant_group == 'more-colors' %} initial-active{% endif %}" data-variant-group="more-colors">
@@ -123,6 +132,8 @@
         {% endif %}
       </div>
       
+      {% assign group_drawer_swatches = '' %}
+      {% assign group_drawer_count = 0 %}
       <ul class="custom-variant-list">
         {% for product in colorway_collection %}
 
@@ -189,10 +200,47 @@
               </a>
             </div>
           </li>
+          {% capture drawer_li %}
+            <li data-tooltip="{{ product_color }}"{% if isCurrent %} class="current-swatch"{% endif %}>
+              <div class="image customSwatch">
+                <a
+                  href="{{ product.url }}"
+                  data-product-id="{{ product.id }}"
+                  aria-label="{{ product_color }}"
+                  {% if isCurrent %}style="outline: 1px solid black;"{% endif %}
+                  class="swatch_image-a drawerSwatch"
+                  data-recently-viewed-product-json='{
+                    "id": {{ product.id }},
+                    "title": {{ product.title | json | replace: "'", "&#39;" }},
+                    "handle": {{ product.handle | json }},
+                    "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                    "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                    "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                    "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                    "product_size": {{ product_size | json }},
+                    "price": {{ product.selected_or_first_available_variant.price }}
+                  }'
+                >
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy' }}
+                  {% endif %}
+                  <span class="drawerSwatch__label">{{ product_color }}</span>
+                </a>
+              </div>
+            </li>
+          {% endcapture %}
+          {% assign group_drawer_swatches = group_drawer_swatches | append: drawer_li %}
+          {% assign group_drawer_count = group_drawer_count | plus: 1 %}
     
         {% endfor %}
       </ul>
     </div>
+    {% if group_drawer_count > 0 %}
+      {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'more-colors' %} active{% endif %}" data-drawer-group="more-colors">More Colors</button>{% endcapture %}
+      {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
+      {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'more-colors' %} active{% endif %}" data-drawer-group="more-colors">{{ group_drawer_swatches }}</ul>{% endcapture %}
+      {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
+    {% endif %}
     {% comment %} Mini products {% endcomment %}
     <div class="variant-picker-group-wrapper group-mini{% if initial_variant_group == 'mini' %} initial-active{% endif %}" data-variant-group="mini">
         <div class="custom-variant-title">
@@ -201,6 +249,8 @@
             {% render 'special-care-tooltip' %}
           {% endif %}
         </div>
+      {% assign group_drawer_swatches = '' %}
+      {% assign group_drawer_count = 0 %}
       <ul class="custom-variant-list">
         {%- for product in colorway_collection -%}
 
@@ -269,10 +319,47 @@
                 </a>
               </div>
             </li>
+            {% capture drawer_li %}
+              <li data-tooltip="{{ product_color }}"{% if isCurrent %} class="current-swatch"{% endif %}>
+                <div class="image customSwatch">
+                  <a
+                    href="{{ product.url }}"
+                    data-product-id="{{ product.id }}"
+                    aria-label="{{ product_color }}"
+                    {% if isCurrent %}style="outline: 1px solid black;"{% endif %}
+                    class="swatch_image-a drawerSwatch"
+                    data-recently-viewed-product-json='{
+                      "id": {{ product.id }},
+                      "title": {{ product.title | json | replace: "'", "&#39;" }},
+                      "handle": {{ product.handle | json }},
+                      "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                      "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                      "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                      "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                      "product_size": {{ product_size | json }},
+                      "price": {{ product.selected_or_first_available_variant.price }}
+                    }'
+                  >
+                    {% if product.featured_image %}
+                      {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy' }}
+                    {% endif %}
+                    <span class="drawerSwatch__label">{{ product_color }}</span>
+                  </a>
+                </div>
+              </li>
+            {% endcapture %}
+            {% assign group_drawer_swatches = group_drawer_swatches | append: drawer_li %}
+            {% assign group_drawer_count = group_drawer_count | plus: 1 %}
 
         {% endfor %}
       </ul>
     </div>
+    {% if group_drawer_count > 0 %}
+      {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'mini' %} active{% endif %}" data-drawer-group="mini">Mini</button>{% endcapture %}
+      {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
+      {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'mini' %} active{% endif %}" data-drawer-group="mini">{{ group_drawer_swatches }}</ul>{% endcapture %}
+      {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
+    {% endif %}
     {% comment %} Small products {% endcomment %}
     <div class="variant-picker-group-wrapper group-small{% if initial_variant_group == 'small' %} initial-active{% endif %}" data-variant-group="small">
         <div class="custom-variant-title">
@@ -281,6 +368,8 @@
             {% render 'special-care-tooltip' %}
           {% endif %}
         </div>
+      {% assign group_drawer_swatches = '' %}
+      {% assign group_drawer_count = 0 %}
       <ul class="custom-variant-list">
         {%- for product in colorway_collection -%}
 
@@ -349,10 +438,47 @@
                 </a>
               </div>
             </li>
+            {% capture drawer_li %}
+              <li data-tooltip="{{ product_color }}"{% if isCurrent %} class="current-swatch"{% endif %}>
+                <div class="image customSwatch">
+                  <a
+                    href="{{ product.url }}"
+                    data-product-id="{{ product.id }}"
+                    aria-label="{{ product_color }}"
+                    {% if isCurrent %}style="outline: 1px solid black;"{% endif %}
+                    class="swatch_image-a drawerSwatch"
+                    data-recently-viewed-product-json='{
+                      "id": {{ product.id }},
+                      "title": {{ product.title | json | replace: "'", "&#39;" }},
+                      "handle": {{ product.handle | json }},
+                      "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                      "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                      "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                      "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                      "product_size": {{ product_size | json }},
+                      "price": {{ product.selected_or_first_available_variant.price }}
+                    }'
+                  >
+                    {% if product.featured_image %}
+                      {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy' }}
+                    {% endif %}
+                    <span class="drawerSwatch__label">{{ product_color }}</span>
+                  </a>
+                </div>
+              </li>
+            {% endcapture %}
+            {% assign group_drawer_swatches = group_drawer_swatches | append: drawer_li %}
+            {% assign group_drawer_count = group_drawer_count | plus: 1 %}
 
         {% endfor %}
       </ul>
     </div>
+    {% if group_drawer_count > 0 %}
+      {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'small' %} active{% endif %}" data-drawer-group="small">Small</button>{% endcapture %}
+      {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
+      {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'small' %} active{% endif %}" data-drawer-group="small">{{ group_drawer_swatches }}</ul>{% endcapture %}
+      {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
+    {% endif %}
     {% comment %} Medium products {% endcomment %}
     <div class="variant-picker-group-wrapper group-medium{% if initial_variant_group == 'medium' %} initial-active{% endif %}" data-variant-group="medium">
         <div class="custom-variant-title">
@@ -362,6 +488,8 @@
             {% render 'special-care-tooltip' %}
           {% endif %}
         </div>
+      {% assign group_drawer_swatches = '' %}
+      {% assign group_drawer_count = 0 %}
       <ul class="custom-variant-list">
         {%- for product in colorway_collection -%}
       
@@ -435,10 +563,47 @@
                 </a>
               </div>
             </li>
+            {% capture drawer_li %}
+              <li data-tooltip="{{ product_color }}"{% if isCurrent %} class="current-swatch"{% endif %}>
+                <div class="image customSwatch">
+                  <a
+                    href="{{ product.url }}"
+                    data-product-id="{{ product.id }}"
+                    aria-label="{{ product_color }}"
+                    {% if isCurrent %}style="outline: 1px solid black;"{% endif %}
+                    class="swatch_image-a drawerSwatch"
+                    data-recently-viewed-product-json='{
+                      "id": {{ product.id }},
+                      "title": {{ product.title | json | replace: "'", "&#39;" }},
+                      "handle": {{ product.handle | json }},
+                      "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                      "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                      "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                      "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                      "product_size": {{ product_size | json }},
+                      "price": {{ product.selected_or_first_available_variant.price }}
+                    }'
+                  >
+                    {% if product.featured_image %}
+                      {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy' }}
+                    {% endif %}
+                    <span class="drawerSwatch__label">{{ product_color }}</span>
+                  </a>
+                </div>
+              </li>
+            {% endcapture %}
+            {% assign group_drawer_swatches = group_drawer_swatches | append: drawer_li %}
+            {% assign group_drawer_count = group_drawer_count | plus: 1 %}
     
         {% endfor %}
       </ul>
     </div>
+    {% if group_drawer_count > 0 %}
+      {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'medium' %} active{% endif %}" data-drawer-group="medium">Medium</button>{% endcapture %}
+      {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
+      {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'medium' %} active{% endif %}" data-drawer-group="medium">{{ group_drawer_swatches }}</ul>{% endcapture %}
+      {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
+    {% endif %}
     {% comment %} Medium Short Strap {% endcomment %}
     <div class="variant-picker-group-wrapper group-medium-short-strap{% if initial_variant_group == 'medium-short-strap' %} initial-active{% endif %}" data-variant-group="medium-short-strap">
       <div class="custom-variant-title">
@@ -448,6 +613,8 @@
           {% render 'special-care-tooltip' %}
         {% endif %}
       </div>
+      {% assign group_drawer_swatches = '' %}
+      {% assign group_drawer_count = 0 %}
       <ul class="custom-variant-list">
         {%- for product in colorway_collection -%}
       
@@ -521,10 +688,47 @@
                 </a>
               </div>
             </li>
+            {% capture drawer_li %}
+              <li data-tooltip="{{ product_color }}"{% if isCurrent %} class="current-swatch"{% endif %}>
+                <div class="image customSwatch">
+                  <a
+                    href="{{ product.url }}"
+                    data-product-id="{{ product.id }}"
+                    aria-label="{{ product_color }}"
+                    {% if isCurrent %}style="outline: 1px solid black;"{% endif %}
+                    class="swatch_image-a drawerSwatch"
+                    data-recently-viewed-product-json='{
+                      "id": {{ product.id }},
+                      "title": {{ product.title | json | replace: "'", "&#39;" }},
+                      "handle": {{ product.handle | json }},
+                      "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                      "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                      "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                      "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                      "product_size": {{ product_size | json }},
+                      "price": {{ product.selected_or_first_available_variant.price }}
+                    }'
+                  >
+                    {% if product.featured_image %}
+                      {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy' }}
+                    {% endif %}
+                    <span class="drawerSwatch__label">{{ product_color }}</span>
+                  </a>
+                </div>
+              </li>
+            {% endcapture %}
+            {% assign group_drawer_swatches = group_drawer_swatches | append: drawer_li %}
+            {% assign group_drawer_count = group_drawer_count | plus: 1 %}
     
         {% endfor %}
       </ul>
     </div>
+    {% if group_drawer_count > 0 %}
+      {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'medium-short-strap' %} active{% endif %}" data-drawer-group="medium-short-strap">Medium Short Strap</button>{% endcapture %}
+      {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
+      {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'medium-short-strap' %} active{% endif %}" data-drawer-group="medium-short-strap">{{ group_drawer_swatches }}</ul>{% endcapture %}
+      {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
+    {% endif %}
     {% comment %} Large products {% endcomment %}
     <div class="variant-picker-group-wrapper group-large{% if initial_variant_group == 'large' %} initial-active{% endif %}" data-variant-group="large">
         <div class="custom-variant-title">
@@ -533,6 +737,8 @@
             {% render 'special-care-tooltip' %}
           {% endif %}
         </div>
+      {% assign group_drawer_swatches = '' %}
+      {% assign group_drawer_count = 0 %}
       <ul class="custom-variant-list">
         {%- for product in colorway_collection -%}
     
@@ -602,10 +808,47 @@
                 </a>
               </div>
             </li>
+            {% capture drawer_li %}
+              <li data-tooltip="{{ product_color }}"{% if isCurrent %} class="current-swatch"{% endif %}>
+                <div class="image customSwatch">
+                  <a
+                    href="{{ product.url }}"
+                    data-product-id="{{ product.id }}"
+                    aria-label="{{ product_color }}"
+                    {% if isCurrent %}style="outline: 1px solid black;"{% endif %}
+                    class="swatch_image-a drawerSwatch"
+                    data-recently-viewed-product-json='{
+                      "id": {{ product.id }},
+                      "title": {{ product.title | json | replace: "'", "&#39;" }},
+                      "handle": {{ product.handle | json }},
+                      "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                      "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                      "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                      "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                      "product_size": {{ product_size | json }},
+                      "price": {{ product.selected_or_first_available_variant.price }}
+                    }'
+                  >
+                    {% if product.featured_image %}
+                      {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy' }}
+                    {% endif %}
+                    <span class="drawerSwatch__label">{{ product_color }}</span>
+                  </a>
+                </div>
+              </li>
+            {% endcapture %}
+            {% assign group_drawer_swatches = group_drawer_swatches | append: drawer_li %}
+            {% assign group_drawer_count = group_drawer_count | plus: 1 %}
     
         {%- endfor -%}
       </ul>
     </div>
+    {% if group_drawer_count > 0 %}
+      {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'large' %} active{% endif %}" data-drawer-group="large">Large</button>{% endcapture %}
+      {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
+      {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'large' %} active{% endif %}" data-drawer-group="large">{{ group_drawer_swatches }}</ul>{% endcapture %}
+      {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
+    {% endif %}
     {% comment %} Extra Large products {% endcomment %}
     <div class="variant-picker-group-wrapper group-extra-large{% if initial_variant_group == 'extra-large' %} initial-active{% endif %}" data-variant-group="extra-large">
         <div class="custom-variant-title">
@@ -614,6 +857,8 @@
             {% render 'special-care-tooltip' %}
           {% endif %}
         </div>
+      {% assign group_drawer_swatches = '' %}
+      {% assign group_drawer_count = 0 %}
       <ul class="custom-variant-list">
         {%- for product in colorway_collection -%}
     
@@ -683,10 +928,47 @@
                 </a>
               </div>
             </li>
+            {% capture drawer_li %}
+              <li data-tooltip="{{ product_color }}"{% if isCurrent %} class="current-swatch"{% endif %}>
+                <div class="image customSwatch">
+                  <a
+                    href="{{ product.url }}"
+                    data-product-id="{{ product.id }}"
+                    aria-label="{{ product_color }}"
+                    {% if isCurrent %}style="outline: 1px solid black;"{% endif %}
+                    class="swatch_image-a drawerSwatch"
+                    data-recently-viewed-product-json='{
+                      "id": {{ product.id }},
+                      "title": {{ product.title | json | replace: "'", "&#39;" }},
+                      "handle": {{ product.handle | json }},
+                      "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                      "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                      "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                      "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                      "product_size": {{ product_size | json }},
+                      "price": {{ product.selected_or_first_available_variant.price }}
+                    }'
+                  >
+                    {% if product.featured_image %}
+                      {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy' }}
+                    {% endif %}
+                    <span class="drawerSwatch__label">{{ product_color }}</span>
+                  </a>
+                </div>
+              </li>
+            {% endcapture %}
+            {% assign group_drawer_swatches = group_drawer_swatches | append: drawer_li %}
+            {% assign group_drawer_count = group_drawer_count | plus: 1 %}
     
         {%- endfor -%}
       </ul>
     </div>
+    {% if group_drawer_count > 0 %}
+      {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'extra-large' %} active{% endif %}" data-drawer-group="extra-large">Extra Large</button>{% endcapture %}
+      {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
+      {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'extra-large' %} active{% endif %}" data-drawer-group="extra-large">{{ group_drawer_swatches }}</ul>{% endcapture %}
+      {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
+    {% endif %}
     {% comment %} Shoulder Strap (short){% endcomment %}
     <div class="variant-picker-group-wrapper group-shoulder-strap{% if initial_variant_group == 'shoulder-strap' %} initial-active{% endif %}" data-variant-group="shoulder-strap">
         <div class="custom-variant-title">
@@ -695,6 +977,8 @@
             {% render 'special-care-tooltip' %}
           {% endif %}
         </div>
+      {% assign group_drawer_swatches = '' %}
+      {% assign group_drawer_count = 0 %}
       <ul class="custom-variant-list">
         {%- for product in colorway_collection -%}
     
@@ -764,10 +1048,47 @@
                 </a>
               </div>
             </li>
+            {% capture drawer_li %}
+              <li data-tooltip="{{ product_color }}"{% if isCurrent %} class="current-swatch"{% endif %}>
+                <div class="image customSwatch">
+                  <a
+                    href="{{ product.url }}"
+                    data-product-id="{{ product.id }}"
+                    aria-label="{{ product_color }}"
+                    {% if isCurrent %}style="outline: 1px solid black;"{% endif %}
+                    class="swatch_image-a drawerSwatch"
+                    data-recently-viewed-product-json='{
+                      "id": {{ product.id }},
+                      "title": {{ product.title | json | replace: "'", "&#39;" }},
+                      "handle": {{ product.handle | json }},
+                      "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                      "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                      "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                      "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                      "product_size": {{ product_size | json }},
+                      "price": {{ product.selected_or_first_available_variant.price }}
+                    }'
+                  >
+                    {% if product.featured_image %}
+                      {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy' }}
+                    {% endif %}
+                    <span class="drawerSwatch__label">{{ product_color }}</span>
+                  </a>
+                </div>
+              </li>
+            {% endcapture %}
+            {% assign group_drawer_swatches = group_drawer_swatches | append: drawer_li %}
+            {% assign group_drawer_count = group_drawer_count | plus: 1 %}
     
         {%- endfor -%}
       </ul>
     </div>
+    {% if group_drawer_count > 0 %}
+      {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'shoulder-strap' %} active{% endif %}" data-drawer-group="shoulder-strap">Shoulder Strap</button>{% endcapture %}
+      {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
+      {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'shoulder-strap' %} active{% endif %}" data-drawer-group="shoulder-strap">{{ group_drawer_swatches }}</ul>{% endcapture %}
+      {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
+    {% endif %}
     {% comment %} Long Strap {% endcomment %}
     <div class="variant-picker-group-wrapper group-long-strap{% if initial_variant_group == 'long-strap' %} initial-active{% endif %}" data-variant-group="long-strap">
         <div class="custom-variant-title">
@@ -776,6 +1097,8 @@
             {% render 'special-care-tooltip' %}
           {% endif %}
         </div>
+      {% assign group_drawer_swatches = '' %}
+      {% assign group_drawer_count = 0 %}
       <ul class="custom-variant-list">
         {%- for product in colorway_collection -%}
     
@@ -845,14 +1168,63 @@
                 </a>
               </div>
             </li>
+            {% capture drawer_li %}
+              <li data-tooltip="{{ product_color }}"{% if isCurrent %} class="current-swatch"{% endif %}>
+                <div class="image customSwatch">
+                  <a
+                    href="{{ product.url }}"
+                    data-product-id="{{ product.id }}"
+                    aria-label="{{ product_color }}"
+                    {% if isCurrent %}style="outline: 1px solid black;"{% endif %}
+                    class="swatch_image-a drawerSwatch"
+                    data-recently-viewed-product-json='{
+                      "id": {{ product.id }},
+                      "title": {{ product.title | json | replace: "'", "&#39;" }},
+                      "handle": {{ product.handle | json }},
+                      "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                      "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                      "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                      "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                      "product_size": {{ product_size | json }},
+                      "price": {{ product.selected_or_first_available_variant.price }}
+                    }'
+                  >
+                    {% if product.featured_image %}
+                      {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy' }}
+                    {% endif %}
+                    <span class="drawerSwatch__label">{{ product_color }}</span>
+                  </a>
+                </div>
+              </li>
+            {% endcapture %}
+            {% assign group_drawer_swatches = group_drawer_swatches | append: drawer_li %}
+            {% assign group_drawer_count = group_drawer_count | plus: 1 %}
     
         {%- endfor -%}
       </ul>
     </div>
+    {% if group_drawer_count > 0 %}
+      {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'long-strap' %} active{% endif %}" data-drawer-group="long-strap">Long Strap</button>{% endcapture %}
+      {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
+      {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'long-strap' %} active{% endif %}" data-drawer-group="long-strap">{{ group_drawer_swatches }}</ul>{% endcapture %}
+      {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
+    {% endif %}
     {% if enable_variant_drawer %}
         <pdp-explore-more-colorways-drawer-trigger>
-          Explore more size & colors drawer trigger
+          Explore more size & colors
         </pdp-explore-more-colorways-drawer-trigger>
+
+        <pdp-colorway-drawer class="pdp-colorway-drawer">
+          <div class="pdp-colorway-drawer__underlay"></div>
+          <div class="pdp-colorway-drawer__panel" role="dialog" aria-modal="true" aria-label="{{ formatted_product_title }}">
+            <div class="pdp-colorway-drawer__header">
+              <h3 class="pdp-colorway-drawer__title">{{ formatted_product_title }}</h3>
+              <button type="button" class="pdp-colorway-drawer__close" aria-label="{{ 'accessibility.close' | t }}">{% render 'icon-close' %}</button>
+            </div>
+            <div class="pdp-colorway-drawer__categories">{{ drawer_categories_html }}</div>
+            <div class="pdp-colorway-drawer__swatch-groups">{{ drawer_swatch_groups_html }}</div>
+          </div>
+        </pdp-colorway-drawer>
       {% else %}
         <pdp-explore-more-colorways>
           Explore more size & colors

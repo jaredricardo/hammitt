@@ -497,21 +497,6 @@
                 elsif section.settings.media_size == 'small'
                   assign media_width = 0.45
                 endif
-
-                assign gallery_visible_total = 0
-                for gallery_media in product.media
-                  assign gallery_alt_handle = gallery_media.alt | handle
-                  if gallery_media.alt contains 'Details' or gallery_alt_handle contains 'details'
-                    continue
-                  endif
-                  if gallery_media.alt contains 'size-comparison'
-                    continue
-                  endif
-                  unless gallery_media.id == product.selected_or_first_available_variant.featured_media.id
-                    assign gallery_visible_total = gallery_visible_total | plus: 1
-                  endunless
-                endfor
-                assign gallery_extra_count = gallery_visible_total | minus: 4
               -%}
               {%- for media in product.media -%}
                 {%- liquid
@@ -527,7 +512,7 @@
                   {%- assign media_position = media_position | default: 0 | plus: 1 -%}
                   <li 
                     id="Slide-{{ section.id }}-{{ media.id }}" 
-                    class="product__media-item grid__item slider__slide{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}{% if media_position > 4 %} pdp-gallery-extra{% endif %}" 
+                    class="product__media-item grid__item slider__slide{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" 
                     data-media-id="{{ section.id }}-{{ media.id }}"
                     {% if forloop.first %}
                       style="position: relative;"
@@ -558,9 +543,6 @@
                 {%- endcomment -%}
               {%- endfor -%}
             </ul>
-            {%- if gallery_extra_count > 0 -%}
-              <pdp-gallery-view-more class="pdp-gallery-view-more-item" data-remaining-count="{{ gallery_extra_count }}" aria-hidden="true"></pdp-gallery-view-more>
-            {%- endif -%}
           {%- if first_3d_model -%}
             <button
               class="button button--full-width product__xr-button"
@@ -1208,7 +1190,7 @@
               {%- else -%}
 
               {% if product.metafields.custom.colorway_collection != blank %}
-                  {% render 'product-color-size-optimized', top_level_handle: product.handle, on_special_leather: on_special_leather, current_product_size: formatted_size_string, current_product_color: product_color, enable_variant_drawer: section.settings.enable_variant_drawer  %}
+                  {% render 'product-color-size-optimized', top_level_handle: product.handle, on_special_leather: on_special_leather, current_product_size: formatted_size_string, current_product_color: product_color, enable_variant_drawer: section.settings.enable_variant_drawer, formatted_product_title: formatted_product_title  %}
                 {% else %}
                   {% render 'product-color-size', product_title: product_title, product_type: product_type, product_color: product_color, product_size: product_size %}
               {% endif %}
