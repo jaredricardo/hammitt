@@ -1721,6 +1721,13 @@ body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg{f
   .pdp-hero-section .product__payment-installments .buy-now-text {display: block;}
   .pdp-hero-section .complimentary-products__container .card__heading{font-size:14px;}
   .pdp-hero-section .product__media-wrapper *{touch-action: pinch-zoom !important;  touch-action:pan-y pinch-zoom!important}
+  /* The rule above locks descendants to vertical panning only (legacy vertical mobile carousel).
+     Restore horizontal panning for the mobile-img-carousel when it's in horizontal mode so swipe
+     gestures can scroll the track left/right instead of being blocked. */
+  .pdp-hero-section .product__media-wrapper .mobile-img-carousel--horizontal .mobile-img-carousel__track,
+  .pdp-hero-section .product__media-wrapper .mobile-img-carousel--horizontal .mobile-img-carousel__track * {
+    touch-action: pan-x pinch-zoom !important;
+  }
   .pdp-hero-section .product__media-wrapper,
   .pdp-hero-section .product__media-wrapper .swiper-slide {
     aspect-ratio: 4 / 5;
@@ -1966,9 +1973,13 @@ body.pdp-colorway-drawer-open {
 .pdp-colorway-drawer__close {
   background: none;
   border: none;
-  padding: 0;
+  padding: 5px;
+  margin: -5px;
   cursor: pointer;
   line-height: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pdp-colorway-drawer__categories {
@@ -1976,7 +1987,6 @@ body.pdp-colorway-drawer-open {
   flex-wrap: wrap;
   gap: 1.25rem;
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
   flex-shrink: 0;
 }
 
@@ -2104,29 +2114,76 @@ body.pdp-colorway-drawer-open {
 
 .mobile-img-carousel__track {
   aspect-ratio: 4 / 5;
-  overflow-y: scroll;
+  cursor: grab;
+}
+.mobile-img-carousel__track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+.mobile-img-carousel__track.is-dragging * {
+  pointer-events: none;
+}
+.mobile-img-carousel__track img {
+  -webkit-user-drag: none;
+  user-select: none;
 }
 @media screen and (max-width: 989px) {
   #product__mobile-images {
     position: relative;
     height: calc(100vw * 1.25);
   }
-  .mobile-img-carousel__track {
+
+  /* Vertical carousel (enable_vertical_carousel: true) — free-scroll stacked slides */
+  .mobile-img-carousel--vertical .mobile-img-carousel__track {
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
-  .mobile-img-carousel__track::-webkit-scrollbar {
+  .mobile-img-carousel--vertical .mobile-img-carousel__track::-webkit-scrollbar {
     display: none;
   }
-  .mobile-img-slide {
+  .mobile-img-carousel--vertical .mobile-img-slide {
     width: 100%;
     aspect-ratio: 4 / 5;
     position: relative;
     overflow: hidden;
   }
+  .mobile-img-carousel--vertical .mobile-img-carousel__bullets {
+    left: 10px;
+    flex-direction: column;
+  }
+
+  /* Horizontal carousel (enable_vertical_carousel: false) — swipeable, snap-scrolling slides */
+  .mobile-img-carousel--horizontal .mobile-img-carousel__track {
+    height: 100%;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .mobile-img-carousel--horizontal .mobile-img-carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-img-carousel--horizontal .mobile-img-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+  .mobile-img-carousel--horizontal .mobile-img-carousel__bullets {
+    left: 0;
+    right: 0;
+    justify-content: center;
+    flex-direction: row;
+  }
+
   #product__mobile-images .mobile-img-slide .media {
     position: absolute !important;
     top: 0 !important;
@@ -2137,11 +2194,9 @@ body.pdp-colorway-drawer-open {
   }
   .mobile-img-carousel__bullets {
     position: absolute;
-    left: 10px;
     bottom: 5%;
     z-index: 3;
     display: flex;
-    flex-direction: column;
     gap: 6px;
     pointer-events: none;
     opacity: 0;

@@ -422,7 +422,7 @@
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col ">
       <div class="grid__item product__media-wrapper">
         <div class="medium-up-hide">
-          <div id="product__mobile-images" class="mobile-img-carousel">
+          <div id="product__mobile-images" class="mobile-img-carousel {% if section.settings.enable_vertical_carousel %}mobile-img-carousel--vertical{% else %}mobile-img-carousel--horizontal{% endif %}" data-direction="{% if section.settings.enable_vertical_carousel %}vertical{% else %}horizontal{% endif %}">
             <hammitt-drop-a-hint-trigger class="inverted-hammitt-button pdp-drop-a-hint-trigger">Drop a Hint</hammitt-drop-a-hint-trigger>
             <pdp-save-for-later-button
               style="display: none;" 
@@ -1553,6 +1553,16 @@
     const slides = Array.from(carousel.querySelectorAll('.mobile-img-slide'))
     if (!slides.length || !bulletsContainer || !track) return
 
+    // Direction is driven by the section's "enable_vertical_carousel" setting (see data-direction
+    // attribute on #product__mobile-images). Defaults to vertical if not specified.
+    const isVertical = carousel.dataset.direction !== 'horizontal'
+    const sizeProp = isVertical ? 'offsetHeight' : 'offsetWidth'
+    const scrollProp = isVertical ? 'scrollTop' : 'scrollLeft'
+    const clientProp = isVertical ? 'clientHeight' : 'clientWidth'
+    const scrollSizeProp = isVertical ? 'scrollHeight' : 'scrollWidth'
+    const scrollToKey = isVertical ? 'top' : 'left'
+    const touchCoord = isVertical ? 'clientY' : 'clientX'
+
     bulletsContainer.classList.remove('is-loaded')
     bulletsContainer.innerHTML = ''
     slides.forEach(function(_, i) {
@@ -1560,7 +1570,7 @@
       btn.className = 'mobile-img-carousel__bullet' + (i === 0 ? ' is-active' : '')
       btn.setAttribute('aria-label', 'Go to image ' + (i + 1))
       btn.addEventListener('click', function() {
-        track.scrollTo({ top: i * slides[0].offsetHeight, behavior: 'smooth' })
+        track.scrollTo({ [scrollToKey]: i * slides[0][sizeProp], behavior: 'smooth' })
       })
       bulletsContainer.appendChild(btn)
     })
@@ -1569,11 +1579,10 @@
     const bullets = Array.from(bulletsContainer.querySelectorAll('.mobile-img-carousel__bullet'))
 
     function onScroll() {
-      console.log('firing !!')
-      const slideHeight = slides[0].offsetHeight
-      if (!slideHeight) return
+      const slideSize = slides[0][sizeProp]
+      if (!slideSize) return
       const activeIndex = Math.min(
-        Math.floor(track.scrollTop / slideHeight + 0.65),
+        Math.floor(track[scrollProp] / slideSize + 0.65),
         slides.length - 1
       )
       bullets.forEach(function(b, i) {
@@ -1590,29 +1599,68 @@
       track.removeEventListener('touchend', track._mobileCarouselTouchEnd)
     }
 
-    let _overscrollStartY = 0
-    let _peakOverscrollDelta = 0
-    track._mobileCarouselTouchStart = function(e) {
-      _overscrollStartY = e.touches[0].clientY
-      _peakOverscrollDelta = 0
-    }
-    track._mobileCarouselTouchMove = function(e) {
-      const atEnd = track.scrollTop + track.clientHeight >= track.scrollHeight - 5
-      if (!atEnd) return
-      const delta = _overscrollStartY - e.touches[0].clientY
-      if (delta > _peakOverscrollDelta) _peakOverscrollDelta = delta
-    }
-    track._mobileCarouselTouchEnd = function() {
-      const triggered = _peakOverscrollDelta > 20
-      _peakOverscrollDelta = 0
-      if (triggered) {
-        const notch = document.querySelector('pull-notch-button')
-        if (notch && notch.offsetParent !== null && notch.scrollToInfo) notch.scrollToInfo()
+    // The "pull past the end to reveal product info" gesture only applies to the vertical
+    // carousel (pulling up past the last image). Skip it entirely for horizontal mode.
+    if (isVertical) {
+      let _overscrollStartY = 0
+      let _peakOverscrollDelta = 0
+      track._mobileCarouselTouchStart = function(e) {
+        _overscrollStartY = e.touches[0][touchCoord]
+        _peakOverscrollDelta = 0
       }
+      track._mobileCarouselTouchMove = function(e) {
+        const atEnd = track[scrollProp] + track[clientProp] >= track[scrollSizeProp] - 5
+        if (!atEnd) return
+        const delta = _overscrollStartY - e.touches[0][touchCoord]
+        if (delta > _peakOverscrollDelta) _peakOverscrollDelta = delta
+      }
+      track._mobileCarouselTouchEnd = function() {
+        const triggered = _peakOverscrollDelta > 20
+        _peakOverscrollDelta = 0
+        if (triggered) {
+          const notch = document.querySelector('pull-notch-button')
+          if (notch && notch.offsetParent !== null && notch.scrollToInfo) notch.scrollToInfo()
+        }
+      }
+      track.addEventListener('touchstart', track._mobileCarouselTouchStart, { passive: true })
+      track.addEventListener('touchmove', track._mobileCarouselTouchMove, { passive: true })
+      track.addEventListener('touchend', track._mobileCarouselTouchEnd, { passive: true })
     }
-    track.addEventListener('touchstart', track._mobileCarouselTouchStart, { passive: true })
-    track.addEventListener('touchmove', track._mobileCarouselTouchMove, { passive: true })
-    track.addEventListener('touchend', track._mobileCarouselTouchEnd, { passive: true })
+
+    // Mouse "grab and drag" scrolling. Real touchscreens already scroll natively (via the
+    // touch-action CSS), so this only engages for mouse pointers — useful for testing in a
+    // resized desktop browser window where there's no actual touch input.
+    if (track._mobileCarouselPointerDown) {
+      track.removeEventListener('pointerdown', track._mobileCarouselPointerDown)
+      window.removeEventListener('pointermove', track._mobileCarouselPointerMove)
+      window.removeEventListener('pointerup', track._mobileCarouselPointerUp)
+      window.removeEventListener('pointercancel', track._mobileCarouselPointerUp)
+    }
+
+    let _isDragging = false
+    let _dragStartPos = 0
+    let _dragStartScroll = 0
+    track._mobileCarouselPointerDown = function(e) {
+      if (e.pointerType !== 'mouse') return
+      _isDragging = true
+      _dragStartPos = e[touchCoord]
+      _dragStartScroll = track[scrollProp]
+      track.classList.add('is-dragging')
+      e.preventDefault()
+    }
+    track._mobileCarouselPointerMove = function(e) {
+      if (!_isDragging || e.pointerType !== 'mouse') return
+      track[scrollProp] = _dragStartScroll - (e[touchCoord] - _dragStartPos)
+    }
+    track._mobileCarouselPointerUp = function(e) {
+      if (!_isDragging) return
+      _isDragging = false
+      track.classList.remove('is-dragging')
+    }
+    track.addEventListener('pointerdown', track._mobileCarouselPointerDown)
+    window.addEventListener('pointermove', track._mobileCarouselPointerMove)
+    window.addEventListener('pointerup', track._mobileCarouselPointerUp)
+    window.addEventListener('pointercancel', track._mobileCarouselPointerUp)
 
     track._mobileCarouselScroll = onScroll
     track.addEventListener('scroll', onScroll, { passive: true })
@@ -2287,7 +2335,13 @@
       "default": true,
       "label": "t:sections.main-product.settings.enable_sticky_info.label"
     },
-
+    {
+      "type": "checkbox",
+      "id": "enable_vertical_carousel",
+      "default": false,
+      "label": "Enable vertical carousel",
+      "info": "Enables a vertical carousel for product images on mobile. When not enabled it defaults to a horizontal carousel."
+    },
     {
       "type": "header",
       "content": "t:sections.main-product.settings.header.content",
