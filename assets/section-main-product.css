@@ -1726,7 +1726,10 @@ body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg{f
      gestures can scroll the track left/right instead of being blocked. */
   .pdp-hero-section .product__media-wrapper .mobile-img-carousel--horizontal .mobile-img-carousel__track,
   .pdp-hero-section .product__media-wrapper .mobile-img-carousel--horizontal .mobile-img-carousel__track * {
-    touch-action: pan-x pinch-zoom !important;
+    /* Allow pan-y too so a touch that drifts vertically over the carousel scrolls the
+       page instead of getting trapped (overflow-y is hidden on the track, so without
+       pan-y the gesture had nowhere to go and the page appeared "locked"). */
+    touch-action: pan-x pan-y pinch-zoom !important;
   }
   .pdp-hero-section .product__media-wrapper,
   .pdp-hero-section .product__media-wrapper .swiper-slide {
@@ -1968,6 +1971,7 @@ body.pdp-colorway-drawer-open {
   margin: 0;
   font-size: 1rem;
   font-family: 'Adobe Carlson Italic' !important;
+  text-transform: capitalize;
 }
 
 .pdp-colorway-drawer__close {
@@ -2033,6 +2037,7 @@ body.pdp-colorway-drawer-open {
 @media screen and (max-width: 767px) {
   .pdp-colorway-drawer__swatch-list {
     grid-template-columns: repeat(2, 1fr);
+    row-gap: 10px;
   }
 }
 
