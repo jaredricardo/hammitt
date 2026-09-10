@@ -2142,8 +2142,18 @@ class GiftingTooltipContainer extends HTMLElement {
       // Offset the scroll destination by ~10% of the viewport height so the target
       // isn't pinned flush to the very top of the screen.
       const offset = window.innerHeight * 0.1
-      const targetTop = target.getBoundingClientRect().top + window.scrollY - offset
-      window.scrollTo({ top: targetTop, behavior: 'smooth' })
+      const scrollToTarget = () => {
+        const targetTop = target.getBoundingClientRect().top + window.scrollY - offset
+        window.scrollTo({ top: targetTop, behavior: 'smooth' })
+      }
+      // Especially on the very first click after page load, content above the target
+      // (lazy-loaded images, webfonts, other apps) can still be shifting the layout
+      // while we're mid-scroll, so the initial target position goes stale and we land
+      // short in the middle of the page. Re-measure and correct a couple of times as
+      // the smooth scroll plays out so we reliably settle on the actual target.
+      scrollToTarget()
+      window.setTimeout(scrollToTarget, 350)
+      window.setTimeout(scrollToTarget, 700)
     }
 }
 
