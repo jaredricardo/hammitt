@@ -912,7 +912,7 @@
                     </div>
                   </read-more-description>
                     {% if block.settings.show_gifting_tooltip %}
-                      {% unless product.tags contains 'sample sale' or product.tags contains 'final sale' %}
+                      {% unless product.tags contains 'sample sale' or product.tags contains 'final sale' or product.tags contains 'excluded-from-gifting-both-options' or product.tags contains 'excluded-from-gifting' %}
                         <gifting-tooltip-container>
                           {% render 'icon-gift-box-complex' %}
                           <div class="heading-container">
