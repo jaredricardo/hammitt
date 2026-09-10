@@ -310,9 +310,7 @@ fieldset.product-form__input .form__label {
 
 .product-form__submit,
 #dropahint-cta {
-  margin-bottom: 1rem;
   text-transform: uppercase;
-  height: 45px !important; 
 }
 
 #dropahint-cta a {
@@ -323,7 +321,7 @@ fieldset.product-form__input .form__label {
 }
 
 .buybutton-block .product-form__buttons button {
-  height: 45px !important;  
+  height: 55px !important;  
 }
 
 
@@ -1554,7 +1552,7 @@ input.iStock-notify-btn {
 .pdp-hero-section .pdp-info-col .custom-variant-title span{display:inline-block;padding-top:2px; text-transform:lowercase;}
 .pdp-hero-section .pdp-info-col .custom-variant-title span:first-letter{text-transform:uppercase;}  
 .pdp-hero-section .pdp-info-col .custom-variant-title strong{font-size:16px;}
-.pdp-hero-section .product-form{margin:0px;}
+.pdp-hero-section .product-form{margin:0px; width: 100%;}
 .pdp-hero-section .product-form .product-form__buttons{max-width:100%;}
 
 .pdp-hero-section .breadcrumb-block{padding-bottom:6px;}
@@ -1566,6 +1564,84 @@ input.iStock-notify-btn {
 .pdp-hero-section ul.product__media-list{gap:10px;}
 .pdp-hero-section ul.product__media-list li:nth-child(n + 4){width:100%;max-width:calc(50% - 10px / 2);}
 .pdp-hero-section .product__media-wrapper  slider-component{display:none;}
+
+/* Desktop PDP gallery: collapse beyond 4 images behind a "View more" trigger */
+@media screen and (min-width: 750px) {
+  .product__media-list .product__media-item.pdp-gallery-extra {
+    display: none;
+  }
+
+  .product__media-list.pdp-gallery-expanded .product__media-item.pdp-gallery-extra {
+    display: block;
+  }
+
+  /* pdp-gallery-view-more now sits as a sibling after the gallery <ul> (inside the same
+     media-gallery), not nested inside it, so use a general sibling combinator here. */
+  .product__media-list.pdp-gallery-expanded ~ .pdp-gallery-view-more-item {
+    display: none;
+  }
+
+  /* Take the "view more" trigger out of the grid flow so it no longer occupies a
+     product__media-item slot, and instead float it centered ~2rem beneath the gallery. */
+  .pdp-gallery-view-more-item {
+    position: absolute;
+    left: 50%;
+    bottom: -3%;
+    transform: translateX(-50%);
+    aspect-ratio: auto;
+    width: auto;
+    text-align: center;
+    padding: 10px 20px;
+    height: fit-content;
+  }
+
+  /* Desktop gallery layout: 1st and 2nd images full width, 3rd and 4th side-by-side at half width */
+  .pdp-hero-section ul.product__media-list li.product__media-item:nth-child(1),
+  .pdp-hero-section ul.product__media-list li.product__media-item:nth-child(2) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .pdp-hero-section ul.product__media-list li.product__media-item:nth-child(3),
+  .pdp-hero-section ul.product__media-list li.product__media-item:nth-child(4) {
+    width: 100%;
+    max-width: calc(50% - 10px / 2);
+  }
+}
+
+pdp-gallery-view-more {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pdp-gallery-view-more__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 3rem;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 136%;
+  letter-spacing: 0.28px;
+  cursor: pointer;
+  transition: background-color var(--duration-short) ease, color var(--duration-short) ease;
+}
+
+.pdp-gallery-view-more__btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
 
 
 .pdp-hero-section .flexbox{display:flex;flex-wrap:wrap;justify-content: space-between; width: 100%;}

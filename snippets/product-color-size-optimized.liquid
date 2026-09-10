@@ -849,10 +849,15 @@
         {%- endfor -%}
       </ul>
     </div>
-
-    <pdp-explore-more-colorways>
-      Explore more size & colors
-    </pdp-explore-more-colorways>
+    {% if enable_variant_drawer %}
+        <pdp-explore-more-colorways-drawer-trigger>
+          Explore more size & colors drawer trigger
+        </pdp-explore-more-colorways-drawer-trigger>
+      {% else %}
+        <pdp-explore-more-colorways>
+          Explore more size & colors
+        </pdp-explore-more-colorways>
+    {% endif %}
 
     <script class="hidden" type="application/json" id="data-product-variant-json">
       {

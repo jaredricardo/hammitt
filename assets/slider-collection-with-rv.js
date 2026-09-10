@@ -35,6 +35,24 @@
   document.querySelectorAll('.combined-slider__tabs').forEach(initTabs);
 })();
 
+// This theme lazy-loads swiper.js until the visitor's first scroll/mousemove/touch
+// (see snippets/__opt-theme-js.liquid), so `Swiper` may not be defined yet when these
+// custom elements try to init. Wait for the `wnw_load` completion event in that case.
+function whenSwiperReady(callback) {
+  if (typeof Swiper !== 'undefined') {
+    callback();
+    return;
+  }
+  window.addEventListener('wnw_load', function onWnwLoad() {
+    window.removeEventListener('wnw_load', onWnwLoad);
+    if (typeof Swiper !== 'undefined') {
+      callback();
+    } else {
+      console.error('Swiper library failed to load');
+    }
+  });
+}
+
 // Recently Viewed custom element for combined slider section
 class CombinedRecentlyViewed extends HTMLElement {
   connectedCallback() {
@@ -191,18 +209,21 @@ class CombinedRecentlyViewed extends HTMLElement {
 
   lazyInit() {
     if (this._swiperInited || !this._populated) return;
-    var jsonStr = this.dataset.json;
-    if (!jsonStr) return;
-    try {
-      var config = JSON.parse(jsonStr);
-      // observer + observeParents: Swiper auto-recalculates when hidden panel is revealed
-      config.observer = true;
-      config.observeParents = true;
-      new Swiper(this, config);
-      this._swiperInited = true;
-    } catch (e) {
-      console.error('CombinedRecentlyViewed: Swiper init failed', e);
-    }
+    whenSwiperReady(() => {
+      if (this._swiperInited || !this._populated) return;
+      var jsonStr = this.dataset.json;
+      if (!jsonStr) return;
+      try {
+        var config = JSON.parse(jsonStr);
+        // observer + observeParents: Swiper auto-recalculates when hidden panel is revealed
+        config.observer = true;
+        config.observeParents = true;
+        new Swiper(this, config);
+        this._swiperInited = true;
+      } catch (e) {
+        console.error('CombinedRecentlyViewed: Swiper init failed', e);
+      }
+    });
   }
 
   _hideRvTab() {
@@ -280,20 +301,21 @@ class CombinedProductRecommendations extends HTMLElement {
 
   _initSwiper() {
     if (this._swiperInited || !this._populated) return;
-    
-    const jsonStr = this.dataset.json;
-    if (!jsonStr) return;
-    
-    try {
-      const config = JSON.parse(jsonStr);
-      // observer + observeParents: Swiper auto-recalculates when needed
-      config.observer = true;
-      config.observeParents = true;
-      this._swiperInstance = new Swiper(this, config);
-      this._swiperInited = true;
-    } catch (e) {
-      console.error('CombinedProductRecommendations: Swiper init failed', e);
-    }
+    whenSwiperReady(() => {
+      if (this._swiperInited || !this._populated) return;
+      const jsonStr = this.dataset.json;
+      if (!jsonStr) return;
+      try {
+        const config = JSON.parse(jsonStr);
+        // observer + observeParents: Swiper auto-recalculates when needed
+        config.observer = true;
+        config.observeParents = true;
+        this._swiperInstance = new Swiper(this, config);
+        this._swiperInited = true;
+      } catch (e) {
+        console.error('CombinedProductRecommendations: Swiper init failed', e);
+      }
+    });
   }
   
   _handleVariantSwap(event) {

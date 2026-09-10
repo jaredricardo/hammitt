@@ -2097,12 +2097,30 @@ class GiftingTooltipContainer extends HTMLElement {
       this.querySelector('.learn-more')?.addEventListener('mouseenter', this.open)
       this.querySelector('.learn-more')?.addEventListener('mouseleave', this.close)
       this.querySelector('.close-btn')?.addEventListener('click', this.close)
+      this.querySelector('.learn-more')?.addEventListener('click', this.learnMoreClick)
     }
     open() {
       this.closest('gifting-tooltip-container').querySelector('.gifting-tooltip-content')?.classList.add('active')
     }
     close() {
       this.closest('gifting-tooltip-container').querySelector('.gifting-tooltip-content')?.classList.remove('active')
+    }
+    learnMoreClick(event) {
+      // `this` is the `.learn-more` anchor itself (see constructor above), not the
+      // custom element instance. This section AJAX-updates often, so avoid relying on
+      // any previously-queried reference and instead look the target up fresh each click.
+      const href = this.getAttribute('href')
+      if (!href || href.charAt(0) !== '#') return
+      const target = document.querySelector(href)
+      if (!target) return
+      event.preventDefault()
+      const details = target.querySelector('details')
+      if (details) details.open = true
+      // Offset the scroll destination by ~10% of the viewport height so the target
+      // isn't pinned flush to the very top of the screen.
+      const offset = window.innerHeight * 0.1
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({ top: targetTop, behavior: 'smooth' })
     }
 }
 
@@ -2299,6 +2317,7 @@ class PdpSaveForLaterButton extends HTMLElement {
     this._onClick = () => {
       if (this.classList.contains('is-saving') || this.classList.contains('saved')) return
 
+      this.style.width = `${this.getBoundingClientRect().width}px`
       this.classList.add('is-saving')
 
       setTimeout(() => {
@@ -2328,6 +2347,7 @@ class PdpSaveForLaterButton extends HTMLElement {
 
         this.classList.remove('is-saving')
         this.classList.add('saved')
+        this.style.width = ''
         const textEl = this.querySelector('.pdp-sfl-text')
         if (textEl) textEl.textContent = 'Saved for later'
 
@@ -2433,6 +2453,55 @@ class PdpExploreMoreColorways extends HTMLElement {
 }
 
 customElements.define('pdp-explore-more-colorways', PdpExploreMoreColorways);
+
+class PdpGalleryViewMore extends HTMLElement {
+  connectedCallback() {
+    if (!this.querySelector('.pdp-gallery-view-more__btn')) {
+      const remaining = this.getAttribute('data-remaining-count') || ''
+      const btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'pdp-gallery-view-more__btn'
+      btn.textContent = `View more (${remaining})`
+      this.appendChild(btn)
+    }
+
+    this._onClick = () => {
+      // This element now lives as a sibling of `.product__media-list` (inside the same
+      // <media-gallery>) rather than nested inside it as an <li>, so look the gallery up
+      // via the shared media-gallery ancestor instead of `.closest('.product__media-list')`.
+      const gallery = this.closest('media-gallery')?.querySelector('.product__media-list')
+      if (gallery) gallery.classList.add('pdp-gallery-expanded')
+    }
+
+    this.addEventListener('click', this._onClick)
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('click', this._onClick)
+  }
+}
+
+customElements.define('pdp-gallery-view-more', PdpGalleryViewMore);
+
+// Relocated "Drop a hint" triggers (mobile carousel + desktop gallery). The real button
+// the Drop-Hint app binds to lives in the product form (`.main-drop-a-hint-button`,
+// id="cta_dropahint"). Having multiple elements share that id caused conflicts with the
+// consentmo app, so these triggers just forward a click to the real button instead.
+class HammittDropAHintTrigger extends HTMLElement {
+  connectedCallback() {
+    this._onClick = () => {
+      const mainButton = document.querySelector('.main-drop-a-hint-button')
+      if (mainButton) mainButton.click()
+    }
+    this.addEventListener('click', this._onClick)
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('click', this._onClick)
+  }
+}
+
+customElements.define('hammitt-drop-a-hint-trigger', HammittDropAHintTrigger);
 
 // Per-line-item gift ribbon upsell, rendered inside each eligible cart line's gifting
 // accordion. Checking the box adds (or reuses) a distinct gift-wrap product cart line tagged

@@ -1990,7 +1990,6 @@ pull-notch-button span {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .after-atc-button-container > * {
@@ -1998,8 +1997,48 @@ pull-notch-button span {
   min-height: 35px;
 }
 
+/* Favorite/heart button relocated into the after-ATC button row (swapped with Save for later) */
+.pdp-favorite-in-cta {
+  justify-content: center;
+}
+
+.pdp-favorite-in-cta .swym-button.hammitt-custom {
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  flex: 0 0 auto;
+  height: 25px;
+  width: 25px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Save for later button relocated onto the product image (swapped with the heart button) */
+.pdp-quick-save-button,
+.pdp-drop-a-hint-trigger {
+  position: absolute !important;
+  top: 1rem;
+  right: 10px;
+  z-index: 4  !important;
+  flex: none;
+  width: auto;
+  min-height: 35px;
+  padding: 0.4rem 0.75rem;
+  font-size: 11px;
+  pointer-events: auto !important;
+}
+
+@media screen and (max-width: 768px) {
+  .pdp-quick-save-button,
+  .pdp-drop-a-hint-trigger {
+    top: 1rem;
+    padding: 0.35rem 0.6rem;
+    font-size: 10px;
+  }
+}
+
 .inverted-hammitt-button {
-  text-transform: uppercase;
   background-color: white;
   border: 1px solid black;
   color: black;
@@ -2038,7 +2077,8 @@ body.pdp-colorway-options-expanded .pdp-hero-section .colorway-optimized .varian
   display: block;
 }
 
-pdp-explore-more-colorways {
+pdp-explore-more-colorways,
+pdp-explore-more-colorways-drawer-trigger {
   display: block;
   text-decoration: underline;
   cursor: pointer;

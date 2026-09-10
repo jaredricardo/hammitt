@@ -423,7 +423,19 @@
       <div class="grid__item product__media-wrapper">
         <div class="medium-up-hide">
           <div id="product__mobile-images" class="mobile-img-carousel">
-            {% render 'swym-hammitt-custom-favorite-button' %}
+            <hammitt-drop-a-hint-trigger class="inverted-hammitt-button pdp-drop-a-hint-trigger">Drop a Hint</hammitt-drop-a-hint-trigger>
+            <pdp-save-for-later-button
+              style="display: none;" 
+              {% comment %} keeping this hidden for now {% endcomment %}
+              class="inverted-hammitt-button pdp-quick-save-button"
+              data-product-id="{{ product.id }}"
+              data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+              data-variant-url="{{ product.url }}?variant={{ product.selected_or_first_available_variant.id }}"
+              data-variant-image="{{ product.featured_image | image_url: width: 600 }}"
+              data-variant-title="{{ product.title | escape }}"
+              data-variant-price="{{ product.selected_or_first_available_variant.price | money }}"
+              data-variant-color="{{ product_color | escape }}"
+            >Save for later</pdp-save-for-later-button>
             <div class="mobile-img-carousel__bullets" aria-hidden="true"></div>
             <div class="mobile-img-carousel__track">
               {%- for media in product.media -%}
@@ -444,8 +456,19 @@
           </div>
         </div>
         <media-gallery style="position: relative;" id="MediaGallery-{{ section.id }}" role="region" class="main-product-media-gallery small-hide {% if section.settings.enable_sticky_info %}product__media-gallery{% endif %}" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
-
-          {% render 'swym-hammitt-custom-favorite-button', product:product %}
+          <hammitt-drop-a-hint-trigger class="inverted-hammitt-button pdp-drop-a-hint-trigger">Drop a Hint</hammitt-drop-a-hint-trigger>
+          <pdp-save-for-later-button
+            style="display: none;" 
+            {% comment %} keeping this hidden for now {% endcomment %}
+            class="inverted-hammitt-button pdp-quick-save-button"
+            data-product-id="{{ product.id }}"
+            data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+            data-variant-url="{{ product.url }}?variant={{ product.selected_or_first_available_variant.id }}"
+            data-variant-image="{{ product.featured_image | image_url: width: 600 }}"
+            data-variant-title="{{ product.title | escape }}"
+            data-variant-price="{{ product.selected_or_first_available_variant.price | money }}"
+            data-variant-color="{{ product_color | escape }}"
+          >Save for later</pdp-save-for-later-button>
           
           <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
           {% comment %} 
@@ -474,6 +497,21 @@
                 elsif section.settings.media_size == 'small'
                   assign media_width = 0.45
                 endif
+
+                assign gallery_visible_total = 0
+                for gallery_media in product.media
+                  assign gallery_alt_handle = gallery_media.alt | handle
+                  if gallery_media.alt contains 'Details' or gallery_alt_handle contains 'details'
+                    continue
+                  endif
+                  if gallery_media.alt contains 'size-comparison'
+                    continue
+                  endif
+                  unless gallery_media.id == product.selected_or_first_available_variant.featured_media.id
+                    assign gallery_visible_total = gallery_visible_total | plus: 1
+                  endunless
+                endfor
+                assign gallery_extra_count = gallery_visible_total | minus: 4
               -%}
               {%- for media in product.media -%}
                 {%- liquid
@@ -486,15 +524,15 @@
                   endif
                 -%}
                 {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+                  {%- assign media_position = media_position | default: 0 | plus: 1 -%}
                   <li 
                     id="Slide-{{ section.id }}-{{ media.id }}" 
-                    class="product__media-item grid__item slider__slide{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" 
+                    class="product__media-item grid__item slider__slide{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}{% if media_position > 4 %} pdp-gallery-extra{% endif %}" 
                     data-media-id="{{ section.id }}-{{ media.id }}"
                     {% if forloop.first %}
                       style="position: relative;"
                     {% endif %}
                   >
-                    {%- assign media_position = media_position | default: 0 | plus: 1 -%}
                     {% render 'product-thumbnail', 
                       media: media, 
                       position: media_position, 
@@ -520,6 +558,9 @@
                 {%- endcomment -%}
               {%- endfor -%}
             </ul>
+            {%- if gallery_extra_count > 0 -%}
+              <pdp-gallery-view-more class="pdp-gallery-view-more-item" data-remaining-count="{{ gallery_extra_count }}" aria-hidden="true"></pdp-gallery-view-more>
+            {%- endif -%}
           {%- if first_3d_model -%}
             <button
               class="button button--full-width product__xr-button"
@@ -891,13 +932,13 @@
                     {% if block.settings.show_gifting_tooltip %}
                       {% unless product.tags contains 'sample sale' or product.tags contains 'final sale' %}
                         <gifting-tooltip-container>
-                          {% render 'icon-gift-box' %}
+                          {% render 'icon-gift-box-complex' %}
                           <div class="heading-container">
                             {{ block.settings.gifting_tooltip_heading }}
-                            <span class="learn-more">
+                            <a href="#accordion-Gifting" class="learn-more">
                               Learn more.
-                              <div class="gifting-tooltip-content">{{ block.settings.gifting_tooltip_content }}</div>
-                            </span>
+                              {% comment %} <div class="gifting-tooltip-content">{{ block.settings.gifting_tooltip_content }}</div> {% endcomment %}
+                            </a>
                           </div>
                         </gifting-tooltip-container>
                       {% endunless %}
@@ -921,10 +962,10 @@
                           {% if accordion_data_att == 'care' %}
                             {% if on_special_leather %}
                               {% assign open_material = true %}
-                            {% endif %}
+                            {% endif %} 
                           {% endif %}
                     
-                          <div data-on-special="{{ on_special_leather }}" class="product__accordion accordion new_accordion_block"  data-accordion="{{ inner_block.settings.heading }}" {{ inner_block.shopify_attributes }} data-access-attribute="{{ accordion_data_att }}">
+                          <div id="accordion-{{ inner_block.settings.heading }}" data-on-special="{{ on_special_leather }}" class="product__accordion accordion new_accordion_block"  data-accordion="{{ inner_block.settings.heading }}" {{ inner_block.shopify_attributes }} data-access-attribute="{{ accordion_data_att }}">
                             <details id="Details-{{ inner_block.id }}-{{ section.id }}" {% if blockHeading == "description" %} open {% endif %} {% if open_material %} open {% endif %}>
                               <summary>
                                 <div class="summary__title">
@@ -1167,7 +1208,7 @@
               {%- else -%}
 
               {% if product.metafields.custom.colorway_collection != blank %}
-                  {% render 'product-color-size-optimized', top_level_handle: product.handle, on_special_leather: on_special_leather, current_product_size: formatted_size_string, current_product_color: product_color %}
+                  {% render 'product-color-size-optimized', top_level_handle: product.handle, on_special_leather: on_special_leather, current_product_size: formatted_size_string, current_product_color: product_color, enable_variant_drawer: section.settings.enable_variant_drawer  %}
                 {% else %}
                   {% render 'product-color-size', product_title: product_title, product_type: product_type, product_color: product_color, product_size: product_size %}
               {% endif %}
@@ -1278,8 +1319,8 @@
               {% endif %}
 
                 {% unless product.tags contains 'allow-pdp' and product.metafields.custom.hide_product_all_customers %}
-                  <div class="buybutton-block" {{ block.shopify_attributes }}>
-                    <product-form class="product-form">
+                  <div class="buybutton-block" {{ block.shopify_attributes }} style="display: flex; justify-content center; align-items:center; gap: 1rem;">
+                    <product-form class="product-form zzzzz">
                       <div class="product-form__error-message-wrapper" role="alert" hidden>
                         <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
                           <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
@@ -1306,6 +1347,7 @@
                         {% endif %}
 
                         <div class="product-form__buttons">
+                          <div id="cta_dropahint" class="inverted-hammitt-button main-drop-a-hint-button hidden">Drop a hint</div>
                           {% if product.selected_or_first_available_variant.available %}
                             <button
                               type="submit"
@@ -1372,18 +1414,8 @@
                       {%- endform -%}
                     </product-form>
 
-                    <div class="after-atc-button-container">
-                      <div id="cta_dropahint" class="inverted-hammitt-button">Drop a hint</div>
-                      <pdp-save-for-later-button
-                        class="inverted-hammitt-button"
-                        data-product-id="{{ product.id }}"
-                        data-variant-id="{{ product.selected_or_first_available_variant.id }}"
-                        data-variant-url="{{ product.url }}?variant={{ product.selected_or_first_available_variant.id }}"
-                        data-variant-image="{{ product.featured_image | image_url: width: 600 }}"
-                        data-variant-title="{{ product.title | escape }}"
-                        data-variant-price="{{ product.selected_or_first_available_variant.price | money }}"
-                        data-variant-color="{{ product_color | escape }}"
-                      >Save for later</pdp-save-for-later-button>
+                    <div class="after-atc-button-container pdp-favorite-in-cta">
+                      {% render 'swym-hammitt-custom-favorite-button', product:product %}
                     </div>
                       
                     {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
@@ -1518,7 +1550,7 @@
     inspired-app-opener,
     gifting-tooltip-container,
     .product-collapse-container,
-    .pdp-hero-wrap media-gallery .swym-button {
+    .pdp-favorite-in-cta .swym-button {
       display: none !important;
       opacity: 0 !important;
     }
@@ -2262,10 +2294,18 @@
   "settings": [
     {
       "type": "checkbox",
+      "id": "enable_variant_drawer",
+      "default": false,
+      "label": "Variant Drawer",
+      "info": "Enables a drawer for swapping between variants instead of rows of variant buttons."
+    },
+    {
+      "type": "checkbox",
       "id": "enable_sticky_info",
       "default": true,
       "label": "t:sections.main-product.settings.enable_sticky_info.label"
     },
+
     {
       "type": "header",
       "content": "t:sections.main-product.settings.header.content",

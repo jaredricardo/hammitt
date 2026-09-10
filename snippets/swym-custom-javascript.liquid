@@ -5,10 +5,9 @@
       // initialize count
       const navHeartCount = document.querySelector('.nav-wishlist-button .heart-count')
       const data = await getListsData()
-      if(data.length === 0) return
-      const wishlistItems = data[0].listcontents
+      const wishlistItems = (data && data[0] && data[0].listcontents) || []
 
-      let count = data[0].listcontents.length
+      let count = wishlistItems.length
 
       // console.log(wishlistItems)
 
@@ -24,6 +23,12 @@
       document.addEventListener("swym:collections-loaded", function(){
         swat.initializeActionButtons("main")
       })
+
+      // explicitly (re)bind any action buttons already present on this page load (e.g. the PDP
+      // favorite button, which was relocated in markup and may not be picked up by Swym's own
+      // default auto-scan depending on its DOM position/timing). This must run even when the
+      // visitor's wishlist is empty, otherwise button init was being skipped entirely.
+      swat.initializeActionButtons("main")
 
       swat.evtLayer.addEventListener(swat.JSEvents.addedToWishlist, () => {
         count++
