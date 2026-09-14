@@ -310,9 +310,7 @@ fieldset.product-form__input .form__label {
 
 .product-form__submit,
 #dropahint-cta {
-  margin-bottom: 1rem;
   text-transform: uppercase;
-  height: 45px !important; 
 }
 
 #dropahint-cta a {
@@ -323,7 +321,7 @@ fieldset.product-form__input .form__label {
 }
 
 .buybutton-block .product-form__buttons button {
-  height: 45px !important;  
+  height: 55px !important;  
 }
 
 
@@ -1554,7 +1552,7 @@ input.iStock-notify-btn {
 .pdp-hero-section .pdp-info-col .custom-variant-title span{display:inline-block;padding-top:2px; text-transform:lowercase;}
 .pdp-hero-section .pdp-info-col .custom-variant-title span:first-letter{text-transform:uppercase;}  
 .pdp-hero-section .pdp-info-col .custom-variant-title strong{font-size:16px;}
-.pdp-hero-section .product-form{margin:0px;}
+.pdp-hero-section .product-form{margin:0px; width: 100%;}
 .pdp-hero-section .product-form .product-form__buttons{max-width:100%;}
 
 .pdp-hero-section .breadcrumb-block{padding-bottom:6px;}
@@ -1566,6 +1564,22 @@ input.iStock-notify-btn {
 .pdp-hero-section ul.product__media-list{gap:10px;}
 .pdp-hero-section ul.product__media-list li:nth-child(n + 4){width:100%;max-width:calc(50% - 10px / 2);}
 .pdp-hero-section .product__media-wrapper  slider-component{display:none;}
+
+/* Desktop gallery layout: 1st and 2nd images full width, 3rd and 4th side-by-side at half width */
+@media screen and (min-width: 750px) {
+  .pdp-hero-section ul.product__media-list li.product__media-item:nth-child(1),
+  .pdp-hero-section ul.product__media-list li.product__media-item:nth-child(2) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .pdp-hero-section ul.product__media-list li.product__media-item:nth-child(3),
+  .pdp-hero-section ul.product__media-list li.product__media-item:nth-child(4) {
+    width: 100%;
+    max-width: calc(50% - 10px / 2);
+  }
+}
+
 
 
 .pdp-hero-section .flexbox{display:flex;flex-wrap:wrap;justify-content: space-between; width: 100%;}
@@ -1707,6 +1721,16 @@ body.template-product .pdp-review-section #answ_reviews_review .acs_heading_lg{f
   .pdp-hero-section .product__payment-installments .buy-now-text {display: block;}
   .pdp-hero-section .complimentary-products__container .card__heading{font-size:14px;}
   .pdp-hero-section .product__media-wrapper *{touch-action: pinch-zoom !important;  touch-action:pan-y pinch-zoom!important}
+  /* The rule above locks descendants to vertical panning only (legacy vertical mobile carousel).
+     Restore horizontal panning for the mobile-img-carousel when it's in horizontal mode so swipe
+     gestures can scroll the track left/right instead of being blocked. */
+  .pdp-hero-section .product__media-wrapper .mobile-img-carousel--horizontal .mobile-img-carousel__track,
+  .pdp-hero-section .product__media-wrapper .mobile-img-carousel--horizontal .mobile-img-carousel__track * {
+    /* Allow pan-y too so a touch that drifts vertically over the carousel scrolls the
+       page instead of getting trapped (overflow-y is hidden on the track, so without
+       pan-y the gesture had nowhere to go and the page appeared "locked"). */
+    touch-action: pan-x pan-y pinch-zoom !important;
+  }
   .pdp-hero-section .product__media-wrapper,
   .pdp-hero-section .product__media-wrapper .swiper-slide {
     aspect-ratio: 4 / 5;
@@ -1882,31 +1906,291 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
   display: none !important;
 }
 
+/* "Explore more colorways" drawer (enable_variant_drawer section setting) */
+pdp-explore-more-colorways-drawer-trigger[hidden] {
+  display: none !important;
+}
+
+body.pdp-colorway-drawer-open {
+  overflow: hidden;
+}
+
+.pdp-colorway-drawer__underlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(var(--color-foreground), 0.5);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 5;
+  transition: opacity var(--duration-default) ease, visibility var(--duration-default) ease;
+}
+
+.pdp-colorway-drawer__panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  background: rgb(var(--color-background));
+  z-index: 6;
+  transform: translateX(100%);
+  transition: transform var(--duration-default) ease;
+}
+
+@media screen and (max-width: 768px) {
+  .pdp-colorway-drawer__panel {
+    max-width: none;
+  }
+}
+
+.pdp-colorway-drawer.is-open .pdp-colorway-drawer__underlay {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  cursor: pointer;
+}
+
+.pdp-colorway-drawer.is-open .pdp-colorway-drawer__panel {
+  transform: translateX(0);
+}
+
+.pdp-colorway-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+  flex-shrink: 0;
+}
+
+.pdp-colorway-drawer__title {
+  margin: 0;
+  font-size: 1rem;
+  font-family: 'Adobe Carlson Italic' !important;
+  text-transform: capitalize;
+}
+
+.pdp-colorway-drawer__close {
+  background: none;
+  border: none;
+  padding: 5px;
+  margin: -5px;
+  cursor: pointer;
+  line-height: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pdp-colorway-drawer__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1rem 1.5rem;
+  flex-shrink: 0;
+}
+
+.pdp-colorway-drawer__category-btn {
+  background: none;
+  border: none;
+  padding: 0 0 2px;
+  cursor: pointer;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 13px;
+  text-transform: Capitalize;
+  text-underline-offset: 4px;
+  color: rgb(var(--color-foreground));
+}
+
+.pdp-colorway-drawer__category-btn.active {
+  text-decoration: underline;
+}
+
+.pdp-colorway-drawer__swatch-groups {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+/* Disables interaction with the drawer while a variant swap fetch is in flight - the
+   clicked swatch's own `.btn--loading` spinner is the only loading indicator, this just
+   prevents further clicks until the new content has loaded. */
+.pdp-colorway-drawer.is-loading .pdp-colorway-drawer__panel {
+  pointer-events: none;
+}
+
+.pdp-colorway-drawer__swatch-list {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 6px;
+  row-gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .pdp-colorway-drawer__swatch-list {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 10px;
+  }
+}
+
+.pdp-colorway-drawer__swatch-list.active {
+  display: grid;
+}
+
+.pdp-colorway-drawer__swatch-list li {
+  list-style: none;
+  display: block;
+  border: none;
+  margin: 0;
+}
+
+.pdp-colorway-drawer__swatch-list .swatch_image-a.drawerSwatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.pdp-colorway-drawer__swatch-list .swatch_image-a.drawerSwatch:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1.5px solid #000;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.pdp-colorway-drawer__swatch-list li:has([style="outline: 1px solid black;"]) .swatch_image-a.drawerSwatch:before {
+  opacity: 1;
+}
+
+.pdp-colorway-drawer__swatch-list .swatch_image-a.drawerSwatch img {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: contain;
+  background-color: #efefef;
+}
+
+/* The swatch label is already shown as visible text in the drawer, so the global
+   [data-tooltip] hover tooltip (which duplicates that same text) is unnecessary here. */
+.pdp-colorway-drawer__swatch-list [data-tooltip]:before,
+.pdp-colorway-drawer__swatch-list [data-tooltip]:after {
+  display: none !important;
+}
+
+.drawerSwatch__label {
+  display: block;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: rgb(var(--color-foreground));
+  padding-top: 0rem;
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .drawerSwatch__label {
+    font-size: 11px;
+  }
+}
+
 .mobile-img-carousel__track {
   aspect-ratio: 4 / 5;
-  overflow-y: scroll;
+  cursor: grab;
+}
+.mobile-img-carousel__track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+.mobile-img-carousel__track.is-dragging * {
+  pointer-events: none;
+}
+.mobile-img-carousel__track img {
+  -webkit-user-drag: none;
+  user-select: none;
 }
 @media screen and (max-width: 989px) {
   #product__mobile-images {
     position: relative;
     height: calc(100vw * 1.25);
   }
-  .mobile-img-carousel__track {
+
+  /* Vertical carousel (enable_vertical_carousel: true) — free-scroll stacked slides */
+  .mobile-img-carousel--vertical .mobile-img-carousel__track {
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
-  .mobile-img-carousel__track::-webkit-scrollbar {
+  .mobile-img-carousel--vertical .mobile-img-carousel__track::-webkit-scrollbar {
     display: none;
   }
-  .mobile-img-slide {
+  .mobile-img-carousel--vertical .mobile-img-slide {
     width: 100%;
     aspect-ratio: 4 / 5;
     position: relative;
     overflow: hidden;
   }
+  .mobile-img-carousel--vertical .mobile-img-carousel__bullets {
+    left: 10px;
+    flex-direction: column;
+  }
+
+  /* Horizontal carousel (enable_vertical_carousel: false) — swipeable, snap-scrolling slides */
+  .mobile-img-carousel--horizontal .mobile-img-carousel__track {
+    height: 100%;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .mobile-img-carousel--horizontal .mobile-img-carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-img-carousel--horizontal .mobile-img-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+  .mobile-img-carousel--horizontal .mobile-img-carousel__bullets {
+    left: 0;
+    right: 0;
+    justify-content: center;
+    flex-direction: row;
+  }
+
   #product__mobile-images .mobile-img-slide .media {
     position: absolute !important;
     top: 0 !important;
@@ -1917,11 +2201,9 @@ target the entire .variant-picker-group-wrapper? I don't remember why, but i kno
   }
   .mobile-img-carousel__bullets {
     position: absolute;
-    left: 10px;
     bottom: 5%;
     z-index: 3;
     display: flex;
-    flex-direction: column;
     gap: 6px;
     pointer-events: none;
     opacity: 0;

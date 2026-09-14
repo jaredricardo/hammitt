@@ -163,6 +163,7 @@
           },
           "announcement_xNQNPE": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "<p><strong>Join Rivet Club and receive 10% Off  </strong></p>",
               "text_color": "#ffffff",
@@ -966,11 +967,6 @@
     },
     "content_for_index": [],
     "blocks": {
-      "2153490007123654574": {
-        "type": "shopify://apps/consentmo-gdpr/blocks/gdpr_cookie_consent/4fbe573f-a377-4fea-9801-3ee0858cae41",
-        "disabled": false,
-        "settings": {}
-      },
       "855628211100114053": {
         "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
@@ -1030,11 +1026,6 @@
           "storefront_layout_drawer_position": "left",
           "storefront_layout_as_section_page": "my-wishlist"
         }
-      },
-      "13824410216918709005": {
-        "type": "shopify://apps/drop-hint/blocks/app-embed/2087e30d-3884-4008-9b6b-545028750b80",
-        "disabled": false,
-        "settings": {}
       },
       "7079518687644006178": {
         "type": "shopify://apps/checkout-blocks/blocks/app-embed/b0024ca5-9de8-4bf0-a92f-cd0783877ae2",
@@ -1101,6 +1092,11 @@
       "13602802465779819592": {
         "type": "shopify://apps/kimonix-agentic-search/blocks/kimonix-embed-chat/019a8795-24e2-75ef-b326-dd39059a478c",
         "disabled": true,
+        "settings": {}
+      },
+      "13824410216918709005": {
+        "type": "shopify://apps/drop-hint/blocks/app-embed/2087e30d-3884-4008-9b6b-545028750b80",
+        "disabled": false,
         "settings": {}
       }
     }

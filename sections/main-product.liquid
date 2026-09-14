@@ -422,8 +422,20 @@
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col ">
       <div class="grid__item product__media-wrapper">
         <div class="medium-up-hide">
-          <div id="product__mobile-images" class="mobile-img-carousel">
-            {% render 'swym-hammitt-custom-favorite-button' %}
+          <div id="product__mobile-images" class="mobile-img-carousel {% if section.settings.enable_vertical_carousel %}mobile-img-carousel--vertical{% else %}mobile-img-carousel--horizontal{% endif %}" data-direction="{% if section.settings.enable_vertical_carousel %}vertical{% else %}horizontal{% endif %}">
+            <hammitt-drop-a-hint-trigger class="inverted-hammitt-button pdp-drop-a-hint-trigger">Drop a Hint</hammitt-drop-a-hint-trigger>
+            <pdp-save-for-later-button
+              style="display: none;" 
+              {% comment %} keeping this hidden for now {% endcomment %}
+              class="inverted-hammitt-button pdp-quick-save-button"
+              data-product-id="{{ product.id }}"
+              data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+              data-variant-url="{{ product.url }}?variant={{ product.selected_or_first_available_variant.id }}"
+              data-variant-image="{{ product.featured_image | image_url: width: 600 }}"
+              data-variant-title="{{ product.title | escape }}"
+              data-variant-price="{{ product.selected_or_first_available_variant.price | money }}"
+              data-variant-color="{{ product_color | escape }}"
+            >Save for later</pdp-save-for-later-button>
             <div class="mobile-img-carousel__bullets" aria-hidden="true"></div>
             <div class="mobile-img-carousel__track">
               {%- for media in product.media -%}
@@ -444,8 +456,19 @@
           </div>
         </div>
         <media-gallery style="position: relative;" id="MediaGallery-{{ section.id }}" role="region" class="main-product-media-gallery small-hide {% if section.settings.enable_sticky_info %}product__media-gallery{% endif %}" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
-
-          {% render 'swym-hammitt-custom-favorite-button', product:product %}
+          <hammitt-drop-a-hint-trigger class="inverted-hammitt-button pdp-drop-a-hint-trigger">Drop a Hint</hammitt-drop-a-hint-trigger>
+          <pdp-save-for-later-button
+            style="display: none;" 
+            {% comment %} keeping this hidden for now {% endcomment %}
+            class="inverted-hammitt-button pdp-quick-save-button"
+            data-product-id="{{ product.id }}"
+            data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+            data-variant-url="{{ product.url }}?variant={{ product.selected_or_first_available_variant.id }}"
+            data-variant-image="{{ product.featured_image | image_url: width: 600 }}"
+            data-variant-title="{{ product.title | escape }}"
+            data-variant-price="{{ product.selected_or_first_available_variant.price | money }}"
+            data-variant-color="{{ product_color | escape }}"
+          >Save for later</pdp-save-for-later-button>
           
           <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
           {% comment %} 
@@ -486,6 +509,7 @@
                   endif
                 -%}
                 {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+                  {%- assign media_position = media_position | default: 0 | plus: 1 -%}
                   <li 
                     id="Slide-{{ section.id }}-{{ media.id }}" 
                     class="product__media-item grid__item slider__slide{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" 
@@ -494,7 +518,6 @@
                       style="position: relative;"
                     {% endif %}
                   >
-                    {%- assign media_position = media_position | default: 0 | plus: 1 -%}
                     {% render 'product-thumbnail', 
                       media: media, 
                       position: media_position, 
@@ -889,15 +912,11 @@
                     </div>
                   </read-more-description>
                     {% if block.settings.show_gifting_tooltip %}
-                      {% unless product.tags contains 'sample sale' or product.tags contains 'final sale' %}
+                      {% unless product.tags contains 'sample sale' or product.tags contains 'final sale' or product.tags contains 'excluded-from-gifting-both-options' or product.tags contains 'excluded-from-gifting' %}
                         <gifting-tooltip-container>
-                          {% render 'icon-gift-box' %}
+                          {% render 'icon-gift-box-complex' %}
                           <div class="heading-container">
                             {{ block.settings.gifting_tooltip_heading }}
-                            <span class="learn-more">
-                              Learn more.
-                              <div class="gifting-tooltip-content">{{ block.settings.gifting_tooltip_content }}</div>
-                            </span>
                           </div>
                         </gifting-tooltip-container>
                       {% endunless %}
@@ -921,10 +940,10 @@
                           {% if accordion_data_att == 'care' %}
                             {% if on_special_leather %}
                               {% assign open_material = true %}
-                            {% endif %}
+                            {% endif %} 
                           {% endif %}
                     
-                          <div data-on-special="{{ on_special_leather }}" class="product__accordion accordion new_accordion_block"  data-accordion="{{ inner_block.settings.heading }}" {{ inner_block.shopify_attributes }} data-access-attribute="{{ accordion_data_att }}">
+                          <div id="accordion-{{ inner_block.settings.heading }}" data-on-special="{{ on_special_leather }}" class="product__accordion accordion new_accordion_block"  data-accordion="{{ inner_block.settings.heading }}" {{ inner_block.shopify_attributes }} data-access-attribute="{{ accordion_data_att }}">
                             <details id="Details-{{ inner_block.id }}-{{ section.id }}" {% if blockHeading == "description" %} open {% endif %} {% if open_material %} open {% endif %}>
                               <summary>
                                 <div class="summary__title">
@@ -1167,7 +1186,7 @@
               {%- else -%}
 
               {% if product.metafields.custom.colorway_collection != blank %}
-                  {% render 'product-color-size-optimized', top_level_handle: product.handle, on_special_leather: on_special_leather, current_product_size: formatted_size_string, current_product_color: product_color %}
+                  {% render 'product-color-size-optimized', top_level_handle: product.handle, on_special_leather: on_special_leather, current_product_size: formatted_size_string, current_product_color: product_color, enable_variant_drawer: section.settings.enable_variant_drawer, formatted_product_title: formatted_product_title  %}
                 {% else %}
                   {% render 'product-color-size', product_title: product_title, product_type: product_type, product_color: product_color, product_size: product_size %}
               {% endif %}
@@ -1278,8 +1297,8 @@
               {% endif %}
 
                 {% unless product.tags contains 'allow-pdp' and product.metafields.custom.hide_product_all_customers %}
-                  <div class="buybutton-block" {{ block.shopify_attributes }}>
-                    <product-form class="product-form">
+                  <div class="buybutton-block" {{ block.shopify_attributes }} style="display: flex; justify-content center; align-items:center; gap: 1rem;">
+                    <product-form class="product-form zzzzz">
                       <div class="product-form__error-message-wrapper" role="alert" hidden>
                         <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
                           <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
@@ -1306,6 +1325,7 @@
                         {% endif %}
 
                         <div class="product-form__buttons">
+                          <div id="cta_dropahint" class="inverted-hammitt-button main-drop-a-hint-button hidden">Drop a hint</div>
                           {% if product.selected_or_first_available_variant.available %}
                             <button
                               type="submit"
@@ -1372,18 +1392,8 @@
                       {%- endform -%}
                     </product-form>
 
-                    <div class="after-atc-button-container">
-                      <div id="cta_dropahint" class="inverted-hammitt-button">Drop a hint</div>
-                      <pdp-save-for-later-button
-                        class="inverted-hammitt-button"
-                        data-product-id="{{ product.id }}"
-                        data-variant-id="{{ product.selected_or_first_available_variant.id }}"
-                        data-variant-url="{{ product.url }}?variant={{ product.selected_or_first_available_variant.id }}"
-                        data-variant-image="{{ product.featured_image | image_url: width: 600 }}"
-                        data-variant-title="{{ product.title | escape }}"
-                        data-variant-price="{{ product.selected_or_first_available_variant.price | money }}"
-                        data-variant-color="{{ product_color | escape }}"
-                      >Save for later</pdp-save-for-later-button>
+                    <div class="after-atc-button-container pdp-favorite-in-cta">
+                      {% render 'swym-hammitt-custom-favorite-button', product:product %}
                     </div>
                       
                     {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
@@ -1518,7 +1528,7 @@
     inspired-app-opener,
     gifting-tooltip-container,
     .product-collapse-container,
-    .pdp-hero-wrap media-gallery .swym-button {
+    .pdp-favorite-in-cta .swym-button {
       display: none !important;
       opacity: 0 !important;
     }
@@ -1539,6 +1549,16 @@
     const slides = Array.from(carousel.querySelectorAll('.mobile-img-slide'))
     if (!slides.length || !bulletsContainer || !track) return
 
+    // Direction is driven by the section's "enable_vertical_carousel" setting (see data-direction
+    // attribute on #product__mobile-images). Defaults to vertical if not specified.
+    const isVertical = carousel.dataset.direction !== 'horizontal'
+    const sizeProp = isVertical ? 'offsetHeight' : 'offsetWidth'
+    const scrollProp = isVertical ? 'scrollTop' : 'scrollLeft'
+    const clientProp = isVertical ? 'clientHeight' : 'clientWidth'
+    const scrollSizeProp = isVertical ? 'scrollHeight' : 'scrollWidth'
+    const scrollToKey = isVertical ? 'top' : 'left'
+    const touchCoord = isVertical ? 'clientY' : 'clientX'
+
     bulletsContainer.classList.remove('is-loaded')
     bulletsContainer.innerHTML = ''
     slides.forEach(function(_, i) {
@@ -1546,7 +1566,7 @@
       btn.className = 'mobile-img-carousel__bullet' + (i === 0 ? ' is-active' : '')
       btn.setAttribute('aria-label', 'Go to image ' + (i + 1))
       btn.addEventListener('click', function() {
-        track.scrollTo({ top: i * slides[0].offsetHeight, behavior: 'smooth' })
+        track.scrollTo({ [scrollToKey]: i * slides[0][sizeProp], behavior: 'smooth' })
       })
       bulletsContainer.appendChild(btn)
     })
@@ -1555,11 +1575,10 @@
     const bullets = Array.from(bulletsContainer.querySelectorAll('.mobile-img-carousel__bullet'))
 
     function onScroll() {
-      console.log('firing !!')
-      const slideHeight = slides[0].offsetHeight
-      if (!slideHeight) return
+      const slideSize = slides[0][sizeProp]
+      if (!slideSize) return
       const activeIndex = Math.min(
-        Math.floor(track.scrollTop / slideHeight + 0.65),
+        Math.floor(track[scrollProp] / slideSize + 0.65),
         slides.length - 1
       )
       bullets.forEach(function(b, i) {
@@ -1576,29 +1595,68 @@
       track.removeEventListener('touchend', track._mobileCarouselTouchEnd)
     }
 
-    let _overscrollStartY = 0
-    let _peakOverscrollDelta = 0
-    track._mobileCarouselTouchStart = function(e) {
-      _overscrollStartY = e.touches[0].clientY
-      _peakOverscrollDelta = 0
-    }
-    track._mobileCarouselTouchMove = function(e) {
-      const atEnd = track.scrollTop + track.clientHeight >= track.scrollHeight - 5
-      if (!atEnd) return
-      const delta = _overscrollStartY - e.touches[0].clientY
-      if (delta > _peakOverscrollDelta) _peakOverscrollDelta = delta
-    }
-    track._mobileCarouselTouchEnd = function() {
-      const triggered = _peakOverscrollDelta > 20
-      _peakOverscrollDelta = 0
-      if (triggered) {
-        const notch = document.querySelector('pull-notch-button')
-        if (notch && notch.offsetParent !== null && notch.scrollToInfo) notch.scrollToInfo()
+    // The "pull past the end to reveal product info" gesture only applies to the vertical
+    // carousel (pulling up past the last image). Skip it entirely for horizontal mode.
+    if (isVertical) {
+      let _overscrollStartY = 0
+      let _peakOverscrollDelta = 0
+      track._mobileCarouselTouchStart = function(e) {
+        _overscrollStartY = e.touches[0][touchCoord]
+        _peakOverscrollDelta = 0
       }
+      track._mobileCarouselTouchMove = function(e) {
+        const atEnd = track[scrollProp] + track[clientProp] >= track[scrollSizeProp] - 5
+        if (!atEnd) return
+        const delta = _overscrollStartY - e.touches[0][touchCoord]
+        if (delta > _peakOverscrollDelta) _peakOverscrollDelta = delta
+      }
+      track._mobileCarouselTouchEnd = function() {
+        const triggered = _peakOverscrollDelta > 20
+        _peakOverscrollDelta = 0
+        if (triggered) {
+          const notch = document.querySelector('pull-notch-button')
+          if (notch && notch.offsetParent !== null && notch.scrollToInfo) notch.scrollToInfo()
+        }
+      }
+      track.addEventListener('touchstart', track._mobileCarouselTouchStart, { passive: true })
+      track.addEventListener('touchmove', track._mobileCarouselTouchMove, { passive: true })
+      track.addEventListener('touchend', track._mobileCarouselTouchEnd, { passive: true })
     }
-    track.addEventListener('touchstart', track._mobileCarouselTouchStart, { passive: true })
-    track.addEventListener('touchmove', track._mobileCarouselTouchMove, { passive: true })
-    track.addEventListener('touchend', track._mobileCarouselTouchEnd, { passive: true })
+
+    // Mouse "grab and drag" scrolling. Real touchscreens already scroll natively (via the
+    // touch-action CSS), so this only engages for mouse pointers — useful for testing in a
+    // resized desktop browser window where there's no actual touch input.
+    if (track._mobileCarouselPointerDown) {
+      track.removeEventListener('pointerdown', track._mobileCarouselPointerDown)
+      window.removeEventListener('pointermove', track._mobileCarouselPointerMove)
+      window.removeEventListener('pointerup', track._mobileCarouselPointerUp)
+      window.removeEventListener('pointercancel', track._mobileCarouselPointerUp)
+    }
+
+    let _isDragging = false
+    let _dragStartPos = 0
+    let _dragStartScroll = 0
+    track._mobileCarouselPointerDown = function(e) {
+      if (e.pointerType !== 'mouse') return
+      _isDragging = true
+      _dragStartPos = e[touchCoord]
+      _dragStartScroll = track[scrollProp]
+      track.classList.add('is-dragging')
+      e.preventDefault()
+    }
+    track._mobileCarouselPointerMove = function(e) {
+      if (!_isDragging || e.pointerType !== 'mouse') return
+      track[scrollProp] = _dragStartScroll - (e[touchCoord] - _dragStartPos)
+    }
+    track._mobileCarouselPointerUp = function(e) {
+      if (!_isDragging) return
+      _isDragging = false
+      track.classList.remove('is-dragging')
+    }
+    track.addEventListener('pointerdown', track._mobileCarouselPointerDown)
+    window.addEventListener('pointermove', track._mobileCarouselPointerMove)
+    window.addEventListener('pointerup', track._mobileCarouselPointerUp)
+    window.addEventListener('pointercancel', track._mobileCarouselPointerUp)
 
     track._mobileCarouselScroll = onScroll
     track.addEventListener('scroll', onScroll, { passive: true })
@@ -2262,9 +2320,23 @@
   "settings": [
     {
       "type": "checkbox",
+      "id": "enable_variant_drawer",
+      "default": false,
+      "label": "Variant Drawer",
+      "info": "Enables a drawer for swapping between variants instead of rows of variant buttons."
+    },
+    {
+      "type": "checkbox",
       "id": "enable_sticky_info",
       "default": true,
       "label": "t:sections.main-product.settings.enable_sticky_info.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_vertical_carousel",
+      "default": false,
+      "label": "Enable vertical carousel",
+      "info": "Enables a vertical carousel for product images on mobile. When not enabled it defaults to a horizontal carousel."
     },
     {
       "type": "header",
