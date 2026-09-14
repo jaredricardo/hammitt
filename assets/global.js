@@ -2117,43 +2117,6 @@ function stopFindElement() {
 class GiftingTooltipContainer extends HTMLElement {
     constructor() {
       super()
-      this.querySelector('.learn-more')?.addEventListener('mouseenter', this.open)
-      this.querySelector('.learn-more')?.addEventListener('mouseleave', this.close)
-      this.querySelector('.close-btn')?.addEventListener('click', this.close)
-      this.querySelector('.learn-more')?.addEventListener('click', this.learnMoreClick)
-    }
-    open() {
-      this.closest('gifting-tooltip-container').querySelector('.gifting-tooltip-content')?.classList.add('active')
-    }
-    close() {
-      this.closest('gifting-tooltip-container').querySelector('.gifting-tooltip-content')?.classList.remove('active')
-    }
-    learnMoreClick(event) {
-      // `this` is the `.learn-more` anchor itself (see constructor above), not the
-      // custom element instance. This section AJAX-updates often, so avoid relying on
-      // any previously-queried reference and instead look the target up fresh each click.
-      const href = this.getAttribute('href')
-      if (!href || href.charAt(0) !== '#') return
-      const target = document.querySelector(href)
-      if (!target) return
-      event.preventDefault()
-      const details = target.querySelector('details')
-      if (details) details.open = true
-      // Offset the scroll destination by ~10% of the viewport height so the target
-      // isn't pinned flush to the very top of the screen.
-      const offset = window.innerHeight * 0.1
-      const scrollToTarget = () => {
-        const targetTop = target.getBoundingClientRect().top + window.scrollY - offset
-        window.scrollTo({ top: targetTop, behavior: 'smooth' })
-      }
-      // Especially on the very first click after page load, content above the target
-      // (lazy-loaded images, webfonts, other apps) can still be shifting the layout
-      // while we're mid-scroll, so the initial target position goes stale and we land
-      // short in the middle of the page. Re-measure and correct a couple of times as
-      // the smooth scroll plays out so we reliably settle on the actual target.
-      scrollToTarget()
-      window.setTimeout(scrollToTarget, 350)
-      window.setTimeout(scrollToTarget, 700)
     }
 }
 
