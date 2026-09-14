@@ -862,11 +862,7 @@
               <div id="cart-icon-bubble">
                 {% render 'icon-cart' %}
                 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-                {%- comment -%}
-                  Edgemesh: cart.item_count and the cart-empty style attribute are per-session. A dynamic
-                  attribute only hydrates children and would cache the style attribute, so wrap the node;
-                  the hidden default placeholder keeps .cart-count-bubble queryable by cartUpdate() before hydrate.
-                {%- endcomment -%}
+                {%- comment -%} Edgemesh: cart count is per-session; hidden placeholder keeps .cart-count-bubble queryable before hydrate {%- endcomment -%}
                 <dynamic default="<div class='cart-count-bubble' style='display: none;'></div>">
                 <div class="cart-count-bubble" {% if cart == empty %}style="display: none;"{% endif %}>
                   {%- if cart.item_count < 100 -%}

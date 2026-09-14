@@ -1,9 +1,4 @@
-{%- comment -%}
-  Edgemesh: window.pn.cart is per-session cart JSON. The marker must be a wrapper, not an attribute on
-  the script: fragments are parsed as HTML on hydrate, so raw JS in an attribute-form script hole is
-  mangled by any "<" (e.g. `i<window.pn...` below). Wrapping ships <script>...</script> intact.
-  Note: this snippet is currently dormant (the render of 'preorder-now' is commented out in layout/theme.liquid).
-{%- endcomment -%}
+{%- comment -%} Edgemesh: window.pn.cart is per-session; wrapper (not attribute) so the script body survives hydration {%- endcomment -%}
 <dynamic>
 <script type="text/javascript" defer>
   {% if cart %}
