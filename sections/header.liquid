@@ -169,7 +169,7 @@
   
     <symbol id="icon-close" class="icon icon-close" fill="none" viewBox="0 0 18 17">
       <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor" />
-    </symbol>
+    </symbol> 
   </svg>
   <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper {% if section.settings.transparent_homepage and template == 'index' %}header--transparent{% endif %} {% if section.settings.invert_colors %}header--invert-colors{% endif %} color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
     <header class="header  header--{{ section.settings.logo_position }} page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}" data-header-section-id="{{ section.id }}">
@@ -187,113 +187,145 @@
                 <div class="menu-drawer__inner-container">
                   <div class="menu-drawer__navigation-container">
                     <nav class="menu-drawer__navigation">
-                      {% comment %}
-                      turned off text menu because visual nav won AB test, leaving here for future refernce.
-                      <ul class="menu-drawer__menu list-menu text-menu" role="list">
-                        {%- for link in section.settings.menu_mobile.links -%}
-                          <li>
-                            {%- if link.links != blank -%}
-                              <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
-                                <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
-                                  {{ link.title | escape }}
-                                  {% render 'icon-arrow' %}
-                                  {% render 'icon-caret' %}
-                                </summary>
-                                <div id="link-{{ link.title | escape }}" class="menu-drawer__submenu motion-reduce" tabindex="-1">
-                                  <div class="menu-drawer__inner-submenu">
-                                    <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                                      {% render 'icon-arrow' %}
-                                      {{ link.title | escape }}
+                      <div class="new-mobile-nav-area__container">
+                        <ul class="new-mobile-nav-area__header list-menu" role="list">
+                          {%- assign rendered_tile_headers = '' -%}
+                          {%- assign first_nav_header_rendered = false -%}
+                          {%- for block in section.blocks -%}
+                            {%- case block.type -%}
+                              {%- when 'new-nav-link-list' -%}
+                                {%- assign is_first_nav_entry = false -%}
+                                {%- unless first_nav_header_rendered -%}
+                                  {%- assign is_first_nav_entry = true -%}
+                                  {%- assign first_nav_header_rendered = true -%}
+                                {%- endunless -%}
+                                <li class="new-mobile-nav-area__header-item">
+                                  <button type="button" class="new-mobile-nav-area__header-link{% if is_first_nav_entry %} is-active{% endif %}" data-nav-header data-nav-key="{{ block.settings.header_title | escape }}" aria-expanded="{{ is_first_nav_entry }}" {{ block.shopify_attributes }}>
+                                    {{ block.settings.header_title }}
+                                  </button>
+                                </li>
+                              {%- when 'new-nav-simple-link' -%}
+                                <li class="new-mobile-nav-area__header-item">
+                                  <a href="{{ block.settings.header_link }}" class="new-mobile-nav-area__header-link new-mobile-nav-area__header-link--simple" {{ block.shopify_attributes }}>
+                                    {{ block.settings.header_title }}
+                                  </a>
+                                </li>
+                              {%- when 'new-nav-image-tile' -%}
+                                {%- assign tile_marker = block.settings.associated_menu_id | append: '|||' -%}
+                                {%- unless rendered_tile_headers contains tile_marker -%}
+                                  {%- assign rendered_tile_headers = rendered_tile_headers | append: tile_marker -%}
+                                  {%- assign is_first_nav_entry = false -%}
+                                  {%- unless first_nav_header_rendered -%}
+                                    {%- assign is_first_nav_entry = true -%}
+                                    {%- assign first_nav_header_rendered = true -%}
+                                  {%- endunless -%}
+                                  <li class="new-mobile-nav-area__header-item">
+                                    <button type="button" class="new-mobile-nav-area__header-link{% if is_first_nav_entry %} is-active{% endif %}" data-nav-header data-nav-key="{{ block.settings.associated_menu_id | escape }}" aria-expanded="{{ is_first_nav_entry }}" {{ block.shopify_attributes }}>
+                                      {{ block.settings.associated_menu_id }}
                                     </button>
-                                    <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
-                                      {%- for childlink in link.links -%}
-                                        <li>
-                                          {%- if childlink.links == blank -%}
-                                            <a href="{{ childlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
-                                              {{ childlink.title | escape }}
-                                            </a>
-                                          {%- else -%}
-                                            <details id="Details-menu-drawer-submenu-{{ forloop.index }}">
-                                              <summary class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
-                                                {{ childlink.title | escape }}
-                                                {% render 'icon-arrow' %}
-                                                {% render 'icon-caret' %}
-                                              </summary>
-                                              <div id="childlink-{{ childlink.title | escape }}" class="menu-drawer__submenu motion-reduce">
-                                                <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                                                  {% render 'icon-arrow' %}
-                                                  {{ childlink.title | escape }}
-                                                </button>
-                                                <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
-                                                  {%- for grandchildlink in childlink.links -%}
-                                                    <li>
-                                                      <a href="{{ grandchildlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
-                                                        {{ grandchildlink.title | escape }}
-                                                      </a>
-                                                    </li>
-                                                  {%- endfor -%}
-                                                </ul>
-                                              </div>
-                                            </details>
-                                          {%- endif -%}
+                                  </li>
+                                {%- endunless -%}
+                            {%- endcase -%}
+                          {%- endfor -%}
+                        </ul>
+
+                        <div class="new-mobile-nav-area__menus-area">
+                          {%- assign rendered_tile_panels = '' -%}
+                          {%- assign first_nav_panel_rendered = false -%}
+                          {%- for block in section.blocks -%}
+                            {%- case block.type -%}
+                              {%- when 'new-nav-link-list' -%}
+                                {%- assign is_first_nav_panel = false -%}
+                                {%- unless first_nav_panel_rendered -%}
+                                  {%- assign is_first_nav_panel = true -%}
+                                  {%- assign first_nav_panel_rendered = true -%}
+                                {%- endunless -%}
+                                <div class="new-mobile-nav-area__panel{% if is_first_nav_panel %} is-active{% endif %}" data-nav-panel data-nav-key="{{ block.settings.header_title | escape }}" {{ block.shopify_attributes }}>
+                                  <ul class="new-mobile-nav-area__list list-menu" role="list">
+                                    {%- for link in block.settings.header_link_list.links -%}
+                                      {%- if link.links == blank -%}
+                                        <li class="new-mobile-nav-area__list-item">
+                                          <a href="{{ link.url }}" class="new-mobile-nav-area__link">{{ link.title }}</a>
                                         </li>
-                                      {%- endfor -%}
-                                    </ul>
-                                  </div>
+                                      {%- endif -%}
+                                    {%- endfor -%}
+                                    {%- for link in block.settings.header_link_list.links -%}
+                                      {%- if link.links != blank -%}
+                                        <li class="new-mobile-nav-area__list-item new-mobile-nav-area__list-item--submenu">
+                                          <button type="button" class="new-mobile-nav-area__sublist-toggle" aria-expanded="false">
+                                            <span>{{ link.title }}</span>
+                                            {%- render 'icon-caret' -%}
+                                          </button>
+                                          <ul class="new-mobile-nav-area__sublist list-menu" role="list">
+                                            {%- for childlink in link.links -%}
+                                              <li class="new-mobile-nav-area__sublist-item">
+                                                <a href="{{ childlink.url }}" class="new-mobile-nav-area__sublink">{{ childlink.title }}</a>
+                                              </li>
+                                            {%- endfor -%}
+                                          </ul>
+                                        </li>
+                                      {%- endif -%}
+                                    {%- endfor -%}
+                                  </ul>
                                 </div>
-                              </details>
-                            {%- else -%}
-                              <a href="{{ link.url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"{% if link.current %} aria-current="page"{% endif %}>
-                                {{ link.title | escape }}
-                              </a>
-                            {%- endif -%}
-                          </li>
-                        {%- endfor -%}
-                      </ul> 
-                      {% endcomment %}
+                              {%- when 'new-nav-image-tile' -%}
+                                {%- assign tile_marker = block.settings.associated_menu_id | append: '|||' -%}
+                                {%- unless rendered_tile_panels contains tile_marker -%}
+                                  {%- assign rendered_tile_panels = rendered_tile_panels | append: tile_marker -%}
+                                  {%- assign current_tile_group_id = block.settings.associated_menu_id -%}
+                                  {%- assign is_first_nav_panel = false -%}
+                                  {%- unless first_nav_panel_rendered -%}
+                                    {%- assign is_first_nav_panel = true -%}
+                                    {%- assign first_nav_panel_rendered = true -%}
+                                  {%- endunless -%}
+                                  <div class="new-mobile-nav-area__panel new-mobile-nav-area__panel--tiles{% if is_first_nav_panel %} is-active{% endif %}" data-nav-panel data-nav-key="{{ block.settings.associated_menu_id | escape }}" {{ block.shopify_attributes }}>
+                                    <div class="new-mobile-nav-area__tile-grid">
+                                      {%- for tile_block in section.blocks -%}
+                                        {%- if tile_block.type == 'new-nav-image-tile' and tile_block.settings.associated_menu_id == current_tile_group_id -%}
+                                          <a href="{{ tile_block.settings.image_tile_link }}" class="new-mobile-nav-area__tile" {{ tile_block.shopify_attributes }}>
+                                            <span class="new-mobile-nav-area__tile-image-wrap">
+                                              {%- if tile_block.settings.image -%}
+                                                <img
+                                                  src="{{ tile_block.settings.image | image_url: width: 400 }}"
+                                                  srcset="{{ tile_block.settings.image | image_url: width: 200 }} 200w, {{ tile_block.settings.image | image_url: width: 400 }} 400w, {{ tile_block.settings.image | image_url: width: 600 }} 600w"
+                                                  sizes="(min-width: 750px) 200px, 45vw"
+                                                  alt="{{ tile_block.settings.title | escape }}"
+                                                  loading="lazy"
+                                                  width="{{ tile_block.settings.image.width }}"
+                                                  height="{{ tile_block.settings.image.height }}"
+                                                  class="new-mobile-nav-area__tile-image"
+                                                >
+                                              {%- endif -%}
+                                            </span>
+                                            <span class="new-mobile-nav-area__tile-title">{{ tile_block.settings.title }}</span>
+                                          </a>
+                                        {%- endif -%}
+                                      {%- endfor -%}
+                                    </div>
+                                  </div>
+                                {%- endunless -%}
+                            {%- endcase -%}
+                          {%- endfor -%}
+                        </div>
+                      </div>
+
                       <ul class="menu-drawer__menu list-menu visual-menu visual-ab" role="list">
                         {% for block in visual_nav_blocks %}
                           <li class="visual-nav-navigation-item" data-link-title="{{ block.settings.title | escape }}">
                             <a href="{{ block.settings.nav_link }}" class="visual-navigation-item-link">
                               {% if block.settings.nav_image %}
-                                <img src="{{ block.settings.nav_image | image_url: width:300 }}" alt="{{ block.settings.nav_item_alt_title | escape }}" class="visual-nav-navigation-item__image">
+                                <img src="{{ block.settings.nav_image | image_url: width: 600 }}" alt="{{ block.settings.nav_item_alt_title | escape }}" class="visual-nav-navigation-item__image">
                               {% endif %}
                               <h5>{{ block.settings.title }}</h5>
                             </a>
                           </li>
                         {% endfor %}
                       </ul>
-                      <ul class="beneath-visual-menu visual-ab" role="list">
-                        {% for link in section.settings.menu_under_visual_menu.links %}
-                          {% if link.links.size > 0 %}
-                            <li class="sublink-opener">
-                              <details{% if forloop.first %} open{% endif %}>
-                                <summary class="sublink-accordion-button">
-                                  {{ link.title }}
-                                  {% render 'icon-plus' %}
-                                  {% render 'icon-minus' %}
-                                </summary>
-                                <ul class="sublinks-container">
-                                  {% for sublink in link.links %}
-                                    <li class="sublink">
-                                      <a class="sublink-link" href="{{ sublink.url }}">
-                                        {{ sublink.title }}
-                                      </a>
-                                    </li>
-                                  {% endfor %}
-                                </ul>
-                              </details>
-                            </li>
-                            {% else %}
-                            <li>
-                              <a href="{{ link.url }}">
-                                {{ link.title }}
-                              </a>
-                            </li>
-                          {% endif %}
-                        {% endfor %}
-                      </ul>
+                      {% comment %} should make this not hardcoded at some point {% endcomment %}
                     </nav>
+                    <a style="text-decoration: none; font-weight: 700; color: black; padding: 2.5rem 0 1.5rem 0; display: block;" href="/pages/loyalty">
+                      Rivett Club
+                    </a>
                     <div class="menu-drawer__utility-links">
                       {% for link in linklists.mobile-secondary-menu.links %}
                       <div>
@@ -1260,11 +1292,6 @@
         "label": "Mobile Menu"
       },
       {
-        "type": "link_list",
-        "id": "menu_under_visual_menu",
-        "label": "Mobile menu underneath visual menu items"
-      },
-      {
         "type": "url",
         "id": "wishlist_page",
         "label": "Wishlist Link Page"
@@ -1496,6 +1523,66 @@
             "type": "product",
             "id": "bundle_gwp_product_reward",
             "label": "Bundle GWP Reward Product"
+          }
+        ]
+      },
+      {
+        "type": "new-nav-link-list",
+        "name": "New Nav MENU",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header_title",
+            "label": "New Nav Header Title"
+          },
+          {
+            "type": "link_list",
+            "id": "header_link_list",
+            "label": "New Nav Header menu"
+          }
+        ]
+      },
+      {
+        "type": "new-nav-simple-link",
+        "name": "New Nav SIMPLE LINK",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header_title",
+            "label": "New Nav Header Title"
+          },
+          {
+            "type": "url",
+            "id": "header_link",
+            "label": "New Nav Header Link"
+          }
+        ]
+      },
+      {
+        "type": "new-nav-image-tile",
+        "name": "New Nav IMAGE TILE",
+        "settings": [
+          {
+            "type": "text",
+            "id": "associated_menu_id",
+            "label": "Associated Menu ID",
+            "default": "Collection",
+            "info": "This is the ID of the submenu that this image tile will be inside. For example, if you want this image tile to appear in the 'Collection' submenu, you would enter that ID here. Case and spacing sensitive."
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Tile Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Tile Title"
+          },
+          {
+            "type": "url",
+            "id": "image_tile_link",
+            "label": "Tile Link"
           }
         ]
       }

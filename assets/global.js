@@ -1921,6 +1921,52 @@ const footerCollapse = () => {
 footerCollapse();
 
 
+const initNewMobileNavArea = () => {
+  document.querySelectorAll('.new-mobile-nav-area__container').forEach((container) => {
+    const headerLinks = container.querySelectorAll('[data-nav-header]');
+    const panels = container.querySelectorAll('[data-nav-panel]');
+
+    headerLinks.forEach((headerLink) => {
+      headerLink.addEventListener('click', () => {
+        const key = headerLink.getAttribute('data-nav-key');
+        const wasActive = headerLink.classList.contains('is-active');
+
+        headerLinks.forEach((link) => {
+          link.classList.remove('is-active');
+          link.setAttribute('aria-expanded', 'false');
+        });
+        panels.forEach((panel) => {
+          panel.classList.remove('is-active');
+        });
+
+        if (!wasActive) {
+          headerLink.classList.add('is-active');
+          headerLink.setAttribute('aria-expanded', 'true');
+
+          panels.forEach((panel) => {
+            if (panel.getAttribute('data-nav-key') === key) {
+              panel.classList.add('is-active');
+            }
+          });
+        }
+      });
+    });
+
+    container.querySelectorAll('.new-mobile-nav-area__sublist-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const item = toggle.closest('.new-mobile-nav-area__list-item--submenu');
+        const isOpen = item.classList.contains('is-open');
+
+        item.classList.toggle('is-open', !isOpen);
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+  });
+};
+
+initNewMobileNavArea();
+
+
 document.addEventListener('shopify:section:load', event => {
   lazyImages();
   playPauseVideo();
@@ -1928,6 +1974,7 @@ document.addEventListener('shopify:section:load', event => {
   klaviyoForms();
   headerScroll();
   footerCollapse();
+  initNewMobileNavArea();
 });
 
 
