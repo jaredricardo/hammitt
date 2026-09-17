@@ -164,6 +164,13 @@
       lazyLoadImg();  
       init();  
     });  
+    // Keyboard-only visitors (e.g. tabbing to the cart icon) never fire scroll/mousemove/touchstart,
+    // so without this the deferred cart/menu scripts below would never load for them and controls
+    // like "Save for later" would silently do nothing on Enter/Space.
+    window.addEventListener("keydown", function () {  
+      lazyLoadImg();  
+      init();  
+    });  
   });  
   
   // Initialize on window load

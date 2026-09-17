@@ -28,6 +28,29 @@ menu-drawer > details[open] > summary::before {
     visibility var(--duration-default) ease;
 }
 
+#menu-drawer:has(.new-mobile-nav-area__container) {
+  overflow: visible;
+}
+
+.mobile-menu-drawer-underlay {
+  content: '';
+  position: fixed;
+  cursor: pointer;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(var(--color-foreground), 0.5);
+  opacity: 0 !important;
+  z-index: -1;
+  transition: 300ms ease;
+  display: block !important;
+}
+
+#Details-menu-drawer-container[open] .mobile-menu-drawer-underlay {
+  opacity: 1 !important;
+}
+
 .menu-drawer {
   position: absolute;
   transform: translateX(-100%);
@@ -404,7 +427,7 @@ ul.beneath-visual-menu.visual-ab li svg {
   align-items: center;
   gap: 1.5rem 3rem;
   margin: 1.5rem 0 2rem 0 !important;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .new-mobile-nav-area__header-item {
@@ -464,44 +487,19 @@ ul.beneath-visual-menu.visual-ab li svg {
   padding-top: 1.4rem;
 }
 
-.new-mobile-nav-area__sublist-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  font: inherit;
-  font-weight: 600;
+.new-mobile-nav-area__sublist-title {
+  display: block;
+  font-weight: 700;
   color: currentColor;
-  cursor: pointer;
   font-size: 13px;
 }
 
-.new-mobile-nav-area__sublist-toggle .icon-caret {
-  width: 10px;
-  height: 6px;
-  flex-shrink: 0;
-  margin-left: 1rem;
-  transition: transform 0.2s ease;
-}
-
-.new-mobile-nav-area__sublist-toggle[aria-expanded="true"] .icon-caret {
-  transform: rotate(180deg);
-}
-
 .new-mobile-nav-area__sublist {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 1rem;
   margin: 1.1rem 0 0;
   padding-left: 1.5rem;
-}
-
-.new-mobile-nav-area__list-item--submenu.is-open .new-mobile-nav-area__sublist {
-  display: flex;
 }
 
 .new-mobile-nav-area__list-item--submenu .new-mobile-nav-area__sublist {
@@ -540,4 +538,55 @@ ul.beneath-visual-menu.visual-ab li svg {
   color: #000;
   font-size: 12px;
   text-align: center;
+}
+
+/* JR a11y - keyboard focus highlight for all interactive new mobile nav items
+   (matches the theme's .focus-inset ring in base.css; inset offset keeps it
+   from being clipped by the drawer's overflow/scroll containers) */
+.new-mobile-nav-area__header-link:focus-visible,
+.new-mobile-nav-area__link:focus-visible,
+.new-mobile-nav-area__sublink:focus-visible,
+.new-mobile-nav-area__tile:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+  box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
+}
+
+.no-js .new-mobile-nav-area__header-link:focus,
+.no-js .new-mobile-nav-area__link:focus,
+.no-js .new-mobile-nav-area__sublink:focus,
+.no-js .new-mobile-nav-area__tile:focus {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+  box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
+}
+
+.no-js .new-mobile-nav-area__header-link:focus:not(:focus-visible),
+.no-js .new-mobile-nav-area__link:focus:not(:focus-visible),
+.no-js .new-mobile-nav-area__sublink:focus:not(:focus-visible),
+.no-js .new-mobile-nav-area__tile:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none;
+}
+
+/* JR a11y - keyboard focus highlight for the loyalty link and utility links
+   (account/secondary links + social icons) below the main nav in the drawer */
+.menu-drawer__loyalty-link:focus-visible,
+.menu-drawer__utility-links a:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+  box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
+}
+
+.no-js .menu-drawer__loyalty-link:focus,
+.no-js .menu-drawer__utility-links a:focus {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+  box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
+}
+
+.no-js .menu-drawer__loyalty-link:focus:not(:focus-visible),
+.no-js .menu-drawer__utility-links a:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none;
 }

@@ -469,7 +469,14 @@ class SaveForLater extends HTMLElement {
   constructor() {
     super()
     this.addEventListener('click', (event) => this.handleClick(event))
+    this.addEventListener('keydown', (event) => this.handleKeydown(event))
   } 
+
+  handleKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+      this.handleClick(event)
+    }
+  }
 
   handleClick(event) {
     event.preventDefault()
@@ -578,14 +585,24 @@ class SavedForLaterContainer extends HTMLElement {
     const toggle = this.querySelector('.saved-for-later__toggle')
     if (toggle) {
       toggle.addEventListener('click', () => this.toggleContainer())
+      toggle.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+          event.preventDefault()
+          this.toggleContainer()
+        }
+      })
     }
   }
 
   toggleContainer() {
     this.isOpen = !this.isOpen
+    const toggle = this.querySelector('.saved-for-later__toggle')
     const content = this.querySelector('.saved-for-later__content')
     const icon = this.querySelector('.saved-for-later__icon')
     
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', String(this.isOpen))
+    }
     if (content) {
       content.style.display = this.isOpen ? 'block' : 'none'
     }
@@ -613,11 +630,11 @@ class SavedForLaterContainer extends HTMLElement {
     this.isOpen = shouldBeOpen
     
     this.innerHTML = `
-      <div class="saved-for-later__toggle">
+      <div class="saved-for-later__toggle" role="button" tabindex="0" aria-expanded="${shouldBeOpen}" aria-controls="saved-for-later-content">
         <span class="saved-for-later__title">Saved for Later (${itemCount})</span>
         <span class="saved-for-later__icon">${shouldBeOpen ? '−' : '+'}</span>
       </div>
-      <div class="saved-for-later__content" style="display: ${shouldBeOpen ? 'block' : 'none'};">
+      <div class="saved-for-later__content" id="saved-for-later-content" style="display: ${shouldBeOpen ? 'block' : 'none'};">
         <ul class="saved-for-later__list"></ul>
       </div>
     `

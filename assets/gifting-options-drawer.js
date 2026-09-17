@@ -26,9 +26,16 @@ window.addEventListener('DOMContentLoaded', () => {
         constructor() {
             super()
             this.addEventListener('click', this.openGiftingDrawer)
+            this.addEventListener('keydown', this.handleKeydown)
         }
         openGiftingDrawer(){
             document.querySelector('hammitt-gifting-options-drawer')?.classList.add('active')
+        }
+        handleKeydown(event){
+            if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+                event.preventDefault()
+                this.openGiftingDrawer()
+            }
         }
     }
 

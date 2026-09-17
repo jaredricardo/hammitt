@@ -1951,20 +1951,26 @@ const initNewMobileNavArea = () => {
         }
       });
     });
-
-    container.querySelectorAll('.new-mobile-nav-area__sublist-toggle').forEach((toggle) => {
-      toggle.addEventListener('click', () => {
-        const item = toggle.closest('.new-mobile-nav-area__list-item--submenu');
-        const isOpen = item.classList.contains('is-open');
-
-        item.classList.toggle('is-open', !isOpen);
-        toggle.setAttribute('aria-expanded', String(!isOpen));
-      });
-    });
   });
 };
 
 initNewMobileNavArea();
+
+
+const initMobileMenuDrawerUnderlay = () => {
+  const mobileMenuDrawerDetails = document.getElementById('Details-menu-drawer-container');
+  if (!mobileMenuDrawerDetails) return;
+
+  const underlay = mobileMenuDrawerDetails.querySelector('.mobile-menu-drawer-underlay');
+  const summary = mobileMenuDrawerDetails.querySelector('summary');
+  if (!underlay || !summary) return;
+
+  underlay.addEventListener('click', () => {
+    if (mobileMenuDrawerDetails.hasAttribute('open')) summary.click();
+  });
+};
+
+initMobileMenuDrawerUnderlay();
 
 
 document.addEventListener('shopify:section:load', event => {
@@ -1975,6 +1981,7 @@ document.addEventListener('shopify:section:load', event => {
   headerScroll();
   footerCollapse();
   initNewMobileNavArea();
+  initMobileMenuDrawerUnderlay();
 });
 
 
@@ -2672,12 +2679,24 @@ class CartLevelLineRibbonUpsell extends HTMLElement {
     this.isProcessing = false
 
     this.onChange = this.onChange.bind(this)
+    this.onKeydown = this.onKeydown.bind(this)
     this.checkbox.addEventListener('change', this.onChange)
+    this.checkbox.addEventListener('keydown', this.onKeydown)
   }
 
   disconnectedCallback() {
     if(this.checkbox) {
       this.checkbox.removeEventListener('change', this.onChange)
+      this.checkbox.removeEventListener('keydown', this.onKeydown)
+    }
+  }
+
+  // Native checkboxes only toggle on Space; add Enter support for keyboard users.
+  onKeydown(event) {
+    if(event.key === 'Enter') {
+      event.preventDefault()
+      this.checkbox.checked = !this.checkbox.checked
+      this.checkbox.dispatchEvent(new Event('change', { bubbles: true }))
     }
   }
 

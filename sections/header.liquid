@@ -183,6 +183,7 @@
                   {% render 'icon-close' %}
                 </span>
               </summary>
+              <div class="mobile-menu-drawer-underlay"></div>
               <div id="menu-drawer" class="menu-drawer motion-reduce" tabindex="-1">
                 <div class="menu-drawer__inner-container">
                   <div class="menu-drawer__navigation-container">
@@ -252,10 +253,7 @@
                                     {%- for link in block.settings.header_link_list.links -%}
                                       {%- if link.links != blank -%}
                                         <li class="new-mobile-nav-area__list-item new-mobile-nav-area__list-item--submenu">
-                                          <button type="button" class="new-mobile-nav-area__sublist-toggle" aria-expanded="false">
-                                            <span>{{ link.title }}</span>
-                                            {%- render 'icon-caret' -%}
-                                          </button>
+                                          <span class="new-mobile-nav-area__sublist-title">{{ link.title }}</span>
                                           <ul class="new-mobile-nav-area__sublist list-menu" role="list">
                                             {%- for childlink in link.links -%}
                                               <li class="new-mobile-nav-area__sublist-item">
@@ -323,7 +321,7 @@
                       </ul>
                       {% comment %} should make this not hardcoded at some point {% endcomment %}
                     </nav>
-                    <a style="text-decoration: none; font-weight: 700; color: black; padding: 2.5rem 0 1.5rem 0; display: block;" href="/pages/loyalty">
+                    <a class="menu-drawer__loyalty-link" style="text-decoration: none; font-weight: 700; color: black; padding: 2.5rem 0 1.5rem 0; display: block;" href="/pages/loyalty">
                       Rivett Club
                     </a>
                     <div class="menu-drawer__utility-links">
