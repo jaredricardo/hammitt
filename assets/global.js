@@ -1921,6 +1921,58 @@ const footerCollapse = () => {
 footerCollapse();
 
 
+const initNewMobileNavArea = () => {
+  document.querySelectorAll('.new-mobile-nav-area__container').forEach((container) => {
+    const headerLinks = container.querySelectorAll('[data-nav-header]');
+    const panels = container.querySelectorAll('[data-nav-panel]');
+
+    headerLinks.forEach((headerLink) => {
+      headerLink.addEventListener('click', () => {
+        const key = headerLink.getAttribute('data-nav-key');
+        const wasActive = headerLink.classList.contains('is-active');
+
+        headerLinks.forEach((link) => {
+          link.classList.remove('is-active');
+          link.setAttribute('aria-expanded', 'false');
+        });
+        panels.forEach((panel) => {
+          panel.classList.remove('is-active');
+        });
+
+        if (!wasActive) {
+          headerLink.classList.add('is-active');
+          headerLink.setAttribute('aria-expanded', 'true');
+
+          panels.forEach((panel) => {
+            if (panel.getAttribute('data-nav-key') === key) {
+              panel.classList.add('is-active');
+            }
+          });
+        }
+      });
+    });
+  });
+};
+
+initNewMobileNavArea();
+
+
+const initMobileMenuDrawerUnderlay = () => {
+  const mobileMenuDrawerDetails = document.getElementById('Details-menu-drawer-container');
+  if (!mobileMenuDrawerDetails) return;
+
+  const underlay = mobileMenuDrawerDetails.querySelector('.mobile-menu-drawer-underlay');
+  const summary = mobileMenuDrawerDetails.querySelector('summary');
+  if (!underlay || !summary) return;
+
+  underlay.addEventListener('click', () => {
+    if (mobileMenuDrawerDetails.hasAttribute('open')) summary.click();
+  });
+};
+
+initMobileMenuDrawerUnderlay();
+
+
 document.addEventListener('shopify:section:load', event => {
   lazyImages();
   playPauseVideo();
@@ -1928,6 +1980,8 @@ document.addEventListener('shopify:section:load', event => {
   klaviyoForms();
   headerScroll();
   footerCollapse();
+  initNewMobileNavArea();
+  initMobileMenuDrawerUnderlay();
 });
 
 
@@ -2625,12 +2679,24 @@ class CartLevelLineRibbonUpsell extends HTMLElement {
     this.isProcessing = false
 
     this.onChange = this.onChange.bind(this)
+    this.onKeydown = this.onKeydown.bind(this)
     this.checkbox.addEventListener('change', this.onChange)
+    this.checkbox.addEventListener('keydown', this.onKeydown)
   }
 
   disconnectedCallback() {
     if(this.checkbox) {
       this.checkbox.removeEventListener('change', this.onChange)
+      this.checkbox.removeEventListener('keydown', this.onKeydown)
+    }
+  }
+
+  // Native checkboxes only toggle on Space; add Enter support for keyboard users.
+  onKeydown(event) {
+    if(event.key === 'Enter') {
+      event.preventDefault()
+      this.checkbox.checked = !this.checkbox.checked
+      this.checkbox.dispatchEvent(new Event('change', { bubbles: true }))
     }
   }
 

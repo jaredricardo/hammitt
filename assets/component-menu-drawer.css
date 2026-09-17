@@ -28,6 +28,29 @@ menu-drawer > details[open] > summary::before {
     visibility var(--duration-default) ease;
 }
 
+#menu-drawer:has(.new-mobile-nav-area__container) {
+  overflow: visible;
+}
+
+.mobile-menu-drawer-underlay {
+  content: '';
+  position: fixed;
+  cursor: pointer;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(var(--color-foreground), 0.5);
+  opacity: 0 !important;
+  z-index: -1;
+  transition: 300ms ease;
+  display: block !important;
+}
+
+#Details-menu-drawer-container[open] .mobile-menu-drawer-underlay {
+  opacity: 1 !important;
+}
+
 .menu-drawer {
   position: absolute;
   transform: translateX(-100%);
@@ -84,6 +107,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 .menu-drawer__inner-container {
   position: relative;
   height: 100%;
+  border-top: 1px solid #D7D7D7;
 }
 
 .menu-drawer__navigation-container {
@@ -234,7 +258,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 .menu-drawer .list-social {
   justify-content: flex-start;
   margin-left: -1.25rem;
-  margin-top: 2rem;
+  margin-top: 0rem;
   padding-bottom: 2rem;
 }
 
@@ -253,12 +277,12 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__navigation-container:has(.visual-ab) {
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
 }
 
 .menu-drawer__menu.visual-menu {
   grid-template-columns: repeat(2, 1fr); 
-  gap: 0.6rem;
+  gap: 2rem;
 }
 
 .menu-drawer__navigation-container:has(.visual-ab) .menu-drawer__utility-links {
@@ -268,9 +292,8 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer__menu.visual-menu li img {
   width: 100%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  max-height: 120px;
 }
 
 .menu-drawer__menu.visual-menu li a {
@@ -384,4 +407,186 @@ ul.beneath-visual-menu.visual-ab li svg {
   .menu-drawer__navigation-container:has(.visual-ab)  {
     padding: 0rem 1rem;
   }
+}
+
+/* JR new mobile nav area */
+
+#menu-drawer {
+  border-right: none !important;
+}
+
+.new-mobile-nav-area__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.new-mobile-nav-area__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 3rem;
+  margin: 1.5rem 0 2rem 0 !important;
+  justify-content: space-between;
+}
+
+.new-mobile-nav-area__header-item {
+  margin: 0;
+}
+
+.new-mobile-nav-area__header-link {
+  display: inline-block;
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  margin: 0;
+  padding: 0 0 0.3rem;
+  font: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: currentColor;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.new-mobile-nav-area__header-link[data-nav-header].is-active {
+  border-bottom-color: currentColor;
+}
+
+.new-mobile-nav-area__panel {
+  display: none;
+}
+
+.new-mobile-nav-area__panel.is-active {
+  display: block;
+}
+
+.new-mobile-nav-area__menus-area {
+  padding-bottom: 3rem;
+}
+
+.new-mobile-nav-area__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.new-mobile-nav-area__link,
+.new-mobile-nav-area__sublink {
+  display: block;
+  color: currentColor;
+  text-decoration: none;
+}
+
+.new-mobile-nav-area__list-item--submenu {
+  margin-top: 0.6rem;
+  padding-top: 1.4rem;
+}
+
+.new-mobile-nav-area__sublist-title {
+  display: block;
+  font-weight: 700;
+  color: currentColor;
+  font-size: 13px;
+}
+
+.new-mobile-nav-area__sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.1rem 0 0;
+  padding-left: 1.5rem;
+}
+
+.new-mobile-nav-area__list-item--submenu .new-mobile-nav-area__sublist {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.new-mobile-nav-area__tile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.new-mobile-nav-area__tile {
+  display: flex;
+  flex-direction: column;
+  color: currentColor;
+  text-decoration: none;
+  background-color: #F9F8F6;
+}
+
+.new-mobile-nav-area__tile-image-wrap {
+  display: block;
+  overflow: hidden;
+}
+
+.new-mobile-nav-area__tile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.new-mobile-nav-area__tile-title {
+  display: block;
+  margin-top: 0.6rem;
+  color: #000;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* JR a11y - keyboard focus highlight for all interactive new mobile nav items
+   (matches the theme's .focus-inset ring in base.css; inset offset keeps it
+   from being clipped by the drawer's overflow/scroll containers) */
+.new-mobile-nav-area__header-link:focus-visible,
+.new-mobile-nav-area__link:focus-visible,
+.new-mobile-nav-area__sublink:focus-visible,
+.new-mobile-nav-area__tile:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+  box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
+}
+
+.no-js .new-mobile-nav-area__header-link:focus,
+.no-js .new-mobile-nav-area__link:focus,
+.no-js .new-mobile-nav-area__sublink:focus,
+.no-js .new-mobile-nav-area__tile:focus {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+  box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
+}
+
+.no-js .new-mobile-nav-area__header-link:focus:not(:focus-visible),
+.no-js .new-mobile-nav-area__link:focus:not(:focus-visible),
+.no-js .new-mobile-nav-area__sublink:focus:not(:focus-visible),
+.no-js .new-mobile-nav-area__tile:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none;
+}
+
+/* JR a11y - keyboard focus highlight for the loyalty link and utility links
+   (account/secondary links + social icons) below the main nav in the drawer */
+.menu-drawer__loyalty-link:focus-visible,
+.menu-drawer__utility-links a:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+  box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
+}
+
+.no-js .menu-drawer__loyalty-link:focus,
+.no-js .menu-drawer__utility-links a:focus {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+  box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
+}
+
+.no-js .menu-drawer__loyalty-link:focus:not(:focus-visible),
+.no-js .menu-drawer__utility-links a:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none;
 }

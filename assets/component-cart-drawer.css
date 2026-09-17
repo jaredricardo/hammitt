@@ -1470,6 +1470,50 @@ gifting-options-tooltip .tooltip-content .icon-close:hover {
   opacity: 0.7;
 }
 
+/* JR a11y - keyboard focus highlight for all interactive elements in the cart drawer
+   (matches the theme's .focus-inset ring in base.css; inset offset keeps it from
+   being clipped by the drawer's overflow/scroll containers, e.g. .cart-drawer
+   { overflow: hidden } and .drawer__items { overflow-y: auto }). Scoped with the
+   #cart-drawer id so it wins over the outline resets already set on some buttons
+   (e.g. .drawer__content-item-remove, .drawer__continue button). */
+#cart-drawer a:focus-visible,
+#cart-drawer button:focus-visible,
+#cart-drawer input:focus-visible,
+#cart-drawer summary:focus-visible,
+#cart-drawer textarea:focus-visible,
+#cart-drawer save-for-later:focus-visible,
+#cart-drawer .saved-for-later__toggle:focus-visible,
+#cart-drawer hammitt-gifting-options-drawer-trigger-no-button:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+  box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
+}
+
+.no-js #cart-drawer a:focus,
+.no-js #cart-drawer button:focus,
+.no-js #cart-drawer input:focus,
+.no-js #cart-drawer summary:focus,
+.no-js #cart-drawer textarea:focus,
+.no-js #cart-drawer save-for-later:focus,
+.no-js #cart-drawer .saved-for-later__toggle:focus,
+.no-js #cart-drawer hammitt-gifting-options-drawer-trigger-no-button:focus {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+  box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
+}
+
+.no-js #cart-drawer a:focus:not(:focus-visible),
+.no-js #cart-drawer button:focus:not(:focus-visible),
+.no-js #cart-drawer input:focus:not(:focus-visible),
+.no-js #cart-drawer summary:focus:not(:focus-visible),
+.no-js #cart-drawer textarea:focus:not(:focus-visible),
+.no-js #cart-drawer save-for-later:focus:not(:focus-visible),
+.no-js #cart-drawer .saved-for-later__toggle:focus:not(:focus-visible),
+.no-js #cart-drawer hammitt-gifting-options-drawer-trigger-no-button:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none;
+}
+
 .cart-level-gift-options-container .tooltip-trigger {
   width: 8px;
   height: 8px;

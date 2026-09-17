@@ -9,6 +9,7 @@
     - extend_height: {Boolean} Card height extends to available container space. Default: true (optional)
     - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
     - enable_gifting_card: {Boolean} Enable gifting card. Default: false (optional)
+    - disable_swatches: {Boolean} Disable rendering of product-card-swatches. Default: false (optional)
     
     Usage:
     {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -254,7 +255,7 @@
 
             
           </div>
-          {% if settings.enable_product_card_swatches %}
+          {% if settings.enable_product_card_swatches and disable_swatches != true %}
             {% if card_product.metafields.custom.colorway_collection %}
               {% render 'product-card-swatches', product: card_product %}
             {% endif %}
