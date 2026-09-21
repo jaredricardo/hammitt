@@ -17,6 +17,13 @@ class DetailsModal extends HTMLElement {
       'click',
       this.close.bind(this)
     );
+    // Browsers force-expand <details> elements when the native "Find in page"
+    // (Cmd/Ctrl+F) search matches text hidden inside them - e.g. the trending
+    // products / predictive-search markup in here. That bypasses onSummaryClick
+    // entirely and pops the modal open with no real user interaction, so guard
+    // against it: any "open" that wasn't flagged by our own open() call gets
+    // reverted immediately.
+    this.detailsContainer.addEventListener('toggle', this.onToggle.bind(this));
 
     this.summaryToggle.setAttribute('role', 'button');
   }
@@ -25,21 +32,30 @@ class DetailsModal extends HTMLElement {
     return this.detailsContainer.hasAttribute('open');
   }
 
+  onToggle() {
+    if (this.detailsContainer.hasAttribute('open') && !this.openedByUser) {
+      this.detailsContainer.removeAttribute('open');
+      return;
+    }
+    this.openedByUser = false;
+  }
+
   onSummaryClick(event) {
     event.preventDefault();
-    event.target.closest('details').hasAttribute('open')
+    this.detailsContainer.hasAttribute('open')
       ? this.close()
-      : this.open(event);
+      : this.open();
   }
 
   onBodyClick(event) {
     if (!this.contains(event.target) || event.target.classList.contains('modal-overlay')) this.close(false);
   }
 
-  open(event) {
+  open() {
+    this.openedByUser = true;
     this.onBodyClickEvent =
       this.onBodyClickEvent || this.onBodyClick.bind(this);
-    event.target.closest('details').setAttribute('open', true);
+    this.detailsContainer.setAttribute('open', true);
     document.body.addEventListener('click', this.onBodyClickEvent);
     document.body.classList.add('overflow-hidden');    
     document.body.style.paddingRight = `${this.scrollbarWidth}px`;
@@ -68,8 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const fakeDetailsModal = document.querySelector('fake-details-modal')
   const realModal = document.querySelector('details-modal.open-x-gen-modal-instead')
   fakeDetailsModal.addEventListener('click', () => {
-    const details = realModal.querySelector('details')
-    details.open = true
+    realModal.open()
     document.querySelector('.x-gen-search.search-desktop input').focus()
   })
 })
