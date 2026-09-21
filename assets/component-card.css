@@ -154,6 +154,7 @@ quick-add-trigger {
   bottom: 12px;
   right: 12px;
   z-index: 2;
+  width: 
 }
 
 .quick-add-trigger__btn {
@@ -167,6 +168,7 @@ quick-add-trigger {
   border-radius: 50%;
   cursor: pointer;
   padding: 0;
+  position: relative;
   transition: background 200ms ease-in-out;
 }
 
@@ -669,5 +671,23 @@ quick-add .label {
 @media screen and (max-width: 768px) {
   .card__heading {
     margin-bottom: 0 !important;
+  }
+  .quick-add-trigger__btn {
+    width: 25px;
+    height: 25px;
+  }
+  quick-add-trigger {
+    bottom: 6px;
+    right: 6px;
+    opacity: 0.65;
+  }
+  .quick-add-trigger__btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% + 1rem);
+    height: calc(100% + 1rem);
+    transform: translate(-50%, -50%);
   }
 }
