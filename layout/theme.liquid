@@ -1173,16 +1173,16 @@ template-{{ template.name -}}
           connectedCallback() {
             this._cardWrapper = this.closest('.card-wrapper');
             if (!this._cardWrapper) return;
-            this._cardImage = this._cardWrapper.querySelector('.card__media img');
-            if (!this._cardImage) return;
 
-            // Track secondary image (shown on card hover when show_secondary_image is enabled)
-            this._cardImageSecondary = this._cardWrapper.querySelector('.card__media img + img');
+            // Track every image inside the card media (2 in the standard hover-swap
+            // layout, or up to 3 when the product-card-carousel layout is enabled) so
+            // the preview shows correctly no matter which one is currently visible
+            // (e.g. the carousel has been advanced to its 2nd/3rd slide).
+            this._cardImages = Array.from(this._cardWrapper.querySelectorAll('.card__media img'));
+            if (!this._cardImages.length) return;
 
-            this._originalSrc = this._cardImage.src;
-            this._originalSrcset = this._cardImage.srcset;
-            this._originalSecondarySrc = this._cardImageSecondary ? this._cardImageSecondary.src : null;
-            this._originalSecondarySrcset = this._cardImageSecondary ? this._cardImageSecondary.srcset : null;
+            this._originalSrcs = this._cardImages.map(img => img.src);
+            this._originalSrcsets = this._cardImages.map(img => img.srcset);
             this._lockedBtn = null;
 
             this.addEventListener('click', e => e.stopPropagation());
@@ -1210,33 +1210,24 @@ template-{{ template.name -}}
               ? (btn.dataset.imageToPreviewLg || btn.dataset.imageToPreview)
               : btn.dataset.imageToPreview;
             if (src) {
-              this._cardImage.src = src;
-              this._cardImage.srcset = '';
-              // Also update secondary image so the swatch preview is visible
-              // regardless of which image the CSS hover effect is displaying
-              if (this._cardImageSecondary) {
-                this._cardImageSecondary.src = src;
-                this._cardImageSecondary.srcset = '';
-              }
+              // Update every card image so the swatch preview is visible regardless of
+              // which image the CSS hover effect or carousel is currently displaying
+              this._cardImages.forEach(img => {
+                img.src = src;
+                img.srcset = '';
+              });
             } else {
-              this._cardImage.src = this._originalSrc;
-              this._cardImage.srcset = this._originalSrcset;
-              if (this._cardImageSecondary) {
-                this._cardImageSecondary.src = this._originalSecondarySrc || '';
-                this._cardImageSecondary.srcset = this._originalSecondarySrcset || '';
-              }
+              this._restoreOriginal();
             }
             this.querySelectorAll('button').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
           }
 
           _restoreOriginal() {
-            this._cardImage.src = this._originalSrc;
-            this._cardImage.srcset = this._originalSrcset;
-            if (this._cardImageSecondary) {
-              this._cardImageSecondary.src = this._originalSecondarySrc || '';
-              this._cardImageSecondary.srcset = this._originalSecondarySrcset || '';
-            }
+            this._cardImages.forEach((img, i) => {
+              img.src = this._originalSrcs[i];
+              img.srcset = this._originalSrcsets[i];
+            });
             this.querySelectorAll('button').forEach(b => b.classList.remove('active'));
             const initialBtn = this.querySelector('button');
             if (initialBtn) initialBtn.classList.add('active');
