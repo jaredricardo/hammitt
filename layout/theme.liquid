@@ -493,7 +493,9 @@
     {% endunless %}
 
     <img
-      alt="icon"
+      alt=""
+      aria-hidden="true"
+      role="presentation"
       id="svgicon"
       width="1400"
       height="1400"
@@ -1320,7 +1322,7 @@ template-{{ template.name -}}
     {% endif %}
 
     {% comment %} Keynes LAL Pixel: {% endcomment %}
-    <img width="1" height="1" src="//action.dstillery.com/orbserv/nspix?adv=cl172935946111751&ns=9078&nc=Hammitt-Site-Visitor&ncv=58" />
+    <img width="1" height="1" src="//action.dstillery.com/orbserv/nspix?adv=cl172935946111751&ns=9078&nc=Hammitt-Site-Visitor&ncv=58"  alt="pixel-alt"/>
 
     {% if template == 'cart' %}
       <!-- Conversion Pixel for [lead]- DO NOT MODIFY -->
