@@ -2174,7 +2174,7 @@ product-card-swatch {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   margin-top: 0.6rem;
   position: relative;
   z-index: 2;
@@ -2185,11 +2185,14 @@ product-card-swatch button {
   -webkit-appearance: none;
   background: none;
   border: none;
-  padding: 0;
+  /* Box is sized to the WCAG 2.5.8 / Lighthouse "target size" minimum (24x24 CSS px)
+     while padding keeps the visible swatch dot close to its original ~15px size. */
+  box-sizing: border-box;
+  padding: 4px;
   margin: 0;
   cursor: pointer;
-  width: 15px;
-  height: 15px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -2215,8 +2218,8 @@ product-card-swatch button.active img {
 
 product-card-swatch .empty-swatch {
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background: #d9d9d9;
   font-size: 0;

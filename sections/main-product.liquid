@@ -1069,7 +1069,7 @@
               <div class="flex align-center share-wrapper">
                 <span class="label">Share:</span>
                 <div class="share-icon">
-                  <a href="//www.facebook.com/sharer.php?u={{ shareurl }}&t={{ product.title }}" target="_blank">
+                  <a href="//www.facebook.com/sharer.php?u={{ shareurl }}&t={{ product.title }}" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
                     {% include 'icon-facebook' %}</a>
                 </div>
 
@@ -1087,12 +1087,12 @@
                   assign share_href = share_href | append: ':+' | append: shareurl
 
                 -%}
-                  <a href="//twitter.com/intent/tweet?text=Check%20out%20this%20{{ share_href }}"  target="_blank">
+                  <a href="//twitter.com/intent/tweet?text=Check%20out%20this%20{{ share_href }}" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">
                     {% include 'icon-twitter' %}</a>
                 </div>
 
                 <div class="share-icon">
-                  <a href="//pinterest.com/pin/create/button/?url={{ shareurl }}&media={{ product.featured_image | product_img_url: 'original' }}&description={{ product.title | strip_html | escape | replace: ' ', '%20' }}" count-layout="none"  target="_blank">
+                  <a href="//pinterest.com/pin/create/button/?url={{ shareurl }}&media={{ product.featured_image | product_img_url: 'original' }}&description={{ product.title | strip_html | escape | replace: ' ', '%20' }}" count-layout="none" target="_blank" rel="noopener noreferrer" aria-label="Share on Pinterest">
                     {% include 'icon-pinterest' %}</a>
                 </div>
             </div>
