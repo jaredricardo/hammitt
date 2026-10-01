@@ -1583,27 +1583,34 @@ const cartUpdate = (json = false) => {
         elOld.outerHTML = elNew.outerHTML;
       }
     })
-
-    // Trigger progress bar animation after DOM update
-    const progressBar = document.querySelector('.progress-bar');
-    if(progressBar) {
-      // Force reflow to restart animation
-      void progressBar.offsetWidth;
-    }
-
-    // Check and update Rivett Club component state after cart update
-    const cartRivettClub = document.querySelector('cart-rivett-club');
-    if (cartRivettClub) {
-      const hasClosedBefore = localStorage.getItem('rivettClubClosed');
-      if (hasClosedBefore === 'true') {
-        cartRivettClub.classList.add('inactive');
-      } else {
-        cartRivettClub.classList.remove('inactive');
-      }
-    }
-
-    cartUpsellSwiper();
   });
+
+  // The three operations below used to live inside the cartUpdates.forEach loop above and
+  // therefore ran once per section (2-4x per single cart update) instead of once. None of
+  // them depend on which section is currently being processed, so running them repeatedly
+  // was pure wasted work - cartUpsellSwiper() in particular re-ran Swiper init on the same
+  // (already-initialized) slider markup every time, which is now also guarded in swiper.js,
+  // but avoiding the redundant calls here removes the duplicate DOM reads/writes entirely.
+
+  // Trigger progress bar animation after DOM update
+  const progressBar = document.querySelector('.progress-bar');
+  if(progressBar) {
+    // Force reflow to restart animation
+    void progressBar.offsetWidth;
+  }
+
+  // Check and update Rivett Club component state after cart update
+  const cartRivettClub = document.querySelector('cart-rivett-club');
+  if (cartRivettClub) {
+    const hasClosedBefore = localStorage.getItem('rivettClubClosed');
+    if (hasClosedBefore === 'true') {
+      cartRivettClub.classList.add('inactive');
+    } else {
+      cartRivettClub.classList.remove('inactive');
+    }
+  }
+
+  cartUpsellSwiper();
 
   // NOTE: this reconciliation + cart:updated dispatch must run exactly ONCE per cartUpdate() call,
   // not once per entry in cartUpdates above - it was previously nested inside the forEach loop,
