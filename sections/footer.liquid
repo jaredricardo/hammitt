@@ -90,14 +90,14 @@
                 {%- when 'custom_section' -%}
                   <div class="custom-section-footer">
                     {% if block.settings.heading != blank %}
-                      <h6>{{ block.settings.heading }}</h6>
+                      <p class="h6 custom-section-footer-heading">{{ block.settings.heading }}</p>
                     {% endif %}
                 
                     {% if block.settings.footer_image != blank %}
-                      <a href="{{ block.settings.footer_image_link | default: '#' }}" target="_blank">
+                      <a href="{{ block.settings.footer_image_link | default: '#' }}" target="_blank" rel="noopener noreferrer">
                         <img src="{{ block.settings.footer_image | img_url: '300x' }}" loading="lazy" alt="Footer Image">
                         {% if block.settings.footer_paragraph != blank %}
-                          <h6 class="h7">{{ block.settings.footer_paragraph }}</h6>
+                          <p class="h7">{{ block.settings.footer_paragraph }}</p>
                         {% endif %}
                       </a>
                     {% endif %}
@@ -300,12 +300,12 @@
                           </a>
                         </li>
                       {%- endfor -%}
+                    </ul>
                     {%  if block.settings.heading == 'Help' %}
-                    <span data-acsb-custom-trigger="true" tabindex="0" role="button">
-                      <svg width="66" height="33" viewBox="0 0 46 23" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect fill="#4054B2" width="46" height="23" rx="11.5"></rect><g transform="translate(17 4)"><circle stroke="#FFF" cx="4.5" cy="10.5" r="4.5"></circle><path fill="#4054B2" d="M3 3h8l-1 9-3-4-4 2z"></path><circle fill="#FFF" cx="4.5" cy="1.5" r="1.5"></circle><path stroke="#FFF" stroke-linecap="round" d="M4 2v7h5l3 4M8 6L4 5"></path><path stroke="#FFF" stroke-width=".7" d="M5 7.5h4l2-3"></path></g></g></svg>
+                    <span data-acsb-custom-trigger="true" tabindex="0" role="button" aria-label="Open accessibility menu">
+                      <svg aria-hidden="true" focusable="false" width="66" height="33" viewBox="0 0 46 23" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect fill="#4054B2" width="46" height="23" rx="11.5"></rect><g transform="translate(17 4)"><circle stroke="#FFF" cx="4.5" cy="10.5" r="4.5"></circle><path fill="#4054B2" d="M3 3h8l-1 9-3-4-4 2z"></path><circle fill="#FFF" cx="4.5" cy="1.5" r="1.5"></circle><path stroke="#FFF" stroke-linecap="round" d="M4 2v7h5l3 4M8 6L4 5"></path><path stroke="#FFF" stroke-width=".7" d="M5 7.5h4l2-3"></path></g></g></svg>
                     </span>
                     {% endif %}
-                    </ul>
                   {%- endif -%}
                 {%- when 'image' -%}
                   <div id="footer-block__{{ block.settings.heading | handle }}" aria-labelledby="footer-heading__{{ block.settings.heading | handle }}" class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
