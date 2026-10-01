@@ -1,5 +1,13 @@
 /* eslint-disable */
 
+function runWhenIdle(fn) {
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(fn, { timeout: 2000 });
+  } else {
+    setTimeout(fn, 1);
+  }
+}
+
 function getFocusableElements(container) {
   return Array.from(
     container.querySelectorAll(
@@ -1027,76 +1035,76 @@ const playPauseVideo = () => {
 }
 
 // And you would kick this off where appropriate with:
-playPauseVideo();
+runWhenIdle(playPauseVideo);
 
+
+const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      const src = img.getAttribute('data-src');
+      img.setAttribute('src', src);
+      img.classList.add('fade');
+      observer.unobserve(img);
+    }
+  });
+}, {
+  threshold: 0.33
+});
 
 const lazyImages = () => {
   const targets = document.querySelectorAll(".media img");
-  const lazyLoad = target => {
-    if(target.classList.contains('fade')) return true;
-    const io = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          const src = img.getAttribute('data-src');
-          img.setAttribute('src', src);
-          img.classList.add('fade');
-          observer.disconnect();
-        }
-      });
-    }, {
-      threshold: 0.33
-    });
-    io.observe(target)
-  };
-  targets.forEach(lazyLoad);
+  targets.forEach(target => {
+    if(target.classList.contains('fade')) return;
+    lazyImageObserver.observe(target);
+  });
 };
 lazyImages();
 
 
+const totalColorsObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const cardStyle = entry.target.getAttribute('data-style');
+      const cardColor = entry.target.getAttribute('data-color');
+      let totalFound = 0;
+      fetch(`/search?q=${cardStyle}&type=product&view=api`)
+      .then(response => response.json())
+      .then(data => {
+        if(data.length <= 1) return;
+        data.forEach(item => {
+          const style = item.title.split(' - ')[0];
+          if(style !== cardStyle) return;
+          totalFound++;
+        });
+
+        if(totalFound > 1) {
+          const allMatches = document.querySelectorAll(`.total-colors[data-style="${cardStyle}"]`);
+          allMatches.forEach(match => {
+            match.innerHTML = `+ ${totalFound} Colors`;
+            match.classList.add('colors-found');
+          });
+        }
+      })
+      .catch(error => console.log(error));
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
 const totalColors = () => {
   if(!window.enableTotalColors) return;
   const targets = document.querySelectorAll(".total-colors");
-  const getTotalColors = target => {
-    if(target.classList.contains('colors-found')) return true;
-    const io = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const cardStyle = entry.target.getAttribute('data-style');
-          const cardColor = entry.target.getAttribute('data-color');
-          let totalFound = 0;
-          fetch(`/search?q=${cardStyle}&type=product&view=api`)
-          .then(response => response.json())
-          .then(data => {
-            if(data.length <= 1) return;
-            data.forEach(item => {
-              const style = item.title.split(' - ')[0];
-              if(style !== cardStyle) return;
-              totalFound++;
-            });
-            
-            if(totalFound > 1) {
-              const allMatches = document.querySelectorAll(`.total-colors[data-style="${cardStyle}"]`);
-              allMatches.forEach(match => {
-                match.innerHTML = `+ ${totalFound} Colors`;
-                match.classList.add('colors-found');
-              });  
-            }
-          })
-          .catch(error => console.log(error));
-          observer.disconnect();
-        }
-      });
-    }, {
-      threshold: 0.5
-    });
-    io.observe(target);
-  };
-  targets.forEach(getTotalColors);
+  targets.forEach(target => {
+    if(target.classList.contains('colors-found')) return;
+    totalColorsObserver.observe(target);
+  });
 };
 
 
-totalColors();
+runWhenIdle(totalColors);
 
 
 function recordRecentlyViewed(data) {
@@ -1156,7 +1164,7 @@ function refreshYotpoVariant() {
   }
 }
 
-productCardHovers();
+runWhenIdle(productCardHovers);
 
 const productSwatchReload = () => {
   // Guard against double-binding: this is called again after AJAX morphs replace
@@ -1310,7 +1318,7 @@ const klaviyoForms = () => {
   });
 };
 
-klaviyoForms();
+runWhenIdle(klaviyoForms);
 
 const klaviyoSubscribe = (form, callback) => {
   
@@ -1499,7 +1507,7 @@ function updateCart(params) {
 }
 
 // initial on load check for Order Protection items to remove them from cart. They should only be in cart at checkout.
-checkOrderProtection()
+runWhenIdle(checkOrderProtection)
 
 // document.addEventListener('change', function(evt) {
 //   if(document.querySelector('.cart-drawer-btn') != null) {
@@ -1575,27 +1583,34 @@ const cartUpdate = (json = false) => {
         elOld.outerHTML = elNew.outerHTML;
       }
     })
-
-    // Trigger progress bar animation after DOM update
-    const progressBar = document.querySelector('.progress-bar');
-    if(progressBar) {
-      // Force reflow to restart animation
-      void progressBar.offsetWidth;
-    }
-
-    // Check and update Rivett Club component state after cart update
-    const cartRivettClub = document.querySelector('cart-rivett-club');
-    if (cartRivettClub) {
-      const hasClosedBefore = localStorage.getItem('rivettClubClosed');
-      if (hasClosedBefore === 'true') {
-        cartRivettClub.classList.add('inactive');
-      } else {
-        cartRivettClub.classList.remove('inactive');
-      }
-    }
-
-    cartUpsellSwiper();
   });
+
+  // The three operations below used to live inside the cartUpdates.forEach loop above and
+  // therefore ran once per section (2-4x per single cart update) instead of once. None of
+  // them depend on which section is currently being processed, so running them repeatedly
+  // was pure wasted work - cartUpsellSwiper() in particular re-ran Swiper init on the same
+  // (already-initialized) slider markup every time, which is now also guarded in swiper.js,
+  // but avoiding the redundant calls here removes the duplicate DOM reads/writes entirely.
+
+  // Trigger progress bar animation after DOM update
+  const progressBar = document.querySelector('.progress-bar');
+  if(progressBar) {
+    // Force reflow to restart animation
+    void progressBar.offsetWidth;
+  }
+
+  // Check and update Rivett Club component state after cart update
+  const cartRivettClub = document.querySelector('cart-rivett-club');
+  if (cartRivettClub) {
+    const hasClosedBefore = localStorage.getItem('rivettClubClosed');
+    if (hasClosedBefore === 'true') {
+      cartRivettClub.classList.add('inactive');
+    } else {
+      cartRivettClub.classList.remove('inactive');
+    }
+  }
+
+  cartUpsellSwiper();
 
   // NOTE: this reconciliation + cart:updated dispatch must run exactly ONCE per cartUpdate() call,
   // not once per entry in cartUpdates above - it was previously nested inside the forEach loop,
@@ -1918,7 +1933,7 @@ const footerCollapse = () => {
   });
 };
 
-footerCollapse();
+runWhenIdle(footerCollapse);
 
 
 const initNewMobileNavArea = () => {
@@ -1954,7 +1969,7 @@ const initNewMobileNavArea = () => {
   });
 };
 
-initNewMobileNavArea();
+runWhenIdle(initNewMobileNavArea);
 
 
 const initMobileMenuDrawerUnderlay = () => {
@@ -1970,7 +1985,7 @@ const initMobileMenuDrawerUnderlay = () => {
   });
 };
 
-initMobileMenuDrawerUnderlay();
+runWhenIdle(initMobileMenuDrawerUnderlay);
 
 
 document.addEventListener('shopify:section:load', event => {

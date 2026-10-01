@@ -1144,42 +1144,46 @@
 
         const pendingBundleRewards = new Set()
 
-        document.addEventListener('cart:updated', () => {
-          fetch(window.Shopify.routes.root + 'cart.js')
-            .then((r) => r.json())
-            .then((cart) => {
-              const cartItems = cart.items || []
+        // Reuses the cart payload already included on the cart:updated event (same data
+        // cartUpdate() just received from /cart/change.js or /cart/add.js) instead of making
+        // an extra `fetch(cart.js)` round trip here. This listener runs on every cart:updated
+        // event site-wide whenever bundle-gwp blocks are configured, so avoiding the duplicate
+        // request removes a full network + JSON-parse cycle from every add/remove/decrement.
+        document.addEventListener('cart:updated', (event) => {
+          const cart = event.detail && event.detail.cart
+          if (!cart) return
 
-              // Group bundles by reward product so shared rewards (e.g. GWP C used by
-              // both Bundle 3 and Bundle 4) accumulate their qualifier quantities before
-              // comparing against what is already in the cart.
-              const rewardMap = new Map()
-              for (const bundle of bundles) {
-                const qualifierQty = cartItems
-                  .filter((i) => i.product_id === bundle.qualifierProductId)
-                  .reduce((sum, i) => sum + i.quantity, 0)
+          const cartItems = cart.items || []
 
-                if (!rewardMap.has(bundle.rewardProductId)) {
-                  rewardMap.set(bundle.rewardProductId, { rewardVariantId: bundle.rewardVariantId, totalNeeded: 0 })
-                }
-                rewardMap.get(bundle.rewardProductId).totalNeeded += qualifierQty
-              }
+          // Group bundles by reward product so shared rewards (e.g. GWP C used by
+          // both Bundle 3 and Bundle 4) accumulate their qualifier quantities before
+          // comparing against what is already in the cart.
+          const rewardMap = new Map()
+          for (const bundle of bundles) {
+            const qualifierQty = cartItems
+              .filter((i) => i.product_id === bundle.qualifierProductId)
+              .reduce((sum, i) => sum + i.quantity, 0)
 
-              for (const [rewardProductId, { rewardVariantId, totalNeeded }] of rewardMap) {
-                if (pendingBundleRewards.has(rewardVariantId)) continue
+            if (!rewardMap.has(bundle.rewardProductId)) {
+              rewardMap.set(bundle.rewardProductId, { rewardVariantId: bundle.rewardVariantId, totalNeeded: 0 })
+            }
+            rewardMap.get(bundle.rewardProductId).totalNeeded += qualifierQty
+          }
 
-                const rewardQty = cartItems
-                  .filter((i) => i.product_id === rewardProductId)
-                  .reduce((sum, i) => sum + i.quantity, 0)
-                const qtyToAdd = totalNeeded - rewardQty
+          for (const [rewardProductId, { rewardVariantId, totalNeeded }] of rewardMap) {
+            if (pendingBundleRewards.has(rewardVariantId)) continue
 
-                if (qtyToAdd > 0) {
-                  pendingBundleRewards.add(rewardVariantId)
-                  addToCart({ items: [{ id: rewardVariantId, quantity: qtyToAdd }] })
-                  setTimeout(() => pendingBundleRewards.delete(rewardVariantId), 3000)
-                }
-              }
-            })
+            const rewardQty = cartItems
+              .filter((i) => i.product_id === rewardProductId)
+              .reduce((sum, i) => sum + i.quantity, 0)
+            const qtyToAdd = totalNeeded - rewardQty
+
+            if (qtyToAdd > 0) {
+              pendingBundleRewards.add(rewardVariantId)
+              addToCart({ items: [{ id: rewardVariantId, quantity: qtyToAdd }] })
+              setTimeout(() => pendingBundleRewards.delete(rewardVariantId), 3000)
+            }
+          }
         })
       })()
     </script>

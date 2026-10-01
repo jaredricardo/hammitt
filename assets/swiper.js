@@ -15,68 +15,99 @@ var Swiper=function(){"use strict";function e(e){return null!==e&&"object"==type
 
 
 (function() {
-  const swipers = document.querySelectorAll('.swiper:not(.special-init-swiper)');
-  swipers.forEach((swiper,i) => {
-    const json = JSON.parse(swiper.getAttribute('data-json'));
-    swipers[i] = new Swiper(swiper, json);
-  });
+  const initAllSwipers = () => {
+    const swipers = document.querySelectorAll('.swiper:not(.special-init-swiper):not(.swiper-initialized)');
+    swipers.forEach((swiper) => {
+      const json = JSON.parse(swiper.getAttribute('data-json'));
+      new Swiper(swiper, json);
+    });
+  };
+  // Defer off the critical path: this used to run `new Swiper()` synchronously for every
+  // slider on the page the moment swiper.js finished parsing/executing, which is a major
+  // contributor to Total Blocking Time on pages with several sliders. requestIdleCallback
+  // (with a setTimeout fallback for Safari) lets higher-priority work finish first.
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(initAllSwipers, { timeout: 2000 });
+  } else {
+    setTimeout(initAllSwipers, 0);
+  }
 })();
 
 
 
 // ----------complimentary-------------
 
-function complimentary() {
-  if (document.querySelector('.complimentary-products__container .swiper') != null && document.querySelector('.complimentary-products__container .swiper') != 'undefined') {
+function complimentary(attempt) {
+  attempt = attempt || 0;
+  if (document.querySelector('.complimentary-products__container .swiper') != null) {
       (function() {
-      const swiperse = document.querySelectorAll('.complimentary-products__container .swiper');
-      swiperse.forEach((swiper,i) => {
+      // Only init slides that aren't already Swiper instances, so repeated calls never
+      // create duplicate Swiper instances (duplicate event listeners) on the same markup.
+      const swiperse = document.querySelectorAll('.complimentary-products__container .swiper:not(.swiper-initialized)');
+      swiperse.forEach((swiper) => {
         const json = JSON.parse(swiper.getAttribute('data-json'));
-        swiperse[i] = new Swiper(swiper, json);
+        new Swiper(swiper, json);
       });
     })();
-  } else {
+  } else if (attempt < 40) {
+    // Give up after ~20s instead of polling every 500ms forever on pages that never
+    // render this container.
     setTimeout(function() {
-      complimentary();
+      complimentary(attempt + 1);
     }, 500);
   }
 }
-complimentary();
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(() => complimentary(), { timeout: 2000 });
+} else {
+  setTimeout(() => complimentary(), 0);
+}
 
 // ----------product recommendations slider-------------
 
-function productRecommendations() {
-  if (document.querySelector('.product-recommendations_slider .swiper:not(.swiper-initialized)') != null && document.querySelector('.product-recommendations_slider .swiper:not(.swiper-initialized)') != 'undefined') {
+function productRecommendations(attempt) {
+  attempt = attempt || 0;
+  if (document.querySelector('.product-recommendations_slider .swiper') != null) {
       (function() {
       const swipers = document.querySelectorAll('.product-recommendations_slider .swiper:not(.swiper-initialized)');
-      swipers.forEach((swiper,i) => {
+      swipers.forEach((swiper) => {
         const json = JSON.parse(swiper.getAttribute('data-json'));
-        swipers[i] = new Swiper(swiper, json);
+        new Swiper(swiper, json);
       });
     })();
-  } else {
+  } else if (attempt < 40) {
     setTimeout(function() {
-      productRecommendations();
+      productRecommendations(attempt + 1);
     }, 500);
   }
 }
-productRecommendations();
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(() => productRecommendations(), { timeout: 2000 });
+} else {
+  setTimeout(() => productRecommendations(), 0);
+}
 
 
 // ----------Cart upsell slider-------------
 
-function cartUpsellSwiper() {
-  if (document.querySelector('cart-upsells .swiper') != null && document.querySelector('cart-upsells .swiper') != 'undefined') {
+function cartUpsellSwiper(attempt) {
+  attempt = attempt || 0;
+  if (document.querySelector('cart-upsells .swiper') != null) {
       (function() {
-      const swipers = document.querySelectorAll('cart-upsells .swiper');
-      swipers.forEach((swiper,i) => {
+      // Scoped to :not(.swiper-initialized) - this function is called very frequently
+      // (every cart:updated, every upsell tab click, etc.), and previously re-ran
+      // `new Swiper()` on the same already-initialized slides every single time, piling up
+      // duplicate Swiper instances/listeners on the cart drawer and making it progressively
+      // slower to interact with over a session.
+      const swipers = document.querySelectorAll('cart-upsells .swiper:not(.swiper-initialized)');
+      swipers.forEach((swiper) => {
         const json = JSON.parse(swiper.getAttribute('data-json'));
-        swipers[i] = new Swiper(swiper, json);
+        new Swiper(swiper, json);
       });
     })();
-  } else {
+  } else if (attempt < 40) {
     setTimeout(function() {
-      cartUpsellSwiper();
+      cartUpsellSwiper(attempt + 1);
     }, 500);
   }
 }
@@ -85,13 +116,28 @@ cartUpsellSwiper();
 // -----------product color slider-------------
 
 // -----------product color slider-------------
+
+// Shared debounce helper so rapid resize events (window drag, devtools open/close,
+// device rotation) don't trigger repeated Swiper construct/destroy cycles on every tick.
+function debounce(fn, wait) {
+  let timeout;
+  return function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(fn, wait);
+  };
+}
+
 function changeSwiperSlider() {
   const swipers = document.querySelectorAll('.custom-variant-list.swiper');
   if (swipers) {
     const isMobile = window.innerWidth <= 768;
     swipers.forEach((swiper, i) => {
-      const json = JSON.parse(swiper.getAttribute('data-json'));
       if (isMobile) {
+        // Guard against re-creating a Swiper instance that's already initialized (e.g. two
+        // resize events firing in quick succession) - this used to call `new Swiper()`
+        // unconditionally on every resize without checking for an existing instance.
+        if (swipers[i].classList.contains('swiper-initialized')) return;
+        const json = JSON.parse(swiper.getAttribute('data-json'));
         swipers[i].swiper = new Swiper(swiper, json);
       } else {
         if(swipers[i].classList.contains('swiper-initialized')) {
@@ -102,8 +148,11 @@ function changeSwiperSlider() {
     });
   }
 }
-window.addEventListener('load', changeSwiperSlider());
-window.addEventListener('resize', changeSwiperSlider());
+// Previously `changeSwiperSlider()` (invoked immediately) was passed as the 'load' handler,
+// which is a no-op since its return value (undefined) was what actually got registered -
+// meaning this only ever ran once at parse time and never again on the 'load' event.
+window.addEventListener('load', changeSwiperSlider);
+window.addEventListener('resize', debounce(changeSwiperSlider, 150));
 
 // -----------product size slider-------------
 
@@ -114,10 +163,15 @@ window.addEventListener('resize', changeSwiperSlider());
   function handleSwiper() {
     const isMobile = window.innerWidth <= 768;
     swipers.forEach((swiper, i) => {
-      const json = JSON.parse(swiper.getAttribute('data-json'));
       if (isMobile) {
+        // Guard against duplicate instances on repeated resize events.
+        if (swipers[i].classList.contains('swiper-initialized')) return;
+        const json = JSON.parse(swiper.getAttribute('data-json'));
         swipers[i].swiper = new Swiper(swiper, json);
-      } else {
+      } else if (swiper.swiper) {
+        // Only destroy if an instance actually exists - previously this ran unconditionally,
+        // which throws if the page loaded at desktop width (swiper.swiper was never set) and
+        // was then resized, since `swiper.swiper.destroy` would be called on `undefined`.
         swiper.swiper.destroy(true, true);
         delete swipers[i].swiper;
       }
@@ -125,6 +179,6 @@ window.addEventListener('resize', changeSwiperSlider());
   }
   }
 window.addEventListener('load', handleSwiper);
-window.addEventListener('resize', handleSwiper);
+window.addEventListener('resize', debounce(handleSwiper, 150));
 
 })();
