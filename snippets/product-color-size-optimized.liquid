@@ -92,6 +92,8 @@
     assign initial_variant_group = 'mini'
   elsif current_size == 'small'
     assign initial_variant_group = 'small'
+  elsif current_size == 'slim'  
+    assign initial_variant_group = 'slim'
   elsif current_size == 'medium' and current_subcategory == 'short strap'
     assign initial_variant_group = 'medium-short-strap'
   elsif current_size == 'medium'
@@ -477,6 +479,125 @@
       {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'small' %} active{% endif %}" data-drawer-group="small">Small</button>{% endcapture %}
       {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
       {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'small' %} active{% endif %}" data-drawer-group="small">{{ group_drawer_swatches }}</ul>{% endcapture %}
+      {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
+    {% endif %}
+    {% comment %} Slim products {% endcomment %}
+    <div class="variant-picker-group-wrapper group-slim{% if initial_variant_group == 'slim' %} initial-active{% endif %}" data-variant-group="slim">
+        <div class="custom-variant-title">
+          <span>{{ 'Slim:' | upcase }}</span> 
+          {% if on_special_leather %}
+            {% render 'special-care-tooltip' %}
+          {% endif %}
+        </div>
+      {% assign group_drawer_swatches = '' %}
+      {% assign group_drawer_count = 0 %}
+      <ul class="custom-variant-list">
+        {%- for product in colorway_collection -%}
+
+          {% liquid 
+          
+            assign isCurrent = false
+
+            ####### new way of assigning product title
+
+            assign product_type = product.metafields.custom.product_title_type
+            assign product_color = product.metafields.custom.product_title_color_descriptor
+            assign product_size = product.metafields.hammitt.size.value
+            assign formatted_size_string = null
+
+            if product_size 
+
+              assign formatted_size_string = product_size | downcase | strip
+
+            endif
+
+            #######
+        
+            unless formatted_size_string == "slim"
+              continue
+            endunless
+
+            # Only show exclusive product if customer has shareholder tag and seo hidden is 1 #
+            if isShareholder == false and product.metafields.seo.hidden == 1
+              continue 
+            endif
+
+            if product.metafields.custom.hide_product_all_customers == 1
+              continue
+            endif
+
+            if product.handle == top_level_handle
+              assign isCurrent = true
+            endif
+
+          -%}
+
+            <li data-tooltip="{{ product_color }}" class="{% if isCurrent %} current-swatch {% endif %}">
+              <div class="image customSwatch">
+                <a 
+                  href="{{ product.url }}" 
+                  data-product-id="{{ product.id }}"
+                  data-product-title="{{ product.title }}" 
+                  data-sku="{{ product.selected_or_first_available_variant.sku }}"
+                  data-product-img="{{ product.featured_image | img_url: 'medium' }}"
+                  aria-label="{{ product_color }}" {% if isCurrent %}style="outline: 1px solid black;"{% endif %} class="swatch_image-a"
+                  data-recently-viewed-product-json='{
+                    "id": {{ product.id }},
+                    "title": {{ product.title | json | replace: "'", "&#39;" }},
+                    "handle": {{ product.handle | json }},
+                    "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                    "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                    "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                    "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                    "product_size": {{ product_size | json }},
+                    "price": {{ product.selected_or_first_available_variant.price }}
+                  }'
+                >
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 200 | image_tag: preload: true, alt: product.title }}
+                  {% endif %}
+                </a>
+              </div>
+            </li>
+            {% capture drawer_li %}
+              <li data-tooltip="{{ product_color }}"{% if isCurrent %} class="current-swatch"{% endif %}>
+                <div class="image customSwatch">
+                  <a
+                    href="{{ product.url }}"
+                    data-product-id="{{ product.id }}"
+                    aria-label="{{ product_color }}"
+                    {% if isCurrent %}style="outline: 1px solid black;"{% endif %}
+                    class="swatch_image-a drawerSwatch"
+                    data-recently-viewed-product-json='{
+                      "id": {{ product.id }},
+                      "title": {{ product.title | json | replace: "'", "&#39;" }},
+                      "handle": {{ product.handle | json }},
+                      "featured_image": {{ product.featured_image | image_url: width: 700 | json }},
+                      "product_tags": [{% for tag in product.tags%}{{ tag | json | replace: "'", "&#39;" }}{% unless forloop.last %},{% endunless %}{% endfor %}],
+                      "product_title_type": {{ product_type | json | replace: "'", "&#39;" }},
+                      "product_title_color_descriptor": {{ product_color | json | replace: "'", "&#39;" }},
+                      "product_size": {{ product_size | json }},
+                      "price": {{ product.selected_or_first_available_variant.price }}
+                    }'
+                  >
+                    {% if product.featured_image %}
+                      {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy' }}
+                    {% endif %}
+                    <span class="drawerSwatch__label">{{ product_color }}</span>
+                  </a>
+                </div>
+              </li>
+            {% endcapture %}
+            {% assign group_drawer_swatches = group_drawer_swatches | append: drawer_li %}
+            {% assign group_drawer_count = group_drawer_count | plus: 1 %}
+
+        {% endfor %}
+      </ul>
+    </div>
+    {% if group_drawer_count > 0 %}
+      {% capture drawer_tab %}<button type="button" class="pdp-colorway-drawer__category-btn{% if initial_variant_group == 'slim' %} active{% endif %}" data-drawer-group="slim">Slim</button>{% endcapture %}
+      {% assign drawer_categories_html = drawer_categories_html | append: drawer_tab %}
+      {% capture drawer_list %}<ul class="pdp-colorway-drawer__swatch-list{% if initial_variant_group == 'slim' %} active{% endif %}" data-drawer-group="slim">{{ group_drawer_swatches }}</ul>{% endcapture %}
       {% assign drawer_swatch_groups_html = drawer_swatch_groups_html | append: drawer_list %}
     {% endif %}
     {% comment %} Medium products {% endcomment %}
