@@ -158,6 +158,28 @@
     "store_events_new_nyqkLU": {
       "type": "store-events-new",
       "blocks": {
+        "event_m4QgtL": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Happy_Hour-_1_1.jpg",
+            "event_name": "Happy Hour at Hammitt",
+            "date": "October 9, 2026",
+            "time": "3PM - 6PM",
+            "event_tags": "Scottsdale,Chicago,Manhattan Beach,La Jolla",
+            "description": "Join us every Friday this month for Happy Hour at Hammitt—an evening especially for sipping and shopping new arrivals, alongside exclusive finds."
+          }
+        },
+        "event_NDke8C": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/permanent_jewelry.png",
+            "event_name": "Permanent Jewelry",
+            "date": "October 10-11, 2026",
+            "time": "10AM - 4PM",
+            "event_tags": "La Jolla",
+            "description": "Add a little glamour to your everyday with permanent jewelry, available for purchase."
+          }
+        },
         "event_4V4BGq": {
           "type": "event",
           "disabled": true,
@@ -170,17 +192,6 @@
             "description": "Join us for an evening of tequila tasting, light bites, exclusive merch, live fashion illustrations, and more to celebrate the grand opening of our newest store."
           }
         },
-        "event_m4QgtL": {
-          "type": "event",
-          "settings": {
-            "image": "shopify://shop_images/Hammitt_Happy_Hour-_1_1.jpg",
-            "event_name": "Happy Hour at Hammitt",
-            "date": "October 9, 2026",
-            "time": "3PM - 6PM",
-            "event_tags": "Scottsdale,Chicago,Manhattan Beach,La Jolla",
-            "description": "Join us every Friday this month for Happy Hour at Hammitt—an evening especially for sipping and shopping new arrivals, alongside exclusive finds."
-          }
-        },
         "event_EkmyKX": {
           "type": "event",
           "disabled": true,
@@ -191,17 +202,6 @@
             "time": "",
             "event_tags": "Scottsdale,Chicago,Manhattan Beach,La Jolla",
             "description": "Add a personal touch to your favorite bag at our DIY Bag Charm Bar, featuring a special selection of pink charms in honor of Breast Cancer Awareness Month."
-          }
-        },
-        "event_NDke8C": {
-          "type": "event",
-          "settings": {
-            "image": "shopify://shop_images/permanent_jewelry.png",
-            "event_name": "Permanent Jewelry",
-            "date": "October 10-11, 2026",
-            "time": "10AM - 4PM",
-            "event_tags": "La Jolla",
-            "description": "Add a little glamour to your everyday with permanent jewelry, available for purchase."
           }
         },
         "event_K7eRVt": {
@@ -266,10 +266,10 @@
         }
       },
       "block_order": [
-        "event_4V4BGq",
         "event_m4QgtL",
-        "event_EkmyKX",
         "event_NDke8C",
+        "event_4V4BGq",
+        "event_EkmyKX",
         "event_K7eRVt",
         "event_PfyGNt",
         "event_dTVfWJ",
