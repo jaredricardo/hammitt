@@ -59,8 +59,8 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/HP-desktop-belted.jpg",
-        "image_2": "shopify://shop_images/HP-mobile-belted.jpg",
+        "image": "shopify://shop_images/chryy-desktop-hp.jpg",
+        "image_2": "shopify://shop_images/chryy-mobile-hp.jpg",
         "image_link": "shopify://collections/new-arrivals",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -116,6 +116,24 @@
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
+        "image_carousel_item_9Dcr6y": {
+          "type": "image-carousel-item",
+          "name": "Power Lunch",
+          "settings": {
+            "image": "shopify://shop_images/new-section-belted-suede.jpg",
+            "eyebrow": "BUCKLE UP",
+            "title": "Belted Espresso",
+            "subcopy": "Cinched to perfection with a glossy, pressed belt.",
+            "button_text": "SHOP Belted Espresso",
+            "collection_url": "belted-espresso",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
         "image_carousel_item_tG7tFW": {
           "type": "image-carousel-item",
           "name": "Starlight",
@@ -188,24 +206,6 @@
             "hide_quick_add": false
           }
         },
-        "image_carousel_item_9Dcr6y": {
-          "type": "image-carousel-item",
-          "name": "Power Lunch",
-          "settings": {
-            "image": "shopify://shop_images/new-section-belted-suede.jpg",
-            "eyebrow": "BUCKLE UP",
-            "title": "Belted Espresso",
-            "subcopy": "Cinched to perfection with a glossy, pressed belt.",
-            "button_text": "SHOP Belted Espresso",
-            "collection_url": "belted-espresso",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
         "image_carousel_item_mM7rxW": {
           "type": "image-carousel-item",
           "name": "Twin Crest Pebble",
@@ -226,11 +226,11 @@
         }
       },
       "block_order": [
+        "image_carousel_item_9Dcr6y",
         "image_carousel_item_tG7tFW",
         "image_carousel_item_PmpL63",
         "image_carousel_item_qEyyFk",
         "image_carousel_item_NKAmWd",
-        "image_carousel_item_9Dcr6y",
         "image_carousel_item_mM7rxW"
       ],
       "custom_css": [
