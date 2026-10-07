@@ -116,9 +116,27 @@
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
+        "image_carousel_item_PmpL63": {
+          "type": "image-carousel-item",
+          "name": "Gianna Black/Gold",
+          "settings": {
+            "image": "shopify://shop_images/PDP_26.3_1234-espresso_3.jpg",
+            "eyebrow": "A Long-Awaited Bucket Bag",
+            "title": "Meet Gianna",
+            "subcopy": "Elevated with statement hardware, mini rivets, and a roomy drawstring interior.",
+            "button_text": "SHOP Gianna",
+            "collection_url": "gianna",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
         "image_carousel_item_9Dcr6y": {
           "type": "image-carousel-item",
-          "name": "Power Lunch",
+          "name": "Belted Espresso",
           "settings": {
             "image": "shopify://shop_images/new-section-belted-suede.jpg",
             "eyebrow": "BUCKLE UP",
@@ -136,7 +154,7 @@
         },
         "image_carousel_item_tG7tFW": {
           "type": "image-carousel-item",
-          "name": "Starlight",
+          "name": "Cherrywood Suede",
           "settings": {
             "image": "shopify://shop_images/PDP_26.3_2392_2.jpg",
             "eyebrow": "Freshly Picked",
@@ -152,27 +170,9 @@
             "hide_quick_add": false
           }
         },
-        "image_carousel_item_PmpL63": {
-          "type": "image-carousel-item",
-          "name": "Starlight",
-          "settings": {
-            "image": "shopify://shop_images/PDP_26.3_1234-espresso_3.jpg",
-            "eyebrow": "A Long-Awaited Bucket Bag",
-            "title": "Meet Gianna",
-            "subcopy": "Elevated with statement hardware, mini rivets, and a roomy drawstring interior.",
-            "button_text": "SHOP Gianna",
-            "collection_url": "gianna",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
         "image_carousel_item_qEyyFk": {
           "type": "image-carousel-item",
-          "name": "Vanna",
+          "name": "Kyle Med Quilted",
           "settings": {
             "image": "shopify://shop_images/new-section-quilted.jpg",
             "eyebrow": "Classic craftsmanship",
@@ -190,7 +190,7 @@
         },
         "image_carousel_item_NKAmWd": {
           "type": "image-carousel-item",
-          "name": "Twin Crest",
+          "name": "Vivienne",
           "settings": {
             "image": "shopify://shop_images/new-section-vivienne.jpg",
             "eyebrow": "Our First Kisslock Bag",
@@ -205,33 +205,14 @@
             "hide_subtitle": false,
             "hide_quick_add": false
           }
-        },
-        "image_carousel_item_mM7rxW": {
-          "type": "image-carousel-item",
-          "name": "Twin Crest Pebble",
-          "settings": {
-            "image": "shopify://shop_images/Hammitt_Erica_Med-Cinnamon_Suede-AG_6_1_1.jpg",
-            "eyebrow": "SPICE OF LIFE",
-            "title": "Cinnamon Suede",
-            "subcopy": "Toasted-brown and velvety soft, each bag is trimmed with leather for a refined, grounded finish.",
-            "button_text": "SHOP Cinnamon Suede",
-            "collection_url": "cinnamon-suede",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
         }
       },
       "block_order": [
+        "image_carousel_item_PmpL63",
         "image_carousel_item_9Dcr6y",
         "image_carousel_item_tG7tFW",
-        "image_carousel_item_PmpL63",
         "image_carousel_item_qEyyFk",
-        "image_carousel_item_NKAmWd",
-        "image_carousel_item_mM7rxW"
+        "image_carousel_item_NKAmWd"
       ],
       "custom_css": [
         ".home-hero-section .section-wrap.no-abs a {text-decoration: none;}",
