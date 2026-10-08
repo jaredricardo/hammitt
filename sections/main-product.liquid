@@ -416,7 +416,9 @@
       </div>
       <div class="col">
         <span class="sticky-atc-price">{{ product.price | money_without_trailing_zeros }}</span>
-        <button class="button"></button>
+        <button class="button" type="button">
+          <span class="visually-hidden">{{ 'products.product.add_to_cart' | t }}</span>
+        </button>
       </div>
     </sticky-atc>
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} grid grid--1-col ">
@@ -436,7 +438,7 @@
               data-variant-price="{{ product.selected_or_first_available_variant.price | money }}"
               data-variant-color="{{ product_color | escape }}"
             >Save for later</pdp-save-for-later-button>
-            <div class="mobile-img-carousel__bullets" aria-hidden="true"></div>
+            <div class="mobile-img-carousel__bullets"></div>
             <div class="mobile-img-carousel__track">
               {%- for media in product.media -%}
                 {%- liquid
@@ -586,7 +588,7 @@
                         {{ featured_media.preview_image | image_url }} {{ media.preview_image.width }}w"
                         src="{{ featured_media | image_url: width: 416 }}"
                         sizes="(min-width: {{ settings.page_width }}px) calc(({{ settings.page_width | minus: 100 | times: media_width | round }} - 4rem) / 4), (min-width: 990px) calc(({{ media_width | times: 100 }}vw - 4rem) / 4), (min-width: 750px) calc((100vw - 15rem) / 8), calc((100vw - 14rem) / 3)"
-                        alt="{{ featured_media.alt | escape }}"
+                        alt="{{ featured_media.alt | default: product.title | escape }}"
                         height="208"
                         width="208"
                         loading="lazy"
@@ -628,7 +630,7 @@
                                   {% if media.preview_image.width >= 260 %}{{ media.preview_image | image_url: width: 260 }} 260w{% endif %}"
                           src="{{ media | image_url: width: 84, height: 84 }}"
                           sizes="(min-width: 1200px) calc((1200px - 19.5rem) / 12), (min-width: 750px) calc((100vw - 16.5rem) / 8), calc((100vw - 8rem) / 5)"
-                          alt="{{ media.alt | escape }}"
+                          alt="{{ media.alt | default: product.title | escape }}"
                           height="200"
                           width="200"
                           loading="lazy"
@@ -1069,7 +1071,7 @@
               <div class="flex align-center share-wrapper">
                 <span class="label">Share:</span>
                 <div class="share-icon">
-                  <a href="//www.facebook.com/sharer.php?u={{ shareurl }}&t={{ product.title }}" target="_blank">
+                  <a href="//www.facebook.com/sharer.php?u={{ shareurl }}&t={{ product.title }}" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
                     {% include 'icon-facebook' %}</a>
                 </div>
 
@@ -1087,12 +1089,12 @@
                   assign share_href = share_href | append: ':+' | append: shareurl
 
                 -%}
-                  <a href="//twitter.com/intent/tweet?text=Check%20out%20this%20{{ share_href }}"  target="_blank">
+                  <a href="//twitter.com/intent/tweet?text=Check%20out%20this%20{{ share_href }}" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">
                     {% include 'icon-twitter' %}</a>
                 </div>
 
                 <div class="share-icon">
-                  <a href="//pinterest.com/pin/create/button/?url={{ shareurl }}&media={{ product.featured_image | product_img_url: 'original' }}&description={{ product.title | strip_html | escape | replace: ' ', '%20' }}" count-layout="none"  target="_blank">
+                  <a href="//pinterest.com/pin/create/button/?url={{ shareurl }}&media={{ product.featured_image | product_img_url: 'original' }}&description={{ product.title | strip_html | escape | replace: ' ', '%20' }}" count-layout="none" target="_blank" rel="noopener noreferrer" aria-label="Share on Pinterest">
                     {% include 'icon-pinterest' %}</a>
                 </div>
             </div>

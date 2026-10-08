@@ -53,10 +53,10 @@
         {% if block.settings.category == category %}
         <div class="faq">
           <h4 class="faq__question" id="faq-question--{{ block.id }}" aria-expanded="false" aria-controls="faq--{{ block.id }}" role="button">{{ block.settings.title }} <span class="icon"></span></h4>
-          <div role="region" id="faq--{{block.id}}" class="faq__answer" aria-labeldby="faq-question--{{ block.id }}">
+          <div role="region" id="faq--{{block.id}}" class="faq__answer" aria-labelledby="faq-question--{{ block.id }}">
             {{ block.settings.answer }}
             {% if block.settings.image != blank %}
-            <img class="lazyload lazyfade"  src="{{ block.settings.image | img_url: '1x' }}" data-src="{{ block.settings.image | image_url: width: 800 }}" title="{{ block.settings.image.alt }}" width="100%" alt="{{ block.settings.image.alt }}" />
+            <img class="lazyload lazyfade"  src="{{ block.settings.image | img_url: '1x' }}" data-src="{{ block.settings.image | image_url: width: 800 }}" title="{{ block.settings.image.alt }}" width="100%" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" />
             {% endif %}
           </div>
         </div>
