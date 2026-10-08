@@ -862,14 +862,15 @@
           <span style="display:none;" class="heart-count"></span>
         </a>
         {% if section.settings.recently_viewed_page %}
-          <button class="recently-viewed-button">
+          <button class="recently-viewed-button" type="button">
             {% render 'icon-clock' %}
+            <span class="visually-hidden">Recently viewed</span>
             <span class="recently-viewed-count hidden"></span>
           </button>
           <div class="recently-viewed-nav hidden">
             <div class="page-width" style="margin: 0;">
               <div class="row">
-                <button id="rv-close" class="mobile">
+                <button id="rv-close" class="mobile" type="button" aria-label="{{ 'accessibility.close' | t }}">
                   {% render 'icon-close' %}
                 </button>
                 <h3 class="rv-title">Recently Viewed</h3>
