@@ -874,21 +874,6 @@ div#dynamic-checkout-cart {
   gap: 1rem;
 }
 
-.checkbox-message-area #hammitt-gift-message-checkbox {
-  accent-color: black;
-  cursor: pointer;
-  margin-left: 0px;
-}
-
-.cart-level-gift-options-container .hammitt-gift-note-area {
-  display: none;
-  margin-top: 8px;
-}
-
-.cart-level-gift-options-container:has(#hammitt-gift-message-checkbox:checked) .hammitt-gift-note-area {
-  display: block;
-}
-
 .hammit-checkbox-message {
   font-size: 12px;
   display: flex;
@@ -1400,6 +1385,111 @@ gifting-options-tooltip .tooltip-content {
 
 .line-item-gift-wrap-accordion .gifting-accordion[open] .gifting-accordion-icon {
   transform: rotate(-90deg);
+}
+
+/* Cart-level gifting options bar (lives at the top of .drawer__final) */
+.drawer__final .cart-level-gift-options-container {
+  --gifting-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --gifting-duration: 0.45s;
+  display: block;
+  margin: -12px -24px 12px;
+  padding: 0;
+  background: #fff;
+  border: none;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #F6F6F6;
+  border-radius: 0;
+}
+
+.drawer__final .cart-level-gift-options-container.hidden {
+  display: none;
+}
+
+cart-level-gifting-toggle {
+  display: block;
+}
+
+.cart-level-gifting-toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 24px;
+  margin: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cart-level-gifting-caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  transform-origin: 50% 50%;
+  transition: transform var(--gifting-duration) var(--gifting-ease);
+}
+
+.cart-level-gifting-caret .icon-caret {
+  position: static;
+  display: block;
+  width: 12px;
+  height: 8px;
+}
+
+cart-level-gifting-toggle.is-open .cart-level-gifting-caret {
+  transform: rotate(180deg);
+}
+
+/* 0fr -> 1fr animates to the content's natural height without JS measuring */
+.cart-level-gifting-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows var(--gifting-duration) var(--gifting-ease),
+    opacity var(--gifting-duration) var(--gifting-ease);
+}
+
+cart-level-gifting-toggle.is-open .cart-level-gifting-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.cart-level-gifting-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 24px;
+}
+
+.cart-level-gifting-panel-inner::after {
+  content: '';
+  display: block;
+  height: 14px;
+}
+
+.cart-level-gift-options-container .cart-drawer-gift-note {
+  margin-top: 4px;
+}
+
+.cart-level-gift-options-container .hammitt-gift-note-area textarea {
+  background-color: #F6F6F6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cart-level-gifting-caret,
+  .cart-level-gifting-panel {
+    transition: none;
+  }
 }
 
 .line-ribbon-upsell {
