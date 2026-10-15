@@ -1275,10 +1275,6 @@ summary::-webkit-details-marker {
   width: 100%;
 }
 
-.card__media .media {
-  background-color: #F9F8F6 !important;
-}
-
 .media--transparent {
   background-color: transparent;
 }
@@ -3068,7 +3064,6 @@ details-disclosure > details {
   border: var(--media-border-width) solid rgba(var(--color-foreground), var(--media-border-opacity));
   border-radius: var(--media-radius);
   overflow: visible !important;
-  background-color: #F9F8F6;
 }
 
 .global-media-settings:after {
@@ -4384,9 +4379,6 @@ minty-fresh-filter-input:has([name="filter.v.availability"][value="0"]),
     display: none !important;
 }
 
-.card-image {
-  background-color: #F9F8F6;
-}
 /* jr review section */
 
 .jr-customer-reviews {
