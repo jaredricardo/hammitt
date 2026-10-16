@@ -4,16 +4,22 @@ if (!customElements.get('product-form')) {
       super();
 
       this.form = this.querySelector('form');
+      // Take over submit and enable the id input before anything that depends on
+      // window globals, so a missing/late global can never cause a native POST without an id.
+      this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
+      const idInput = this.form.querySelector('[name=id]');
+      if (idInput) idInput.disabled = false;
+      // Reveal the submit button only once JS owns the submit and a variant id is present.
+      if (idInput && idInput.value) this.classList.add('product-form--ready');
+      this.cartDrawer = document.querySelector('cart-drawer');
+
       this.currentVariant = window.initialVariant;
-      if(this.currentVariant.available) {
+      if(this.currentVariant && this.currentVariant.available) {
         this.submitButton = this.querySelector('[type="submit"]');
         if(this.submitButton) {
           this.submitButton.disabled = false
         }
       }
-      this.form.querySelector('[name=id]').disabled = false;
-      this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
-      this.cartDrawer = document.querySelector('cart-drawer');
     }
 
     onSubmitHandler(evt) {
