@@ -9,6 +9,8 @@ if (!customElements.get('product-form')) {
       this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
       const idInput = this.form.querySelector('[name=id]');
       if (idInput) idInput.disabled = false;
+      // Reveal the submit button only once JS owns the submit and a variant id is present.
+      if (idInput && idInput.value) this.classList.add('product-form--ready');
       this.cartDrawer = document.querySelector('cart-drawer');
 
       this.currentVariant = window.initialVariant;
