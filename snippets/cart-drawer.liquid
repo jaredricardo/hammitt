@@ -1301,7 +1301,12 @@
       <div class="cart-level-gift-options-container {% if cart.item_count == 0 %} hidden {% endif %}">
         <cart-level-gifting-toggle>
           <button type="button" class="cart-level-gifting-toggle-button" aria-expanded="false" aria-controls="CartLevelGiftingPanel">
-            <span class="cart-level-gift-options-title">Gift Message</span>
+            <span class="cart-level-gift-options-title cart-level-gift-options-title--wave" aria-label="Gift Message">
+              {%- assign gift_message_letters = "G,i,f,t, ,M,e,s,s,a,g,e" | split: "," -%}
+              {%- for letter in gift_message_letters -%}
+                <span class="wave-letter" aria-hidden="true" style="--wave-delay: {{ forloop.index0 | times: 0.05 }}s;">{% if letter == " " %}&nbsp;{% else %}{{ letter }}{% endif %}</span>
+              {%- endfor -%}
+            </span>
             <span class="cart-level-gifting-caret">{% render 'icon-caret' %}</span>
           </button>
           <div class="cart-level-gifting-panel" id="CartLevelGiftingPanel" inert>

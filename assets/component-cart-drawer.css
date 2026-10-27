@@ -1244,6 +1244,34 @@ remove-from-save-for-later {
   cursor: pointer;
 }
 
+/* "Gift Message" letter-by-letter wave animation, replays every 5 seconds */
+.cart-level-gift-options-title--wave {
+  display: inline-flex;
+}
+
+.cart-level-gift-options-title--wave .wave-letter {
+  display: inline-block;
+  animation: cart-gift-options-wave 5s ease-in-out infinite;
+  animation-delay: var(--wave-delay, 0s);
+}
+
+@keyframes cart-gift-options-wave {
+  0%,
+  12%,
+  100% {
+    transform: translateY(0);
+  }
+  6% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cart-level-gift-options-title--wave .wave-letter {
+    animation: none;
+  }
+}
+
 /* Gifting Options Tooltip Styles */
 gifting-options-tooltip {
   position: relative;
