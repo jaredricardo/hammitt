@@ -1415,8 +1415,8 @@ gifting-options-tooltip .tooltip-content {
   transform: rotate(-90deg);
 }
 
-/* Cart-level gifting options bar (lives at the top of .drawer__final) */
-.drawer__final .cart-level-gift-options-container {
+/* Cart-level gifting options bar (lives at the top of the line-item area, above .drawer__content-items) */
+.drawer__items-inner .cart-level-gift-options-container {
   --gifting-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --gifting-duration: 0.45s;
   display: block;
@@ -1429,7 +1429,7 @@ gifting-options-tooltip .tooltip-content {
   border-radius: 0;
 }
 
-.drawer__final .cart-level-gift-options-container.hidden {
+.drawer__items-inner .cart-level-gift-options-container.hidden {
   display: none;
 }
 
