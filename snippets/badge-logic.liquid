@@ -20,8 +20,17 @@
         assign has_final_sale_tag = false
         assign has_back_in_stock_tag = false
         assign badge_tag = ''
-        
-        if product.tags contains 'coming-soon'
+
+        # product.tags contains is case-sensitive, and "tag:" prefixed tags can have inconsistent
+        # spacing (e.g. "tag:  new arrival" vs "tag: new arrival"), so build a normalized,
+        # lowercased, "tag:"-stripped, whitespace-trimmed version of the tags to compare against
+        assign tags_downcase = ''
+        for tag in product.tags
+            assign cleaned_tag = tag | downcase | remove: 'tag:' | strip
+            assign tags_downcase = tags_downcase | append: '||' | append: cleaned_tag
+        endfor
+
+        if tags_downcase contains 'coming-soon'
             assign has_coming_soon_tag = true
             assign special_tag_assigned = true
             assign badge_tag = 'Coming Soon'
@@ -31,7 +40,7 @@
             assign special_tag_assigned = true
         endif
 
-        if product.tags contains 'final sale' or product.tags contains 'sample sale' and product.compare_at_price > product.price 
+        if tags_downcase contains 'final sale' or tags_downcase contains 'sample sale' and product.compare_at_price > product.price 
             assign has_final_sale_tag = true
             assign special_tag_assigned = true
             assign badge_tag = 'Sale'
@@ -45,56 +54,56 @@
             endunless
         endif
 
-        if product.tags contains 'Seasonal Favorites 25' and special_tag_assigned == false
+        if tags_downcase contains 'seasonal favorites 25' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign has_seasonal_favorite_tag = true
             assign badge_tag = 'Seasonal Favorite'
         endif
 
-        if product.tags contains 'best-seller' and special_tag_assigned == false
+        if tags_downcase contains 'best-seller' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign has_best_seller_tag = true
             assign badge_tag = 'Bestseller'
         endif
 
-        if product.tags contains 'limited-release' and special_tag_assigned == false
+        if tags_downcase contains 'limited-release' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign has_limited_edition_tag = true
             assign badge_tag = 'Limited Release'
         endif
 
-        if product.tags contains 'celebrity-fav' and special_tag_assigned == false
+        if tags_downcase contains 'celebrity-fav' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign badge_tag = 'Celebrity Fave'
         endif
 
-        if product.tags contains 'back-in-stock' and special_tag_assigned == false
+        if tags_downcase contains 'back-in-stock' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign has_back_in_stock_tag = true
             assign badge_tag = 'Back in Stock'
         endif
 
-        if product.tags contains 'new-arrival' and special_tag_assigned == false
+        if tags_downcase contains 'new-arrival' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign badge_tag = 'New Arrival'
         endif
 
-        if product.tags contains 'tag: new arrival' and special_tag_assigned == false
+        if tags_downcase contains 'new arrival' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign badge_tag = 'New Arrival'
         endif
 
-        if product.tags contains 'tag: back in stock' and special_tag_assigned == false
+        if tags_downcase contains 'back in stock' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign badge_tag = 'Back in Stock'
         endif
 
-        if product.tags contains 'tag: Bestseller' and special_tag_assigned == false
+        if tags_downcase contains 'bestseller' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign badge_tag = 'Bestseller'
         endif
 
-        if product.tags contains 'tag: Celebrity Fave' and special_tag_assigned == false
+        if tags_downcase contains 'celebrity fave' and special_tag_assigned == false
             assign special_tag_assigned = true
             assign badge_tag = 'Celebrity Fave'
         endif
@@ -107,7 +116,7 @@
 
                 if tag_to_check contains 'tag:'
                     assign product_tag_assigned = true
-                    assign badge_tag = tag_to_check | remove: 'tag:'
+                    assign badge_tag = tag_to_check | remove: 'tag:' | strip
                 endif
 
                 if tag_to_check contains 'top gift'
