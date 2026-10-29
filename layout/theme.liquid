@@ -641,86 +641,68 @@ template-{{ template.name -}}
               }
             }
           })
+          // The gift note is only sent to checkout once the shopper has typed a message and clicked Save.
           class hammittGiftNote extends HTMLElement {
-            constructor() {
-              super()
+            connectedCallback() {
+              if(this.initialized) return
 
-                this.giftNoteValue = document.querySelector('input#hammitt-gift-message-form-input')
-                this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
-                this.saveButton = document.querySelector('#gift-note-save-button')
-                this.giftNoteCharLimit = document.querySelector('span#gift-note-char-limit')
-                this.giftNoteCheckbox = document.querySelector('input#hammitt-gift-message-checkbox')
-                this.checkboxMessageArea = this.querySelector('.checkbox-message-area')
-                this.textAreaPlaceholder = this.giftNoteTextArea.placeholder
-                this.giftNoteInitData = document.querySelector('.cart-drawer-gift-note')
-                this.currentNote = ''
+              this.giftNoteTextArea = this.querySelector('textarea#gift-note-text-area')
+              this.saveButton = this.querySelector('#gift-note-save-button')
+              this.giftNoteCharLimit = this.querySelector('#gift-note-char-limit')
+              if(!this.giftNoteTextArea || !this.saveButton) return
+              this.initialized = true
 
-                // Make entire checkbox-message-area clickable
-                if(this.checkboxMessageArea) {
-                  this.checkboxMessageArea.addEventListener('click', (e) => {
-                    // Don't toggle if clicking on the checkbox itself or the trigger button
-                    if(e.target === this.giftNoteCheckbox || 
-                       e.target.closest('hammitt-gifting-options-drawer-trigger-no-button')) {
-                      return
-                    }
-                    // Toggle the checkbox
-                    this.giftNoteCheckbox.checked = !this.giftNoteCheckbox.checked
-                    // Trigger the change event
-                    this.giftNoteCheckbox.dispatchEvent(new Event('change'))
-                  })
-                }
-    
-                document.querySelector('button#gift-note-save-button').addEventListener('click', () => {
+              this.giftNoteTextArea.addEventListener('input', () => {
+                this.updateCharCount()
+                this.setSavedState(this.isSaved())
+              })
 
-                  this.giftNoteTextArea = document.querySelector('textarea#gift-note-text-area')
-                  this.saveButton.classList.add('saved')
-                  this.saveButton.innerText = 'Saved'
-                  document.querySelector('input#hammitt-gift-message-form-input').value = this.currentNote
-                  this.textAreaPlaceholder = this.currentNote
-                  localStorage.setItem('giftNote', this.currentNote)
-                })
+              this.saveButton.addEventListener('click', () => this.save())
 
-                this.giftNoteCheckbox.addEventListener('change', (e) => {
-                  if(e.target.checked) return
-                  localStorage.removeItem('giftNote')
-                  this.giftNoteValue.value = ''
-                  this.giftNoteTextArea.value = ''
-                  this.giftNoteCharLimit.innerText = `0/500`
-                  this.saveButton.classList.remove('saved')
-                  this.saveButton.innerText = 'Save'
-                })
-
-                this.giftNoteTextArea.addEventListener('input', (e) => {
-                  if(e.target.value.length >= 500){
-                    this.giftNoteCharLimit.innerText = `500/500`
-                    this.saveButton.disabled = true
-                    return       
-                  } else {
-                    this.saveButton.disabled = false
-                    this.saveButton.classList.remove('saved')
-                    this.saveButton.innerText = 'Save'
-                    this.currentNote = e.target.value
-                    this.giftNoteCharLimit.innerText = `${e.target.value.length}/500`
-                  }
-                })
-           
-                if(localStorage.getItem('giftNote')){
-                  if(this.giftNoteValue) {
-                    this.giftNoteValue.value = localStorage.getItem('giftNote')
-                    this.giftNoteTextArea.value = localStorage.getItem('giftNote')
-                    this.giftNoteCheckbox.checked = true
-                    this.giftNoteCharLimit.innerText = `${localStorage.getItem('giftNote').length}/500`
-                    this.saveButton.classList.add('saved')
-                    this.saveButton.innerText = 'Saved'
-                  }
-                }
-
-                if(this.giftNoteInitData.dataset.serverHasNote === 'false' && !localStorage.getItem('giftNote')){
-                  localStorage.removeItem('giftNote')
-                  this.giftNoteCheckbox.checked = false
-                }
-
+              const storedNote = localStorage.getItem('giftNote')
+              if(storedNote) {
+                this.giftNoteTextArea.value = storedNote
+                this.setFormInput(storedNote)
               }
+              this.updateCharCount()
+              this.setSavedState(this.isSaved())
+            }
+
+            getFormInput() {
+              return document.querySelector('input#hammitt-gift-message-form-input')
+            }
+
+            setFormInput(value) {
+              const input = this.getFormInput()
+              if(input) input.value = value
+            }
+
+            isSaved() {
+              const note = this.giftNoteTextArea.value.trim()
+              return note !== '' && note === (localStorage.getItem('giftNote') || '')
+            }
+
+            save() {
+              const note = this.giftNoteTextArea.value.trim()
+              if(note) {
+                localStorage.setItem('giftNote', note)
+                this.setFormInput(note)
+              } else {
+                // Saving an empty box removes any previously saved message
+                localStorage.removeItem('giftNote')
+                this.setFormInput('')
+              }
+              this.setSavedState(this.isSaved())
+            }
+
+            updateCharCount() {
+              if(this.giftNoteCharLimit) this.giftNoteCharLimit.innerText = `${this.giftNoteTextArea.value.length}/500`
+            }
+
+            setSavedState(saved) {
+              this.saveButton.classList.toggle('saved', saved)
+              this.saveButton.innerText = saved ? 'Saved' : 'Save'
+            }
           }
           customElements.define('hammitt-cart-level-gift-note', hammittGiftNote)  
         })
