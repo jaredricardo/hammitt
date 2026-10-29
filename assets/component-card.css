@@ -178,6 +178,108 @@ quick-add-trigger {
   fill: #fff;
 }
 
+/* Product card carousel */
+.product-card-carousel__image {
+  opacity: 0;
+}
+
+.product-card-carousel__image.is-active {
+  opacity: 1;
+}
+
+product-card-carousel.product-card-carousel__controls {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: var(--card-image-padding);
+  width: calc(100% - 2 * var(--card-image-padding));
+  z-index: 2;
+  pointer-events: none;
+}
+
+.product-card-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28.8px;
+  height: 28.8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #121212;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.product-card-carousel__arrow::before {
+  content: '';
+  position: absolute;
+  inset: -1rem;
+}
+
+.product-card-carousel__arrow .icon-caret {
+  width: 9.6px;
+  height: 9.6px;
+}
+
+.product-card-carousel__arrow--prev {
+  left: 0px;
+}
+
+.product-card-carousel__arrow--prev .icon-caret {
+  transform: rotate(90deg);
+}
+
+.product-card-carousel__arrow--next {
+  right: 0px;
+}
+
+.product-card-carousel__arrow--next .icon-caret {
+  transform: rotate(-90deg);
+}
+
+.product-card-carousel__pagination {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 2px;
+  z-index: 1;
+}
+
+.product-card-carousel__pagination-bar {
+  flex: 1 1 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.45);
+  transition: background 150ms ease;
+}
+
+.product-card-carousel__pagination-bar.is-active {
+  background: #E2E2E2;
+}
+
+@media screen and (min-width: 990px) {
+  .product-card-carousel__arrow,
+  .product-card-carousel__pagination {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  .card-wrapper:hover .product-card-carousel__arrow,
+  .card-wrapper:hover .product-card-carousel__pagination {
+    opacity: 1;
+  }
+}
+
 .card__inner:not(.ratio) > .card__content {
   height: 100%;
 }

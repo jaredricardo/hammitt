@@ -999,6 +999,44 @@ class CardSwatches extends HTMLElement {
 
 customElements.define('card-swatches', CardSwatches);
 
+class ProductCardCarousel extends HTMLElement {
+  currentIndex = 0;
+
+  connectedCallback() {
+    this.mediaContainer = this.previousElementSibling;
+    if (!this.mediaContainer) return;
+    this.images = Array.from(this.mediaContainer.querySelectorAll('.product-card-carousel__image'));
+    this.paginationBars = Array.from(this.querySelectorAll('.product-card-carousel__pagination-bar'));
+    this.prevButton = this.querySelector('.product-card-carousel__arrow--prev');
+    this.nextButton = this.querySelector('.product-card-carousel__arrow--next');
+    if (this.images.length < 2) return;
+
+    this.prevButton?.addEventListener('click', this.onPrevClick);
+    this.nextButton?.addEventListener('click', this.onNextClick);
+  }
+
+  onPrevClick = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    this.show(this.currentIndex - 1);
+  }
+
+  onNextClick = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    this.show(this.currentIndex + 1);
+  }
+
+  show(index) {
+    const total = this.images.length;
+    this.currentIndex = (index + total) % total;
+    this.images.forEach((image, i) => image.classList.toggle('is-active', i === this.currentIndex));
+    this.paginationBars.forEach((bar, i) => bar.classList.toggle('is-active', i === this.currentIndex));
+  }
+}
+
+customElements.define('product-card-carousel', ProductCardCarousel);
+
 
 const playPauseVideo = () => {
   let videos = document.querySelectorAll("video");
