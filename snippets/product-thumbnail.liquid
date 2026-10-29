@@ -42,7 +42,7 @@
         {% unless lazy_load == false %}loading="lazy"{% endunless %}
         width="973"
         height="{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-        alt="{{ media.preview_image.alt | escape }}"
+        alt="{{ media.preview_image.alt | default: product.title | escape }}"
       >
     </div>
     <a href="{% if media.media_type == 'video' %}{{ media.sources[1].url }}{% else %}{{ media | external_video_url }}{% endif %}" class="product__media-toggle">
@@ -68,7 +68,7 @@
         {% unless lazy_load == false %}loading="lazy"{% endunless %}
         width="973"
         height="{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-        alt="{{ media.preview_image.alt | escape }}"
+        alt="{{ media.preview_image.alt | default: product.title | escape }}"
       >
     </div>
   {%- endif -%}
@@ -111,7 +111,7 @@
       {% endif %}
       width="973"
       height="{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-      alt="{{ media.preview_image.alt | escape }}"
+      alt="{{ media.preview_image.alt | default: product.title | escape }}"
     >
   </div>
   <button class="product__media-toggle quick-add-hidden" type="button" aria-haspopup="dialog" data-media-id="{{ media.id }}">
@@ -155,7 +155,7 @@
       {% unless lazy_load == false %}loading="lazy"{% endunless %}
       width="973"
       height="{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-      alt="{{ media.preview_image.alt | escape }}"
+      alt="{{ media.preview_image.alt | default: product.title | escape }}"
     >
   </button>
   <template>

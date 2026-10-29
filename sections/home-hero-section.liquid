@@ -280,7 +280,7 @@
         {% for block in section.blocks %}
           <div class="hero-text-item {% if forloop.first %}active{% endif %}" data-slide-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
             {% if block.settings.eyebrow != blank -%}
-              <h4 class="hero-eyebrow">{{ block.settings.eyebrow }}</h4>
+              <p class="hero-eyebrow">{{ block.settings.eyebrow }}</p>
             {%- endif -%}
             {%- if block.settings.title != blank -%}
               <h2 class="hero-title">{{ block.settings.title }}</h2>
@@ -315,7 +315,7 @@
                                 {{ block.settings.image | image_url: width: 1500 }} 1500w"
                         sizes="(min-width: 750px) 65vw, 100vw"
                         src="{{ block.settings.image | image_url: width: 1280 }}"
-                        alt="{{ block.settings.image.alt | default: block.settings.collection_url.title | escape }}"
+                        alt="{{ block.settings.image.alt | default: block.settings.collection_url.title | default: block.settings.title | escape }}"
                         width="{{ block.settings.image.width }}"
                         height="{{ block.settings.image.height }}"
                         loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
@@ -332,7 +332,7 @@
                                 {{ block.settings.image | image_url: width: 1500 }} 1500w"
                         sizes="(min-width: 750px) 65vw, 100vw"
                         src="{{ block.settings.image | image_url: width: 1280 }}"
-                        alt="{{ block.settings.image.alt | escape }}"
+                        alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
                         width="{{ block.settings.image.width }}"
                         height="{{ block.settings.image.height }}"
                         loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
@@ -535,7 +535,7 @@
                   {{ section.settings.image | image_url: width: 1920 }} 1920w"
           sizes="100vw"
           src="{{ section.settings.image | image_url: width: 1500 }}"
-          alt="{{ section.settings.image.alt }}"
+          alt="{{ section.settings.image.alt | default: section.settings.title | escape }}"
           width="{{ section.settings.image.width }}"
           height="{{ section.settings.image.height }}"
           {% if section.settings.mobile_image != blank %} class="small-hide"{% endif %}
@@ -548,7 +548,7 @@
                     {{ section.settings.mobile_image | image_url: width: 900 }} 900w"
             sizes="100vw"
             src="{{ section.settings.mobile_image | image_url: width: 750 }}"
-            alt="{{ section.settings.mobile_image.alt }}"
+            alt="{{ section.settings.mobile_image.alt | default: section.settings.title | escape }}"
             width="{{ section.settings.mobile_image.width }}"
             height="{{ section.settings.mobile_image.height }}"
             class="medium-hide large-up-hide"

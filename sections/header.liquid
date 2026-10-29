@@ -862,14 +862,15 @@
           <span style="display:none;" class="heart-count"></span>
         </a>
         {% if section.settings.recently_viewed_page %}
-          <button class="recently-viewed-button">
+          <button class="recently-viewed-button" type="button">
             {% render 'icon-clock' %}
+            <span class="visually-hidden">Recently viewed</span>
             <span class="recently-viewed-count hidden"></span>
           </button>
           <div class="recently-viewed-nav hidden">
             <div class="page-width" style="margin: 0;">
               <div class="row">
-                <button id="rv-close" class="mobile">
+                <button id="rv-close" class="mobile" type="button" aria-label="{{ 'accessibility.close' | t }}">
                   {% render 'icon-close' %}
                 </button>
                 <h3 class="rv-title">Recently Viewed</h3>
@@ -884,7 +885,7 @@
         {% endif %}
         <cart-drawer data-breakpoint="all"{% if template.name == "cart" %} style="pointer-events: none;"{% endif %}>
           <details id="Details-cart-drawer-container" class="cart-drawer-container">
-            <summary  class="header__icon header__icon--menu header__icon--summary link focus-inset cart-drawer-underlay-close" aria-label="{{ 'sections.header.menu' | t }}">
+            <summary  class="header__icon header__icon--menu header__icon--summary link focus-inset cart-drawer-underlay-close" aria-label="{{ 'templates.cart.cart' | t }}">
               <div id="cart-icon-bubble">
                 {% render 'icon-cart' %}
                 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
