@@ -22,33 +22,49 @@
         "padding_bottom_mobile": 0
       }
     },
-    "image_banner_MMGtjM": {
+    "scroll_to_top_button_mTtDQh": {
+      "type": "scroll-to-top-button",
+      "name": "Scroll To Top Button",
+      "settings": {}
+    },
+    "image_banner_nM6UKD": {
       "type": "image-banner",
       "blocks": {
-        "heading_Vzgbb7": {
+        "heading_bqCGnh": {
           "type": "heading",
           "settings": {
-            "heading": "2025 Gift Guide",
-            "heading_size_mobile": 26,
+            "heading": "To Carry. To Collect. To Keep.",
+            "heading_size_mobile": 30,
             "heading_size_tablet": 40,
-            "heading_size_desktop": 60
+            "heading_size_desktop": 56
           }
         },
-        "buttons_ULxDb8": {
+        "text_WeGYb4": {
+          "type": "text",
+          "settings": {
+            "text": "Our November drop captures the spirit of LA: bold by nature, creative by instinct, and never trying too hard.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        },
+        "buttons_9MzV9M": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop All Gifts",
-            "button_link_1": "shopify://collections/gifts",
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/new-arrivals",
             "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
-        "heading_Vzgbb7",
-        "buttons_ULxDb8"
+        "heading_bqCGnh",
+        "text_WeGYb4",
+        "buttons_9MzV9M"
       ],
-      "disabled": true,
-      "name": "Hero Banner",
+      "name": "November 2026",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -61,14 +77,14 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Untitled_1920_x_600_px_1920_x_720_px_2.gif",
-        "image_2": "shopify://shop_images/Untitled_design_8.gif",
-        "image_link": "",
-        "image_overlay_opacity": 0,
+        "image": "shopify://shop_images/HAMMITT_26.4_CAMP_Charlotte-Tote-Black-G-_00049_current-season-lp.jpg",
+        "image_2": "shopify://shop_images/HAMMITT_26.4_CAMP_Charlotte-Tote-Black-G-_00049-mobile-current-season-lp.jpg",
+        "image_link": "shopify://collections/belted-espresso",
+        "image_overlay_opacity": 20,
         "image_height": "adapt",
-        "desktop_content_position": "middle-left-more",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
-        "color_scheme": "dark",
+        "color_scheme": "light",
         "mobile_content_alignment": "center",
         "color_scheme_mobile": "dark",
         "show_text_below": true,
@@ -90,1052 +106,103 @@
         "custom_class": ""
       }
     },
-    "rich_text_gzQyQE": {
+    "slider_collection_qkwJj9": {
+      "type": "slider-collection",
+      "name": "New Arrivals",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "charlotte",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "rich_text_hHkTVE": {
       "type": "rich-text",
       "blocks": {
-        "heading_aabMwd": {
+        "heading_yQCUiG": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading_html_tag": "h2",
-            "heading": "The 2025 Holiday Gift Guide.",
+            "heading": "To Carry. To Collect. To Keep.",
             "heading_size": "h1"
           }
         },
-        "text_KCERHy": {
+        "text_kGmkYw": {
           "type": "text",
           "settings": {
-            "text": "<p>Treat yourself - or your nice list - to an indulgent selection of seasonal delights,<br/>from new silhouettes to luxe leathers.</p><p></p><p><a href=\"/collections/gifts\" title=\"Gifts\">Shop All Holiday Gifts</a></p>"
+            "text": "<h4>Beauty has a way of finding you here, often when you least expect it. Italian calf hair, supple suede, and light-catching metallics bring new romance to iconic Hammitt silhouettes, with enduring quality that wanders from one neighborhood, and one occasion, to the next.</h4>"
           }
         }
       },
       "block_order": [
-        "heading_aabMwd",
-        "text_KCERHy"
+        "heading_yQCUiG",
+        "text_kGmkYw"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_classes": "",
         "color_scheme": "background-1",
         "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 36
-      }
-    },
-    "image_with_text_TCqDkA": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_eewxb8": {
-          "type": "heading",
-          "settings": {
-            "heading": "Gift With Intention",
-            "heading_size": "h1"
-          }
-        },
-        "text_6XPJ3K": {
-          "type": "text",
-          "settings": {
-            "text": "<p>The totally delightful, always-in-style, one-size-fits-all gift.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_aQAHBf": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Digital Gift Card",
-            "button_link": "https://www.hammitt.com/products/rise-ai-giftcard",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_eewxb8",
-        "text_6XPJ3K",
-        "button_aQAHBf"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "id_for_scroll_navigator": "",
-        "image": "shopify://shop_images/2Group-12598.gif",
-        "height": "adapt",
-        "desktop_image_width": "large",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "center",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-1",
-        "mobile_content_alignment": "center",
-        "color_background": "",
-        "show_color_background": false,
-        "color_background_height": 50,
-        "padding_top": 20,
-        "padding_bottom": 8,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 36
-      }
-    },
-    "multicolumn_WVCLFJ": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_xniFjm": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12593.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/gift-guide-under-175",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 100,
-            "cta_width_desktop": 150,
-            "cta_top_spacing": 0,
-            "cta_bottom_spacing": 0
-          }
-        },
-        "column_ebwyaF": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12594.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/gift-guide-under-300",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_gxYzpw": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12595.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/300",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_xniFjm",
-        "column_ebwyaF",
-        "column_gxYzpw"
-      ],
-      "name": "Price",
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h2",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 3,
-        "columns_gap": 2,
-        "row_gap": 1,
-        "mobile_columns_gap": 0,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 30,
-        "padding_bottom": 30,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 30,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_CNUHMV": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "Bestselling Gifts",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "best-selling-bags",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 50
-      }
-    },
-    "multicolumn_4xLhqx": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_PmGUky": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_421_812f8181-f95d-48de-909b-6ac088e6bb85.jpg",
-            "title": "<strong>The Trendsetter</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/for-the-trendsetter",
-            "cta_color": "#000000",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": true,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_q7dmmp": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_798.jpg",
-            "title": "<strong>The Working Girl</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/work-bags",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_jbYx7W": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_799.jpg",
-            "title": "<strong>The Socialite Girl </strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/for-the-socialite",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_43Vhca": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_424_566c483c-7d90-447a-a3e0-e36d22f887ce.jpg",
-            "title": "<strong>The Traveler</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/travel-bags",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_PmGUky",
-        "column_q7dmmp",
-        "column_jbYx7W",
-        "column_43Vhca"
-      ],
-      "name": "Personality-1",
-      "settings": {
-        "title": "Perfect Presents For Your Whole Nice List",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 4,
-        "columns_gap": 2,
-        "row_gap": 1,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 5,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "Shop All Gifts",
-        "button_link": "shopify://collections/gifts",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 30,
-        "padding_bottom": 23,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 30,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_BgkfWd": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "for-the-socialite",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 20
-      }
-    },
-    "multicolumn_eh87iK": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_AtiDt7": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/KyleSmlChiliRed.jpg",
-            "title": "<strong>For The Socialite </strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/for-the-socialite",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_jpCKdK": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Screenshot-2025-11-06-at-3.01.22_PM_4.jpg",
-            "title": "<strong>For The Trendsetter</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/for-the-trendsetter",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_Qbz8CT": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/ZebraTomMed.jpg",
-            "title": "<strong>For The Maximalist</strong> <strong> </strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/for-a-maximalist",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_Da8MFR": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/090Rectangle_408.jpg",
-            "title": "<strong>For The Minimalist </strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 22,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/for-a-minimalist",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_AtiDt7",
-        "column_jpCKdK",
-        "column_Qbz8CT",
-        "column_Da8MFR"
-      ],
-      "disabled": true,
-      "name": "Personality-2",
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h2",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 4,
-        "columns_gap": 2,
-        "row_gap": 1,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 5,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "jr_new_5050_product_list_xxjnD8": {
-      "type": "jr-new-5050-product-list",
-      "name": "JR Product List & Image",
-      "settings": {
-        "background_color": "#ffffff",
-        "header_text_color": "#000000",
-        "title": "Little Delights: Stocking Stuffers",
-        "allow_sold_out_cards": false,
-        "product_list": [
-          "metal-chain-shoulder-strap-straps-gold",
-          "lauri-boot-charm-charm-chocolate-diamond-pebble-antique-gold",
-          "mini-b-espresso-pebble-silver",
-          "cowboy-russ-charm-red-flare-brushed-gold",
-          "metal-chain-shoulder-strap-straps-gold-silver",
-          "syd-pouch-accessory-cherrywood-pebble-brushed-gold"
-        ],
-        "image": "shopify://shop_images/Rectangle_966.jpg",
-        "image_alignment_desktop": "image-right",
-        "button_link": "shopify://collections/stocking-stuffers",
-        "button_text": "Shop All",
-        "button_text_color": "#ffffff",
-        "button_background_color": "#000000",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36
-      }
-    },
-    "multicolumn_4HmxhC": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_c3wpEi": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12596.jpg",
-            "title": "",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/for-a-maximalist",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 140,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_VKiQrM": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12597.jpg",
-            "title": "",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/for-someone-you-want-to-splurge-on",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 140,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_rzagE7": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Group_12598.jpg",
-            "title": "",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/special-events",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 16,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 140,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_c3wpEi",
-        "column_VKiQrM",
-        "column_rzagE7"
-      ],
-      "name": "Top rate -1 ",
-      "settings": {
-        "title": "All Things Merry & Bright",
-        "title_color": "#040404",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "#ffffff",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 3,
-        "columns_gap": 2,
-        "row_gap": 0,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "Shop Holiday Edit",
-        "button_link": "shopify://pages/current-season",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
         "padding_top": 40,
-        "padding_bottom": 30,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
     },
-    "slider_collection_EUcHMe": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "for-someone-you-want-to-splurge-on",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "multicolumn_BYFj4t": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_6PrLVw": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_934.jpg",
-            "title": "<strong>Shop Bestsellers</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/best-selling-bags",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_JCdiw8": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Soiree-Clutch-2107_1.jpg",
-            "title": "<strong>Shop Limited Drops</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/limited-drops",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_R9njnw": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_926.jpg",
-            "title": "<strong>Shop New Arrivals</strong>",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/new-arrivals",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_6PrLVw",
-        "column_JCdiw8",
-        "column_R9njnw"
-      ],
-      "name": "Celeb",
-      "settings": {
-        "title": "Top-Rated Gifts",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 3,
-        "columns_gap": 2,
-        "row_gap": 1,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "enable_peek": true,
-        "show_mobile_slider": true,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 0,
-        "custom_class": ""
-      }
-    },
-    "slider_collection_cJpFLP": {
-      "type": "slider-collection",
-      "name": "Slider Collection",
-      "settings": {
-        "title": "",
-        "heading_align": "center",
-        "heading_color": "",
-        "collection": "limited-drops",
-        "max_products": 30,
-        "image_ratio": "adapt",
-        "hide_price": false,
-        "hide_tag": false,
-        "hide_subtitle": false,
-        "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 30
-      }
-    },
-    "multicolumn_BB4haK": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_XKanRf": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_785_2.jpg",
-            "title": "<strong>Evening Bags</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/clutch",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_CzyW6d": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_421.jpg",
-            "title": "<strong>Special Events</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/special-events",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_dqDzin": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_423.jpg",
-            "title": "<strong>Holiday Errands</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/holiday-errands",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_gDeRK6": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/Rectangle_424.jpg",
-            "title": "<strong>Travel</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/travel",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "column_VgQwJ8": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/0---Rectangle-78000.jpg",
-            "title": "<strong>Backpack</strong>",
-            "b_title_color": "#ffffff",
-            "b_title_font_desktop": 18,
-            "b_title_font_mobile": 14,
-            "text": "",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/backpacks",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#ffffff",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "column_XKanRf",
-        "column_CzyW6d",
-        "column_dqDzin",
-        "column_gDeRK6",
-        "column_VgQwJ8"
-      ],
-      "disabled": true,
-      "name": "Occasion",
-      "settings": {
-        "title": "Holiday Plans? Shop By Occasion",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "square",
-        "image_padding": false,
-        "removed_section_padding": true,
-        "columns_desktop": 5,
-        "columns_gap": 2,
-        "row_gap": 1,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "overlay_type",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 34,
-        "padding_bottom": 0,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20,
-        "custom_class": ""
-      }
-    },
-    "image_banner_nWdjAN": {
+    "image_banner_bcFrhB": {
       "type": "image-banner",
       "blocks": {
-        "heading_UzXrV9": {
+        "heading_HPTw4m": {
           "type": "heading",
           "settings": {
-            "heading": "You pick the present.  We'll handle the rest.",
-            "heading_size_mobile": 20,
-            "heading_size_tablet": 30,
-            "heading_size_desktop": 40
+            "heading": "Found Moments. Forever Pieces.",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 56
           }
         },
-        "text_QhWqib": {
+        "text_me79zh": {
           "type": "text",
           "settings": {
-            "text": "",
-            "text_area_html_swap": "We’ll make every detail special, <br> from bespoke gift boxes to ribbon and handwritten notes.",
+            "text": "Distinctive yet effortless, each piece is crafted to be cherished and carried for years to come, whether it finds its way into your own collection or becomes a gift for someone you love.",
+            "text_area_html_swap": "",
             "text_style": "body",
-            "text_size_mobile": 13,
-            "text_size_tablet": 14,
-            "text_size_desktop": 16
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
           }
         },
-        "buttons_LttDfk": {
+        "buttons_VnBPTi": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Gifting Options",
-            "button_link_1": "shopify://pages/the-hammitt-box",
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/cherrywood-suede",
             "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
-        "heading_UzXrV9",
-        "text_QhWqib",
-        "buttons_LttDfk"
+        "heading_HPTw4m",
+        "text_me79zh",
+        "buttons_VnBPTi"
       ],
-      "disabled": true,
-      "name": "Box",
+      "name": "Second section",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
@@ -1148,13 +215,271 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Untitled_1920_x_600_px_1_1e41dfae-4a58-4d14-b145-5b458c50143c.gif",
-        "image_2": "shopify://shop_images/Untitled_design_9_1.gif",
-        "image_link": "shopify://pages/the-hammitt-box",
+        "image": "shopify://shop_images/HAMMITT_26.4_CAMP_Beverly-Med-Manor-Suede-Black-BG-Red-Zip-Safari-Calf-Cherrywood-Pebble-BG_00601-current-season-lp.jpg",
+        "image_2": "shopify://shop_images/HAMMITT_26.4_CAMP_Beverly-Med-Manor-Suede-Black-BG-Red-Zip-Safari-Calf-Cherrywood-Pebble-BG_00601-mobile-current-season-lp.jpg",
+        "image_link": "shopify://collections/belted-espresso",
+        "image_overlay_opacity": 20,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_LenKWB": {
+      "type": "slider-collection",
+      "name": "Safari",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "beverly",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_AX8wRm": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_qLfc4t": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cherrywood Suede",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 56
+          }
+        },
+        "buttons_irbCFV": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/cherrywood-suede",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_qLfc4t",
+        "buttons_irbCFV"
+      ],
+      "disabled": true,
+      "name": "cherrywood",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_13091.jpg",
+        "image_2": "shopify://shop_images/cherrywood-suede_-PDP_26.3_8873_4.jpg",
+        "image_link": "shopify://collections/belted-espresso",
+        "image_overlay_opacity": 20,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_PMJDLG": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Safari Calf Hair",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "safari-calf-hair",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_j4khXb": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_YR6eQp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Belted Espresso",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 56
+          }
+        },
+        "buttons_6WDpJm": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Belted Espresso",
+            "button_link_1": "shopify://collections/belted-espresso",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_YR6eQp",
+        "buttons_6WDpJm"
+      ],
+      "disabled": true,
+      "name": "belted espresso",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_13087_1.jpg",
+        "image_2": "shopify://shop_images/lp-belted-mobile.jpg",
+        "image_link": "shopify://collections/belted-espresso",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_77dtaL": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "belted widget ",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "belted-espresso",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_DcF4Jn": {
+      "type": "image-banner",
+      "disabled": true,
+      "name": "gianna",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/lp-gianna-desktop.jpg",
+        "image_2": "shopify://shop_images/lp-gianna-mobile.jpg",
+        "image_link": "shopify://collections/gianna",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-right",
-        "desktop_content_alignment": "left",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
         "color_scheme": "dark",
         "mobile_content_alignment": "center",
         "color_scheme_mobile": "dark",
@@ -1170,140 +495,627 @@
         "content_padding_bottom_mobile": 0,
         "content_padding_left_mobile": 0,
         "content_padding_right_mobile": 0,
-        "padding_top": 20,
-        "padding_bottom": 52,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 28,
+        "padding_top": 32,
+        "padding_bottom": 0,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 0,
         "custom_class": ""
       }
     },
-    "value_props_qYKcD4": {
-      "type": "value-props",
+    "slider_collection_rLCc8C": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "gianna widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "gianna",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_YRU3dW": {
+      "type": "image-banner",
       "blocks": {
-        "column_DQBQa7": {
-          "type": "column",
+        "heading_nH7bGp": {
+          "type": "heading",
           "disabled": true,
           "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/note_1.jpg",
-            "title": "",
-            "text": "<p><strong>Personalized Notes</strong></p>",
-            "link": ""
+            "heading": "Power Lunch",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 56
           }
         },
-        "column_q3mDP4": {
-          "type": "column",
-          "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/wrap_1.jpg",
-            "title": "",
-            "text": "<p><strong>Bespoke Boxes + Bows</strong></p>",
-            "link": ""
-          }
-        },
-        "column_RXqiyw": {
-          "type": "column",
+        "text_83GVFL": {
+          "type": "text",
           "disabled": true,
           "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/warranty_1.jpg",
-            "title": "",
-            "text": "<p><strong>Order Protection</strong></p>",
-            "link": ""
+            "text": "For the first time ever, mini rivets have arrived.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
           }
         },
-        "column_RFacgG": {
-          "type": "column",
+        "buttons_wtegiN": {
+          "type": "buttons",
+          "disabled": true,
           "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/warranty_1.jpg",
-            "title": "",
-            "text": "<p><strong>Ship To Multiple Recipients</strong></p>",
-            "link": ""
-          }
-        },
-        "column_jm3XE4": {
-          "type": "column",
-          "settings": {
-            "svg_image": "",
-            "icon_image": "shopify://shop_images/drop_1.jpg",
-            "title": "",
-            "text": "<p><strong>Drop A Hint</strong></p>",
-            "link": ""
+            "button_label_1": "Shop Power Lunch",
+            "button_link_1": "shopify://collections/power-lunch",
+            "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
-        "column_DQBQa7",
-        "column_q3mDP4",
-        "column_RXqiyw",
-        "column_RFacgG",
-        "column_jm3XE4"
+        "heading_nH7bGp",
+        "text_83GVFL",
+        "buttons_wtegiN"
       ],
       "disabled": true,
-      "name": "Value Props",
+      "name": "Vivienne",
       "settings": {
-        "title": "Our Gifting Experience",
-        "heading_size": "h2",
-        "paragraph": "",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "button_label": "Button label",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/lp-v-desktop.jpg",
+        "image_2": "shopify://shop_images/Group_13082.jpg",
+        "image_link": "shopify://collections/vivienne",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
         "padding_top": 0,
-        "padding_bottom": 36,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 24,
         "custom_class": ""
       }
     },
-    "rich_text_QBfDap": {
-      "type": "rich-text",
+    "slider_collection_RVdFJn": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Vivienne widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "vivienne",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_4ireFa": {
+      "type": "image-banner",
       "blocks": {
-        "text_aPbadq": {
-          "type": "text",
+        "heading_kmfPdk": {
+          "type": "heading",
+          "disabled": true,
           "settings": {
-            "text": "<p>Hammitt: The Perfect Holiday Gift for Everyone on Your List</p><p><em>This holiday season, give a gift they’ll truly love with Hammitt designer handbags and accessories. Crafted with buttery-soft leather, signature rivet detailing, and timeless California style, Hammitt bags make unforgettable luxury gifts for every person on your list.For Her: Surprise your mom, sister, or best friend with a chic Hammitt crossbody or elegant clutch she’ll carry all season long. For the Fashion Lover: Give the trendsetter in your life a statement designer bag that turns heads at every holiday gathering. For Yourself: Treat yourself to the ultimate holiday indulgence—because you deserve something special, too.From everyday handbags to holiday-ready evening bags, Hammitt makes luxury gifting effortless. Shop our Holiday Gift Guide to find thoughtful presents that combine timeless design, premium craftsmanship, and lasting quality.</em></p>"
+            "heading": "Power Lunch",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 56
+          }
+        },
+        "text_ECyUJ7": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "For the first time ever, mini rivets have arrived.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_wab6t6": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Shop Power Lunch",
+            "button_link_1": "shopify://collections/power-lunch",
+            "button_style_secondary_1": false
           }
         }
       },
       "block_order": [
-        "text_aPbadq"
+        "heading_kmfPdk",
+        "text_ECyUJ7",
+        "buttons_wab6t6"
       ],
-      "name": "t:sections.rich-text.presets.name",
+      "disabled": true,
+      "name": "The Quilted Collection ",
       "settings": {
         "custom_classes": "",
-        "color_scheme": "background-1",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/lp-q-desktop.jpg",
+        "image_2": "shopify://shop_images/lp-v-mobile.jpg",
+        "image_link": "shopify://collections/the-quilted-collection",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 24,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_FAwm8E": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "quilted widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "the-quilted-collection",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_BcDiEy": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_eyMEjk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Starlight",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 56
+          }
+        },
+        "text_L3JKzf": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "For the first time ever, mini rivets have arrived.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_TfaAa8": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Starlight",
+            "button_link_1": "shopify://collections/starlight",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_eyMEjk",
+        "text_L3JKzf",
+        "buttons_TfaAa8"
+      ],
+      "disabled": true,
+      "name": "starlight",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_13057.jpg",
+        "image_2": "shopify://shop_images/Group_13058.jpg",
+        "image_link": "shopify://collections/starlight",
+        "image_overlay_opacity": 20,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_N4wQ6F": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "starlight widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "starlight",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_FpEWWy": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_GrHa7H": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cherrywood",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 56
+          }
+        },
+        "text_WnMBtw": {
+          "type": "text",
+          "settings": {
+            "text": "Rich, understated, and destined to define the season.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_Tm8nxK": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Cherrywood",
+            "button_link_1": "shopify://collections/cherrywood",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_GrHa7H",
+        "text_WnMBtw",
+        "buttons_Tm8nxK"
+      ],
+      "disabled": true,
+      "name": "Cherrywood",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_13017.jpg",
+        "image_2": "shopify://shop_images/PDP_26.3_0734_2.jpg",
+        "image_link": "shopify://collections/cherrywood",
+        "image_overlay_opacity": 20,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_WyxHUY": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Cherrywood widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "cherrywood",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_mKEG8W": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Q7JTYx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cinnamon Suede",
+            "heading_size_mobile": 36,
+            "heading_size_tablet": 40,
+            "heading_size_desktop": 56
+          }
+        },
+        "text_gXhyYP": {
+          "type": "text",
+          "settings": {
+            "text": "A warm toasted-brown suede to add a little spice.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 13,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        },
+        "buttons_8H6nJ4": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Cinnamon Suede",
+            "button_link_1": "shopify://collections/chili-red",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Q7JTYx",
+        "text_gXhyYP",
+        "buttons_8H6nJ4"
+      ],
+      "disabled": true,
+      "name": "Cinnamon Suede",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/LP-august-cinnamon-desktop.jpg",
+        "image_2": "shopify://shop_images/LP-august-cinnamon-mobile.jpg",
+        "image_link": "shopify://collections/cinnamon-suede",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 20,
+        "padding_bottom": 12,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
+    "slider_collection_VGjDbT": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Cinnamon Suede widget",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "cinnamon-suede",
+        "max_products": 10,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "slider_collection_qRyDJi": {
+      "type": "slider-collection",
+      "disabled": true,
+      "name": "Shop All New",
+      "settings": {
+        "title": "Shop All New Arrivals",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "shopify://collections/new-arrivals",
+        "collection": "new-arrivals",
+        "max_products": 20,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 50,
+        "padding_bottom": 20,
+        "mobile_padding_top": 39,
+        "mobile_padding_bottom": 0
       }
     }
   },
   "order": [
     "main",
-    "image_banner_MMGtjM",
-    "rich_text_gzQyQE",
-    "image_with_text_TCqDkA",
-    "multicolumn_WVCLFJ",
-    "slider_collection_CNUHMV",
-    "multicolumn_4xLhqx",
-    "slider_collection_BgkfWd",
-    "multicolumn_eh87iK",
-    "jr_new_5050_product_list_xxjnD8",
-    "multicolumn_4HmxhC",
-    "slider_collection_EUcHMe",
-    "multicolumn_BYFj4t",
-    "slider_collection_cJpFLP",
-    "multicolumn_BB4haK",
-    "image_banner_nWdjAN",
-    "value_props_qYKcD4",
-    "rich_text_QBfDap"
+    "scroll_to_top_button_mTtDQh",
+    "image_banner_nM6UKD",
+    "slider_collection_qkwJj9",
+    "rich_text_hHkTVE",
+    "image_banner_bcFrhB",
+    "slider_collection_LenKWB",
+    "image_banner_AX8wRm",
+    "slider_collection_PMJDLG",
+    "image_banner_j4khXb",
+    "slider_collection_77dtaL",
+    "image_banner_DcF4Jn",
+    "slider_collection_rLCc8C",
+    "image_banner_YRU3dW",
+    "slider_collection_RVdFJn",
+    "image_banner_4ireFa",
+    "slider_collection_FAwm8E",
+    "image_banner_BcDiEy",
+    "slider_collection_N4wQ6F",
+    "image_banner_FpEWWy",
+    "slider_collection_WyxHUY",
+    "image_banner_mKEG8W",
+    "slider_collection_VGjDbT",
+    "slider_collection_qRyDJi"
   ]
 }
