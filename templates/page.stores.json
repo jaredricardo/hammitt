@@ -107,6 +107,14 @@
     "image_and_link_scroller_kchrin": {
       "type": "image-and-link-scroller",
       "blocks": {
+        "image_link_bgVjnd": {
+          "type": "image_link",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Newport_Beach.jpg",
+            "title": "Newport Beach",
+            "link": "https://www.hammitt.com/pages/newport-beach"
+          }
+        },
         "image_link_6e6CQt": {
           "type": "image_link",
           "settings": {
@@ -141,6 +149,7 @@
         }
       },
       "block_order": [
+        "image_link_bgVjnd",
         "image_link_6e6CQt",
         "image_link_N4Jwnp",
         "image_link_3RMzR4",
