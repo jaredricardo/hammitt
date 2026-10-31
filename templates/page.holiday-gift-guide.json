@@ -108,6 +108,7 @@
     },
     "slider_collection_qkwJj9": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "New Arrivals",
       "settings": {
         "title": "",
@@ -154,6 +155,7 @@
         "heading_yQCUiG",
         "text_kGmkYw"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_classes": "",
@@ -202,6 +204,7 @@
         "text_me79zh",
         "buttons_VnBPTi"
       ],
+      "disabled": true,
       "name": "Second section",
       "settings": {
         "custom_classes": "",
@@ -246,6 +249,7 @@
     },
     "slider_collection_LenKWB": {
       "type": "slider-collection",
+      "disabled": true,
       "name": "Safari",
       "settings": {
         "title": "",
@@ -1049,7 +1053,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Multicolumn",
+        "title": "",
         "title_color": "",
         "heading_size": "h1",
         "paragraph": "",
@@ -1060,7 +1064,7 @@
         "image_padding": false,
         "removed_section_padding": true,
         "columns_desktop": 4,
-        "columns_gap": 6,
+        "columns_gap": 16,
         "row_gap": 2,
         "mobile_columns_gap": 2,
         "mobile_row_gap": 2,
@@ -1074,8 +1078,8 @@
         "swipe_on_mobile": false,
         "enable_peek": false,
         "show_mobile_slider": true,
-        "padding_top": 36,
-        "padding_bottom": 36,
+        "padding_top": 20,
+        "padding_bottom": 20,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36,
         "custom_class": ""
@@ -1245,7 +1249,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Multicolumn",
+        "title": "",
         "title_color": "",
         "heading_size": "h1",
         "paragraph": "",
@@ -1256,8 +1260,8 @@
         "image_padding": false,
         "removed_section_padding": true,
         "columns_desktop": 3,
-        "columns_gap": 2,
-        "row_gap": 2,
+        "columns_gap": 10,
+        "row_gap": 10,
         "mobile_columns_gap": 2,
         "mobile_row_gap": 2,
         "column_alignment": "center",
@@ -1270,7 +1274,7 @@
         "swipe_on_mobile": false,
         "enable_peek": false,
         "show_mobile_slider": true,
-        "padding_top": 36,
+        "padding_top": 60,
         "padding_bottom": 36,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36,
@@ -1440,7 +1444,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "Multicolumn",
+        "title": "",
         "title_color": "",
         "heading_size": "h1",
         "paragraph": "",
@@ -1465,11 +1469,63 @@
         "swipe_on_mobile": false,
         "enable_peek": false,
         "show_mobile_slider": true,
-        "padding_top": 36,
+        "padding_top": 60,
         "padding_bottom": 36,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36,
         "custom_class": ""
+      }
+    },
+    "image_with_text_hF4XGF": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_wpJ4Vt": {
+          "type": "heading",
+          "settings": {
+            "heading": "All Wrapped Up",
+            "heading_size": "h1"
+          }
+        },
+        "text_EFNADb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Make unwrapping unforgettable with our signature gift box. Add a festive red bow at checkout for the perfect finishing touch, ready to place beneath the tree.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_qwmxLk": {
+          "type": "button",
+          "settings": {
+            "button_label": "EXPLORE MORE GIFTS",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_wpJ4Vt",
+        "text_EFNADb",
+        "button_qwmxLk"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "id_for_scroll_navigator": "",
+        "image": "shopify://shop_images/Frame_12700.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "color_background": "",
+        "show_color_background": false,
+        "color_background_height": 50,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
     }
   },
@@ -1497,6 +1553,7 @@
     "slider_collection_qRyDJi",
     "multicolumn_MdimRQ",
     "multicolumn_Atj7pR",
-    "multicolumn_eLXKyj"
+    "multicolumn_eLXKyj",
+    "image_with_text_hF4XGF"
   ]
 }
