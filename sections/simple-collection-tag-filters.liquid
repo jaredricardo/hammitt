@@ -1,0 +1,247 @@
+{% style %}
+
+  [data-section-id="{{ section.id }}"] {
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  collection-tag-filters {
+    display: block;
+  }
+
+  /* Mirrors .simple-collection-links li a so buttons look identical to the link version */
+  .collection-tag-filters .collection-tag-filters__button {
+    appearance: none;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    min-height: 0;
+    min-width: 0;
+    line-height: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    color: #626262;
+    padding: 0rem 1.5rem 0rem 0;
+    font-weight: 600 !important;
+    font-family: "Nunito Sans", sans-serif !important;
+    font-size: 14px !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  .collection-tag-filters .collection-tag-filters__button:hover,
+  .collection-tag-filters .collection-tag-filters__button.is-active {
+    text-decoration: underline;
+    color: black;
+  }
+
+  #product-grid-container #product-grid > .collection-tag-filters--hidden {
+    display: none !important;
+  }
+
+  #product-grid-container .collection-tag-filters__empty {
+    padding: 4rem 0;
+    text-align: center;
+    width: 100%;
+  }
+
+{% endstyle %}
+
+{%- assign tag_filter_blocks = section.blocks | where: 'type', 'tag-filter' -%}
+
+{%- if tag_filter_blocks.size > 0 -%}
+  <section class="simple-collection-links collection-tag-filters page-width" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id != blank %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
+    <collection-tag-filters data-empty-message="{{ section.settings.empty_message | escape }}">
+      <ul>
+        {%- if section.settings.show_all_option -%}
+          <li>
+            <button type="button" class="collection-tag-filters__button is-active" data-tag-filter="" aria-pressed="true">
+              {{ section.settings.all_label | default: 'All' | strip | escape }}
+            </button>
+          </li>
+        {%- endif -%}
+        {%- for block in tag_filter_blocks -%}
+          {%- assign filter_handle = block.settings.filter_handle | handle -%}
+          {%- if filter_handle == blank -%}{%- continue -%}{%- endif -%}
+          <li {{ block.shopify_attributes }}>
+            <button type="button" class="collection-tag-filters__button" data-tag-filter="{{ filter_handle }}" aria-pressed="false">
+              {%- if block.settings.title != blank -%}
+                {{ block.settings.title | strip | escape }}
+              {%- else -%}
+                {{ filter_handle }}
+              {%- endif -%}
+            </button>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </collection-tag-filters>
+  </section>
+{%- endif -%}
+
+<script>
+  if (!customElements.get('collection-tag-filters')) {
+    class CollectionTagFilters extends HTMLElement {
+      static HIDDEN_CLASS = 'collection-tag-filters--hidden';
+
+      connectedCallback() {
+        this.activeHandle = '';
+        this.buttons = Array.from(this.querySelectorAll('[data-tag-filter]'));
+        this.gridContainer = document.getElementById('product-grid-container');
+
+        this.emptyMessage = document.createElement('p');
+        this.emptyMessage.className = 'collection-tag-filters__empty';
+        this.emptyMessage.textContent = this.dataset.emptyMessage || 'No products match this filter.';
+
+        this.handleClick = this.handleClick.bind(this);
+        this.addEventListener('click', this.handleClick);
+
+        // Re-apply the active filter when infinite scroll appends cards or facets re-render the grid
+        if (this.gridContainer) {
+          this.observer = new MutationObserver(() => {
+            if (!this.activeHandle || this.pendingFrame) return;
+            this.pendingFrame = requestAnimationFrame(() => {
+              this.pendingFrame = null;
+              this.applyFilter();
+            });
+          });
+          this.observer.observe(this.gridContainer, { childList: true, subtree: true });
+        }
+      }
+
+      disconnectedCallback() {
+        this.removeEventListener('click', this.handleClick);
+        if (this.observer) this.observer.disconnect();
+        if (this.pendingFrame) cancelAnimationFrame(this.pendingFrame);
+
+        // Restore the grid if the section is removed/re-rendered in the theme editor
+        this.activeHandle = '';
+        this.applyFilter();
+      }
+
+      handleClick(event) {
+        const button = event.target.closest('[data-tag-filter]');
+        if (!button || !this.contains(button)) return;
+
+        const handle = button.dataset.tagFilter;
+        // Clicking the active filter again clears it
+        this.activeHandle = handle === this.activeHandle ? '' : handle;
+
+        this.updateButtons();
+        this.applyFilter();
+      }
+
+      updateButtons() {
+        this.buttons.forEach((button) => {
+          const isActive = button.dataset.tagFilter === this.activeHandle;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      applyFilter() {
+        const grid = this.gridContainer && this.gridContainer.querySelector('#product-grid');
+        if (!grid) return;
+
+        let visibleCount = 0;
+
+        Array.from(grid.children).forEach((item) => {
+          if (!this.activeHandle) {
+            item.classList.remove(CollectionTagFilters.HIDDEN_CLASS);
+            return;
+          }
+
+          // Non-product items (merch boxes, marketing tiles) have no tags and are hidden while filtering
+          const tags = (item.dataset.productTags || '').split(',');
+          const isMatch = tags.includes(this.activeHandle);
+
+          item.classList.toggle(CollectionTagFilters.HIDDEN_CLASS, !isMatch);
+          if (isMatch) visibleCount++;
+        });
+
+        this.toggleEmptyMessage(grid, Boolean(this.activeHandle) && visibleCount === 0);
+      }
+
+      toggleEmptyMessage(grid, shouldShow) {
+        const isPlaced = this.emptyMessage.isConnected && this.emptyMessage.previousElementSibling === grid;
+
+        if (shouldShow && !isPlaced) {
+          grid.insertAdjacentElement('afterend', this.emptyMessage);
+        } else if (!shouldShow && this.emptyMessage.isConnected) {
+          this.emptyMessage.remove();
+        }
+      }
+    }
+
+    customElements.define('collection-tag-filters', CollectionTagFilters);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Collection tag filters",
+  "enabled_on": {
+    "templates": ["collection"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Filters the product grid on this page by product tag without reloading. Only works on templates that include the main collection product grid."
+    },
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section Anchor ID (optional)"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_all_option",
+      "label": "Show \"All\" option",
+      "info": "Adds a first option that clears the active filter.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "all_label",
+      "label": "\"All\" option label",
+      "default": "All"
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "No results message",
+      "default": "No products match this filter."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tag-filter",
+      "name": "Tag Filter",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "filter_handle",
+          "label": "Filter (tag handle)",
+          "info": "The product tag to filter by, as a handle. E.g. the tag \"Crossbody\" is \"crossbody\" and \"Shoulder Bag\" is \"shoulder-bag\"."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection tag filters"
+    }
+  ]
+}
+{% endschema %}
