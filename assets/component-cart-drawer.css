@@ -1441,6 +1441,13 @@ cart-level-gifting-toggle {
   display: block;
 }
 
+cart-level-gifting-toggle[data-initialized]:not(:has(
+  hammitt-cart-level-gift-note:not([data-ready]),
+  hammitt-box-opt-out:not(:defined)
+)) {
+  visibility: visible;
+}
+
 .cart-level-gifting-toggle-button {
   display: flex;
   align-items: center;
