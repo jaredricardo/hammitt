@@ -632,15 +632,68 @@ template-{{ template.name -}}
     {% if settings.enable_hammitt_gift_messaging %}
       <script>
         window.addEventListener('DOMContentLoaded', () => {
-          // lazy wat of persisting this data
-          document.addEventListener('cart:updated', (event) => {
-            if(document.querySelector('#hammitt-gift-message-form-input')) {
-              if(localStorage.getItem('giftNote')) {
-                const storageVal = localStorage.getItem('giftNote')
-                document.querySelector('#hammitt-gift-message-form-input').value = storageVal
-              }
+          let cartRevision = 0
+          let giftNoteCartToken = ''
+          let cartReady = false
+          let giftNoteCartItemCount = 0
+
+          function syncGiftNote(cart) {
+            const { token, item_count: itemCount } = cart
+            if(!token || !Number.isInteger(itemCount)) throw new Error('Invalid gift note cart state')
+
+            const previousToken = giftNoteCartToken
+            giftNoteCartToken = token.split('?')[0]
+            giftNoteCartItemCount = itemCount
+            cartReady = true
+            const savedToken = localStorage.getItem('giftNoteCartToken')
+            const hasSavedNote = localStorage.getItem('giftNote') !== null || savedToken !== null
+            if(itemCount === 0 ||
+              (hasSavedNote && savedToken !== giftNoteCartToken) ||
+              (previousToken && previousToken !== giftNoteCartToken)) {
+              localStorage.removeItem('giftNote')
+              localStorage.removeItem('giftNoteCartToken')
+              document.querySelectorAll('hammitt-cart-level-gift-note').forEach(element => {
+                if(element.initialized) {
+                  element.giftNoteTextArea.value = ''
+                  element.updateCharCount()
+                  element.setSavedState(false)
+                }
+              })
             }
+
+            const input = document.querySelector('#hammitt-gift-message-form-input')
+            if(input) input.value = localStorage.getItem('giftNote') || ''
+          }
+
+          async function refreshGiftNote(cart) {
+            const revision = ++cartRevision
+            cartReady = false
+            document.querySelectorAll('hammitt-cart-level-gift-note').forEach(element => {
+              if(element.initialized) element.saveButton.disabled = true
+            })
+            try {
+              // Add-to-cart responses and Edgemesh placeholders do not contain a cart token.
+              if(!cart?.token || !Number.isInteger(cart.item_count)) {
+                const response = await fetch(window.Shopify.routes.root + 'cart.js')
+                if(!response.ok) throw new Error(`Cart request failed: ${response.status}`)
+                cart = await response.json()
+              }
+              if(revision !== cartRevision) return
+              syncGiftNote(cart)
+              document.querySelectorAll('hammitt-cart-level-gift-note').forEach(element => {
+                if(element.initialized) element.restore()
+              })
+            } catch(error) {
+              console.error('Error refreshing gift note cart state:', error)
+            }
+          }
+
+          document.addEventListener('cart:updated', event => refreshGiftNote(event.detail?.cart))
+          // Also revalidate when returning from checkout via the back/forward cache.
+          window.addEventListener('pageshow', event => {
+            if(event.persisted) return refreshGiftNote()
           })
+
           // The gift note is only sent to checkout once the shopper has typed a message and clicked Save.
           class hammittGiftNote extends HTMLElement {
             connectedCallback() {
@@ -659,11 +712,15 @@ template-{{ template.name -}}
 
               this.saveButton.addEventListener('click', () => this.save())
 
-              const storedNote = localStorage.getItem('giftNote')
-              if(storedNote) {
-                this.giftNoteTextArea.value = storedNote
-                this.setFormInput(storedNote)
-              }
+              this.restore()
+            }
+
+            restore() {
+              const storedNote = giftNoteCartToken && localStorage.getItem('giftNoteCartToken') === giftNoteCartToken
+                ? localStorage.getItem('giftNote') || ''
+                : ''
+              this.giftNoteTextArea.value = storedNote
+              this.setFormInput(storedNote)
               this.updateCharCount()
               this.setSavedState(this.isSaved())
             }
@@ -683,13 +740,19 @@ template-{{ template.name -}}
             }
 
             save() {
+              if(!cartReady || giftNoteCartItemCount === 0) {
+                console.error('Cannot save gift note before cart state is available')
+                return
+              }
               const note = this.giftNoteTextArea.value.trim()
               if(note) {
                 localStorage.setItem('giftNote', note)
+                localStorage.setItem('giftNoteCartToken', giftNoteCartToken)
                 this.setFormInput(note)
               } else {
                 // Saving an empty box removes any previously saved message
                 localStorage.removeItem('giftNote')
+                localStorage.removeItem('giftNoteCartToken')
                 this.setFormInput('')
               }
               this.setSavedState(this.isSaved())
@@ -700,11 +763,13 @@ template-{{ template.name -}}
             }
 
             setSavedState(saved) {
+              this.saveButton.disabled = !cartReady || giftNoteCartItemCount === 0
               this.saveButton.classList.toggle('saved', saved)
               this.saveButton.innerText = saved ? 'Saved' : 'Save'
             }
           }
           customElements.define('hammitt-cart-level-gift-note', hammittGiftNote)  
+          refreshGiftNote()
         })
       </script>
     {% endif %}
