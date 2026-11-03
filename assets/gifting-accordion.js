@@ -76,10 +76,12 @@ class CartLevelGiftingToggle extends HTMLElement {
   connectedCallback() {
     this.onClick = this.onClick.bind(this)
     this.addEventListener('click', this.onClick)
+    this.setAttribute('data-initialized', '')
   }
 
   disconnectedCallback() {
     this.removeEventListener('click', this.onClick)
+    this.removeAttribute('data-initialized')
   }
 
   onClick(event) {

@@ -669,6 +669,7 @@ template-{{ template.name -}}
             const revision = ++cartRevision
             cartReady = false
             document.querySelectorAll('hammitt-cart-level-gift-note').forEach(element => {
+              element.removeAttribute('data-ready')
               if(element.initialized) element.saveButton.disabled = true
             })
             try {
@@ -689,6 +690,11 @@ template-{{ template.name -}}
           }
 
           document.addEventListener('cart:updated', event => refreshGiftNote(event.detail?.cart))
+          window.addEventListener('pagehide', () => {
+            document.querySelectorAll('hammitt-cart-level-gift-note').forEach(element => {
+              element.removeAttribute('data-ready')
+            })
+          })
           // Also revalidate when returning from checkout via the back/forward cache.
           window.addEventListener('pageshow', event => {
             if(event.persisted) return refreshGiftNote()
@@ -723,6 +729,7 @@ template-{{ template.name -}}
               this.setFormInput(storedNote)
               this.updateCharCount()
               this.setSavedState(this.isSaved())
+              this.toggleAttribute('data-ready', cartReady)
             }
 
             getFormInput() {
@@ -1076,6 +1083,12 @@ template-{{ template.name -}}
             "store_lat":  33.8851268,
             "store_lng": -118.4100378,
             "store_link": "/pages/manhattan-beach"
+          },
+          "newport_beach": {
+            "store_name": "Newport Beach",
+            "store_lat":  33.615898,
+            "store_lng": -117.874847,
+            "store_link": "/pages/newport-beach"
           }
         }
 
