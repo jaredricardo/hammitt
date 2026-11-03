@@ -129,7 +129,8 @@
 
             // copied and converted and modified the liquid tag logic from badge-logic.liquid into this js version
 
-            const tags = product.product_types || []
+            const rawTags = (product.product_types || []).map(t => t.toLowerCase())
+            const tags = rawTags.map(t => t.replace('tag:', '').trim())
             const only_a_few_left_threshold = {{ settings.only_a_few_left_threshold | json }}
             const only_a_few_left_text = {{ settings.only_a_few_left_text | json }}
 
@@ -200,7 +201,7 @@
                 `
             }
 
-            if(tags.includes('new arrival') || tags.includes('tag: new arrival')) {
+            if(tags.includes('new arrival')) {
                 return `
                     <span class="badge tag-badge badge--top-right">
                         New Arrival
@@ -220,10 +221,10 @@
 
             let usesBasicTag = false
             let basicTagHtml = 'NO TAG HTML'
-            for(let i = 0; i < tags.length; i++) {
-                if(tags[i].includes('tag:')) {
+            for(let i = 0; i < rawTags.length; i++) {
+                if(rawTags[i].includes('tag:')) {
                     usesBasicTag = true
-                    let tag = tags[i].replace('tag:', '').trim().toLowerCase()
+                    let tag = tags[i]
                     basicTagHtml = `
                         <span class="badge tag-badge badge--${tag} badge--top-right">
                             ${ tag }
