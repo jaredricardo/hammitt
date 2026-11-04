@@ -123,7 +123,7 @@
   .banner__heading.image-banner_title{
     font-weight: 400;
   }
-  #shopify-section-{{ section.id }} .section-header-wrap h2{color:{{section.settings.title_color}};}
+  #shopify-section-{{ section.id }} .section-header-wrap .section-header-wrap__title{color:{{section.settings.title_color}};}
   #shopify-section-{{ section.id }} .section-header-wrap p{color:{{section.settings.description_color}};}
 {%- endstyle -%}
 
@@ -168,7 +168,8 @@
   {% if section.settings.title != blank %}
   <div class="section-header-wrap center">
    <div class="page-width">
-      <h2>{{ section.settings.title }}</h2>
+      {%- assign title_tag = section.settings.heading_html_tag | default: 'h2' -%}
+      <{{ title_tag }} class="h2 section-header-wrap__title">{{ section.settings.title }}</{{ title_tag }}>
     {% if section.settings.description != blank %}
     <p>{{ section.settings.description }}</p>
     {% endif %}
@@ -346,6 +347,7 @@
       "type": "select",
       "label": "Heading Tag",
       "id": "heading_html_tag",
+      "info": "Applies to the Title above and to Heading blocks. Use <h1> for only one heading per page.",
       "default": "h2",
       "options": [
         {
