@@ -9,13 +9,61 @@
  */
 {
   "sections": {
+    "image_banner_9FN4TB": {
+      "type": "image-banner",
+      "custom_css": [
+        "h1 {display: none !important;}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "Hammitt 2026 Sample Sale",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h1",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/HAMMITT_26.4_CAMP_Charlotte-Tote-Black-G-_00014_horizontal.jpg",
+        "image_2": "shopify://shop_images/HAMMITT_26.4_CAMP_Charlotte-Tote-Black-G-_00014_mobile.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_class": ""
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "custom_css": [
         ".page-width.e5050 {padding-bottom: 0 !important;}"
       ],
       "settings": {
-        "show_collection_title": true,
+        "show_collection_title": false,
         "font_size_desktop": 32,
         "font_size_mobile": 16,
         "title_color": "#000000",
@@ -268,140 +316,84 @@
         "padding_bottom_mobile": 4
       }
     },
-    "simple_collection_links_fJ4QRh": {
-      "type": "simple-collection-links",
+    "simple_collection_tag_filters_FXppNg": {
+      "type": "simple-collection-tag-filters",
       "blocks": {
-        "menu_group_XjTY6Q": {
-          "type": "menu-group",
+        "tag_filter_CV7p8k": {
+          "type": "tag-filter",
           "settings": {
-            "menu": "plp-subnav-order-override-occasion"
+            "title": "Accessories",
+            "filter_handle": "Accessory"
           }
         },
-        "menu_group_pYbymm": {
-          "type": "menu-group",
+        "tag_filter_txyYQ4": {
+          "type": "tag-filter",
           "settings": {
-            "menu": "plp-subnav-order-override-color-fabric"
+            "title": "Wallets",
+            "filter_handle": "Wallets"
           }
         },
-        "menu_group_F89PAg": {
-          "type": "menu-group",
+        "tag_filter_LMk3Vp": {
+          "type": "tag-filter",
           "settings": {
-            "menu": "plp-subnav-order-override"
+            "title": "Clutches",
+            "filter_handle": "Clutch"
           }
         },
-        "collection_filter_link_MHHCt7": {
-          "type": "collection-filter-link",
+        "tag_filter_4iPDM4": {
+          "type": "tag-filter",
           "settings": {
-            "collection": "new-arrivals",
-            "title": "New"
+            "title": "Backpacks",
+            "filter_handle": "Backpack"
           }
         },
-        "collection_filter_link_gwYa7K": {
-          "type": "collection-filter-link",
+        "tag_filter_96LJxw": {
+          "type": "tag-filter",
           "settings": {
-            "collection": "bestsellers",
-            "title": "Bestsellers"
+            "title": "Shoulder Bags",
+            "filter_handle": "Shoulder Bag"
           }
         },
-        "collection_filter_link_GM3dJ9": {
-          "type": "collection-filter-link",
+        "tag_filter_nMAae8": {
+          "type": "tag-filter",
           "settings": {
-            "collection": "satchel-shoulder-bag",
-            "title": "Shoulder Bags"
+            "title": "Crossbody Bags",
+            "filter_handle": "crossbody"
           }
         },
-        "collection_filter_link_yU8BjT": {
-          "type": "collection-filter-link",
+        "tag_filter_7wQgqQ": {
+          "type": "tag-filter",
           "settings": {
-            "collection": "cross-body",
-            "title": "Crossbody Bags"
-          }
-        },
-        "collection_filter_link_kPBBCw": {
-          "type": "collection-filter-link",
-          "settings": {
-            "collection": "travel",
-            "title": "Travel"
-          }
-        },
-        "collection_filter_link_AkqQNh": {
-          "type": "collection-filter-link",
-          "settings": {
-            "collection": "backpack",
-            "title": "Backpacks"
-          }
-        },
-        "collection_filter_link_Yq77Rz": {
-          "type": "collection-filter-link",
-          "settings": {
-            "collection": "tote",
-            "title": "Totes"
-          }
-        },
-        "collection_filter_link_djJjwe": {
-          "type": "collection-filter-link",
-          "settings": {
-            "collection": "clutch",
-            "title": "Clutches"
-          }
-        },
-        "collection_filter_link_FB87Lz": {
-          "type": "collection-filter-link",
-          "settings": {
-            "collection": "wallets",
-            "title": "Wallets"
-          }
-        },
-        "collection_filter_link_prpfV4": {
-          "type": "collection-filter-link",
-          "settings": {
-            "collection": "accessories-view-all",
-            "title": "Accessories"
-          }
-        },
-        "collection_filter_link_WN3Lzr": {
-          "type": "collection-filter-link",
-          "settings": {
-            "collection": "low-inventory",
-            "title": "Going Fast"
-          }
-        },
-        "collection_filter_link_gWD4zW": {
-          "type": "collection-filter-link",
-          "settings": {
-            "collection": "view-all",
-            "title": "Shop All"
+            "title": "Totes",
+            "filter_handle": "Tote"
           }
         }
       },
       "block_order": [
-        "menu_group_XjTY6Q",
-        "menu_group_pYbymm",
-        "menu_group_F89PAg",
-        "collection_filter_link_MHHCt7",
-        "collection_filter_link_gwYa7K",
-        "collection_filter_link_GM3dJ9",
-        "collection_filter_link_yU8BjT",
-        "collection_filter_link_kPBBCw",
-        "collection_filter_link_AkqQNh",
-        "collection_filter_link_Yq77Rz",
-        "collection_filter_link_djJjwe",
-        "collection_filter_link_FB87Lz",
-        "collection_filter_link_prpfV4",
-        "collection_filter_link_WN3Lzr",
-        "collection_filter_link_gWD4zW"
+        "tag_filter_CV7p8k",
+        "tag_filter_txyYQ4",
+        "tag_filter_LMk3Vp",
+        "tag_filter_4iPDM4",
+        "tag_filter_96LJxw",
+        "tag_filter_nMAae8",
+        "tag_filter_7wQgqQ"
       ],
-      "name": "Simple collection links",
+      "custom_css": [],
+      "name": "Collection tag filters",
       "settings": {
         "section_anchor_id": "",
-        "bg_color": "#ffffff"
+        "bg_color": "#ffffff",
+        "show_all_option": true,
+        "all_label": "All",
+        "empty_message": "No products match this filter."
       }
     },
     "product-grid": {
       "type": "main-collection-product-grid",
       "custom_css": [
         ".page-width {padding: 0 8px;}",
-        ".filter-actions-container {margin: auto; justify-content: space-between; width: 100%;}"
+        ".filter-actions-container {margin: auto; justify-content: space-between; width: 100%;}",
+        ".filter-sort-button-container {display: none;}"
       ],
       "settings": {
         "use_new_filters": true,
@@ -418,98 +410,6 @@
         "padding_top": 0,
         "padding_bottom": 36,
         "enable_gifting_grid": false
-      }
-    },
-    "165247887588923b1b": {
-      "type": "multicolumn",
-      "blocks": {
-        "16524788759772bfca-0": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/collection_footer-2.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "<h2>On The Go</h2>",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/on-the-go",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        },
-        "16524788759772bfca-1": {
-          "type": "column",
-          "settings": {
-            "reverse_image_and_text_order": false,
-            "image": "shopify://shop_images/img_4627_1.jpg",
-            "title": "",
-            "b_title_color": "#000000",
-            "b_title_font_desktop": 20,
-            "b_title_font_mobile": 18,
-            "text": "<h2>The Essentials</h2>",
-            "link_label": "",
-            "link_margin_top": 20,
-            "link": "shopify://collections/core",
-            "cta_color": "#ffffff",
-            "cta_column_alignment": "center",
-            "cta_bg_color": "#000000",
-            "cta_font_size": 18,
-            "cta_font_size_mobile": 14,
-            "hide_arrows": false,
-            "cta_width_mobile": 120,
-            "cta_width_desktop": 174,
-            "cta_top_spacing": 5,
-            "cta_bottom_spacing": 5
-          }
-        }
-      },
-      "block_order": [
-        "16524788759772bfca-0",
-        "16524788759772bfca-1"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "title_color": "",
-        "heading_size": "h1",
-        "paragraph": "",
-        "paragraph_color": "",
-        "larger_text": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "image_padding": true,
-        "removed_section_padding": true,
-        "columns_desktop": 2,
-        "columns_gap": 2,
-        "row_gap": 2,
-        "mobile_columns_gap": 2,
-        "mobile_row_gap": 2,
-        "column_alignment": "center",
-        "text_position": "bottom",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_peek": false,
-        "show_mobile_slider": true,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36,
-        "custom_class": ""
       }
     },
     "banner-2": {
@@ -543,44 +443,14 @@
         "padding_bottom_desktop": 30,
         "padding_bottom_mobile": 0
       }
-    },
-    "grid_collection_custom_BhYtjA": {
-      "type": "grid-collection-custom",
-      "disabled": true,
-      "settings": {
-        "products_per_page": 16,
-        "columns_desktop": 4,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "show_features": true,
-        "view_style": "card",
-        "card_background": "#ebebeb",
-        "enable_filtering": true,
-        "enable_sorting": true,
-        "collapse_on_larger_devices": false,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "content_heading_size": 23,
-        "content_heading_color": "#484646",
-        "cta_button_size": 16,
-        "cta_button_color": "#252020",
-        "cta_button_bg_color": "#e7e7e7",
-        "cta_button_border_color": "#3d3535",
-        "content_block_alignment": "left",
-        "content_block_position": "middle-left"
-      }
     }
   },
   "order": [
+    "image_banner_9FN4TB",
     "banner",
     "silhouette_carousel_myjph4",
-    "simple_collection_links_fJ4QRh",
+    "simple_collection_tag_filters_FXppNg",
     "product-grid",
-    "165247887588923b1b",
-    "banner-2",
-    "grid_collection_custom_BhYtjA"
+    "banner-2"
   ]
 }

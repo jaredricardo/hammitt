@@ -519,7 +519,8 @@
 
 
 .banner-section .section-header-wrap{text-align:center;padding-bottom:20px;}
-.banner-section .section-header-wrap h2{margin:0px;}
+/* Keeps the title styled as an h2 regardless of the chosen heading tag */
+.banner-section .section-header-wrap .section-header-wrap__title{margin:0px;font-weight:var(--font-heading-weight);line-height:calc(1 + .3/max(1,var(--font-heading-scale)));}
 /* .banner-section .section-header-wrap h2{margin:0px;font-size:32px;font-family:var(--semi-bold-family);font-weight:var(--semi-bold-weight);}*/
 .banner-section .section-header-wrap p{margin:0px;line-height:1;}
 
