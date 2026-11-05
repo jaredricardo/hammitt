@@ -357,7 +357,7 @@
         "paragraph_color": "",
         "larger_text": false,
         "image_width": "full",
-        "image_ratio": "portrait",
+        "image_ratio": "adapt",
         "image_padding": false,
         "removed_section_padding": true,
         "columns_desktop": 2,
@@ -397,7 +397,7 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_13085_2_1.jpg",
+        "image": "shopify://shop_images/Slice_1.jpg",
         "image_2": "shopify://shop_images/HERO1-_3_-_1_asdfasd_1.jpg",
         "image_link": "shopify://products/beverly-med-crossbody-safari-calf-hair-brushed-gold",
         "image_overlay_opacity": 0,
@@ -429,41 +429,23 @@
     "rich_text_N9qh88": {
       "type": "rich-text",
       "blocks": {
-        "heading_aqchNj": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
         "text_xYywxx": {
           "type": "text",
           "settings": {
             "text": "<p>Handwoven by Scottish islanders from pure virgin wool. Each Highlands Tweed piece is certified with the iconic Orb mark, a testament to its enduring quality and tradition.</p>"
           }
-        },
-        "button_qQBYjd": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
         }
       },
       "block_order": [
-        "heading_aqchNj",
-        "text_xYywxx",
-        "button_qQBYjd"
+        "text_xYywxx"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_classes": "",
         "color_scheme": "background-1",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
+        "padding_top": 60,
+        "padding_bottom": 60,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36
       }
@@ -483,7 +465,7 @@
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Group_12978_1.jpg",
+        "image": "shopify://shop_images/Slice_2.jpg",
         "image_2": "shopify://shop_images/Group_12979_1.jpg",
         "image_link": "shopify://collections/safari-calf-hair",
         "image_overlay_opacity": 0,
@@ -511,6 +493,135 @@
         "padding_bottom_mobile": 20,
         "custom_class": ""
       }
+    },
+    "image_banner_GiR4ag": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_13087_2_1.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
+    "image_banner_QmWdaw": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_13088_1.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
+    },
+    "image_banner_xQazfF": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_13088_2_1.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -524,6 +635,9 @@
     "multicolumn_rzXP9G",
     "image_banner_Mh6RN6",
     "rich_text_N9qh88",
-    "image_banner_bJJXgE"
+    "image_banner_bJJXgE",
+    "image_banner_GiR4ag",
+    "image_banner_QmWdaw",
+    "image_banner_xQazfF"
   ]
 }
