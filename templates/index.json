@@ -116,6 +116,24 @@
     "home_hero_section_qhL9Xk": {
       "type": "home-hero-section",
       "blocks": {
+        "image_carousel_item_tG7tFW": {
+          "type": "image-carousel-item",
+          "name": "Cherrywood Suede",
+          "settings": {
+            "image": "shopify://shop_images/HAMMITT_26.4_CAMP_Olympia-Tote-Mini-Highlands-Tweed-AG_2.jpg",
+            "eyebrow": "Scotland's Finest",
+            "title": "Highlands Tweed",
+            "subcopy": "Rooted in the rugged beauty of Scotland's Outer Hebrides, Harris Tweed has been handwoven by generations of skilled artisans for centuries. Woven from pure virgin wool and certified with an iconic Orb mark, each piece carries a legacy of authenticity and enduring quality.",
+            "button_text": "SHOP Now",
+            "collection_url": "highlands",
+            "enable_image_as_link_out": true,
+            "max_products": 10,
+            "hide_price": false,
+            "hide_tag": false,
+            "hide_subtitle": false,
+            "hide_quick_add": false
+          }
+        },
         "image_carousel_item_9Dcr6y": {
           "type": "image-carousel-item",
           "name": "Charlotte Tote",
@@ -188,25 +206,6 @@
             "hide_quick_add": false
           }
         },
-        "image_carousel_item_tG7tFW": {
-          "type": "image-carousel-item",
-          "name": "Cherrywood Suede",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/PDP_26.3_2392_2.jpg",
-            "eyebrow": "Freshly Picked",
-            "title": "Cherrywood Suede",
-            "subcopy": "Crafted from Italian suede in a deep wine hue, each piece is specially treated to help maintain its beautiful color, carry after carry.",
-            "button_text": "SHOP Now",
-            "collection_url": "cherrywood-suede",
-            "enable_image_as_link_out": true,
-            "max_products": 10,
-            "hide_price": false,
-            "hide_tag": false,
-            "hide_subtitle": false,
-            "hide_quick_add": false
-          }
-        },
         "image_carousel_item_NKAmWd": {
           "type": "image-carousel-item",
           "name": "Vivienne",
@@ -228,11 +227,11 @@
         }
       },
       "block_order": [
+        "image_carousel_item_tG7tFW",
         "image_carousel_item_9Dcr6y",
         "image_carousel_item_PmpL63",
         "image_carousel_item_dcerx4",
         "image_carousel_item_qEyyFk",
-        "image_carousel_item_tG7tFW",
         "image_carousel_item_NKAmWd"
       ],
       "custom_css": [
@@ -240,7 +239,7 @@
         ".home-hero-section .section-image {/* aspect-ratio: 22/10; */}",
         "@media screen and (max-width: 751px) {.home-hero-section .section-image {aspect-ratio: 1/1; } .home-hero-section .section-content {position: relative; } p, h1, h2, h4 {color: black !important; } .section-button a {color: white; background-color: black; }}"
       ],
-      "name": "New Hero section",
+      "name": "Collections Carousel",
       "settings": {
         "section_bg_color": "#ffffff",
         "media_type": "image",
