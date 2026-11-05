@@ -426,6 +426,48 @@
         "custom_class": ""
       }
     },
+    "rich_text_N9qh88": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_aqchNj": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_xYywxx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Handwoven by Scottish islanders from pure virgin wool. Each Highlands Tweed piece is certified with the iconic Orb mark, a testament to its enduring quality and tradition.</p>"
+          }
+        },
+        "button_qQBYjd": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_aqchNj",
+        "text_xYywxx",
+        "button_qQBYjd"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "image_banner_bJJXgE": {
       "type": "image-banner",
       "name": "t:sections.image-banner.presets.name",
@@ -481,6 +523,7 @@
     "slider_collection_9rBzh9",
     "multicolumn_rzXP9G",
     "image_banner_Mh6RN6",
+    "rich_text_N9qh88",
     "image_banner_bJJXgE"
   ]
 }
