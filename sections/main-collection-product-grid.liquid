@@ -274,7 +274,7 @@
   {%- endif -%}
   
   <div id="ProductGridContainer">
-    {%- paginate collections[collection.handle].products by final_products_per_page -%}
+    {%- paginate collection.products by final_products_per_page -%}
       {%- if collection.products.size == 0 -%}
         <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>

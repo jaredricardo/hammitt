@@ -8,6 +8,11 @@
     display: block;
   }
 
+  body:has(collection-tag-filters) minty-fresh-filter-drawer .filter-area:not(:has([data-label="Color"], minty-fresh-price-range)),
+  body:has(collection-tag-filters) :is(#FacetFiltersForm, #FacetFiltersFormMobile) .js-filter:not([data-filter-type="price_range"]):not([data-filter-param="filter.p.m.hammitt.color"]) {
+    display: none !important;
+  }
+
   /* Mirrors .simple-collection-links li a so buttons look identical to the link version */
   .collection-tag-filters .collection-tag-filters__button {
     appearance: none;
@@ -74,7 +79,7 @@
 
 {%- if tag_filter_blocks.size > 0 -%}
   <section class="simple-collection-links collection-tag-filters page-width" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id != blank %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
-    <collection-tag-filters data-empty-message="{{ section.settings.empty_message | escape }}">
+    <collection-tag-filters data-empty-message="{{ section.settings.empty_message | escape }}" data-collection-url="{{ collection.url | escape }}">
       <ul>
         {%- if section.settings.show_all_option -%}
           <li>
@@ -113,6 +118,7 @@
         this.emptyMessage = document.createElement('p');
         this.emptyMessage.className = 'collection-tag-filters__empty';
         this.emptyMessage.textContent = this.dataset.emptyMessage || 'No products match this filter.';
+        this.emptyMessage.setAttribute('role', 'status');
 
         // Uses grid__item so it occupies exactly one card slot at every breakpoint
         this.loader = document.createElement('li');
@@ -128,6 +134,13 @@
         this.handlePagesLoading = () => this.applyFilter();
         document.addEventListener('collection-pages:loading', this.handlePagesLoading);
         document.addEventListener('collection-pages:loaded', this.handlePagesLoading);
+        this.handleGridUpdated = () => {
+          this.applyFilter();
+          if (this.activeHandle && window.collectionInfiniteScroll) {
+            window.collectionInfiniteScroll.loadAll();
+          }
+        };
+        document.addEventListener('collection-grid:updated', this.handleGridUpdated);
 
         // Re-apply the active filter when infinite scroll appends cards or facets re-render the grid.
         // Observe the whole document (not just the grid container) because this section can be
@@ -161,6 +174,7 @@
         this.removeEventListener('click', this.handleClick);
         document.removeEventListener('collection-pages:loading', this.handlePagesLoading);
         document.removeEventListener('collection-pages:loaded', this.handlePagesLoading);
+        document.removeEventListener('collection-grid:updated', this.handleGridUpdated);
         if (this.observer) this.observer.disconnect();
 
         // Restore the grid if the section is removed/re-rendered in the theme editor
@@ -177,6 +191,17 @@
         if (!button || !this.contains(button)) return;
 
         const handle = button.dataset.tagFilter;
+        if (handle === '') {
+          const searchParams = new URLSearchParams(window.location.search);
+          const hasUrlFilters = Array.from(searchParams.keys()).some(
+            (key) => key.startsWith('filter.') || key === 'min_input' || key === 'max_input'
+          );
+          if (hasUrlFilters) {
+            window.location.assign(this.dataset.collectionUrl);
+            return;
+          }
+        }
+
         // Clicking the active filter again clears it
         this.activeHandle = handle === this.activeHandle ? '' : handle;
 
@@ -202,6 +227,13 @@
         const grid = gridContainer && gridContainer.querySelector('#product-grid');
         if (!grid) return;
 
+        // Shopify renders its own empty state instead of a list when URL filters have no results.
+        if (grid.classList.contains('collection--empty')) {
+          this.toggleLoader(grid, false);
+          this.toggleEmptyMessage(grid, false);
+          return;
+        }
+
         let visibleCount = 0;
 
         Array.from(grid.children).forEach((item) => {
@@ -221,9 +253,14 @@
         });
 
         const isLoading = Boolean(this.activeHandle) && this.isLoadingPages();
+        const hasFailed = Boolean(this.activeHandle) && window.collectionInfiniteScroll && window.collectionInfiniteScroll.hasFailed();
+        const message = hasFailed
+          ? 'Unable to load all products. Please try again.'
+          : this.dataset.emptyMessage || 'No products match this filter.';
+        if (this.emptyMessage.textContent !== message) this.emptyMessage.textContent = message;
         this.toggleLoader(grid, isLoading);
         // Wait until every page has loaded before declaring there are no matches
-        this.toggleEmptyMessage(grid, Boolean(this.activeHandle) && visibleCount === 0 && !isLoading);
+        this.toggleEmptyMessage(grid, Boolean(this.activeHandle) && (visibleCount === 0 || hasFailed) && !isLoading);
       }
 
       toggleLoader(grid, shouldShow) {
@@ -259,7 +296,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "Filters the product grid on this page by product tag without reloading. Selecting a filter loads the rest of the collection's pages in the background. Only works on templates that include the main collection product grid."
+      "content": "Filters products matching the current URL filters by product tag without reloading. Loads remaining filtered pages before showing no matches. Only color and price remain visible in the filter drawer while this section is on the page. Requires the main collection product grid."
     },
     {
       "type": "text",
@@ -276,7 +313,7 @@
       "type": "checkbox",
       "id": "show_all_option",
       "label": "Show \"All\" option",
-      "info": "Adds a first option that clears the active filter.",
+      "info": "Adds an option that clears the tag selection. If URL filters are present, it reloads the base collection URL to clear them too.",
       "default": true
     },
     {

@@ -45,7 +45,7 @@
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% case filter.type %}
               {% when 'list' %}
-                <details data-filter="{{ filter.label }}" id="Details-{{ forloop.index }}-{{ section.id }}" class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                <details data-filter="{{ filter.label }}" data-filter-type="{{ filter.type }}" data-filter-param="{{ filter.param_name | escape }}" id="Details-{{ forloop.index }}-{{ section.id }}" class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
                   <summary class="facets__summary caption-large focus-offset">
                     <div>
                       <span>{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
@@ -111,7 +111,7 @@
                     assign uses_comma_decimals = true
                   endif
                 %}
-                <details id="Details-{{ forloop.index }}-{{ section.id }}" class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                <details data-filter-type="{{ filter.type }}" data-filter-param="{{ filter.param_name | escape }}" id="Details-{{ forloop.index }}-{{ section.id }}" class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
                   <summary class="facets__summary caption-large focus-offset">
                     <div>
                       <span>{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>
@@ -303,7 +303,7 @@
               {%- for filter in results.filters -%}
                 {% case filter.type %}
                 {% when 'list' %}
-                  <details data-filter="{{ filter.label }}" id="Details-Mobile-{{ forloop.index }}-{{ section.id }}" class="mobile-facets__details js-filter" data-index="mobile-{{ forloop.index }}">
+                  <details data-filter="{{ filter.label }}" data-filter-type="{{ filter.type }}" data-filter-param="{{ filter.param_name | escape }}" id="Details-Mobile-{{ forloop.index }}-{{ section.id }}" class="mobile-facets__details js-filter" data-index="mobile-{{ forloop.index }}">
                     <summary class="mobile-facets__summary focus-inset">
                       <div>
                         <span>{{ filter.label | escape | replace: 'Product type', 'Style' }}</span>                        
@@ -353,7 +353,7 @@
                     </div>
                   </details>
                 {% when 'price_range' %}
-                  <details id="Details-Mobile-{{ forloop.index }}-{{ section.id }}" class="mobile-facets__details js-filter" data-index="mobile-{{ forloop.index }}">
+                  <details data-filter-type="{{ filter.type }}" data-filter-param="{{ filter.param_name | escape }}" id="Details-Mobile-{{ forloop.index }}-{{ section.id }}" class="mobile-facets__details js-filter" data-index="mobile-{{ forloop.index }}">
                     <summary class="mobile-facets__summary focus-inset">
                       <div>
                         <span>{{ filter.label | escape }}</span>

@@ -63,10 +63,12 @@ const collectionInfiniteScroll = (() => {
 
   let observer = null;
   let activeLoad = null;
+  let activeGrid = null;
+  let failedGrid = null;
   let lastLoadFailed = false;
 
   const getGrid = () => document.querySelector('#product-grid');
-  const getNextLink = () => document.querySelector('.pagination__item[aria-label="Next page"]');
+  const getNextLink = () => document.querySelector('#ProductGridContainer .pagination__item[aria-label="Next page"]');
   const dispatch = (name) => document.dispatchEvent(new CustomEvent(`collection-pages:${name}`));
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -93,12 +95,17 @@ const collectionInfiniteScroll = (() => {
   };
 
   const appendPage = (grid, doc) => {
+    if (!doc.querySelector('#product-grid')) {
+      throw new Error('The collection response is missing its product grid.');
+    }
     doc.querySelectorAll('#product-grid .grid__item').forEach((gridItem) => grid.appendChild(gridItem));
 
-    const pagination = document.querySelector('.pagination-wrapper');
+    const pagination = document.querySelector('#ProductGridContainer .pagination-wrapper');
     const newPagination = doc.querySelector('.pagination-wrapper');
     if (pagination && newPagination) {
       pagination.innerHTML = newPagination.innerHTML;
+    } else if (pagination) {
+      pagination.remove();
     }
 
     if (typeof lazyImages === 'function') lazyImages();
@@ -106,7 +113,7 @@ const collectionInfiniteScroll = (() => {
 
   // Shopify's paginate.parts always includes the last page, so the highest number is the page count
   const getTotalPages = () => {
-    const numbers = Array.from(document.querySelectorAll('.pagination-wrapper .pagination__item'))
+    const numbers = Array.from(document.querySelectorAll('#ProductGridContainer .pagination-wrapper .pagination__item'))
       .map((item) => parseInt(item.textContent.trim(), 10))
       .filter((number) => !Number.isNaN(number));
     return numbers.length ? Math.max(...numbers) : 0;
@@ -131,16 +138,22 @@ const collectionInfiniteScroll = (() => {
   const run = (task) => {
     if (activeLoad) return activeLoad;
 
+    activeGrid = getGrid();
+    const loadingGrid = activeGrid;
+    if (observer) observer.disconnect();
     activeLoad = task()
       .then(() => {
         lastLoadFailed = false;
+        failedGrid = null;
       })
       .catch((error) => {
         lastLoadFailed = true;
+        failedGrid = loadingGrid;
         console.error(error);
       })
       .finally(() => {
         activeLoad = null;
+        activeGrid = null;
         dispatch('loaded');
         // After a failure, pause before re-arming so a visible "Next page" link can't trigger a request loop
         if (lastLoadFailed) {
@@ -153,17 +166,18 @@ const collectionInfiniteScroll = (() => {
     return activeLoad;
   };
 
-  const loadNext = () =>
-    run(async () => {
-      const grid = getGrid();
-      const nextLink = getNextLink();
-      if (!grid || !nextLink) return;
+  const loadNext = () => {
+    const grid = getGrid();
+    const nextLink = getNextLink();
+    if (!grid || !nextLink) return Promise.resolve();
 
+    return run(async () => {
       const doc = await fetchPage(nextLink.getAttribute('href'));
       // Bail if facets/sorting re-rendered the grid while this page was loading
       if (getGrid() !== grid) return;
       appendPage(grid, doc);
     });
+  };
 
   const loadAll = () => {
     if (activeLoad) return activeLoad.then(loadAll);
@@ -243,10 +257,12 @@ const collectionInfiniteScroll = (() => {
   };
 
   observeNextLink();
+  document.addEventListener('collection-grid:updated', observeNextLink);
 
   return {
     loadAll,
-    isLoading: () => Boolean(activeLoad),
+    isLoading: () => Boolean(activeLoad) && activeGrid === getGrid(),
+    hasFailed: () => failedGrid !== null && failedGrid === getGrid(),
   };
 })();
 
