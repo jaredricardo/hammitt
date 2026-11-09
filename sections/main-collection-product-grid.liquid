@@ -274,7 +274,7 @@
   {%- endif -%}
   
   <div id="ProductGridContainer">
-    {%- paginate collections[collection.handle].products by final_products_per_page -%}
+    {%- paginate collection.products by final_products_per_page -%}
       {%- if collection.products.size == 0 -%}
         <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>
@@ -498,7 +498,10 @@
                 {% endif %}
               {% endunless %}
 
-              <li class="grid__item">
+              {%- capture product_tag_handles -%}
+                {%- for tag in product.tags -%}{{ tag | handle }}{% unless forloop.last %},{% endunless %}{%- endfor -%}
+              {%- endcapture -%}
+              <li class="grid__item" data-product-tags="{{ product_tag_handles | strip }}">
                 {% render 'card-product',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
