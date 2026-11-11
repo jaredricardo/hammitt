@@ -367,6 +367,13 @@
             "title": "Accessories",
             "filter_handle": "Accessory"
           }
+        },
+        "inventory_filter_low_stock": {
+          "type": "inventory-filter",
+          "settings": {
+            "title": "Low inventory",
+            "inventory_cutoff": 10
+          }
         }
       },
       "block_order": [
@@ -376,7 +383,8 @@
         "tag_filter_4iPDM4",
         "tag_filter_7wQgqQ",
         "tag_filter_txyYQ4",
-        "tag_filter_CV7p8k"
+        "tag_filter_CV7p8k",
+        "inventory_filter_low_stock"
       ],
       "custom_css": [],
       "name": "Collection tag filters",
