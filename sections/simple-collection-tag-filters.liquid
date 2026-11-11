@@ -105,7 +105,7 @@
         {%- for block in inventory_filter_blocks -%}
           <li {{ block.shopify_attributes }}>
             <button type="button" class="collection-tag-filters__button" data-tag-filter="inventory" data-inventory-cutoff="{{ block.settings.inventory_cutoff }}" aria-pressed="false">
-              {{ block.settings.title | default: 'Low inventory' | strip | escape }}
+              {{ block.settings.title | default: 'Low Inventory' | strip | escape }}
             </button>
           </li>
         {%- endfor -%}
@@ -372,7 +372,7 @@
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "Low inventory"
+          "default": "Low Inventory"
         },
         {
           "type": "number",
