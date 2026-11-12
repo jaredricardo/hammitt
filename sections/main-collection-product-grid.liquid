@@ -501,7 +501,8 @@
               {%- capture product_tag_handles -%}
                 {%- for tag in product.tags -%}{{ tag | handle }}{% unless forloop.last %},{% endunless %}{%- endfor -%}
               {%- endcapture -%}
-              <li class="grid__item" data-product-tags="{{ product_tag_handles | strip }}">
+              {%- assign inventory_variant = product.first_available_variant -%}
+              <li class="grid__item" data-product-tags="{{ product_tag_handles | strip }}"{% if product.available and inventory_variant.inventory_management != blank %} data-product-inventory="{{ inventory_variant.inventory_quantity }}"{% endif %}>
                 {% render 'card-product',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,

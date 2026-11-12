@@ -9,35 +9,63 @@
  */
 {
   "sections": {
-    "image_banner_9FN4TB": {
+    "image_banner_bfLiFJ": {
       "type": "image-banner",
-      "custom_css": [
-        "h1 {display: none !important;}"
+      "blocks": {
+        "heading_H6dqVa": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Holiday Archive Event",
+            "heading_size_mobile": 38,
+            "heading_size_tablet": 60,
+            "heading_size_desktop": 110
+          }
+        },
+        "text_jVCbHA": {
+          "type": "text",
+          "settings": {
+            "text": "Shop 40% off styles from the vault.",
+            "text_area_html_swap": "Shop 40% off styles from the vault.<br>\nOnce they're gone, they're gone forever.",
+            "text_style": "subtitle",
+            "text_size_mobile": 18,
+            "text_size_tablet": 20,
+            "text_size_desktop": 28
+          }
+        }
+      },
+      "block_order": [
+        "heading_H6dqVa",
+        "text_jVCbHA"
       ],
-      "name": "t:sections.image-banner.presets.name",
+      "custom_css": [
+        ".banner__content {justify-content: start;}",
+        ".banner__box {text-align: start;}",
+        "@media screen and (max-width: 761px) {.banner__content {justify-content: start !important; } .banner__box {text-align: center !important; } .banner__box h2 span, .banner__box .subtitle span {color: white !important; line-height: 0.5; } .banner__box h2 {padding: 0 20%; } .banner__box {height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 20px 0; }}"
+      ],
+      "name": "Our Store",
       "settings": {
         "custom_classes": "",
         "custom_id": "",
-        "title": "Hammitt 2026 Sample Sale",
+        "title": "",
         "title_color": "",
         "description": "",
         "description_color": "",
-        "heading_html_tag": "h1",
+        "heading_html_tag": "h2",
         "video_url": "",
         "video_height": "16-9",
         "video_url_mobile": "",
         "mobile_video_height": "square",
-        "image": "shopify://shop_images/Hammitt-Holiday-Archive-Event-No-CTA.png",
-        "image_2": "shopify://shop_images/Hammitt-Holiday-Archive-770x723-No-CTA.png",
-        "image_link": "",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image": "shopify://shop_images/IMG_7150_ccfecc36-5bad-40bd-8df9-57b110b8f26e.png",
+        "image_2": "shopify://shop_images/HAMMITT_Gold_Card_on_Silver_Platter.png",
+        "image_link": "shopify://pages/our-stores",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
-        "color_scheme_mobile": "light",
-        "show_text_below": true,
+        "color_scheme_mobile": "dark",
+        "show_text_below": false,
         "full_width": true,
         "cta_color_scheme": "dark",
         "custom_content_spacing": false,
@@ -367,6 +395,13 @@
             "title": "Accessories",
             "filter_handle": "Accessory"
           }
+        },
+        "inventory_filter_low_stock": {
+          "type": "inventory-filter",
+          "settings": {
+            "title": "Low Inventory",
+            "inventory_cutoff": 10
+          }
         }
       },
       "block_order": [
@@ -376,7 +411,8 @@
         "tag_filter_4iPDM4",
         "tag_filter_7wQgqQ",
         "tag_filter_txyYQ4",
-        "tag_filter_CV7p8k"
+        "tag_filter_CV7p8k",
+        "inventory_filter_low_stock"
       ],
       "custom_css": [],
       "name": "Collection tag filters",
@@ -445,7 +481,7 @@
     }
   },
   "order": [
-    "image_banner_9FN4TB",
+    "image_banner_bfLiFJ",
     "banner",
     "silhouette_carousel_myjph4",
     "simple_collection_tag_filters_FXppNg",

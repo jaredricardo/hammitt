@@ -76,8 +76,9 @@
 {% endstyle %}
 
 {%- assign tag_filter_blocks = section.blocks | where: 'type', 'tag-filter' -%}
+{%- assign inventory_filter_blocks = section.blocks | where: 'type', 'inventory-filter' -%}
 
-{%- if tag_filter_blocks.size > 0 -%}
+{%- if tag_filter_blocks.size > 0 or inventory_filter_blocks.size > 0 -%}
   <section class="simple-collection-links collection-tag-filters page-width" data-section-id="{{ section.id }}" {% if section.settings.section_anchor_id != blank %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
     <collection-tag-filters data-empty-message="{{ section.settings.empty_message | escape }}" data-collection-url="{{ collection.url | escape }}">
       <ul>
@@ -92,12 +93,19 @@
           {%- assign filter_handle = block.settings.filter_handle | handle -%}
           {%- if filter_handle == blank -%}{%- continue -%}{%- endif -%}
           <li {{ block.shopify_attributes }}>
-            <button type="button" class="collection-tag-filters__button" data-tag-filter="{{ filter_handle }}" aria-pressed="false">
+            <button type="button" class="collection-tag-filters__button" data-tag-filter="tag:{{ filter_handle }}" aria-pressed="false">
               {%- if block.settings.title != blank -%}
                 {{ block.settings.title | strip | escape }}
               {%- else -%}
                 {{ filter_handle }}
               {%- endif -%}
+            </button>
+          </li>
+        {%- endfor -%}
+        {%- for block in inventory_filter_blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <button type="button" class="collection-tag-filters__button" data-tag-filter="inventory" data-inventory-cutoff="{{ block.settings.inventory_cutoff }}" aria-pressed="false">
+              {{ block.settings.title | default: 'Low Inventory' | strip | escape }}
             </button>
           </li>
         {%- endfor -%}
@@ -204,6 +212,7 @@
 
         // Clicking the active filter again clears it
         this.activeHandle = handle === this.activeHandle ? '' : handle;
+        this.inventoryCutoff = Number(button.dataset.inventoryCutoff);
 
         this.updateButtons();
         this.applyFilter();
@@ -244,9 +253,15 @@
             return;
           }
 
-          // Non-product items (merch boxes, marketing tiles) have no tags and are hidden while filtering
-          const tags = (item.dataset.productTags || '').split(',');
-          const isMatch = tags.includes(this.activeHandle);
+          let isMatch;
+          if (this.activeHandle === 'inventory') {
+            const quantity = item.dataset.productInventory;
+            isMatch = quantity !== undefined && quantity !== '' && Number(quantity) < this.inventoryCutoff;
+          } else {
+            // Non-product items (merch boxes, marketing tiles) have no tags and are hidden while filtering
+            const tags = (item.dataset.productTags || '').split(',');
+            isMatch = tags.includes(this.activeHandle.slice(4));
+          }
 
           item.classList.toggle(CollectionTagFilters.HIDDEN_CLASS, !isMatch);
           if (isMatch) visibleCount++;
@@ -296,7 +311,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "Filters products matching the current URL filters by product tag without reloading. Loads remaining filtered pages before showing no matches. Only color and price remain visible in the filter drawer while this section is on the page. Requires the main collection product grid."
+      "content": "Filters products matching the current URL filters by product tag or low inventory without reloading. Loads remaining filtered pages before showing no matches. Only color and price remain visible in the filter drawer while this section is on the page. Requires the main collection product grid."
     },
     {
       "type": "text",
@@ -345,6 +360,26 @@
           "id": "filter_handle",
           "label": "Filter (tag handle)",
           "info": "The product tag to filter by, as a handle. E.g. the tag \"Crossbody\" is \"crossbody\" and \"Shoulder Bag\" is \"shoulder-bag\"."
+        }
+      ]
+    },
+    {
+      "type": "inventory-filter",
+      "name": "Low inventory filter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Low Inventory"
+        },
+        {
+          "type": "number",
+          "id": "inventory_cutoff",
+          "label": "Inventory cutoff",
+          "info": "Shows products whose first available variant has fewer than this many units. Untracked inventory is excluded.",
+          "default": 10
         }
       ]
     }

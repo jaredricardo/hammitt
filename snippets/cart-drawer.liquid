@@ -652,11 +652,12 @@
                 </div> 
               </div> 
               {% comment %} only allowing one of the second span callouts to render at once {% endcomment %}
+                {% assign item_tags_downcase = item.product.tags | join: ',' | downcase %}
                 {% if item.product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and item.product.available %}
                     {% unless item.product.id == settings.hammitt_gift_wrap_product_cart_level.id %}
                       <span class="line-item-callout">Only a few left!</span>
                     {% endunless %}
-                  {% elsif item.product.tags contains 'sample sale' or item.product.tags contains 'final sale' or item.product.tags contains 'no-returns' %}
+                  {% elsif item_tags_downcase contains 'sample sale' or item_tags_downcase contains 'final sale' or item_tags_downcase contains 'no-returns' %}
                     <span class="line-item-callout"> Final Sale</span>
                   {% else %}
                     {% unless item.product.id == settings.hammitt_gift_wrap_product_cart_level.id %}
