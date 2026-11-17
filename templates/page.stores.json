@@ -167,17 +167,6 @@
     "store_events_new_nyqkLU": {
       "type": "store-events-new",
       "blocks": {
-        "event_m4QgtL": {
-          "type": "event",
-          "settings": {
-            "image": "shopify://shop_images/Hammitt_Happy_Hour-_1_1.jpg",
-            "event_name": "Happy Hour at Hammitt",
-            "date": "November 20, 2026",
-            "time": "3PM - 6PM",
-            "event_tags": "Newport Beach,Scottsdale,Chicago,Manhattan Beach,La Jolla",
-            "description": "Join us every Friday this month for Happy Hour at Hammitt—an evening especially for sipping and shopping new arrivals, alongside exclusive finds."
-          }
-        },
         "event_xaaWqn": {
           "type": "event",
           "settings": {
@@ -187,6 +176,17 @@
             "time": "5PM - 8 PM",
             "event_tags": "Manhattan Beach",
             "description": "Join us in Manhattan Beach this Wednesday for a private evening featuring festive sips and treats during the annual Holiday Pier Lighting."
+          }
+        },
+        "event_m4QgtL": {
+          "type": "event",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Happy_Hour-_1_1.jpg",
+            "event_name": "Happy Hour at Hammitt",
+            "date": "November 20, 2026",
+            "time": "3PM - 6PM",
+            "event_tags": "Newport Beach,Scottsdale,Chicago,Manhattan Beach,La Jolla",
+            "description": "Join us every Friday this month for Happy Hour at Hammitt—an evening especially for sipping and shopping new arrivals, alongside exclusive finds."
           }
         },
         "event_dWipLa": {
@@ -381,8 +381,8 @@
         }
       },
       "block_order": [
-        "event_m4QgtL",
         "event_xaaWqn",
+        "event_m4QgtL",
         "event_dWipLa",
         "event_8mrcq7",
         "event_tttgVA",
