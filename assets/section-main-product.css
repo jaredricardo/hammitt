@@ -105,6 +105,20 @@
     max-width: 46.428%;
     width: calc(46.428% - var(--grid-desktop-horizontal-spacing) / 2);
   }
+
+  /* Cap the gallery width so a full 4:5 image fits in the viewport on shorter (laptop) screens.
+     130px ≈ announcement bar + header + breadcrumbs + a little breathing room. */
+  .pdp-hero-section .product--medium.product--stacked:not(.product--no-media) {
+    --pdp-media-width: clamp(36%, calc((100vh - 130px) * 0.8), 53.572%);
+  }
+  .pdp-hero-section .product--medium.product--stacked:not(.product--no-media) .product__media-wrapper {
+    max-width: var(--pdp-media-width);
+    width: calc(var(--pdp-media-width) - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+  .pdp-hero-section .product--medium.product--stacked:not(.product--no-media) .product__info-wrapper {
+    max-width: calc(100% - var(--pdp-media-width));
+    width: calc(100% - var(--pdp-media-width) - var(--grid-desktop-horizontal-spacing) / 2);
+  }
 }
 
 /* Dynamic checkout */

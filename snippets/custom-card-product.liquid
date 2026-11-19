@@ -127,15 +127,28 @@ endfor
             </h3>
           </div>
           <div class="card__badge {{ settings.badge_position }}">
-            {% for tag in card_product.tags %}
-              {% if tag contains 'tag:' or tag contains 'Tag:'%}
-                {% assign tag_to_check = tag | downcase %}
-                <span class="badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">{{ tag_to_check | remove: 'tag:' }}</span>
-              {% endif %}
-            {% endfor %}
-            {%- if card_product.compare_at_price > card_product.price and card_product.available -%}
-              <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
-            {%- endif -%}
+            {% assign show_only_a_few_left_badge = false %}
+            {% if card_product.available and card_product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold %}
+              {% unless card_product.title contains 'Gift Card' %}
+                {% assign show_only_a_few_left_badge = true %}
+              {% endunless %}
+            {% endif %}
+            {% if show_only_a_few_left_badge %}
+              <span class="badge red-badge">
+                {% render 'icon-timer' %}
+                {{ settings.only_a_few_left_text }}
+              </span>
+            {% else %}
+              {% for tag in card_product.tags %}
+                {% if tag contains 'tag:' or tag contains 'Tag:'%}
+                  {% assign tag_to_check = tag | downcase %}
+                  <span class="badge badge--{{ tag | handle }} badge--top-right color-{{ settings.sale_badge_color_scheme }}">{{ tag_to_check | remove: 'tag:' }}</span>
+                {% endif %}
+              {% endfor %}
+              {%- if card_product.compare_at_price > card_product.price and card_product.available -%}
+                <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">{{ 'products.product.on_sale' | t }}</span>
+              {%- endif -%}
+            {% endif %}
           </div>
           {% unless hide_quick_add %}
           {% if settings.enable_quick_add %}
