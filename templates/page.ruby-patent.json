@@ -53,6 +53,7 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "heading_html_tag": "h1",
         "hide_title": true,
@@ -63,30 +64,363 @@
         "padding_bottom_mobile": 0
       }
     },
-    "slider_collection_w9UPnP": {
+    "image_banner_3gmnXq": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_aKDJp4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Coming Soon: Paula Clear",
+            "heading_size_mobile": 30,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 60
+          }
+        },
+        "text_MfYJiV": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_area_html_swap": "Be first to know when our luxe new clear bag launches. <div class=\"footer-container\">\n    <div class=\"klaviyo-form-RYjqPP\"></div>\n</div>",
+            "text_style": "body",
+            "text_size_mobile": 12,
+            "text_size_tablet": 14,
+            "text_size_desktop": 15
+          }
+        }
+      },
+      "block_order": [
+        "heading_aKDJp4",
+        "text_MfYJiV"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/new-desktop-paula-banner-lp.gif",
+        "image_2": "shopify://shop_images/new-desktop-paula-banner-lp_7f971709-bbaf-40ec-b10a-81aa00fc026a_1.gif",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "center",
+        "color_scheme": "dark",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
+    },
+    "rich_text_b8NrXi": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xbYWFF": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "WHILE YOU WAIT",
+            "heading_size": "h1"
+          }
+        },
+        "text_LGtBAY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore some of our most iconic clear bags, as loved by CBS, Travel & Leisure and beyond.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xbYWFF",
+        "text_LGtBAY"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "slider_collection_WRE3iK": {
       "type": "slider-collection",
       "disabled": true,
+      "name": "Slider Collection",
       "settings": {
         "title": "",
         "heading_align": "center",
         "heading_color": "",
-        "collection": "tom-zip",
+        "heading_link": "",
+        "collection": "clear-bags",
         "max_products": 30,
+        "show_secondary_image": true,
         "image_ratio": "adapt",
         "hide_price": false,
         "hide_tag": false,
         "hide_subtitle": false,
         "hide_quick_add": false,
-        "padding_top": 20,
-        "padding_bottom": 20,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 30,
+        "padding_bottom": 0,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_GPti4e": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Frame_13069_1.jpg",
+        "image_2": "shopify://shop_images/26.4_ECOM_Kyle-Med-Bronze-G_PT01_2_1.jpg",
+        "image_link": "shopify://collections/bronze",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
+    },
+    "rich_text_z8ddUA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_AckG7G": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "Shimmer On",
+            "heading_size": "h1"
+          }
+        },
+        "text_MeHLiw": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>Hand-selected in Italy, this luxurious side calf shines in a new bronze hue. Iron-pressed pebble grain and a glossy finish create a dimensional, two-tone glow that shifts beautifully in the light. A standout for the holiday season and beyond.</h4>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AckG7G",
+        "text_MeHLiw"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "slider_collection_9rBzh9": {
+      "type": "slider-collection",
+      "name": "Slider Collection",
+      "settings": {
+        "title": "",
+        "heading_align": "center",
+        "heading_color": "",
+        "heading_link": "",
+        "collection": "bronze",
+        "max_products": 30,
+        "show_secondary_image": true,
+        "image_ratio": "adapt",
+        "hide_price": false,
+        "hide_tag": false,
+        "hide_subtitle": false,
+        "hide_quick_add": false,
+        "slides_per_view_mobile": 2.2,
+        "slides_per_view_tablet": 2.2,
+        "slides_per_view_desktop": 4,
+        "padding_top": 30,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_Mh6RN6": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Group_13000_1.jpg",
+        "image_2": "shopify://shop_images/Frame_13066_1.jpg",
+        "image_link": "shopify://products/kyle-med-shoulder-bag-bronze-gold",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": true,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 30,
+        "content_padding_right": 30,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
+      }
+    },
+    "rich_text_8qJQqG": {
+      "type": "rich-text",
+      "blocks": {
+        "text_HWPrwy": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>Deep and radiant, this leather captures a sense of understated glamour, bringing depth, movement, and modern elegance to every silhouette.<br/></h4>"
+          }
+        }
+      },
+      "block_order": [
+        "text_HWPrwy"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "image_banner_bJJXgE": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/Frame_13064_1.jpg",
+        "image_2": "shopify://shop_images/Frame_13068_1.jpg",
+        "image_link": "shopify://collections/bronze",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "dark",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "custom_class": ""
       }
     }
   },
   "order": [
     "rich_text_TVxR8H",
     "main",
-    "slider_collection_w9UPnP"
+    "image_banner_3gmnXq",
+    "rich_text_b8NrXi",
+    "slider_collection_WRE3iK",
+    "image_banner_GPti4e",
+    "rich_text_z8ddUA",
+    "slider_collection_9rBzh9",
+    "image_banner_Mh6RN6",
+    "rich_text_8qJQqG",
+    "image_banner_bJJXgE"
   ]
 }
