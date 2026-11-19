@@ -197,6 +197,32 @@
     },
     "image_banner_GPti4e": {
       "type": "image-banner",
+      "blocks": {
+        "heading_VgkUjD": {
+          "type": "heading",
+          "settings": {
+            "heading": "This Season’s Crown Jewel",
+            "heading_size_mobile": 25,
+            "heading_size_tablet": 20,
+            "heading_size_desktop": 36
+          }
+        },
+        "text_pX7yKW": {
+          "type": "text",
+          "settings": {
+            "text": "The saturated red catches the light with a jewel-like intensity, while hammered gunmetal rivets lend a touch of rebellious edge to its unapologetically glamorous finish.",
+            "text_area_html_swap": "",
+            "text_style": "body",
+            "text_size_mobile": 18,
+            "text_size_tablet": 18,
+            "text_size_desktop": 18
+          }
+        }
+      },
+      "block_order": [
+        "heading_VgkUjD",
+        "text_pX7yKW"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "custom_classes": "",
@@ -215,7 +241,7 @@
         "image_link": "shopify://products/doxie-med-satchel-ruby-patent-gunmetal-heirloom",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "middle-right",
         "desktop_content_alignment": "center",
         "color_scheme": "light",
         "mobile_content_alignment": "center",
@@ -237,39 +263,6 @@
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 20,
         "custom_class": ""
-      }
-    },
-    "rich_text_z8ddUA": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_AckG7G": {
-          "type": "heading",
-          "settings": {
-            "heading_html_tag": "h2",
-            "heading": "This Season’s Crown Jewel",
-            "heading_size": "h1"
-          }
-        },
-        "text_MeHLiw": {
-          "type": "text",
-          "settings": {
-            "text": "<h4>The saturated red catches the light with a jewel-like intensity, while hammered gunmetal rivets lend a touch of rebellious edge to its unapologetically glamorous finish.<br/></h4>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_AckG7G",
-        "text_MeHLiw"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "custom_classes": "",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 20,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 20
       }
     },
     "slider_collection_9rBzh9": {
@@ -417,7 +410,6 @@
     "rich_text_b8NrXi",
     "slider_collection_WRE3iK",
     "image_banner_GPti4e",
-    "rich_text_z8ddUA",
     "slider_collection_9rBzh9",
     "image_banner_Mh6RN6",
     "rich_text_8qJQqG",
