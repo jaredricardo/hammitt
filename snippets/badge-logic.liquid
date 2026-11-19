@@ -46,7 +46,7 @@
             assign badge_tag = 'Sale'
         endif
 
-        if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available and special_tag_assigned == false
+        if product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold and product.available
             unless product.title contains 'Gift Card'
                 assign special_tag_assigned = true
                 assign is_only_a_few_left_tag = true
@@ -141,7 +141,12 @@
     {% endif %}
   
     {% if special_tag_assigned or product_tag_assigned %}
-        {% if has_coming_soon_tag == true %}
+        {% if is_only_a_few_left_tag == true %}
+            <span class="badge red-badge">
+                {% render 'icon-timer' %}
+                {{ settings.only_a_few_left_text }}
+            </span>
+        {% elsif has_coming_soon_tag == true %}
             <span class="badge tag-badge badge--top-right">
                 {{ badge_tag }}
             </span>
@@ -152,11 +157,6 @@
         {% elsif has_final_sale_tag %}
             <span class="badge red-badge">
                 {{ badge_tag }}
-            </span>
-        {% elsif is_only_a_few_left_tag == true %}
-            <span class="badge red-badge">
-                {% render 'icon-timer' %}
-                {{ settings.only_a_few_left_text }}
             </span>
         {% elsif has_seasonal_favorite_tag == true %}
             <span class="badge red-badge">

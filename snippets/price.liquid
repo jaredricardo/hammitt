@@ -82,11 +82,24 @@
     </small>
   </div>
   {%- if show_badges -%}
-    {% for tag in product.tags %}
-  	{% if tag contains "badge:" %}
-    <span class="badge badge--{{ tag | handle }}">{{ tag | replace: 'badge:', '' }}</span>
+    {% assign show_only_a_few_left_badge = false %}
+    {% if product.available and product.variants[0].inventory_quantity <= settings.only_a_few_left_threshold %}
+      {% unless product.title contains 'Gift Card' %}
+        {% assign show_only_a_few_left_badge = true %}
+      {% endunless %}
     {% endif %}
-    {% endfor %}
+    {% if show_only_a_few_left_badge %}
+      <span class="badge red-badge">
+        {% render 'icon-timer' %}
+        {{ settings.only_a_few_left_text }}
+      </span>
+    {% else %}
+      {% for tag in product.tags %}
+        {% if tag contains "badge:" %}
+          <span class="badge badge--{{ tag | handle }}">{{ tag | replace: 'badge:', '' }}</span>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
     {% comment %}
     <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
       {{ 'products.product.on_sale' | t }}
