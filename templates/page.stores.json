@@ -107,6 +107,14 @@
     "image_and_link_scroller_kchrin": {
       "type": "image-and-link-scroller",
       "blocks": {
+        "image_link_cie34i": {
+          "type": "image_link",
+          "settings": {
+            "image": "shopify://shop_images/Hammitt_Carmel.jpg",
+            "title": "Carmel",
+            "link": "shopify://pages/carmel"
+          }
+        },
         "image_link_bgVjnd": {
           "type": "image_link",
           "settings": {
@@ -149,6 +157,7 @@
         }
       },
       "block_order": [
+        "image_link_cie34i",
         "image_link_bgVjnd",
         "image_link_6e6CQt",
         "image_link_N4Jwnp",
