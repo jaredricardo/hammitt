@@ -1550,6 +1550,7 @@ const cartUpdate = (json = false) => {
   // the full, current cart.items array (server-rendered) as its data-json attribute, so it can be
   // reused for reconciliation and the cart:updated event without any extra cart.js request.
   let latestCartItems = null;
+  let latestCartTotal = null;
 
   cartUpdates.forEach(update => {
     if(!json.sections[update.section]) return;
@@ -1561,6 +1562,10 @@ const cartUpdate = (json = false) => {
 
       if(element === '.drawer__items' && elNew) {
         const rawItemsJson = elNew.getAttribute('data-json');
+        const rawCartTotal = elNew.getAttribute('data-cart-total-price');
+        if (rawCartTotal !== null && rawCartTotal !== '') {
+          latestCartTotal = Number(rawCartTotal);
+        }
         if(rawItemsJson) {
           try {
             latestCartItems = JSON.parse(rawItemsJson);
@@ -1689,8 +1694,8 @@ const cartUpdate = (json = false) => {
     );
   };
 
-  if(latestCartItems) {
-    finishCartUpdate({ ...json, items: latestCartItems });
+  if(latestCartItems && latestCartTotal !== null && Number.isFinite(latestCartTotal)) {
+    finishCartUpdate({ ...json, items: latestCartItems, total_price: latestCartTotal });
   } else {
     // Fallback - should be rare (only if the "header" section wasn't part of this response). A
     // single cart.js request is unavoidable here since there's no other source of truth available.
@@ -1773,9 +1778,9 @@ document.addEventListener('cart:updated', function(event) {
   
   // Calculate cart total EXCLUDING any GWP products to prevent circular logic
   // where the GWP itself pushes the cart over the threshold
-  const gwpVariantIds = gwpTiers.map(tier => tier.variantId);
   const gwpTotalInCart = cartItems
-    .filter(item => gwpVariantIds.includes(item.variant_id))
+    .filter(item => gwpTiers.some(tier => tier.variantId === item.variant_id &&
+      (!tier.hiddenFromProgressBar || item.properties?._free_gift === 'true')))
     .reduce((total, item) => total + item.final_line_price, 0);
   
   const cartTotal = (cart.total_price - gwpTotalInCart) / 100; // Convert cents to dollars, excluding GWP value
@@ -1783,7 +1788,9 @@ document.addEventListener('cart:updated', function(event) {
   // Determine which GWP products should be in cart based on thresholds met
   const gwpsToManage = gwpTiers.map(tier => {
     const thresholdMet = cartTotal >= tier.threshold;
-    const isInCart = cartItems.some(item => item.variant_id === tier.variantId);
+    const giftItems = cartItems.filter(item => item.variant_id === tier.variantId &&
+      (!tier.hiddenFromProgressBar || item.properties?._free_gift === 'true'));
+    const isInCart = giftItems.length > 0;
     const isFreeGWP = tier.productPrice === 0;
     
     return {
@@ -1793,7 +1800,8 @@ document.addEventListener('cart:updated', function(event) {
       isInCart: isInCart,
       isFreeGWP: isFreeGWP,
       shouldAdd: thresholdMet && !isInCart,
-      shouldRemove: !thresholdMet && isInCart && isFreeGWP // Only remove free GWPs
+      shouldRemove: !thresholdMet && isInCart && (isFreeGWP || tier.hiddenFromProgressBar),
+      removalKeys: tier.hiddenFromProgressBar ? giftItems.map(item => item.key) : [tier.variantId]
     };
   });
   
@@ -1809,11 +1817,10 @@ document.addEventListener('cart:updated', function(event) {
   // Process GWP updates
   (async () => {
     try {
-      // If threshold is NOT met, remove free GWP items (price = 0)
       if (itemsToRemove.length > 0) {
         const updates = {};
         itemsToRemove.forEach(gwp => {
-          updates[gwp.variantId] = 0;
+          gwp.removalKeys.forEach(key => { updates[key] = 0; });
         });
         
         const removeResponse = await fetch(window.Shopify.routes.root + 'cart/update.js', {

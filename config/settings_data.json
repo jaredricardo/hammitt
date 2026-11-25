@@ -387,6 +387,7 @@
               "free_shipping_gwp_success_text": "You've earned free shipping!",
               "everyone_gets_free_shipping": false,
               "gwp_tier_threshold": 100,
+              "gwp_tier_hide_from_progress_bar": false,
               "gwp_tier_not_reached_message": "more to unlock",
               "gwp_tier_reached_message": "You've unlocked",
               "gwp_tier_alternate_reward_title": "FREE Shipping"
@@ -394,15 +395,15 @@
           },
           "gwp_tier_DFBBdG": {
             "type": "gwp-tier",
-            "disabled": true,
             "settings": {
-              "gwp_product": "sunset-sip-hangtag-multi-none",
+              "gwp_product": "the-bijou-lipstick-carrier-charm-ranch-red-brushed-gold",
               "gwp_tier_is_free_shipping": false,
               "free_shipping_gwp_success_text": "You get FREE shipping",
               "everyone_gets_free_shipping": false,
-              "gwp_tier_threshold": 295,
-              "gwp_tier_not_reached_message": "more to unlock a FREE",
-              "gwp_tier_reached_message": "You've unlocked a FREE",
+              "gwp_tier_threshold": 500,
+              "gwp_tier_hide_from_progress_bar": true,
+              "gwp_tier_not_reached_message": "",
+              "gwp_tier_reached_message": "",
               "gwp_tier_alternate_reward_title": "set of 4 wine charms"
             }
           },

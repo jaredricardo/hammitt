@@ -439,7 +439,7 @@
   {% assign cartSubTotal = cart.items_subtotal_price %}
   {%- comment -%} Edgemesh: data-json/totals are per-session, so the whole node is wrapped; empty-cart placeholder keeps .drawer__items queryable before hydrate; display:contents preserves the flex layout {%- endcomment -%}
   <dynamic default="<div class='drawer__items' data-cart-can-have-gift-wrap='false' data-total-items='0' data-cart-total='0' data-subtotal='0' data-json='[]'></div>" style="display: contents">
-  <div class="drawer__items {% if cart.items == 0 %} hidden {% endif %}" data-cart-can-have-gift-wrap="{{ cart_can_have_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-subtotal="{{ cartSubTotal }}" {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}data-line-ribbon-gift-wrap-vid="{{ settings.hammitt_gift_wrap_product_cart_level.selected_or_first_available_variant.id }}"{% endif %} data-json='{{ cart.items | json | escape }}'>
+  <div class="drawer__items {% if cart.items == 0 %} hidden {% endif %}" data-cart-can-have-gift-wrap="{{ cart_can_have_gift_wrap }}" data-total-items="{{ cart.item_count }}" data-cart-total="{{ cart_price_towards_free_gift }}" data-cart-total-price="{{ cart.total_price }}" data-subtotal="{{ cartSubTotal }}" {% if settings.enable_hammitt_gift_wrap_upsell_cart_level and settings.hammitt_gift_wrap_product_cart_level != blank %}data-line-ribbon-gift-wrap-vid="{{ settings.hammitt_gift_wrap_product_cart_level.selected_or_first_available_variant.id }}"{% endif %} data-json='{{ cart.items | json | escape }}'>
     {% if cart.item_count == 0 %}
       <div class="your-cart-is-empty">
           {{ section.settings.empty_cart_message }}
@@ -512,7 +512,7 @@
 
             ####### new way of assigning product title
 
-            assign product_type =  item.product.metafields.custom.product_title_type
+            assign product_type = item.product.metafields.custom.product_title_type | default: item.product.title
             assign product_color = item.product.metafields.custom.product_title_color_descriptor
             assign product_size =  item.product.metafields.hammitt.size.value
 

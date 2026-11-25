@@ -1,4 +1,30 @@
-
+{% assign gwp_tiers = section.blocks | where: 'type', 'gwp-tier' %}
+{% capture gwp_tiers_data %}
+[
+  {%- assign tier_count = 0 -%}
+  {%- for tier in gwp_tiers -%}
+    {%- if settings.enable_free_multi_gift_select and tier.settings.gwp_tier_hide_from_progress_bar != true -%}
+      {%- continue -%}
+    {%- endif -%}
+    {%- unless tier.settings.gwp_tier_is_free_shipping -%}
+      {%- if tier.settings.gwp_product -%}
+        {%- assign first_variant = tier.settings.gwp_product.selected_or_first_available_variant -%}
+        {%- if first_variant and first_variant.id -%}
+          {%- if tier_count > 0 -%},{%- endif -%}
+          {
+            "threshold": {{ tier.settings.gwp_tier_threshold }},
+            "variantId": {{ first_variant.id }},
+            "productPrice": {{ tier.settings.gwp_product.price }},
+            "hiddenFromProgressBar": {{ tier.settings.gwp_tier_hide_from_progress_bar | default: false | json }},
+            "isFreeShipping": false
+          }
+          {%- assign tier_count = tier_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endfor -%}
+]
+{% endcapture %}
 {% if settings.enable_free_multi_gift_select %}
   {%- liquid
     assign multi_threshold_cents = settings.free_multi_gift_select_threshold_price | times: 100
@@ -21,7 +47,7 @@
       endfor
     endfor
   -%}
-  <div class="progress-bar-container" dynamic>
+  <div class="progress-bar-container" dynamic data-gwp-tiers='{{ gwp_tiers_data | strip_newlines | strip }}'>
     <div class="progress-bar-wrapper-a">
       {%- if multi_has_reached -%}
         <div class="gwp-progress-bar-header gwp-tier-success">
@@ -42,15 +68,13 @@
 {%- comment -%}
   Get GWP Tier blocks from header section
 {%- endcomment -%}
-{% assign gwp_tiers = section.blocks | where: 'type', 'gwp-tier' %}
-
 {%- comment -%}
   Check if there's a free shipping tier AND customer is logged in
   If so, we'll handle member tier manually (don't rebuild array)
 {%- endcomment -%}
 {% assign has_free_shipping_tier = false %}
 {% for tier in gwp_tiers %}
-  {% if tier.settings.gwp_tier_is_free_shipping %}
+  {% if tier.settings.gwp_tier_is_free_shipping and tier.settings.gwp_tier_hide_from_progress_bar != true %}
     {% assign has_free_shipping_tier = true %}
     {% assign free_shipping_tier_settings = tier.settings %}
     {% break %}
@@ -99,6 +123,15 @@
   {% unless tier.settings.gwp_tier_is_free_shipping %}
     {% if tier.settings.gwp_product %}
       {% assign gwp_variant_id = tier.settings.gwp_product.selected_or_first_available_variant.id %}
+      {% if tier.settings.gwp_tier_hide_from_progress_bar %}
+        {% for item in cart.items %}
+          {% if item.variant_id == gwp_variant_id and item.properties._free_gift == 'true' %}
+            {% assign gwp_item_total = item.final_line_price | divided_by: 100.0 %}
+            {% assign gwp_total_in_cart = gwp_total_in_cart | plus: gwp_item_total %}
+          {% endif %}
+        {% endfor %}
+        {% continue %}
+      {% endif %}
       {% assign total_gwp_quantity = 0 %}
       {% assign gwp_full_price = tier.settings.gwp_product.price | divided_by: 100.0 %}
       
@@ -175,6 +208,9 @@
   Now loop through remaining GWP tiers (skip free shipping tier if member tier is active)
 {%- endcomment -%}
 {% for tier in gwp_tiers %}
+  {% if tier.settings.gwp_tier_hide_from_progress_bar %}
+    {% continue %}
+  {% endif %}
   {%- comment -%} Skip free shipping tier if we're using member tier logic {%- endcomment -%}
   {% if use_member_tier and tier.settings.gwp_tier_is_free_shipping %}
     {% continue %}
@@ -267,34 +303,6 @@
   {% comment %} All tiers reached, set to 100% {% endcomment %}
   {% assign progress_percentage = 100 %}
 {% endif %}
-
-{%- comment -%}
-  Build JSON data for GWP tier management
-{%- endcomment -%}
-
-
-{% capture gwp_tiers_data %}
-[
-  {%- assign tier_count = 0 -%}
-  {%- for tier in gwp_tiers -%}
-    {%- unless tier.settings.gwp_tier_is_free_shipping -%}
-      {%- if tier.settings.gwp_product -%}
-        {%- assign first_variant = all_products[tier.settings.gwp_product].selected_or_first_available_variant -%}
-        {%- if first_variant and first_variant.id -%}
-          {%- if tier_count > 0 -%},{%- endif -%}
-          {
-            "threshold": {{ tier.settings.gwp_tier_threshold }},
-            "variantId": {{ first_variant.id }},
-            "productPrice": {{ tier.settings.gwp_product.price }},
-            "isFreeShipping": false
-          }
-          {%- assign tier_count = tier_count | plus: 1 -%}  
-        {%- endif -%}
-      {%- endif -%}
-    {%- endunless -%}
-  {%- endfor -%}
-]
-{% endcapture %}
 
 <div class="progress-bar-container" dynamic data-gwp-tiers='{{ gwp_tiers_data | strip_newlines | strip }}'>
   
