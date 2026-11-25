@@ -265,6 +265,39 @@
         "custom_class": ""
       }
     },
+    "rich_text_P4WJ6U": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4gqrkr": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "The Shape of Something New",
+            "heading_size": "h1"
+          }
+        },
+        "text_zAew3r": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>The Cleo debuts as an all-new silhouette created exclusively for the occasion. Sculptural curves, a plush handle, and signature rivets make this 2026 collectible a statement worth treasuring for years to come.</h4>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4gqrkr",
+        "text_zAew3r"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
     "slider_collection_9rBzh9": {
       "type": "slider-collection",
       "name": "Slider Collection",
@@ -337,14 +370,23 @@
     "rich_text_8qJQqG": {
       "type": "rich-text",
       "blocks": {
+        "heading_fcECUi": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "Softness, Sculpted",
+            "heading_size": "h1"
+          }
+        },
         "text_HWPrwy": {
           "type": "text",
           "settings": {
-            "text": "<h4>Ruby Patent leather makes a striking statement with its high-shine finish and subtly pebbled texture.<br/></h4>"
+            "text": "<h4>Cleo Sml pairs sculptural curves with soft, cozy elegance. A distinctive silhouette, plush handle, and signature rivets lend an indulgent warmth to this modern statement, designed to tuck beneath the shoulder or drape effortlessly over the forearm.</h4>"
           }
         }
       },
       "block_order": [
+        "heading_fcECUi",
         "text_HWPrwy"
       ],
       "name": "t:sections.rich-text.presets.name",
@@ -401,6 +443,82 @@
         "padding_bottom_mobile": 20,
         "custom_class": ""
       }
+    },
+    "rich_text_fpgNPg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3bx78L": {
+          "type": "heading",
+          "settings": {
+            "heading_html_tag": "h2",
+            "heading": "Put a Bow on It",
+            "heading_size": "h1"
+          }
+        },
+        "text_WKnDXF": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>Holiday ready with an exaggerated, beautifully crafted bow at the top of the handle, we’re excited to introduce the Cleo Bow. The statement bow drapes perfectly whether carried as a shoulder bag or on your arm. Dramatic and elevated, it’s the perfect conversation starter with an unforgettable impact.</h4>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3bx78L",
+        "text_WKnDXF"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
+      }
+    },
+    "image_banner_mULgEt": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "custom_classes": "",
+        "custom_id": "",
+        "title": "",
+        "title_color": "",
+        "description": "",
+        "description_color": "",
+        "heading_html_tag": "h2",
+        "video_url": "",
+        "video_height": "16-9",
+        "video_url_mobile": "",
+        "mobile_video_height": "square",
+        "image": "shopify://shop_images/black_cleo_bow_1.jpg",
+        "image_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "light",
+        "mobile_content_alignment": "center",
+        "color_scheme_mobile": "light",
+        "show_text_below": true,
+        "full_width": true,
+        "cta_color_scheme": "dark",
+        "custom_content_spacing": false,
+        "content_padding_top": 0,
+        "content_padding_bottom": 0,
+        "content_padding_left": 0,
+        "content_padding_right": 0,
+        "content_padding_top_mobile": 0,
+        "content_padding_bottom_mobile": 0,
+        "content_padding_left_mobile": 0,
+        "content_padding_right_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36,
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -410,9 +528,12 @@
     "rich_text_b8NrXi",
     "slider_collection_WRE3iK",
     "image_banner_GPti4e",
+    "rich_text_P4WJ6U",
     "slider_collection_9rBzh9",
     "image_banner_Mh6RN6",
     "rich_text_8qJQqG",
-    "image_banner_bJJXgE"
+    "image_banner_bJJXgE",
+    "rich_text_fpgNPg",
+    "image_banner_mULgEt"
   ]
 }
