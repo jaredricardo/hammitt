@@ -257,7 +257,7 @@
                                           <ul class="new-mobile-nav-area__sublist list-menu" role="list">
                                             {%- for childlink in link.links -%}
                                               <li class="new-mobile-nav-area__sublist-item">
-                                                <a href="{{ childlink.url }}" class="new-mobile-nav-area__sublink">{{ childlink.title }}</a>
+                                                <a href="{{ childlink.url }}" data-submenu-link-title="{{ childlink.title }}" class="new-mobile-nav-area__sublink">{{ childlink.title }}</a>
                                               </li>
                                             {%- endfor -%}
                                           </ul>

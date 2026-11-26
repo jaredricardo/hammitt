@@ -68,7 +68,7 @@ endfor
                   <ul class="list-unstyled">
                     {% for sublink in linklists[block.settings.menu].links %}
                     <li>
-                      <a class="list-menu__item link link--text" href="{{ sublink.url }}">{{ sublink.title }}</a>
+                      <a class="list-menu__item link link--text" data-submenu-link-title="{{ sublink.title }}" href="{{ sublink.url }}">{{ sublink.title }}</a>
                     </li>
                     {% endfor %}
                   </ul>
