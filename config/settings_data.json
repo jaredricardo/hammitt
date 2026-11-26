@@ -133,6 +133,16 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_gtphpC": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "<p><strong>Free Gift: Leather Lipstick Holder Charm</strong></p>",
+              "text_color": "#ffffff",
+              "background_color": "#000000",
+              "link": "shopify://collections/new-arrivals"
+            }
+          },
           "announcement_edD7m4": {
             "type": "announcement",
             "disabled": true,
@@ -161,15 +171,6 @@
               "link": "shopify://pages/holiday-gift-guide"
             }
           },
-          "announcement_gtphpC": {
-            "type": "announcement",
-            "settings": {
-              "text": "<p><strong>Holiday Collection</strong></p>",
-              "text_color": "#ffffff",
-              "background_color": "#000000",
-              "link": "shopify://pages/current-season"
-            }
-          },
           "announcement_xNQNPE": {
             "type": "announcement",
             "disabled": true,
@@ -182,10 +183,10 @@
           }
         },
         "block_order": [
+          "announcement_gtphpC",
           "announcement_edD7m4",
           "announcement_Tpxzm9",
           "announcement_Qifxkc",
-          "announcement_gtphpC",
           "announcement_xNQNPE"
         ],
         "custom_css": [],
