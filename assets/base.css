@@ -195,6 +195,10 @@
 
 /* base */
 
+[data-title="Archive Event"] span {
+  color: #7D2C34;
+}
+
 .no-js:not(html) {
   display: none !important;
 }
@@ -4514,4 +4518,3 @@ minty-fresh-filter-input:has([name="filter.v.availability"][value="0"]),
   position: relative;
   z-index: 1;
 }
-
