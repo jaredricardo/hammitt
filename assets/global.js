@@ -1787,11 +1787,15 @@ document.addEventListener('cart:updated', function(event) {
   
   // Determine which GWP products should be in cart based on thresholds met
   const gwpsToManage = gwpTiers.map(tier => {
-    const thresholdMet = cartTotal >= tier.threshold;
+    const qualifyingTotal = tier.nonSaleOnly ? tier.nonSaleCartTotal / 100 : cartTotal;
+    const thresholdMet = qualifyingTotal >= tier.threshold;
     const giftItems = cartItems.filter(item => item.variant_id === tier.variantId &&
       (!tier.hiddenFromProgressBar || item.properties?._free_gift === 'true'));
     const isInCart = giftItems.length > 0;
     const isFreeGWP = tier.productPrice === 0;
+    const removalKeys = tier.nonSaleOnly
+      ? giftItems.filter(item => isFreeGWP || item.properties?._free_gift === 'true').map(item => item.key)
+      : tier.hiddenFromProgressBar ? giftItems.map(item => item.key) : [tier.variantId];
     
     return {
       variantId: tier.variantId,
@@ -1800,8 +1804,9 @@ document.addEventListener('cart:updated', function(event) {
       isInCart: isInCart,
       isFreeGWP: isFreeGWP,
       shouldAdd: thresholdMet && !isInCart,
-      shouldRemove: !thresholdMet && isInCart && (isFreeGWP || tier.hiddenFromProgressBar),
-      removalKeys: tier.hiddenFromProgressBar ? giftItems.map(item => item.key) : [tier.variantId]
+      shouldRemove: !thresholdMet && isInCart && removalKeys.length > 0 &&
+        (isFreeGWP || tier.hiddenFromProgressBar || tier.nonSaleOnly),
+      removalKeys: removalKeys
     };
   });
   
