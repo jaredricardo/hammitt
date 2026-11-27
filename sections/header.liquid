@@ -1479,6 +1479,14 @@
           },
           {
             "type": "checkbox",
+            "id": "gwp_tier_non_sale_only",
+            "label": "Count only non-sale items toward threshold",
+            "info": "Only counts items whose variant compare-at price is unset, zero, or less than its price. Uses their cart total after discounts, excluding GWP products. Auto-added gifts are removed below the threshold.",
+            "visible_if": "{{ block.settings.gwp_tier_is_free_shipping == false }}",
+            "default": false
+          },
+          {
+            "type": "checkbox",
             "id": "gwp_tier_hide_from_progress_bar",
             "label": "Hide tier from progress bar",
             "info": "Product gifts are still managed automatically at this threshold.",

@@ -1,4 +1,31 @@
 {% assign gwp_tiers = section.blocks | where: 'type', 'gwp-tier' %}
+{%- comment -%} Cart JSON omits compare-at prices; render qualifying spend with each section refresh. {%- endcomment -%}
+{% assign non_sale_cart_total_cents = 0 %}
+{% for item in cart.items %}
+  {% assign compare_at_price = item.variant.compare_at_price | default: 0 %}
+  {% if compare_at_price == 0 or compare_at_price < item.variant.price %}
+    {% assign is_gwp_item = false %}
+    {% for tier in gwp_tiers %}
+      {% if tier.settings.gwp_tier_is_free_shipping or tier.settings.gwp_product == blank %}
+        {% continue %}
+      {% endif %}
+      {% if settings.enable_free_multi_gift_select and tier.settings.gwp_tier_hide_from_progress_bar != true %}
+        {% continue %}
+      {% endif %}
+      {% assign gwp_variant_id = tier.settings.gwp_product.selected_or_first_available_variant.id %}
+      {% if item.variant_id == gwp_variant_id %}
+        {% if tier.settings.gwp_tier_hide_from_progress_bar != true or item.properties._free_gift == 'true' %}
+          {% assign is_gwp_item = true %}
+          {% break %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% unless is_gwp_item %}
+      {% assign non_sale_cart_total_cents = non_sale_cart_total_cents | plus: item.final_line_price %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+{% assign non_sale_cart_total = non_sale_cart_total_cents | divided_by: 100.0 %}
 {% capture gwp_tiers_data %}
 [
   {%- assign tier_count = 0 -%}
@@ -16,6 +43,8 @@
             "variantId": {{ first_variant.id }},
             "productPrice": {{ tier.settings.gwp_product.price }},
             "hiddenFromProgressBar": {{ tier.settings.gwp_tier_hide_from_progress_bar | default: false | json }},
+            "nonSaleOnly": {{ tier.settings.gwp_tier_non_sale_only | default: false | json }},
+            "nonSaleCartTotal": {{ non_sale_cart_total_cents | json }},
             "isFreeShipping": false
           }
           {%- assign tier_count = tier_count | plus: 1 -%}
@@ -223,6 +252,8 @@
   {%- endcomment -%}
   {% if tier.settings.gwp_tier_is_free_shipping %}
     {% assign comparison_total = cart_total_raw %}
+  {% elsif tier.settings.gwp_tier_non_sale_only %}
+    {% assign comparison_total = non_sale_cart_total %}
   {% else %}
     {% assign comparison_total = cart_total_for_products %}
   {% endif %}
@@ -274,16 +305,18 @@
   {%- endcomment -%}
   {% if next_tier.settings.gwp_tier_is_free_shipping %}
     {% assign current_cart_total = cart_total_raw %}
+  {% elsif next_tier.settings.gwp_tier_non_sale_only %}
+    {% assign current_cart_total = non_sale_cart_total %}
   {% else %}
     {% assign current_cart_total = cart_total_for_products %}
   {% endif %}
   
   {%- comment -%}
-    If member tier was previous, start progress from $1
+    Only reuse a previous threshold when both tiers count the same spend.
   {%- endcomment -%}
-  {% if previous_tier_is_member %}
+  {% if previous_tier_is_member and next_tier.settings.gwp_tier_non_sale_only != true %}
     {% assign progress_start = 1.0 %}
-  {% elsif previous_tier %}
+  {% elsif previous_tier and previous_tier.settings.gwp_tier_non_sale_only == next_tier.settings.gwp_tier_non_sale_only %}
     {% assign progress_start = previous_tier.settings.gwp_tier_threshold %}
   {% endif %}
   
@@ -401,5 +434,3 @@
 </div>
 
 {% endif %}
-
-
